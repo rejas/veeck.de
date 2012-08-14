@@ -14,9 +14,9 @@
     <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" href="css/style_fonts.css" media="(min-width: 1024px)">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
 
-    <script src="js/vendor/modernizr-2.5.3.min.js"></script>
+    <script src="js/libs/modernizr-2.6.1.min.js"></script>
 </head>
 <body>
     <nav>
@@ -70,7 +70,9 @@
            <h3>6-8. M&auml;rz 2005: Tallahassee</h3>
 
             <figure class="fig_right">
-                <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_bike_small.jpg"/>
+                <a class="gallery" href="material/img/travel/america/us_bike_medium.jpg">
+                    <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_bike_small.jpg"/>
+                </a>
                 <figcaption>Bicycles are highly valued here</figcaption>
             </figure>
 
@@ -116,7 +118,9 @@
         Fluges gewartet...</p>
 
             <figure>
-                <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_garden_small.jpg"/>
+                <a class="gallery" href="material/img/travel/america/us_garden_medium.jpg">
+                    <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_garden_small.jpg"/>
+                </a>
                 <figcaption>The beautiful backyard where I stayed.</figcaption>
             </figure>
 
@@ -154,7 +158,9 @@
         Kategorie "Bester Name"!</p>
 
             <figure class="fig_right">
-                <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_interstate_small.jpg"/>
+                <a class="gallery" href="material/img/travel/america/us_interstate_medium.jpg">
+                    <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_interstate_small.jpg"/>
+                </a>
                 <figcaption>One straight road</figcaption>
             </figure>
 
@@ -188,7 +194,9 @@
         Nummerschilder).</p>
 
             <figure>
-                <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_eagle_small.jpg"/>
+                <a class="gallery" href="material/img/travel/america/us_eagle_medium.jpg">
+                    <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_eagle_small.jpg"/>
+                </a>
                 <figcaption>Patriotic bird</figcaption>
             </figure>
 
@@ -230,7 +238,9 @@
         recht mit meinen jungen Beinen und Sehnen.</p>
 
             <figure class="fig_right">
-                <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_trucks_small.jpg"/>
+                <a class="gallery" href="material/img/travel/america/us_trucks_medium.jpg">
+                    <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_trucks_small.jpg"/>
+                </a>
                 <figcaption>Junkyard or Art?</figcaption>
             </figure>
 
@@ -264,7 +274,9 @@
         zusammengestellt.</p>
 
             <figure>
-                <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_swamp_small.jpg"/>
+                <a class="gallery" href="material/img/travel/america/us_swamp_medium.jpg">
+                    <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_swamp_small.jpg"/>
+                </a>
                 <figcaption>Swamp impression</figcaption>
             </figure>
 
@@ -309,7 +321,9 @@
         mache: </p>
 
             <figure class="fig_right">
-                <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_sunset_small.jpg"/>
+                <a class="gallery" href="material/img/travel/america/us_sunset_medium.jpg">
+                    <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_sunset_small.jpg"/>
+                </a>
                 <figcaption>Greatest Sunset Ever</figcaption>
             </figure>
 
@@ -339,7 +353,9 @@
         worden.</p>
 
             <figure>
-                <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_oven_small.jpg"/>
+                <a class="gallery" href="material/img/travel/america/us_oven_medium.jpg">
+                    <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_oven_small.jpg"/>
+                </a>
                 <figcaption>The Oven from Hell</figcaption>
             </figure>
 
@@ -379,7 +395,9 @@
         aufkam, hat seine Erfindung nie benutzt. Die Kekse waren im &uuml;brigen gut!</p>
 
             <figure class="fig_right">
-                <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_coast_small.jpg"/>
+                <a class="gallery" href="material/img/travel/america/us_coast_medium.jpg">
+                    <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/america/us_coast_small.jpg"/>
+                </a>
                 <figcaption>Sentimental, I know</figcaption>
             </figure>
 
@@ -420,12 +438,19 @@
 
     <footer>page last modified 2012/01/13</footer>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-   	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+   	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.0.min.js"><\/script>')</script>
 
-   	<!-- scripts concatenated and minified via ant build script-->
+    <!-- gallery files -->
+    <script type="text/javascript" src="js/libs/klass.min.js"></script>
+    <script type="text/javascript" src="js/libs/code.photoswipe.jquery-3.0.5.min.js"></script>
+    <script>
+        $("#main a.gallery").photoSwipe({ enableMouseWheel: false , enableKeyboard: false });
+    </script>
+
+    <!-- scripts concatenated and minified via ant build script-->
    	<script src="js/plugins.js"></script>
-   	<script src="js/main.js"></script>
+   	<script src="js/script.js"></script>
    	<!-- end scripts-->
 
    	<script>
