@@ -9,6 +9,8 @@
    Library Styles
    ========================================================================== */
 
+@import url("style_fonts.css") screen and (min-width: 1024px) ;
+
 @import url("photoswipe.css");
 
 /* =============================================================================
@@ -21,9 +23,9 @@
    Media Queries
    ========================================================================== */
 
-@import url("style_480.css") screen and (min-width: 480px) ;
+@import url("style_480.css") screen and (min-width: 480px);
 
-@import url("style_1024.css") screen and (min-width: 1024px) ;
+@import url("style_1024.css") screen and (min-width: 1024px);
 
 /* =============================================================================
    Non-Semantic Helper Classes
