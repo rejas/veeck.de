@@ -144,3 +144,7 @@ a:hover {
 ul {
     list-style-position:inside;
 }
+
+li {
+    padding-bottom: 10px;
+}
