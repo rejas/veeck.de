@@ -61,18 +61,8 @@ figure img {
     padding: 2%;
 }
 
-figure.fifty img {
-    width: 97%;
-    padding: 1.55%;
-}
-
-figure.twothirds img {
-    width: 98%;
-    padding: 1%;
-}
-
-figure.hundred img {
-    width: auto;
+figure.fig_half {
+    width: 50%;
 }
 
 figcaption {
