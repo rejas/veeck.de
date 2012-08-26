@@ -1,3 +1,5 @@
+/* apply a natural box layout model to all elements */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 ::-moz-selection { background: #a07272; color: #fff; text-shadow: none; }
 ::selection { background: #a07272; color: #fff; text-shadow: none; }
@@ -57,8 +59,8 @@ figure {
 }
 
 figure img {
-    width: 96%;
-    padding: 2%;
+    width: 100%;
+    padding: 0.2em;
 }
 
 figure.fig_half {
@@ -66,12 +68,8 @@ figure.fig_half {
 }
 
 figcaption {
-    padding: 0 2% 2% 2%;
+    padding: 0.3em;
     color: #d0d8df;
-}
-
-figure.twothirds figcaption {
-    padding: 0 1% 1% 1%;
 }
 
 .research_article figure {
