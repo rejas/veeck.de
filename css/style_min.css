@@ -145,6 +145,6 @@ ul {
     list-style-position:inside;
 }
 
-li {
+article ul li {
     padding-bottom: 10px;
 }
