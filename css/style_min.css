@@ -148,3 +148,7 @@ ul {
 article ul li {
     padding-bottom: 10px;
 }
+
+.search_article li {
+    padding-bottom: 0;
+}
