@@ -1,19 +1,24 @@
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <title>März 2007, Morogoro, Tansania</title>
     <meta name="description" content="Reisetagebuch über das IDEM-Workcamp in Morogoro, Tansania">
     <meta name="keywords" content="Reise, Tansania, Morogoro, IDEM, Workcamp, ELU">
     <meta name="author" content="Michael Veeck">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="css/style.css">
-   	<script src="js/libs/modernizr-2.6.1.min.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.6.1.min.js"></script>
 </head>
-<body lang="de">
+<body>
+    <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+
     <nav>
         <ul id="respmenu" class="menu">
             <li><a href="index.html">home</a></li>
@@ -747,25 +752,25 @@
     <footer>page last modified 2012/02/15</footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-   	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.0.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
 
     <!-- gallery files -->
-    <script type="text/javascript" src="js/libs/klass.min.js"></script>
-    <script type="text/javascript" src="js/libs/code.photoswipe.jquery-3.0.5.min.js"></script>
+    <script type="text/javascript" src="js/vendor/klass.min.js"></script>
+    <script type="text/javascript" src="js/vendor/code.photoswipe.jquery-3.0.5.min.js"></script>
     <script>
         $("#main a.gallery").photoSwipe({ enableMouseWheel: false , enableKeyboard: false });
     </script>
 
-   	<!-- scripts concatenated and minified via ant build script-->
-   	<script src="js/plugins.js"></script>
-   	<script src="js/script.js"></script>
-   	<!-- end scripts-->
+    <!-- scripts concatenated and minified via build script -->
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <!-- end scripts -->
 
-   	<script>
-   		var _gaq=[['_setAccount','UA-431999-1'],['_trackPageview']];
-   		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-   		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-   		s.parentNode.insertBefore(g,s)}(document,'script'));
-   	</script>
+    <script>
+        var _gaq=[['_setAccount','UA-431999-1'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
 </body>
 </html>
