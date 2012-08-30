@@ -21,7 +21,7 @@ body {
     margin: auto;
 }
 
-.mobileMenu {
+.mnav {
     margin: 1em auto;
     width: 100%;
 }
@@ -64,7 +64,7 @@ figure img {
 }
 
 figure.fig_half {
-    width: 50%;
+    width: 100%;
 }
 
 figcaption {

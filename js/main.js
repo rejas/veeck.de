@@ -23,9 +23,7 @@ $(document).ready(function () {
 
     // Run Matt Kersley's jQuery Responsive menu plugin (see plugins.js)
     $('ul#respmenu').mobileMenu({
-        switchWidth: 1007,                   // width (in px to switch at)
-        topOptionText: 'Choose a page',     // first option text
-        indentString: '&nbsp;&nbsp;&nbsp;'  // string for indenting nested items
+        switchWidth: 1007                  // width (in px to switch at)
     });
 
     // Lazy Load - jQuery plugin for lazy loading images (see plugins.js)
@@ -33,7 +31,3 @@ $(document).ready(function () {
         effect : "fadeIn"
     });
 });
-
-
-
-
