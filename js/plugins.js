@@ -19,16 +19,16 @@ if (!(window.console && console.log)) {
  * Converts menus into a select elements for mobile devices and low browser widths
  * http://github.com/mattkersley/Responsive-Menu
  */
-(function (b) {
+(function ($) {
     var c = 0;
-    b.fn.mobileMenu = function (g) {
+    $.fn.mobileMenu = function (g) {
         function f(a) {
-            return a.attr("id") ? b("#mobileMenu_" + a.attr("id")).length > 0 : (c++, a.attr("id", "mm" + c), b("#mobileMenu_mm" + c).length > 0);
+            return a.attr("id") ? $("#mobileMenu_" + a.attr("id")).length > 0 : (c++, a.attr("id", "mm" + c), $("#mobileMenu_mm" + c).length > 0);
         }
 
         function h(a) {
             a.hide();
-            b("#mobileMenu_" + a.attr("id")).show();
+            $("#mobileMenu_" + a.attr("id")).show();
         }
 
         function k(a) {
@@ -36,18 +36,18 @@ if (!(window.console && console.log)) {
                 var e = '<select id="mobileMenu_' + a.attr("id") + '" class="mobileMenu">';
                 e += '<option value="">' + d.topOptionText + "</option>";
                 a.find("li").each(function () {
-                    var a = "", c = b(this).parents("ul, ol").length;
+                    var a = "", c = $(this).parents("ul, ol").length;
                     for (var i = 1; i < c; i++) {
                         a += d.indentString;
                     }
-                    c = b(this).find("a:first-child").attr("href");
-                    a += b(this).clone().children("ul, ol").remove().end().text();
+                    c = $(this).find("a:first-child").attr("href");
+                    a += $(this).clone().children("ul, ol").remove().end().text();
                     e += '<option value="' + c + '">' + a + "</option>";
                 });
                 e += "</select>";
                 a.parent().append(e);
-                b("#mobileMenu_" + a.attr("id")).change(function () {
-                    var a = b(this);
+                $("#mobileMenu_" + a.attr("id")).change(function () {
+                    var a = $(this);
                     if (a.val() !== null)document.location.href = a.val();
                 });
                 h(a);
@@ -57,15 +57,15 @@ if (!(window.console && console.log)) {
         }
 
         function j(a) {
-            b(window).width() < d.switchWidth && !f(a) ? k(a) : b(window).width() < d.switchWidth && f(a) ? h(a) : !(b(window).width() < d.switchWidth) &&
-                f(a) && (a.show(), b("#mobileMenu_" + a.attr("id")).hide());
+            $(window).width() < d.switchWidth && !f(a) ? k(a) : $(window).width() < d.switchWidth && f(a) ? h(a) : !($(window).width() < d.switchWidth) &&
+                f(a) && (a.show(), $("#mobileMenu_" + a.attr("id")).hide());
         }
 
         var d = {switchWidth:768, topOptionText:"Select a page", indentString:"&nbsp;&nbsp;&nbsp;"};
         return this.each(function () {
-            g && b.extend(d, g);
-            var a = b(this);
-            b(window).resize(function () {
+            g && $.extend(d, g);
+            var a = $(this);
+            $(window).resize(function () {
                 j(a);
             });
             j(a);
@@ -77,18 +77,20 @@ if (!(window.console && console.log)) {
  * my own fade plugin
  * @param b
  */
-jQuery.fn.fadeLink = function (b) {
-    $(this).on('click', function (event) {
-        var $this = $(this);
-        var url = $this.attr('href'); // pick url for redirecting via javascript
-        if ((url.indexOf('#') != 0) && ($this.attr('target') != '_blank')) {
-            event.preventDefault();
-            $(b).fadeOut('fast', function () {
-                document.location.href = url;
-            });
-        }
-    });
-};
+(function($) {
+    $.fn.fadeLink = function(b) {
+        $(this).on('click', function (event) {
+            var $this = $(this);
+            var url = $this.attr('href'); // pick url for redirecting via javascript
+            if ((url.indexOf('#') != 0) && ($this.attr('target') != '_blank')) {
+                event.preventDefault();
+                $(b).fadeOut('fast', function () {
+                    document.location.href = url;
+                });
+            }
+        });
+    };
+})(jQuery);
 
 /*
  * Simple JQuery menu. Copyright 2007-2010 by Marco van Hylckama Vlieg
@@ -96,51 +98,53 @@ jQuery.fn.fadeLink = function (b) {
  * email: marco@i-marco.nl
  * http://www.i-marco.nl/weblog/archive/2010/02/27/yup_yet_another_jquery_accordi
  */
-jQuery.fn.initMenu = function () {
-    return this.each(function () {
-        var theMenu = $(this).get(0);
-        $('.acitem', this).hide();
-        $('li.expand > .acitem', this).show();
-        $('li.expand > .acitem', this).prev().addClass('active');
-        $('li a', this).click(function (e) {
-            e.stopImmediatePropagation();
-            var theElement = $(this).next();
-            var parent = this.parentNode.parentNode;
-            if ($(parent).hasClass('noaccordion')) {
-                if (theElement[0] === undefined) {
-                    window.location.href = this.href;
-                }
-                $(theElement).slideToggle('normal', function () {
-                    if ($(this).is(':visible')) {
-                        $(this).prev().addClass('active');
-                    } else {
-                        $(this).prev().removeClass('active');
+(function($) {
+    $.fn.initMenu = function() {
+        return this.each(function () {
+            var theMenu = $(this).get(0);
+            $('.acitem', this).hide();
+            $('li.expand > .acitem', this).show();
+            $('li.expand > .acitem', this).prev().addClass('active');
+            $('li a', this).click(function (e) {
+                e.stopImmediatePropagation();
+                var theElement = $(this).next();
+                var parent = this.parentNode.parentNode;
+                if ($(parent).hasClass('noaccordion')) {
+                    if (theElement[0] === undefined) {
+                        window.location.href = this.href;
                     }
-                });
-                return false;
-            } else {
-                if (theElement.hasClass('acitem') && theElement.is(':visible')) {
-                    if ($(parent).hasClass('collapsible')) {
+                    $(theElement).slideToggle('normal', function () {
+                        if ($(this).is(':visible')) {
+                            $(this).prev().addClass('active');
+                        } else {
+                            $(this).prev().removeClass('active');
+                        }
+                    });
+                    return false;
+                } else {
+                    if (theElement.hasClass('acitem') && theElement.is(':visible')) {
+                        if ($(parent).hasClass('collapsible')) {
+                            $('.acitem:visible', parent).first().slideUp('normal', function () {
+                                $(this).prev().removeClass('active');
+                            });
+                            return false;
+                        }
+                        return false;
+                    }
+                    if (theElement.hasClass('acitem') && !theElement.is(':visible')) {
                         $('.acitem:visible', parent).first().slideUp('normal', function () {
                             $(this).prev().removeClass('active');
                         });
+                        theElement.slideDown('normal', function () {
+                            $(this).prev().addClass('active');
+                        });
                         return false;
                     }
-                    return false;
                 }
-                if (theElement.hasClass('acitem') && !theElement.is(':visible')) {
-                    $('.acitem:visible', parent).first().slideUp('normal', function () {
-                        $(this).prev().removeClass('active');
-                    });
-                    theElement.slideDown('normal', function () {
-                        $(this).prev().addClass('active');
-                    });
-                    return false;
-                }
-            }
+            });
         });
-    });
-};
+    };
+})(jQuery);
 
 /*
  * Lazy Load - jQuery plugin for lazy loading images
@@ -350,5 +354,4 @@ jQuery.fn.initMenu = function () {
         "right-of-fold"  : function(a) { return $.rightoffold(a, {threshold : 0}); },
         "left-of-fold"   : function(a) { return !$.rightoffold(a, {threshold : 0}); }
     });
-
 })(jQuery, window);
