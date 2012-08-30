@@ -47,6 +47,10 @@ figure {
     box-shadow: 1px 2px 3px rgb(102, 102, 102);
 }
 
+figure.fig_half {
+    width: 50%;
+}
+
 .gallery_article div {
     top:-100px;
     position: relative;
