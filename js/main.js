@@ -1,9 +1,6 @@
 $(document).ready(function () {
-
     // my own fade plugin
-    if ($.fn.fadeLink) {
-        $('nav li a').fadeLink('#main');
-    }
+    $('nav li a').fadeLink('#main');
 
     // http://www.sycha.com/jquery-smooth-scrolling-internal-anchor-links
     var lastNavItem;
@@ -22,18 +19,14 @@ $(document).ready(function () {
     });
 
     // Run Marco van Hylckama Vlieg's jQuery Menu plugin (see plugins.js)
-    if ($.fn.initMenu) {
-        $('.menu').initMenu();
-    }
+    $('.menu').initMenu();
 
     // Run Matt Kersley's jQuery Responsive menu plugin (see plugins.js)
-	if ($.fn.mobileMenu) {
-		$('ul#respmenu').mobileMenu({
-			switchWidth: 1007,                   // width (in px to switch at)
-			topOptionText: 'Choose a page',     // first option text
-			indentString: '&nbsp;&nbsp;&nbsp;'  // string for indenting nested items
-		});
-	}
+    $('ul#respmenu').mobileMenu({
+        switchWidth: 1007,                   // width (in px to switch at)
+        topOptionText: 'Choose a page',     // first option text
+        indentString: '&nbsp;&nbsp;&nbsp;'  // string for indenting nested items
+    });
 
     // Lazy Load - jQuery plugin for lazy loading images (see plugins.js)
     $("img.lazy").lazyload({
