@@ -11,6 +11,7 @@
     <meta name="author" content="Michael Veeck">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css">
     <script src="js/vendor/modernizr-2.6.1.min.js"></script>
 </head>
 <body>
@@ -65,6 +66,27 @@
     </header>
 
     <div id="main" role="main">
+
+        <div class="gridster">
+          <ul>
+            <li data-row="1" data-col="1" data-sizex="2" data-sizey="1"></li>
+            <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li>
+
+            <li data-row="3" data-col="2" data-sizex="2" data-sizey="1"></li>
+            <li data-row="1" data-col="2" data-sizex="2" data-sizey="2"></li>
+
+            <li class="try" data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li>
+            <li data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li>
+            <li data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li>
+
+            <li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
+            <li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
+
+            <li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li>
+            <li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>
+          </ul>
+        </div>
+
 
         <article class="gallery_article">
             <div id="f0"></div>
@@ -251,14 +273,21 @@
 
     <footer>page last modified 2012/02/15</footer>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.1.min.js"><\/script>')</script>
 
     <!-- gallery files -->
+	<script type="text/javascript" src="js/vendor/jquery.gridster.js"></script>
     <script type="text/javascript" src="js/vendor/klass.min.js"></script>
     <script type="text/javascript" src="js/vendor/code.photoswipe.jquery-3.0.5.min.js"></script>
     <script>
         $(".gallery_article a").photoSwipe({ enableMouseWheel: false , enableKeyboard: false });
+
+    $(".gridster ul").gridster({
+           widget_margins: [10, 10],
+           widget_base_dimensions: [140, 140],
+           min_cols: 6
+    }).data('gridster');
     </script>
 
     <!-- scripts concatenated and minified via build script -->
