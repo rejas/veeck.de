@@ -21,7 +21,7 @@ if (!(window.console && console.log)) {
 (function($){
     //plugin's default options
     var settings = {
-            combine: false,	//combine multiple menus into a single select
+            combine: true,	//combine multiple menus into a single select
             groupPageText: 'Main',	//optgroup's aren't selectable, make an option for it
             nested: true,	//create optgroups by default
             prependTo: 'body',	//insert at top of page by default

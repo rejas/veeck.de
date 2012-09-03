@@ -23,6 +23,7 @@ $(document).ready(function () {
 
     // Run Matt Kersley's jQuery Responsive menu plugin (see plugins.js)
     $('ul#respmenu').mobileMenu({
+        combine: false,
         switchWidth: 1007                  // width (in px to switch at)
     });
 
