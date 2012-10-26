@@ -114,7 +114,7 @@
                     </form>
                 </li>
                 <li>
-                    <form action="http://en.wikipedia.org/w/index.php" id="searchform">
+                    <form action="http://en.wikipedia.org/w/index.php" method="get">
                         <label>
                             <img class="icon" src="css/icons/wikipedia.png" alt="Wikipedia">
                             <input name="search" type="text">
@@ -132,7 +132,7 @@
                     </form>
                 </li>
                 <li>
-                    <form action="http://www.imdb.com/find" method="post">
+                    <form action="http://www.imdb.com/find" method="get">
                         <label>
                             <img class="icon" src="css/icons/imdb.png" alt="IMDB">
                             <input name="q" type="text">
@@ -147,6 +147,16 @@
                             <input name="search" type="text"/>
                         </label>
                         <input type="submit" value="search"/>
+                    </form>
+                </li>
+                <li>
+                    <form action="http://www.wowtrader.org.uk/graph.php" method="post">
+                        <label>
+                            wowTrader
+                            <input name="sf[a]" type="hidden" value="393"/>
+                            <input name="sf[n]" type="text"/>
+                        </label>
+                        <input value="search" type="submit">
                     </form>
                 </li>
             </ul>
