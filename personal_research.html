@@ -69,6 +69,7 @@
                 <img src="css/icons/res_wow.png"/>
                 <figcaption><a href="http://www.worldofwarcraft.com/">WoW</a></figcaption>
             </figure>
+            <h2>World of Warcraft RSS Feed</h2>
             <p>Since their last redesign Blizzard doesn't provide an RSS feed on their armory-website anymore. They do however
             offer an API to access a JSON-encoded activity feed for character and guilds. Since a colleague held a
             presentation about node.js and how easy it is to deploy a server-app with it, i took the opportunity to
@@ -78,9 +79,22 @@
                     <option value="eu">EU</option>
                     <option value="us">US</option>
                     <option value="tw">TW</option>
+                    <option value="kr">KR</option>
                 </select>
                 Realm:<input type="text" name="realm" />
                 Character:<input type="text" name="character" />
+                <input type="submit" value="Get RSS"/>
+            </form>
+
+            <form action="https://wowfeed.herokuapp.com">
+                Region: <select name="region">
+                <option value="eu">EU</option>
+                <option value="us">US</option>
+                <option value="tw">TW</option>
+                <option value="kr">KR</option>
+            </select>
+                Realm:<input type="text" name="realm" />
+                Guild:<input type="text" name="guild" />
                 <input type="submit" value="Get RSS"/>
             </form>
         </article>
@@ -90,15 +104,16 @@
                 <img src="css/icons/res_rasterbator.png"/>
                 <figcaption><a href="http://arje.net/rasterbator">Rasterbator</a></figcaption>
             </figure>
+            <h2>The Rasterbator</h2>
             <p>I took the liberty to update the <a href="http://arje.net/rasterbator">Rasterbator</a> to run on my MacBook Pro.
             On MacOS it requires the <a href="http://go-mono.com/">Mono-Framework</a> to work, under Windows XP you will need an installed .NET-framework.
             If you find a bug or have a comment, please write me an email.</p>
             <p>What it does? The Rasterbator creates huge, rasterized, multi-page images from any picture.
             The rasterized images can be printed and assembled into extremely cool posters. </p>
             <ul>
-                <li><a class="intern" href="material/nsis/The Rasterbator v1.3.dmg">MacOS DiskImage</a> v1.3 (dmg, 709 KB, 12.03.2010)</li>
-                <li><a class="intern" href="material/nsis/The Rasterbator v1.3 setup.exe">Windows Installer</a> v1.3 (exe, 467 KB, 12.03.2010)</li>
-                <li><a class="intern" href="material/nsis/The Rasterbator v1.3 source.zip">Source code including project files for MonoDevelop</a> v1.3 (zip, 1.7 MB, 12.03.2010)</li>
+                <li><a class="intern" href="material/nsis/The%20Rasterbator%20v1.3.dmg">MacOS DiskImage</a> v1.3 (dmg, 709 KB, 12.03.2010)</li>
+                <li><a class="intern" href="material/nsis/The%20Rasterbator%20v1.3%20setup.exe">Windows Installer</a> v1.3 (exe, 467 KB, 12.03.2010)</li>
+                <li><a class="intern" href="material/nsis/The%20Rasterbator%20v1.3%20source.zip">Source code including project files for MonoDevelop</a> v1.3 (zip, 1.7 MB, 12.03.2010)</li>
             </ul>
         </article>
 
@@ -107,12 +122,13 @@
                 <img src="css/icons/res_nsis.png"/>
                 <figcaption><a href="http://nsis.sourceforge.net/">NSIS</a></figcaption>
             </figure>
+            <h2>NSIS Installer Scripts</h2>
             Some <a class="extern" href="http://nsis.sourceforge.net/">NSIS-Installer</a> scripts to build your own .EXE files for:<br/>
             <ul>
-                <li><a class="extern" href="http://www.cs.ubc.ca/~mbrown/autostitch/autostitch.html">Autostich</a> v2.2, a fully automatic 2D image stitcher: <a class="intern" href="material/nsis/autostich22.nsi">script</a> (nsi, 6 KB) | <a class="intern" href="material/nsis/Autostich v2.2 setup.exe">setup.exe</a> (exe, 1,04 MB) | 30.01.2008</li>
-                <li><a class="extern" href="http://gspot.headbands.com/">GSpot</a> v2.70a, a codec information appliance: <a class="intern" href="material/nsis/gspot270a.nsi">script</a> (nsi, 5 KB | <a class="intern" href="material/nsis/GSpot v2.70a setup.exe">setup.exe</a> (exe, 402 KB) | 22.05.2007</li>
-                <li><a class="extern" href="http://tibrium.neuf.fr/">Media Player Classic Homecinema</a> v1.1.604.0, a simple and easy-to-use media player: <a class="intern" href="material/nsis/mpclassic116040.nsi">script</a> (nsi, 6 KB, 10.07.2008) | <a class="intern" href="material/nsis/MPC Homecinema v1.1.604.0 setup.exe">setup.exe</a> (exe, 2,32MB, 10.07.2008)</li>
-                <li><a class="extern" href="http://www.virtualdub.org/">VirtualDub</a> v1.9.7, a video capture/processing utility: <a class="intern" href="material/nsis/vdub197.nsi">script</a> (nsi, 5 KB, 03.01.2010) | <a class="intern" href="material/nsis/VirtualDub v1.9.7 setup.exe">setup</a> (exe, 1,4 MB, 03.01.2010)</li>
+                <li><a class="extern" href="http://www.cs.ubc.ca/~mbrown/autostitch/autostitch.html">Autostich</a> v2.2, a fully automatic 2D image stitcher: <a class="intern" href="material/nsis/autostich22.nsi">script</a> (nsi, 6 KB) | <a class="intern" href="material/nsis/Autostich%20v2.2%20setup.exe">setup.exe</a> (exe, 1,04 MB) | 30.01.2008</li>
+                <li><a class="extern" href="http://gspot.headbands.com/">GSpot</a> v2.70a, a codec information appliance: <a class="intern" href="material/nsis/gspot270a.nsi">script</a> (nsi, 5 KB | <a class="intern" href="material/nsis/GSpot%20v2.70a%20setup.exe">setup.exe</a> (exe, 402 KB) | 22.05.2007</li>
+                <li><a class="extern" href="http://tibrium.neuf.fr/">Media Player Classic Homecinema</a> v1.1.604.0, a simple and easy-to-use media player: <a class="intern" href="material/nsis/mpclassic116040.nsi">script</a> (nsi, 6 KB, 10.07.2008) | <a class="intern" href="material/nsis/MPC%20Homecinema%20v1.1.604.0%20setup.exe">setup.exe</a> (exe, 2,32MB, 10.07.2008)</li>
+                <li><a class="extern" href="http://www.virtualdub.org/">VirtualDub</a> v1.9.7, a video capture/processing utility: <a class="intern" href="material/nsis/vdub197.nsi">script</a> (nsi, 5 KB, 03.01.2010) | <a class="intern" href="material/nsis/VirtualDub%20v1.9.7%20setup.exe">setup</a> (exe, 1,4 MB, 03.01.2010)</li>
             </ul>
         </article>
 
@@ -121,6 +137,7 @@
                 <img src="css/icons/res_iros2004.png"/>
                 <figcaption><a href="http://www.iros2004.org/">IROS 2004</a></figcaption>
             </figure>
+            <h2>IROS 2004 research paper</h2>
     	    Michael Veeck and Wolfram Burgard<br/>
     	    <b>Learning Polyline Maps from Range Scan Data Acquired with Mobile Robots</b><br/><br/>
     	    In Proc. of the IEEE/RSJ International Conference on Intelligent Robots and Systems
@@ -140,6 +157,7 @@
                   <img src="css/icons/res_unilogo.png"/>
                   <figcaption><a href="http://www.uni-freiburg.de/">University of Freiburg</a></figcaption>
             </figure>
+            <h2>My diplom thesis</h2>
             Michael Veeck <br/>
             <b>eSign - Design und Implementierung eines Signierwerkzeugs auf einem mobilen Endger&auml;t</b><br/><br/>
             Master Thesis (in German), Part of the
@@ -173,7 +191,7 @@
     <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f4bb62e22bbd641"></script>
     <!-- AddThis Button END -->
 
-    <footer>page last modified 2012/03/08</footer>
+    <footer>page last modified 2012/11/20</footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>

@@ -24,3 +24,7 @@ figure.fig_half {
     width: auto;
     min-width: 200px;
 }
+
+.research_article {
+    min-height: 250px;
+}
