@@ -106,10 +106,6 @@ figcaption {
     padding-top: 0.2em;
 }
 
-label > input {
-    width: 33%;
-}
-
 h1 {
     font-size: 2em;
     font-weight: normal;
@@ -151,4 +147,19 @@ article ul li {
 
 .search_article li {
     padding-bottom: 0;
+}
+
+input {
+    border: 1px solid #B3B3B3;
+    border-radius: 4px;
+}
+
+textarea {
+    border: 1px solid #B3B3B3;
+    border-radius: 4px;
+}
+
+select {
+    border: 1px solid #B3B3B3;
+    border-radius: 4px;
 }
