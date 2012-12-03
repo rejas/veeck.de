@@ -52,7 +52,7 @@ article {
 }
 
 figure {
-    margin: auto;
+    margin: 0 0.75em 0.75em 0;
     background: #611414;
    	text-decoration: none;
     border-radius: 4px;
@@ -73,8 +73,9 @@ figcaption {
 }
 
 .research_article figure {
-    width: 50%;
-    min-height: 120px;
+    float: left;
+    width: auto;
+    min-width: 200px;
 }
 
 .research_article figure img {
