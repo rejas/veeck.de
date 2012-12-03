@@ -325,6 +325,7 @@ if (!(window.console && console.log)) {
         });
     };
 })(jQuery);
+
 /*
  * Lazy Load - jQuery plugin for lazy loading images
  *
