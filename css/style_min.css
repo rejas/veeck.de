@@ -28,9 +28,9 @@ body {
 
 .extend {
     display: none;
-    padding: 0.25em;
+    padding: 0.35em;
     margin: 15px 0 15px 0;
-    border: 10px solid #fff;
+    border: 3px solid #611414;
     box-shadow: 2px 2px 3px #666;
     border-radius: 4px;
 }
