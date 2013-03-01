@@ -30,14 +30,14 @@
             }
 
             body {
-                max-width: 500px;
-                _width: 500px;
+                max-width: 868px;
                 padding: 30px 20px 50px;
+                background: #fcfcfc;
                 border: 1px solid #b3b3b3;
                 border-radius: 4px;
-                margin: 0 auto;
                 box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
-                background: #fcfcfc;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             h1 {
@@ -63,10 +63,13 @@
                 margin: 1em 0;
             }
 
-            .container {
-                max-width: 380px;
-                _width: 380px;
-                margin: 0 auto;
+            .clearfix:after {
+                content: ".";
+                display: block;
+                clear: both;
+                visibility: hidden;
+                line-height: 0;
+                height: 0;
             }
 
             /* google search */
@@ -139,19 +142,22 @@
             }
         </style>
     </head>
-    <body>
-        <div class="container">
-            <h1>Not found <span>:(</span></h1>
-            <p>Sorry, but the page you were trying to view does not exist.</p>
-            <p>It looks like this was the result of either:</p>
-            <ul>
-                <li>a mistyped address</li>
-                <li>an out-of-date link</li>
-            </ul>
-            <script>
-                var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
-            </script>
-            <script src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
-        </div>
+    <body class="container clearfix">
+            <div style="float:left">
+                <img src="css/assets/error_404.png" />
+            </div>
+            <div style="float:left">
+                <h1>Not found <span>:(</span></h1>
+                <p>Sorry, but the page you were trying to view does not exist.</p>
+                <p>It looks like this was the result of either:</p>
+                <ul>
+                    <li>a mistyped address</li>
+                    <li>an out-of-date link</li>
+                </ul>
+                <script>
+                    var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
+                </script>
+                <script src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
+            </div>
     </body>
 </html>
