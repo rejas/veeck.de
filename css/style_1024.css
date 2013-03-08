@@ -1,13 +1,11 @@
 body {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
 }
 
 nav {
     position: fixed;
     text-align: right;
     padding: 110px 0;
-    top: 0;
     width: 240px;
     height: 100%;
     background-color: #611414;
