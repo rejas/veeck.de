@@ -347,7 +347,7 @@
  * Project home:
  *   http://www.appelsiini.net/projects/lazyload
  *
- * Version:  1.8.4
+ * Version:  1.8.5
  *
  */
 (function($, window, document, undefined) {
@@ -474,7 +474,7 @@
         /* Non optimal workaround. */
         if ((/iphone|ipod|ipad.*os 5/gi).test(navigator.appVersion)) {
             $window.bind("pageshow", function(event) {
-                if (event.originalEvent.persisted) {
+                if (event.originalEvent && event.originalEvent.persisted) {
                     elements.each(function() {
                         $(this).trigger("appear");
                     });
@@ -483,7 +483,7 @@
         }
 
         /* Force initial check if images should appear. */
-        $(window).load(function() {
+        $(document).ready(function() {
             update();
         });
 
