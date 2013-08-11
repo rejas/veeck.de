@@ -8,6 +8,10 @@ img, embed, object, video, audio, figure {
     max-width: 100%;
 }
 
+html {
+    background: none;
+}
+
 body {
     background-color: #dfdfd8;
     color: #611414;
