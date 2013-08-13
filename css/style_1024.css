@@ -15,7 +15,7 @@ header {
     position: fixed;
     height: 115px;
     width: 100%;
-    margin-left: 260px;
+    margin-left: 255px;
     background: #dfdfd8 url(assets/header-bg.png) no-repeat left bottom;
     z-index: 10;
 }
