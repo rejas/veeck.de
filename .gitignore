@@ -4,3 +4,4 @@ publish/
 intermediate/
 .idea/
 .DS_Store
+/.sass-cache
