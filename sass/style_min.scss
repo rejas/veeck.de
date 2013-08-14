@@ -1,4 +1,40 @@
-@import "compass";
+@import "compass/css3";
+
+@mixin drop-shadow-curled-corners($border-radius: 0 0 120px 120px / 0 0 6px 6px, $box-shadow: 0 8px 12px rgba(#000, .5), $skew: 8deg, $rotate: 3deg, $distance: 10px)
+{
+  position: relative;
+  @include border-radius($border-radius);
+
+  &:before,
+  &:after
+  {
+    content: "";
+    position: absolute;
+    z-index: -2;
+
+    bottom: $distance*1.2;
+
+    width: 50%;
+    height: 55%;
+    @include box-shadow($box-shadow);
+  }
+
+  &:before
+  {
+    left: $distance;
+    @include transform(skew(-$skew) rotate(-$rotate));
+  }
+
+  &:after
+  {
+    right: $distance;
+    @include transform(skew($skew) rotate($rotate));
+  }
+}
+
+$color_black: #611414;
+$color_grey: #626e68;
+$color_lightgrey: #dfdfd8;
 
 /* apply a natural box layout model to all elements */
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
@@ -15,7 +51,7 @@ html {
 }
 
 body {
-    background-color: #dfdfd8;
+    background-color: $color_lightgrey;
     color: #611414;
     font: normal 100% OpenSans, Cambria, Georgia, serif;
     margin: auto;
@@ -37,8 +73,8 @@ body {
     display: none;
     padding: 0.35em;
     margin: 15px 0 15px 0;
-    border: 3px solid #611414;
-    box-shadow: 2px 2px 3px #666;
+    border: 3px solid $color_black;
+    box-shadow: 2px 2px 3px $color_grey;
     @include border-radius(4px);
 }
 
@@ -51,71 +87,6 @@ body {
     padding: 5px 0 0 5px;
 }
 
-article {
-    text-align: justify;
-    background-image: image-url("header-bg.png");
-    background-repeat: no-repeat;
-    background-position: 50% 100%;
-    padding-bottom: 0.4em;
-    margin-bottom: 0.8em;
-}
-
-figure {
-  margin: 0 0.75em 0.75em 0;
-  background: #611414;
-  text-decoration: none;
-  @include border-radius(4px);
-
-  .fig_half {
-    width: 100%;
-  }
-
-  img {
-    width: 100%;
-    padding: 0.2em;
-  }
-}
-
-figcaption {
-    padding: 0.3em;
-    color: #dfdfd8;
-}
-
-.research_article figure {
-    float: left;
-    width: auto;
-    min-width: 200px;
-}
-
-.research_article figure img {
-    float: left;
-    width: auto;
-}
-
-.research_article figcaption {
-    width: auto;
-}
-
-.gallery_article {
-    float: left;
-}
-
-.gallery_article figure {
-    float: left;
-    max-width: 46%;
-    margin: 1%;
-}
-
-.search_article ul {
-    list-style-type: none;
-    padding-left: 1em;
-    text-indent: -1em;
-}
-
-.search_article li {
-    padding-top: 0.2em;
-}
-
 h1 {
   font-size: 2em;
   font-weight: normal;
@@ -123,7 +94,7 @@ h1 {
   word-spacing: -0.2em;
 
   span {
-    color: #626e68;
+    color: $color_grey;
   }
 }
 
@@ -135,42 +106,111 @@ footer {
     font-style: italic;
 }
 
+a, a:visited {
+  color: $color_grey;
+}
+
 a:focus {
     outline: none
 }
 
-a, a:visited {
-    color: #626e68;
-}
-
 a:hover {
-    color: #611414;
-}
-
-article ul {
-  list-style-position:inside;
-
-  li {
-    padding-bottom: 10px;
-  }
-}
-
-.search_article li {
-    padding-bottom: 0;
+    color: $color_black;
 }
 
 input {
-    border: 1px solid #626e68;
-    @include border-radius(4px);
-    padding: 4px 8px 4px 8px;
+  border: 1px solid $color_grey;
+  @include border-radius(4px);
+  padding: 4px 8px 4px 8px;
 }
 
 textarea {
-    border: 1px solid #626e68;
-    @include border-radius(4px);
+  border: 1px solid $color_grey;
+  @include border-radius(4px);
 }
 
 select {
-    border: 1px solid #626e68;
-    @include border-radius(4px);
+  border: 1px solid $color_grey;
+  @include border-radius(4px);
+}
+
+article {
+  text-align: justify;
+  background-image: image-url("header-bg.png");
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  padding-bottom: 0.4em;
+  margin-bottom: 0.8em;
+
+  ul {
+    list-style-position:inside;
+
+    li {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+figure {
+  margin: 0 0.75em 0.75em 0;
+  background: $color_black;
+  text-decoration: none;
+  @include border-radius(4px);
+
+  .fig_half {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    padding: 0.2em;
+  }
+
+  figcaption {
+    padding: 0.3em;
+    color: $color_lightgrey;
+  }
+}
+
+.research_article {
+  figure {
+    float: left;
+    width: auto;
+    min-width: 200px;
+
+    img {
+      float: left;
+      width: auto;
+    }
+  }
+}
+
+.gallery_article {
+  float: left;
+
+  figure {
+    float: left;
+    max-width: 46%;
+    margin: 1%;
+    @include drop-shadow-curled-corners;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    img {
+      @include drop-shadow-curled-corners(0 0 120px 120px / 0 0 9px 9px);
+    }
+  }
+}
+
+.search_article {
+  ul {
+    list-style-type: none;
+    padding-left: 1em;
+    text-indent: -1em;
+
+    li {
+      padding-top: 0.2em;
+      padding-bottom: 0;
+    }
+  }
 }
