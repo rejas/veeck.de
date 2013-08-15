@@ -1,17 +1,20 @@
-# The h5bp ant build script
+The Ant Build Script is a tool that optimizes your code for production use on the web. 
 
-The build script is a tool that optimizes your code for production use on the web.
+It's designed to work with HTML5 Boilerplate with minimal configuration, but it's also here to serve as a rich source of Ant tasks you can use as the basis for your own custom build scripts.
+
+##Compatibility
+While it should work with any version of HTML5 Boilerplate (with varying degrees of intervention) v1.0 of the Build Script was developed and tested against v4.0 of HTML5 Boilerplate. 
 
 ## Why use it?
 
-Faster page load times and happy end users :)
+Faster page load times, improved workflow and happy end users :)
 
 ## What it does
 
 * Combines and minifies javascript (via Closure Compiler)
 * Inlines stylesheets specified using `@import` in your CSS
 * Combines and minifies CSS (using YUI Compressor)
-* Optimizes JPGs and PNGs (with jpegtran & optipng)
+* Optimizes JPGs and PNGs (with jpegtran, advpng & optipng)
 * Basic to aggressive html minification (via htmlcompressor)
 * Revises the file names of your assets so that you can use heavy caching (1 year expires).
 * Updates your HTML to reference these new hyper-optimized CSS + JS files
@@ -21,15 +24,20 @@ Faster page load times and happy end users :)
 * Runs your CSS through a code quality tool, CSSLint (optional)
 * Cache-busting support for a module directory
 * Optionally precompile LESS formatted CSS
+* Optionally precompile SASS formatted CSS
 * Optionally output JSDOC3 documentation
-
-<img src="http://html5boilerplate.com/img/chart.png">
+* Optionally convert your JPGs to progressive JPGs
+* Optionally validates your HTML
+* Optionally set your script to use `async` or `defer`
 
 ## Add the build script to your project
 
-Since we split out the build scripts from the main h5bp repo, you now have more options on how to integrate a build script into your project. Beyond the choice of technology, there's also the choice of how to integrate the build script of choice into your h5bp project or local repo. There is nothing stopping you from manually dropping the build script in to your HTML5 Boilerplate project. That works.
+For most people, you can just drop the contents of the build script repo into your HTML5 Boilerplate project in a `build` folder. That's the easiest way to get up and running.
 
-However, if you'd like to merge it into your main repository and preserve the build script commit history, please follow this workflow:
+###Add the build script to your project (Advanced version)
+Since we split out the build scripts from the main h5bp repo, you now have more options on how to integrate a build script into your project.As was mentioned you can simply drop the contents of the build script repo into a `build` folder and you're good to go. 
+
+If you'd like to merge it into your main HTML5 Boilerplate repository and preserve the build script commit history (and the ability to update from Github), alongside the H5BP commit history, please follow this workflow:
 
 ```
 # Move into your project's git repository
@@ -66,14 +74,22 @@ This means that OS X versions prior to 10.6 are no longer supported out of the b
 Alternatively, YUI Compressor, which requires Java > 1.4, could be swapped out for Closure Compiler.
 
 ## Quick Start
+**You must wrap any scripts to concatenate in a pair of specially constructed comments. These look like this:**
 
-You must wrap any scripts to concatenate in a pair of specially constructed comments. These look like this:
-
+*legacy version (pre 1.0)* (https://github.com/h5bp/ant-build-script/wiki/What-version-are-you-running%3F)
 ```html
     <!-- scripts concatenated and minified via build script -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     <!-- end scripts -->
+```
+
+*1.0 and greater*
+```html
+  <!-- //-beg- concat_js -->
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <!-- //-end- concat_js -->
 ```
 ## If you're on Mac or Linux...
 
@@ -85,9 +101,9 @@ On Mac, install [MacPorts](http://www.macports.org/install.php) and then do `sud
 
 ## If you're on Windows...
 
-* Get the [[Java JDK|http://www.oracle.com/technetwork/java/javase/downloads/index.html]] (JRE isn't enough).
-* Get [[WinAnt|http://code.google.com/p/winant/]] and point the installer to `Program Files/Java/jre6/bin/`
-* For detailed information on installing Ant for Windows, see this [[step-by-step instruction by Nicholas Zakas|http://www.nczonline.net/blog/2012/04/12/how-to-install-apache-ant-on-windows/]].
+* Get the [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (JRE isn't enough).
+* Get [WinAnt](http://code.google.com/p/winant/) and point the installer to `Program Files/Java/jre6/bin/`
+* For detailed information on installing Ant for Windows, see this [step-by-step instruction by Nicholas Zakas](http://www.nczonline.net/blog/2012/04/12/how-to-install-apache-ant-on-windows/) or our own [detailed instructions](https://github.com/h5bp/ant-build-script/wiki/Detailed-Ant-Installation-Instructions)
 
 ## Using the Build Script
 
