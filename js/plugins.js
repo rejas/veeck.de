@@ -1,5 +1,7 @@
 // Avoid `console` errors in browsers that lack a console.
 (function() {
+    "use strict";
+
     var method;
     var noop = function () {};
     var methods = [
@@ -29,6 +31,8 @@
  * http://github.com/mattkersley/Responsive-Menu
  */
 (function($){
+    "use strict";
+
     //plugin's default options
     var settings = {
             combine: true,	//combine multiple menus into a single select
@@ -257,8 +261,6 @@
             $menus = $(this);
             runPlugin();
             $(window).resize(function(){runPlugin();});
-        } else {
-            alert('mobileMenu only works with <ul>/<ol>');
         }
     };//mobileMenu()
 })(jQuery);
@@ -268,11 +270,13 @@
  * @param b
  */
 (function($) {
+    "use strict";
+
     $.fn.fadeLink = function(b) {
         $(this).on('click', function (event) {
             var $this = $(this);
             var url = $this.attr('href'); // pick url for redirecting via javascript
-            if ((url.indexOf('#') != 0) && ($this.attr('target') != '_blank')) {
+            if ((url.indexOf('#') !== 0) && ($this.attr('target') !== '_blank')) {
                 event.preventDefault();
                 $(b).fadeOut('fast', function () {
                     document.location.href = url;
@@ -289,6 +293,8 @@
  * http://www.i-marco.nl/weblog/archive/2010/02/27/yup_yet_another_jquery_accordi
  */
 (function($) {
+    "use strict";
+
     $.fn.initMenu = function() {
         return this.each(function () {
             var theMenu = $(this).get(0);
@@ -351,6 +357,8 @@
  *
  */
 (function($, window, document, undefined) {
+    "use strict";
+
     var $window = $(window);
 
     $.fn.lazyload = function(options) {

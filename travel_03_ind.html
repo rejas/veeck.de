@@ -165,12 +165,12 @@
         Rücken! Und das demütigendste: Während wir in einer Pause immer Wasser
         konsumierten wie nix gutes und versuchten zu Kräften zu kommen, haben die einfach
         eine Kippe nach der anderen geraucht!</p>
-
             <figure class="fig_right">
-                  <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/roundtrip/ind_rinjani_small.jpg"/>
-                  <figcaption>View from Mount Rinjani</figcaption>
+                <a class="gallery" href="material/img/travel/roundtrip/ind_rinjani_medium.jpg">
+                    <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/roundtrip/ind_rinjani_small.jpg"/>
+                </a>
+                <figcaption>View from Mount Rinjani</figcaption>
             </figure>
-
            <p>Nun setzt der Fehler ein, der mich ins Fieber trieb: Wir Deutsche versuchten
         mit dem Tempo der drei Lokalen Schritt zu halten, während diese nicht ihr
         Tempo an unseres angepasst haben. So brauchten wir für die erste Etappe statt der
@@ -218,6 +218,12 @@
 
         <article>
            <h3>2.-11.Juli 2003: Gili Travangan, Lombok, IND</h3>
+            <figure class="fig_right">
+                <a class="gallery" href="material/img/travel/roundtrip/ind_gilihorse_medium.jpg">
+                    <img class="lazy" src="css/icons/loading.png" data-original="material/img/travel/roundtrip/ind_gilihorse_small.jpg"/>
+                </a>
+                <figcaption>Transportation on Gili Travangan</figcaption>
+            </figure>
            <p>Hach, liebe Freunde des Ausdauerurlaubs, es ist schon hart und verdammt
         anstrengend, 10 Tage auf einer Insel nur mit Faulenzen und Essen und ab und zu
         etwas Schnorcheln zu verbringen, aber wir haben es geschafft! Hartes Training und
@@ -345,6 +351,13 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+
+    <!-- gallery files -->
+    <script type="text/javascript" src="js/vendor/klass.min.js"></script>
+    <script type="text/javascript" src="js/vendor/code.photoswipe.jquery.min.js"></script>
+    <script>
+        $("a.gallery").photoSwipe({ enableMouseWheel: false , enableKeyboard: false });
+    </script>
 
     <!-- //-beg- concat_js -->
     <script src="js/plugins.js"></script>
