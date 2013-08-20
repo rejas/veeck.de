@@ -38,9 +38,10 @@ only screen and (max-device-width : 399px){
     }
 }
 
-.isotope figure { width: 310px; margin: 5px }
-.isotope figure.quader { width: 150px; margin: 5px }
-.isotope figure.skyscraper { width: 150px; margin: 5px }
+.isotope figure.wide { width: 310px; height: 150px; margin: 5px; padding: 2px }
+.isotope figure.normal { width: 310px; height: 150px; margin: 5px; padding: 2px }
+.isotope figure.quader { width: 310px; height: 310px; margin: 5px; padding: 2px }
+.isotope figure.skyscraper { width: 150px;  height: 310px; margin: 5px; padding: 2px }
 
 /**** Isotope Filtering ****/
 

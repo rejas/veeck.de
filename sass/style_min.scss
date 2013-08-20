@@ -11,10 +11,6 @@ $color_lightgrey: #dfdfd8;
 ::-moz-selection { background: #a07272; color: #fff; text-shadow: none; }
 ::selection { background: #a07272; color: #fff; text-shadow: none; }
 
-img, embed, object, video, audio, figure {
-    max-width: 100%;
-}
-
 html {
     background: none;
 }
@@ -132,7 +128,7 @@ figure {
 
   img {
     width: 100%;
-    padding: 0.2em;
+    padding: 3px;
   }
 
   figcaption {
@@ -152,6 +148,11 @@ figure {
       width: auto;
     }
   }
+}
+
+.isotope figure img {
+  width: auto;
+  padding: 0;
 }
 
 .gallery_article {
