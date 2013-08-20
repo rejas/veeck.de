@@ -17,10 +17,6 @@
   text-shadow: none;
 }
 
-img, embed, object, video, audio, figure {
-  max-width: 100%;
-}
-
 html {
   background: none;
 }
@@ -154,7 +150,7 @@ figure .fig_half {
 }
 figure img {
   width: 100%;
-  padding: 0.2em;
+  padding: 3px;
 }
 figure figcaption {
   padding: 0.3em;
@@ -169,6 +165,11 @@ figure figcaption {
 .research_article figure img {
   float: left;
   width: auto;
+}
+
+.isotope figure img {
+  width: auto;
+  padding: 0;
 }
 
 .gallery_article {

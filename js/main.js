@@ -1,5 +1,25 @@
 $(document).ready(function ()
 {
+    $('.isotope figure.skyscraper img').resizecrop({
+        width:146,
+        height:306
+    });
+
+    $('.isotope figure.quader img').resizecrop({
+        width:306,
+        height:306
+    });
+
+    $('.isotope figure.wide img').resizecrop({
+        width:306,
+        height:146
+    });
+
+    $('.isotope figure.normal img').resizecrop({
+        width:306,
+        height:146
+    });
+
     // my own fade plugin
     $("nav li a").fadeLink("#main");
 
@@ -35,14 +55,13 @@ $(document).ready(function ()
     });
 
     var $container = $('#container.isotope');
-    $container.isotope({
-        // options
-        itemSelector : 'figure',
-        layoutMode: "perfectMasonry",
-        perfectMasonry: {
-            layout: "vertical",      // Set layout as vertical/horizontal (default: vertical)
-            columnWidth: 160,        // Set/prefer specific column width (liquid layout tries to prefer said width)
-            liquid: false
-        }
-    })
+    if ($container.length > 0) {
+        $container.isotope({
+            // options
+            itemSelector : 'figure',
+            masonry: {
+                columnWidth: 160
+            }
+        })
+    }
 });
