@@ -1,4 +1,10 @@
 @font-face {
-  font-family: "OpenSans";
-  src: url('fonts/opensans-regular-webfont.ttf') format('truetype'), url('fonts/opensans-regular-webfont.otf') format('opentype'), url('fonts/opensans-regular-webfont.woff') format('woff'), url('fonts/opensans-regular-webfont.eot') format('embedded-opentype');
+    font-family: OpenSans;
+    src: url('./fonts/opensans-regular-webfont.eot');
+    src: url('./fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/opensans-regular-webfont.woff') format('woff'),
+    url('./fonts/opensans-regular-webfont.ttf') format('truetype'),
+    url('./fonts/opensans-regular-webfont.svg#open_sansregular') format('svg');
+    font-style: normal;
+    font-weight: normal;
 }
