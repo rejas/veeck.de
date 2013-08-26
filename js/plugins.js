@@ -294,10 +294,8 @@
  */
 (function($) {
     "use strict";
-
     $.fn.initMenu = function() {
         return this.each(function () {
-            var theMenu = $(this).get(0);
             $('.acitem', this).hide();
             $('li.expand > .acitem', this).show();
             $('li.expand > .acitem', this).prev().addClass('active');
@@ -337,6 +335,7 @@
                         return false;
                     }
                 }
+                return true;
             });
         });
     };
@@ -378,11 +377,10 @@
 
         function update() {
             var counter = 0;
-
             elements.each(function() {
                 var $this = $(this);
                 if (settings.skip_invisible && !$this.is(":visible")) {
-                    return;
+                    return true;
                 }
                 if ($.abovethetop(this, settings) ||
                     $.leftofbegin(this, settings)) {
@@ -397,6 +395,7 @@
                         return false;
                     }
                 }
+                return true;
             });
 
         }
@@ -421,7 +420,7 @@
 
         /* Fire one scroll event per scroll. Not one scroll event per image. */
         if (0 === settings.event.indexOf("scroll")) {
-            $container.bind(settings.event, function(event) {
+            $container.bind(settings.event, function() {
                 return update();
             });
         }
@@ -465,7 +464,7 @@
             /* When wanted event is triggered load original image */
             /* by triggering appear.                              */
             if (0 !== settings.event.indexOf("scroll")) {
-                $self.bind(settings.event, function(event) {
+                $self.bind(settings.event, function() {
                     if (!self.loaded) {
                         $self.trigger("appear");
                     }
@@ -474,7 +473,7 @@
         });
 
         /* Check if something appears when window is resized. */
-        $window.bind("resize", function(event) {
+        $window.bind("resize", function() {
             update();
         });
 
@@ -574,7 +573,7 @@
 
 // http://code.google.com/p/resize-crop/
 (function($){
-    $.fn.resizecrop = function(options) {
+    $.fn.resizecrop = function(opt) {
 
         var defaults = {
             width:      50,
@@ -589,7 +588,7 @@
             wrapperCSS: {}
         };
 
-        var options = $.extend(defaults, options);
+        var options = $.extend(defaults, opt);
 
         return this.each(function() {
 
