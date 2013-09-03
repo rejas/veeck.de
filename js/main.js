@@ -63,6 +63,6 @@ $(document).ready(function () {
             masonry: {
                 columnWidth: 160
             }
-        })
+        });
     }
 });

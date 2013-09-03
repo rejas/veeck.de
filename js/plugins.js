@@ -573,6 +573,8 @@
 
 // http://code.google.com/p/resize-crop/
 (function($){
+    "use strict";
+
     $.fn.resizecrop = function(opt) {
 
         var defaults = {
@@ -635,13 +637,14 @@
 
             function transform(ref) {
 
-                width_ratio  = options.width  / ref.width();
-                height_ratio = options.height / ref.height();
+                var width_ratio  = options.width  / ref.width();
+                var height_ratio = options.height / ref.height();
 
                 if (width_ratio > height_ratio) {
 
-                    if (options.zoom || width_ratio < 1)
+                    if (options.zoom || width_ratio < 1) {
                         ref.width(options.width);
+                    }
 
                     switch(options.vertical) {
                         case "top":
@@ -651,19 +654,19 @@
                             ref.css("bottom", 0);
                             break;
                         case "center":
-                        default:
                             ref.css("top", ((ref.height() - options.height) / -2) + "px");
                     }
 
-                    if (options.zoom || width_ratio < 1)
+                    if (options.zoom || width_ratio < 1) {
                         ref.css("left", 0);
-                    else
+                    } else {
                         ref.css("left", ((ref.width() - options.width) / -2) + "px");
-
+                    }
                 } else {
 
-                    if (options.zoom || height_ratio < 1)
+                    if (options.zoom || height_ratio < 1) {
                         ref.height(options.height);
+                    }
 
                     switch(options.horizontal) {
                         case "left":
@@ -673,14 +676,14 @@
                             ref.css("right", 0);
                             break;
                         case "center":
-                        default:
                             ref.css("left", ((ref.width() - options.width) / -2) + "px");
                     }
 
-                    if (options.zoom || height_ratio < 1)
+                    if (options.zoom || height_ratio < 1) {
                         ref.css("top", 0);
-                    else
+                    } else {
                         ref.css("top", ((ref.height() - options.height) / -2) + "px");
+                    }
                 }
 
                 ref.css({position:"relative",display:"block"});
