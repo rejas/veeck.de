@@ -40,7 +40,7 @@ $(document).ready(function ()
         $(".extend").slideToggle();
     });
 
-    // Run Marco van Hylckama Vlieg's jQuery Menu plugin (see plugins.js)
+    // Run my jQuery menu plugin (see plugins.js)
     $(".menu").initMenu();
 
     // Run Matt Kersley's jQuery Responsive menu plugin (see plugins.js)
