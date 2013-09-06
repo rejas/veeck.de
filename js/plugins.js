@@ -380,12 +380,10 @@
  * Project home:
  *   http://www.appelsiini.net/projects/lazyload
  *
- * Version:  1.8.5
+ * Version:  1.9.0
  *
  */
 (function($, window, document, undefined) {
-    "use strict";
-
     var $window = $(window);
 
     $.fn.lazyload = function(options) {
@@ -400,15 +398,17 @@
             data_attribute  : "original",
             skip_invisible  : true,
             appear          : null,
-            load            : null
+            load            : null,
+            placeholder     : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
         };
 
         function update() {
             var counter = 0;
+
             elements.each(function() {
                 var $this = $(this);
                 if (settings.skip_invisible && !$this.is(":visible")) {
-                    return true;
+                    return;
                 }
                 if ($.abovethetop(this, settings) ||
                     $.leftofbegin(this, settings)) {
@@ -423,9 +423,7 @@
                         return false;
                     }
                 }
-                return true;
             });
-
         }
 
         if(options) {
@@ -448,7 +446,7 @@
 
         /* Fire one scroll event per scroll. Not one scroll event per image. */
         if (0 === settings.event.indexOf("scroll")) {
-            $container.bind(settings.event, function() {
+            $container.bind(settings.event, function(event) {
                 return update();
             });
         }
@@ -459,6 +457,11 @@
 
             self.loaded = false;
 
+            /* If no src attribute given use data:uri. */
+            if ($self.attr("src") === undefined || $self.attr("src") === false) {
+                $self.attr("src", settings.placeholder);
+            }
+
             /* When appear is triggered load original image. */
             $self.one("appear", function() {
                 if (!this.loaded) {
@@ -468,10 +471,15 @@
                     }
                     $("<img />")
                         .bind("load", function() {
-                            $self
-                                .hide()
-                                .attr("src", $self.data(settings.data_attribute))
-                                [settings.effect](settings.effect_speed);
+                            var original = $self.data(settings.data_attribute);
+                            $self.hide();
+                            if ($self.is("img")) {
+                                $self.attr("src", original);
+                            } else {
+                                $self.css("background-image", "url('" + original + "')");
+                            }
+                            $self[settings.effect](settings.effect_speed);
+
                             self.loaded = true;
 
                             /* Remove image from array so it is not looped next time. */
@@ -492,7 +500,7 @@
             /* When wanted event is triggered load original image */
             /* by triggering appear.                              */
             if (0 !== settings.event.indexOf("scroll")) {
-                $self.bind(settings.event, function() {
+                $self.bind(settings.event, function(event) {
                     if (!self.loaded) {
                         $self.trigger("appear");
                     }
@@ -501,7 +509,7 @@
         });
 
         /* Check if something appears when window is resized. */
-        $window.bind("resize", function() {
+        $window.bind("resize", function(event) {
             update();
         });
 
@@ -532,7 +540,7 @@
         var fold;
 
         if (settings.container === undefined || settings.container === window) {
-            fold = $window.height() + $window.scrollTop();
+            fold = (window.innerHeight ? window.innerHeight : $window.height()) + $window.scrollTop();
         } else {
             fold = $(settings.container).offset().top + $(settings.container).height();
         }
