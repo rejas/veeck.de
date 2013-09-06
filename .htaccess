@@ -549,3 +549,14 @@ FileETag None
 # <IfModule mod_headers.c>
 #    Header set Connection Keep-Alive
 # </IfModule>
+
+
+
+# ------------------------------------------------------------------------------
+# | My own rewrite rules                                |
+# ------------------------------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+   RewriteCond %{REQUEST_URI} /tec_g4pc.html$ [NC]
+   RewriteRule ^(.*)$ /personal_g4pc.html [R=301,L,NE]
+</IfModule>
