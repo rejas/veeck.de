@@ -13,9 +13,10 @@ nav {
 
 header {
     position: fixed;
-    height: 115px;
+    height: 105px;
     width: 100%;
     margin-left: 255px;
+    padding-top: 10px;
     background: #dfdfd8 url(assets/header-bg.png) no-repeat left bottom;
     z-index: 10;
 }
