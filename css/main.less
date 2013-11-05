@@ -16,27 +16,26 @@
    Author's custom styles
    ========================================================================== */
 
+@import "variables.less";
+@import "mixins.less";
+
 @import url("style_fonts.css") screen and (min-width: 1024px) ;
 
 @import url("photoswipe.css");
 
-@import url("style_min.css");
+@import url("isotope.css");
+
+@import "style_smartphone.less";
+
+@import "style_tablet.less" screen and (min-width: 480px);
+
+@import "style_desktop.less" screen and (min-width: 1024px);
 
 /* ==========================================================================
    Helper classes
    ========================================================================== */
 
 @import url("style_boilerplate_helper.css");
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   Theses examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@import url("style_480.css") screen and (min-width: 480px);
-
-@import url("style_1024.css") screen and (min-width: 1024px);
 
 /* ==========================================================================
    Print styles.
@@ -110,6 +109,6 @@
     }
 
     nav {
-	    display: none;
+        display: none;
     }
 }
