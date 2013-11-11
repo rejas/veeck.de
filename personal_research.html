@@ -64,7 +64,7 @@
     </header>
 
     <div id="main" role="main">
-        <article class="research_article">
+        <article class="research_article clearfix">
             <figure>
                 <a href="http://www.worldofwarcraft.com/"><img src="css/icons/res_wow.png"/></a>
             </figure>
@@ -73,7 +73,9 @@
             offer an API to access a JSON-encoded activity feed for character and guilds. Since a colleague held a
             presentation about node.js and how easy it is to deploy a server-app with it, i took the opportunity to
             enhance my javascript knowledge and wrote this JSON-to-RSS-Feed Converter for World-Of-Warcraft:</p>
-            <form action="https://wowfeed.herokuapp.com">
+            <form action="https://wowfeed.herokuapp.com" class="clearfix">
+                <label for="char_name" class="align">Character:</label><input id="char_name" type="text" name="character" />
+                <label for="char_realm">Realm:</label><input id="char_realm" type="text" name="realm" />
                 <label for="char_region">Region:</label>
                 <select id="char_region" name="region">
                     <option value="eu">EU</option>
@@ -81,12 +83,12 @@
                     <option value="tw">TW</option>
                     <option value="kr">KR</option>
                 </select>
-                <label for="char_realm">Realm:</label><input id="char_realm"  type="text" name="realm" />
-                <label for="char_name">Character:</label><input id="char_name" type="text" name="character" />
                 <input type="submit" value="Get RSS"/>
             </form>
 
             <form action="https://wowfeed.herokuapp.com">
+                <label for="guild_name" class="align">Guild:</label><input id="guild_name" type="text" name="guild" />
+                <label for="guild_realm">Realm:</label><input id="guild_realm" type="text" name="realm" />
                 <label for="guild_region">Region:</label>
                 <select id="guild_region" name="region">
                     <option value="eu">EU</option>
@@ -94,13 +96,11 @@
                     <option value="tw">TW</option>
                     <option value="kr">KR</option>
                 </select>
-                <label for="guild_realm">Realm:</label><input id="guild_realm"  type="text" name="realm" />
-                <label for="guild_name">Guild:</label><input id="guild_name" type="text" name="guild" />
                 <input type="submit" value="Get RSS"/>
             </form>
         </article>
 
-        <article class="research_article">
+        <article class="research_article clearfix">
             <figure>
                 <a href="http://arje.net/rasterbator"> <img src="css/icons/res_rasterbator.png"/></a>
             </figure>
@@ -117,7 +117,7 @@
             </ul>
         </article>
 
-        <article class="research_article">
+        <article class="research_article clearfix">
             <figure>
                 <a href="http://nsis.sourceforge.net/"> <img src="css/icons/res_nsis.png"/></a>
             </figure>
@@ -131,18 +131,18 @@
             </ul>
         </article>
 
-        <article class="research_article">
+        <article class="research_article clearfix">
             <figure>
                 <img src="css/icons/res_iros2004.png"/>
             </figure>
-            <h2>IROS 2004 research paper</h2>
-    	    Michael Veeck and Wolfram Burgard<br/>
-    	    <b>Learning Polyline Maps from Range Scan Data Acquired with Mobile Robots</b><br/><br/>
-    	    In Proc. of the IEEE/RSJ International Conference on Intelligent Robots and Systems
-    	    <b><a class="extern" href="http://www.iros2004.org">IROS 2004</a></b>.<br/>
-    	    <a class="intern" href="material/iros04polyline_paper.pdf">final version</a> (pdf, 472 KB, 01.07.2004) |
+            <h4>IROS 2004 research paper</h4>
+    	    <h3>Michael Veeck and Wolfram Burgard</h3>
+    	    <h2>Learning Polyline Maps from Range Scan Data Acquired with Mobile Robots</h2>
+    	    <p>In Proc. of the IEEE/RSJ International Conference on Intelligent Robots and Systems
+    	    <a class="extern" href="http://www.iros2004.org">IROS 2004</a>.</p>
+    	    <p><a class="intern" href="material/iros04polyline_paper.pdf">final version</a> (pdf, 472 KB, 01.07.2004) |
     	    <a class="intern" href="material/iros04polyline_presentation.ppz">presentation</a> (ppz, 665 KB, 01.10.2004) |
-    	    <a class="extender" href="#">bibtex entry</a>
+    	    <a class="extender" href="#">bibtex entry</a></p>
             <p class="extend">'@INPROCEEDINGS{veeck04iros,
                 AUTHOR = {Veeck, M. and Burgard, W.},
                 TITLE = {Learning Polyline Maps from Range Scan Data Acquired with Mobile Robots},
@@ -150,16 +150,16 @@
                 YEAR = {2004}</p>
     	</article>
 
-        <article class="research_article">
+        <article class="research_article clearfix">
             <figure>
                 <a href="http://www.uni-freiburg.de/"><img src="css/icons/res_unilogo.png"/></a>
             </figure>
-            <h2>My diplom thesis</h2>
-            Michael Veeck <br/>
-            <b>eSign - Design und Implementierung eines Signierwerkzeugs auf einem mobilen Endger&auml;t</b><br/><br/>
-            Master Thesis (in German), Part of the
+            <h4>My diplom thesis</h4>
+            <h3>Michael Veeck</h3>
+            <h2>eSign - Design und Implementierung eines Signierwerkzeugs auf einem mobilen Endger&auml;t</h2>
+            <p>Master Thesis (in German), Part of the
             <a class="extern" href="http://www.iig.uni-freiburg.de/telematik/forschung/projekte/kom_technik/atus/index.html">ATUS-Project</a>,
-            University of Freiburg, May 2003.<br/>
+            University of Freiburg, May 2003.</p>
             <a class="intern" href="material/masterthesis03veeck.pdf">thesis</a> (pdf, 628 KB) |
             <a class="intern" href="material/masterthesis03veeckabstract.pdf">abstract</a> (pdf, 120 KB)
         </article>
