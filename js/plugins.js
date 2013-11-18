@@ -380,7 +380,7 @@
  * Project home:
  *   http://www.appelsiini.net/projects/lazyload
  *
- * Version:  1.9.0
+ * Version:  1.9.1
  *
  */
 (function($, window, document, undefined) {
@@ -446,7 +446,7 @@
 
         /* Fire one scroll event per scroll. Not one scroll event per image. */
         if (0 === settings.event.indexOf("scroll")) {
-            $container.bind(settings.event, function(event) {
+            $container.bind(settings.event, function() {
                 return update();
             });
         }
@@ -459,7 +459,9 @@
 
             /* If no src attribute given use data:uri. */
             if ($self.attr("src") === undefined || $self.attr("src") === false) {
-                $self.attr("src", settings.placeholder);
+                if ($self.is("img")) {
+                    $self.attr("src", settings.placeholder);
+                }
             }
 
             /* When appear is triggered load original image. */
@@ -471,7 +473,8 @@
                     }
                     $("<img />")
                         .bind("load", function() {
-                            var original = $self.data(settings.data_attribute);
+
+                            var original = $self.attr("data-" + settings.data_attribute);
                             $self.hide();
                             if ($self.is("img")) {
                                 $self.attr("src", original);
@@ -493,14 +496,14 @@
                                 settings.load.call(self, elements_left, settings);
                             }
                         })
-                        .attr("src", $self.data(settings.data_attribute));
+                        .attr("src", $self.attr("data-" + settings.data_attribute));
                 }
             });
 
             /* When wanted event is triggered load original image */
             /* by triggering appear.                              */
             if (0 !== settings.event.indexOf("scroll")) {
-                $self.bind(settings.event, function(event) {
+                $self.bind(settings.event, function() {
                     if (!self.loaded) {
                         $self.trigger("appear");
                     }
@@ -509,13 +512,13 @@
         });
 
         /* Check if something appears when window is resized. */
-        $window.bind("resize", function(event) {
+        $window.bind("resize", function() {
             update();
         });
 
         /* With IOS5 force loading images when navigating with back button. */
         /* Non optimal workaround. */
-        if ((/iphone|ipod|ipad.*os 5/gi).test(navigator.appVersion)) {
+        if ((/(?:iphone|ipod|ipad).*os 5/gi).test(navigator.appVersion)) {
             $window.bind("pageshow", function(event) {
                 if (event.originalEvent && event.originalEvent.persisted) {
                     elements.each(function() {
@@ -593,7 +596,7 @@
     /* Use as $("img:below-the-fold").something() or */
     /* $("img").filter(":below-the-fold").something() which is faster */
 
-    $.extend($.expr[':'], {
+    $.extend($.expr[":"], {
         "below-the-fold" : function(a) { return $.belowthefold(a, {threshold : 0}); },
         "above-the-top"  : function(a) { return !$.belowthefold(a, {threshold : 0}); },
         "right-of-screen": function(a) { return $.rightoffold(a, {threshold : 0}); },
