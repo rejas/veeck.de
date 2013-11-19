@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "VirtualDub"
-!define PRODUCT_VERSION "v1.9.1"
+!define PRODUCT_VERSION "v1.10.4"
 !define PRODUCT_WEB_SITE "http://www.virtualdub.org/"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\VirtualDub.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
@@ -63,6 +63,7 @@ Section "Main program" SEC01
   File "vdub\auxsetup.exe"
   File "vdub\copying"
   File "vdub\vdicmdrv.dll"
+  File "vdub\vdlaunch.exe"
   File "vdub\vdremote.dll"
   File "vdub\vdsvrlnk.dll"
   File "vdub\vdub.exe"
@@ -76,9 +77,9 @@ Section "Main program" SEC01
   File "vdub\aviproxy\proxyon.reg"
   File "vdub\aviproxy\readme.txt"
   
-  CreateDirectory $INSTDIR\plugins
-  SetOutPath "$INSTDIR\plugins"
-  File "vdub\plugins\readme.txt"
+  CreateDirectory $INSTDIR\plugins32
+  SetOutPath "$INSTDIR\plugins32"
+  File "vdub\plugins32\readme.txt"
   
 ; Shortcuts
   SetShellVarContext all  
