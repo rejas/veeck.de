@@ -36,26 +36,62 @@
                 display: inline-block;
                 overflow: hidden;
                 width: 75%;
-                height: 90%;
-                margin: 3% 12.5% 3%;
+                height: 95%;
+                margin: 1% 12.5% 1%;
                 padding: 2em;
 
-                background-color: dodgerblue;
+                background-color: rgba(43, 58, 140, 0.88);
+                border-radius: 5px;
+                -webkit-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.75);
+                box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.75);
 
                 -webkit-column-count: 3;
                 -webkit-column-gap: 1em;
                 -moz-column-count: 3;
                 -moz-column-gap: 1em;
             }
+            figure img {
+                width: 50%;
+                float: left;
+                padding-right: 10px;;
+            }
+
             p {
                 margin: 0;
                 padding: 0 0 1em 0;
                 text-align: justify;
             }
+            #menu {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                width: 60px;
+                height: 60px;
+                border-radius: 30px;
+                background-color: red;
+                padding-top: 20px;
+                padding-left: 10px;
+            }
+
+            #hide {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                width: 60px;
+                height: 60px;
+                border-radius: 30px;
+                background-color: red;
+                padding-top: 20px;
+                padding-left: 10px;
+            }
         </style>
     </head>
 
     <body>
+        <div id="menu" onclick="">MENU</div>
+        <div id="hide" onclick="$('.cb').toggle()">HIDE</div>
+
         <div id="textContainer" class="cb">
             <h3>28-31. August 2006: Odessa</h3>
             <figure class="fig_right">
