@@ -65,4 +65,8 @@ $(document).ready(function () {
             }
         });
     }
+
+    var addthis_config = addthis_config||{};
+    addthis_config.pubid = 'ra-4f4bb62e22bbd641';
+    addthis.init();
 });
