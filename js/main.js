@@ -9,10 +9,8 @@ $(document).ready(function ()
     while ($tc.overflown()) {
         $tc.children().last().prependTo($tc2);
     }
-});
 
-$.fn.overflown=function()
-{
-    var e = this[0];
-    return e.scrollHeight>e.clientHeight||e.scrollWidth>e.clientWidth;
-}
+    var addthis_config = addthis_config||{};
+    addthis_config.pubid = 'ra-4f4bb62e22bbd641';
+    addthis.init();
+});
