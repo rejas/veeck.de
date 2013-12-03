@@ -5,6 +5,8 @@
 # to the main server config file (usually called `httpd.conf`), you should add
 # this logic there: http://httpd.apache.org/docs/current/howto/htaccess.html.
 
+ mod_gzip_on Yes
+
 # ##############################################################################
 # # CROSS-ORIGIN RESOURCE SHARING (CORS)                                       #
 # ##############################################################################
