@@ -34,18 +34,8 @@ body {
     -ms-touch-action: auto;
 }
 
-h1 {
-    font-size: 2em;
-    font-weight: normal;
-    word-spacing: -0.2em;
-}
-h1 span {
-    color: #a07272;
-    margin: 10px;
-}
-
-h1 {
-    font-family: 'Lobster', serif;
+header {
+    margin: 23px 0 0 70px;
 }
 
 footer {
@@ -54,6 +44,18 @@ footer {
     font-size: 0.75em;
     font-weight: normal;
     font-style: italic;
+}
+
+h1 {
+    font-family: 'Lobster', serif;
+    font-size: 2em;
+    font-weight: normal;
+    word-spacing: -0.2em;
+}
+
+h1 span {
+    color: #a07272;
+    margin: 10px;
 }
 
 a:focus {
@@ -69,9 +71,9 @@ a:hover {
 }
 
 input {
+    padding: 4px 8px 4px 8px;
     border: 1px solid #a07272;
     .border-radius(4px);
-    padding: 4px 8px 4px 8px;
 }
 
 textarea {
@@ -127,9 +129,14 @@ figure.adfigure {
     height: 256px;
 }
 
-#adframe {
-    float: right;
-    margin: 3px 3px 0 3px;
+#respmenu {
+    display: none;
+}
+
+#dl-menu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
 #main {
@@ -137,13 +144,9 @@ figure.adfigure {
     z-index: 0;
 }
 
-#respmenu {
-    display: none;
-}
-
-.mnav {
-    margin: 1em auto;
-    width: 100%;
+#adframe {
+    float: right;
+    margin: 3px 3px 0 3px;
 }
 
 .extend {
