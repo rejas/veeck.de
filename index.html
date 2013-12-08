@@ -22,11 +22,13 @@
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <nav role="navigation">
-        <ul id="respmenu" class="menu">
-            <li class="active"><a href="index.html">home</a></li>
-            <li><a href="#">personal</a>
-                <ul class="acitem">
+    <nav id="mobilemenu" role="navigation" class="dl-menuwrapper">
+        <button id="mobilemenuButton" class="dl-trigger">M</button>
+        <ul id="desktopmenu" class="dl-menu menu">
+            <li><a href="index.html">home</a></li>
+            <li>
+                <a href="#">personal</a>
+                <ul class="acitem dl-submenu">
                     <li><a href="personal_g4pc.html">my g4pc</a></li>
                     <li><a href="personal_radio.html">radio</a></li>
                     <li><a href="personal_friends.html">friends</a></li>
@@ -34,7 +36,7 @@
                 </ul>
             </li>
             <li><a href="#">travel stories</a>
-                <ul class="acitem">
+                <ul class="acitem dl-submenu">
                     <li><a href="travel_01_thai.html">2001 Thailand</a></li>
                     <li><a href="travel_01_aus.html">2001 Australien</a></li>
                     <li><a href="travel_03_usa.html">2003 USA</a></li>
@@ -50,7 +52,7 @@
                 </ul>
             </li>
             <li><a href="#">pictures</a>
-                <ul class="acitem">
+                <ul class="acitem dl-submenu">
                     <li><a href="media_panoramas.html#f0">large sizes</a></li>
                     <li><a href="media_panoramas.html#f1">360 degree</a></li>
                     <li><a href="media_panoramas.html#f2">perspective</a></li>
@@ -65,18 +67,18 @@
     </nav>
 
     <header>
-        <h1>Welcome <span>to</span> the <span>homepage</span> of <span>Michael</span> Veeck</h1>
+        <h1>Veecks <span>place</span> for <span>his </span> work <span></span> </h1>
     </header>
 
     <div id="main" role="main">
         <article class="clearfix" >
+            <h2>Hi fellow traveler</h2>
+            <p>Here you can find three things: old-fashioned geek-tech stuff, my travel diaries written (alas only in
+                german) and my panorama pictures from around the world.</p>
             <figure class="fig_right">
                 <img class="lazy" src="css/icons/loading.png" data-original="material/img/friends/veeck_intro.jpg" alt="a picture of me"/>
                 <figcaption>That's me!</figcaption>
             </figure>
-            <h2>Hi fellow traveler</h2>
-            <p>Here you can find three things: old-fashioned geek-tech stuff, my travel diaries written (alas only in
-                german) and my panorama pictures from around the world.</p>
             <h3>The latest changes on these pages were:</h3>
             <ul>
                 <li><strong>2013/11/19:</strong> Updated and cleaned up research page</li>
