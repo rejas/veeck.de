@@ -4,3 +4,4 @@
 .DS_Store
 intermediate/
 publish/
+node_modules/
