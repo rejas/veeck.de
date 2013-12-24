@@ -38,6 +38,10 @@ header {
     margin: 23px 0 0 70px;
 }
 
+p {
+    line-height: 20px;
+}
+
 footer {
     text-align: right;
     margin-bottom: 0.5em;
@@ -104,13 +108,26 @@ article ul li {
 }
 
 figure {
-    margin: 0 0 0.75em 0;
     background: #611414;
     text-decoration: none;
     .border-radius(4px);
 }
 
-figure .fig_half {
+figure.fig_left {
+  float: left;
+  margin: 0 0.75em 0.75em 0;
+}
+
+figure.fig_right {
+  float: right;
+  margin: 0 0 0.75em 0.75em;
+}
+
+figure.portrait {
+    width: 50%;
+}
+
+figure.landscape {
     width: 100%;
 }
 
@@ -180,6 +197,7 @@ figure.adfigure {
     float: left;
     min-width: 200px;
     width: 100%;
+    margin-bottom: 0.75em;
 }
 
 .research_article figure img {
