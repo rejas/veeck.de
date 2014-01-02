@@ -212,7 +212,16 @@ figure.adfigure {
 }
 
 .research_article form {
+    display: table;
     margin-bottom: 10px;
+}
+
+.research_article form label {
+    display: table-cell;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 29px;
+    float: left;
 }
 
 .research_article input[type="text"] {
@@ -222,23 +231,14 @@ figure.adfigure {
 }
 
 .research_article select {
-    float: left;
-    width: 33%;
-    margin-left: 1%;
+    float: right;
+    width: 66%;
 }
 
 .research_article input[type="submit"] {
     float: right;
-    width: 30%;
-    margin-bottom: 20px;
-}
-
-.research_article label {
     width: 33%;
-    height: 29px;
-    display: inline-block;
-    float: left;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .gallery_article {
@@ -260,18 +260,39 @@ figure.adfigure {
     padding: 0.2em 0 0.4em;
 }
 
-.search_article input[type="submit"] {
+.search_article form {
+    display: table;
+}
+
+.search_article form label {
+    display: table-cell;
+}
+
+.search_article form > div {
+    display: table-cell;
+}
+
+.search_article form > div > input {
+    width: 100%;
+    text-align: right;
+}
+
+.search_article form input[type="submit"] {
+    display: table-cell;
     width: 70px;
+    margin-left: 30px;
 }
 
 .addthis_toolbox {
     width: 200px;
 }
 
+
 /* glue: 0.4 hash: 4734f92ce1 */
 .sprite-links {
     float: left;
     margin-top: 5px;
+    margin-bottom: -5px;
     background-image: url('sprites/links.png');
     background-repeat: no-repeat;
 }

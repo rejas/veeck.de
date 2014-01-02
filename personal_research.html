@@ -75,31 +75,31 @@
             <h2>World of Warcraft RSS Feed</h2>
             <p>Since their last redesign Blizzard doesn't provide an RSS feed on their armory-website anymore. They do however
             offer an API to access a JSON-encoded activity feed for character and guilds. Since a colleague held a
-            presentation about node.js and how easy it is to deploy a server-app with it, i took the opportunity to
+            presentation about node.js and how easy it is to deploy a server-app with it, I took the opportunity to
             enhance my javascript knowledge and wrote this JSON-to-RSS-Feed Converter for World-Of-Warcraft:</p>
-            <form action="https://wowfeed.herokuapp.com" class="clearfix">
-                <label for="char_name" class="align">Character:</label><input id="char_name" type="text" name="character" />
-                <label for="char_realm">Realm:</label><input id="char_realm" type="text" name="realm" />
-                <label for="char_region">Region:</label>
-                <select id="char_region" name="region">
-                    <option value="eu">EU</option>
-                    <option value="us">US</option>
-                    <option value="tw">TW</option>
-                    <option value="kr">KR</option>
-                </select>
+            <form action="https://wowfeed.herokuapp.com" >
+                <label>Character:<input type="text" name="character" /></label>
+                <label>Realm:    <input type="text" name="realm" /></label>
+                <label>Region:<select id="char_region" name="region">
+                        <option value="eu">EU</option>
+                        <option value="us">US</option>
+                        <option value="tw">TW</option>
+                        <option value="kr">KR</option>
+                    </select>
+                </label>
                 <input type="submit" value="Get RSS"/>
             </form>
 
             <form action="https://wowfeed.herokuapp.com">
-                <label for="guild_name" class="align">Guild:</label><input id="guild_name" type="text" name="guild" />
-                <label for="guild_realm">Realm:</label><input id="guild_realm" type="text" name="realm" />
-                <label for="guild_region">Region:</label>
-                <select id="guild_region" name="region">
-                    <option value="eu">EU</option>
-                    <option value="us">US</option>
-                    <option value="tw">TW</option>
-                    <option value="kr">KR</option>
-                </select>
+                <label>Guild:<input type="text" name="guild" /></label>
+                <label>Realm:<input type="text" name="realm" /></label>
+                <label>Region:<select id="guild_region" name="region">
+                        <option value="eu">EU</option>
+                        <option value="us">US</option>
+                        <option value="tw">TW</option>
+                        <option value="kr">KR</option>
+                    </select>
+                </label>
                 <input type="submit" value="Get RSS"/>
             </form>
         </article>
