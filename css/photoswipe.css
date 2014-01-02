@@ -56,12 +56,11 @@ div.ps-zoom-pan-rotate *
 /* Carousel */
 div.ps-carousel-item-loading
 {
-    background: url(../assets/loader.gif) no-repeat center center;
+    background: url(./assets/loader.gif) no-repeat center center;
 }
-
 div.ps-carousel-item-error
 {
-    background: url(../assets/error.gif) no-repeat center center;
+    background: url(./assets/error.gif) no-repeat center center;
 }
 
 
@@ -133,7 +132,7 @@ div.ps-toolbar div div.ps-toolbar-content
     width: 44px;
     height: 44px;
     margin: 0 auto 0;
-    background-image: url(../sprites/photoswipe.png);
+    background-image: url(./sprites/photoswipe.png);
     background-repeat: no-repeat;
 }
 
@@ -178,6 +177,6 @@ only screen and (min-resolution: 240dpi)
         -o-background-size: 176px 88px;
         -webkit-background-size: 176px 88px;
         background-size: 176px 88px;
-        background-image: url(../sprites/photoswipe@2x.png);
+        background-image: url(./sprites/photoswipe@2x.png);
     }
 }
