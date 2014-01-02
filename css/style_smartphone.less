@@ -263,7 +263,25 @@ figure.adfigure {
     padding: 0.2em 0 0.4em;
 }
 
-.search_article input[type="submit"] {
+.search_article form {
+    display: table;
+}
+
+.search_article form label {
+    display: table-cell;
+}
+
+.search_article form > div {
+    display: table-cell;
+}
+
+.search_article form > div > input {
+    width: 100%;
+    text-align: right;
+}
+
+.search_article form input[type="submit"] {
+    display: table-cell;
     width: 70px;
 }
 
