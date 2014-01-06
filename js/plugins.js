@@ -189,7 +189,7 @@
     function createSelect($menu){
 
         //create <select> to insert into the page
-        var $select = $('<select id="mm'+menuCount+'" class="mnav" />');
+        var $select = $('<select id="mm'+menuCount+'" role="navigation" class="mnav dont-print" />');
         menuCount++;
 
         //create default option if the text is set (set to null for no option)
