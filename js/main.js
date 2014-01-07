@@ -2,23 +2,23 @@ $(document).ready(function () {
     "use strict";
 
     $('.isotope figure.skyscraper img').resizecrop({
-        width:146,
-        height:306
+        width:136,
+        height:286
     });
 
     $('.isotope figure.quader img').resizecrop({
-        width:306,
-        height:306
+        width:286,
+        height:286
     });
 
     $('.isotope figure.wide img').resizecrop({
-        width:306,
-        height:146
+        width:286,
+        height:136
     });
 
     $('.isotope figure.normal img').resizecrop({
-        width:306,
-        height:146
+        width:286,
+        height:136
     });
 
     // my own fade plugin

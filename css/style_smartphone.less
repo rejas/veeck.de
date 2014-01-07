@@ -9,14 +9,14 @@
 }
 
 ::-moz-selection {
-    background: #a07272;
-    color: #fff;
+    background: @base3;
+    color: @base2;
     text-shadow: none;
 }
 
 ::selection {
-    background: #a07272;
-    color: #fff;
+    background: @base3;
+    color: @base2;
     text-shadow: none;
 }
 
@@ -28,6 +28,7 @@ body {
     background: @base2;
     color: #5c5c5c ;
     font: normal 100% 'Lato', serif;
+    line-height: 135%;
     margin: auto;
     padding: 0 1em 0 1em;
     overflow-x: hidden;
@@ -40,7 +41,7 @@ h1 {
     word-spacing: -0.2em;
 }
 h1 span {
-    color: #a07272;
+    color: @base3;
     margin: 10px;
 }
 
@@ -49,7 +50,7 @@ h1 {
 }
 
 h2 {
-    line-height: 30px;
+    line-height: 145%;
 }
 
 h2, h3, h4 {
@@ -69,26 +70,26 @@ a:focus {
 }
 
 a, a:visited {
-    color: #a07272;
+    color: @base3;
 }
 
 a:hover {
-    color: #611414;
+    color: @base;
 }
 
 input {
-    border: 1px solid #a07272;
-    .border-radius(4px);
     padding: 4px 8px 4px 8px;
+    border: 1px solid @base3;
+    .border-radius(4px);
 }
 
 textarea {
-    border: 1px solid #a07272;
+    border: 1px solid @base3;
     .border-radius(4px);
 }
 
 select {
-    border: 1px solid #a07272;
+    border: 1px solid @base3;
     .border-radius(4px);
 }
 
@@ -97,9 +98,8 @@ article {
     background-image: url('assets/header-bg.png');
     background-repeat: no-repeat;
     background-position: 50% 100%;
-    padding-bottom: 1em;
-    margin-bottom: 2em;
-    line-height: 20px;
+    padding-bottom: 1.25em;
+    margin-bottom: 1.25em;
 }
 
 article ul {
@@ -111,19 +111,19 @@ article ul li {
 }
 
 figure {
-    background: #611414;
+    background: @base;
     text-decoration: none;
     .border-radius(4px);
 }
 
 figure.fig_left {
-  float: left;
-  margin: 0 1em 1em 0;
+    float: left;
+    margin: 0 1em 1em 0;
 }
 
 figure.fig_right {
-  float: right;
-  margin: 0 0 1em 1em;
+    float: right;
+    margin: 0 0 1em 1em;
 }
 
 figure.portrait {
@@ -140,8 +140,8 @@ figure img {
 }
 
 figcaption {
-    padding: 0.3em;
-    color: #dfdfd8;
+    padding: 0 0.5em 0.5em;
+    color: @base2;
 }
 
 figure.adfigure {
@@ -172,8 +172,8 @@ figure.adfigure {
     display: none;
     padding: 0.35em;
     margin: 15px 0 15px 0;
-    border: 3px solid #611414;
-    box-shadow: 2px 2px 3px #a07272;
+    border: 3px solid @base;
+    box-shadow: 2px 2px 3px @complement2;
     .border-radius(4px);
 }
 
