@@ -19,7 +19,7 @@ header {
     position: fixed;
     height: 105px;
     width: 100%;
-    padding: 10px 20px;
+    padding: 20px 50px 0;
     margin-left: 260px;
     z-index: 1;
     background: @base2 url(assets/header-bg.png) no-repeat left bottom;
@@ -31,13 +31,13 @@ footer {
     left: 40px;
     text-align: left;
     width: 200px;
-    color: #dfdfd8;
+    color: @base2;
 }
 
 #main {
     float: left;
     position: relative;
-    padding: 115px 20px 0 20px;
+    padding: 115px 50px 0;
     margin-left: 260px;
     max-width: 960px;
 }
@@ -51,7 +51,7 @@ footer {
 }
 
 figure {
-    box-shadow: 1px 2px 3px #a07272;
+    box-shadow: 1px 2px 3px @complement2;
 }
 
 figure img.worldmap {
@@ -109,7 +109,7 @@ nav li.inside a:hover {
 
 nav li a:link,
 nav li a:visited {
-    color: #dfdfd8;
+    color: @base2;
     font-size: 128.6%;
     text-decoration: none;
     padding: 8px 30px;
