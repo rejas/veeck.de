@@ -561,4 +561,7 @@ FileETag None
 <IfModule mod_rewrite.c>
    RewriteCond %{REQUEST_URI} /tec_g4pc.html$ [NC]
    RewriteRule ^(.*)$ /personal_g4pc.html [R=301,L,NE]
+
+   RewriteCond %{REQUEST_URI} /janitor$ [NC]
+   RewriteRule ^(.*)$ /index.html [R=301,L,NE]
 </IfModule>
