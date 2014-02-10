@@ -380,7 +380,7 @@
  * Project home:
  *   http://www.appelsiini.net/projects/lazyload
  *
- * Version:  1.9.1
+ * Version:  1.9.3
  *
  */
 (function($, window, document, undefined) {
