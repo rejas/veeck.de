@@ -60,7 +60,12 @@ div.ps-carousel-item-loading
 }
 div.ps-carousel-item-error
 {
-    background: url(./assets/error.gif) no-repeat center center;
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 0;
+    background-image: url(./sprites/photoswipe.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
 }
 
 
