@@ -39,15 +39,17 @@ h1 {
     font-size: 2em;
     font-weight: normal;
     word-spacing: -0.2em;
-}
-h1 span {
-    color: @base3;
-    margin: 10px;
-}
-
-h1 {
     font-family: 'Lobster', serif;
     line-height: 145%;
+}
+
+h1 span {
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+h1 span:nth-child(2n) {
+    color: @base3;
 }
 
 h2 {
