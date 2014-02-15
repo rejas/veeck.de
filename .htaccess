@@ -671,6 +671,9 @@ FileETag None
     RewriteCond %{REQUEST_URI} /tec_g4pc.html$ [NC]
     RewriteRule ^(.*)$ /personal_g4pc.html [R=301,L,NE]
 
+    RewriteCond %{REQUEST_URI} /pictures/g4_light2.jpg_____________________________________________$ [NC]
+    RewriteRule ^(.*)$ /material/img/g4pc/g4_light2.jpg [R=301,L,NE]
+
     RewriteCond %{REQUEST_URI} /janitor/index.html$ [NC]
     RewriteRule ^(.*)$ /index.html [G]
 </IfModule>
