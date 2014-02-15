@@ -76,6 +76,7 @@ Options -MultiViews
 
 ErrorDocument 404 /404.html
 
+ErrorDocument 410 /410.html
 
 # ##############################################################################
 # # INTERNET EXPLORER                                                          #
@@ -670,8 +671,8 @@ FileETag None
     RewriteCond %{REQUEST_URI} /tec_g4pc.html$ [NC]
     RewriteRule ^(.*)$ /personal_g4pc.html [R=301,L,NE]
 
-    RewriteCond %{REQUEST_URI} /janitor$ [NC]
-    RewriteRule ^(.*)$ /index.html [R=301,L,NE]
+    RewriteCond %{REQUEST_URI} /janitor/index.html$ [NC]
+    RewriteRule ^(.*)$ /index.html [G]
 </IfModule>
 
 mod_gzip_on Yes
