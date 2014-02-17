@@ -28,10 +28,21 @@ header {
 footer {
     position: fixed;
     bottom: 0;
-    left: 40px;
+    left: 0;
     text-align: left;
-    width: 200px;
+    width: 260px;
     color: @base2;
+}
+
+footer .addthis_toolbox {
+    float: right;
+    width: auto;
+    padding-right: 35px;
+}
+
+footer > p {
+    float: right;
+    padding-right: 35px;
 }
 
 #main {
@@ -115,10 +126,4 @@ nav li a:visited {
     padding: 8px 30px;
     display: block;
     min-height: 31px;
-}
-
-.addthis_toolbox {
-    position: fixed;
-    left: 40px;
-    bottom: 1.75em;
 }
