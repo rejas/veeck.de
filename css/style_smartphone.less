@@ -3,8 +3,8 @@
 
 /* apply a natural box layout model to all elements */
 * {
-    -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -29,7 +29,7 @@ body {
     color: #5c5c5c ;
     font: normal 18px 'Lato', serif;
     line-height: 27px;
-    margin: auto;
+    margin: 0 auto;
     padding: 0 1em 0 1em;
     overflow-x: hidden;
     -ms-touch-action: auto;
@@ -126,6 +126,10 @@ article {
     margin-bottom: 1.25em;
 }
 
+article:last-of-type {
+    margin-bottom: 0;
+}
+
 article ul {
     list-style-position: inside;
 }
@@ -151,12 +155,12 @@ figure.fig_full {
 
 figure.fig_left {
     float: left;
-    margin: 0 0 1em 0;
+    margin: 0 1em 1em 0;
 }
 
 figure.fig_right {
     float: right;
-    margin: 0 0 1em 0;
+    margin: 0 0 1em 1em;
 }
 
 figure.portrait {
