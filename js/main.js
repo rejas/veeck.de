@@ -1,5 +1,5 @@
-$(document).ready(function ()
-{
+/*global $*/
+$(document).ready(function () {
     "use strict";
 
     $('.isotope figure.skyscraper img').resizecrop({
@@ -54,6 +54,9 @@ $(document).ready(function ()
     $("img.lazy").lazyload({
         effect : "fadeIn"
     });
+
+    // Style all <select> elements
+    $("select").uniform();
 
     var $container = $('#container.isotope');
     if ($container.length > 0) {
