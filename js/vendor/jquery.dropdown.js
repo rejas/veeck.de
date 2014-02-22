@@ -34,6 +34,9 @@
         rotated : false,
         // effect to slide in the options. value is the margin to start with
         slidingIn : false,
+        // z-index in case you have overlay problems with multiple selects
+        zindex: 1000,
+        //
         onOptionSelect : function(opt) { return false; }
     };
 
@@ -50,7 +53,7 @@
         _layout : function() {
 
             var self = this;
-            this.minZIndex = 1000;
+            this.minZIndex = this.options.zindex;
             var value = this._transformSelect();
             this.opts = this.listopts.children( 'li' );
             this.optsCount = this.opts.length;
