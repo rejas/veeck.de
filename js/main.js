@@ -1,3 +1,4 @@
+/*global $*/
 $(document).ready(function () {
     "use strict";
 
@@ -54,6 +55,9 @@ $(document).ready(function () {
     $("img.lazy").lazyload({
         effect : "fadeIn"
     });
+
+    // Style all <select> elements
+    $("select").uniform();
 
     var $container = $('#container.isotope');
     if ($container.length > 0) {
