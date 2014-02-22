@@ -4,14 +4,14 @@
     width: 220px;
     margin: 0 auto;
     display: block;
-    border: 1px solid #a07272;
+    border: 1px solid @base3;
 }
 
 .cd-dropdown > span {
     width: 100%;
     height: 30px;
     line-height: 30px;
-    color: #a07272;
+    color: @base3;
     font-weight: 700;
     font-size: 16px;
     background: #fff;
@@ -31,7 +31,7 @@
     font-size: 12px;
     line-height: 24px;
     height: 70%;
-    border-left: 1px solid #ddd;
+    border-left: 1px solid @base3;
 }
 
 .cd-dropdown.cd-active > span:after {
@@ -55,7 +55,7 @@
     background: #fff;
     padding: 0 30px;
     display: block;
-    color: #bcbcbc;
+    color: @base3;
     cursor: pointer;
     font-weight: 700;
 }
@@ -78,9 +78,8 @@
 
 /* Select fallback styling */
 .cd-select {
-    border: 1px solid #ddd;
+    border: 1px solid @base3;
 }
-
 
 .cd-dropdown > span,
 .cd-dropdown ul li:nth-last-child(-n+3) span {
@@ -99,7 +98,7 @@
 }
 
 .cd-active.cd-dropdown > span {
-    color: #a07272;
+    color: @base3;
 }
 
 .cd-active.cd-dropdown > span,
@@ -108,15 +107,11 @@
 }
 
 .cd-active.cd-dropdown ul li span {
-    -webkit-transition: all 0.2s linear 0s;
-    -moz-transition: all 0.2s linear 0s;
-    -ms-transition: all 0.2s linear 0s;
-    -o-transition: all 0.2s linear 0s;
-    transition: all 0.2s linear 0s;
-    border: 1px solid #a07272;
+    border: 1px solid @base3;
+    .transition (all 0.2s linear 0s);
 }
 
 .cd-active.cd-dropdown ul li span:hover {
-    background: #a07272;
+    background: @base;
     color: #fff;
 }

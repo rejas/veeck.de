@@ -56,17 +56,18 @@ $(document).ready(function () {
     });
 
     // Style all <select> elements
-    $( '#char_region' ).dropdown( {
+    $('#char_region').dropdown({
         gutter : 5,
         stack : false,
-        slidingIn : 100
-    } );
-    // Style all <select> elements
-    $( '#guild_region' ).dropdown( {
+        slidingIn : 100,
+        zindex: 1500
+    });
+    $('#guild_region').dropdown({
         gutter : 5,
         stack : false,
-        slidingIn : 100
-    } );
+        slidingIn : 100,
+        zindex: 1000
+    });
 
 
     var $container = $('#container.isotope');
