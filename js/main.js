@@ -1,3 +1,4 @@
+/*global $*/
 $(document).ready(function () {
     "use strict";
 
@@ -54,6 +55,21 @@ $(document).ready(function () {
     $("img.lazy").lazyload({
         effect : "fadeIn"
     });
+
+    // Style all <select> elements
+    $('#char_region').dropdown({
+        gutter : 5,
+        stack : false,
+        slidingIn : 100,
+        zindex: 1500
+    });
+    $('#guild_region').dropdown({
+        gutter : 5,
+        stack : false,
+        slidingIn : 100,
+        zindex: 1000
+    });
+
 
     var $container = $('#container.isotope');
     if ($container.length > 0) {

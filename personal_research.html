@@ -80,11 +80,13 @@
             <form action="https://wowfeed.herokuapp.com" >
                 <label>Character:<input type="text" name="character" /></label>
                 <label>Realm:    <input type="text" name="realm" /></label>
-                <label>Region:<select id="char_region" name="region">
-                        <option value="eu">EU</option>
+                <label>Region:
+                    <select id="char_region" class="cd-select" name="region">
+                        <option value="-1" selected>Choose a Region</option>
+                        <option value="eu">Europe</option>
                         <option value="us">US</option>
-                        <option value="tw">TW</option>
-                        <option value="kr">KR</option>
+                        <option value="tw">Taiwan</option>
+                        <option value="kr">Korea</option>
                     </select>
                 </label>
                 <input type="submit" value="Get RSS"/>
@@ -93,11 +95,13 @@
             <form action="https://wowfeed.herokuapp.com">
                 <label>Guild:<input type="text" name="guild" /></label>
                 <label>Realm:<input type="text" name="realm" /></label>
-                <label>Region:<select id="guild_region" name="region">
-                        <option value="eu">EU</option>
+                <label>Region:
+                    <select id="guild_region" class="cd-select" name="region">
+                        <option value="-1" selected>Choose a Region</option>
+                        <option value="eu">Europe</option>
                         <option value="us">US</option>
-                        <option value="tw">TW</option>
-                        <option value="kr">KR</option>
+                        <option value="tw">Taiwan</option>
+                        <option value="kr">Korea</option>
                     </select>
                 </label>
                 <input type="submit" value="Get RSS"/>
@@ -206,6 +210,7 @@
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
 
     <!-- //-beg- concat_js -->
+    <script src="js/vendor/jquery.dropdown.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     <!-- //-end- concat_js -->
