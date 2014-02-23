@@ -1,8 +1,9 @@
 .cd-dropdown,
 .cd-select {
     position: relative;
-    width: 220px;
-    margin: 0 auto;
+    width: 66%;
+    margin: 0;
+    float: right;
     display: block;
     border: 1px solid @base3;
 }
@@ -26,7 +27,7 @@
     position: absolute;
     right: 0;
     top: 15%;
-    width: 50px;
+    width: 35px;
     text-align: center;
     font-size: 12px;
     line-height: 24px;
@@ -114,4 +115,14 @@
 .cd-active.cd-dropdown ul li span:hover {
     background: @base;
     color: #fff;
+}
+
+@media only screen and (min-width: 600px)
+{
+    .cd-dropdown,
+    .cd-select {
+        width: 190px;
+        margin: 0 auto;
+        float: left;
+    }
 }
