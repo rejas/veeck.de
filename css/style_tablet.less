@@ -1,19 +1,23 @@
-figure {
-    float: left;
-    margin: 0 0.75em 0.75em 0;
+ul {
+    padding-left: 20px;
 }
 
-figure.fig_right {
-    float: right;
-    margin: 0 0 0.75em 0.75em;
+figure.portrait {
+    width: 33%;
 }
 
-figure.fig_full {
-    width: 100%;
-}
-
-figure.fig_half {
+figure.landscape {
     width: 50%;
+}
+
+footer .addthis_toolbox {
+    float: left;
+    margin: 3px 0 0 0;
+}
+
+footer > p {
+    float: right;
+    margin-top: 0;
 }
 
 .gallery_article figure {
@@ -24,40 +28,39 @@ figure.fig_half {
 .research_article figure {
     min-width: 200px;
     width: auto;
+    margin: 0 1em 1em 0;
 }
 
 .research_article form {
     max-width: 750px;
-    float: right;
+    float: left;
+}
+
+.research_article form label {
+    width: 155px;
+    float: none;
+}
+
+.research_article input,
+.research_article select {
+    margin: 0 10px;
+    width: auto;
+    float: none;
 }
 
 .research_article input[type="text"] {
-    width: 140px;
-    margin-right: 20px;
-    float: none;
+    width: 135px;
+    float: left;
+    margin-left: 0;
 }
 
 .research_article input[type="submit"] {
-    width: 75px;
+    width: 90px;
     float: none;
+    position: relative;
+    top: 30px;
 }
 
-.research_article label {
-    margin-right: 5px;
-    width: auto;
-    float: none;
-}
-
-.research_article label.align {
-    width: 85px;
-    display: inline-block;
-}
-
-.research_article select {
-    width: auto;
-    margin-left: 0;
-    margin-right: 20px;
-    height: 29px;
-    vertical-align: top;
-    float: none;
+.search_article input[type="submit"] {
+    width: 80px;
 }

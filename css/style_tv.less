@@ -1,0 +1,44 @@
+body {
+    background: @base url(assets/nav-bg.png) repeat;
+}
+
+header {
+    position: fixed;
+    height: 105px;
+    max-width: 960px;
+    padding: 0 50px 0;
+    margin-left: ~"calc((100% - 960px) / 2)";
+    z-index: 1;
+    background: @base2 url(assets/header-bg.png) no-repeat left bottom;
+}
+
+nav {
+    position: fixed;
+    text-align: right;
+    padding: 110px 0;
+    width: ~"calc((100% - 960px) / 2)";
+    height: 100%;
+    background: none;
+}
+
+#main {
+    float: none;
+    position: relative;
+    padding: 115px 50px 0;
+    margin: 0 auto;
+    width: 960px;
+    min-height: 100%;
+    background-color: @base2;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: ~"calc((100% - 960px) / 2)";
+}
+
+footer > p {
+    width: 100%;
+    text-align: right;
+}

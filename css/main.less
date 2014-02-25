@@ -22,7 +22,7 @@
 
 @import "mixins.less";
 
-@import url(http://fonts.googleapis.com/css?family=Lato|Lobster) screen and (min-width: 600px);
+@import url(http://fonts.googleapis.com/css?family=Lato|Lobster);
 
 @import url("mobilemenu.css") screen and (max-width: 1024px);
 
@@ -35,6 +35,10 @@
 @import "style_tablet.less" screen and (min-width: 600px);
 
 @import "style_desktop.less" screen and (min-width: 1024px);
+
+@import "style_tv.less" screen and (min-width: 1440px);
+
+@import "style_dropdown.less";
 
 /* ==========================================================================
    Helper classes
@@ -72,7 +76,6 @@
      * Don't show links for images, or javascript/internal links
      */
 
-    .ir a:after,
     a[href^="javascript:"]:after,
     a[href^="#"]:after {
         content: "";
@@ -113,7 +116,7 @@
         page-break-after: avoid;
     }
 
-    nav {
+    .dont_print {
         display: none;
     }
 }

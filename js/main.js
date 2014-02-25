@@ -1,24 +1,25 @@
+/*global $*/
 $(document).ready(function () {
     "use strict";
 
     $('.isotope figure.skyscraper img').resizecrop({
-        width:146,
-        height:306
+        width:136,
+        height:286
     });
 
     $('.isotope figure.quader img').resizecrop({
-        width:306,
-        height:306
+        width:286,
+        height:286
     });
 
     $('.isotope figure.wide img').resizecrop({
-        width:306,
-        height:146
+        width:286,
+        height:136
     });
 
     $('.isotope figure.normal img').resizecrop({
-        width:306,
-        height:146
+        width:286,
+        height:136
     });
 
     // my own fade plugin
@@ -54,6 +55,21 @@ $(document).ready(function () {
         effect : "fadeIn"
     });
 
+    // Style all <select> elements
+    $('#char_region').dropdown({
+        gutter : 5,
+        stack : false,
+        slidingIn : 100,
+        zindex: 1500
+    });
+    $('#guild_region').dropdown({
+        gutter : 5,
+        stack : false,
+        slidingIn : 100,
+        zindex: 1000
+    });
+
+
     var $container = $('#container.isotope');
     if ($container.length > 0) {
         $container.isotope({
@@ -67,5 +83,6 @@ $(document).ready(function () {
 
     var addthis_config = addthis_config||{};
     addthis_config.pubid = 'ra-4f4bb62e22bbd641';
+    addthis_config.data_track_addressbar = true;
     addthis.init();
 });

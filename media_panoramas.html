@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <title>Panoramic Pictures from around the world</title>
-    <meta name="description" content="Panoramic Pictures from around the world">
+    <meta name="description" content="panoramic pictures are a hobby of mine and here are some from all around the world">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--[if lt IE 9]><script src="js/vendor/html5shiv.js"></script><![endif]-->
     <link href="css/main.less" rel="stylesheet/less">
@@ -19,7 +19,7 @@
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <nav>
+    <nav role="navigation" class="dont-print">
         <ul id="respmenu" class="menu">
             <li><a href="index.html">home</a></li>
             <li> <a href="#">personal</a>
@@ -62,7 +62,7 @@
     </nav>
 
     <header>
-        <h1>Panorama <span>pictures</span> from <span>around</span> the<span>world</span></h1>
+        <h1><span>Panorama</span> <span>pictures</span> <span>from</span> <span>around</span> <span>the</span> <span>world</span></h1>
     </header>
 
     <div id="main" role="main">
@@ -251,20 +251,23 @@
         -->
     </div>
 
-    <!-- AddThis Button BEGIN -->
-    <div class="addthis_toolbox addthis_default_style ">
-        <a class="addthis_button_google_plusone"></a>
-        <a class="addthis_button_facebook"></a>
-        <a class="addthis_button_twitter"></a>
-        <a class="addthis_button_email"></a>
-        <a class="addthis_counter addthis_bubble_style"></a>
-    </div>
-    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f4bb62e22bbd641"></script>
-    <!-- AddThis Button END -->
+    <footer>
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style addthis_16x16_style dont_print">
+            <a class="addthis_button_google_plusone_share"></a>
+            <a class="addthis_button_facebook"></a>
+            <a class="addthis_button_pinterest_share"></a>
+            <a class="addthis_button_twitter"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#async=1"></script>
+        <!-- AddThis Button END -->
+        <p>page last modified 2012/02/15</p>
+    </footer>
 
-    <footer>page last modified 2012/02/15</footer>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/vendor/modernizr.min.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
 
     <script src="js/vendor/isotope.min.js"></script>

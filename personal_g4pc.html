@@ -19,7 +19,7 @@
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <nav>
+    <nav role="navigation" class="dont-print">
         <ul id="respmenu" class="menu">
             <li><a href="index.html">home</a></li>
             <li class="expand"><a href="#">personal</a>
@@ -62,7 +62,7 @@
     </nav>
 
     <header>
-       <h1>G4PC: <span>How </span>to <span>build </span>a <span>normal </span>PC <span>in </span>a <span>Mac </span>case</h1>
+        <h1><span>G4PC:</span> <span>How </span><span>to</span> <span>build </span><span>a</span> <span>normal </span><span>PC</span> <span>in </span><span>a</span> <span>Mac </span><span>case</span></h1>
     </header>
 
     <div id="main" role="main">
@@ -75,7 +75,7 @@
 
             <figure class="fig_left">
                 <a class="gallery" href="material/img/g4pc/g4_opened.jpg">
-                    <img class="lazy" src="css/icons/loading.png" data-original="material/img/g4pc/g4_opened_small.jpg"/>
+                    <img class="lazy" src="css/assets/loader.gif" data-original="material/img/g4pc/g4_opened_small.jpg"/>
                 </a>
                 <figcaption>A G4case with a PC inside</figcaption>
             </figure>
@@ -95,7 +95,7 @@
                     120GB ST3120026A</a></li>
                 <li><b>Sound</b>: <a target="_blank" href="http://www.soundblaster.com/products/product.asp?category=1&subcategory=434&product=10853">CreativeLabs
                     Soundblaster Audigy 4 Pro</a></li>
-                <li><b>Optical Drive</b>: <a target="_blank"href="http://de.lge.com/prodmodeldetail.do?actType=search&page=1&modelCategoryId=040204&categoryId=040204&parentId=0402&modelCodeDisplay=GSA-4167B&model=NOTHING">LG
+                <li><b>Optical Drive</b>: <a target="_blank" href="http://de.lge.com/prodmodeldetail.do?actType=search&page=1&modelCategoryId=040204&categoryId=040204&parentId=0402&modelCodeDisplay=GSA-4167B&model=NOTHING">LG
                     GSA-4167B DVD-Writer</a></li>
                 <li><b>PSU</b>: TSP 420 P4 Ultra Silent TripleFan</li>
                 <li><b>Monitor</b>: <a target="_blank" href="http://www.iiyama.com/pages/startseite.asp?0|1|0|0|0|0|0|2|0|1464">Iiyama
@@ -111,8 +111,8 @@
             coolest effect of the G4 case.</p>
         </article>
         <article>
-            <figure>
-                <img class="lazy" src="css/icons/loading.png" data-original="material/img/g4pc/g4_ram.jpg"/>
+            <figure class="fig_left">
+                <img class="lazy" src="css/assets/loader.gif" data-original="material/img/g4pc/g4_ram.jpg"/>
                 <figcaption>The 'modified' memory slot.</figcaption>
             </figure>
             <p class="clearfix">The size and layout of the motherboard was very crucial to the success of this case-mod.
@@ -125,7 +125,7 @@
         </article>
         <article>
             <figure class="fig_right">
-                <img class="lazy" src="css/icons/loading.png" data-original="material/img/g4pc/g4_psu.jpg"/>
+                <img class="lazy" src="css/assets/loader.gif" data-original="material/img/g4pc/g4_psu.jpg"/>
                 <figcaption>The power supply.</figcaption>
             </figure>
             <p class="clearfix">What good is a 420 Watt PSU with three silently running fans if one of them sucks the air from the wrong
@@ -135,8 +135,8 @@
             seen in the background on the left side of the picture) sucks the hot air right away from the cpu.</p>
         </article>
         <article>
-            <figure>
-                <img class="lazy" src="css/icons/loading.png" data-original="material/img/g4pc/g4_atx.jpg"/>
+            <figure class="fig_left">
+                <img class="lazy" src="css/assets/loader.gif" data-original="material/img/g4pc/g4_atx.jpg"/>
                 <figcaption>The mainboard with selfmade cover.</figcaption>
             </figure>
             <p class="clearfix">Another incompatible component was the IO-shield of the G4-case. I once again had to use my old
@@ -145,7 +145,7 @@
         </article>
         <article>
             <figure class="fig_right">
-                <img id="g4_light" class="lazy" src="css/icons/loading.png" data-original="material/img/g4pc/g4_light2.jpg"
+                <img id="g4_light" class="lazy" src="css/assets/loader.gif" data-original="material/img/g4pc/g4_light2.jpg"
                    onmouseover="document.g4_light.src='material/img/g4pc/g4_light3.jpg'"
                    onmouseout="document.g4_light.src='material/img/g4pc/g4_light2.jpg'"/>
                 <figcaption>Move over to see it glow.</figcaption>
@@ -156,20 +156,23 @@
         </article>
     </div>
 
-    <!-- AddThis Button BEGIN -->
-    <div class="addthis_toolbox addthis_default_style ">
-        <a class="addthis_button_google_plusone"></a>
-        <a class="addthis_button_facebook"></a>
-        <a class="addthis_button_twitter"></a>
-        <a class="addthis_button_email"></a>
-        <a class="addthis_counter addthis_bubble_style"></a>
-    </div>
-    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f4bb62e22bbd641"></script>
-    <!-- AddThis Button END -->
+    <footer>
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style addthis_16x16_style dont_print">
+            <a class="addthis_button_google_plusone_share"></a>
+            <a class="addthis_button_facebook"></a>
+            <a class="addthis_button_pinterest_share"></a>
+            <a class="addthis_button_twitter"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#async=1"></script>
+        <!-- AddThis Button END -->
+        <p>page last modified 2012/02/15</p>
+    </footer>
 
-    <footer>page last modified 2012/02/15</footer>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/vendor/modernizr.min.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
 
     <script type="text/javascript" src="js/vendor/klass.min.js"></script>
