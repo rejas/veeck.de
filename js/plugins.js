@@ -789,7 +789,6 @@
             this.options = $.extend( true, {}, $.DropDown.defaults, options );
             this._layout();
             this._initEvents();
-
         },
         _layout : function() {
 
