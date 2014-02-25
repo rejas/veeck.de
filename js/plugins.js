@@ -497,6 +497,7 @@
     };
     $.fn.cropresize = $.fn.resizecrop; // -- deprecated, Backward compatibility
 })(jQuery);
+
 /**
  * jquery.dlmenu.js v1.0.1
  * http://www.codrops.com
@@ -507,7 +508,7 @@
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
-;( function( $, window, undefined ) {
+( function( $, window, undefined ) {
 
     'use strict';
 
