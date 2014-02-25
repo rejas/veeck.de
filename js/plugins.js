@@ -771,7 +771,7 @@
  * Copyright 2012, Codrops
  * http://www.codrops.com
  */
-;( function( $, window, undefined ) {
+( function( $, window, undefined ) {
 
     'use strict';
 
@@ -796,6 +796,9 @@
         rotated : false,
         // effect to slide in the options. value is the margin to start with
         slidingIn : false,
+        // z-index in case you have overlay problems with multiple selects
+        zindex: 1000,
+        //
         onOptionSelect : function(opt) { return false; }
     };
 
@@ -807,12 +810,11 @@
             this.options = $.extend( true, {}, $.DropDown.defaults, options );
             this._layout();
             this._initEvents();
-
         },
         _layout : function() {
 
             var self = this;
-            this.minZIndex = 1000;
+            this.minZIndex = this.options.zindex;
             var value = this._transformSelect();
             this.opts = this.listopts.children( 'li' );
             this.optsCount = this.opts.length;
@@ -951,10 +953,8 @@
             }
             this._positionOpts( true );
             this.opened = false;
-
         }
-
-    }
+    };
 
     $.fn.dropdown = function( options ) {
         var instance = $.data( this, 'dropdown' );
