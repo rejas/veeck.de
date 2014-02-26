@@ -678,4 +678,6 @@ FileETag None
     RewriteRule ^(.*)$ /index.html [G]
 </IfModule>
 
-mod_gzip_on Yes
+<ifModule mod_deflate.c>
+    mod_gzip_on Yes
+</IfModule>
