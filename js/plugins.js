@@ -23,248 +23,6 @@
     }
 }());
 
-// Place any jQuery/helper plugins in here.
-
-/*
- * jQuery Responsive menu plugin by Matt Kersley
- * Converts menus into a select elements for mobile devices and low browser widths
- * http://github.com/mattkersley/Responsive-Menu
- */
-(function($){
-    "use strict";
-
-    //plugin's default options
-    var settings = {
-            combine: true,	//combine multiple menus into a single select
-            groupPageText: 'Main',	//optgroup's aren't selectable, make an option for it
-            nested: true,	//create optgroups by default
-            prependTo: 'body',	//insert at top of page by default
-            switchWidth: 480,	//width at which to switch to select, and back again
-            topOptionText: 'Select a page'	//default "unselected" state
-        },
-
-        //used to store original matched menus
-        $menus,
-
-        //used as a unique index for each menu if no ID exists
-        menuCount = 0,
-
-        //used to store unique list items for combining lists
-        uniqueLinks = [];
-
-    //go to page
-    function goTo(url){
-        document.location.href = url;
-    }
-
-    //does menu exist?
-    function menuExists(){
-        return ($('.mnav').length) ? true : false;
-    }
-
-    //validate selector's matched list(s)
-    function isList($this){
-        var pass = true;
-        $this.each(function(){
-            if(!$(this).is('ul') && !$(this).is('ol')){
-                pass=false;
-            }
-        });
-        return pass;
-    }//isList()
-
-    //function to decide if mobile or not
-    function isMobile(){
-        return ($(window).width() < settings.switchWidth);
-    }
-
-    //function to get text value of element, but not it's children
-    function getText($item){
-        return $.trim($item.clone().children('ul, ol').remove().end().text());
-    }
-
-    //function to check if URL is unique
-    function isUrlUnique(url){
-        return !!(($.inArray(url, uniqueLinks) === -1));
-    }
-
-    //function to do duplicate checking for combined list
-    function checkForDuplicates($menu){
-
-        $menu.find(' > li').each(function(){
-
-            var $li = $(this),
-                link = $li.find('a').attr('href'),
-                parentLink = function(){
-                    if($li.parent().parent().is('li')){
-                        return $li.parent().parent().find('a').attr('href');
-                    } else {
-                        return null;
-                    }
-                };
-
-            //check nested <li>s before checking current one
-            if($li.find(' ul, ol').length){
-                checkForDuplicates($li.find('> ul, > ol'));
-            }
-
-            //remove empty UL's if any are left by LI removals
-            if(!$li.find(' > ul li, > ol li').length){
-                $li.find('ul, ol').remove();
-            }
-
-            //if parent <li> has a link, and it's not unique, append current <li> to the "unique parent" detected earlier
-            if(!isUrlUnique(parentLink(), uniqueLinks) && isUrlUnique(link, uniqueLinks)){
-                $li.appendTo(
-                    $menu.closest('ul#mmnav').find('li:has(a[href='+parentLink()+']):first ul')
-                );
-            }
-            //otherwise, check if the current <li> is unique, if it is, add it to the unique list
-            else if(isUrlUnique(link)){
-                uniqueLinks.push(link);
-            }
-
-            //if it isn't, remove it. Simples.
-            else{
-                $li.remove();
-            }
-        });
-    }
-
-    //function to combine lists into one
-    function combineLists(){
-
-        //create a new list
-        var $menu = $('<ul id="mmnav" />');
-
-        //loop through each menu and extract the list's child items
-        //then append them to the new list
-        $menus.each(function(){
-            $(this).children().clone().appendTo($menu);
-        });
-
-        //de-duplicate any repeated items
-        checkForDuplicates($menu);
-
-        //return new combined list
-        return $menu;
-
-    }//combineLists()
-
-    //function to create options in the select menu
-    function createOption($item, $container, text){
-
-        //if no text param is passed, use list item's text, otherwise use settings.groupPageText
-        if(!text){
-            $('<option value="'+$item.find('a:first').attr('href')+'">'+$.trim(getText($item))+'</option>').appendTo($container);
-        } else {
-            $('<option value="'+$item.find('a:first').attr('href')+'">'+text+'</option>').appendTo($container);
-        }
-    }//createOption()
-
-    //function to create option groups
-    function createOptionGroup($group, $container){
-
-        //create <optgroup> for sub-nav items
-        var $optgroup = $('<optgroup label="'+$.trim(getText($group))+'" />');
-
-        //append top option to it (current list item's text)
-        createOption($group,$optgroup, settings.groupPageText);
-
-        //loop through each sub-nav list
-        $group.children('ul, ol').each(function(){
-
-            //loop through each list item and create an <option> for it
-            $(this).children('li').each(function(){
-                createOption($(this), $optgroup);
-            });
-        });
-
-        //append to select element
-        $optgroup.appendTo($container);
-
-    }//createOptionGroup()
-
-    //function to create <select> menu
-    function createSelect($menu){
-
-        //create <select> to insert into the page
-        var $select = $('<select id="mm'+menuCount+'" role="navigation" class="mnav dont-print" />');
-        menuCount++;
-
-        //create default option if the text is set (set to null for no option)
-        if(settings.topOptionText){
-            createOption($('<li>'+settings.topOptionText+'</li>'), $select);
-        }
-
-        //loop through first list items
-        $menu.children('li').each(function(){
-
-            var $li = $(this);
-
-            //if nested select is wanted, and has sub-nav, add optgroup element with child options
-            if($li.children('ul, ol').length && settings.nested){
-                createOptionGroup($li, $select);
-            }
-            //otherwise it's a single level select menu, so build option
-            else {
-                createOption($li, $select);
-            }
-        });
-
-        //add change event and prepend menu to set element
-        $select
-            .change(function(){goTo($(this).val());})
-            .prependTo(settings.prependTo);
-    }//createSelect()
-
-    //function to run plugin functionality
-    function runPlugin(){
-
-        //menu doesn't exist
-        if(isMobile() && !menuExists()){
-
-            //if user wants to combine menus, create a single <select>
-            if(settings.combine){
-                var $menu = combineLists();
-                createSelect($menu);
-            }
-            //otherwise, create a select for each matched list
-            else{
-                $menus.each(function(){
-                    createSelect($(this));
-                });
-            }
-        }
-
-        //menu exists, and browser is mobile width
-        if(isMobile() && menuExists()){
-            $('.mnav').show();
-            $menus.hide();
-        }
-
-        //otherwise, hide the mobile menu
-        if(!isMobile() && menuExists()){
-            $('.mnav').hide();
-            $menus.show();
-        }
-    }//runPlugin()
-
-    //plugin definition
-    $.fn.mobileMenu = function(options){
-
-        //override the default settings if user provides some
-        if(options){$.extend(settings, options);}
-
-        //check if user has run the plugin against list element(s)
-        if(isList($(this))){
-            $menus = $(this);
-            runPlugin();
-            $(window).resize(function(){runPlugin();});
-        }
-    };//mobileMenu()
-})(jQuery);
-
 /**
  * my own fade plugin
  * @param b
@@ -741,6 +499,282 @@
 })(jQuery);
 
 /**
+ * jquery.dlmenu.js v1.0.1
+ * http://www.codrops.com
+ *
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ * Copyright 2013, Codrops
+ * http://www.codrops.com
+ */
+( function( $, window, undefined ) {
+
+    'use strict';
+
+    // global
+    var Modernizr = window.Modernizr, $body = $( 'body' );
+
+    $.DLMenu = function( options, element ) {
+        this.$el = $( element );
+        this._init( options );
+    };
+
+    // the options
+    $.DLMenu.defaults = {
+        // classes for the animation effects
+        animationClasses : { classin : 'dl-animate-in-1', classout : 'dl-animate-out-1' },
+        // callback: click a link that has a sub menu
+        // el is the link element (li); name is the level name
+        onLevelClick : function( el, name ) { return false; },
+        // callback: click a link that does not have a sub menu
+        // el is the link element (li); ev is the event obj
+        onLinkClick : function( el, ev ) { return false; },
+        backLabel: 'Back',
+        useActiveItemAsBackLabel: false
+    };
+
+    $.DLMenu.prototype = {
+        _init : function( options ) {
+
+            // options
+            this.options = $.extend( true, {}, $.DLMenu.defaults, options );
+            // cache some elements and initialize some variables
+            this._config();
+
+            var animEndEventNames = {
+                    'WebkitAnimation' : 'webkitAnimationEnd',
+                    'OAnimation' : 'oAnimationEnd',
+                    'msAnimation' : 'MSAnimationEnd',
+                    'animation' : 'animationend'
+                },
+                transEndEventNames = {
+                    'WebkitTransition' : 'webkitTransitionEnd',
+                    'MozTransition' : 'transitionend',
+                    'OTransition' : 'oTransitionEnd',
+                    'msTransition' : 'MSTransitionEnd',
+                    'transition' : 'transitionend'
+                };
+            // animation end event name
+            this.animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ] + '.dlmenu';
+            // transition end event name
+            this.transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ] + '.dlmenu',
+                // support for css animations and css transitions
+                this.supportAnimations = Modernizr.cssanimations,
+                this.supportTransitions = Modernizr.csstransitions;
+
+            var ua = navigator.userAgent;
+            var match = ua.match(/Android\s([0-9\.]*)/);
+            if( ua.indexOf("Android") >= 0 )
+            {
+                var androidversion = parseFloat(match[1], 10);
+                if (androidversion < 4)
+                {
+                    this.supportAnimations = false;
+                    this.supportTransitions = false;
+                }
+            }
+
+            this._initEvents();
+
+        },
+        _config : function() {
+            this.open = false;
+            this.$trigger = this.$el.children( '.dl-trigger' );
+            this.$menu = this.$el.children( 'ul.dl-menu' );
+            this.$menuitems = this.$menu.find( 'li:not(.dl-back)' );
+            this.$el.find( 'ul.dl-submenu' ).prepend( '<li class="dl-back"><a href="#">' + this.options.backLabel + '</a></li>' );
+            this.$back = this.$menu.find( 'li.dl-back' );
+
+            if (this.options.useActiveItemAsBackLabel) {
+                this.$back.each(function() {
+                    var $this = $(this),
+                        parentLabel = $this.parents('li:first').find('a:first').text();
+
+                    $this.find('a').html(parentLabel);
+                });
+            }
+        },
+        _initEvents : function() {
+
+            var self = this;
+
+            this.$trigger.on( 'click.dlmenu', function() {
+
+                if( self.open ) {
+                    self._closeMenu();
+                }
+                else {
+                    self._openMenu();
+                }
+                return false;
+
+            } );
+
+            this.$menuitems.on( 'click.dlmenu', function( event ) {
+
+                event.stopPropagation();
+
+                var $item = $(this),
+                    $submenu = $item.children( 'ul.dl-submenu' );
+
+                if( $submenu.length > 0 ) {
+
+                    var $flyin = $submenu.clone().css( 'opacity', 0 ).insertAfter( self.$menu ),
+                        onAnimationEndFn = function() {
+                            self.$menu.off( self.animEndEventName ).removeClass( self.options.animationClasses.classout ).addClass( 'dl-subview' );
+                            $item.addClass( 'dl-subviewopen' ).parents( '.dl-subviewopen:first' ).removeClass( 'dl-subviewopen' ).addClass( 'dl-subview' );
+                            $flyin.remove();
+                        };
+
+                    setTimeout( function() {
+                        $flyin.addClass( self.options.animationClasses.classin );
+                        self.$menu.addClass( self.options.animationClasses.classout );
+                        if( self.supportAnimations ) {
+                            self.$menu.on( self.animEndEventName, onAnimationEndFn );
+                        }
+                        else {
+                            onAnimationEndFn.call();
+                        }
+
+                        self.options.onLevelClick( $item, $item.children( 'a:first' ).text() );
+                    } );
+
+                    return false;
+
+                }
+                else {
+                    self.options.onLinkClick( $item, event );
+                }
+
+            } );
+
+            this.$back.on( 'click.dlmenu', function( event ) {
+
+                var $this = $( this ),
+                    $submenu = $this.parents( 'ul.dl-submenu:first' ),
+                    $item = $submenu.parent(),
+
+                    $flyin = $submenu.clone().insertAfter( self.$menu );
+
+                var onAnimationEndFn = function() {
+                    self.$menu.off( self.animEndEventName ).removeClass( self.options.animationClasses.classin );
+                    $flyin.remove();
+                };
+
+                setTimeout( function() {
+                    $flyin.addClass( self.options.animationClasses.classout );
+                    self.$menu.addClass( self.options.animationClasses.classin );
+                    if( self.supportAnimations ) {
+                        self.$menu.on( self.animEndEventName, onAnimationEndFn );
+                    }
+                    else {
+                        onAnimationEndFn.call();
+                    }
+
+                    $item.removeClass( 'dl-subviewopen' );
+
+                    var $subview = $this.parents( '.dl-subview:first' );
+                    if( $subview.is( 'li' ) ) {
+                        $subview.addClass( 'dl-subviewopen' );
+                    }
+                    $subview.removeClass( 'dl-subview' );
+                } );
+
+                return false;
+
+            } );
+
+        },
+        closeMenu : function() {
+            if( this.open ) {
+                this._closeMenu();
+            }
+        },
+        _closeMenu : function() {
+            var self = this,
+                onTransitionEndFn = function() {
+                    self.$menu.off( self.transEndEventName );
+                    self._resetMenu();
+                };
+
+            this.$menu.removeClass( 'dl-menuopen' );
+            this.$menu.addClass( 'dl-menu-toggle' );
+            this.$trigger.removeClass( 'dl-active' );
+
+            if( this.supportTransitions ) {
+                this.$menu.on( this.transEndEventName, onTransitionEndFn );
+            }
+            else {
+                onTransitionEndFn.call();
+            }
+
+            this.open = false;
+        },
+        openMenu : function() {
+            if( !this.open ) {
+                this._openMenu();
+            }
+        },
+        _openMenu : function() {
+            var self = this;
+            // clicking somewhere else makes the menu close
+            $body.off( 'click' ).on( 'click.dlmenu', function() {
+                self._closeMenu() ;
+            } );
+            this.$menu.addClass( 'dl-menuopen dl-menu-toggle' ).on( this.transEndEventName, function() {
+                $( this ).removeClass( 'dl-menu-toggle' );
+            } );
+            this.$trigger.addClass( 'dl-active' );
+            this.open = true;
+        },
+        // resets the menu to its original state (first level of options)
+        _resetMenu : function() {
+            this.$menu.removeClass( 'dl-subview' );
+            this.$menuitems.removeClass( 'dl-subview dl-subviewopen' );
+        }
+    };
+
+    var logError = function( message ) {
+        if ( window.console ) {
+            window.console.error( message );
+        }
+    };
+
+    $.fn.dlmenu = function( options ) {
+        if ( typeof options === 'string' ) {
+            var args = Array.prototype.slice.call( arguments, 1 );
+            this.each(function() {
+                var instance = $.data( this, 'dlmenu' );
+                if ( !instance ) {
+                    logError( "cannot call methods on dlmenu prior to initialization; " +
+                        "attempted to call method '" + options + "'" );
+                    return;
+                }
+                if ( !$.isFunction( instance[options] ) || options.charAt(0) === "_" ) {
+                    logError( "no such method '" + options + "' for dlmenu instance" );
+                    return;
+                }
+                instance[ options ].apply( instance, args );
+            });
+        }
+        else {
+            this.each(function() {
+                var instance = $.data( this, 'dlmenu' );
+                if ( instance ) {
+                    instance._init();
+                }
+                else {
+                    instance = $.data( this, 'dlmenu', new $.DLMenu( options, this ) );
+                }
+            });
+        }
+        return this;
+    };
+
+} )( jQuery, window );
+
+/**
  * jquery.dropdown.js v1.0.0
  * http://www.codrops.com
  *
@@ -789,7 +823,6 @@
             this.options = $.extend( true, {}, $.DropDown.defaults, options );
             this._layout();
             this._initEvents();
-
         },
         _layout : function() {
 

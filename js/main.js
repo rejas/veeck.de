@@ -42,14 +42,13 @@ $(document).ready(function () {
         $(".extend").slideToggle();
     });
 
-    // Run my jQuery menu plugin (see plugins.js)
-    $(".menu").initMenu();
-
-    // Run Matt Kersley's jQuery Responsive menu plugin (see plugins.js)
-    $("ul#respmenu").mobileMenu({
-        combine: false,
-        switchWidth: 1007
-    });
+    // decide if mobile or not
+    if ($(window).width() < 1024)
+    {
+        $('#mobilemenu').dlmenu();
+    } else {
+        $("#desktopmenu").initMenu();
+    }
 
     // Lazy Load - jQuery plugin for lazy loading images (see plugins.js)
     $("img.lazy").lazyload({
