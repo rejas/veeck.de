@@ -1,5 +1,13 @@
 /*global $*/
-$(document).ready(function () {
+
+window.$my =
+{
+    // Initialize all the queries you want to use more than once
+    nav : $('nav').clone()
+};
+
+$(document).ready(function ()
+{
     "use strict";
 
     $('.isotope figure.skyscraper img').resizecrop({
@@ -42,20 +50,42 @@ $(document).ready(function () {
         $(".extend").slideToggle();
     });
 
-    // decide if mobile or not
-    if ($(window).width() < 1024)
-    {
-        $('#mobilemenu').dlmenu();
-    } else {
-        $("#desktopmenu").initMenu();
-    }
+    /**
+     * decide if mobile or not
+     * @type {Array}
+     */
+    var queries = [
+        {
+            context: 'mobile',
+            match: function() {
+                $('nav').remove();
+                $my.nav.clone().prependTo('body').dlmenu();
+            },
+            unmatch: function() {
+            }
+        },
+        {
+            context: 'desktop',
+            match: function() {
+                $('nav').remove();
+                $my.nav.clone().prependTo('body').initMenu();
+            },
+            unmatch: function() {
+            }
+        }
+    ];
+    MQ.init(queries);
 
-    // Lazy Load - jQuery plugin for lazy loading images (see plugins.js)
+    /**
+     * Lazy Load - jQuery plugin for lazy loading images
+     */
     $("img.lazy").lazyload({
         effect : "fadeIn"
     });
 
-    // Style all <select> elements
+    /**
+     * Dropdown style all <select> elements
+     */
     $('#char_region').dropdown({
         gutter : 5,
         stack : false,
@@ -69,7 +99,10 @@ $(document).ready(function () {
         zindex: 1000
     });
 
-
+    /**
+     * Isotope
+     * @type {*|jQuery|HTMLElement}
+     */
     var $container = $('#container.isotope');
     if ($container.length > 0) {
         $container.isotope({
@@ -81,6 +114,10 @@ $(document).ready(function () {
         });
     }
 
+    /**
+     * AddThis Config
+     * @type {*|{}}
+     */
     var addthis_config = addthis_config||{};
     addthis_config.pubid = 'ra-4f4bb62e22bbd641';
     addthis_config.data_track_addressbar = true;
