@@ -27,11 +27,11 @@ html {
 
 body {
     background: @base2;
-    color: #5c5c5c ;
+    color: @base4;
     font: normal 18px 'Lato', serif;
     line-height: 27px;
     margin: 0 auto;
-    padding: 0 1em;
+    padding: 0;
     overflow-x: hidden;
     -ms-touch-action: auto;
 }
@@ -59,16 +59,13 @@ h1 {
     word-spacing: -0.2em;
     font-family: 'Lobster', serif;
     line-height: 145%;
-    margin: 4px 0 16px 0;
+    margin: 0;
 }
 
 h1 span {
     white-space: nowrap;
     margin-right: 10px;
-}
-
-h1 span:nth-child(2n) {
-    color: @base3;
+    color: @base2;
 }
 
 h2 {
@@ -86,7 +83,10 @@ ul {
 }
 
 header {
-    margin-right: 60px;
+    width: 100%;
+    padding: 1em 60px 1em 1em;
+    background: @base2 url(assets/nav-bg.png);
+    margin-bottom: 2em;
 }
 
 aside {
@@ -95,6 +95,7 @@ aside {
 
 footer {
     text-align: right;
+    padding: 0 1em;
     margin-bottom: 0.5em;
     font-size: 0.75em;
     font-weight: normal;
@@ -241,6 +242,7 @@ figure > div.overlay > p {
 }
 
 #main {
+    padding: 0 1em;
     margin: auto;
     z-index: 0;
 }
