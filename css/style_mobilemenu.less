@@ -18,8 +18,8 @@
     .dl-menuwrapper button {
         background: @base;
         border: none;
-        width: 58px;
-        height: 58px;
+        width: 3.5em;
+        height: 3.5em;
         overflow: hidden;
         position: relative;
         cursor: pointer;
@@ -28,7 +28,7 @@
         color: #fff;
         font-size: medium;
         text-align: center;
-        padding: 32px 0 0 0;
+        padding: 30px 0 0 0;
     }
 
     .dl-menuwrapper button:after {
@@ -39,7 +39,7 @@
         background: #fff;
         top: 10px;
         left: 16%;
-        box-shadow: 0 10px 0 #fff, 0 20px 0 #fff;
+        box-shadow: 0 9px 0 #fff, 0 18px 0 #fff;
     }
 
     .dl-menuwrapper button:hover,
@@ -107,7 +107,7 @@
     }
 
     .dl-menuwrapper .dl-menu {
-        margin: 10px 0 0 0;
+        margin: 1em 0 0 0;
         position: absolute;
         width: 100%;
         opacity: 0;
@@ -162,11 +162,10 @@
 
     /* Dynamically added submenu outside of the menu context */
     .dl-menuwrapper > .dl-submenu {
-        position: absolute;
         width: 100%;
-        top: 69px;
+        position: absolute;
         left: 0;
-        margin: 0;
+        margin: 1em 0 0;
     }
 
     /* Animation classes for moving out and in */
@@ -970,10 +969,9 @@
     }
 
     .dl-menuwrapper > .dl-submenu {
-        top: 72px;
+        margin: 4em 0 0;
     }
 }
-
 
 @media only screen and (max-width : 400px)
 {
