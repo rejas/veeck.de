@@ -114,6 +114,9 @@ $(document).ready(function ()
         });
     }
 
+
+    $('a.fluidbox').fluidbox();
+
     /**
      * AddThis Config
      * @type {*|{}}
