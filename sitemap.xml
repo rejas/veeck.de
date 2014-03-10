@@ -1,117 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
+<urlset
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
     <url>
-        <loc>http://www.veeck.de/</loc>
-        <lastmod>2014-02-12</lastmod>
+        <loc>http://veeck.de/</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>1.00</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/index.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/index.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/personal_g4pc.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/personal_g4pc.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/personal_radio.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/personal_radio.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/personal_friends.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/personal_friends.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/personal_research.html</loc>
-        <lastmod>2013-10-12</lastmod>
+        <loc>http://veeck.de/personal_research.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/travel_01_thai.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/travel_01_thai.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/travel_01_aus.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/travel_01_aus.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/travel_03_usa.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/travel_03_usa.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/travel_03_nz.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/travel_03_nz.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/travel_03_ind.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/travel_03_ind.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/travel_03_asia.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/travel_03_asia.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/travel_04_japan.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/travel_04_japan.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/travel_05_usa.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/travel_05_usa.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/travel_05_panama.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/travel_05_panama.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/travel_06_ukraine.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/travel_06_ukraine.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/travel_07_tansania.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/travel_07_tansania.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/media_panoramas.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/media_panoramas.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://www.veeck.de/links.html</loc>
-        <lastmod>2013-09-06</lastmod>
+        <loc>http://veeck.de/links.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>http://veeck.de/material/iros04polyline_paper.pdf</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>http://veeck.de/material/masterthesis03veeck.pdf</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>http://veeck.de/material/masterthesis03veeckabstract.pdf</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.64</priority>
     </url>
 </urlset>
