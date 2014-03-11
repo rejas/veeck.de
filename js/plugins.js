@@ -219,6 +219,7 @@
             if ($self.attr("src") === undefined || $self.attr("src") === false) {
                 if ($self.is("img")) {
                     $self.attr("src", settings.placeholder);
+                    $self.parent().addClass("no-overlay csspinner");
                 }
             }
 
@@ -240,6 +241,8 @@
                                 $self.css("background-image", "url('" + original + "')");
                             }
                             $self[settings.effect](settings.effect_speed);
+
+                            $self.parent().removeClass('no-overlay csspinner');
 
                             self.loaded = true;
 
