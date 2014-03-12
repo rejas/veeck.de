@@ -1,0 +1,41 @@
+@import url(http://fonts.googleapis.com/css?family=Lato|Lobster);
+
+.font-face("IconFont", "./fonts/arrowmenufont", normal);
+
+[class^="icon-"]:after,
+[class*=" icon-"]:after,
+[class^="icon-"]:before,
+[class*=" icon-"]:before,
+.dl-trigger:after,
+.dl-menuwrapper li.dl-back:after,
+.dl-menuwrapper li > a:not(:only-child):after {
+    font-family: "IconFont" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.dl-trigger:after,
+.icon-font-menu:after {
+    content: "a";
+}
+
+.icon-font-right:after,
+.dl-menuwrapper li.dl-back:after,
+.dl-menuwrapper li > a:not(:only-child):after {
+    content: "d";
+}
+.icon-fontawesome-webfont-2:before {
+    content: "c";
+}
+.icon-fontawesome-webfont-3:before {
+    content: "d";
+}
+.icon-fontawesome-webfont-4:before {
+    content: "e";
+}
