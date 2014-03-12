@@ -1,7 +1,7 @@
 {
-  "name": "web-app-boilerplate",
-  "description": "A front-end web application template based on the HTML5 Boilerplate.",
-  "repository": "https://github.com/KriaSoft/Web-App-Boilerplate",
+  "name": "homepage",
+  "description": "",
+  "repository": "https://bitbucket.org/mveeck/homepage.git",
   "devDependencies": {
     "event-stream": "~3.1.0",
     "express": "~3.4.8",
@@ -10,6 +10,7 @@
     "gulp-concat": "~2.1.7",
     "gulp-csso": "~0.2.2",
     "gulp-embedlr": "~0.5.2",
+    "gulp-inject": "~0.4.1",
     "gulp-less": "~1.1.10",
     "gulp-livereload": "~0.2.0",
     "tiny-lr": "0.0.5",
@@ -17,7 +18,6 @@
     "gulp-uglify": "~0.2.0",
     "gulp-util": "~2.2.12",
     "gulp-jshint": "~1.3.4",
-    "jshint-stylish": "~0.1.5",
-    "gulp-inject": "~0.4.1"
+    "jshint-stylish": "~0.1.5"
   }
 }
