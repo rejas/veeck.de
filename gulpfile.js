@@ -6,6 +6,7 @@ var gutil   = require('gulp-util');
 var clean   = require('gulp-clean');
 var concat  = require('gulp-concat');
 var rename  = require('gulp-rename');
+var inject  = require("gulp-inject");
 var jshint  = require('gulp-jshint');
 var uglify  = require('gulp-uglify');
 var less    = require('gulp-less');
@@ -30,6 +31,12 @@ gulp.task('copy', function () {
             .pipe(gulp.dest('dist/material')),
         gulp.src(['src/js/vendor/**'])
             .pipe(gulp.dest('dist/js/vendor')),
+        gulp.src(['src/css/assets/**'])
+            .pipe(gulp.dest('dist/css/assets')),
+        gulp.src(['src/css/fonts/**'])
+            .pipe(gulp.dest('dist/css/fonts')),
+        gulp.src(['src/css/sprites/**'])
+            .pipe(gulp.dest('dist/css/sprites')),
         gulp.src(['src/*.*'])
             .pipe(gulp.dest('dist'))
     );
@@ -45,6 +52,7 @@ gulp.task('scripts', function () {
 
         // Concatenate, minify and copy all JavaScript (except vendor scripts)
         gulp.src(['src/js/**/*.js', '!src/js/vendor/**'])
+            .pipe(concat('app.js'))
             .pipe(uglify())
             .pipe(gulp.dest('dist/js'))
             .pipe(refresh(lr))
@@ -59,6 +67,16 @@ gulp.task('styles', function () {
         .pipe(csso())
         .pipe(gulp.dest('dist/css'))
         .pipe(refresh(lr));
+});
+
+gulp.task('html', function() {
+    // We src all html files
+    return gulp.src('src/*.html')
+        .pipe(inject(gulp.src(["./dist/**/*.*", '!./dist/js/vendor/**'], {read: false}), {
+            addRootSlash: false,  // ensures proper relative paths
+            ignorePath: '/dist/' // ensures proper relative paths
+        }))
+        .pipe(gulp.dest("./dist"));
 });
 
 gulp.task('server', function () {
@@ -107,7 +125,9 @@ gulp.task('watch', function () {
 });
 
 // The dist task (used to store all files that will go to the server)
-gulp.task('dist', ['clean', 'copy', 'scripts', 'styles']);
+gulp.task('dist', ['clean', 'copy', 'scripts', 'styles'], function(cb) {
+    gulp.run('html', cb);
+});
 
 // The default task (called when you run `gulp`)
 gulp.task('default', ['clean', 'copy', 'scripts', 'styles', 'lr-server', 'server', 'watch']);
