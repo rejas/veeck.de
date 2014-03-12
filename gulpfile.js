@@ -88,7 +88,7 @@ gulp.task('server', function () {
     app.use(express.static(__dirname + '/dist'));
 
     server.on('listening', function () {
-        gutil.log('Listening on http://locahost:' + server.address().port);
+        gutil.log('Listening on http://localhost:' + server.address().port);
     });
 
     server.on('error', function (err) {
