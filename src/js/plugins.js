@@ -270,8 +270,7 @@
  * @param b
  */
 (function($) {
-    "use strict";
-
+    'use strict';
     $.fn.fadeLink = function(b) {
         $(this).on('click', function (event) {
             var $this = $(this);
