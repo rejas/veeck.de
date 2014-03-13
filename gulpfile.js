@@ -72,6 +72,4 @@ gulp.task('html', function() {
         .pipe(gulp.dest("./dist"));
 });
 
-gulp.task('default', ['clean', 'copy', 'scripts', 'styles'], function(cb) {
-    gulp.run('html', cb);
-});
+gulp.task('default', ['clean', 'copy', 'scripts', 'styles', 'html']);
