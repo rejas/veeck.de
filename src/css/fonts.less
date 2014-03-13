@@ -17,16 +17,16 @@
 .icon-font-menu:after:extend(.icon-font:after) {
     content: "a";
 }
+.icon-font-down:after:extend(.icon-font:after) {
+    content: "b";
+}
+.icon-font-up:after:extend(.icon-font:after) {
+    content: "c";
+}
 .icon-font-right:after:extend(.icon-font:after) {
     content: "d";
 }
-.icon-fontawesome-webfont-2:before {
-    content: "c";
-}
-.icon-fontawesome-webfont-3:before {
-    content: "d";
-}
-.icon-fontawesome-webfont-4:before {
+.icon-font-left:after:extend(.icon-font:after) {
     content: "e";
 }
 
@@ -38,4 +38,13 @@
 .dl-menuwrapper li > a:not(:only-child):after {
     &:extend(.icon-font-right:after);
     display: none;
+}
+
+.cd-dropdown > span:after {
+    &:extend(.icon-font-down:after);
+}
+
+.cd-dropdown.cd-active > span:after {
+    &:extend(.icon-font-up:after);
+    line-height: 1.5em;
 }
