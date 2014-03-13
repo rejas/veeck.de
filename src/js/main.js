@@ -90,13 +90,13 @@ $(document).ready(function ()
         gutter : 5,
         stack : false,
         slidingIn : 100,
-        zindex: 1500
+        zindex: 15
     });
     $('#guild_region').dropdown({
         gutter : 5,
         stack : false,
         slidingIn : 100,
-        zindex: 1000
+        zindex: 10
     });
 
     /**
