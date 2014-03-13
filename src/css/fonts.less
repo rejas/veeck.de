@@ -2,13 +2,7 @@
 
 .font-face("IconFont", "./fonts/arrowmenufont", normal);
 
-[class^="icon-"]:after,
-[class*=" icon-"]:after,
-[class^="icon-"]:before,
-[class*=" icon-"]:before,
-.dl-trigger:after,
-.dl-menuwrapper li.dl-back:after,
-.dl-menuwrapper li > a:not(:only-child):after {
+.icon-font:after {
     font-family: "IconFont" !important;
     font-style: normal !important;
     font-weight: normal !important;
@@ -20,14 +14,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.dl-trigger:after,
-.icon-font-menu:after {
+.icon-font-menu:after:extend(.icon-font:after) {
     content: "a";
 }
-
-.icon-font-right:after,
-.dl-menuwrapper li.dl-back:after,
-.dl-menuwrapper li > a:not(:only-child):after {
+.icon-font-right:after:extend(.icon-font:after) {
     content: "d";
 }
 .icon-fontawesome-webfont-2:before {
@@ -38,4 +28,14 @@
 }
 .icon-fontawesome-webfont-4:before {
     content: "e";
+}
+
+.dl-menuwrapper button:after {
+    &:extend(.icon-font-menu:after);
+}
+
+.dl-menuwrapper li.dl-back:after,
+.dl-menuwrapper li > a:not(:only-child):after {
+    &:extend(.icon-font-right:after);
+    display: none;
 }
