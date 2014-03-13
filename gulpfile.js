@@ -2,21 +2,16 @@
 // https://github.com/gulpjs/gulp
 
 var gulp    = require('gulp');
-var gutil   = require('gulp-util');
 var clean   = require('gulp-clean');
 var concat  = require('gulp-concat');
-var rename  = require('gulp-rename');
+var csso    = require('gulp-csso');
 var inject  = require("gulp-inject");
 var jshint  = require('gulp-jshint');
-var uglify  = require('gulp-uglify');
 var less    = require('gulp-less');
-var csso    = require('gulp-csso');
+var rename  = require('gulp-rename');
+var uglify  = require('gulp-uglify');
 var es      = require('event-stream');
-var embedlr = require('gulp-embedlr');
-var refresh = require('gulp-livereload');
-var express = require('express');
-var http    = require('http');
-var lr      = require('tiny-lr')();
+var stylish  = require('jshint-stylish');
 
 gulp.task('clean', function () {
     // Clear the destination folder
@@ -48,14 +43,13 @@ gulp.task('scripts', function () {
         // You can enable or disable default JSHint options in the .jshintrc file
         gulp.src(['src/js/**/*.js', '!src/js/vendor/**'])
             .pipe(jshint('.jshintrc'))
-            .pipe(jshint.reporter(require('jshint-stylish'))),
+            .pipe(jshint.reporter(stylish)),
 
         // Concatenate, minify and copy all JavaScript (except vendor scripts)
         gulp.src(['src/js/**/*.js', '!src/js/vendor/**'])
             .pipe(concat('app.js'))
             .pipe(uglify())
             .pipe(gulp.dest('dist/js'))
-            .pipe(refresh(lr))
     );
 });
 
@@ -66,7 +60,6 @@ gulp.task('styles', function () {
         .pipe(rename('app.css'))
         .pipe(csso())
         .pipe(gulp.dest('dist/css'))
-        .pipe(refresh(lr));
 });
 
 gulp.task('html', function() {
@@ -79,55 +72,6 @@ gulp.task('html', function() {
         .pipe(gulp.dest("./dist"));
 });
 
-gulp.task('server', function () {
-    // Create a HTTP server for static files
-    var port = 3000;
-    var app = express();
-    var server = http.createServer(app);
-
-    app.use(express.static(__dirname + '/dist'));
-
-    server.on('listening', function () {
-        gutil.log('Listening on http://localhost:' + server.address().port);
-    });
-
-    server.on('error', function (err) {
-        if (err.code === 'EADDRINUSE') {
-            gutil.log('Address in use, retrying...');
-            setTimeout(function () {
-                server.listen(port);
-            }, 1000);
-        }
-    });
-
-    server.listen(port);
-});
-
-gulp.task('lr-server', function () {
-    // Create a LiveReload server
-    lr.listen(35729, function (err) {
-        if (err) {
-            gutil.log(err);
-        }
-    });
-});
-
-gulp.task('watch', function () {
-    // Watch .js files and run tasks if they change
-    gulp.watch('src/js/**/*.js', ['scripts']);
-
-    // Watch .less files and run tasks if they change
-    gulp.watch('src/css/**/*.less', ['styles']);
-
-    gulp.src('./src/*.html')
-        .pipe(embedlr())
-        .pipe(gulp.dest('./dist'));
-});
-
-// The dist task (used to store all files that will go to the server)
-gulp.task('dist', ['clean', 'copy', 'scripts', 'styles'], function(cb) {
+gulp.task('default', ['clean', 'copy', 'scripts', 'styles'], function(cb) {
     gulp.run('html', cb);
 });
-
-// The default task (called when you run `gulp`)
-gulp.task('default', ['clean', 'copy', 'scripts', 'styles', 'lr-server', 'server', 'watch']);
