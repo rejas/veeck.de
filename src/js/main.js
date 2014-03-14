@@ -1,6 +1,6 @@
 /*global $*/
 
-window.$my =
+window.$myVars =
 {
     // Initialize all the queries you want to use more than once
     nav : $('nav').clone()
@@ -59,7 +59,7 @@ $(document).ready(function ()
             context: 'mobile',
             match: function() {
                 $('nav').remove();
-                $my.nav.clone().prependTo('body').dlmenu();
+                $myVars.nav.clone().prependTo('body').dlmenu();
             },
             unmatch: function() {
             }
@@ -68,7 +68,7 @@ $(document).ready(function ()
             context: 'desktop',
             match: function() {
                 $('nav').remove();
-                $my.nav.clone().prependTo('body').initMenu();
+                $myVars.nav.clone().prependTo('body').initMenu();
             },
             unmatch: function() {
             }
