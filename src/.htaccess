@@ -681,6 +681,6 @@ FileETag None
     RewriteRule ^(.*)$ /index.html [G]
 </IfModule>
 
-<ifModule mod_deflate.c>
+<IfModule mod_deflate.c>
     mod_gzip_on Yes
 </IfModule>
