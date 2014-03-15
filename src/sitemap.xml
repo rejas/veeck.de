@@ -92,43 +92,43 @@
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://veeck.de/panoramas_360.html</loc>
+        <loc>http://veeck.de/panorama_360.html</loc>
         <lastmod>2014-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://veeck.de/panoramas_big.html</loc>
+        <loc>http://veeck.de/panorama_big.html</loc>
         <lastmod>2014-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://veeck.de/panoramas_cities.html</loc>
+        <loc>http://veeck.de/panorama_cities.html</loc>
         <lastmod>2014-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://veeck.de/panoramas_friends.html</loc>
+        <loc>http://veeck.de/panorama_friends.html</loc>
         <lastmod>2014-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://veeck.de/panoramas_perspective.html</loc>
+        <loc>http://veeck.de/panorama_perspective.html</loc>
         <lastmod>2014-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>http://veeck.de/panoramas_skyscraper.html</loc>
+        <loc>http://veeck.de/panorama_skyscraper.html</loc>
         <lastmod>2014-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>http://veeck.de/panoramas_world.html</loc>
+        <loc>http://veeck.de/panorama_world.html</loc>
         <lastmod>2014-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
