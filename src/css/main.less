@@ -34,11 +34,13 @@
 
 @import "plugin_dropdown.less";
 
-@import "style_smartphone.less";
+@import "style_global.less";
 
-@import "style_tablet.less" screen and (min-width: 600px);
+@import "style_smartphone.less" screen and (max-width: 590px);
 
-@import "style_desktop.less" screen and (min-width: 1024px);
+@import "style_tablet.less" screen and (min-width: 600px) and (max-wdith: 1023px);
+
+@import "style_desktop.less" screen and (min-width: 1024px) and (max-wdith: 1439px);
 
 @import "style_tv.less" screen and (min-width: 1440px);
 
