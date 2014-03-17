@@ -1,0 +1,101 @@
+@import "mixins.less";
+@import "variables.less";
+
+/**
+ * Apply a natural box layout model to all elements
+ */
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+::-moz-selection {
+    background: @base3;
+    color: @base2;
+    text-shadow: none;
+}
+
+::selection {
+    background: @base3;
+    color: @base2;
+    text-shadow: none;
+}
+
+/**
+ * Media Queries for supported browsers.
+ */
+
+html {
+    background: none;
+    font-family: 'mobile';
+}
+
+body:after {
+    display: none;
+}
+
+@media screen and (min-width: 1024px)
+{
+    html {
+        font-family: "desktop";
+    }
+    body:after {
+        content: "desktop";
+    }
+}
+
+/**
+ *
+ */
+
+body {
+    background: @base2;
+    color: @base4;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -ms-touch-action: auto;
+}
+
+#content {
+    padding: 1em;
+}
+
+
+/**
+ * Sprites, glue: 0.4 hash: 4734f92ce1
+ */
+
+.sprite-links {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: -5px;
+    background-image: url('sprites/links.png');
+    background-repeat: no-repeat;
+}
+
+.sprite-links-youtube{background-position:0px 0px;width:130px;height:21px;}
+.sprite-links-woxikon{background-position:0px -21px;width:130px;height:21px;}
+.sprite-links-wowhead{background-position:0px -42px;width:130px;height:21px;}
+.sprite-links-wikipedia{background-position:0px -63px;width:130px;height:21px;}
+.sprite-links-leo{background-position:0px -84px;width:130px;height:21px;}
+.sprite-links-imdb{background-position:0px -105px;width:130px;height:21px;}
+.sprite-links-google{background-position:-130px 0px;width:130px;height:21px;}
+.sprite-links-duckduckgo{background-position:-130px -21px;width:130px;height:21px;}
+.sprite-links-chefkoch{background-position:-130px -42px;width:130px;height:21px;}
+.sprite-links-canoo{background-position:-130px -63px;width:130px;height:21px;}
+
+/* glue: 0.4 hash: 12062bcfab */
+.sprite-research {
+    float: left;
+    background-image: url('sprites/research.png');
+    background-repeat: no-repeat;
+}
+
+.sprite-research-res_wow{background-position:0px 0px;width:200px;height:200px;}
+.sprite-research-res_unilogo{background-position:-200px 0px;width:200px;height:200px;}
+.sprite-research-res_rasterbator{background-position:0px -200px;width:200px;height:200px;}
+.sprite-research-res_nsis{background-position:-200px -200px;width:200px;height:200px;}
+.sprite-research-res_iros2004{background-position:-400px 0px;width:200px;height:200px;}
