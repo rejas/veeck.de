@@ -59,7 +59,7 @@ $(document).ready(function ()
             context: 'mobile',
             match: function() {
                 $('nav').remove();
-                $myVars.nav.clone().prependTo('body').dlmenu();
+                $myVars.nav.clone().prependTo('#swag').dlmenu();
             },
             unmatch: function() {
             }
@@ -68,7 +68,7 @@ $(document).ready(function ()
             context: 'desktop',
             match: function() {
                 $('nav').remove();
-                $myVars.nav.clone().prependTo('body').initMenu();
+                $myVars.nav.clone().prependTo('#swag').initMenu();
             },
             unmatch: function() {
             }
@@ -115,4 +115,15 @@ $(document).ready(function ()
     }
 
     $(".imgLiquidFill").imgLiquid();
+
+    $('div.more').on('click', function() {
+        $.smoothScroll({
+            scrollElement: $('body'),
+            scrollTarget: '#main',
+            easing: 'linear',
+            speed: 500,
+            offset: -50
+        });
+        return false;
+    });
 });
