@@ -1,21 +1,46 @@
-html, body {
+html {
     height: 100%;
 }
 
 body {
-    padding: 0;
+    height: 100%;
+}
+
+p {
+    margin: 0;
+}
+
+#swag {
+    min-height: 100%;
+    width: 50%;
+    background-color: darkolivegreen;
+    color: black;
+    position: absolute;
+}
+
+#content {
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    overflow-y: scroll;
+    width: 50%;
+    background-color: darkseagreen;
 }
 
 nav {
+    /*
     position: fixed;
     text-align: right;
     padding: 110px 0;
     width: 260px;
     height: 100%;
     background: @base url(assets/nav-bg.png) repeat-y;
+    */
 }
 
+
 header {
+    /*
     position: fixed;
     height: 105px;
     width: 100%;
@@ -23,6 +48,7 @@ header {
     margin-left: 260px;
     z-index: 99;
     background: @base2 url(assets/header-bg.png) no-repeat left bottom;
+    */
 }
 
 footer {

@@ -113,16 +113,4 @@ $(document).ready(function ()
             }
         });
     }
-
-
-    $('a.fluidbox').fluidbox();
-
-    /**
-     * AddThis Config
-     * @type {*|{}}
-     */
-    var addthis_config = addthis_config||{};
-    addthis_config.pubid = 'ra-4f4bb62e22bbd641';
-    addthis_config.data_track_addressbar = true;
-    addthis.init();
 });
