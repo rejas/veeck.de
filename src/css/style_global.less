@@ -64,8 +64,10 @@ header {
     padding: 50% 1em;
 }
 
-#content {
-    padding: 1em;
+#main {
+    padding: 0 1em;
+    margin: auto;
+    z-index: 0;
 }
 
 h1 {
@@ -75,6 +77,23 @@ h1 {
     margin: 0;
 }
 
+h2, h3, h4 {
+    text-transform: uppercase;
+}
+
+img {
+    max-width: 100%;
+}
+
+.more {
+    text-align: center;
+    cursor: pointer;
+}
+.more:after {
+    &:extend(.icon-font-more:after);
+    font-size: 48px;
+    cursor: pointer;
+}
 
 /**
  * Sprites, glue: 0.4 hash: 4734f92ce1

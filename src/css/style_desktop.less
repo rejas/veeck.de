@@ -17,15 +17,21 @@ p {
     color: black;
     position: absolute;
 }
-
-#content {
-    position: absolute;
-    left: 50%;
-    height: 100%;
-    overflow-y: scroll;
+#main {
     width: 50%;
-    background-color: darkseagreen;
+    float: right;
+    background-color: @base2;
 }
+
+#mobilemenuButton {
+    display: none;
+}
+
+
+.more {
+    display: none;
+}
+
 
 nav {
     /*
@@ -37,7 +43,6 @@ nav {
     background: @base url(assets/nav-bg.png) repeat-y;
     */
 }
-
 
 header {
     /*
@@ -73,14 +78,12 @@ footer > p {
 }
 
 #main {
+    /*
     float: left;
     padding: 115px 50px 0;
     margin-left: 260px;
     max-width: 960px;
-}
-
-#mobilemenuButton {
-    display: none;
+    */
 }
 
 h1 {
