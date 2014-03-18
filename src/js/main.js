@@ -114,6 +114,15 @@ $(document).ready(function ()
         });
     }
 
+    /**
+     * AddThis Config
+     * @type {*|{}}
+     */
+    var addthis_config = addthis_config||{};
+    addthis_config.pubid = 'ra-4f4bb62e22bbd641';
+    addthis_config.data_track_addressbar = true;
+    addthis.init();
+
     $(".imgLiquidFill").imgLiquid();
 
     $('div.more').on('click', function() {
@@ -122,7 +131,7 @@ $(document).ready(function ()
             scrollTarget: '#main',
             easing: 'linear',
             speed: 500,
-            offset: -50
+            offset: -30
         });
         return false;
     });
