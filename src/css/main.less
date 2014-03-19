@@ -36,13 +36,13 @@
 
 @import "style_global.less";
 
-@import "style_smartphone.less" screen and (max-width: 599px);
+@import "style_smartphone.less" screen and (max-width: 599px) and (orientation: portrait),
+                                screen and (max-width: 767px) and (orientation: landscape);
 
-@import "style_tablet.less" screen and (min-width: 600px) and (max-width: 1023px) and (orientation: portrait);
+@import "style_tablet.less" screen and (min-width: 600px) and (max-width: 1023px) and (orientation: portrait),
+                            screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape);
 
-@import "style_desktop.less" screen and (min-width: 600px) and (max-width: 1023px) and (orientation: landscape);
-
-@import "style_tv.less" screen and (min-width: 1024px) and (orientation: landscape);
+@import "style_monitor" screen and (min-width: 1024px);
 
 /* ==========================================================================
    Helper classes

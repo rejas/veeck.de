@@ -67,7 +67,7 @@ body {
 }
 
 header h1 {
-    padding: 50% 1em;
+    .vertical-align;
 }
 
 h1 {
@@ -106,6 +106,21 @@ a:hover {
 
 img {
     max-width: 100%;
+}
+
+input {
+    padding: 4px 8px 4px 8px;
+    border: 1px solid @base3;
+}
+
+textarea {
+    border: 1px solid @base3;
+    .border-radius(4px);
+}
+
+select {
+    border: 1px solid @base3;
+    .border-radius(4px);
 }
 
 .more {
@@ -190,8 +205,8 @@ article {
     background-image: url('assets/seperator.png');
     background-repeat: no-repeat;
     background-position: 50% 100%;
-    padding-bottom: 1.25em;
-    margin-bottom: 1.25em;
+    padding-bottom: 3em;
+    margin-bottom: 1.5em;
 }
 
 article:last-of-type {
@@ -200,6 +215,51 @@ article:last-of-type {
 
 article ul {
     list-style-position: inside;
+}
+
+/**
+ * Research
+ */
+
+.research_article figure {
+    float: left;
+    width: 100%;
+    margin: 0 0 0.75em 0;
+}
+
+.research_article figcaption {
+    width: auto;
+}
+
+.research_article form {
+    display: table;
+    margin-bottom: 10px;
+}
+
+.research_article form label {
+    display: table-cell;
+    margin-bottom: 10px;
+    width: 100%;
+    float: left;
+}
+
+.research_article input[type="text"] {
+    float: right;
+    width: 66%;
+    height: 32px;
+    margin-bottom: 5px;
+}
+
+.research_article select {
+    float: right;
+    width: 66%;
+}
+
+.research_article input[type="submit"] {
+    float: right;
+    width: 33%;
+    height: 32px;
+
 }
 
 /**
@@ -213,6 +273,33 @@ article ul {
 
 .search_article li {
     padding: 0.2em 0 0.4em;
+}
+
+.search_article form {
+    display: table;
+}
+
+.search_article form label {
+    display: table-cell;
+}
+
+.search_article form > div {
+    display: table-cell;
+}
+
+.search_article form > div > input {
+    width: 100%;
+    text-align: right;
+}
+
+.search_article form input[type="submit"] {
+    display: table-cell;
+    width: 90px;
+    margin-left: 30px;
+}
+
+.search_article > ul > li > a {
+    padding-right: 0.4em;
 }
 
 /**
