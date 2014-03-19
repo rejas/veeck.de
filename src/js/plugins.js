@@ -297,6 +297,9 @@
     "use strict";
     $.fn.initMenu = function(options)
     {
+        this.open = false;
+        var self = this;
+
         var settings =
         {
             action : "click"
@@ -311,14 +314,42 @@
             $.extend(settings, options);
         }
 
+        $('#menuButton').on( 'click', function() {
+            if( self.open ) {
+                closeMenu();
+            }
+            else {
+                openMenu();
+            }
+            return false;
+        } );
+
+        function closeMenu () {
+            if( !self.open ) {
+                return
+            }
+            $('#desktopmenu').hide();
+            self.open = false;
+        }
+
+        function openMenu() {
+            if( self.open ) {
+                return;
+            }
+            $('#desktopmenu').show();
+
+            // clicking somewhere else makes the menu close
+            $('body').off( 'click' ).on( 'click', function() {
+                closeMenu() ;
+            } );
+            self.open = true;
+        }
+
         return this.each(function ()
         {
             $('.acitem', this).hide();
             $('li.expand > .acitem', this).show();
             $('li.expand > .acitem', this).prev().addClass('active');
-            $('#menuButton').on (settings.action, function (e) {
-                $('#desktopmenu').show();
-            });
             $('li a', this).on (settings.action, function (e)
             {
                 e.stopImmediatePropagation();
@@ -1140,12 +1171,10 @@
                     } );
 
                     return false;
-
                 }
                 else {
                     self.options.onLinkClick( $item, event );
                 }
-
             } );
 
             this.$back.on( 'click.dlmenu', function( event ) {
@@ -1342,7 +1371,6 @@
             if( Modernizr.csstransitions ) {
                 setTimeout( function() { self.opts.css( 'transition', 'all ' + self.options.speed + 'ms ' + self.options.easing ); }, 25 );
             }
-
         },
         _transformSelect : function() {
 
@@ -1366,7 +1394,6 @@
                     selectlabel = label;
                     value = val;
                 }
-
             } );
 
             this.listopts = $( '<ul/>' ).append( optshtml );
@@ -1375,7 +1402,6 @@
             this.$el.remove();
 
             return value;
-
         },
         _positionOpts : function( anim ) {
 
@@ -1523,9 +1549,7 @@ imgLiquid.bgs_Available = false;
 imgLiquid.bgs_CheckRunned = false;
 imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
 
-
 (function ($) {
-
     // ___________________________________________________________________
 
     function checkBgsIsavailable() {
@@ -1545,10 +1569,6 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
 
         spanBgs.remove();
     }
-
-
-
-
 
     // ___________________________________________________________________
 
@@ -1578,7 +1598,6 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                 onItemError: null					// params: (index, container, img )
             };
 
-
             checkBgsIsavailable();
             var imgLiquidRoot = this;
 
@@ -1588,9 +1607,6 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
 
             // CallBack
             if (this.settings.onStart) this.settings.onStart();
-
-
-
 
             // ___________________________________________________________________
 
@@ -1602,7 +1618,6 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                     $imgBoxCont = $(this),
                     $img = $('img:first',$imgBoxCont);
                 if (!$img.length) {onError(); return;}
-
 
                 // Extend settings
                 if (!$img.data('imgLiquid_settings')) {
@@ -1616,7 +1631,6 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                 }
                 $img.data('imgLiquid_settings', settings);
 
-
                 // Start CallBack
                 if (settings.onItemStart) settings.onItemStart($i, $imgBoxCont, $img); /* << CallBack */
 
@@ -1627,11 +1641,7 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                 else
                     processOldMethod();
 
-
                 // END MAIN <<
-
-
-
 
                 // ___________________________________________________________________
 
@@ -1664,9 +1674,6 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                     checkFinish();
                 }
 
-
-
-
                 // ___________________________________________________________________
 
                 function processOldMethod() {
@@ -1687,21 +1694,17 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                         return;
                     }
 
-
                     // Reproceess?
                     if ($img.data('imgLiquid_oldProcessed')) {
                         makeOldProcess(); return;
                     }
 
-
                     // Set data
                     $img.data('imgLiquid_oldProcessed', false);
                     $img.data('oldSrc', $img.attr('src'));
 
-
                     // Hide others images
                     $('img:not(:first)', $imgBoxCont).css('display', 'none');
-
 
                     // CSSs
                     $imgBoxCont.css({'overflow': 'hidden'});
@@ -1714,11 +1717,9 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                         'display': 'block'
                     });
 
-
                     // CheckErrors
                     $img.on('error', onError);
                     $img[0].onerror = onError;
-
 
                     // loop until load
                     function onLoad() {
@@ -1731,13 +1732,9 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                         }
                     }
 
-
                     onLoad();
                     checkResponsive();
                 }
-
-
-
 
                 // ___________________________________________________________________
 
@@ -1757,9 +1754,6 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                     setTimeout(checkResponsive, settings.responsiveCheckTime);
                 }
 
-
-
-
                 // ___________________________________________________________________
 
                 function onError() {
@@ -1768,9 +1762,6 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                     if (settings.onItemError) settings.onItemError($i, $imgBoxCont, $img); /* << CallBack */
                     checkFinish();
                 }
-
-
-
 
                 // ___________________________________________________________________
 
@@ -1791,10 +1782,6 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                     return SettingsOverwrite;
                 }
 
-
-
-
-
                 // ___________________________________________________________________
 
                 function makeOldProcess() { /* Only for old browsers, or useBackgroundSize seted false */
@@ -1806,11 +1793,9 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                         $imgCW = $imgBoxCont.width(),
                         $imgCH = $imgBoxCont.height();
 
-
                     // Save original sizes
                     if ($img.data('owidth')	=== undefined) $img.data('owidth',	$img[0].width);
                     if ($img.data('oheight') === undefined) $img.data('oheight', $img[0].height);
-
 
                     // Compare ratio
                     if (settings.fill === ($imgCW / $imgCH) >= ($img.data('owidth') / $img.data('oheight'))) {
@@ -1836,7 +1821,6 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                         if (ha > 0) margL = hdif * ha * 0.01;
                     }
 
-
                     // Align Y
                     va = settings.verticalAlign.toLowerCase();
                     vdif = $imgCH - hn;
@@ -1848,7 +1832,6 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                         if (va > 0) margT = vdif * va * 0.01;
                     }
 
-
                     // Add Css
                     if (settings.hardPixels) {w = wn; h = hn;}
                     $img.css({
@@ -1857,7 +1840,6 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                         'margin-left': Math.floor(margL),
                         'margin-top': Math.floor(margT)
                     });
-
 
                     // FadeIn > Only first time
                     if (!$img.data('imgLiquid_oldProcessed')) {
@@ -1868,21 +1850,15 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                         $imgBoxCont.addClass('imgLiquid_ready');
                     }
 
-
                     if (settings.onItemFinish) settings.onItemFinish($i, $imgBoxCont, $img); /* << CallBack */
                     checkFinish();
                 }
-
-
-
 
                 // ___________________________________________________________________
 
                 function checkFinish() { /* Check callBack */
                     if ($i === imgLiquidRoot.length - 1) if (imgLiquidRoot.settings.onFinish) imgLiquidRoot.settings.onFinish();
                 }
-
-
             });
         }
     });
@@ -1908,7 +1884,6 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
  * Copyright (c) 2013 Karl Swedberg
  * Licensed MIT (https://github.com/kswedberg/jquery-smooth-scroll/blob/master/LICENSE-MIT)
  */
-
 (function($) {
     var version = '1.4.13',
         optionOverrides = {},
