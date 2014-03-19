@@ -1,3 +1,35 @@
+#menuButton {
+    background: @base;
+    border: none;
+    width: 4.5em;
+    height: 4.5em;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    margin-left: 252px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: medium;
+    text-align: center;
+    padding: 2.8em 0 0 0;
+    float: right;
+}
+
+#menuButton:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 48px;
+    line-height: 72px;
+}
+
+#menuButton:hover,
+#menuButton.dl-active {
+    background: @lighten1;
+}
+
 @media only screen and (max-width: 1023px)
 {
     .dl-menuwrapper {
@@ -15,45 +47,13 @@
         z-index: 100;
     }
 
-    .dl-menuwrapper button {
-        background: @base;
-        border: none;
-        width: 4.5em;
-        height: 4.5em;
-        overflow: hidden;
-        position: relative;
-        cursor: pointer;
-        outline: none;
-        margin-left: 252px;
-        color: #fff;
-        text-transform: uppercase;
-        font-size: medium;
-        text-align: center;
-        padding: 2.8em 0 0 0;
-        float: right;
-    }
-
-    .dl-menuwrapper button:after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        font-size: 48px;
-        line-height: 72px;
-    }
-
-    .dl-menuwrapper button:hover,
-    .dl-menuwrapper button.dl-active,
-    .dl-menuwrapper ul {
-        background: @lighten1;
-    }
-
     .dl-menuwrapper ul {
         padding: 0;
         list-style: none;
         -webkit-transform-style: preserve-3d;
         -moz-transform-style: preserve-3d;
         transform-style: preserve-3d;
+        background: @lighten1;
     }
 
     .dl-menuwrapper li {
@@ -324,7 +324,7 @@
         left: 1em;
     }
 
-    .dl-menuwrapper button {
+    #menuButton {
         float: left;
         margin-left: 0;
     }
