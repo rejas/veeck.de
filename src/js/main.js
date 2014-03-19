@@ -59,7 +59,7 @@ $(document).ready(function ()
             context: 'mobile',
             match: function() {
                 $('nav').remove();
-                $myVars.nav.clone().prependTo('#swag').dlmenu();
+                $myVars.nav.clone().prependTo('header').dlmenu();
             },
             unmatch: function() {
             }
@@ -68,7 +68,7 @@ $(document).ready(function ()
             context: 'desktop',
             match: function() {
                 $('nav').remove();
-                $myVars.nav.clone().prependTo('#swag').initMenu();
+                $myVars.nav.clone().prependTo('header').initMenu();
             },
             unmatch: function() {
             }
