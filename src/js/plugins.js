@@ -316,7 +316,7 @@
             $('.acitem', this).hide();
             $('li.expand > .acitem', this).show();
             $('li.expand > .acitem', this).prev().addClass('active');
-            $('#menuButton').on ('click', function (e) {
+            $('#menuButton').on (settings.action, function (e) {
                 $('#desktopmenu').show();
             });
             $('li a', this).on (settings.action, function (e)
