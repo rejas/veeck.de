@@ -46,17 +46,12 @@
 
 .transition (@prop: all, @time: 1s, @ease: linear) {
     -webkit-transition: @prop @time @ease;
-    -moz-transition: @prop @time @ease;
-    -ms-transition: @prop @time @ease;
-    -o-transition: @prop @time @ease;
     transition: @prop @time @ease;
 }
 
 .transform (@rotate: 90deg, @scale: 1, @skew: 1deg, @translate: 10px) {
     -webkit-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
-    -moz-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
     -ms-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
-    -o-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
     transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
 }
 
@@ -86,8 +81,6 @@
     top: 50%;
     margin: 0 auto;
     -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
     transform: translateY(-50%);
 }

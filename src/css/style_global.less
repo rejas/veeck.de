@@ -82,6 +82,7 @@ h1 {
 }
 
 h2, h3, h4 {
+    font-family: 'Fredericka the Great', serif;
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 0.5em;
@@ -97,7 +98,7 @@ ul {
 }
 
 p {
-    margin: 0;
+    margin: 0 0 1em 0;
 }
 
 a:focus {
@@ -146,8 +147,6 @@ select {
  */
 
 figure {
-    background: @base;
-    box-shadow: 2px 2px 3px #666;
     border: 5px solid @base;
     text-decoration: none;
     position: relative;
@@ -170,7 +169,7 @@ figure.fig_right {
 
 figcaption {
     padding: 0.5em 5px;
-    color: @base2;
+    color: @base;
 }
 
 figure > div.overlay {
@@ -203,6 +202,12 @@ figure > div.overlay > p {
 figure.adfigure {
     width: 316px;
     height: 266px;
+}
+
+figcaption {
+    font-family: 'Fredericka the Great', serif;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 /**
