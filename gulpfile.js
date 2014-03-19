@@ -12,6 +12,7 @@ var rename  = require('gulp-rename');
 var uglify  = require('gulp-uglify');
 var es      = require('event-stream');
 var stylish  = require('jshint-stylish');
+var express = require('express');
 
 gulp.task('clean', function () {
     // Clear the destination folder
@@ -22,17 +23,7 @@ gulp.task('clean', function () {
 gulp.task('copy', function () {
     // Copy all application files except *.less and .js into the `dist` folder
     return es.concat(
-        gulp.src(['src/material/**'])
-            .pipe(gulp.dest('dist/material')),
-        gulp.src(['src/js/vendor/**'])
-            .pipe(gulp.dest('dist/js/vendor')),
-        gulp.src(['src/css/assets/**'])
-            .pipe(gulp.dest('dist/css/assets')),
-        gulp.src(['src/css/fonts/**'])
-            .pipe(gulp.dest('dist/css/fonts')),
-        gulp.src(['src/css/sprites/**'])
-            .pipe(gulp.dest('dist/css/sprites')),
-        gulp.src(['src/*.*'])
+        gulp.src(['src/**/*', '!src/js/*.js', '!src/less/**/*.less'])
             .pipe(gulp.dest('dist'))
     );
 });
@@ -71,5 +62,16 @@ gulp.task('html', function() {
         }))
         .pipe(gulp.dest("./dist"));
 });
+
+gulp.task('server', function () {
+    // Create a HTTP server for static files
+    var port = 3000;
+    var app = express();
+
+    app.use(express.static(__dirname + '/src'));
+
+    app.listen(port);
+});
+
 
 gulp.task('default', ['clean', 'copy', 'scripts', 'styles', 'html']);
