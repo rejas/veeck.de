@@ -66,6 +66,10 @@ body {
     z-index: 0;
 }
 
+nav {
+    z-index: 1000;
+}
+
 header h1 {
     .vertical-align;
 }
@@ -90,6 +94,10 @@ section {
 ul {
     margin: 0;
     padding: 0;
+}
+
+p {
+    margin: 0;
 }
 
 a:focus {
@@ -207,6 +215,7 @@ article {
     background-position: 50% 100%;
     padding-bottom: 3em;
     margin-bottom: 1.5em;
+    background-size: 100% 10px;
 }
 
 article:last-of-type {
@@ -215,6 +224,28 @@ article:last-of-type {
 
 article ul {
     list-style-position: inside;
+}
+
+article ul li {
+    padding-bottom: 10px;
+}
+
+
+/**
+ * Radio
+ */
+
+.radio_article audio {
+    width: 100%;
+    margin: 10px 0 25px 0;
+}
+
+.radio_article h3 {
+    margin: 25px 0 5px 0;
+}
+
+.radio_article a {
+    float: right;
 }
 
 /**
@@ -259,7 +290,20 @@ article ul {
     float: right;
     width: 33%;
     height: 32px;
+}
 
+/**
+ * Friends
+ */
+
+.gallery_article {
+    float: left;
+}
+
+.gallery_article figure {
+    float: left;
+    max-width: 46%;
+    margin: 0 0.9em 0.6em 0;
 }
 
 /**
