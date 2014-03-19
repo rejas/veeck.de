@@ -24,6 +24,10 @@ header {
     */
 }
 
+/**
+ * Navigation
+ */
+
 nav {
     position: fixed;
     left: 1em;
@@ -54,7 +58,7 @@ nav ul.menu li ul.acitem li a:hover,
 nav li.expand ul.acitem li.active a:link,
 nav li.expand ul.acitem li.active a:visited {
     //background: url(assets/nav-sub-selected.png) no-repeat center right;
-    background-color: red;
+    background-color: @base3;
 }
 
 nav ul.menu li ul.acitem li.inside a:hover,
@@ -65,19 +69,38 @@ nav li.selected a:link,
 nav li.selected a:visited,
 nav li.inside a:hover {
     //background: url(assets/nav-selected.png) no-repeat center right;
-    background-color: red;
+    background-color: @base3;
 }
 
 nav li a:link,
 nav li a:visited {
-    color: @base2;
+    color: @base;
     font-size: 128.6%;
     text-decoration: none;
     padding: 8px 30px;
     display: block;
     min-height: 31px;
-    background-color: yellow;
 }
+
+/**
+ * Figures
+ */
+
+figure {
+    box-shadow: 1px 2px 3px @complement2;
+}
+
+figure.portrait {
+    width: 33%;
+}
+
+figure.landscape {
+    width: 50%;
+}
+
+/**
+ *
+ */
 
 #main {
     width: 50%;
@@ -106,17 +129,4 @@ footer {
 footer > p {
     width: 100%;
     text-align: right;
-}
-
-
-figure {
-    box-shadow: 1px 2px 3px @complement2;
-}
-
-figure.portrait {
-    width: 33%;
-}
-
-figure.landscape {
-    width: 50%;
 }
