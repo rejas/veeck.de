@@ -70,9 +70,6 @@ header {
     z-index: 0;
 }
 
-#main ul {
-    margin-left: 1em;
-}
 
 h1 {
     font-family: 'Fredericka the Great', serif;
@@ -95,6 +92,36 @@ ul {
     margin: 0;
     padding: 0;
 }
+
+a:focus {
+    outline: none;
+}
+
+a, a:visited {
+    color: @base3;
+}
+
+a:hover {
+    color: @base;
+}
+
+img {
+    max-width: 100%;
+}
+
+.more {
+    text-align: center;
+    cursor: pointer;
+}
+.more:after {
+    &:extend(.icon-font-more:after);
+    font-size: 48px;
+    cursor: pointer;
+}
+
+/**
+ * Figures
+ */
 
 figure {
     background: @base;
@@ -156,30 +183,24 @@ figure.adfigure {
     height: 266px;
 }
 
-a:focus {
-    outline: none;
+/**
+ * Articles
+ */
+
+article {
+    background-image: url('assets/seperator.png');
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+    padding-bottom: 1.25em;
+    margin-bottom: 1.25em;
 }
 
-a, a:visited {
-    color: @base3;
+article:last-of-type {
+    margin-bottom: 0;
 }
 
-a:hover {
-    color: @base;
-}
-
-img {
-    max-width: 100%;
-}
-
-.more {
-    text-align: center;
-    cursor: pointer;
-}
-.more:after {
-    &:extend(.icon-font-more:after);
-    font-size: 48px;
-    cursor: pointer;
+article ul {
+    list-style-position: inside;
 }
 
 /**
