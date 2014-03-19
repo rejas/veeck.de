@@ -103,14 +103,12 @@ figure {
     transform: translateY(0) scale(0.95, 0.95);
 }
 
-
 figure:hover {
     box-shadow: 0 11px 18px rgba(0,0,0,0.2);
     -webkit-transform: translateY(-10px) scale(1, 1);
     -ms-transform: translateY(-10px) scale(1, 1);
     transform: translateY(-10px) scale(1, 1);
 }
-
 
 figure.portrait {
     width: 33%;
@@ -136,9 +134,15 @@ footer {
     position: fixed;
     bottom: 0;
     left: 0;
+    width: 37.2%;
+}
+
+footer > div.addthis_toolbox {
+    width: 40%;
+    margin-top: 5px;
 }
 
 footer > p {
-    width: 100%;
-    text-align: right;
+    float: right;
+    margin-top: 0;
 }
