@@ -1,5 +1,4 @@
 #menuButton {
-    background: @base;
     border: none;
     width: 4.5em;
     height: 4.5em;
@@ -8,13 +7,20 @@
     cursor: pointer;
     outline: none;
     margin-left: 252px;
-    color: #fff;
+    color: @base;
+    background: none;
     text-transform: uppercase;
     font-size: medium;
     text-align: center;
     font-family: 'Fredericka the Great', serif;
     padding: 2.8em 0 0 0;
     float: right;
+
+    -webkit-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+    transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+    -webkit-transform: translateY(0) scale(0.95, 0.95);
+    -ms-transform: translateY(0) scale(0.95, 0.95);
+    transform: translateY(0) scale(0.95, 0.95);
 }
 
 #menuButton:after {
@@ -27,7 +33,9 @@
 
 #menuButton:hover,
 #menuButton.dl-active {
-    background: @lighten1;
+    -webkit-transform: translateY(0) scale(1.05, 1.05);
+    -ms-transform: translateY(0) scale(1.05, 1.05);
+    transform: translateY(0) scale(1.05, 1.05);
 }
 
 @media only screen and (max-width: 1023px)
