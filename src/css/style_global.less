@@ -94,6 +94,7 @@ section {
 ul {
     margin: 0;
     padding: 0;
+    list-style-position: inside;
 }
 
 p {
@@ -240,13 +241,12 @@ article:last-of-type {
 }
 
 article ul {
-    list-style-position: inside;
+    margin-top: 12px;
 }
 
 article ul li {
     padding-bottom: 10px;
 }
-
 
 /**
  * Radio
@@ -281,11 +281,13 @@ article ul li {
 
 .research_article form label {
     display: table-cell;
-    margin-bottom: 10px;
-    width: 100%;
     float: left;
 }
 
+.research_article input[type="text"],
+.research_article input[type="submit"] {
+    height: 32px;
+}
 
 /**
  * Friends
