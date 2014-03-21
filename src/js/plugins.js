@@ -84,7 +84,7 @@
 
         function closeMenu () {
             if( !self.open ) {
-                return
+                return;
             }
             $('#desktopmenu').hide();
             self.open = false;
@@ -410,9 +410,10 @@
  * https://github.com/brunjo/rowGrid.js
  */
 (function($){
+    'use strict';
     $.fn.rowGrid = function( options ) {
         return this.each(function() {
-            $this = $(this);
+            var $this = $(this);
             if(options === 'appended') {
                 options = $this.data('grid-options');
                 var $lastRow = $this.children('.' + options.lastRowClass);
@@ -440,13 +441,16 @@
         firstItemClass: null
     };
 
-    function layout(container, options, items) {
+    function layout(container, options, item) {
         var rowWidth = 0,
+            rowMargin,
             rowElems = [],
-            items = items || container.querySelectorAll(options.itemSelector),
+            rowElemIndex,
+            index,
+            items = item || container.querySelectorAll(options.itemSelector),
             itemsSize = items.length;
 
-        for(var index = 0; index < itemsSize; ++index) {
+        for(index = 0; index < itemsSize; ++index) {
             items[index].removeAttribute('style');
             if (items[index].classList) {
                 items[index].classList.remove(options.firstItemClass, options.lastRowClass);
@@ -460,21 +464,21 @@
         // read
         var containerWidth = container.clientWidth-parseFloat($(container).css('padding-left'))-parseFloat($(container).css('padding-right'));
         var itemAttrs = [];
-        for(var i = 0; i < itemsSize; ++i) {
-            itemAttrs[i] = {
-                outerWidth: items[i].offsetWidth,
-                height: items[i].offsetHeight
+        for(index = 0; index < itemsSize; ++index) {
+            itemAttrs[index] = {
+                outerWidth: items[index].offsetWidth,
+                height: items[index].offsetHeight
             };
         }
 
         // write
-        for(var index = 0; index < itemsSize; ++index) {
+        for(index = 0; index < itemsSize; ++index) {
             rowWidth += itemAttrs[index].outerWidth;
             rowElems.push(items[index]);
 
             // check if it is the last element
             if(index === itemsSize - 1) {
-                for(var rowElemIndex = 0; rowElemIndex<rowElems.length; rowElemIndex++) {
+                for(rowElemIndex = 0; rowElemIndex<rowElems.length; rowElemIndex++) {
                     // if first element in row
                     if(rowElemIndex === 0) {
                         rowElems[rowElemIndex].className += ' ' + options.lastRowClass;
@@ -490,15 +494,15 @@
                 // change margin
                 var maxSave = (options.maxMargin - options.minMargin) * (nrOfElems - 1);
                 if(maxSave < diff) {
-                    var rowMargin = options.minMargin;
+                    rowMargin = options.minMargin;
                     diff -= (options.maxMargin - options.minMargin) * (nrOfElems - 1);
                 } else {
-                    var rowMargin = options.maxMargin - diff / (nrOfElems - 1);
+                    rowMargin = options.maxMargin - diff / (nrOfElems - 1);
                     diff = 0;
                 }
                 var rowElem,
                     widthDiff = 0;
-                for(var rowElemIndex = 0; rowElemIndex<rowElems.length; rowElemIndex++) {
+                for(rowElemIndex = 0; rowElemIndex<rowElems.length; rowElemIndex++) {
                     rowElem = rowElems[rowElemIndex];
                     var rowElemWidth = itemAttrs[index+parseInt(rowElemIndex)-rowElems.length+1].outerWidth;
                     var newWidth = rowElemWidth - (rowElemWidth / rowWidth) * diff;
@@ -1297,19 +1301,26 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
 
 (function ($) {
     // ___________________________________________________________________
-
+    'use strict';
     function checkBgsIsavailable() {
-        if (imgLiquid.bgs_CheckRunned) return;
-        else imgLiquid.bgs_CheckRunned = true;
+        if (imgLiquid.bgs_CheckRunned) {
+            return;
+        } else {
+            imgLiquid.bgs_CheckRunned = true;
+        }
 
         var spanBgs = $('<span style="background-size:cover" />');
         $('body').append(spanBgs);
 
         !function () {
             var bgs_Check = spanBgs[0];
-            if (!bgs_Check || !window.getComputedStyle) return;
+            if (!bgs_Check || !window.getComputedStyle) {
+                return;
+            }
             var compStyle = window.getComputedStyle(bgs_Check, null);
-            if (!compStyle || !compStyle.backgroundSize) return;
+            if (!compStyle || !compStyle.backgroundSize) {
+                return;
+            }
             imgLiquid.bgs_Available = (compStyle.backgroundSize === 'cover');
         }();
 
@@ -1352,7 +1363,9 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
             this.settings = $.extend({}, this.defaults, this.options);
 
             // CallBack
-            if (this.settings.onStart) this.settings.onStart();
+            if (this.settings.onStart) {
+                this.settings.onStart();
+            }
 
             // ___________________________________________________________________
 
@@ -1363,7 +1376,11 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                 var settings = imgLiquidRoot.settings,
                     $imgBoxCont = $(this),
                     $img = $('img:first',$imgBoxCont);
-                if (!$img.length) {onError(); return;}
+
+                if (!$img.length) {
+                    onError();
+                    return;
+                }
 
                 // Extend settings
                 if (!$img.data('imgLiquid_settings')) {
@@ -1378,15 +1395,16 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                 $img.data('imgLiquid_settings', settings);
 
                 // Start CallBack
-                if (settings.onItemStart) settings.onItemStart($i, $imgBoxCont, $img); /* << CallBack */
-
+                if (settings.onItemStart) {
+                    settings.onItemStart($i, $imgBoxCont, $img);
+                } /* << CallBack */
 
                 // Process
-                if (imgLiquid.bgs_Available && settings.useBackgroundSize)
+                if (imgLiquid.bgs_Available && settings.useBackgroundSize) {
                     processBgSize();
-                else
+                } else {
                     processOldMethod();
-
+                }
                 // END MAIN <<
 
                 // ___________________________________________________________________
@@ -1413,7 +1431,9 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
 
                     $('img', $imgBoxCont).css({'display': 'none'});
 
-                    if (settings.onItemFinish) settings.onItemFinish($i, $imgBoxCont, $img); /* << CallBack */
+                    if (settings.onItemFinish) {
+                        settings.onItemFinish($i, $imgBoxCont, $img);
+                    } /* << CallBack */
 
                     $imgBoxCont.addClass('imgLiquid_bgSize');
                     $imgBoxCont.addClass('imgLiquid_ready');
@@ -1442,7 +1462,8 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
 
                     // Reproceess?
                     if ($img.data('imgLiquid_oldProcessed')) {
-                        makeOldProcess(); return;
+                        makeOldProcess();
+                        return;
                     }
 
                     // Set data
@@ -1469,7 +1490,9 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
 
                     // loop until load
                     function onLoad() {
-                        if ($img.data('imgLiquid_error') || $img.data('imgLiquid_loaded') || $img.data('imgLiquid_oldProcessed')) return;
+                        if ($img.data('imgLiquid_error') || $img.data('imgLiquid_loaded') || $img.data('imgLiquid_oldProcessed')) {
+                            return;
+                        }
                         if ($imgBoxCont.is(':visible') && $img[0].complete && $img[0].width > 0 && $img[0].height > 0) {
                             $img.data('imgLiquid_loaded', true);
                             setTimeout(makeOldProcess, $i * settings.delay);
@@ -1488,13 +1511,19 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
 
                     /* Only for oldProcessed method (background-size dont need) */
 
-                    if (!settings.responsive && !$img.data('imgLiquid_oldProcessed')) return;
-                    if (!$img.data('imgLiquid_settings')) return;
+                    if (!settings.responsive && !$img.data('imgLiquid_oldProcessed')) {
+                        return;
+                    }
+                    if (!$img.data('imgLiquid_settings')) {
+                        return;
+                    }
 
                     settings = $img.data('imgLiquid_settings');
 
                     $imgBoxCont.actualSize = $imgBoxCont.get(0).offsetWidth + ($imgBoxCont.get(0).offsetHeight / 10000);
-                    if ($imgBoxCont.sizeOld && $imgBoxCont.actualSize !== $imgBoxCont.sizeOld) makeOldProcess();
+                    if ($imgBoxCont.sizeOld && $imgBoxCont.actualSize !== $imgBoxCont.sizeOld) {
+                        makeOldProcess();
+                    }
 
                     $imgBoxCont.sizeOld = $imgBoxCont.actualSize;
                     setTimeout(checkResponsive, settings.responsiveCheckTime);
@@ -1505,7 +1534,9 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                 function onError() {
                     $img.data('imgLiquid_error', true);
                     $imgBoxCont.addClass('imgLiquid_error');
-                    if (settings.onItemError) settings.onItemError($i, $imgBoxCont, $img); /* << CallBack */
+                    if (settings.onItemError) {
+                        settings.onItemError($i, $imgBoxCont, $img);
+                    } /* << CallBack */
                     checkFinish();
                 }
 
@@ -1519,12 +1550,20 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                             ha =  $imgBoxCont.attr('data-imgLiquid-horizontalAlign'),
                             va =  $imgBoxCont.attr('data-imgLiquid-verticalAlign');
 
-                        if (dif === 'true' || dif === 'false') SettingsOverwrite.fill = Boolean (dif === 'true');
-                        if (ha !== undefined && (ha === 'left' || ha === 'center' || ha === 'right' || ha.indexOf('%') !== -1)) SettingsOverwrite.horizontalAlign = ha;
-                        if (va !== undefined && (va === 'top' ||  va === 'bottom' || va === 'center' || va.indexOf('%') !== -1)) SettingsOverwrite.verticalAlign = va;
+                        if (dif === 'true' || dif === 'false') {
+                            SettingsOverwrite.fill = Boolean (dif === 'true');
+                        }
+                        if (ha !== undefined && (ha === 'left' || ha === 'center' || ha === 'right' || ha.indexOf('%') !== -1)) {
+                            SettingsOverwrite.horizontalAlign = ha;
+                        }
+                        if (va !== undefined && (va === 'top' ||  va === 'bottom' || va === 'center' || va.indexOf('%') !== -1)) {
+                            SettingsOverwrite.verticalAlign = va;
+                        }
                     }
 
-                    if (imgLiquid.isIE && imgLiquidRoot.settings.ieFadeInDisabled) SettingsOverwrite.fadeInTime = 0; //ie no anims
+                    if (imgLiquid.isIE && imgLiquidRoot.settings.ieFadeInDisabled) {
+                        SettingsOverwrite.fadeInTime = 0; //ie no anims
+                    }
                     return SettingsOverwrite;
                 }
 
@@ -1540,8 +1579,12 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                         $imgCH = $imgBoxCont.height();
 
                     // Save original sizes
-                    if ($img.data('owidth')	=== undefined) $img.data('owidth',	$img[0].width);
-                    if ($img.data('oheight') === undefined) $img.data('oheight', $img[0].height);
+                    if ($img.data('owidth')	=== undefined) {
+                        $img.data('owidth',	$img[0].width);
+                    }
+                    if ($img.data('oheight') === undefined) {
+                        $img.data('oheight', $img[0].height);
+                    }
 
                     // Compare ratio
                     if (settings.fill === ($imgCW / $imgCH) >= ($img.data('owidth') / $img.data('oheight'))) {
@@ -1559,23 +1602,39 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                     // Align X
                     ha = settings.horizontalAlign.toLowerCase();
                     hdif = $imgCW - wn;
-                    if (ha === 'left') margL = 0;
-                    if (ha === 'center') margL = hdif * 0.5;
-                    if (ha === 'right') margL = hdif;
-                    if (ha.indexOf('%') !== -1){
+                    if (ha === 'left') {
+                        margL = 0;
+                    }
+                    if (ha === 'center') {
+                        margL = hdif * 0.5;
+                    }
+                    if (ha === 'right') {
+                        margL = hdif;
+                    }
+                    if (ha.indexOf('%') !== -1) {
                         ha = parseInt (ha.replace('%',''), 10);
-                        if (ha > 0) margL = hdif * ha * 0.01;
+                        if (ha > 0) {
+                            margL = hdif * ha * 0.01;
+                        }
                     }
 
                     // Align Y
                     va = settings.verticalAlign.toLowerCase();
                     vdif = $imgCH - hn;
-                    if (va === 'left') margT = 0;
-                    if (va === 'center') margT = vdif * 0.5;
-                    if (va === 'bottom') margT = vdif;
-                    if (va.indexOf('%') !== -1){
+                    if (va === 'left') {
+                        margT = 0;
+                    }
+                    if (va === 'center') {
+                        margT = vdif * 0.5;
+                    }
+                    if (va === 'bottom') {
+                        margT = vdif;
+                    }
+                    if (va.indexOf('%') !== -1) {
                         va = parseInt (va.replace('%',''), 10);
-                        if (va > 0) margT = vdif * va * 0.01;
+                        if (va > 0) {
+                            margT = vdif * va * 0.01;
+                        }
                     }
 
                     // Add Css
@@ -1591,19 +1650,25 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                     if (!$img.data('imgLiquid_oldProcessed')) {
                         $img.fadeTo(settings.fadeInTime, 1);
                         $img.data('imgLiquid_oldProcessed', true);
-                        if (settings.removeBoxBackground) $imgBoxCont.css('background-image', 'none');
+                        if (settings.removeBoxBackground) {
+                            $imgBoxCont.css('background-image', 'none');
+                        }
                         $imgBoxCont.addClass('imgLiquid_nobgSize');
                         $imgBoxCont.addClass('imgLiquid_ready');
                     }
 
-                    if (settings.onItemFinish) settings.onItemFinish($i, $imgBoxCont, $img); /* << CallBack */
+                    if (settings.onItemFinish) {
+                        settings.onItemFinish($i, $imgBoxCont, $img);
+                    } /* << CallBack */
                     checkFinish();
                 }
 
                 // ___________________________________________________________________
 
                 function checkFinish() { /* Check callBack */
-                    if ($i === imgLiquidRoot.length - 1) if (imgLiquidRoot.settings.onFinish) imgLiquidRoot.settings.onFinish();
+                    if (($i === imgLiquidRoot.length - 1) && (imgLiquidRoot.settings.onFinish)) {
+                        imgLiquidRoot.settings.onFinish();
+                    }
                 }
             });
         }
@@ -1612,6 +1677,7 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
 
 // Inject css styles ______________________________________________________
 !function () {
+    'use strict';
     var css = imgLiquid.injectCss,
         head = document.getElementsByTagName('head')[0],
         style = document.createElement('style');
@@ -1631,6 +1697,7 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
  * Licensed MIT (https://github.com/kswedberg/jquery-smooth-scroll/blob/master/LICENSE-MIT)
  */
 (function($) {
+    'use strict';
     var version = '1.4.13',
         optionOverrides = {},
         defaults = {
@@ -1668,11 +1735,11 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
         getScrollable = function(opts) {
             var scrollable = [],
                 scrolled = false,
-                dir = opts.dir && opts.dir == 'left' ? 'scrollLeft' : 'scrollTop';
+                dir = opts.dir && opts.dir === 'left' ? 'scrollLeft' : 'scrollTop';
 
             this.each(function() {
 
-                if (this == document || this == window) { return; }
+                if (this === document || this === window) { return; }
                 var el = $(this);
                 if ( el[dir]() > 0 ) {
                     scrollable.push(this);
@@ -1804,13 +1871,13 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
             opts = $.extend({link: null}, $.fn.smoothScroll.defaults, options || {}, optionOverrides);
             if (opts.scrollElement) {
                 offPos = 'position';
-                if (opts.scrollElement.css('position') == 'static') {
+                if (opts.scrollElement.css('position') === 'static') {
                     opts.scrollElement.css('position', 'relative');
                 }
             }
         }
 
-        scrollDir = opts.direction == 'left' ? 'scrollLeft' : scrollDir;
+        scrollDir = opts.direction === 'left' ? 'scrollLeft' : scrollDir;
 
         if ( opts.scrollElement ) {
             $scroller = opts.scrollElement;
