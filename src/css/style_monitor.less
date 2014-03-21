@@ -23,6 +23,24 @@ header h1 {
     margin-top: 1em;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 37.2%;
+}
+
+footer > div.addthis_toolbox {
+    width: 40%;
+    margin-top: 5px;
+}
+
+footer > p {
+    float: right;
+    font-size: 0.75em;
+    margin-top: 0.25em;
+}
+
 /**
  * Navigation
  */
@@ -97,7 +115,6 @@ figure {
     -webkit-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
     transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
 
-    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
     -webkit-transform: translateY(0) scale(0.95, 0.95);
     -ms-transform: translateY(0) scale(0.95, 0.95);
     transform: translateY(0) scale(0.95, 0.95);
@@ -105,6 +122,7 @@ figure {
 
 figure:hover {
     box-shadow: 0 11px 18px rgba(0,0,0,0.2);
+
     -webkit-transform: translateY(-10px) scale(1, 1);
     -ms-transform: translateY(-10px) scale(1, 1);
     transform: translateY(-10px) scale(1, 1);
@@ -165,21 +183,4 @@ article {
 
 .more {
     display: none;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 37.2%;
-}
-
-footer > div.addthis_toolbox {
-    width: 40%;
-    margin-top: 5px;
-}
-
-footer > p {
-    float: right;
-    margin-top: 0;
 }
