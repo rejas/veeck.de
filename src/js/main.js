@@ -10,26 +10,6 @@ $(document).ready(function ()
 {
     "use strict";
 
-    $('.isotope figure.skyscraper img').resizecrop({
-        width:126,
-        height:276
-    });
-
-    $('.isotope figure.quader img').resizecrop({
-        width:276,
-        height:276
-    });
-
-    $('.isotope figure.wide img').resizecrop({
-        width:276,
-        height:126
-    });
-
-    $('.isotope figure.normal img').resizecrop({
-        width:276,
-        height:126
-    });
-
     // my own fade plugin
     $("nav li a").fadeLink("#main");
 
@@ -99,31 +79,10 @@ $(document).ready(function ()
         zindex: 10
     });
 
-    /**
-     * Isotope
-     * @type {*|jQuery|HTMLElement}
-     */
-    var $container = $('#container.isotope');
-    if ($container.length > 0) {
-        $container.isotope({
-            // options
-            itemSelector : 'figure',
-            masonry: {
-                columnWidth: 160
-            }
-        });
-    }
+    var options = {minMargin: 10, maxMargin: 35, itemSelector: "figure"};
+    $("#container.rowGrid").rowGrid(options);
 
-    /**
-     * AddThis Config
-     * @type {*|{}}
-     */
-    var addthis_config = addthis_config||{};
-    addthis_config.pubid = 'ra-4f4bb62e22bbd641';
-    addthis_config.data_track_addressbar = true;
-    addthis.init();
-
-    $(".imgLiquidFill").imgLiquid();
+    $(".imgLiquidFill").imgLiquid({});
 
     $('div.more').on('click', function() {
         $.smoothScroll({
@@ -135,4 +94,13 @@ $(document).ready(function ()
         });
         return false;
     });
+
+    /**
+     * AddThis Config
+     * @type {*|{}}
+     */
+    var addthis_config = addthis_config||{};
+    addthis_config.pubid = 'ra-4f4bb62e22bbd641';
+    addthis_config.data_track_addressbar = true;
+    addthis.init();
 });
