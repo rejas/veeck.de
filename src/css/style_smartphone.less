@@ -4,6 +4,7 @@ html {
 
 body {
     height: 100%;
+    line-height: 1.4em;
 }
 
 header {
@@ -15,26 +16,8 @@ header h1 {
     position: absolute;
 }
 
-.more {
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    cursor: pointer;
-}
-.more:after {
-    &:extend(.icon-font-more:after);
-    font-size: 48px;
-    cursor: pointer;
-}
-
 h1 {
     font-size: 1.75em;
-    line-height: 145%;
-}
-
-h2 {
-    line-height: 145%;
 }
 
 footer {
@@ -48,6 +31,10 @@ footer .addthis_toolbox {
     width: 200px;
 }
 
+/**
+ * Figures
+ */
+
 figure.portrait {
     width: 50%;
 }
@@ -59,6 +46,46 @@ figure.landscape {
 figure img {
     width: 100%;
 }
+
+/**
+ * Research
+ */
+
+.research_article figure {
+    width: 100%;
+}
+
+.research_article figcaption {
+    width: auto;
+}
+
+.research_article form {
+    margin-bottom: 3em;
+}
+
+.research_article form label {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.research_article input[type="text"] {
+    float: right;
+    width: 66%;
+}
+
+.research_article input[type="submit"] {
+    float: right;
+    width: 33%;
+}
+
+.research_article select {
+    float: right;
+    width: 66%;
+}
+
+/**
+ *
+ */
 
 #adframe {
     float: right;
@@ -79,36 +106,15 @@ figure img {
     padding: 0;
 }
 
-
-/**
- * Research
- */
-
-.research_article figure {
+.more {
+    bottom: 0;
+    position: absolute;
     width: 100%;
+    text-align: center;
+    cursor: pointer;
 }
-
-.research_article figcaption {
-    width: auto;
-}
-.research_article form {
-    margin-bottom: 3em;
-}
-
-.research_article input[type="text"] {
-    float: right;
-    width: 66%;
-    height: 32px;
-    margin-bottom: 5px;
-}
-
-.research_article select {
-    float: right;
-    width: 66%;
-}
-
-.research_article input[type="submit"] {
-    float: right;
-    width: 33%;
-    height: 32px;
+.more:after {
+    &:extend(.icon-font-more:after);
+    font-size: 48px;
+    cursor: pointer;
 }
