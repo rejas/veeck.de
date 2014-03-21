@@ -406,135 +406,123 @@
 
 })(jQuery, window, document);
 
-// http://code.google.com/p/resize-crop/
-(function($)
-{
-    "use strict";
-
-    $.fn.resizecrop = function(opt) {
-
-        var defaults = {
-            width:      50,
-            height:     50,
-            vertical:   "center",
-            horizontal: "center",
-            wrapper:    "span",
-            moveClass:  true,
-            moveId:     true,
-            className:  "resizecrop",
-            zoom:       true,
-            wrapperCSS: {}
-        };
-
-        var options = $.extend(defaults, opt);
-
+/**
+ * https://github.com/brunjo/rowGrid.js
+ */
+(function($){
+    $.fn.rowGrid = function( options ) {
         return this.each(function() {
-
-            var $obj = $(this);
-            $obj.css("display","none"); // remove blink transformation
-            $obj.removeAttr("width").removeAttr("height"); // remove attribute dimensions
-
-            // Wrapper default CSS
-            var wrapper = $(document.createElement(options.wrapper)).css({
-                width: options.width,
-                height: options.height,
-                overflow: "hidden",
-                display: "inline-block",
-                "vertical-align": "middle",
-                "position": "relative"
-            }).css(options.wrapperCSS);
-
-            // move Classes from IMG to Wrapper element
-            if (options.moveClass) {
-
-                var classAttr = $obj.attr("class");
-
-                if (typeof classAttr !== 'undefined' && classAttr !== false && classAttr !== "") {
-
-                    var classList = classAttr.split(/\s+/);
-                    $.each(classList, function(index, className){
-                        wrapper.addClass(className);
-                    });
-                    $obj.removeAttr("class");
-                    $obj.addClass(options.className);
-                }
-            }
-
-            // move Id from IMG to Wrapper element
-            if (options.moveId) {
-                var idName = $obj.attr("id");
-                if (typeof idName !== "undefined" && idName !== false && idName !== "") {
-                    $obj.removeAttr("id");
-                    wrapper.attr("id", idName);
-                }
-            }
-
-            $obj.wrap(wrapper);
-
-            function transform(ref) {
-
-                var width_ratio  = options.width  / ref.width();
-                var height_ratio = options.height / ref.height();
-
-                if (width_ratio > height_ratio) {
-
-                    if (options.zoom || width_ratio < 1) {
-                        ref.width(options.width);
-                    }
-
-                    switch(options.vertical) {
-                        case "top":
-                            ref.css("top", 0);
-                            break;
-                        case "bottom":
-                            ref.css("bottom", 0);
-                            break;
-                        case "center":
-                            ref.css("top", ((ref.height() - options.height) / -2) + "px");
-                    }
-
-                    if (options.zoom || width_ratio < 1) {
-                        ref.css("left", 0);
-                    } else {
-                        ref.css("left", ((ref.width() - options.width) / -2) + "px");
-                    }
-                } else {
-
-                    if (options.zoom || height_ratio < 1) {
-                        ref.height(options.height);
-                    }
-
-                    switch(options.horizontal) {
-                        case "left":
-                            ref.css("left", 0);
-                            break;
-                        case "right":
-                            ref.css("right", 0);
-                            break;
-                        case "center":
-                            ref.css("left", ((ref.width() - options.width) / -2) + "px");
-                    }
-
-                    if (options.zoom || height_ratio < 1) {
-                        ref.css("top", 0);
-                    } else {
-                        ref.css("top", ((ref.height() - options.height) / -2) + "px");
-                    }
-                }
-
-                ref.css({position:"relative",display:"block"});
-            }
-
-            if(this.complete) { // fix load issue in Opera & IE...
-                transform($obj);
+            $this = $(this);
+            if(options === 'appended') {
+                options = $this.data('grid-options');
+                var $lastRow = $this.children('.' + options.lastRowClass);
+                var items = $lastRow.nextAll().add($lastRow);
+                layout(this, options, items);
             } else {
-                $obj.load(function() {
-                    transform($(this));
-                });
+                options = $.extend( {}, $.fn.rowGrid.defaults, options );
+                $this.data('grid-options', options);
+                layout(this, options);
+
+                if(options.resize) {
+                    $(window).on('resize.rowGrid', {container: this}, function(event) {
+                        layout(event.data.container, options);
+                    });
+                }
             }
         });
     };
-    $.fn.cropresize = $.fn.resizecrop; // -- deprecated, Backward compatibility
+
+    $.fn.rowGrid.defaults = {
+        minMargin: null,
+        maxMargin: null,
+        resize: true,
+        lastRowClass: 'last-row',
+        firstItemClass: null
+    };
+
+    function layout(container, options, items) {
+        var rowWidth = 0,
+            rowElems = [],
+            items = items || container.querySelectorAll(options.itemSelector),
+            itemsSize = items.length;
+
+        for(var index = 0; index < itemsSize; ++index) {
+            items[index].removeAttribute('style');
+            if (items[index].classList) {
+                items[index].classList.remove(options.firstItemClass, options.lastRowClass);
+            }
+            else {
+                // IE <10
+                items[index].className = items[index].className.replace(new RegExp('(^|\\b)' + options.firstItemClass + '|' + options.lastRowClass + '(\\b|$)', 'gi'), ' ');
+            }
+        }
+
+        // read
+        var containerWidth = container.clientWidth-parseFloat($(container).css('padding-left'))-parseFloat($(container).css('padding-right'));
+        var itemAttrs = [];
+        for(var i = 0; i < itemsSize; ++i) {
+            itemAttrs[i] = {
+                outerWidth: items[i].offsetWidth,
+                height: items[i].offsetHeight
+            };
+        }
+
+        // write
+        for(var index = 0; index < itemsSize; ++index) {
+            rowWidth += itemAttrs[index].outerWidth;
+            rowElems.push(items[index]);
+
+            // check if it is the last element
+            if(index === itemsSize - 1) {
+                for(var rowElemIndex = 0; rowElemIndex<rowElems.length; rowElemIndex++) {
+                    // if first element in row
+                    if(rowElemIndex === 0) {
+                        rowElems[rowElemIndex].className += ' ' + options.lastRowClass;
+                    }
+                    rowElems[rowElemIndex].style.marginRight = (rowElemIndex < rowElems.length - 1)?options.minMargin+'px' : 0;
+                }
+            }
+
+            // check whether width of row is too high
+            if(rowWidth + options.maxMargin * (rowElems.length - 1) > containerWidth) {
+                var diff = rowWidth + options.maxMargin * (rowElems.length - 1) - containerWidth;
+                var nrOfElems = rowElems.length;
+                // change margin
+                var maxSave = (options.maxMargin - options.minMargin) * (nrOfElems - 1);
+                if(maxSave < diff) {
+                    var rowMargin = options.minMargin;
+                    diff -= (options.maxMargin - options.minMargin) * (nrOfElems - 1);
+                } else {
+                    var rowMargin = options.maxMargin - diff / (nrOfElems - 1);
+                    diff = 0;
+                }
+                var rowElem,
+                    widthDiff = 0;
+                for(var rowElemIndex = 0; rowElemIndex<rowElems.length; rowElemIndex++) {
+                    rowElem = rowElems[rowElemIndex];
+                    var rowElemWidth = itemAttrs[index+parseInt(rowElemIndex)-rowElems.length+1].outerWidth;
+                    var newWidth = rowElemWidth - (rowElemWidth / rowWidth) * diff;
+                    var newHeight = Math.round(itemAttrs[index+parseInt(rowElemIndex)-rowElems.length+1].height * (newWidth / rowElemWidth));
+                    if (widthDiff + 1 - newWidth % 1 >= 0.5 ) {
+                        widthDiff -= newWidth % 1;
+                        newWidth = Math.floor(newWidth);
+                    } else {
+                        widthDiff += 1 - newWidth % 1;
+                        newWidth = Math.ceil(newWidth);
+                    }
+                    rowElem.style.cssText =
+                        'width: ' + newWidth + 'px;' +
+                            'height: ' + newHeight + 'px;' +
+                            'margin-right: ' + ((rowElemIndex < rowElems.length - 1)?rowMargin : 0) + 'px';
+                    if(rowElemIndex === 0) {
+                        rowElem.className += ' ' + options.firstItemClass;
+                    }
+                }
+                rowElems = [],
+                    rowWidth = 0;
+            }
+        }
+    }
 })(jQuery);
 
 /*
