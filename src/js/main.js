@@ -67,8 +67,8 @@ $(document).ready(function ()
         zindex: 10
     });
 
-    var options = {minMargin: 10, maxMargin: 35, itemSelector: "figure"};
-    $("#container.rowGrid").rowGrid(options);
+    var options = {minMargin: 5, maxMargin: 40, itemSelector: "figure"};
+    $(".rowGrid").rowGrid(options);
 
     $(".imgLiquidFill").imgLiquid({});
 
