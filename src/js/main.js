@@ -13,18 +13,6 @@ $(document).ready(function ()
     // my own fade plugin
     $("nav li a").fadeLink("#main");
 
-    // http://www.sycha.com/jquery-smooth-scrolling-internal-anchor-links
-    var lastNavItem;
-    $(".scroll").on("click", function (event) {
-        if (lastNavItem) {
-            lastNavItem.removeClass("active");
-        }
-        lastNavItem = $(this).parent();
-        lastNavItem.addClass("active");
-        event.preventDefault();
-        $("html,body").animate({scrollTop: $(this.hash).offset().top}, 500);
-    });
-
     // my own extender
     $(".extender").on("click", function () {
         $(".extend").slideToggle();
