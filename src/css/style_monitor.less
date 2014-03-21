@@ -23,6 +23,10 @@ header h1 {
     margin-top: 1em;
 }
 
+article {
+    max-width: 960px;
+}
+
 footer {
     position: fixed;
     bottom: 0;
@@ -118,14 +122,18 @@ figure {
     -webkit-transform: translateY(0) scale(0.95, 0.95);
     -ms-transform: translateY(0) scale(0.95, 0.95);
     transform: translateY(0) scale(0.95, 0.95);
+    transform-origin: center;
+    transform-style: preserve-3D;
 }
 
 figure:hover {
     box-shadow: 0 11px 18px rgba(0,0,0,0.2);
 
-    -webkit-transform: translateY(-10px) scale(1, 1);
-    -ms-transform: translateY(-10px) scale(1, 1);
-    transform: translateY(-10px) scale(1, 1);
+    -webkit-transform: translateY(0px) scale(1, 1);
+    -ms-transform: translateY(0px) scale(1, 1);
+    transform: translateY(0px) scale(1, 1);
+    transform-origin: center;
+    transform-style: preserve-3D;
 }
 
 figure.portrait {
@@ -136,6 +144,9 @@ figure.landscape {
     width: 50%;
 }
 
+/**
+ * Research
+ */
 
 .research_article figure {
     width: auto;
@@ -176,10 +187,6 @@ figure.landscape {
 /**
  *
  */
-
-article {
-    max-width: 960px;
-}
 
 .more {
     display: none;
