@@ -29,9 +29,11 @@ article {
 
 footer {
     position: fixed;
-    bottom: 0;
+    bottom: 1em;
     left: 0;
-    width: 37.2%;
+    width: 38.2%;
+    padding: 0 1em;
+    margin: 0;
 }
 
 footer .addthis_toolbox {
@@ -118,9 +120,10 @@ figure {
     -webkit-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
     transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
 
-    -webkit-transform: translateY(0) scale(0.95, 0.95);
-    -ms-transform: translateY(0) scale(0.95, 0.95);
-    transform: translateY(0) scale(0.95, 0.95);
+    -webkit-transform: translateY(0) scale(1, 1);
+    -ms-transform: translateY(0) scale(1, 1);
+    transform: translateY(0) scale(1, 1);
+
     transform-origin: center;
     transform-style: preserve-3D;
 }
@@ -128,9 +131,10 @@ figure {
 figure:hover {
     box-shadow: 0 11px 18px rgba(0,0,0,0.2);
 
-    -webkit-transform: translateY(0px) scale(1, 1);
-    -ms-transform: translateY(0px) scale(1, 1);
-    transform: translateY(0px) scale(1, 1);
+    -webkit-transform: translateY(0px) scale(1.05, 1.05);
+    -ms-transform: translateY(0px) scale(1.05, 1.05);
+    transform: translateY(0px) scale(1.05, 1.05);
+
     transform-origin: center;
     transform-style: preserve-3D;
 }
