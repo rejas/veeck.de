@@ -132,7 +132,7 @@ $(document).ready(function ()
             scrollTarget: '#main',
             easing: 'linear',
             speed: 500,
-            offset: -30
+            offset: -100
         });
         return false;
     });
