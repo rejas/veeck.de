@@ -957,10 +957,10 @@
             // animation end event name
             this.animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ] + '.dlmenu';
             // transition end event name
-            this.transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ] + '.dlmenu',
-                // support for css animations and css transitions
-                this.supportAnimations = Modernizr.cssanimations,
-                this.supportTransitions = Modernizr.csstransitions;
+            this.transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ] + '.dlmenu';
+            // support for css animations and css transitions
+            this.supportAnimations = Modernizr.cssanimations;
+            this.supportTransitions = Modernizr.csstransitions;
 
             var ua = navigator.userAgent;
             var match = ua.match(/Android\s([0-9\.]*)/);
@@ -1079,9 +1079,7 @@
                 } );
 
                 return false;
-
             } );
-
         },
         closeMenu : function() {
             if( this.open ) {
