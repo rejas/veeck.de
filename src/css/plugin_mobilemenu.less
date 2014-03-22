@@ -1,7 +1,6 @@
 #menuButton {
     border: none;
-    width: 4.5em;
-    height: 4.5em;
+    width: 3.5em;
     overflow: hidden;
     position: relative;
     cursor: pointer;
@@ -18,17 +17,18 @@
 
     -webkit-transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
     transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-    -webkit-transform: translateY(0) scale(0.95, 0.95);
-    -ms-transform: translateY(0) scale(0.95, 0.95);
-    transform: translateY(0) scale(0.95, 0.95);
+
+    -webkit-transform: translateY(0) scale(1, 1);
+    -ms-transform: translateY(0) scale(1, 1);
+    transform: translateY(0) scale(1, 1);
 }
 
 #menuButton:after {
     position: absolute;
-    top: 7px;
+    top: 0;
     left: 0;
     width: 100%;
-    font-size: 48px;
+    font-size: 50px;
 }
 
 #menuButton:hover,
