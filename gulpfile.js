@@ -11,21 +11,19 @@ var less    = require('gulp-less');
 var rename  = require('gulp-rename');
 var uglify  = require('gulp-uglify');
 var es      = require('event-stream');
-var stylish  = require('jshint-stylish');
 var express = require('express');
+var stylish = require('jshint-stylish');
 
 gulp.task('clean', function () {
     // Clear the destination folder
-    gulp.src('dist/**/*.*', { read: false })
+    return gulp.src('dist/**/*.*', { read: false })
         .pipe(clean({ force: true }));
 });
 
 gulp.task('copy', function () {
     // Copy all application files except *.less and .js into the `dist` folder
-    return es.concat(
-        gulp.src(['src/**/*', '!src/js/*.js', '!src/less/**/*.less'])
-            .pipe(gulp.dest('dist'))
-    );
+    return gulp.src(['src/**/*', '!src/js/*.js', '!src/less/**/*.less'])
+            .pipe(gulp.dest('dist'));
 });
 
 gulp.task('scripts', function () {
@@ -72,6 +70,5 @@ gulp.task('server', function () {
 
     app.listen(port);
 });
-
 
 gulp.task('default', ['clean', 'copy', 'scripts', 'styles', 'html']);
