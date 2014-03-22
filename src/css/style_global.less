@@ -135,16 +135,6 @@ select {
     .border-radius(4px);
 }
 
-.more {
-    text-align: center;
-    cursor: pointer;
-}
-.more:after {
-    &:extend(.icon-font-more:after);
-    font-size: 48px;
-    cursor: pointer;
-}
-
 footer {
     margin: 0 1em;
     clear: both;
@@ -152,11 +142,13 @@ footer {
 
 footer > p {
     margin-top: 1em;
+    font-family: monospace;
 }
 
 footer .addthis_toolbox {
     float: left;
 }
+
 
 /**
  * Figures
@@ -408,3 +400,22 @@ article ul li {
 .sprite-research-res_rasterbator{background-position:0px -200px;width:200px;height:200px;}
 .sprite-research-res_nsis{background-position:-200px -200px;width:200px;height:200px;}
 .sprite-research-res_iros2004{background-position:-400px 0px;width:200px;height:200px;}
+
+/**
+ *
+ */
+
+.more {
+    text-align: center;
+    cursor: pointer;
+}
+.more:after {
+    &:extend(.icon-font-more:after);
+    font-size: 48px;
+    cursor: pointer;
+}
+
+.changelog span {
+    font-family: monospace;
+    font-size: 1em;
+}
