@@ -10,11 +10,23 @@ body {
 header {
     height: 100%;
     width: 100%;
-    margin-bottom: 2em;
 }
 
 header h1 {
     position: absolute;
+}
+
+header .more {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+header .more:after {
+    font-size: 48px;
+    cursor: pointer;
 }
 
 h1 {
@@ -105,18 +117,4 @@ figure img {
     border: 3px solid @base;
     box-shadow: 2px 2px 3px @complement2;
     .border-radius(4px);
-}
-
-.more {
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    cursor: pointer;
-}
-
-.more:after {
-    &:extend(.icon-font-more:after);
-    font-size: 48px;
-    cursor: pointer;
 }

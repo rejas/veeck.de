@@ -51,7 +51,6 @@ body:after {
  */
 
 body {
-    background: @base2;
     color: @base;
     margin: 0;
     padding: 0;
@@ -60,21 +59,23 @@ body {
     font-family: @fontMain;
 }
 
-#main {
-    padding: 0 1em;
-    z-index: 0;
+header h1 {
+    .vertical-align;
+}
+
+header .imgLiquidFill {
+    opacity: 0.25;
+    height: 100%;
 }
 
 nav {
     z-index: 1000;
 }
 
-header h1 {
-    .vertical-align;
-}
-
-header .imgLiquidFill {
-    height: 100%;
+#main {
+    padding: 1em;
+    z-index: 0;
+    background-color: rgba(128,128,128,0.5);
 }
 
 h1 {
@@ -117,11 +118,8 @@ a:hover {
     color: @base;
 }
 
-img {
+figure img {
     width: 100%;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100%;
 }
 
 input {
@@ -140,8 +138,9 @@ select {
 }
 
 footer {
-    margin: 1em;
+    padding: 1em;
     clear: both;
+    background-color: rgba(128,128,128,0.5);
 }
 
 footer > p {
@@ -390,17 +389,6 @@ article ul li {
 /**
  *
  */
-
-.more {
-    text-align: center;
-    cursor: pointer;
-}
-
-.more:after {
-    &:extend(.icon-font-more:after);
-    font-size: 48px;
-    cursor: pointer;
-}
 
 .changelog span {
     font-family: monospace;
