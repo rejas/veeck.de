@@ -67,47 +67,37 @@ nav ul {
     list-style-type: none;
 }
 
-nav ul.menu li ul.acitem li {
-    height: 28px;
-}
-
 nav ul.menu li ul.acitem li a {
-    height: 24px;
-    line-height: 18px;
-    font-size: 90%;
+    font-size: 0.8em;
 }
 
 nav ul.menu li ul.acitem li a:hover,
-nav li.expand ul.acitem li.active a:link,
-nav li.expand ul.acitem li.active a:visited {
-    //background: url(assets/nav-sub-selected.png) no-repeat center right;
-    background-color: @base3;
-}
-
 nav ul.menu li ul.acitem li.inside a:hover,
+nav li.expand ul.acitem li.active a:link,
+nav li.expand ul.acitem li.active a:visited,
 nav li a:hover,
 nav li.active a:link,
 nav li.active a:visited,
 nav li.selected a:link,
 nav li.selected a:visited,
 nav li.inside a:hover {
-    //background: url(assets/nav-selected.png) no-repeat center right;
-    background-color: @base3;
+    background: @menuBackground;
 }
 
 nav li a:link,
 nav li a:visited {
-    color: @base;
+    color: @menuColor;
     font-size: 128.6%;
     text-decoration: none;
     padding: 8px 30px;
     display: block;
-    min-height: 31px;
+    min-height: 32px;
 }
 
 #desktopmenu {
     display: none;
-    background-color: rgba(255, 255, 255, 0.9);
+    background: @lighten1;
+    opacity: 0.9;
     margin-top: 5em;
 }
 
