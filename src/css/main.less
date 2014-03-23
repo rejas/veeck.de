@@ -26,21 +26,21 @@
 
 @import "plugin_photoswipe";
 
-@import "plugin_isotope.less";
-
 @import "plugin_csspinner";
 
 @import "plugin_mobilemenu.less";
 
 @import "plugin_dropdown.less";
 
-@import "style_smartphone.less";
+@import "style_global.less";
 
-@import "style_tablet.less" screen and (min-width: 600px);
+@import "style_smartphone.less" screen and (max-width: 599px) and (orientation: portrait),
+                                screen and (max-width: 767px) and (orientation: landscape);
 
-@import "style_desktop.less" screen and (min-width: 1024px);
+@import "style_tablet.less" screen and (min-width: 600px) and (max-width: 1023px) and (orientation: portrait),
+                            screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape);
 
-@import "style_tv.less" screen and (min-width: 1440px);
+@import "style_monitor" screen and (min-width: 1024px);
 
 /* ==========================================================================
    Helper classes

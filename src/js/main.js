@@ -10,40 +10,8 @@ $(document).ready(function ()
 {
     "use strict";
 
-    $('.isotope figure.skyscraper img').resizecrop({
-        width:126,
-        height:276
-    });
-
-    $('.isotope figure.quader img').resizecrop({
-        width:276,
-        height:276
-    });
-
-    $('.isotope figure.wide img').resizecrop({
-        width:276,
-        height:126
-    });
-
-    $('.isotope figure.normal img').resizecrop({
-        width:276,
-        height:126
-    });
-
     // my own fade plugin
     $("nav li a").fadeLink("#main");
-
-    // http://www.sycha.com/jquery-smooth-scrolling-internal-anchor-links
-    var lastNavItem;
-    $(".scroll").on("click", function (event) {
-        if (lastNavItem) {
-            lastNavItem.removeClass("active");
-        }
-        lastNavItem = $(this).parent();
-        lastNavItem.addClass("active");
-        event.preventDefault();
-        $("html,body").animate({scrollTop: $(this.hash).offset().top}, 500);
-    });
 
     // my own extender
     $(".extender").on("click", function () {
@@ -59,7 +27,7 @@ $(document).ready(function ()
             context: 'mobile',
             match: function() {
                 $('nav').remove();
-                $myVars.nav.clone().prependTo('body').dlmenu();
+                $myVars.nav.clone().prependTo('header').dlmenu();
             },
             unmatch: function() {
             }
@@ -68,7 +36,7 @@ $(document).ready(function ()
             context: 'desktop',
             match: function() {
                 $('nav').remove();
-                $myVars.nav.clone().prependTo('body').initMenu();
+                $myVars.nav.clone().prependTo('header').initMenu();
             },
             unmatch: function() {
             }
@@ -99,20 +67,75 @@ $(document).ready(function ()
         zindex: 10
     });
 
-    /**
-     * Isotope
-     * @type {*|jQuery|HTMLElement}
-     */
-    var $container = $('#container.isotope');
-    if ($container.length > 0) {
-        $container.isotope({
-            // options
-            itemSelector : 'figure',
-            masonry: {
-                columnWidth: 160
+    var grid = function(el, opts)
+    {
+        if (!el) {
+            return;
+        }
+
+        var itemSize, rowWidth,
+            options = {
+                margin: 5,
+                aspectRatio : 1,
+                initialSize : 150,
+                minSize : 100
+            };
+
+        options = $.extend({}, options, opts);
+
+        window.onresize = function(){
+            calc();
+        };
+        calc();
+
+        function calc(rowItemsNum)
+        {
+            rowWidth = el.offsetWidth;
+
+            rowItemsNum = rowItemsNum || (rowWidth / (options.initialSize - options.margin*2)).toFixed() || 0;
+
+            itemSize = (rowWidth - options.margin * (rowItemsNum+1)) / rowItemsNum - 0.5;
+
+            // check if new size is less than the minimum allowed
+            // if so, show less item's per-row
+            if( itemSize < options.minSize ){
+                if( rowItemsNum > 1 ){
+                    rowItemsNum--;
+                    itemSize = (rowWidth - options.margin * (rowItemsNum+1)) / rowItemsNum;
+                } else {
+                    return;
+                }
             }
+
+            // resize items
+            var len = el.children.length;
+            for (var i = 0; i < len; i++) {
+                el.children[i].style.cssText = "width:" + itemSize + 'px;' +
+                    "height:" + itemSize * options.aspectRatio + 'px';
+            }
+        }
+    };
+
+    // call it
+    grid( document.querySelector('.rowGrid'), {
+        margin: 10,
+        aspectRatio : 9/9,
+        initialSize : 252,
+        minSize : 188
+    });
+
+    $(".imgLiquidFill").imgLiquid({useBackgroundSize: true});
+
+    $('div.more').on('click', function() {
+        $.smoothScroll({
+            scrollElement: $('body'),
+            scrollTarget: '#main',
+            easing: 'linear',
+            speed: 500,
+            offset: -100
         });
-    }
+        return false;
+    });
 
     /**
      * AddThis Config

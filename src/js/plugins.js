@@ -55,6 +55,9 @@
     "use strict";
     $.fn.initMenu = function(options)
     {
+        this.open = false;
+        var self = this;
+
         var settings =
         {
             action : "click"
@@ -67,6 +70,37 @@
                 options.action = 'mouseenter';
             }
             $.extend(settings, options);
+        }
+
+        $('#menuButton').on( 'click', function() {
+            if( self.open ) {
+                closeMenu();
+            }
+            else {
+                openMenu();
+            }
+            return false;
+        } );
+
+        function closeMenu () {
+            if( !self.open ) {
+                return;
+            }
+            $('#desktopmenu').removeClass('dl-menuopen');
+            self.open = false;
+        }
+
+        function openMenu() {
+            if( self.open ) {
+                return;
+            }
+            $('#desktopmenu').addClass('dl-menuopen');
+
+            // clicking somewhere else makes the menu close
+            $('body').off( 'click' ).on( 'click', function() {
+                closeMenu() ;
+            } );
+            self.open = true;
         }
 
         return this.each(function ()
@@ -371,137 +405,6 @@
     });
 
 })(jQuery, window, document);
-
-// http://code.google.com/p/resize-crop/
-(function($)
-{
-    "use strict";
-
-    $.fn.resizecrop = function(opt) {
-
-        var defaults = {
-            width:      50,
-            height:     50,
-            vertical:   "center",
-            horizontal: "center",
-            wrapper:    "span",
-            moveClass:  true,
-            moveId:     true,
-            className:  "resizecrop",
-            zoom:       true,
-            wrapperCSS: {}
-        };
-
-        var options = $.extend(defaults, opt);
-
-        return this.each(function() {
-
-            var $obj = $(this);
-            $obj.css("display","none"); // remove blink transformation
-            $obj.removeAttr("width").removeAttr("height"); // remove attribute dimensions
-
-            // Wrapper default CSS
-            var wrapper = $(document.createElement(options.wrapper)).css({
-                width: options.width,
-                height: options.height,
-                overflow: "hidden",
-                display: "inline-block",
-                "vertical-align": "middle",
-                "position": "relative"
-            }).css(options.wrapperCSS);
-
-            // move Classes from IMG to Wrapper element
-            if (options.moveClass) {
-
-                var classAttr = $obj.attr("class");
-
-                if (typeof classAttr !== 'undefined' && classAttr !== false && classAttr !== "") {
-
-                    var classList = classAttr.split(/\s+/);
-                    $.each(classList, function(index, className){
-                        wrapper.addClass(className);
-                    });
-                    $obj.removeAttr("class");
-                    $obj.addClass(options.className);
-                }
-            }
-
-            // move Id from IMG to Wrapper element
-            if (options.moveId) {
-                var idName = $obj.attr("id");
-                if (typeof idName !== "undefined" && idName !== false && idName !== "") {
-                    $obj.removeAttr("id");
-                    wrapper.attr("id", idName);
-                }
-            }
-
-            $obj.wrap(wrapper);
-
-            function transform(ref) {
-
-                var width_ratio  = options.width  / ref.width();
-                var height_ratio = options.height / ref.height();
-
-                if (width_ratio > height_ratio) {
-
-                    if (options.zoom || width_ratio < 1) {
-                        ref.width(options.width);
-                    }
-
-                    switch(options.vertical) {
-                        case "top":
-                            ref.css("top", 0);
-                            break;
-                        case "bottom":
-                            ref.css("bottom", 0);
-                            break;
-                        case "center":
-                            ref.css("top", ((ref.height() - options.height) / -2) + "px");
-                    }
-
-                    if (options.zoom || width_ratio < 1) {
-                        ref.css("left", 0);
-                    } else {
-                        ref.css("left", ((ref.width() - options.width) / -2) + "px");
-                    }
-                } else {
-
-                    if (options.zoom || height_ratio < 1) {
-                        ref.height(options.height);
-                    }
-
-                    switch(options.horizontal) {
-                        case "left":
-                            ref.css("left", 0);
-                            break;
-                        case "right":
-                            ref.css("right", 0);
-                            break;
-                        case "center":
-                            ref.css("left", ((ref.width() - options.width) / -2) + "px");
-                    }
-
-                    if (options.zoom || height_ratio < 1) {
-                        ref.css("top", 0);
-                    } else {
-                        ref.css("top", ((ref.height() - options.height) / -2) + "px");
-                    }
-                }
-
-                ref.css({position:"relative",display:"block"});
-            }
-
-            if(this.complete) { // fix load issue in Opera & IE...
-                transform($obj);
-            } else {
-                $obj.load(function() {
-                    transform($(this));
-                });
-            }
-        });
-    };
-    $.fn.cropresize = $.fn.resizecrop; // -- deprecated, Backward compatibility
-})(jQuery);
 
 /*
  * onMediaQuery
@@ -812,10 +715,10 @@
             // animation end event name
             this.animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ] + '.dlmenu';
             // transition end event name
-            this.transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ] + '.dlmenu',
-                // support for css animations and css transitions
-                this.supportAnimations = Modernizr.cssanimations,
-                this.supportTransitions = Modernizr.csstransitions;
+            this.transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ] + '.dlmenu';
+            // support for css animations and css transitions
+            this.supportAnimations = Modernizr.cssanimations;
+            this.supportTransitions = Modernizr.csstransitions;
 
             var ua = navigator.userAgent;
             var match = ua.match(/Android\s([0-9\.]*)/);
@@ -895,12 +798,10 @@
                     } );
 
                     return false;
-
                 }
                 else {
                     self.options.onLinkClick( $item, event );
                 }
-
             } );
 
             this.$back.on( 'click.dlmenu', function( event ) {
@@ -936,9 +837,7 @@
                 } );
 
                 return false;
-
             } );
-
         },
         closeMenu : function() {
             if( this.open ) {
@@ -1097,7 +996,6 @@
             if( Modernizr.csstransitions ) {
                 setTimeout( function() { self.opts.css( 'transition', 'all ' + self.options.speed + 'ms ' + self.options.easing ); }, 25 );
             }
-
         },
         _transformSelect : function() {
 
@@ -1121,7 +1019,6 @@
                     selectlabel = label;
                     value = val;
                 }
-
             } );
 
             this.listopts = $( '<ul/>' ).append( optshtml );
@@ -1130,7 +1027,6 @@
             this.$el.remove();
 
             return value;
-
         },
         _positionOpts : function( anim ) {
 
@@ -1240,3 +1136,687 @@
     };
 
 } )( jQuery, window );
+
+/*!
+imgLiquid v0.9.944 / 03-05-2013
+jQuery plugin to resize images to fit in a container.
+Copyright (c) 2012 Alejandro Emparan (karacas) @krc_ale
+Dual licensed under the MIT and GPL licenses
+https://github.com/karacas/imgLiquid
+**/
+/*
+ex:
+	$('.imgLiquid').imgLiquid({fill:true});
+
+	// OPTIONS:
+
+	> js:
+			fill: true,
+			verticalAlign:		// 'center' //	'top'	//	'bottom' // '50%'  // '10%'
+			horizontalAlign:	// 'center' //	'left'	//	'right'  // '50%'  // '10%'
+
+	> CallBacks:
+			onStart:		function(){},
+			onFinish:		function(){},
+			onItemStart:	function(index, container, img){},
+			onItemFinish:	function(index, container, img){}
+
+	> hml5 data attr (overwrite all)
+			data-imgLiquid-fill='true'
+			data-imgLiquid-horizontalAlign='center'
+			data-imgLiquid-verticalAlign='center'
+*/
+//
+
+
+var imgLiquid = imgLiquid || {VER: '0.9.944'};
+imgLiquid.bgs_Available = false;
+imgLiquid.bgs_CheckRunned = false;
+imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
+
+(function ($) {
+    // ___________________________________________________________________
+    'use strict';
+    function checkBgsIsavailable() {
+        if (imgLiquid.bgs_CheckRunned) {
+            return;
+        } else {
+            imgLiquid.bgs_CheckRunned = true;
+        }
+
+        var spanBgs = $('<span style="background-size:cover" />');
+        $('body').append(spanBgs);
+
+        !function () {
+            var bgs_Check = spanBgs[0];
+            if (!bgs_Check || !window.getComputedStyle) {
+                return;
+            }
+            var compStyle = window.getComputedStyle(bgs_Check, null);
+            if (!compStyle || !compStyle.backgroundSize) {
+                return;
+            }
+            imgLiquid.bgs_Available = (compStyle.backgroundSize === 'cover');
+        }();
+
+        spanBgs.remove();
+    }
+
+    // ___________________________________________________________________
+
+    $.fn.extend({
+        imgLiquid: function (options) {
+
+            this.defaults = {
+                fill: true,
+                verticalAlign: 'center',			//	'top'	//	'bottom' // '50%'  // '10%'
+                horizontalAlign: 'center',			//	'left'	//	'right'  // '50%'  // '10%'
+                useBackgroundSize: true,
+                useDataHtmlAttr: true,
+
+                responsive: true,					/* Only for use with BackgroundSize false (or old browsers) */
+                delay: 0,							/* Only for use with BackgroundSize false (or old browsers) */
+                fadeInTime: 0,						/* Only for use with BackgroundSize false (or old browsers) */
+                removeBoxBackground: true,			/* Only for use with BackgroundSize false (or old browsers) */
+                hardPixels: true,					/* Only for use with BackgroundSize false (or old browsers) */
+                responsiveCheckTime: 500,			/* Only for use with BackgroundSize false (or old browsers) */ /* time to check div resize */
+                timecheckvisibility: 500,			/* Only for use with BackgroundSize false (or old browsers) */ /* time to recheck if visible/loaded */
+
+                // CALLBACKS
+                onStart: null,						// no-params
+                onFinish: null,						// no-params
+                onItemStart: null,					// params: (index, container, img )
+                onItemFinish: null,					// params: (index, container, img )
+                onItemError: null					// params: (index, container, img )
+            };
+
+            checkBgsIsavailable();
+            var imgLiquidRoot = this;
+
+            // Extend global settings
+            this.options = options;
+            this.settings = $.extend({}, this.defaults, this.options);
+
+            // CallBack
+            if (this.settings.onStart) {
+                this.settings.onStart();
+            }
+
+            // ___________________________________________________________________
+
+            return this.each(function ($i) {
+
+                // MAIN >> each for image
+
+                var settings = imgLiquidRoot.settings,
+                    $imgBoxCont = $(this),
+                    $img = $('img:first',$imgBoxCont);
+
+                if (!$img.length) {
+                    onError();
+                    return;
+                }
+
+                // Extend settings
+                if (!$img.data('imgLiquid_settings')) {
+                    // First time
+                    settings = $.extend({}, imgLiquidRoot.settings, getSettingsOverwrite());
+                } else {
+                    // Recall
+                    // Remove Classes
+                    $imgBoxCont.removeClass('imgLiquid_error').removeClass('imgLiquid_ready');
+                    settings = $.extend({}, $img.data('imgLiquid_settings'), imgLiquidRoot.options);
+                }
+                $img.data('imgLiquid_settings', settings);
+
+                // Start CallBack
+                if (settings.onItemStart) {
+                    settings.onItemStart($i, $imgBoxCont, $img);
+                } /* << CallBack */
+
+                // Process
+                if (imgLiquid.bgs_Available && settings.useBackgroundSize) {
+                    processBgSize();
+                } else {
+                    processOldMethod();
+                }
+                // END MAIN <<
+
+                // ___________________________________________________________________
+
+                function processBgSize() {
+
+                    // Check change img src
+                    if ($imgBoxCont.css('background-image').indexOf(encodeURI($img.attr('src'))) === -1) {
+                        // Change
+                        $imgBoxCont.css({'background-image': 'url("' + encodeURI($img.attr('src')) + '")'});
+                    }
+
+                    $imgBoxCont.css({
+                        'background-size':		(settings.fill) ? 'cover' : 'contain',
+                        'background-position':	(settings.horizontalAlign + ' ' + settings.verticalAlign).toLowerCase(),
+                        'background-repeat':	'no-repeat'
+                    });
+
+                    $('a:first', $imgBoxCont).css({
+                        'display':	'block',
+                        'width':	'100%',
+                        'height':	'100%'
+                    });
+
+                    $('img', $imgBoxCont).css({'display': 'none'});
+
+                    if (settings.onItemFinish) {
+                        settings.onItemFinish($i, $imgBoxCont, $img);
+                    } /* << CallBack */
+
+                    $imgBoxCont.addClass('imgLiquid_bgSize');
+                    $imgBoxCont.addClass('imgLiquid_ready');
+                    checkFinish();
+                }
+
+                // ___________________________________________________________________
+
+                function processOldMethod() {
+
+                    // Check change img src
+                    if ($img.data('oldSrc') && $img.data('oldSrc') !== $img.attr('src')) {
+
+                        /* Clone & Reset img */
+                        var $imgCopy = $img.clone().removeAttr('style');
+                        $imgCopy.data('imgLiquid_settings', $img.data('imgLiquid_settings'));
+                        $img.parent().prepend($imgCopy);
+                        $img.remove();
+                        $img = $imgCopy;
+                        $img[0].width = 0;
+
+                        // Bug ie with > if (!$img[0].complete && $img[0].width) onError();
+                        setTimeout(processOldMethod, 10);
+                        return;
+                    }
+
+                    // Reproceess?
+                    if ($img.data('imgLiquid_oldProcessed')) {
+                        makeOldProcess();
+                        return;
+                    }
+
+                    // Set data
+                    $img.data('imgLiquid_oldProcessed', false);
+                    $img.data('oldSrc', $img.attr('src'));
+
+                    // Hide others images
+                    $('img:not(:first)', $imgBoxCont).css('display', 'none');
+
+                    // CSSs
+                    $imgBoxCont.css({'overflow': 'hidden'});
+                    $img.fadeTo(0, 0).removeAttr('width').removeAttr('height').css({
+                        'visibility': 'visible',
+                        'max-width': 'none',
+                        'max-height': 'none',
+                        'width': 'auto',
+                        'height': 'auto',
+                        'display': 'block'
+                    });
+
+                    // CheckErrors
+                    $img.on('error', onError);
+                    $img[0].onerror = onError;
+
+                    // loop until load
+                    function onLoad() {
+                        if ($img.data('imgLiquid_error') || $img.data('imgLiquid_loaded') || $img.data('imgLiquid_oldProcessed')) {
+                            return;
+                        }
+                        if ($imgBoxCont.is(':visible') && $img[0].complete && $img[0].width > 0 && $img[0].height > 0) {
+                            $img.data('imgLiquid_loaded', true);
+                            setTimeout(makeOldProcess, $i * settings.delay);
+                        } else {
+                            setTimeout(onLoad, settings.timecheckvisibility);
+                        }
+                    }
+
+                    onLoad();
+                    checkResponsive();
+                }
+
+                // ___________________________________________________________________
+
+                function checkResponsive() {
+
+                    /* Only for oldProcessed method (background-size dont need) */
+
+                    if (!settings.responsive && !$img.data('imgLiquid_oldProcessed')) {
+                        return;
+                    }
+                    if (!$img.data('imgLiquid_settings')) {
+                        return;
+                    }
+
+                    settings = $img.data('imgLiquid_settings');
+
+                    $imgBoxCont.actualSize = $imgBoxCont.get(0).offsetWidth + ($imgBoxCont.get(0).offsetHeight / 10000);
+                    if ($imgBoxCont.sizeOld && $imgBoxCont.actualSize !== $imgBoxCont.sizeOld) {
+                        makeOldProcess();
+                    }
+
+                    $imgBoxCont.sizeOld = $imgBoxCont.actualSize;
+                    setTimeout(checkResponsive, settings.responsiveCheckTime);
+                }
+
+                // ___________________________________________________________________
+
+                function onError() {
+                    $img.data('imgLiquid_error', true);
+                    $imgBoxCont.addClass('imgLiquid_error');
+                    if (settings.onItemError) {
+                        settings.onItemError($i, $imgBoxCont, $img);
+                    } /* << CallBack */
+                    checkFinish();
+                }
+
+                // ___________________________________________________________________
+
+                function getSettingsOverwrite() {
+                    var SettingsOverwrite = {};
+
+                    if (imgLiquidRoot.settings.useDataHtmlAttr) {
+                        var dif = $imgBoxCont.attr('data-imgLiquid-fill'),
+                            ha =  $imgBoxCont.attr('data-imgLiquid-horizontalAlign'),
+                            va =  $imgBoxCont.attr('data-imgLiquid-verticalAlign');
+
+                        if (dif === 'true' || dif === 'false') {
+                            SettingsOverwrite.fill = Boolean (dif === 'true');
+                        }
+                        if (ha !== undefined && (ha === 'left' || ha === 'center' || ha === 'right' || ha.indexOf('%') !== -1)) {
+                            SettingsOverwrite.horizontalAlign = ha;
+                        }
+                        if (va !== undefined && (va === 'top' ||  va === 'bottom' || va === 'center' || va.indexOf('%') !== -1)) {
+                            SettingsOverwrite.verticalAlign = va;
+                        }
+                    }
+
+                    if (imgLiquid.isIE && imgLiquidRoot.settings.ieFadeInDisabled) {
+                        SettingsOverwrite.fadeInTime = 0; //ie no anims
+                    }
+                    return SettingsOverwrite;
+                }
+
+                // ___________________________________________________________________
+
+                function makeOldProcess() { /* Only for old browsers, or useBackgroundSize seted false */
+
+                    // Calculate size
+                    var w, h, wn, hn, ha, va, hdif, vdif,
+                        margT = 0,
+                        margL = 0,
+                        $imgCW = $imgBoxCont.width(),
+                        $imgCH = $imgBoxCont.height();
+
+                    // Save original sizes
+                    if ($img.data('owidth')	=== undefined) {
+                        $img.data('owidth',	$img[0].width);
+                    }
+                    if ($img.data('oheight') === undefined) {
+                        $img.data('oheight', $img[0].height);
+                    }
+
+                    // Compare ratio
+                    if (settings.fill === ($imgCW / $imgCH) >= ($img.data('owidth') / $img.data('oheight'))) {
+                        w = '100%';
+                        h = 'auto';
+                        wn = Math.floor($imgCW);
+                        hn = Math.floor($imgCW * ($img.data('oheight') / $img.data('owidth')));
+                    } else {
+                        w = 'auto';
+                        h = '100%';
+                        wn = Math.floor($imgCH * ($img.data('owidth') / $img.data('oheight')));
+                        hn = Math.floor($imgCH);
+                    }
+
+                    // Align X
+                    ha = settings.horizontalAlign.toLowerCase();
+                    hdif = $imgCW - wn;
+                    if (ha === 'left') {
+                        margL = 0;
+                    }
+                    if (ha === 'center') {
+                        margL = hdif * 0.5;
+                    }
+                    if (ha === 'right') {
+                        margL = hdif;
+                    }
+                    if (ha.indexOf('%') !== -1) {
+                        ha = parseInt (ha.replace('%',''), 10);
+                        if (ha > 0) {
+                            margL = hdif * ha * 0.01;
+                        }
+                    }
+
+                    // Align Y
+                    va = settings.verticalAlign.toLowerCase();
+                    vdif = $imgCH - hn;
+                    if (va === 'left') {
+                        margT = 0;
+                    }
+                    if (va === 'center') {
+                        margT = vdif * 0.5;
+                    }
+                    if (va === 'bottom') {
+                        margT = vdif;
+                    }
+                    if (va.indexOf('%') !== -1) {
+                        va = parseInt (va.replace('%',''), 10);
+                        if (va > 0) {
+                            margT = vdif * va * 0.01;
+                        }
+                    }
+
+                    // Add Css
+                    if (settings.hardPixels) {w = wn; h = hn;}
+                    $img.css({
+                        'width': w,
+                        'height': h,
+                        'margin-left': Math.floor(margL),
+                        'margin-top': Math.floor(margT)
+                    });
+
+                    // FadeIn > Only first time
+                    if (!$img.data('imgLiquid_oldProcessed')) {
+                        $img.fadeTo(settings.fadeInTime, 1);
+                        $img.data('imgLiquid_oldProcessed', true);
+                        if (settings.removeBoxBackground) {
+                            $imgBoxCont.css('background-image', 'none');
+                        }
+                        $imgBoxCont.addClass('imgLiquid_nobgSize');
+                        $imgBoxCont.addClass('imgLiquid_ready');
+                    }
+
+                    if (settings.onItemFinish) {
+                        settings.onItemFinish($i, $imgBoxCont, $img);
+                    } /* << CallBack */
+                    checkFinish();
+                }
+
+                // ___________________________________________________________________
+
+                function checkFinish() { /* Check callBack */
+                    if (($i === imgLiquidRoot.length - 1) && (imgLiquidRoot.settings.onFinish)) {
+                        imgLiquidRoot.settings.onFinish();
+                    }
+                }
+            });
+        }
+    });
+})(jQuery);
+
+// Inject css styles ______________________________________________________
+!function () {
+    'use strict';
+    var css = imgLiquid.injectCss,
+        head = document.getElementsByTagName('head')[0],
+        style = document.createElement('style');
+    style.type = 'text/css';
+    if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+    } else {
+        style.appendChild(document.createTextNode(css));
+    }
+    head.appendChild(style);
+}();
+
+/*!
+ * Smooth Scroll - v1.4.13 - 2013-11-02
+ * https://github.com/kswedberg/jquery-smooth-scroll
+ * Copyright (c) 2013 Karl Swedberg
+ * Licensed MIT (https://github.com/kswedberg/jquery-smooth-scroll/blob/master/LICENSE-MIT)
+ */
+(function($) {
+    'use strict';
+    var version = '1.4.13',
+        optionOverrides = {},
+        defaults = {
+            exclude: [],
+            excludeWithin:[],
+            offset: 0,
+
+            // one of 'top' or 'left'
+            direction: 'top',
+
+            // jQuery set of elements you wish to scroll (for $.smoothScroll).
+            //  if null (default), $('html, body').firstScrollable() is used.
+            scrollElement: null,
+
+            // only use if you want to override default behavior
+            scrollTarget: null,
+
+            // fn(opts) function to be called before scrolling occurs.
+            // `this` is the element(s) being scrolled
+            beforeScroll: function() {},
+
+            // fn(opts) function to be called after scrolling occurs.
+            // `this` is the triggering element
+            afterScroll: function() {},
+            easing: 'swing',
+            speed: 400,
+
+            // coefficient for "auto" speed
+            autoCoefficent: 2,
+
+            // $.fn.smoothScroll only: whether to prevent the default click action
+            preventDefault: true
+        },
+
+        getScrollable = function(opts) {
+            var scrollable = [],
+                scrolled = false,
+                dir = opts.dir && opts.dir === 'left' ? 'scrollLeft' : 'scrollTop';
+
+            this.each(function() {
+
+                if (this === document || this === window) { return; }
+                var el = $(this);
+                if ( el[dir]() > 0 ) {
+                    scrollable.push(this);
+                } else {
+                    // if scroll(Top|Left) === 0, nudge the element 1px and see if it moves
+                    el[dir](1);
+                    scrolled = el[dir]() > 0;
+                    if ( scrolled ) {
+                        scrollable.push(this);
+                    }
+                    // then put it back, of course
+                    el[dir](0);
+                }
+            });
+
+            // If no scrollable elements, fall back to <body>,
+            // if it's in the jQuery collection
+            // (doing this because Safari sets scrollTop async,
+            // so can't set it to 1 and immediately get the value.)
+            if (!scrollable.length) {
+                this.each(function(index) {
+                    if (this.nodeName === 'BODY') {
+                        scrollable = [this];
+                    }
+                });
+            }
+
+            // Use the first scrollable element if we're calling firstScrollable()
+            if ( opts.el === 'first' && scrollable.length > 1 ) {
+                scrollable = [ scrollable[0] ];
+            }
+
+            return scrollable;
+        },
+        isTouch = 'ontouchend' in document;
+
+    $.fn.extend({
+        scrollable: function(dir) {
+            var scrl = getScrollable.call(this, {dir: dir});
+            return this.pushStack(scrl);
+        },
+        firstScrollable: function(dir) {
+            var scrl = getScrollable.call(this, {el: 'first', dir: dir});
+            return this.pushStack(scrl);
+        },
+
+        smoothScroll: function(options, extra) {
+            options = options || {};
+
+            if ( options === 'options' ) {
+                if ( !extra ) {
+                    return this.first().data('ssOpts');
+                }
+                return this.each(function() {
+                    var $this = $(this),
+                        opts = $.extend($this.data('ssOpts') || {}, extra);
+
+                    $(this).data('ssOpts', opts);
+                });
+            }
+
+            var opts = $.extend({}, $.fn.smoothScroll.defaults, options),
+                locationPath = $.smoothScroll.filterPath(location.pathname);
+
+            this
+                .unbind('click.smoothscroll')
+                .bind('click.smoothscroll', function(event) {
+                    var link = this,
+                        $link = $(this),
+                        thisOpts = $.extend({}, opts, $link.data('ssOpts') || {}),
+                        exclude = opts.exclude,
+                        excludeWithin = thisOpts.excludeWithin,
+                        elCounter = 0, ewlCounter = 0,
+                        include = true,
+                        clickOpts = {},
+                        hostMatch = ((location.hostname === link.hostname) || !link.hostname),
+                        pathMatch = thisOpts.scrollTarget || ( $.smoothScroll.filterPath(link.pathname) || locationPath ) === locationPath,
+                        thisHash = escapeSelector(link.hash);
+
+                    if ( !thisOpts.scrollTarget && (!hostMatch || !pathMatch || !thisHash) ) {
+                        include = false;
+                    } else {
+                        while (include && elCounter < exclude.length) {
+                            if ($link.is(escapeSelector(exclude[elCounter++]))) {
+                                include = false;
+                            }
+                        }
+                        while ( include && ewlCounter < excludeWithin.length ) {
+                            if ($link.closest(excludeWithin[ewlCounter++]).length) {
+                                include = false;
+                            }
+                        }
+                    }
+
+                    if ( include ) {
+
+                        if ( thisOpts.preventDefault ) {
+                            event.preventDefault();
+                        }
+
+                        $.extend( clickOpts, thisOpts, {
+                            scrollTarget: thisOpts.scrollTarget || thisHash,
+                            link: link
+                        });
+                        $.smoothScroll( clickOpts );
+                    }
+                });
+
+            return this;
+        }
+    });
+
+    $.smoothScroll = function(options, px) {
+        if ( options === 'options' && typeof px === 'object' ) {
+            return $.extend(optionOverrides, px);
+        }
+        var opts, $scroller, scrollTargetOffset, speed,
+            scrollerOffset = 0,
+            offPos = 'offset',
+            scrollDir = 'scrollTop',
+            aniProps = {},
+            aniOpts = {},
+            scrollprops = [];
+
+        if (typeof options === 'number') {
+            opts = $.extend({link: null}, $.fn.smoothScroll.defaults, optionOverrides);
+            scrollTargetOffset = options;
+        } else {
+            opts = $.extend({link: null}, $.fn.smoothScroll.defaults, options || {}, optionOverrides);
+            if (opts.scrollElement) {
+                offPos = 'position';
+                if (opts.scrollElement.css('position') === 'static') {
+                    opts.scrollElement.css('position', 'relative');
+                }
+            }
+        }
+
+        scrollDir = opts.direction === 'left' ? 'scrollLeft' : scrollDir;
+
+        if ( opts.scrollElement ) {
+            $scroller = opts.scrollElement;
+            if ( !(/^(?:HTML|BODY)$/).test($scroller[0].nodeName) ) {
+                scrollerOffset = $scroller[scrollDir]();
+            }
+        } else {
+            $scroller = $('html, body').firstScrollable(opts.direction);
+        }
+
+        // beforeScroll callback function must fire before calculating offset
+        opts.beforeScroll.call($scroller, opts);
+
+        scrollTargetOffset = (typeof options === 'number') ? options :
+            px ||
+                ( $(opts.scrollTarget)[offPos]() &&
+                    $(opts.scrollTarget)[offPos]()[opts.direction] ) ||
+                0;
+
+        aniProps[scrollDir] = scrollTargetOffset + scrollerOffset + opts.offset;
+        speed = opts.speed;
+
+        // automatically calculate the speed of the scroll based on distance / coefficient
+        if (speed === 'auto') {
+
+            // if aniProps[scrollDir] == 0 then we'll use scrollTop() value instead
+            speed = aniProps[scrollDir] || $scroller.scrollTop();
+
+            // divide the speed by the coefficient
+            speed = speed / opts.autoCoefficent;
+        }
+
+        aniOpts = {
+            duration: speed,
+            easing: opts.easing,
+            complete: function() {
+                opts.afterScroll.call(opts.link, opts);
+            }
+        };
+
+        if (opts.step) {
+            aniOpts.step = opts.step;
+        }
+
+        if ($scroller.length) {
+            $scroller.stop().animate(aniProps, aniOpts);
+        } else {
+            opts.afterScroll.call(opts.link, opts);
+        }
+    };
+
+    $.smoothScroll.version = version;
+    $.smoothScroll.filterPath = function(string) {
+        return string
+            .replace(/^\//,'')
+            .replace(/(?:index|default).[a-zA-Z]{3,4}$/,'')
+            .replace(/\/$/,'');
+    };
+
+// default options
+    $.fn.smoothScroll.defaults = defaults;
+
+    function escapeSelector (str) {
+        return str.replace(/(:|\.)/g,'\\$1');
+    }
+
+})(jQuery);

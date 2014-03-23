@@ -1,4 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Lato|Lobster);
+@import url(http://fonts.googleapis.com/css?family=Nothing+You+Could+Do|Raleway);
+
+@fontHeader:    'Nothing You Could Do';
+@fontMain:      'Raleway';
 
 .font-face("IconFont", "./fonts/arrowmenufont", normal);
 
@@ -14,23 +17,26 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-font-menu:after:extend(.icon-font:after) {
+.icon-font-left:after:extend(.icon-font:after) {
     content: "a";
 }
-.icon-font-down:after:extend(.icon-font:after) {
+.icon-font-right:after:extend(.icon-font:after) {
     content: "b";
 }
 .icon-font-up:after:extend(.icon-font:after) {
     content: "c";
 }
-.icon-font-right:after:extend(.icon-font:after) {
+.icon-font-down:after:extend(.icon-font:after) {
     content: "d";
 }
-.icon-font-left:after:extend(.icon-font:after) {
-    content: "e";
+.icon-font-more:after:extend(.icon-font:after) {
+    content: "d";
+}
+.icon-font-menu:after:extend(.icon-font:after) {
+    content: "m";
 }
 
-.dl-menuwrapper button:after {
+#menuButton:after {
     &:extend(.icon-font-menu:after);
 }
 
@@ -42,9 +48,14 @@
 
 .cd-dropdown > span:after {
     &:extend(.icon-font-down:after);
+    line-height: 1.25em;
 }
 
 .cd-dropdown.cd-active > span:after {
     &:extend(.icon-font-up:after);
-    line-height: 1.5em;
+    line-height: 1.25em;
+}
+
+header .more:after {
+    &:extend(.icon-font-more:after);
 }
