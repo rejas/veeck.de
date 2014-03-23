@@ -88,8 +88,8 @@ h1 {
 h2, h3, h4 {
     font-family: @fontHeader, serif;
     text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 0.5em;
+    line-height: 1.25em;
+    margin: 0 0 0.5em 0;
 }
 
 section {
@@ -116,10 +116,6 @@ a, a:visited {
 
 a:hover {
     color: @base;
-}
-
-figure img {
-    width: 100%;
 }
 
 input {
@@ -162,6 +158,10 @@ figure {
     margin: 0;
 }
 
+figure img {
+    width: 100%;
+}
+
 figure.fig_full {
     margin: 0 0 1em 0;
 }
@@ -174,11 +174,6 @@ figure.fig_left {
 figure.fig_right {
     float: right;
     margin: 0 0 1em 1em;
-}
-
-figcaption {
-    padding: 0.5em 5px;
-    color: @base;
 }
 
 figure > div.overlay {
@@ -214,6 +209,8 @@ figcaption {
     font-family: @fontHeader, serif;
     text-align: center;
     text-transform: uppercase;
+    padding: 0.5em;
+    color: @base;
 }
 
 .rowGrid {
