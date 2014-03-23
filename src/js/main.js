@@ -124,7 +124,7 @@ $(document).ready(function ()
         minSize : 188
     });
 
-    $(".imgLiquidFill").imgLiquid({});
+    $(".imgLiquidFill").imgLiquid({useBackgroundSize: false});
 
     $('div.more').on('click', function() {
         $.smoothScroll({
