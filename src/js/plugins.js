@@ -328,7 +328,7 @@
             if( !self.open ) {
                 return;
             }
-            $('#desktopmenu').hide();
+            $('#desktopmenu').removeClass('dl-menuopen');
             self.open = false;
         }
 
@@ -336,7 +336,7 @@
             if( self.open ) {
                 return;
             }
-            $('#desktopmenu').show();
+            $('#desktopmenu').addClass('dl-menuopen');
 
             // clicking somewhere else makes the menu close
             $('body').off( 'click' ).on( 'click', function() {
