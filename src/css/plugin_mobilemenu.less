@@ -76,13 +76,13 @@
         line-height: 20px;
         text-transform: uppercase;
         font-weight: 300;
-        color: #fff;
+        color: @menuColor;
         outline: none;
         text-decoration: none;
     }
 
     .no-touch .dl-menuwrapper li a:hover {
-        background: rgba(255,248,213,0.1);
+        background: @menuBackground;
     }
 
     .dl-menuwrapper li.dl-back > a {
@@ -93,14 +93,14 @@
     .dl-menuwrapper li.dl-back:after,
     .dl-menuwrapper li > a:not(:only-child):after {
         display: block;
-        color: #fff;
+        color: @menuColor;
         position: absolute;
         top: 0;
         line-height: 55px;
     }
 
     .dl-menuwrapper li.dl-back:after {
-        color: #fff;
+        color: @menuColor;
         left: 10px;
         line-height: 46px;
         -webkit-transform: rotate(180deg);
