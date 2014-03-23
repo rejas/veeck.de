@@ -65,10 +65,6 @@ figure img {
     width: 100%;
 }
 
-.rowGrid figure {
-    width: 100% !important;
-}
-
 /**
  * Research
  */
@@ -99,6 +95,32 @@ figure img {
 .research_article select {
     float: right;
     width: 66%;
+}
+
+/**
+ * Galleries
+ */
+
+.gallery_article figure {
+    width: 48%;
+}
+
+.gallery_article figure:nth-of-type(odd) {
+    margin-right: 2%;
+}
+
+.gallery_article figure.normal,
+.gallery_article figure.wide {
+    width: 100%;
+}
+
+.gallery_article figure.skyscraper {
+    width: 32%;
+    margin-right: 1%;
+}
+
+.gallery_article figure.skyscraper:nth-child(3n) {
+    margin-right: 0;
 }
 
 /**

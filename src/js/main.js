@@ -67,64 +67,8 @@ $(document).ready(function ()
         zindex: 10
     });
 
-    var grid = function(el, opts)
-    {
-        if (!el) {
-            return;
-        }
-
-        var itemSize, rowWidth,
-            options = {
-                margin: 5,
-                aspectRatio : 1,
-                initialSize : 150,
-                minSize : 100
-            };
-
-        options = $.extend({}, options, opts);
-
-        window.onresize = function(){
-            calc();
-        };
-        calc();
-
-        function calc(rowItemsNum)
-        {
-            rowWidth = el.offsetWidth;
-
-            rowItemsNum = rowItemsNum || (rowWidth / (options.initialSize - options.margin*2)).toFixed() || 0;
-
-            itemSize = (rowWidth - options.margin * (rowItemsNum+1)) / rowItemsNum - 0.5;
-
-            // check if new size is less than the minimum allowed
-            // if so, show less item's per-row
-            if( itemSize < options.minSize ){
-                if( rowItemsNum > 1 ){
-                    rowItemsNum--;
-                    itemSize = (rowWidth - options.margin * (rowItemsNum+1)) / rowItemsNum;
-                } else {
-                    return;
-                }
-            }
-
-            // resize items
-            var len = el.children.length;
-            for (var i = 0; i < len; i++) {
-                el.children[i].style.cssText = "width:" + itemSize + 'px;' +
-                    "height:" + itemSize * options.aspectRatio + 'px';
-            }
-        }
-    };
-
-    // call it
-    grid( document.querySelector('.rowGrid'), {
-        margin: 10,
-        aspectRatio : 9/9,
-        initialSize : 252,
-        minSize : 188
-    });
-
     $(".imgLiquidFill").imgLiquid({useBackgroundSize: true});
+    $(".gallery_article figure").imgLiquid({useBackgroundSize: false});
 
     $('div.more').on('click', function() {
         $.smoothScroll({
