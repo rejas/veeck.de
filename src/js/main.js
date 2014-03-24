@@ -57,14 +57,14 @@ $(document).ready(function ()
     $('#char_region').dropdown({
         gutter : 5,
         stack : false,
-        slidingIn : 100,
+        slidingIn : false,
         zindex: 15
     });
 
     $('#guild_region').dropdown({
         gutter : 5,
         stack : false,
-        slidingIn : 100,
+        slidingIn : false,
         zindex: 10
     });
 

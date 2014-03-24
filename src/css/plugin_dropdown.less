@@ -14,6 +14,7 @@
     height: 30px;
     line-height: 30px;
     color: @base3;
+    background-color: @menuColor;
     font-weight: 300;
     font-size: 16px;
     display: block;
@@ -103,19 +104,12 @@
 .cd-active.cd-dropdown ul li span {
     border: 1px solid @base3;
     .transition (all 0.2s linear 0s);
+    height: 30px;
+    margin-top: 5px;
+    line-height: 1.8em;
 }
 
 .cd-active.cd-dropdown ul li span:hover {
     background: @base;
     color: #fff;
-}
-
-@media only screen and (min-width: 600px)
-{
-    .cd-dropdown,
-    .cd-select {
-        width: 170px;
-        margin: 0 auto;
-        float: left;
-    }
 }
