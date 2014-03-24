@@ -60,6 +60,7 @@ $(document).ready(function ()
         slidingIn : 100,
         zindex: 15
     });
+
     $('#guild_region').dropdown({
         gutter : 5,
         stack : false,
@@ -68,7 +69,6 @@ $(document).ready(function ()
     });
 
     $(".imgLiquidFill").imgLiquid({useBackgroundSize: true});
-    $(".gallery_article figure").imgLiquid({useBackgroundSize: false});
 
     $('div.more').on('click', function() {
         $.smoothScroll({
