@@ -29,6 +29,14 @@ header .more:after {
     cursor: pointer;
 }
 
+header .more p {
+    margin: 0;
+}
+
+#main {
+    overflow-x: hidden;
+}
+
 h1 {
     font-size: 1.75em;
     line-height: 1.4em;
@@ -116,27 +124,9 @@ figure img {
 
 .gallery_article figure.skyscraper {
     width: 32%;
-    margin-right: 1%;
+    margin-right: 0.9%;
 }
 
 .gallery_article figure.skyscraper:nth-child(3n) {
     margin-right: 0;
-}
-
-/**
- *
- */
-
-#adframe {
-    float: right;
-    margin: 3px 3px 0 3px;
-}
-
-.extend {
-    display: none;
-    padding: 0.35em;
-    margin: 15px 0 15px 0;
-    border: 3px solid @base;
-    box-shadow: 2px 2px 3px @complement2;
-    .border-radius(4px);
 }
