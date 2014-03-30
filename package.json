@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "description": "",
+  "version": "3",
   "repository": "https://bitbucket.org/mveeck/homepage.git",
   "devDependencies": {
     "gulp": "~3.5.0",
