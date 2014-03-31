@@ -39,7 +39,6 @@ gulp.task('jshint', function () {
             .pipe(jshint.reporter(stylish));
 });
 
-
 gulp.task('scripts', function () {
     // Concatenate, minify and copy all JavaScript (except vendor scripts)
     return gulp.src(['src/js/**/*.js', '!src/js/vendor/**'])
