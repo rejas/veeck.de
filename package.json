@@ -1,9 +1,9 @@
 {
   "name": "homepage",
-  "version": "3",
+  "version": "3.0.0",
   "repository": "https://bitbucket.org/mveeck/homepage.git",
   "devDependencies": {
-    "gulp": "~3.5.0",
+    "gulp": "~3.6.0",
     "gulp-clean": "~0.2.4",
     "gulp-concat": "~2.1.7",
     "gulp-csso": "~0.2.2",
