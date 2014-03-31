@@ -27,7 +27,7 @@ gulp.task('clean', function () {
 
 gulp.task('copy', function () {
     // Copy all application files except *.less and .js into the `dist` folder
-    return gulp.src(['src/**/*', '!src/js/*.js', '!src/less/**/*.less'])
+    return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/less/**/*.less'])
             .pipe(gulp.dest('dist'));
 });
 
@@ -37,6 +37,13 @@ gulp.task('jshint', function () {
     return gulp.src(['src/js/**/*.js', '!src/js/vendor/**'])
             .pipe(jshint('.jshintrc'))
             .pipe(jshint.reporter(stylish));
+});
+
+gulp.task('vendorscripts', function () {
+    // Minify and copy all vendor scripts
+    return gulp.src(['src/js/vendor/**'])
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js/vendor'));
 });
 
 gulp.task('scripts', function () {
@@ -94,6 +101,6 @@ gulp.task('server', function () {
 });
 
 // The default task (called when you run `gulp`)
-gulp.task('local', ['clean', 'copy', 'scripts', 'styles', 'html', 'lr-server', 'server', 'watch']);
+gulp.task('local', ['clean', 'copy', 'scripts', 'vendorscripts', 'styles', 'html', 'lr-server', 'server', 'watch']);
 
-gulp.task('default', ['clean', 'copy', 'jshint', 'scripts', 'styles', 'html']);
+gulp.task('default', ['clean', 'copy', 'jshint', 'scripts', 'vendorscripts', 'styles', 'html']);
