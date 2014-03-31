@@ -1,6 +1,11 @@
 // For more information on how to configure a task runner, please visit:
 // https://github.com/gulpjs/gulp
 
+// TODO
+// - check .htaccess copy / clean only bugs on windows?
+// - randomize name of app.css/js on deploy
+// - test and surely fix livereload stuff
+
 var gulp    = require('gulp');
 var clean   = require('gulp-clean');
 var concat  = require('gulp-concat');
