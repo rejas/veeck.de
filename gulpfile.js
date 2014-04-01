@@ -15,6 +15,7 @@ var inject  = require("gulp-inject");
 var jshint  = require('gulp-jshint');
 var less    = require('gulp-less');
 var rename  = require('gulp-rename');
+var sitemap = require('gulp-sitemap');
 var uglify  = require('gulp-uglify');
 var uncss   = require('gulp-uncss');
 var gutil   = require('gulp-util');
@@ -87,6 +88,19 @@ gulp.task('uncss', ['html'] , function() {
         }))
         .pipe(csso())
         .pipe(gulp.dest('dist/css/'));
+});
+
+gulp.task('sitemap', ['html'], function () {
+    return gulp.src('src/**/*.html', {read: false})
+        .pipe(sitemap({
+            fileName: 'sitemap.xml',
+            newLine: '\n',
+            changeFreq: 'daily',
+            priority: '0.5',
+            siteUrl: 'http://veeck.de',
+            spacing: '    '
+        }))
+        .pipe(gulp.dest('src/'));
 });
 
 gulp.task('server', function () {
