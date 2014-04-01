@@ -32,7 +32,7 @@ gulp.task('clean', function () {
 
 gulp.task('copy', function () {
     // Copy all application files except *.less and .js into the `dist` folder
-    return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/less/**/*.less'], {
+    return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/css/**/*.less'], {
             dot: true })
         .pipe(gulp.dest('dist'));
 });
