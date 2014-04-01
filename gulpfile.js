@@ -2,7 +2,7 @@
 // https://github.com/gulpjs/gulp
 
 // TODO
-// - check .htaccess copy / clean only bugs on windows?
+// - fix .htaccess copy
 // - randomize name of app.css/js on deploy
 // - test and surely fix livereload stuff
 
