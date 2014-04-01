@@ -32,17 +32,16 @@ gulp.task('clean', function () {
 gulp.task('copy', function () {
     // Copy all application files except *.less and .js into the `dist` folder
     return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/less/**/*.less'], {
-        dot: true
-    })
-            .pipe(gulp.dest('dist'));
+            dot: true })
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('jshint', function () {
     // Detect errors and potential problems in your JavaScript code
     // You can enable or disable default JSHint options in the .jshintrc file
     return gulp.src(['src/js/**/*.js', '!src/js/vendor/**'])
-            .pipe(jshint('.jshintrc'))
-            .pipe(jshint.reporter(stylish));
+        .pipe(jshint('.jshintrc'))
+        .pipe(jshint.reporter(stylish));
 });
 
 gulp.task('vendorscripts', function () {
@@ -55,9 +54,9 @@ gulp.task('vendorscripts', function () {
 gulp.task('scripts', function () {
     // Concatenate, minify and copy all JavaScript (except vendor scripts)
     return gulp.src(['src/js/**/*.js', '!src/js/vendor/**'])
-            .pipe(concat('app.js'))
-            .pipe(uglify())
-            .pipe(gulp.dest('dist/js'));
+        .pipe(concat('app.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('styles', function () {
