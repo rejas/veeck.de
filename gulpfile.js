@@ -80,9 +80,9 @@ gulp.task('html', ['styles', 'scripts'] , function() {
         .pipe(gulp.dest("./dist"));
 });
 
-gulp.task('uncss', ['html'] , function() {
+gulp.task('uncss', ['html'], function() {
     // Optimize via Uncss (beware: doesnt work with JS styles like in mobilemenu)
-    gulp.src('dist/css/app.css')
+    return gulp.src('dist/css/app.css')
         .pipe(uncss({
             html: ['dist/index.html']
         }))
