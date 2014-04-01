@@ -16,6 +16,7 @@ var jshint  = require('gulp-jshint');
 var less    = require('gulp-less');
 var rename  = require('gulp-rename');
 var uglify  = require('gulp-uglify');
+var uncss   = require('gulp-uncss');
 var gutil   = require('gulp-util');
 var es      = require('event-stream');
 var express = require('express');
@@ -76,6 +77,16 @@ gulp.task('html', ['styles', 'scripts'] , function() {
             ignorePath: '/dist/' // ensures proper relative paths
         }))
         .pipe(gulp.dest("./dist"));
+});
+
+gulp.task('uncss', ['html'] , function() {
+    // Optimize via Uncss (beware: doesnt work with JS styles like in mobilemenu)
+    gulp.src('dist/css/app.css')
+        .pipe(uncss({
+            html: ['dist/index.html']
+        }))
+        .pipe(csso())
+        .pipe(gulp.dest('dist/css/'));
 });
 
 gulp.task('server', function () {
