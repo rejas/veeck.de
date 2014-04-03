@@ -10,11 +10,13 @@ var clean   = require('gulp-clean');
 var concat  = require('gulp-concat');
 var csso    = require('gulp-csso');
 var embedlr = require('gulp-embedlr');
+var ftp     = require('gulp-ftp');
 var refresh = require('gulp-livereload');
 var imagemin = require('gulp-imagemin');
 var inject  = require("gulp-inject");
 var jshint  = require('gulp-jshint');
 var less    = require('gulp-less');
+var prompt  = require('gulp-prompt');
 var rename  = require('gulp-rename');
 var sitemap = require('gulp-sitemap');
 var uglify  = require('gulp-uglify');
@@ -134,7 +136,28 @@ gulp.task('server', function () {
 
     app.use(express.static(__dirname + '/src'));
 
-    app.listen(port);
+    /*
+     gulp.src('./src/*.html')
+     .pipe(embedlr())
+     .pipe(gulp.dest('./dist'));
+     */
+});
+
+gulp.task('ftp', function () {
+    return gulp.src('.')
+        .pipe(prompt.prompt({
+            type: 'password',
+            name: 'pw',
+            message: 'enter ftp password'
+        }, function(result){
+            return gulp.src('dist/**/*')
+                .pipe(ftp({
+                    host: 'www.veeck.de',
+                    user: 'www.veeck.de' ,
+                    remotePath: 'dist',
+                    pass: result.pw
+                }));
+        }));
 });
 
 // The default task (called when you run `gulp`)
