@@ -10,12 +10,10 @@ var clean   = require('gulp-clean');
 var concat  = require('gulp-concat');
 var csso    = require('gulp-csso');
 var embedlr = require('gulp-embedlr');
-var ftp     = require('gulp-ftp');
 var refresh = require('gulp-livereload');
 var inject  = require("gulp-inject");
 var jshint  = require('gulp-jshint');
 var less    = require('gulp-less');
-var prompt  = require('gulp-prompt');
 var rename  = require('gulp-rename');
 var sitemap = require('gulp-sitemap');
 var uglify  = require('gulp-uglify');
@@ -26,7 +24,6 @@ var express = require('express');
 var http    = require('http');
 var stylish = require('jshint-stylish');
 var lr      = require('tiny-lr')();
-
 
 gulp.task('clean', function () {
     // Clear the destination folder
@@ -106,24 +103,6 @@ gulp.task('sitemap', ['html'], function () {
         .pipe(gulp.dest('src/'));
 });
 
-gulp.task('ftp', function () {
-    return gulp.src('.')
-        .pipe(prompt.prompt({
-            type: 'password',
-            name: 'pw',
-            message: 'enter ftp password'
-        }, function(result){
-            return gulp.src('dist/**/*')
-                .pipe(ftp({
-                    host: 'www.veeck.de',
-                    user: 'www.veeck.de' ,
-                    remotePath: 'dist',
-                    pass: result.pw
-                }));
-        }));
-});
-
-
 gulp.task('server', function () {
     // Create a HTTP server for static files
     var port = 3000;
@@ -171,6 +150,7 @@ gulp.task('watch', function () {
         .pipe(gulp.dest('./dist'));
     */
 });
+
 // The default task (called when you run `gulp`)
 gulp.task('local', ['clean', 'copy', 'scripts', 'vendorscripts', 'styles', 'html', 'lr-server', 'server', 'watch']);
 
