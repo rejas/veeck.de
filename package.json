@@ -22,8 +22,6 @@
     "event-stream": "~3.1.0",
     "express": "~3.5.1",
     "jshint-stylish": "~0.1.5",
-    "tiny-lr": "~0.0.5",
-    "gulp-ftp": "^0.2.1",
-    "gulp-prompt": "^0.1.1"
+    "tiny-lr": "~0.0.5"
   }
 }
