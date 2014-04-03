@@ -11,6 +11,7 @@ var concat  = require('gulp-concat');
 var csso    = require('gulp-csso');
 var embedlr = require('gulp-embedlr');
 var refresh = require('gulp-livereload');
+var imagemin = require('gulp-imagemin');
 var inject  = require("gulp-inject");
 var jshint  = require('gulp-jshint');
 var less    = require('gulp-less');
@@ -24,6 +25,12 @@ var express = require('express');
 var http    = require('http');
 var stylish = require('jshint-stylish');
 var lr      = require('tiny-lr')();
+
+gulp.task('images', function () {
+    gulp.src('src/material/img/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/material/img'));
+});
 
 gulp.task('clean', function () {
     // Clear the destination folder
