@@ -180,4 +180,4 @@ gulp.task('ftp', function () {
 // The default task (called when you run `gulp`)
 gulp.task('local', ['clean', 'copy', 'scripts', 'vendorscripts', 'styles', 'html', 'lr-server', 'server', 'watch']);
 
-gulp.task('default', ['clean', 'copy', 'jshint', 'scripts', 'vendorscripts', 'styles', 'html']);
+gulp.task('default', ['clean', 'copy', 'jshint', 'vendorscripts', 'html']);
