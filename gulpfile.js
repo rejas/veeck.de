@@ -43,7 +43,7 @@ gulp.task('clean', function () {
 gulp.task('copy', function () {
     // Copy all application files except *.less and .js into the `dist` folder
     return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/css/**/*.less'], {
-            dot: true })
+        dot: true })
         .pipe(gulp.dest('dist'));
 });
 
@@ -177,7 +177,7 @@ gulp.task('ftp', function () {
         }));
 });
 
-// The default task (called when you run `gulp`)
 gulp.task('local', ['clean', 'copy', 'scripts', 'vendorscripts', 'styles', 'html', 'lr-server', 'server', 'watch']);
 
+// The default task (called when you run `gulp`)
 gulp.task('default', ['clean', 'copy', 'jshint', 'vendorscripts', 'html']);
