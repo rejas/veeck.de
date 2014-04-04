@@ -82,11 +82,14 @@ $(document).ready(function ()
     });
 
     /**
-     * AddThis Config
-     * @type {*|{}}
+     * Share Button Config
      */
-    var addthis_config = addthis_config||{};
-    addthis_config.pubid = 'ra-4f4bb62e22bbd641';
-    addthis_config.data_track_addressbar = true;
-    addthis.init();
+    new Share('.shareButton', {
+        ui: {
+            flyout: "top right",
+            button_font: "false",
+            button_background: "#333",
+            button_color: "#fff"
+        }
+    });
 });
