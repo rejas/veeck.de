@@ -40,7 +40,7 @@ gulp.task('clean', function () {
         .pipe(clean({ force: true }));
 });
 
-gulp.task('copy', function () {
+gulp.task('copy', ['clean'], function () {
     // Copy all application files except *.less and .js into the `dist` folder
     return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/css/**/*.less'], {
         dot: true })
@@ -55,14 +55,14 @@ gulp.task('jshint', function () {
         .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('vendorscripts', function () {
+gulp.task('vendorscripts', ['clean'], function () {
     // Minify and copy all vendor scripts
     return gulp.src(['src/js/vendor/**'])
         .pipe(uglify())
         .pipe(gulp.dest('dist/js/vendor'));
 });
 
-gulp.task('scripts', function () {
+gulp.task('scripts', ['clean'], function () {
     // Concatenate, minify and copy all JavaScript (except vendor scripts)
     return gulp.src(['src/js/**/*.js', '!src/js/vendor/**'])
         .pipe(concat('app.js'))
@@ -70,7 +70,7 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('styles', function () {
+gulp.task('styles', ['clean'], function () {
     // Compile LESS files
     return gulp.src('src/css/main.less')
         .pipe(less())
@@ -180,4 +180,4 @@ gulp.task('ftp', function () {
 gulp.task('local', ['clean', 'copy', 'scripts', 'vendorscripts', 'styles', 'html', 'lr-server', 'server', 'watch']);
 
 // The default task (called when you run `gulp`)
-gulp.task('default', ['clean', 'copy', 'jshint', 'vendorscripts', 'html']);
+gulp.task('default', ['copy', 'jshint', 'vendorscripts', 'html']);
