@@ -102,7 +102,7 @@ gulp.task('uncss', ['html'], function() {
 });
 
 gulp.task('sitemap', ['html'], function () {
-    return gulp.src('src/**/*.html', {read: false})
+    return gulp.src(['src/**/*.html', '!src/**/google*.html'], {read: false})
         .pipe(sitemap({
             fileName: 'sitemap.xml',
             newLine: '\n',
