@@ -3,48 +3,50 @@
 
 // TODO
 // - randomize name of app.css/js on deploy
-// - test and surely fix livereload stuff
 
 var gulp    = require('gulp');
 var clean   = require('gulp-clean');
 var concat  = require('gulp-concat');
 var csso    = require('gulp-csso');
-var embedlr = require('gulp-embedlr');
 var ftp     = require('gulp-ftp');
-var refresh = require('gulp-livereload');
 var imagemin = require('gulp-imagemin');
 var inject  = require("gulp-inject");
 var jshint  = require('gulp-jshint');
 var less    = require('gulp-less');
+var greload = require('gulp-livereload');
 var prompt  = require('gulp-prompt');
 var rename  = require('gulp-rename');
 var sitemap = require('gulp-sitemap');
 var uglify  = require('gulp-uglify');
 var uncss   = require('gulp-uncss');
 var gutil   = require('gulp-util');
-var es      = require('event-stream');
 var express = require('express');
-var http    = require('http');
 var stylish = require('jshint-stylish');
-var lr      = require('tiny-lr')();
+var tiny    = require('tiny-lr');
+var connect = require('connect-livereload');
 
-gulp.task('images', function () {
-    gulp.src('src/material/img/**/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('dist/material/img'));
-});
+var SRC             = 'src/';
+var DST             = 'dist/';
+var LIVERELOAD_PORT = 35729;
+var EXPRESS_PORT    = 4000;
+var EXPRESS_ROOT    = __dirname + '/' + SRC;
 
+// Clear the destination folder
 gulp.task('clean', function () {
-    // Clear the destination folder
-    return gulp.src('dist/', { read: false })
+    return gulp.src(DST, { read: false })
         .pipe(clean({ force: true }));
 });
 
 gulp.task('copy', ['clean'], function () {
     // Copy all application files except *.less and .js into the `dist` folder
-    return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/css/**/*.less'], {
-        dot: true })
+    return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/css/**/*.less'], { dot: true })
         .pipe(gulp.dest('dist'));
+});
+
+gulp.task('images', function () {
+    gulp.src('src/material/img/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/material/img'));
 });
 
 gulp.task('jshint', function () {
@@ -112,35 +114,26 @@ gulp.task('sitemap', ['html'], function () {
         .pipe(gulp.dest('src/'));
 });
 
-gulp.task('server', function () {
-    // Create a HTTP server for static files
-    var port = 3000;
-    var app = express();
-
-    var server = http.createServer(app);
-
-    app.use(express.static(__dirname + '/dist'));
-
-    server.on('listening', function () {
-        gutil.log('Listening on http://locahost:' + server.address().port);
+// Start express- and live-reload-server
+gulp.task('serve', function () {
+    var server = express();
+    server.use(connect());
+    server.use(express.static(EXPRESS_ROOT));
+    server.listen(EXPRESS_PORT, function() {
+        gutil.log('Listening on port ' + EXPRESS_PORT);
     });
 
-    server.on('error', function (err) {
-        if (err.code === 'EADDRINUSE') {
-            gutil.log('Address in use, retrying...');
-            setTimeout(function () {
-                server.listen(port);
-            }, 1000);
+    var lr = tiny();
+    lr.listen(LIVERELOAD_PORT, function (err) {
+        if (err) {
+            gutil.log(err);
         }
     });
 
-    app.use(express.static(__dirname + '/src'));
-
-    /*
-     gulp.src('./src/*.html')
-     .pipe(embedlr())
-     .pipe(gulp.dest('./dist'));
-     */
+    gulp.watch([SRC + '**/*.html', SRC + 'css/**/*.css', SRC + 'js/**/*.js'] , function (event) {
+        gulp.src(event.path, {read: false})
+            .pipe(greload(lr));
+    });
 });
 
 gulp.task('ftp', function () {
@@ -160,7 +153,7 @@ gulp.task('ftp', function () {
         }));
 });
 
-gulp.task('local', ['clean', 'copy', 'scripts', 'vendorscripts', 'styles', 'html', 'lr-server', 'server', 'watch']);
+gulp.task('local', ['clean', 'copy', 'scripts', 'vendorscripts', 'styles', 'html', 'serve']);
 
 // The default task (called when you run `gulp`)
 gulp.task('default', ['copy', 'jshint', 'vendorscripts', 'html']);
