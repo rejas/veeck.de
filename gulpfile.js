@@ -7,6 +7,7 @@
 var gulp    = require('gulp');
 var clean   = require('gulp-clean');
 var concat  = require('gulp-concat');
+var csslint = require('gulp-csslint');
 var csso    = require('gulp-csso');
 var ftp     = require('gulp-ftp');
 var imagemin = require('gulp-imagemin');
@@ -49,10 +50,17 @@ gulp.task('images', function () {
         .pipe(gulp.dest('dist/material/img'));
 });
 
+// Detect errors and potential problems in your css code
+gulp.task('csslint', function () {
+    return gulp.src([SRC + 'css/main.css', '!'+SRC +'css/normalize.css'])
+        .pipe(csslint('.csslintrc'))
+        .pipe(csslint.reporter())
+});
+
+// Detect errors and potential problems in your JavaScript code (except vendor scripts)
+// You can enable or disable default JSHint options in the .jshintrc file
 gulp.task('jshint', function () {
-    // Detect errors and potential problems in your JavaScript code
-    // You can enable or disable default JSHint options in the .jshintrc file
-    return gulp.src(['src/js/**/*.js', '!src/js/vendor/**'])
+    return gulp.src([SRC + 'js/**/*.js', '!'+SRC +'js/vendor/**'])
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter(stylish));
 });
@@ -153,7 +161,8 @@ gulp.task('ftp', function () {
         }));
 });
 
-gulp.task('local', ['clean', 'copy', 'scripts', 'vendorscripts', 'styles', 'html', 'serve']);
+// Runs all checks on the code
+gulp.task('check', ['jshint', 'csslint']);
 
 // The default task (called when you run `gulp`)
 gulp.task('default', ['copy', 'jshint', 'vendorscripts', 'html']);
