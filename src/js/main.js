@@ -70,7 +70,7 @@ $(document).ready(function ()
 
     $(".imgLiquidFill").imgLiquid({useBackgroundSize: true});
 
-    $('div.more').on('click', function() {
+    $("div.more").on("click", function() {
         $.smoothScroll({
             scrollElement: $('body'),
             scrollTarget: '#main',
@@ -79,6 +79,11 @@ $(document).ready(function ()
             offset: -100
         });
         return false;
+    });
+
+    $("a.gallery, .gallery_article figure a").photoSwipe({
+        enableMouseWheel: false,
+        enableKeyboard: false
     });
 
     /**
