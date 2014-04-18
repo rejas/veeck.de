@@ -52,7 +52,7 @@ gulp.task('images', function () {
 
 // Detect errors and potential problems in your css code
 gulp.task('csslint', function () {
-    return gulp.src([SRC + 'css/main.css', '!'+SRC +'css/normalize.css'])
+    return gulp.src([SRC + 'css/*.less', '!'+SRC +'css/normalize.less'])
         .pipe(csslint('.csslintrc'))
         .pipe(csslint.reporter())
 });
@@ -165,4 +165,4 @@ gulp.task('ftp', function () {
 gulp.task('check', ['jshint', 'csslint']);
 
 // The default task (called when you run `gulp`)
-gulp.task('default', ['copy', 'jshint', 'vendorscripts', 'html']);
+gulp.task('default', ['copy', 'check', 'vendorscripts', 'html']);
