@@ -84,9 +84,43 @@ $(document).ready(function ()
     /**
      * Photoswipe
      */
+    var activityIndicatorOn = function()
+        {
+            $( '<div id="imagelightbox-loading"><div></div></div>' ).appendTo( 'body' );
+        },
+        activityIndicatorOff = function()
+        {
+            $( '#imagelightbox-loading' ).remove();
+        },
+        overlayOn = function()
+        {
+            $( '<div id="imagelightbox-overlay"></div>' ).appendTo( 'body' );
+        },
+        overlayOff = function()
+        {
+            $( '#imagelightbox-overlay' ).remove();
+        },
+        captionOn = function()
+        {
+            var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'alt' );
+            if( description !== 'undefined' && description.length > 0 ) {
+                $( '<div id="imagelightbox-caption">' + description + '</div>' ).appendTo( 'body' );
+            }
+        },
+        captionOff = function()
+        {
+            $( '#imagelightbox-caption' ).remove();
+        };
+
     var gallery = $("a.gallery, .gallery_article figure a");
     if (gallery.length > 0) {
-        gallery.imageLightbox();
+        gallery.imageLightbox(
+        {
+            onStart: 	 function() { overlayOn(); },
+            onEnd:	 	 function() { captionOff(); overlayOff(); activityIndicatorOff(); },
+            onLoadStart: function() { captionOff(); activityIndicatorOn(); },
+            onLoadEnd:	 function() { captionOn(); activityIndicatorOff(); }
+        });
     }
 
     /**
