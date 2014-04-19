@@ -1,0 +1,408 @@
+@import "mixins.less";
+@import "variables.less";
+
+/**
+ * Apply a natural box layout model to all elements
+ */
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+::-moz-selection {
+    background: @base3;
+    color: @base2;
+    text-shadow: none;
+}
+
+::selection {
+    background: @base3;
+    color: @base2;
+    text-shadow: none;
+}
+
+/**
+ * Media Queries for supported browsers.
+ */
+
+html {
+    background: none;
+    font-family: 'mobile';
+}
+
+body:after {
+    display: none;
+}
+
+@media screen and (min-width: 1024px)
+{
+    html {
+        font-family: "desktop";
+    }
+    body:after {
+        content: "desktop";
+    }
+}
+
+/**
+ *
+ */
+
+body {
+    color: @base;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -ms-touch-action: auto;
+    font-family: @fontMain;
+}
+
+header {
+    background-color: @backgroundColor;
+}
+
+header h1 {
+    .vertical-align;
+}
+
+header .imgLiquidFill {
+    opacity: 0.25;
+    height: 100%;
+}
+
+nav {
+    z-index: 1000;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+#main {
+    padding: 1em;
+    z-index: 0;
+    background-color: @backgroundColor;
+}
+
+h1 {
+    font-family: @fontHeader, serif;
+    font-size: 2.75em;
+    line-height: 1.5em;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h2, h3, h4 {
+    font-family: @fontHeader, serif;
+    text-transform: uppercase;
+    margin: 0 0 0.5em 0;
+}
+
+h2 {
+    font-size: 2.5em;
+    line-height: 1.2em;
+}
+
+h3, h4 {
+    font-size: 2em;
+    line-height: 1em;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+}
+
+p {
+    margin: 0 0 1em 0;
+}
+
+a:focus {
+    outline: none;
+}
+
+a, a:visited {
+    color: @base3;
+}
+
+a:hover {
+    color: @base;
+}
+
+input {
+    padding: 4px 8px 4px 8px;
+    border: 1px solid @base3;
+}
+
+textarea {
+    border: 1px solid @base3;
+    .border-radius(4px);
+}
+
+select {
+    border: 1px solid @base3;
+    .border-radius(4px);
+}
+
+footer {
+    padding: 1em;
+    clear: both;
+    background-color: @backgroundColor;
+}
+
+footer > p {
+    font-family: monospace;
+}
+
+/**
+ * Figures
+ */
+
+figure {
+    border: 5px solid @base;
+    text-decoration: none;
+    position: relative;
+    margin: 0;
+}
+
+figure img {
+    width: 100%;
+}
+
+figure.fig_full {
+    margin: 0 0 1em 0;
+}
+
+figure.fig_left {
+    float: left;
+    margin: 0 1em 1em 0;
+}
+
+figure.fig_right {
+    float: right;
+    margin: 0 0 1em 1em;
+}
+
+figure > div.overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    .border-radius(4px);
+}
+
+figure > div.overlay:hover {
+    opacity: 0;
+}
+
+figure > div.overlay > p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    background-color: @base;
+    text-align: center;
+    position: relative;
+    padding: 0.3em 0;
+    .vertical-align();
+}
+
+figcaption {
+    font-family: @fontHeader, serif;
+    font-size: 1.5em;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0.25em;
+    color: @base;
+}
+
+/**
+ * Articles
+ */
+
+article {
+    background-image: url('assets/seperator.png');
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+    padding-bottom: 3em;
+    margin-bottom: 3em;
+    background-size: 100% 5px;
+}
+
+article:last-of-type {
+    margin-bottom: 0;
+    background-image: none;
+}
+
+article ul {
+    margin-top: 12px;
+}
+
+article ul li {
+    padding-bottom: 10px;
+}
+
+/**
+ * Radio
+ */
+
+.radio_article audio {
+    width: 100%;
+    margin: 10px 0 25px 0;
+}
+
+.radio_article h3 {
+    margin: 25px 0 5px 0;
+}
+
+.radio_article a {
+    float: right;
+}
+
+/**
+ * Research
+ */
+
+.research_article figure {
+    float: left;
+    margin: 0 0 0.75em 0;
+    min-width: 200px;
+    background-color: @base;
+}
+
+.research_article form {
+    display: table;
+}
+
+.research_article form label {
+    display: table-cell;
+    float: left;
+}
+
+.research_article input[type="text"],
+.research_article input[type="submit"] {
+    height: 32px;
+}
+
+/**
+ * Galleries
+ */
+
+.gallery_article figure {
+    display: inline-block;
+    margin: 0 0 1em 0;
+    vertical-align: top;
+}
+
+/**
+ * Links
+ */
+
+.search_article ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.search_article li {
+    padding: 0.2em 0 0.4em;
+}
+
+.search_article form {
+    display: table;
+}
+
+.search_article form label {
+    display: table-cell;
+}
+
+.search_article form > div {
+    display: table-cell;
+}
+
+.search_article form > div > input {
+    width: 100%;
+    text-align: right;
+}
+
+.search_article form input[type="submit"] {
+    display: table-cell;
+    width: 90px;
+    margin-left: 30px;
+}
+
+.search_article > ul > li > a {
+    padding-right: 0.4em;
+}
+
+/**
+ * Sprites, glue: 0.4 hash: 4734f92ce1
+ */
+
+.sprite-links {
+    float: left;
+    margin-top: 5px;
+    margin-bottom: -5px;
+    background-image: url('sprites/links.png');
+    background-repeat: no-repeat;
+}
+
+.sprite-links-youtube{background-position:0px 0px;width:130px;height:21px;}
+.sprite-links-woxikon{background-position:0px -21px;width:130px;height:21px;}
+.sprite-links-wowhead{background-position:0px -42px;width:130px;height:21px;}
+.sprite-links-wikipedia{background-position:0px -63px;width:130px;height:21px;}
+.sprite-links-leo{background-position:0px -84px;width:130px;height:21px;}
+.sprite-links-imdb{background-position:0px -105px;width:130px;height:21px;}
+.sprite-links-google{background-position:-130px 0px;width:130px;height:21px;}
+.sprite-links-duckduckgo{background-position:-130px -21px;width:130px;height:21px;}
+.sprite-links-chefkoch{background-position:-130px -42px;width:130px;height:21px;}
+.sprite-links-canoo{background-position:-130px -63px;width:130px;height:21px;}
+
+/* glue: 0.4 hash: 12062bcfab */
+.sprite-research {
+    float: left;
+    background-image: url('sprites/research.png');
+    background-repeat: no-repeat;
+}
+
+.sprite-research-res_wow{background-position:0px 0px;width:200px;height:200px;}
+.sprite-research-res_unilogo{background-position:-200px 0px;width:200px;height:200px;}
+.sprite-research-res_rasterbator{background-position:0px -200px;width:200px;height:200px;}
+.sprite-research-res_nsis{background-position:-200px -200px;width:200px;height:200px;}
+.sprite-research-res_iros2004{background-position:-400px 0px;width:200px;height:200px;}
+
+/**
+ *
+ */
+
+#adframe {
+    float: right;
+    margin: 3px 3px 0 3px;
+}
+
+.adfigure {
+    width: 316px;
+    height: 266px;
+}
+
+.changelog span {
+    font-family: monospace;
+    font-size: 1.3em;
+}
+
+.extend {
+    display: none;
+    padding: 0.35em;
+    margin: 15px 0 15px 0;
+    border: 3px solid @base;
+}
+
+.shareButton.dont_print.sharer-0 .social.active.right {
+    margin-left: 0 !important;
+}
