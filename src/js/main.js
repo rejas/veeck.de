@@ -90,6 +90,11 @@ $(document).ready(function ()
             button_font: "false",
             button_background: "#333",
             button_color: "#fff"
+        },
+        networks: {
+            facebook: {
+                app_id: "244426142407482"
+            }
         }
     });
 });
