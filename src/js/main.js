@@ -81,10 +81,16 @@ $(document).ready(function ()
         return false;
     });
 
-    $("a.gallery, .gallery_article figure a").photoSwipe({
-        enableMouseWheel: false,
-        enableKeyboard: false
-    });
+    /**
+     * Photoswipe
+     */
+    var gallery = $("a.gallery, .gallery_article figure a");
+    if (gallery.length > 0) {
+        gallery.photoSwipe({
+            enableMouseWheel: false,
+            enableKeyboard: false
+        });
+    }
 
     /**
      * Share Button Config
