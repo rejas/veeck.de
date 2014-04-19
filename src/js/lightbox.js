@@ -50,7 +50,7 @@
             return false;
         };
 
-    $.fn.imageLightbox = function( options )
+    $.fn.imageLightbox = function( opts )
     {
         var options = $.extend(
                 {
@@ -67,7 +67,7 @@
                     onLoadStart:	false,
                     onLoadEnd:		false
                 },
-                options ),
+                opts ),
 
             targets		= $([]),
             target		= $(),
@@ -79,7 +79,7 @@
 
             isTargetValid = function( element )
             {
-                return $( element ).prop( 'tagName' ).toLowerCase() == 'a' && ( new RegExp( '\.(' + options.allowedTypes + ')$', 'i' ) ).test( $( element ).attr( 'href' ) );
+                return $( element ).prop( 'tagName' ).toLowerCase() === 'a' && ( new RegExp( '\.(' + options.allowedTypes + ')$', 'i' ) ).test( $( element ).attr( 'href' ) );
             },
 
             setImage = function()
@@ -151,7 +151,7 @@
                             if( isCssTransitionSupport )
                             {
                                 cssTransitionTranslateX( image, -100 * direction + 'px', 0 );
-                                setTimeout( function(){ cssTransitionTranslateX( image, 0 + 'px', options.animationSpeed / 1000 ) }, 50 );
+                                setTimeout( function(){ cssTransitionTranslateX( image, 0 + 'px', options.animationSpeed / 1000 ); }, 50 );
                             }
                             else
                             {
@@ -175,7 +175,7 @@
                         .error( function()
                         {
                             if( options.onLoadEnd !== false ) options.onLoadEnd();
-                        })
+                        });
 
                     var swipeStart	 = 0,
                         swipeEnd	 = 0,
@@ -263,12 +263,12 @@
             {
                 if( !image.length ) return true;
                 e.preventDefault();
-                if( e.keyCode == 27 ) quitLightbox();
-                if( e.keyCode == 37 || e.keyCode == 39 )
+                if( e.keyCode === 27 ) quitLightbox();
+                if( e.keyCode === 37 || e.keyCode === 39 )
                 {
-                    target = targets.eq( targets.index( target ) - ( e.keyCode == 37 ? 1 : -1 ) );
-                    if( !target.length ) target = targets.eq( e.keyCode == 37 ? targets.length : 0 );
-                    loadImage( e.keyCode == 37 ? 'left' : 'right' );
+                    target = targets.eq( targets.index( target ) - ( e.keyCode === 37 ? 1 : -1 ) );
+                    if( !target.length ) target = targets.eq( e.keyCode === 37 ? targets.length : 0 );
+                    loadImage( e.keyCode === 37 ? 'left' : 'right' );
                 }
             });
         }

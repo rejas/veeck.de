@@ -103,8 +103,8 @@ $(document).ready(function ()
         captionOn = function()
         {
             var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'alt' );
-            if( description !== 'undefined' && description.length > 0 ) {
-                $( '<div id="imagelightbox-caption">' + description + '</div>' ).appendTo( 'body' );
+            if( description !== undefined && description.length > 0 ) {
+               $( '<div id="imagelightbox-caption">' + description + '</div>' ).appendTo( 'body' );
             }
         },
         captionOff = function()
