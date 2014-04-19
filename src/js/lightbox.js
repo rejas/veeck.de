@@ -11,14 +11,14 @@
     var cssTransitionSupport = function()
         {
             var s = document.body || document.documentElement, s = s.style;
-            if( s.WebkitTransition == '' ) return '-webkit-';
-            if( s.MozTransition == '' ) return '-moz-';
-            if( s.OTransition == '' ) return '-o-';
-            if( s.transition == '' ) return '';
+            if( s.WebkitTransition === '' ) return '-webkit-';
+            if( s.MozTransition === '' ) return '-moz-';
+            if( s.OTransition === '' ) return '-o-';
+            if( s.transition === '' ) return '';
             return false;
         },
 
-        isCssTransitionSupport = cssTransitionSupport() === false ? false : true,
+        isCssTransitionSupport = cssTransitionSupport() !== false,
 
         cssTransitionTranslateX = function( element, positionX, speed )
         {
@@ -40,11 +40,11 @@
 
             if( typeof event.MSPOINTER_TYPE_MOUSE !== 'undefined' )
             {
-                if( event.MSPOINTER_TYPE_MOUSE != event.pointerType )
+                if( event.MSPOINTER_TYPE_MOUSE !== event.pointerType )
                     return true;
             }
             else
-            if( event.pointerType != 'mouse' )
+            if( event.pointerType !== 'mouse' )
                 return true;
 
             return false;
@@ -52,7 +52,7 @@
 
     $.fn.imageLightbox = function( options )
     {
-        var options	   = $.extend(
+        var options = $.extend(
                 {
                     selector:		'id="imagelightbox"',
                     allowedTypes:	'png|jpg|jpeg|gif',
@@ -117,11 +117,11 @@
             {
                 if( inProgress ) return false;
 
-                direction = typeof direction === 'undefined' ? false : direction == 'left' ? 1 : -1;
+                direction = typeof direction === 'undefined' ? false : direction === 'left' ? 1 : -1;
 
                 if( image.length )
                 {
-                    if( direction !== false && ( targets.length < 2 || ( options.quitOnEnd === true && ( ( direction === -1 && targets.index( target ) == 0 ) || ( direction === 1 && targets.index( target ) == targets.length - 1 ) ) ) ) )
+                    if( direction !== false && ( targets.length < 2 || ( options.quitOnEnd === true && ( ( direction === -1 && targets.index( target ) === 0 ) || ( direction === 1 && targets.index( target ) === targets.length - 1 ) ) ) ) )
                     {
                         quitLightbox();
                         return false;
@@ -254,7 +254,7 @@
             $( document ).on( hasTouch ? 'touchend' : 'click', function( e )
             {
                 if( image.length && !$( e.target ).is( image ) ) quitLightbox();
-            })
+            });
         }
 
         if( options.enableKeyboard )
