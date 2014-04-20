@@ -11,10 +11,10 @@
     var cssTransitionSupport = function()
         {
             var s = document.body || document.documentElement, s = s.style;
-            if( s.WebkitTransition === '' ) return '-webkit-';
-            if( s.MozTransition === '' ) return '-moz-';
-            if( s.OTransition === '' ) return '-o-';
-            if( s.transition === '' ) return '';
+            if( s.WebkitTransition === '' ) { return '-webkit-'; }
+            if( s.MozTransition === '' ) { return '-moz-'; }
+            if( s.OTransition === '' ) { return '-o-'; }
+            if( s.transition === '' ) { return ''; }
             return false;
         },
 
@@ -32,20 +32,17 @@
         hasPointers = window.navigator.pointerEnabled || window.navigator.msPointerEnabled,
         wasTouched	= function( event )
         {
-            if( hasTouch )
-                return true;
+            if( hasTouch ) { return true; }
 
-            if( !hasPointers || typeof event === 'undefined' || typeof event.pointerType === 'undefined' )
-                return false;
+            if( !hasPointers || typeof event === 'undefined' || typeof event.pointerType === 'undefined' ) { return false; }
 
             if( typeof event.MSPOINTER_TYPE_MOUSE !== 'undefined' )
             {
-                if( event.MSPOINTER_TYPE_MOUSE !== event.pointerType )
-                    return true;
+                if( event.MSPOINTER_TYPE_MOUSE !== event.pointerType ) { return true; }
             }
-            else
-            if( event.pointerType !== 'mouse' )
+            else if( event.pointerType !== 'mouse' ) {
                 return true;
+            }
 
             return false;
         };
@@ -53,21 +50,21 @@
     $.fn.imageLightbox = function( opts )
     {
         var options = $.extend(
-                {
-                    selector:		'id="imagelightbox"',
-                    allowedTypes:	'png|jpg|jpeg|gif',
-                    animationSpeed:	250,
-                    preloadNext:	true,
-                    enableKeyboard:	true,
-                    quitOnEnd:		false,
-                    quitOnImgClick: false,
-                    quitOnDocClick: true,
-                    onStart:		false,
-                    onEnd:			false,
-                    onLoadStart:	false,
-                    onLoadEnd:		false
-                },
-                opts ),
+            {
+                selector:		'id="imagelightbox"',
+                allowedTypes:	'png|jpg|jpeg|gif',
+                animationSpeed:	250,
+                preloadNext:	true,
+                enableKeyboard:	true,
+                quitOnEnd:		false,
+                quitOnImgClick: false,
+                quitOnDocClick: true,
+                onStart:		false,
+                onEnd:			false,
+                onLoadStart:	false,
+                onLoadEnd:		false
+            },
+            opts ),
 
             targets		= $([]),
             target		= $(),
@@ -84,7 +81,7 @@
 
             setImage = function()
             {
-                if( !image.length ) return false;
+                if( !image.length ) { return false; }
 
                 var screenWidth	 = $( window ).width() * 0.8,
                     screenHeight = $( window ).height() * 0.9,
@@ -115,7 +112,7 @@
 
             loadImage = function( direction )
             {
-                if( inProgress ) return false;
+                if( inProgress ) { return false; }
 
                 direction = typeof direction === 'undefined' ? false : direction === 'left' ? 1 : -1;
 
@@ -127,14 +124,14 @@
                         return false;
                     }
                     var params = { 'opacity': 0 };
-                    if( isCssTransitionSupport ) cssTransitionTranslateX( image, ( 100 * direction ) - swipeDiff + 'px', options.animationSpeed / 1000 );
-                    else params.left = parseInt( image.css( 'left' ) ) + 100 * direction + 'px';
+                    if( isCssTransitionSupport ) { cssTransitionTranslateX( image, ( 100 * direction ) - swipeDiff + 'px', options.animationSpeed / 1000 ); }
+                    else { params.left = parseInt( image.css( 'left' ) ) + 100 * direction + 'px'; }
                     image.animate( params, options.animationSpeed, function(){ removeImage(); });
                     swipeDiff = 0;
                 }
 
                 inProgress = true;
-                if( options.onLoadStart !== false ) options.onLoadStart();
+                if( options.onLoadStart !== false ) { options.onLoadStart(); }
 
                 setTimeout( function()
                 {
@@ -163,18 +160,18 @@
                             image.animate( params, options.animationSpeed, function()
                             {
                                 inProgress = false;
-                                if( options.onLoadEnd !== false ) options.onLoadEnd();
+                                if( options.onLoadEnd !== false ) { options.onLoadEnd(); }
                             });
                             if( options.preloadNext )
                             {
                                 var nextTarget = targets.eq( targets.index( target ) + 1 );
-                                if( !nextTarget.length ) nextTarget = targets.eq( 0 );
+                                if( !nextTarget.length ) { nextTarget = targets.eq( 0 ); }
                                 $( '<img />' ).attr( 'src', nextTarget.attr( 'href' ) ).load();
                             }
                         })
                         .error( function()
                         {
-                            if( options.onLoadEnd !== false ) options.onLoadEnd();
+                            if( options.onLoadEnd !== false ) { options.onLoadEnd(); }
                         });
 
                     var swipeStart	 = 0,
@@ -189,40 +186,40 @@
                             quitLightbox();
                             return false;
                         }
-                        if( wasTouched( e.originalEvent ) ) return true;
+                        if( wasTouched( e.originalEvent ) ) { return true; }
                         var posX = ( e.pageX || e.originalEvent.pageX ) - e.target.offsetLeft;
                         target = targets.eq( targets.index( target ) - ( imageWidth / 2 > posX ? 1 : -1 ) );
-                        if( !target.length ) target = targets.eq( imageWidth / 2 > posX ? targets.length : 0 );
+                        if( !target.length ) { target = targets.eq( imageWidth / 2 > posX ? targets.length : 0 ); }
                         loadImage( imageWidth / 2 > posX ? 'left' : 'right' );
                     })
                         .on( 'touchstart pointerdown MSPointerDown', function( e )
                         {
-                            if( !wasTouched( e.originalEvent ) || options.quitOnImgClick ) return true;
-                            if( isCssTransitionSupport ) imagePosLeft = parseInt( image.css( 'left' ) );
+                            if( !wasTouched( e.originalEvent ) || options.quitOnImgClick ) { return true; }
+                            if( isCssTransitionSupport ) { imagePosLeft = parseInt( image.css( 'left' ) ); }
                             swipeStart = e.originalEvent.pageX || e.originalEvent.touches[ 0 ].pageX;
                         })
                         .on( 'touchmove pointermove MSPointerMove', function( e )
                         {
-                            if( !wasTouched( e.originalEvent ) || options.quitOnImgClick ) return true;
+                            if( !wasTouched( e.originalEvent ) || options.quitOnImgClick ) { return true; }
                             e.preventDefault();
                             swipeEnd = e.originalEvent.pageX || e.originalEvent.touches[ 0 ].pageX;
                             swipeDiff = swipeStart - swipeEnd;
-                            if( isCssTransitionSupport ) cssTransitionTranslateX( image, -swipeDiff + 'px', 0 );
-                            else image.css( 'left', imagePosLeft - swipeDiff + 'px' );
+                            if( isCssTransitionSupport ) { cssTransitionTranslateX( image, -swipeDiff + 'px', 0 ); }
+                            else { image.css( 'left', imagePosLeft - swipeDiff + 'px' ); }
                         })
                         .on( 'touchend touchcancel pointerup pointercancel MSPointerUp MSPointerCancel', function( e )
                         {
-                            if( !wasTouched( e.originalEvent ) || options.quitOnImgClick ) return true;
+                            if( !wasTouched( e.originalEvent ) || options.quitOnImgClick ) { return true; }
                             if( Math.abs( swipeDiff ) > 50 )
                             {
                                 target = targets.eq( targets.index( target ) - ( swipeDiff < 0 ? 1 : -1 ) );
-                                if( !target.length ) target = targets.eq( swipeDiff < 0 ? targets.length : 0 );
+                                if( !target.length ) { target = targets.eq( swipeDiff < 0 ? targets.length : 0 ); }
                                 loadImage( swipeDiff > 0 ? 'right' : 'left' );
                             }
                             else
                             {
-                                if( isCssTransitionSupport ) cssTransitionTranslateX( image, 0 + 'px', options.animationSpeed / 1000 );
-                                else image.animate({ 'left': imagePosLeft + 'px' }, options.animationSpeed / 2 );
+                                if( isCssTransitionSupport ) { cssTransitionTranslateX( image, 0 + 'px', options.animationSpeed / 1000 ); }
+                                else { image.animate({ 'left': imagePosLeft + 'px' }, options.animationSpeed / 2 ); }
                             }
                         });
 
@@ -231,19 +228,19 @@
 
             removeImage = function()
             {
-                if( !image.length ) return false;
+                if( !image.length ) { return false; }
                 image.remove();
                 image = $();
             },
 
             quitLightbox = function()
             {
-                if( !image.length ) return false;
+                if( !image.length ) { return false; }
                 image.animate({ 'opacity': 0 }, options.animationSpeed, function()
                 {
                     removeImage();
                     inProgress = false;
-                    if( options.onEnd !== false ) options.onEnd();
+                    if( options.onEnd !== false ) { options.onEnd(); }
                 });
             };
 
@@ -253,7 +250,7 @@
         {
             $( document ).on( hasTouch ? 'touchend' : 'click', function( e )
             {
-                if( image.length && !$( e.target ).is( image ) ) quitLightbox();
+                if( image.length && !$( e.target ).is( image ) ) { quitLightbox(); }
             });
         }
 
@@ -261,13 +258,13 @@
         {
             $( document ).on( 'keyup', function( e )
             {
-                if( !image.length ) return true;
+                if( !image.length ) { return true; }
                 e.preventDefault();
-                if( e.keyCode === 27 ) quitLightbox();
+                if( e.keyCode === 27 ) { quitLightbox(); }
                 if( e.keyCode === 37 || e.keyCode === 39 )
                 {
                     target = targets.eq( targets.index( target ) - ( e.keyCode === 37 ? 1 : -1 ) );
-                    if( !target.length ) target = targets.eq( e.keyCode === 37 ? targets.length : 0 );
+                    if( !target.length ) { target = targets.eq( e.keyCode === 37 ? targets.length : 0 ); }
                     loadImage( e.keyCode === 37 ? 'left' : 'right' );
                 }
             });
@@ -275,18 +272,18 @@
 
         $( document ).on( 'click', this.selector, function( e )
         {
-            if( !isTargetValid( this ) ) return true;
+            if( !isTargetValid( this ) ) { return true; }
             e.preventDefault();
-            if( inProgress ) return false;
+            if( inProgress ) { return false; }
             inProgress = false;
-            if( options.onStart !== false ) options.onStart();
+            if( options.onStart !== false ) { options.onStart(); }
             target = $( this );
             loadImage();
         });
 
         this.each( function()
         {
-            if( !isTargetValid( this ) ) return true;
+            if( !isTargetValid( this ) ) { return true; }
             targets = targets.add( $( this ) );
         });
 
