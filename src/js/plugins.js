@@ -254,7 +254,7 @@
             if ($self.attr("src") === undefined || $self.attr("src") === false) {
                 if ($self.is("img")) {
                     $self.attr("src", settings.placeholder);
-                    $( '<div class="spinner-loading"><div></div></div>' ).appendTo( $self.parent());
+                    $( '<div class="spinner-loading spinner-absolute"><div></div></div>' ).appendTo( $self.parent());
                 }
             }
 

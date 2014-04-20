@@ -86,7 +86,7 @@ $(document).ready(function ()
      */
     var activityIndicatorOn = function()
         {
-            $( '<div id="ilb-loading" class="spinner-loading"><div></div></div>' ).appendTo( 'body' );
+            $( '<div id="ilb-loading" class="spinner-loading spinner-fixed"><div></div></div>' ).appendTo( 'body' );
         },
         activityIndicatorOff = function()
         {
