@@ -20,14 +20,15 @@
     left: 0;
 }
 
-#imagelightbox-loading,
-#imagelightbox-loading div
+.spinner-loading,
+.spinner-loading div
 {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
-#imagelightbox-loading
+
+.spinner-loading
 {
     width: 2.5em; /* 40 */
     height: 2.5em; /* 40 */
@@ -44,37 +45,38 @@
     -moz-box-shadow: 0 0 2.5em rgba( 0, 0, 0, .75 ); /* 40 */
     box-shadow: 0 0 2.5em rgba( 0, 0, 0, .75 ); /* 40 */
 }
-#imagelightbox-loading div
+
+.spinner-loading div
 {
     width: 1.25em; /* 20 */
     height: 1.25em; /* 20 */
     background-color: #fff;
 
-    -webkit-animation: imagelightbox-loading .5s ease infinite;
-    -moz-animation: imagelightbox-loading .5s ease infinite;
-    -o-animation: imagelightbox-loading .5s ease infinite;
-    animation: imagelightbox-loading .5s ease infinite;
+    -webkit-animation: spinner-loading .5s ease infinite;
+    -moz-animation: spinner-loading .5s ease infinite;
+    -o-animation: spinner-loading .5s ease infinite;
+    animation: spinner-loading .5s ease infinite;
 }
 
-@-webkit-keyframes imagelightbox-loading
+@-webkit-keyframes spinner-loading
 {
     from { opacity: .5;	-webkit-transform: scale( .75 ); }
     50%	 { opacity: 1;	-webkit-transform: scale( 1 ); }
     to	 { opacity: .5;	-webkit-transform: scale( .75 ); }
 }
-@-moz-keyframes imagelightbox-loading
+@-moz-keyframes spinner-loading
 {
     from { opacity: .5;	-moz-transform: scale( .75 ); }
     50%	 { opacity: 1;	-moz-transform: scale( 1 ); }
     to	 { opacity: .5;	-moz-transform: scale( .75 ); }
 }
-@-o-keyframes imagelightbox-loading
+@-o-keyframes spinner-loading
 {
     from { opacity: .5;	-o-transform: scale( .75 ); }
     50%	 { opacity: 1;	-o-transform: scale( 1 ); }
     to	 { opacity: .5;	-o-transform: scale( .75 ); }
 }
-@keyframes imagelightbox-loading
+@keyframes spinner-loading
 {
     from { opacity: .5;	transform: scale( .75 ); }
     50%	 { opacity: 1;	transform: scale( 1 ); }
