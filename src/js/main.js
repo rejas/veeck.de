@@ -86,11 +86,11 @@ $(document).ready(function ()
      */
     var activityIndicatorOn = function()
         {
-            $( '<div id="imagelightbox-loading"><div></div></div>' ).appendTo( 'body' );
+            $( '<div id="ilb-loading" class="spinner-loading"><div></div></div>' ).appendTo( 'body' );
         },
         activityIndicatorOff = function()
         {
-            $( '#imagelightbox-loading' ).remove();
+            $( '#ilb-loading' ).remove();
         },
         overlayOn = function()
         {

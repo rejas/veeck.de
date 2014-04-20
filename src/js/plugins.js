@@ -254,7 +254,7 @@
             if ($self.attr("src") === undefined || $self.attr("src") === false) {
                 if ($self.is("img")) {
                     $self.attr("src", settings.placeholder);
-                    $self.parent().addClass("no-overlay csspinner");
+                    $( '<div class="spinner-loading"><div></div></div>' ).appendTo( $self.parent());
                 }
             }
 
@@ -277,7 +277,7 @@
                             }
                             $self[settings.effect](settings.effect_speed);
 
-                            $self.parent().removeClass('no-overlay csspinner');
+                            $self.parent().find('.spinner-loading').remove();
 
                             self.loaded = true;
 
