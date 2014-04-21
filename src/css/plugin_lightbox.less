@@ -32,6 +32,7 @@
 {
     position: absolute;
 }
+
 .spinner-loading.spinner-fixed
 {
     position: fixed;
@@ -41,8 +42,7 @@
 {
     width: 2.5em; /* 40 */
     height: 2.5em; /* 40 */
-    background-color: #444;
-    background-color: rgba( 0, 0, 0, .5 );
+    background-color: @base4;
     z-index: 10003;
     top: 50%;
     left: 50%;
@@ -95,7 +95,7 @@
 {
     text-align: center;
     color: #fff;
-    background-color: #666;
+    background-color: @base4;
     position: fixed;
     z-index: 10001;
     left: 0;
