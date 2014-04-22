@@ -40,14 +40,12 @@
 
 .spinner-loading
 {
-    width: 2.5em; /* 40 */
-    height: 2.5em; /* 40 */
     background-color: @base4;
     z-index: 10003;
     top: 50%;
     left: 50%;
-    padding: 0.625em; /* 10 */
-    margin: -1.25em 0 0 -1.25em; /* 20 */
+    padding: 0.65em; /* 10 */
+    margin: -1.3em 0 0 -1.3em; /* 20 */
 
     -webkit-box-shadow: 0 0 2.5em rgba( 0, 0, 0, .75 ); /* 40 */
     -moz-box-shadow: 0 0 2.5em rgba( 0, 0, 0, .75 ); /* 40 */
@@ -56,39 +54,74 @@
 
 .spinner-loading div
 {
-    width: 1.25em; /* 20 */
-    height: 1.25em; /* 20 */
+    width: 1.3em; /* 20 */
+    height: 1.3em; /* 20 */
     background-color: #fff;
 
-    -webkit-animation: spinner-loading .5s ease infinite;
-    -moz-animation: spinner-loading .5s ease infinite;
-    -o-animation: spinner-loading .5s ease infinite;
-    animation: spinner-loading .5s ease infinite;
+    -webkit-animation: imagelightbox-loading .5s ease infinite;
+    -moz-animation: imagelightbox-loading .5s ease infinite;
+    -o-animation: imagelightbox-loading .5s ease infinite;
+    animation: imagelightbox-loading .5s ease infinite;
 }
 
-@-webkit-keyframes spinner-loading
-{
-    from { opacity: .5;	-webkit-transform: scale( .75 ); }
-    50%	 { opacity: 1;	-webkit-transform: scale( 1 ); }
-    to	 { opacity: .5;	-webkit-transform: scale( .75 ); }
+@-webkit-keyframes imagelightbox-loading {
+    from {
+        opacity: .5;
+        -webkit-transform: scale(.75);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+    }
+    to {
+        opacity: .5;
+        -webkit-transform: scale(.75);
+    }
 }
-@-moz-keyframes spinner-loading
-{
-    from { opacity: .5;	-moz-transform: scale( .75 ); }
-    50%	 { opacity: 1;	-moz-transform: scale( 1 ); }
-    to	 { opacity: .5;	-moz-transform: scale( .75 ); }
+
+@-moz-keyframes imagelightbox-loading {
+    from {
+        opacity: .5;
+        -moz-transform: scale(.75);
+    }
+    50% {
+        opacity: 1;
+        -moz-transform: scale(1);
+    }
+    to {
+        opacity: .5;
+        -moz-transform: scale(.75);
+    }
 }
-@-o-keyframes spinner-loading
-{
-    from { opacity: .5;	-o-transform: scale( .75 ); }
-    50%	 { opacity: 1;	-o-transform: scale( 1 ); }
-    to	 { opacity: .5;	-o-transform: scale( .75 ); }
+
+@-o-keyframes imagelightbox-loading {
+    from {
+        opacity: .5;
+        -o-transform: scale(.75);
+    }
+    50% {
+        opacity: 1;
+        -o-transform: scale(1);
+    }
+    to {
+        opacity: .5;
+        -o-transform: scale(.75);
+    }
 }
-@keyframes spinner-loading
-{
-    from { opacity: .5;	transform: scale( .75 ); }
-    50%	 { opacity: 1;	transform: scale( 1 ); }
-    to	 { opacity: .5;	transform: scale( .75 ); }
+
+@keyframes imagelightbox-loading {
+    from {
+        opacity: .5;
+        transform: scale(.75);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: .5;
+        transform: scale(.75);
+    }
 }
 
 #imagelightbox-caption
