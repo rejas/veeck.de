@@ -408,7 +408,7 @@
 
 /*
  * onMediaQuery
- * http://springload.co.nz/love-the-web/
+ * https://github.com/JoshBarr/on-media-query
  *
  * Copyright 2012, Springload
  * Released under the MIT license.
