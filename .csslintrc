@@ -2,6 +2,8 @@
     "adjoining-classes":            false,
     "box-model":                    false,
     "box-sizing":                   false,
+    "compatible-vendor-prefixes":   false,
+    "import":                       false,
     "important":                    false,
     "regex-selectors":              false,
     "unique-headings":              false,
