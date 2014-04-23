@@ -4,9 +4,7 @@
     z-index: 10000;
     -ms-touch-action: none;
     touch-action: none;
-    -webkit-box-shadow: 0 0 3.125em rgba( 0, 0, 0, .75 );
-    -moz-box-shadow: 0 0 3.125em rgba( 0, 0, 0, .75 );
-    box-shadow: 0 0 3.125em rgba( 0, 0, 0, .75 );
+    .box-shadow (0, 0, 3.125em, 0.75);
 }
 
 #imagelightbox-overlay
@@ -23,9 +21,7 @@
 .spinner-loading,
 .spinner-loading div
 {
-    -webkit-border-radius: 1.25em;
-    -moz-border-radius: 1.25em;
-    border-radius: 1.25em;
+    .border-radius(9999px);
 }
 
 .spinner-loading.spinner-absolute
@@ -46,10 +42,7 @@
     left: 50%;
     padding: 0.65em; /* 10 */
     margin: -1.3em 0 0 -1.3em; /* 20 */
-
-    -webkit-box-shadow: 0 0 2.5em rgba( 0, 0, 0, .75 ); /* 40 */
-    -moz-box-shadow: 0 0 2.5em rgba( 0, 0, 0, .75 ); /* 40 */
-    box-shadow: 0 0 2.5em rgba( 0, 0, 0, .75 ); /* 40 */
+    .box-shadow (0, 0, 2.5em, 0.75);
 }
 
 .spinner-loading div
@@ -57,11 +50,7 @@
     width: 1.3em; /* 20 */
     height: 1.3em; /* 20 */
     background-color: #fff;
-
-    -webkit-animation: imagelightbox-loading .5s ease infinite;
-    -moz-animation: imagelightbox-loading .5s ease infinite;
-    -o-animation: imagelightbox-loading .5s ease infinite;
-    animation: imagelightbox-loading .5s ease infinite;
+    .animation (imagelightbox-loading, .5s, ease, infinite);
 }
 
 @-webkit-keyframes imagelightbox-loading {
