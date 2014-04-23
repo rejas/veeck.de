@@ -10,37 +10,23 @@
     }
 }
 
-.background (@image) {
-    background: url(@image) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.box-sizing () {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+.animation (@name, @duration, @ease, @count) {
+    -webkit-animation: @name @duration @ease @count;
+    animation: @name @duration @ease @count;
 }
 
 .border-radius (@radius: 5px) {
     -webkit-border-radius: @radius;
-    -moz-border-radius: @radius;
-    -ms-border-radius: @radius;
-    -o-border-radius: @radius;
     border-radius: @radius;
 }
 
 .border-radius-custom (@topleft: 5px, @topright: 5px, @bottomleft: 5px, @bottomright: 5px) {
     -webkit-border-radius: @topleft @topright @bottomright @bottomleft;
-    -moz-border-radius: @topleft @topright @bottomright @bottomleft;
     border-radius: @topleft @topright @bottomright @bottomleft;
 }
 
 .box-shadow (@x: 0px, @y: 3px, @blur: 5px, @alpha: 0.5) {
     -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
-    -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
     box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
 }
 
@@ -59,16 +45,12 @@
     background-color: @start;
     background-image: -webkit-linear-gradient(@origin, @start, @stop);
     background-image: -moz-linear-gradient(@origin, @start, @stop);
-    background-image: -ms-linear-gradient(@origin, @start, @stop);
-    background-image: -o-linear-gradient(@origin, @start, @stop);
     background-image: linear-gradient(@origin, @start, @stop);
 }
 
 .quick-gradient (@origin: left, @alpha: 0.2) {
     background-image: -webkit-linear-gradient(@origin, rgba(0, 0, 0, 0.0), rgba(0, 0, 0,@alpha));
     background-image: -moz-linear-gradient(@origin, rgba(0, 0, 0, 0.0), rgba(0, 0, 0,@alpha));
-    background-image: -ms-linear-gradient(@origin, rgba(0, 0, 0, 0.0), rgba(0, 0, 0,@alpha));
-    background-image: -o-linear-gradient(@origin, rgba(0, 0, 0, 0.0), rgba(0, 0, 0,@alpha));
     background-image: linear-gradient(@origin, rgba(0, 0, 0, 0.0), rgba(0, 0, 0,@alpha));
 }
 
