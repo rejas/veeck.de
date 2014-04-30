@@ -5,7 +5,7 @@
   "repository": "https://bitbucket.org/mveeck/homepage.git",
   "private": true,
   "devDependencies": {
-    "gulp": "^3.6.1",
+    "gulp": "^3.6.2",
     "gulp-clean": "~0.2.4",
     "gulp-concat": "~2.2.0",
     "gulp-csslint": "^0.1.4",
@@ -13,7 +13,7 @@
     "gulp-ftp": "^0.2.1",
     "gulp-inject": "~0.4.1",
     "gulp-imagemin": "^0.2.0",
-    "gulp-jshint": "^1.5.3",
+    "gulp-jshint": "^1.5.5",
     "gulp-less": "^1.2.3",
     "gulp-livereload": "^1.3.1",
     "gulp-prompt": "^0.1.1",
@@ -23,9 +23,9 @@
     "gulp-uncss": "^0.4.2",
     "gulp-util": "~2.2.12",
     "connect-livereload": "^0.3.2",
-    "event-stream": "^3.1.2",
-    "express": "^3.5.1",
-    "jshint-stylish": "~0.1.5",
+    "event-stream": "^3.1.5",
+    "express": "^3.5.2",
+    "jshint-stylish": "^0.1.5",
     "tiny-lr": "~0.0.5"
   }
 }
