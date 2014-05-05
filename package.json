@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "description": "my private homepage",
   "repository": "https://bitbucket.org/mveeck/homepage.git",
   "private": true,
@@ -26,6 +26,6 @@
     "event-stream": "^3.1.5",
     "express": "^3.5.2",
     "jshint-stylish": "^0.1.5",
-    "tiny-lr": "~0.0.5"
+    "tiny-lr": "0.0.7"
   }
 }
