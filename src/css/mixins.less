@@ -27,7 +27,7 @@
 //
 // this method can relatively move down elements you may not want to
 // position: relative;
-// top: @baseline-distance + em;
+// top: @baseline-distance + 0em;
 
 /////////////////
 // METHOD 2
@@ -35,8 +35,8 @@
 // http://csswizardry.com/2012/06/single-direction-margin-declarations/
 // you can use this method with no worries.
 // this method assumes the direction is down and the margin is @base-line-height
-    padding-top: @baseline-distance + em;
-    margin-bottom: @base-line-height - @baseline-distance + em;
+    padding-top: @baseline-distance;
+    margin-bottom: @base-line-height - @baseline-distance + 0em;
 }
 
 .font-face (@family, @file-base, @weight: normal, @style: normal) {
