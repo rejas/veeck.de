@@ -10,11 +10,11 @@ var concat  = require('gulp-concat');
 var csslint = require('gulp-csslint');
 var csso    = require('gulp-csso');
 var ftp     = require('gulp-ftp');
-var imagemin = require('gulp-imagemin');
-var inject  = require("gulp-inject");
-var jshint  = require('gulp-jshint');
-var less    = require('gulp-less');
-var greload = require('gulp-livereload');
+var imagemin    = require('gulp-imagemin');
+var inject      = require("gulp-inject");
+var jshint      = require('gulp-jshint');
+var less        = require('gulp-less');
+var livereload  = require('gulp-livereload');
 var prompt  = require('gulp-prompt');
 var rename  = require('gulp-rename');
 var sitemap = require('gulp-sitemap');
@@ -138,9 +138,9 @@ gulp.task('serve', function () {
         }
     });
 
-    gulp.watch([SRC + '**/*.html', SRC + 'css/**/*.css', SRC + 'js/**/*.js'] , function (event) {
+    gulp.watch([SRC + '**/*.html', SRC + 'css/**/*.less', SRC + 'js/**/*.js'] , function (event) {
         gulp.src(event.path, {read: false})
-            .pipe(greload(lr));
+            .pipe(livereload(lr));
     });
 });
 
