@@ -136,6 +136,9 @@ $(document).ready(function ()
         networks: {
             facebook: {
                 app_id: "244426142407482"
+            },
+            email: {
+                enabled: false
             }
         }
     });
