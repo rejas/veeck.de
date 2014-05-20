@@ -130,8 +130,7 @@ $(document).ready(function ()
         ui: {
             flyout: "top right",
             button_font: false,
-            button_background: "#333",
-            button_color: "#fff"
+            button_icon: false
         },
         networks: {
             facebook: {
