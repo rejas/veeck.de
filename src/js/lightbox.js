@@ -1,9 +1,7 @@
-
 /*
 	By Osvaldas Valutis, www.osvaldas.info
 	Available for use under the MIT License
 */
-
 ;( function( $, window, document, undefined )
 {
     'use strict';
@@ -51,21 +49,21 @@
     $.fn.imageLightbox = function( opts )
     {
         var options = $.extend(
-            {
-                selector:		'id="imagelightbox"',
-                allowedTypes:	'png|jpg|jpeg|gif',
-                animationSpeed:	250,
-                preloadNext:	true,
-                enableKeyboard:	true,
-                quitOnEnd:		false,
-                quitOnImgClick: false,
-                quitOnDocClick: true,
-                onStart:		false,
-                onEnd:			false,
-                onLoadStart:	false,
-                onLoadEnd:		false
-            },
-            opts ),
+                {
+                    selector:		'id="imagelightbox"',
+                    allowedTypes:	'png|jpg|jpeg|gif',
+                    animationSpeed:	250,
+                    preloadNext:	true,
+                    enableKeyboard:	true,
+                    quitOnEnd:		false,
+                    quitOnImgClick: false,
+                    quitOnDocClick: true,
+                    onStart:		false,
+                    onEnd:			false,
+                    onLoadStart:	false,
+                    onLoadEnd:		false
+                },
+                opts ),
 
             targets		= $([]),
             target		= $(),
@@ -77,7 +75,7 @@
 
             isTargetValid = function( element )
             {
-                return $( element ).prop( 'tagName' ).toLowerCase() === 'a' && ( new RegExp( '\.(' + options.allowedTypes + ')$', 'i' ) ).test( $( element ).attr( 'href' ) );
+                return $( element ).prop( 'tagName' ).toLowerCase() === 'a' && ( new RegExp( '.(' + options.allowedTypes + ')$', 'i' ) ).test( $( element ).attr( 'href' ) );
             },
 
             setImage = function()
@@ -271,6 +269,7 @@
             });
         }
 
+        $( document ).off( 'click', this.selector);
         $( document ).on( 'click', this.selector, function( e )
         {
             if( !isTargetValid( this ) ) { return true; }
