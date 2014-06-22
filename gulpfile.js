@@ -4,27 +4,27 @@
 // TODO
 // - randomize name of app.css/js on deploy
 
-var gulp    = require('gulp');
-var clean   = require('gulp-clean');
-var concat  = require('gulp-concat');
-var csslint = require('gulp-csslint');
-var csso    = require('gulp-csso');
-var ftp     = require('gulp-ftp');
+var gulp        = require('gulp');
+var clean       = require('gulp-clean');
+var concat      = require('gulp-concat');
+var csslint     = require('gulp-csslint');
+var csso        = require('gulp-csso');
+var ftp         = require('gulp-ftp');
 var imagemin    = require('gulp-imagemin');
 var inject      = require("gulp-inject");
 var jshint      = require('gulp-jshint');
 var less        = require('gulp-less');
 var livereload  = require('gulp-livereload');
-var prompt  = require('gulp-prompt');
-var rename  = require('gulp-rename');
-var sitemap = require('gulp-sitemap');
-var uglify  = require('gulp-uglify');
-var uncss   = require('gulp-uncss');
-var gutil   = require('gulp-util');
-var express = require('express');
-var stylish = require('jshint-stylish');
-var tiny    = require('tiny-lr');
-var connect = require('connect-livereload');
+var prompt      = require('gulp-prompt');
+var rename      = require('gulp-rename');
+var sitemap     = require('gulp-sitemap');
+var uglify      = require('gulp-uglify');
+var uncss       = require('gulp-uncss');
+var gutil       = require('gulp-util');
+var express     = require('express');
+var stylish     = require('jshint-stylish');
+var tiny        = require('tiny-lr');
+var connect     = require('connect-livereload');
 
 var SRC             = 'src/';
 var DST             = 'dist/';
