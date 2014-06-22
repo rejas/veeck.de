@@ -4,15 +4,15 @@
 // TODO
 // - randomize name of app.css/js on deploy
 
-var gutil   = require('gulp-util');
 var gulp            = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
+    gutil           = require('gulp-util'),
     plugins         = gulpLoadPlugins();
 
-var express = require('express');
-var stylish = require('jshint-stylish');
-var tiny    = require('tiny-lr');
-var connect = require('connect-livereload');
+var express         = require('express');
+var stylish         = require('jshint-stylish');
+var tiny            = require('tiny-lr');
+var connect         = require('connect-livereload');
 
 var SRC             = 'src/';
 var DST             = 'dist/';
