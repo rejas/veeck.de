@@ -5,7 +5,6 @@
 // - randomize name of app.css/js on deploy
 
 var gulp        = require('gulp');
-var clean       = require('gulp-clean');
 var concat      = require('gulp-concat');
 var csslint     = require('gulp-csslint');
 var csso        = require('gulp-csso');
@@ -17,6 +16,7 @@ var less        = require('gulp-less');
 var livereload  = require('gulp-livereload');
 var prompt      = require('gulp-prompt');
 var rename      = require('gulp-rename');
+var rimraf      = require('gulp-rimraf');
 var sitemap     = require('gulp-sitemap');
 var uglify      = require('gulp-uglify');
 var uncss       = require('gulp-uncss');
@@ -35,7 +35,7 @@ var EXPRESS_ROOT    = __dirname + '/' + SRC;
 // Clear the destination folder
 gulp.task('clean', function () {
     return gulp.src(DST, { read: false })
-        .pipe(clean({ force: true }));
+        .pipe(rimraf());
 });
 
 gulp.task('copy', ['clean'], function () {
