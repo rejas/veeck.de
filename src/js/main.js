@@ -126,7 +126,7 @@ $(document).ready(function ()
     /**
      * Share Button Config
      */
-    new Share('.shareButton', {
+    new window.Share('.shareButton', {
         ui: {
             flyout: "top right",
             button_font: false,
