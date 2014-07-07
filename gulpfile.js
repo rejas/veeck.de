@@ -9,6 +9,7 @@ var concat      = require('gulp-concat');
 var csslint     = require('gulp-csslint');
 var csso        = require('gulp-csso');
 var ftp         = require('gulp-ftp');
+var htmlhint    = require('gulp-htmlhint');
 var imagemin    = require('gulp-imagemin');
 var inject      = require("gulp-inject");
 var jshint      = require('gulp-jshint');
@@ -63,6 +64,13 @@ gulp.task('jshint', function () {
     return gulp.src([SRC + 'js/**/*.js', '!'+SRC +'js/vendor/**'])
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter(stylish));
+});
+
+// Detect errors and potential problems in your html code
+gulp.task('htmlhint', function () {
+    return gulp.src([SRC + '*.html'])
+        .pipe(htmlhint())
+        .pipe(htmlhint.reporter());
 });
 
 gulp.task('vendorscripts', ['clean'], function () {
@@ -162,7 +170,7 @@ gulp.task('ftp', function () {
 });
 
 // Runs all checks on the code
-gulp.task('check', ['jshint', 'csslint']);
+gulp.task('check', ['jshint', 'csslint', 'htmlhint']);
 
 // The default task (called when you run `gulp`)
 gulp.task('default', ['copy', 'check', 'vendorscripts', 'html']);

@@ -13,6 +13,7 @@
     "gulp-csslint": "^0.1.4",
     "gulp-csso": "^0.2.9",
     "gulp-ftp": "^0.2.1",
+    "gulp-htmlhint": "0.0.8",
     "gulp-imagemin": "^0.2.0",
     "gulp-inject": "~0.4.1",
     "gulp-jshint": "^1.6.4",
