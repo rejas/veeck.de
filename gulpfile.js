@@ -45,8 +45,8 @@ gulp.task('copy', ['clean'], function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('images', function () {
-    gulp.src('src/material/img/**/*')
+gulp.task('images', ['clean'], function () {
+    gulp.src(SRC + 'material/img/**/*')
         .pipe(imagemin())
         .pipe(gulp.dest('dist/material/img'));
 });
@@ -173,4 +173,4 @@ gulp.task('ftp', function () {
 gulp.task('check', ['jshint', 'csslint', 'htmlhint']);
 
 // The default task (called when you run `gulp`)
-gulp.task('default', ['copy', 'check', 'vendorscripts', 'html']);
+gulp.task('default', ['copy', 'images', 'vendorscripts', 'html']);
