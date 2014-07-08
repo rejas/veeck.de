@@ -45,8 +45,8 @@ gulp.task('copy', ['clean'], function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('images', ['clean'], function () {
-    gulp.src(SRC + 'material/img/**/*')
+gulp.task('images', ['copy'], function () {
+    gulp.src(SRC + 'material/img/**/*.jpg')
         .pipe(imagemin())
         .pipe(gulp.dest('dist/material/img'));
 });
@@ -97,7 +97,7 @@ gulp.task('styles', ['clean'], function () {
         .pipe(gulp.dest('dist/css'))
 });
 
-gulp.task('html', ['styles', 'scripts'] , function() {
+gulp.task('html', ['images', 'styles', 'scripts', 'vendorscripts'] , function() {
     // We src all html files
     return gulp.src('src/*.html')
         .pipe(inject(gulp.src(["./dist/**/*.*", '!./dist/js/vendor/**'], {read: false}), {
@@ -173,4 +173,4 @@ gulp.task('ftp', function () {
 gulp.task('check', ['jshint', 'csslint', 'htmlhint']);
 
 // The default task (called when you run `gulp`)
-gulp.task('default', ['copy', 'images', 'vendorscripts', 'html']);
+gulp.task('default', ['html']);
