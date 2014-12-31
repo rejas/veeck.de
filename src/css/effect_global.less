@@ -1,0 +1,211 @@
+html, body, .container, .header {
+	height: 100%;
+}
+
+/* Header */
+.header {
+	position: relative;
+	margin: 0 auto;
+	min-height: 560px;
+	width: 100%;
+}
+
+.bg-img {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.bg-img img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	min-width: 100%;
+	min-height: 100%;
+}
+
+.title {
+	z-index: 1000;
+	margin: 0 auto;
+	padding: 0 1.25em;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.title h1 {
+	padding: 0.2em 0;
+	font-weight: 800;
+	font-size: 3.25em;
+	margin: 0 auto;
+}
+
+.title p {
+	padding: 0 0 0.6em;
+	font-weight: 300;
+	font-size: 0.85em;
+	margin: 0 auto;
+}
+
+.title h1,
+.title p.subline {
+	line-height: 1;
+}
+
+.title p.subline {
+	font-size: 1.75em;
+}
+
+/* Trigger Button */
+button.trigger {
+	position: fixed;
+	bottom: 40px;
+	left: 50%;
+	z-index: 5000;
+	display: block;
+	margin-left: -0.5em;
+	padding: 0;
+	width: 1em;
+	height: 1em;
+	border: none;
+	background: transparent;
+	color: transparent;
+	font-size: 2em;
+	cursor: pointer;
+}
+
+.container:not(.notrans) button.trigger {
+	-webkit-transition: opacity 0.3s 0.5s;
+	transition: opacity 0.3s 0.5s;
+}
+
+.container.modify:not(.notrans) button.trigger {
+	opacity: 0;
+	pointer-events: none;
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+button.trigger::before {
+	position: absolute;
+	bottom: 100%;
+	left: -100%;
+	width: 300%;
+	color: @base;
+	content: attr(data-info);
+	font-size: 0.75em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+button.trigger:focus {
+	outline: none;
+}
+
+button.trigger span {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+button.trigger span::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	color: @base;
+	content: "d";
+	text-transform: none;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-family: "IconFont" !important;
+	line-height: 1;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Navigation */
+nav {
+	position: absolute;
+	top: -100%;
+}
+
+nav a {
+	font-weight: 800;
+	text-transform: uppercase;
+	font-size: 0.7em;
+	letter-spacing: 1px;
+	padding: 0.3em 0;
+	display: inline-block;
+	margin: 0 0.5em;
+	white-space: nowrap;
+	color: @base4;
+}
+
+nav a:hover,
+nav a.current-demo {
+	opacity: 1;
+	color: #69606b;
+}
+
+nav a.current-demo {
+	border-bottom: 3px solid @base3;
+}
+
+/* Content */
+.content {
+	margin: 0 auto;
+	padding: 0 0 3em;
+}
+
+.content > div:not(.title) {
+	margin: -80px auto 0;
+	max-width: 900px;
+	padding: 0 1.25em;
+}
+
+.content > div:not(.title) p {
+	margin: 0 auto 1.5em auto;
+}
+
+.content > div:not(.title) p:first-child {
+	font-size: 1.35em;
+}
+
+/* Media Queries */
+@media screen and (max-width: 47em) {
+
+	.title, .content {
+		font-size: 70%;
+	}
+
+	nav a {
+		font-size: 80%;
+	}
+}
+
+@media screen and (max-width: 27em) {
+
+    .title, .content {
+        font-size: 50%;
+    }
+
+    button.trigger::before {
+        display: none;
+    }
+}
