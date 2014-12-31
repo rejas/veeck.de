@@ -23,384 +23,91 @@
     }
 }());
 
-// Place any jQuery/helper plugins in here.
+/*!
+* classie v1.0.1
+* class helper functions
+* from bonzo https://github.com/ded/bonzo
+* MIT license
+*
+* classie.has( elem, 'my-class' ) -> true/false
+* classie.add( elem, 'my-new-class' )
+* classie.remove( elem, 'my-unwanted-class' )
+* classie.toggle( elem, 'my-class' )
+*/
 
-/*
- * jQuery Responsive menu plugin by Matt Kersley
- * Converts menus into a select elements for mobile devices and low browser widths
- * http://github.com/mattkersley/Responsive-Menu
- */
-(function($){
+/*jshint browser: true, strict: true, undef: true, unused: true */
+/*global define: false, module: false */
+
+(function( window ) {
+
     "use strict";
 
-    //plugin's default options
-    var settings = {
-            combine: true,	//combine multiple menus into a single select
-            groupPageText: 'Main',	//optgroup's aren't selectable, make an option for it
-            nested: true,	//create optgroups by default
-            prependTo: 'body',	//insert at top of page by default
-            switchWidth: 480,	//width at which to switch to select, and back again
-            topOptionText: 'Select a page'	//default "unselected" state
-        },
+// class helper functions from bonzo https://github.com/ded/bonzo
 
-        //used to store original matched menus
-        $menus,
-
-        //used as a unique index for each menu if no ID exists
-        menuCount = 0,
-
-        //used to store unique list items for combining lists
-        uniqueLinks = [];
-
-    //go to page
-    function goTo(url){
-        document.location.href = url;
+    function classReg( className ) {
+        return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
     }
 
-    //does menu exist?
-    function menuExists(){
-        return ($('.mnav').length) ? true : false;
-    }
+// classList support for class management
+// altho to be fair, the api sucks because it won't accept multiple classes at once
+    var hasClass, addClass, removeClass;
 
-    //validate selector's matched list(s)
-    function isList($this){
-        var pass = true;
-        $this.each(function(){
-            if(!$(this).is('ul') && !$(this).is('ol')){
-                pass=false;
-            }
-        });
-        return pass;
-    }//isList()
-
-    //function to decide if mobile or not
-    function isMobile(){
-        return ($(window).width() < settings.switchWidth);
-    }
-
-    //function to get text value of element, but not it's children
-    function getText($item){
-        return $.trim($item.clone().children('ul, ol').remove().end().text());
-    }
-
-    //function to check if URL is unique
-    function isUrlUnique(url){
-        return !!(($.inArray(url, uniqueLinks) === -1));
-    }
-
-    //function to do duplicate checking for combined list
-    function checkForDuplicates($menu){
-
-        $menu.find(' > li').each(function(){
-
-            var $li = $(this),
-                link = $li.find('a').attr('href'),
-                parentLink = function(){
-                    if($li.parent().parent().is('li')){
-                        return $li.parent().parent().find('a').attr('href');
-                    } else {
-                        return null;
-                    }
-                };
-
-            //check nested <li>s before checking current one
-            if($li.find(' ul, ol').length){
-                checkForDuplicates($li.find('> ul, > ol'));
-            }
-
-            //remove empty UL's if any are left by LI removals
-            if(!$li.find(' > ul li, > ol li').length){
-                $li.find('ul, ol').remove();
-            }
-
-            //if parent <li> has a link, and it's not unique, append current <li> to the "unique parent" detected earlier
-            if(!isUrlUnique(parentLink(), uniqueLinks) && isUrlUnique(link, uniqueLinks)){
-                $li.appendTo(
-                    $menu.closest('ul#mmnav').find('li:has(a[href='+parentLink()+']):first ul')
-                );
-            }
-            //otherwise, check if the current <li> is unique, if it is, add it to the unique list
-            else if(isUrlUnique(link)){
-                uniqueLinks.push(link);
-            }
-
-            //if it isn't, remove it. Simples.
-            else{
-                $li.remove();
-            }
-        });
-    }
-
-    //function to combine lists into one
-    function combineLists(){
-
-        //create a new list
-        var $menu = $('<ul id="mmnav" />');
-
-        //loop through each menu and extract the list's child items
-        //then append them to the new list
-        $menus.each(function(){
-            $(this).children().clone().appendTo($menu);
-        });
-
-        //de-duplicate any repeated items
-        checkForDuplicates($menu);
-
-        //return new combined list
-        return $menu;
-
-    }//combineLists()
-
-    //function to create options in the select menu
-    function createOption($item, $container, text){
-
-        //if no text param is passed, use list item's text, otherwise use settings.groupPageText
-        if(!text){
-            $('<option value="'+$item.find('a:first').attr('href')+'">'+$.trim(getText($item))+'</option>').appendTo($container);
-        } else {
-            $('<option value="'+$item.find('a:first').attr('href')+'">'+text+'</option>').appendTo($container);
-        }
-    }//createOption()
-
-    //function to create option groups
-    function createOptionGroup($group, $container){
-
-        //create <optgroup> for sub-nav items
-        var $optgroup = $('<optgroup label="'+$.trim(getText($group))+'" />');
-
-        //append top option to it (current list item's text)
-        createOption($group,$optgroup, settings.groupPageText);
-
-        //loop through each sub-nav list
-        $group.children('ul, ol').each(function(){
-
-            //loop through each list item and create an <option> for it
-            $(this).children('li').each(function(){
-                createOption($(this), $optgroup);
-            });
-        });
-
-        //append to select element
-        $optgroup.appendTo($container);
-
-    }//createOptionGroup()
-
-    //function to create <select> menu
-    function createSelect($menu){
-
-        //create <select> to insert into the page
-        var $select = $('<select id="mm'+menuCount+'" role="navigation" class="mnav dont-print" />');
-        menuCount++;
-
-        //create default option if the text is set (set to null for no option)
-        if(settings.topOptionText){
-            createOption($('<li>'+settings.topOptionText+'</li>'), $select);
-        }
-
-        //loop through first list items
-        $menu.children('li').each(function(){
-
-            var $li = $(this);
-
-            //if nested select is wanted, and has sub-nav, add optgroup element with child options
-            if($li.children('ul, ol').length && settings.nested){
-                createOptionGroup($li, $select);
-            }
-            //otherwise it's a single level select menu, so build option
-            else {
-                createOption($li, $select);
-            }
-        });
-
-        //add change event and prepend menu to set element
-        $select
-            .change(function(){goTo($(this).val());})
-            .prependTo(settings.prependTo);
-    }//createSelect()
-
-    //function to run plugin functionality
-    function runPlugin(){
-
-        //menu doesn't exist
-        if(isMobile() && !menuExists()){
-
-            //if user wants to combine menus, create a single <select>
-            if(settings.combine){
-                var $menu = combineLists();
-                createSelect($menu);
-            }
-            //otherwise, create a select for each matched list
-            else{
-                $menus.each(function(){
-                    createSelect($(this));
-                });
-            }
-        }
-
-        //menu exists, and browser is mobile width
-        if(isMobile() && menuExists()){
-            $('.mnav').show();
-            $menus.hide();
-        }
-
-        //otherwise, hide the mobile menu
-        if(!isMobile() && menuExists()){
-            $('.mnav').hide();
-            $menus.show();
-        }
-    }//runPlugin()
-
-    //plugin definition
-    $.fn.mobileMenu = function(options){
-
-        //override the default settings if user provides some
-        if(options){$.extend(settings, options);}
-
-        //check if user has run the plugin against list element(s)
-        if(isList($(this))){
-            $menus = $(this);
-            runPlugin();
-            $(window).resize(function(){runPlugin();});
-        }
-    };//mobileMenu()
-})(jQuery);
-
-/**
- * my own fade plugin
- * @param b
- */
-(function($) {
-    'use strict';
-    $.fn.fadeLink = function(b) {
-        $(this).on('click', function (event) {
-            var $this = $(this);
-            var url = $this.attr('href'); // pick url for redirecting via javascript
-            if ((url.indexOf('#') !== 0) && ($this.attr('target') !== '_blank')) {
-                event.preventDefault();
-                $(b).fadeOut('fast', function () {
-                    document.location.href = url;
-                });
-            }
-        });
-    };
-})(jQuery);
-
-/*
- * Yet Another Jquery Accordion
- *
- * Original work Copyright 2007-2010 Marco van Hylckama Vlieg
- * Modified work Copyright 2013 Michael Veeck
- *
- */
-(function($)
-{
-    "use strict";
-    $.fn.initMenu = function(options)
-    {
-        this.open = false;
-        var self = this;
-
-        var settings =
-        {
-            action : "click"
+    if ( 'classList' in document.documentElement ) {
+        hasClass = function( elem, c ) {
+            return elem.classList.contains( c );
         };
-
-        if(options)
-        {
-            if (options.action === 'hover')
-            {
-                options.action = 'mouseenter';
+        addClass = function( elem, c ) {
+            elem.classList.add( c );
+        };
+        removeClass = function( elem, c ) {
+            elem.classList.remove( c );
+        };
+    }
+    else {
+        hasClass = function( elem, c ) {
+            return classReg( c ).test( elem.className );
+        };
+        addClass = function( elem, c ) {
+            if ( !hasClass( elem, c ) ) {
+                elem.className = elem.className + ' ' + c;
             }
-            $.extend(settings, options);
-        }
+        };
+        removeClass = function( elem, c ) {
+            elem.className = elem.className.replace( classReg( c ), ' ' );
+        };
+    }
 
-        $('#menuButton').on( 'click', function() {
-            if( self.open ) {
-                closeMenu();
-            }
-            else {
-                openMenu();
-            }
-            return false;
-        } );
+    function toggleClass( elem, c ) {
+        var fn = hasClass( elem, c ) ? removeClass : addClass;
+        fn( elem, c );
+    }
 
-        function closeMenu () {
-            if( !self.open ) {
-                return;
-            }
-            $('#desktopmenu').removeClass('dl-menuopen');
-            self.open = false;
-        }
-
-        function openMenu() {
-            if( self.open ) {
-                return;
-            }
-            $('#desktopmenu').addClass('dl-menuopen');
-
-            // clicking somewhere else makes the menu close
-            $('body').off( 'click' ).on( 'click', function() {
-                closeMenu() ;
-            } );
-            self.open = true;
-        }
-
-        return this.each(function ()
-        {
-            $('.acitem', this).hide();
-            $('li.expand > .acitem', this).show();
-            $('li.expand > .acitem', this).prev().addClass('active');
-            $('li a', this).on (settings.action, function (e)
-            {
-                e.stopImmediatePropagation();
-                var theElement = $(this).next();
-                var parent = this.parentNode.parentNode;
-                if ($(parent).hasClass('noaccordion'))
-                {
-                    if (theElement[0] === undefined)
-                    {
-                        window.location.href = this.href;
-                    }
-                    $(theElement).slideToggle('normal', function ()
-                    {
-                        if ($(this).is(':visible')) {
-                            $(this).prev().addClass('active');
-                        } else {
-                            $(this).prev().removeClass('active');
-                        }
-                    });
-                    return false;
-                } else {
-                    if (theElement.hasClass('acitem') && theElement.is(':visible'))
-                    {
-                        if ($(parent).hasClass('collapsible'))
-                        {
-                            $('.acitem:visible', parent).first().slideUp('normal', function ()
-                            {
-                                $(this).prev().removeClass('active');
-                            });
-                            return false;
-                        }
-                        return false;
-                    }
-                    if (theElement.hasClass('acitem') && !theElement.is(':visible'))
-                    {
-                        $('.acitem:visible', parent).first().slideUp('normal', function ()
-                        {
-                            $(this).prev().removeClass('active');
-                        });
-                        theElement.slideDown('normal', function ()
-                        {
-                            $(this).prev().addClass('active');
-                        });
-                        return false;
-                    }
-                }
-                return true;
-            });
-        });
+    var classie = {
+        // full names
+        hasClass: hasClass,
+        addClass: addClass,
+        removeClass: removeClass,
+        toggleClass: toggleClass,
+        // short names
+        has: hasClass,
+        add: addClass,
+        remove: removeClass,
+        toggle: toggleClass
     };
-})(jQuery);
+
+// transport
+    if ( typeof define === 'function' && define.amd ) {
+        // AMD
+        define( classie );
+    } else if ( typeof exports === 'object' ) {
+        // CommonJS
+        module.exports = classie;
+    } else {
+        // browser global
+        window.classie = classie;
+    }
+
+})( window );
 
 /*
  * Lazy Load - jQuery plugin for lazy loading images
@@ -647,255 +354,6 @@
     });
 
 })(jQuery, window, document);
-
-/*
- * onMediaQuery
- * https://github.com/JoshBarr/on-media-query
- *
- * Copyright 2012, Springload
- * Released under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Date: Fri 24 October, 2012
- */
-(function (root, factory)
-{
-    'use strict';
-
-    if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define(function () {
-            // Also create a global in case some scripts
-            // that are loaded still are looking for
-            // a global even when an AMD loader is in use.
-            return (root.MQ = factory(root, root.MQ || {}));
-        });
-    } else {
-        // Browser globals
-        root.MQ = factory(root, root.MQ || {});
-    }
-}(this, function(mq) {
-    'use strict';
-    /**
-     * Initialises the MQ object and sets the initial media query callbacks
-     */
-    mq.init = function(query_array) {
-
-        // Container for all callbacks registered with the plugin
-        this.callbacks = [];
-        this.context = ''; //current active query
-        this.new_context = ''; //current active query to be read inside callbacks, as this.context won't be set when they're called!
-
-        if (typeof(query_array) !== 'undefined' ) {
-            for (var i = 0; i < query_array.length; i++) {
-                var r = this.addQuery(query_array[i]);
-            }
-        }
-
-        // Add a listener to the window.resize event, pass mq/self as the scope.
-        this.addEvent(window, 'resize', mq.listenForChange, mq);
-
-        // Figure out which query is active on load.
-        this.listenForChange();
-    };
-
-    /**
-     * Binds to the window.onResize and checks for media query changes
-     */
-    mq.listenForChange = function() {
-        var query_string;
-
-        // Get the value of html { font-family } from the element style.
-        if (document.documentElement.currentStyle) {
-            query_string = document.documentElement.currentStyle.fontFamily;
-        }
-
-        if (window.getComputedStyle) {
-            query_string = window.getComputedStyle(document.documentElement,null).getPropertyValue('font-family');
-        }
-
-        // No support for CSS enumeration? Return and avoid errors.
-        if (query_string === null) {
-            return;
-        }
-
-        // Android browsers place a "," after an item in the font family list.
-        // Most browsers either single or double quote the string.
-        query_string = query_string.replace(/['",]/g, '');
-
-        if (query_string !== this.context) {
-            this.new_context = query_string;
-            this.triggerCallbacks(this.context, 'unmatch');
-            this.triggerCallbacks(this.new_context, 'match');
-        }
-
-        this.context = this.new_context;
-    };
-
-    /**
-     * Attach a new query to test.
-     * @param query_object {
-     *     context: ['some_media_query','some_other_media_query'],
-     *     call_for_each_context: true,
-     *     callback: function() {
-     *         //something awesome
-     *     }
-     * }
-     * @returns A reference to the query_object that was added
-     */
-    mq.addQuery = function(query_object) {
-        if (query_object === null || query_object === undefined) {
-            return;
-        }
-
-        this.callbacks.push(query_object);
-
-        // If the context is passed as a string, turn it into an array (for unified approach elsewhere in the code)
-        if (typeof(query_object.context) === "string") {
-            query_object.context = [query_object.context];
-        }
-
-        // See if "call_for_each_context" is set, if not, set a default (for unified approach elsewhere in the code)
-        if (typeof(query_object.call_for_each_context) !== "boolean") {
-            query_object.call_for_each_context = true; // Default
-        }
-
-        // Fire the added callback if it matches the current context
-        if (this.context !== '' && this._inArray(this.context, query_object.context)) {
-            query_object.match();
-        }
-
-        return this.callbacks[ this.callbacks.length - 1];
-    };
-
-    /**
-     * Remove a query_object by reference.
-     * @returns Void(0)
-     */
-    mq.removeQuery = function(query_object) {
-        if (query_object === null || query_object === undefined) {
-            return;
-        }
-
-        var match = -1;
-
-        while ((match = mq._indexOf(query_object,this.callbacks)) > -1) {
-            this.callbacks.splice(match, 1);
-        }
-    };
-
-    /**
-     * Loop through the stored callbacks and execute
-     * the ones that are bound to the current context.
-     * @returns Void(0)
-     */
-    mq.triggerCallbacks = function(size, key) {
-        var i, callback_function;
-
-        for (i = 0; i < this.callbacks.length; i++) {
-
-            // Don't call for each context?
-            if(this.callbacks[i].call_for_each_context === false) {
-                if ((key === 'match' && this._inArray(this.context, this.callbacks[i].context)) ||
-                    (key === 'unmatch' && this._inArray(this.new_context, this.callbacks[i].context))) {
-                    // Was previously called, and we don't want to call it for each context
-                    continue;
-                }
-            }
-
-            callback_function = this.callbacks[i][key];
-            if (this._inArray(size, this.callbacks[i].context) && callback_function !== undefined) {
-                callback_function();
-            }
-        }
-    };
-
-    /**
-     * Swiss Army Knife event binding, in lieu of jQuery.
-     * @returns Void(0)
-     */
-    mq.addEvent = function(elem, type, eventHandle, eventContext) {
-        if (elem === null || elem === undefined) {
-            return;
-        }
-        // If the browser supports event listeners, use them.
-        if (elem.addEventListener) {
-            elem.addEventListener(type, function() { eventHandle.call(eventContext); }, false);
-        } else if (elem.attachEvent ) {
-            elem.attachEvent("on" + type, function() {  eventHandle.call(eventContext); });
-
-            // Otherwise, replace the current thing bound to on[whatever]! Consider refactoring.
-        } else {
-            elem["on" + type] = function() { eventHandle.call(eventContext); };
-        }
-    };
-
-    /**
-     * Function to return the mediaquery's previous context
-     * @returns String returns the current mediaquery's context
-     */
-    mq.getPreviousContext = function()
-    {
-        return this.context;
-    };
-
-    /**
-     * Function to return the mediaquery's current context
-     * @returns String returns the current mediaquery's context
-     */
-    mq.getContext = function()
-    {
-        return this.new_context;
-    };
-
-    /**
-     * Internal helper function that checks whether "needle" occurs in "haystack"
-     * @param needle Mixed Value to look for in haystack array
-     * @param haystack Array Haystack array to search in
-     * @returns Boolean True if the needle occurs, false otherwise
-     */
-    mq._inArray = function(needle, haystack)
-    {
-        var length = haystack.length;
-        for(var i = 0; i < length; i++) {
-            if(haystack[i] === needle) {
-                return true;
-            }
-        }
-        return false;
-    };
-
-    /**
-     * IE8 do not supports Array.properties.indexOf
-     * copy from jQuery.
-     * in lieu of jQuery.
-     * @returns int
-     */
-    mq._indexOf = function( elem, arr, i )
-    {
-        var len;
-        if ( arr ) {
-            if ( arr.indexOf ) {
-                return arr.indexOf( elem, i );
-            }
-
-            len = arr.length;
-            i = i ? i < 0 ? Math.max( 0, len + i ) : i : 0;
-
-            for ( ; i < len; i++ ) {
-                // Skip accessing in sparse arrays
-                if ( i in arr && arr[ i ] === elem ) {
-                    return i;
-                }
-            }
-        }
-
-        return -1;
-    };
-
-    // Expose the functions.
-    return mq;
-}));
 
 /**
  * jquery.dlmenu.js v1.0.1
@@ -1806,259 +1264,3 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
     }
     head.appendChild(style);
 }();
-
-/*!
- * Smooth Scroll - v1.4.13 - 2013-11-02
- * https://github.com/kswedberg/jquery-smooth-scroll
- * Copyright (c) 2013 Karl Swedberg
- * Licensed MIT (https://github.com/kswedberg/jquery-smooth-scroll/blob/master/LICENSE-MIT)
- */
-(function($) {
-    'use strict';
-    var version = '1.4.13',
-        optionOverrides = {},
-        defaults = {
-            exclude: [],
-            excludeWithin:[],
-            offset: 0,
-
-            // one of 'top' or 'left'
-            direction: 'top',
-
-            // jQuery set of elements you wish to scroll (for $.smoothScroll).
-            //  if null (default), $('html, body').firstScrollable() is used.
-            scrollElement: null,
-
-            // only use if you want to override default behavior
-            scrollTarget: null,
-
-            // fn(opts) function to be called before scrolling occurs.
-            // `this` is the element(s) being scrolled
-            beforeScroll: function() {},
-
-            // fn(opts) function to be called after scrolling occurs.
-            // `this` is the triggering element
-            afterScroll: function() {},
-            easing: 'swing',
-            speed: 400,
-
-            // coefficient for "auto" speed
-            autoCoefficent: 2,
-
-            // $.fn.smoothScroll only: whether to prevent the default click action
-            preventDefault: true
-        },
-
-        getScrollable = function(opts) {
-            var scrollable = [],
-                scrolled = false,
-                dir = opts.dir && opts.dir === 'left' ? 'scrollLeft' : 'scrollTop';
-
-            this.each(function() {
-
-                if (this === document || this === window) { return; }
-                var el = $(this);
-                if ( el[dir]() > 0 ) {
-                    scrollable.push(this);
-                } else {
-                    // if scroll(Top|Left) === 0, nudge the element 1px and see if it moves
-                    el[dir](1);
-                    scrolled = el[dir]() > 0;
-                    if ( scrolled ) {
-                        scrollable.push(this);
-                    }
-                    // then put it back, of course
-                    el[dir](0);
-                }
-            });
-
-            // If no scrollable elements, fall back to <body>,
-            // if it's in the jQuery collection
-            // (doing this because Safari sets scrollTop async,
-            // so can't set it to 1 and immediately get the value.)
-            if (!scrollable.length) {
-                this.each(function(index) {
-                    if (this.nodeName === 'BODY') {
-                        scrollable = [this];
-                    }
-                });
-            }
-
-            // Use the first scrollable element if we're calling firstScrollable()
-            if ( opts.el === 'first' && scrollable.length > 1 ) {
-                scrollable = [ scrollable[0] ];
-            }
-
-            return scrollable;
-        },
-        isTouch = 'ontouchend' in document;
-
-    $.fn.extend({
-        scrollable: function(dir) {
-            var scrl = getScrollable.call(this, {dir: dir});
-            return this.pushStack(scrl);
-        },
-        firstScrollable: function(dir) {
-            var scrl = getScrollable.call(this, {el: 'first', dir: dir});
-            return this.pushStack(scrl);
-        },
-
-        smoothScroll: function(options, extra) {
-            options = options || {};
-
-            if ( options === 'options' ) {
-                if ( !extra ) {
-                    return this.first().data('ssOpts');
-                }
-                return this.each(function() {
-                    var $this = $(this),
-                        opts = $.extend($this.data('ssOpts') || {}, extra);
-
-                    $(this).data('ssOpts', opts);
-                });
-            }
-
-            var opts = $.extend({}, $.fn.smoothScroll.defaults, options),
-                locationPath = $.smoothScroll.filterPath(location.pathname);
-
-            this
-                .unbind('click.smoothscroll')
-                .bind('click.smoothscroll', function(event) {
-                    var link = this,
-                        $link = $(this),
-                        thisOpts = $.extend({}, opts, $link.data('ssOpts') || {}),
-                        exclude = opts.exclude,
-                        excludeWithin = thisOpts.excludeWithin,
-                        elCounter = 0, ewlCounter = 0,
-                        include = true,
-                        clickOpts = {},
-                        hostMatch = ((location.hostname === link.hostname) || !link.hostname),
-                        pathMatch = thisOpts.scrollTarget || ( $.smoothScroll.filterPath(link.pathname) || locationPath ) === locationPath,
-                        thisHash = escapeSelector(link.hash);
-
-                    if ( !thisOpts.scrollTarget && (!hostMatch || !pathMatch || !thisHash) ) {
-                        include = false;
-                    } else {
-                        while (include && elCounter < exclude.length) {
-                            if ($link.is(escapeSelector(exclude[elCounter++]))) {
-                                include = false;
-                            }
-                        }
-                        while ( include && ewlCounter < excludeWithin.length ) {
-                            if ($link.closest(excludeWithin[ewlCounter++]).length) {
-                                include = false;
-                            }
-                        }
-                    }
-
-                    if ( include ) {
-
-                        if ( thisOpts.preventDefault ) {
-                            event.preventDefault();
-                        }
-
-                        $.extend( clickOpts, thisOpts, {
-                            scrollTarget: thisOpts.scrollTarget || thisHash,
-                            link: link
-                        });
-                        $.smoothScroll( clickOpts );
-                    }
-                });
-
-            return this;
-        }
-    });
-
-    $.smoothScroll = function(options, px) {
-        if ( options === 'options' && typeof px === 'object' ) {
-            return $.extend(optionOverrides, px);
-        }
-        var opts, $scroller, scrollTargetOffset, speed,
-            scrollerOffset = 0,
-            offPos = 'offset',
-            scrollDir = 'scrollTop',
-            aniProps = {},
-            aniOpts = {},
-            scrollprops = [];
-
-        if (typeof options === 'number') {
-            opts = $.extend({link: null}, $.fn.smoothScroll.defaults, optionOverrides);
-            scrollTargetOffset = options;
-        } else {
-            opts = $.extend({link: null}, $.fn.smoothScroll.defaults, options || {}, optionOverrides);
-            if (opts.scrollElement) {
-                offPos = 'position';
-                if (opts.scrollElement.css('position') === 'static') {
-                    opts.scrollElement.css('position', 'relative');
-                }
-            }
-        }
-
-        scrollDir = opts.direction === 'left' ? 'scrollLeft' : scrollDir;
-
-        if ( opts.scrollElement ) {
-            $scroller = opts.scrollElement;
-            if ( !(/^(?:HTML|BODY)$/).test($scroller[0].nodeName) ) {
-                scrollerOffset = $scroller[scrollDir]();
-            }
-        } else {
-            $scroller = $('html, body').firstScrollable(opts.direction);
-        }
-
-        // beforeScroll callback function must fire before calculating offset
-        opts.beforeScroll.call($scroller, opts);
-
-        scrollTargetOffset = (typeof options === 'number') ? options :
-            px ||
-                ( $(opts.scrollTarget)[offPos]() &&
-                    $(opts.scrollTarget)[offPos]()[opts.direction] ) ||
-                0;
-
-        aniProps[scrollDir] = scrollTargetOffset + scrollerOffset + opts.offset;
-        speed = opts.speed;
-
-        // automatically calculate the speed of the scroll based on distance / coefficient
-        if (speed === 'auto') {
-
-            // if aniProps[scrollDir] == 0 then we'll use scrollTop() value instead
-            speed = aniProps[scrollDir] || $scroller.scrollTop();
-
-            // divide the speed by the coefficient
-            speed = speed / opts.autoCoefficent;
-        }
-
-        aniOpts = {
-            duration: speed,
-            easing: opts.easing,
-            complete: function() {
-                opts.afterScroll.call(opts.link, opts);
-            }
-        };
-
-        if (opts.step) {
-            aniOpts.step = opts.step;
-        }
-
-        if ($scroller.length) {
-            $scroller.stop().animate(aniProps, aniOpts);
-        } else {
-            opts.afterScroll.call(opts.link, opts);
-        }
-    };
-
-    $.smoothScroll.version = version;
-    $.smoothScroll.filterPath = function(string) {
-        return string
-            .replace(/^\//,'')
-            .replace(/(?:index|default).[a-zA-Z]{3,4}$/,'')
-            .replace(/\/$/,'');
-    };
-
-// default options
-    $.fn.smoothScroll.defaults = defaults;
-
-    function escapeSelector (str) {
-        return str.replace(/(:|\.)/g,'\\$1');
-    }
-
-})(jQuery);

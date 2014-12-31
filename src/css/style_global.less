@@ -24,29 +24,6 @@
 }
 
 /**
- * Media Queries for supported browsers.
- */
-
-html {
-    background: none;
-    font-family: 'mobile';
-}
-
-body:after {
-    display: none;
-}
-
-@media screen and (min-width: 1024px)
-{
-    html {
-        font-family: "desktop";
-    }
-    body:after {
-        content: "desktop";
-    }
-}
-
-/**
  *
  */
 
@@ -57,41 +34,21 @@ body {
     overflow-x: hidden;
     -ms-touch-action: auto;
     font-family: @fontMain;
-}
-
-header {
-    background-color: @backgroundColor;
-}
-
-header .imgLiquidFill {
-    opacity: 0.25;
-    height: 100%;
-}
-
-nav {
-    z-index: 1000;
-}
-
-nav ul {
-    list-style-type: none;
-}
-
-#main {
-    padding: 1em;
-    z-index: 0;
-    background-color: @backgroundColor;
-    .baseline(1em, 2);
-    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 1.25em;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1 {
+    color: @base;
     font-family: @fontHeader, serif;
     font-size: 2.75em;
     line-height: 1.5em;
     text-align: center;
     text-transform: uppercase;
     margin: 0;
-    .vertical-align;
 }
 
 h1 span {
@@ -139,9 +96,11 @@ a:focus {
 
 a, a:visited {
     color: @base3;
+    outline: none;
+    text-decoration: none;
 }
 
-a:hover {
+a:hover, a:focus  {
     color: @base;
 }
 
@@ -180,7 +139,6 @@ footer time {
  */
 
 figure {
-    border: 5px solid @base;
     text-decoration: none;
     position: relative;
     margin: 0;
@@ -234,32 +192,7 @@ figcaption {
     text-transform: uppercase;
     padding: 0.25em;
     color: @base;
-}
-
-/**
- * Articles
- */
-
-article {
-    background-image: url('assets/seperator.png');
-    background-repeat: no-repeat;
-    background-position: 50% 100%;
-    padding-bottom: 3em;
-    margin-bottom: 3em;
-    background-size: 100% 5px;
-}
-
-article:last-of-type {
-    margin-bottom: 0;
-    background-image: none;
-}
-
-article ul {
-    margin-top: 12px;
-}
-
-article ul li {
-    padding-bottom: 10px;
+    background-color: @base2;
 }
 
 /**
