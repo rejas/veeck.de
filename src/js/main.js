@@ -39,7 +39,7 @@ $(document).ready(function ()
         zindex: 10
     });
 
-    //$(".imgLiquidFill").imgLiquid({useBackgroundSize: true});
+    $(".imgLiquidFill").imgLiquid({useBackgroundSize: true});
 
     /**
      * Photoswipe
