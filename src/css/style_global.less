@@ -28,7 +28,7 @@
  */
 
 body {
-    color: @base;
+    color: @base4;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -42,7 +42,7 @@ body {
 }
 
 h1 {
-    color: @base;
+    color: @base3;
     font-family: @fontHeader, serif;
     font-size: 2.75em;
     line-height: 1.5em;
@@ -56,6 +56,7 @@ h1 span {
 }
 
 h2, h3, h4 {
+    color: @base3;
     font-family: @fontHeader, serif;
     text-transform: uppercase;
     margin: 0 0 0.5em 0;
@@ -95,13 +96,13 @@ a:focus {
 }
 
 a, a:visited {
-    color: @base3;
+    color: @base4;
     outline: none;
     text-decoration: none;
 }
 
 a:hover, a:focus  {
-    color: @base;
+    color: @base2;
 }
 
 time {
@@ -146,6 +147,7 @@ figure {
 
 figure img {
     width: 100%;
+    border: 2px solid @base;
 }
 
 .fig_full {
@@ -177,7 +179,7 @@ figure > div.overlay:hover {
 figure > div.overlay > p {
     font-size: 1.5em;
     font-weight: bold;
-    color: white;
+    color: @color_white;
     background-color: @base;
     text-align: center;
     position: relative;
@@ -187,12 +189,13 @@ figure > div.overlay > p {
 
 figcaption {
     font-family: @fontHeader, serif;
-    font-size: 1.5em;
+    font-weight: bold;
+    font-size: 1em;
     text-align: center;
     text-transform: uppercase;
     padding: 0.25em;
-    color: @base;
-    background-color: @base2;
+    color: @base3;
+    background-color: @base;
 }
 
 /**

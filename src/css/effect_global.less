@@ -45,8 +45,10 @@ html, body, .container, .header {
 
 .title h1 {
 	padding: 0.2em 0;
-	font-weight: 800;
+	font-weight: 400;
+	font-style: italic;
 	font-size: 3.25em;
+	text-transform: none;
 	margin: 0 auto;
 }
 
@@ -160,11 +162,11 @@ nav a {
 nav a:hover,
 nav a.current-demo {
 	opacity: 1;
-	color: #69606b;
+	color: @base2;
 }
 
 nav a.current-demo {
-	border-bottom: 3px solid @base3;
+	border-bottom: 3px solid @base4;
 }
 
 /* Content */
