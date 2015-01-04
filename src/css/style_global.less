@@ -39,14 +39,19 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1 {
+h1,
+.headline1 {
     color: @base3;
+    padding: 0.2em 0;
     font-family: @fontHeader, serif;
-    font-size: 2.75em;
-    line-height: 1.5em;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 3.25em;
+    line-height: 1;
+    text-transform: none;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
     text-align: center;
-    text-transform: uppercase;
-    margin: 0;
 }
 
 h1 span {
@@ -129,8 +134,20 @@ footer {
     background-color: @backgroundColor;
 }
 
-footer time {
-    font-family: monospace;
+/**
+ * Header
+ */
+
+.title p {
+    padding: 0 0 0.6em;
+    font-weight: 300;
+    font-size: 0.85em;
+    margin: 0 auto;
+}
+
+.title .subline {
+    line-height: 1;
+    font-size: 1.75em;
 }
 
 /**
