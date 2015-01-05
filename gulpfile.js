@@ -4,28 +4,17 @@
 // TODO
 // - randomize name of app.css/js on deploy
 
-var gulp        = require('gulp');
-var concat      = require('gulp-concat');
-var csslint     = require('gulp-csslint');
-var csso        = require('gulp-csso');
-var ftp         = require('gulp-ftp');
-var htmlhint    = require('gulp-htmlhint');
-var imagemin    = require('gulp-imagemin');
-var inject      = require("gulp-inject");
-var jshint      = require('gulp-jshint');
-var less        = require('gulp-less');
-var livereload  = require('gulp-livereload');
-var prompt      = require('gulp-prompt');
-var rename      = require('gulp-rename');
-var rimraf      = require('gulp-rimraf');
-var sitemap     = require('gulp-sitemap');
-var uglify      = require('gulp-uglify');
-var uncss       = require('gulp-uncss');
-var gutil       = require('gulp-util');
-var express     = require('express');
-var stylish     = require('jshint-stylish');
-var tiny        = require('tiny-lr');
-var connect     = require('connect-livereload');
+var gulp            = require('gulp'),
+    gulpLoadPlugins = require('gulp-load-plugins'),
+    gutil           = require('gulp-util'),
+    plugins         = gulpLoadPlugins();
+
+var connect         = require('connect-livereload');
+var del             = require('del');
+var express         = require('express');
+var stylish         = require('jshint-stylish');
+var tiny            = require('tiny-lr');
+var vinylPaths      = require('vinyl-paths');
 
 var SRC             = 'src/';
 var DST             = 'dist/';
@@ -36,7 +25,7 @@ var EXPRESS_ROOT    = __dirname + '/' + SRC;
 // Clear the destination folder
 gulp.task('clean', function () {
     return gulp.src(DST, { read: false })
-        .pipe(rimraf());
+        .pipe(vinylPaths(del));
 });
 
 gulp.task('copy', ['clean'], function () {
