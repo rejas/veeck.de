@@ -9,10 +9,12 @@ var gulp            = require('gulp'),
     gutil           = require('gulp-util'),
     plugins         = gulpLoadPlugins();
 
+var connect         = require('connect-livereload');
+var del             = require('del');
 var express         = require('express');
 var stylish         = require('jshint-stylish');
 var tiny            = require('tiny-lr');
-var connect         = require('connect-livereload');
+var vinylPaths      = require('vinyl-paths');
 
 var SRC             = 'src/';
 var DST             = 'dist/';
@@ -23,7 +25,7 @@ var EXPRESS_ROOT    = __dirname + '/' + SRC;
 // Clear the destination folder
 gulp.task('clean', function () {
     return gulp.src(DST, { read: false })
-        .pipe(plugins.clean({ force: true }));
+        .pipe(vinylPaths(del));
 });
 
 gulp.task('copy', ['clean'], function () {
