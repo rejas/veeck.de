@@ -9,11 +9,11 @@ var gulp            = require('gulp'),
     gutil           = require('gulp-util'),
     plugins         = gulpLoadPlugins();
 
-var connect         = require('connect-livereload');
-var del             = require('del');
-var express         = require('express');
-var stylish         = require('jshint-stylish');
-var tiny            = require('tiny-lr');
+var connect         = require('connect-livereload'),
+    del             = require('del'),
+    express         = require('express'),
+    stylish         = require('jshint-stylish'),
+    tiny            = require('tiny-lr');
 
 var SRC             = 'src/';
 var DST             = 'dist/';
@@ -29,7 +29,7 @@ gulp.task('clean', function (cb) {
 gulp.task('copy', ['clean'], function () {
     // Copy all application files except *.less and .js into the `dist` folder
     return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/css/**/*.less'], { dot: true })
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest(DST));
 });
 
 gulp.task('images', ['copy'], function () {
@@ -37,7 +37,7 @@ gulp.task('images', ['copy'], function () {
         .pipe(plugins.imagemin({
             progressive: true
         }))
-        .pipe(gulp.dest('dist/material/img'));
+        .pipe(gulp.dest(DST+'material/img'));
 });
 
 // Detect errors and potential problems in your css code
@@ -66,7 +66,7 @@ gulp.task('vendorscripts', ['clean'], function () {
     // Minify and copy all vendor scripts
     return gulp.src(['src/js/vendor/**'])
         .pipe(plugins.uglify())
-        .pipe(gulp.dest('dist/js/vendor'));
+        .pipe(gulp.dest(DST+'js/vendor'));
 });
 
 gulp.task('scripts', ['clean'], function () {
@@ -74,7 +74,7 @@ gulp.task('scripts', ['clean'], function () {
     return gulp.src(['src/js/**/*.js', '!src/js/vendor/**'])
         .pipe(plugins.concat('app.js'))
         .pipe(plugins.uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest(DST+'js'));
 });
 
 gulp.task('styles', ['clean'], function () {
@@ -83,7 +83,7 @@ gulp.task('styles', ['clean'], function () {
         .pipe(plugins.less())
         .pipe(plugins.rename('app.css'))
         .pipe(plugins.csso())
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest(DST+'css'))
 });
 
 gulp.task('html', ['images', 'styles', 'scripts', 'vendorscripts'] , function() {
@@ -93,17 +93,17 @@ gulp.task('html', ['images', 'styles', 'scripts', 'vendorscripts'] , function() 
             addRootSlash: false,  // ensures proper relative paths
             ignorePath: '/dist/' // ensures proper relative paths
         }))
-        .pipe(gulp.dest("./dist"));
+        .pipe(gulp.dest(DST));
 });
 
 gulp.task('uncss', ['html'], function() {
     // Optimize via Uncss (beware: doesnt work with JS styles like in mobilemenu)
-    return gulp.src('dist/css/app.css')
+    return gulp.src(DST+'css/app.css')
         .pipe(uncss({
-            html: ['dist/index.html']
+            html: [DST+'index.html']
         }))
         .pipe(plugins.csso())
-        .pipe(gulp.dest('dist/css/'));
+        .pipe(gulp.dest(DST+'css/'));
 });
 
 gulp.task('sitemap', ['html'], function () {
@@ -148,7 +148,7 @@ gulp.task('ftp', function () {
             name: 'pw',
             message: 'enter ftp password'
         }, function(result){
-            return gulp.src('dist/**/*')
+            return gulp.src(DST+'**/*')
                 .pipe(ftp({
                     host: 'www.veeck.de',
                     user: 'www.veeck.de' ,
