@@ -60,9 +60,12 @@
    ========================================================================== */
 
 @media print {
-    * {
+    *,
+    *:before,
+    *:after {
         background: transparent !important;
-        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
         box-shadow: none !important;
         text-shadow: none !important;
     }
@@ -81,11 +84,12 @@
     }
 
     /*
-     * Don't show links for images, or javascript/internal links
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
      */
 
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
         content: "";
     }
 
@@ -95,8 +99,13 @@
         page-break-inside: avoid;
     }
 
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
     thead {
-        display: table-header-group; /* h5bp.com/t */
+        display: table-header-group;
     }
 
     tr,
@@ -106,10 +115,6 @@
 
     img {
         max-width: 100% !important;
-    }
-
-    @page {
-        margin: 0.5cm;
     }
 
     p,
