@@ -9,12 +9,11 @@ var gulp            = require('gulp'),
     gutil           = require('gulp-util'),
     plugins         = gulpLoadPlugins();
 
-var connect         = require('connect-livereload');
-var del             = require('del');
-var express         = require('express');
-var stylish         = require('jshint-stylish');
-var tiny            = require('tiny-lr');
-var vinylPaths      = require('vinyl-paths');
+var connect         = require('connect-livereload'),
+    del             = require('del'),
+    express         = require('express'),
+    stylish         = require('jshint-stylish'),
+    tiny            = require('tiny-lr');
 
 var SRC             = 'src/';
 var DST             = 'dist/';
@@ -23,87 +22,88 @@ var EXPRESS_PORT    = 4000;
 var EXPRESS_ROOT    = __dirname + '/' + SRC;
 
 // Clear the destination folder
-gulp.task('clean', function () {
-    return gulp.src(DST, { read: false })
-        .pipe(vinylPaths(del));
+gulp.task('clean', function (cb) {
+    del([DST], cb)
 });
 
 gulp.task('copy', ['clean'], function () {
     // Copy all application files except *.less and .js into the `dist` folder
     return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/css/**/*.less'], { dot: true })
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest(DST));
 });
 
 gulp.task('images', ['copy'], function () {
     gulp.src(SRC + 'material/img/**/*.jpg')
-        .pipe(imagemin())
-        .pipe(gulp.dest('dist/material/img'));
+        .pipe(plugins.imagemin({
+            progressive: true
+        }))
+        .pipe(gulp.dest(DST+'material/img'));
 });
 
 // Detect errors and potential problems in your css code
 gulp.task('csslint', function () {
     return gulp.src([SRC + 'css/*.less', '!'+SRC +'css/normalize.less'])
-        .pipe(csslint('.csslintrc'))
-        .pipe(csslint.reporter())
+        .pipe(plugins.csslint('.csslintrc'))
+        .pipe(plugins.csslint.reporter())
 });
 
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
 // You can enable or disable default JSHint options in the .jshintrc file
 gulp.task('jshint', function () {
     return gulp.src([SRC + 'js/**/*.js', '!'+SRC +'js/vendor/**'])
-        .pipe(jshint('.jshintrc'))
-        .pipe(jshint.reporter(stylish));
+        .pipe(plugins.jshint('.jshintrc'))
+        .pipe(plugins.jshint.reporter(stylish));
 });
 
 // Detect errors and potential problems in your html code
 gulp.task('htmlhint', function () {
     return gulp.src([SRC + '*.html'])
-        .pipe(htmlhint())
-        .pipe(htmlhint.reporter());
+        .pipe(plugins.htmlhint())
+        .pipe(plugins.htmlhint.reporter());
 });
 
 gulp.task('vendorscripts', ['clean'], function () {
     // Minify and copy all vendor scripts
     return gulp.src(['src/js/vendor/**'])
-        .pipe(uglify())
-        .pipe(gulp.dest('dist/js/vendor'));
+        .pipe(plugins.uglify())
+        .pipe(gulp.dest(DST+'js/vendor'));
 });
 
 gulp.task('scripts', ['clean'], function () {
     // Concatenate, minify and copy all JavaScript (except vendor scripts)
     return gulp.src(['src/js/**/*.js', '!src/js/vendor/**'])
-        .pipe(concat('app.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(plugins.concat('app.js'))
+        .pipe(plugins.uglify())
+        .pipe(gulp.dest(DST+'js'));
 });
 
 gulp.task('styles', ['clean'], function () {
     // Compile LESS files
     return gulp.src('src/css/main.less')
-        .pipe(less())
-        .pipe(rename('app.css'))
-        .pipe(csso())
-        .pipe(gulp.dest('dist/css'))
+        .pipe(plugins.less())
+        .pipe(plugins.rename('app.css'))
+        .pipe(plugins.csso())
+        .pipe(gulp.dest(DST+'css'))
 });
 
 gulp.task('html', ['images', 'styles', 'scripts', 'vendorscripts'] , function() {
     // We src all html files
     return gulp.src('src/*.html')
-        .pipe(inject(gulp.src(["./dist/**/*.*", '!./dist/js/vendor/**'], {read: false}), {
+        .pipe(plugins.inject(gulp.src(["./dist/**/*.*", '!./dist/js/vendor/**'], {read: false}), {
             addRootSlash: false,  // ensures proper relative paths
             ignorePath: '/dist/' // ensures proper relative paths
         }))
-        .pipe(gulp.dest("./dist"));
+        .pipe(gulp.dest(DST));
 });
 
 gulp.task('uncss', ['html'], function() {
     // Optimize via Uncss (beware: doesnt work with JS styles like in mobilemenu)
-    return gulp.src('dist/css/app.css')
+    return gulp.src(DST+'css/app.css')
         .pipe(uncss({
-            html: ['dist/index.html']
+            html: [DST+'index.html']
         }))
-        .pipe(csso())
-        .pipe(gulp.dest('dist/css/'));
+        .pipe(plugins.csso())
+        .pipe(gulp.dest(DST+'css/'));
 });
 
 gulp.task('sitemap', ['html'], function () {
@@ -148,7 +148,7 @@ gulp.task('ftp', function () {
             name: 'pw',
             message: 'enter ftp password'
         }, function(result){
-            return gulp.src('dist/**/*')
+            return gulp.src(DST+'**/*')
                 .pipe(ftp({
                     host: 'www.veeck.de',
                     user: 'www.veeck.de' ,
