@@ -160,10 +160,10 @@
     };
 })(jQuery);
 
-/*
+/*!
  * Lazy Load - jQuery plugin for lazy loading images
  *
- * Copyright (c) 2007-2013 Mika Tuupola
+ * Copyright (c) 2007-2015 Mika Tuupola
  *
  * Licensed under the MIT license:
  *   http://www.opensource.org/licenses/mit-license.php
@@ -171,12 +171,11 @@
  * Project home:
  *   http://www.appelsiini.net/projects/lazyload
  *
- * Version:  1.9.3
+ * Version:  1.9.5
  *
  */
-(function($, window, document, undefined)
-{
-    "use strict";
+
+(function($, window, document, undefined) {
     var $window = $(window);
 
     $.fn.lazyload = function(options) {
@@ -189,7 +188,7 @@
             effect          : "show",
             container       : window,
             data_attribute  : "original",
-            skip_invisible  : true,
+            skip_invisible  : false,
             appear          : null,
             load            : null,
             placeholder     : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
@@ -217,6 +216,7 @@
                     }
                 }
             });
+
         }
 
         if(options) {
@@ -235,7 +235,7 @@
 
         /* Cache container as jQuery as object. */
         $container = (settings.container === undefined ||
-            settings.container === window) ? $window : $(settings.container);
+        settings.container === window) ? $window : $(settings.container);
 
         /* Fire one scroll event per scroll. Not one scroll event per image. */
         if (0 === settings.event.indexOf("scroll")) {
@@ -1564,16 +1564,27 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
     }
     head.appendChild(style);
 }();
-
 /*!
- * Smooth Scroll - v1.4.13 - 2013-11-02
+ * jQuery Smooth Scroll - v1.5.5 - 2015-02-19
  * https://github.com/kswedberg/jquery-smooth-scroll
- * Copyright (c) 2013 Karl Swedberg
+ * Copyright (c) 2015 Karl Swedberg
  * Licensed MIT (https://github.com/kswedberg/jquery-smooth-scroll/blob/master/LICENSE-MIT)
  */
-(function($) {
-    'use strict';
-    var version = '1.4.13',
+
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], factory);
+    } else if (typeof module === 'object' && module.exports) {
+        // CommonJS
+        factory(require('jquery'));
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
+
+    var version = '1.5.5',
         optionOverrides = {},
         defaults = {
             exclude: [],
@@ -1601,7 +1612,7 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
             speed: 400,
 
             // coefficient for "auto" speed
-            autoCoefficent: 2,
+            autoCoefficient: 2,
 
             // $.fn.smoothScroll only: whether to prevent the default click action
             preventDefault: true
@@ -1635,7 +1646,7 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
             // (doing this because Safari sets scrollTop async,
             // so can't set it to 1 and immediately get the value.)
             if (!scrollable.length) {
-                this.each(function(index) {
+                this.each(function() {
                     if (this.nodeName === 'BODY') {
                         scrollable = [this];
                     }
@@ -1648,8 +1659,7 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
             }
 
             return scrollable;
-        },
-        isTouch = 'ontouchend' in document;
+        };
 
     $.fn.extend({
         scrollable: function(dir) {
@@ -1691,7 +1701,7 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                         include = true,
                         clickOpts = {},
                         hostMatch = ((location.hostname === link.hostname) || !link.hostname),
-                        pathMatch = thisOpts.scrollTarget || ( $.smoothScroll.filterPath(link.pathname) || locationPath ) === locationPath,
+                        pathMatch = thisOpts.scrollTarget || ( $.smoothScroll.filterPath(link.pathname) === locationPath ),
                         thisHash = escapeSelector(link.hash);
 
                     if ( !thisOpts.scrollTarget && (!hostMatch || !pathMatch || !thisHash) ) {
@@ -1719,6 +1729,7 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
                             scrollTarget: thisOpts.scrollTarget || thisHash,
                             link: link
                         });
+
                         $.smoothScroll( clickOpts );
                     }
                 });
@@ -1731,13 +1742,12 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
         if ( options === 'options' && typeof px === 'object' ) {
             return $.extend(optionOverrides, px);
         }
-        var opts, $scroller, scrollTargetOffset, speed,
+        var opts, $scroller, scrollTargetOffset, speed, delta,
             scrollerOffset = 0,
             offPos = 'offset',
             scrollDir = 'scrollTop',
             aniProps = {},
-            aniOpts = {},
-            scrollprops = [];
+            aniOpts = {};
 
         if (typeof options === 'number') {
             opts = $.extend({link: null}, $.fn.smoothScroll.defaults, optionOverrides);
@@ -1767,10 +1777,10 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
         opts.beforeScroll.call($scroller, opts);
 
         scrollTargetOffset = (typeof options === 'number') ? options :
-            px ||
-                ( $(opts.scrollTarget)[offPos]() &&
-                    $(opts.scrollTarget)[offPos]()[opts.direction] ) ||
-                0;
+        px ||
+        ( $(opts.scrollTarget)[offPos]() &&
+        $(opts.scrollTarget)[offPos]()[opts.direction] ) ||
+        0;
 
         aniProps[scrollDir] = scrollTargetOffset + scrollerOffset + opts.offset;
         speed = opts.speed;
@@ -1778,11 +1788,15 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
         // automatically calculate the speed of the scroll based on distance / coefficient
         if (speed === 'auto') {
 
-            // if aniProps[scrollDir] == 0 then we'll use scrollTop() value instead
-            speed = aniProps[scrollDir] || $scroller.scrollTop();
+            // $scroller.scrollTop() is position before scroll, aniProps[scrollDir] is position after
+            // When delta is greater, speed will be greater.
+            delta = aniProps[scrollDir] - $scroller.scrollTop();
+            if(delta < 0) {
+                delta *= -1;
+            }
 
-            // divide the speed by the coefficient
-            speed = speed / opts.autoCoefficent;
+            // Divide the delta by the coefficient
+            speed = delta / opts.autoCoefficient;
         }
 
         aniOpts = {
@@ -1806,17 +1820,17 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
 
     $.smoothScroll.version = version;
     $.smoothScroll.filterPath = function(string) {
+        string = string || '';
         return string
             .replace(/^\//,'')
             .replace(/(?:index|default).[a-zA-Z]{3,4}$/,'')
             .replace(/\/$/,'');
     };
 
-// default options
+    // default options
     $.fn.smoothScroll.defaults = defaults;
 
     function escapeSelector (str) {
-        return str.replace(/(:|\.)/g,'\\$1');
+        return str.replace(/(:|\.|\/)/g,'\\$1');
     }
-
-})(jQuery);
+}));
