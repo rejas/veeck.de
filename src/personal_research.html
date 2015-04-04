@@ -12,6 +12,8 @@
     <script src="js/vendor/less.min.js" type="text/javascript"></script>
     <!-- endinject -->
     <script src="js/vendor/modernizr.min.js" type="text/javascript"></script>
+
+    <link rel="import" href="webcomponent/github-card.html">
 </head>
 <body>
     <!--[if lt IE 9]>
@@ -71,6 +73,11 @@
     </header>
 
     <div id="main" role="main">
+
+        <article id="github" class="research_article clearfix">
+            <github-card user="rejas"></github-card>
+        </article>
+
         <article id="wowFeed" class="research_article clearfix">
             <figure>
                 <a href="http://www.worldofwarcraft.com/" class="sprite-research sprite-research-res_wow"></a>

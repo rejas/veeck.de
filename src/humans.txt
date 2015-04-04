@@ -11,6 +11,7 @@
     Marco van Hylckama Vlieg http://www.i-marco.nl/weblog/archive/2010/02/27/yup_yet_another_jquery_accordi
     Antone Roundy http://design.geckotribe.com/colorwheel/
     Mika Tuupola http://www.appelsiini.net/projects/lazyload
+    Guille Paz https://github.com/pazguille/github-card
 
 # TECHNOLOGY COLOPHON
 
