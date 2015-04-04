@@ -51,13 +51,14 @@
         var options = $.extend(
                 {
                     selector:		'id="imagelightbox"',
-                    allowedTypes:	'png|jpg|jpeg|gif',
+                    allowedTypes:	'png|jpg|jpeg||gif', // add support for generated images without an extension
                     animationSpeed:	250,
                     preloadNext:	true,
                     enableKeyboard:	true,
                     quitOnEnd:		false,
                     quitOnImgClick: false,
                     quitOnDocClick: true,
+                    quitOnEscKey:   true,               // quit when Esc key is pressed
                     onStart:		false,
                     onEnd:			false,
                     onLoadStart:	false,
@@ -75,12 +76,14 @@
 
             isTargetValid = function( element )
             {
-                return $( element ).prop( 'tagName' ).toLowerCase() === 'a' && ( new RegExp( '.(' + options.allowedTypes + ')$', 'i' ) ).test( $( element ).attr( 'href' ) );
+                var classic =  $( element ).prop( 'tagName' ).toLowerCase() === 'a' && ( new RegExp( '.(' + options.allowedTypes + ')$', 'i' ) ).test( $( element ).attr( 'href' ) );
+                var html5 = $( element ).attr( 'data-lightbox' ) !== undefined;
+                return classic || html5;
             },
 
             setImage = function()
             {
-                if( !image.length ) { return false; }
+                if( !image.length ) { return true; }
 
                 var screenWidth	 = $( window ).width() * 0.8,
                     screenHeight = $( window ).height() * 0.9,
@@ -134,8 +137,12 @@
 
                 setTimeout( function()
                 {
+                    var imgPath = target.attr( 'href' );
+                    if ( imgPath === undefined ) {
+                        imgPath = target.attr( 'data-lightbox' );
+                    }
                     image = $( '<img ' + options.selector + ' />' )
-                        .attr( 'src', target.attr( 'href' ) )
+                        .attr( 'src', imgPath )
                         .load( function()
                         {
                             image.appendTo( 'body' );
@@ -259,7 +266,7 @@
             {
                 if( !image.length ) { return true; }
                 e.preventDefault();
-                if( e.keyCode === 27 ) { quitLightbox(); }
+                if( e.keyCode === 27 && options.quitOnEscKey === true ) { quitLightbox(); }
                 if( e.keyCode === 37 || e.keyCode === 39 )
                 {
                     target = targets.eq( targets.index( target ) - ( e.keyCode === 37 ? 1 : -1 ) );
@@ -269,17 +276,19 @@
             });
         }
 
-        $( document ).off( 'click', this.selector);
-        $( document ).on( 'click', this.selector, function( e )
+        this.startImageLightbox = function( e )
         {
             if( !isTargetValid( this ) ) { return true; }
-            e.preventDefault();
+            if (e !== undefined) { e.preventDefault(); }
             if( inProgress ) { return false; }
             inProgress = false;
             if( options.onStart !== false ) { options.onStart(); }
             target = $( this );
             loadImage();
-        });
+        };
+
+        $( document ).off( 'click', this.selector);
+        $( document ).on( 'click', this.selector, this.startImageLightbox);
 
         this.each( function()
         {
