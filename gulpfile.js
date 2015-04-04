@@ -137,7 +137,7 @@ gulp.task('serve', function () {
 
     gulp.watch([SRC + '**/*.html', SRC + 'css/**/*.less', SRC + 'js/**/*.js'] , function (event) {
         gulp.src(event.path, {read: false})
-            .pipe(livereload(lr));
+            .pipe(plugins.livereload(lr));
     });
 });
 
