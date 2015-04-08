@@ -1,6 +1,3 @@
-// For more information on how to configure a task runner, please visit:
-// https://github.com/gulpjs/gulp
-
 // TODO
 // - randomize name of app.css/js on deploy
 
@@ -108,7 +105,7 @@ gulp.task('uncss', ['html'], function() {
 
 gulp.task('sitemap', ['html'], function () {
     return gulp.src(['src/**/*.html', '!src/**/google*.html'], {read: false})
-        .pipe(sitemap({
+        .pipe(plugins.sitemap({
             fileName: 'sitemap.xml',
             newLine: '\n',
             changeFreq: 'daily',
@@ -149,7 +146,7 @@ gulp.task('ftp', function () {
             message: 'enter ftp password'
         }, function(result){
             return gulp.src(DST+'**/*')
-                .pipe(ftp({
+                .pipe(plugins.ftp({
                     host: 'www.veeck.de',
                     user: 'www.veeck.de' ,
                     remotePath: 'dist',
