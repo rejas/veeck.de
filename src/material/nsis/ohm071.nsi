@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "Open Hardware Monitor"
-!define PRODUCT_VERSION "v0.6.0 beta"
+!define PRODUCT_VERSION "v0.7.1 beta"
 !define PRODUCT_PUBLISHER "Michael Möller"
 !define PRODUCT_WEB_SITE "http://openhardwaremonitor.org/"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\OpenHardwareMonitor.exe"
