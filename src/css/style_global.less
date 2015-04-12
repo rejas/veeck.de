@@ -281,11 +281,21 @@ article ul li {
  * Research
  */
 
+.github-card {
+    float: left;
+    margin-right: 15px;
+}
+
+.github-card::shadow .user {
+    width: 210px;
+}
+
 .research_article figure {
     float: left;
     margin: 0 0 0.75em 0;
     min-width: 200px;
     background-color: @base;
+    border-radius: 6px;
 }
 
 .research_article form {
