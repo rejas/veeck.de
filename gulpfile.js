@@ -9,6 +9,7 @@ var gulp            = require('gulp'),
 var connect         = require('connect-livereload'),
     del             = require('del'),
     express         = require('express'),
+    pngquant = require('imagemin-pngquant'),
     stylish         = require('jshint-stylish'),
     tiny            = require('tiny-lr');
 
@@ -17,6 +18,10 @@ var DST             = 'dist/';
 var LIVERELOAD_PORT = 35729;
 var EXPRESS_PORT    = 4000;
 var EXPRESS_ROOT    = __dirname + '/' + SRC;
+
+/**
+ * SUB TASKS
+ */
 
 // Clear the destination folder
 gulp.task('clean', function (cb) {
@@ -30,9 +35,10 @@ gulp.task('copy', ['clean'], function () {
 });
 
 gulp.task('images', ['copy'], function () {
-    gulp.src(SRC + 'material/img/**/*.jpg')
+    gulp.src(SRC + 'material/img/**/*.{jpg|png}')
         .pipe(plugins.imagemin({
-            progressive: true
+            progressive: true,
+            use: [pngquant()]
         }))
         .pipe(gulp.dest(DST+'material/img'));
 });
@@ -155,8 +161,12 @@ gulp.task('ftp', function () {
         }));
 });
 
-// Runs all checks on the code
+/**
+ * MAIN TASKS
+ */
+
 gulp.task('check', ['jshint', 'csslint', 'htmlhint']);
 
-// The default task (called when you run `gulp`)
+gulp.task('watch', ['serve']);
+
 gulp.task('default', ['html']);
