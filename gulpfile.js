@@ -22,6 +22,9 @@ var connect         = require('connect-livereload'),
  * CONFIGS
  */
 
+var config          = require('./config.json'),
+    dirs            = config.directories;
+
 var SRC             = 'src/';
 var DST             = 'dist/';
 var LIVERELOAD_PORT = 35729;
@@ -94,7 +97,7 @@ gulp.task('scripts', ['clean'], function () {
 gulp.task('styles', ['clean'], function () {
     return gulp.src('src/css/main.less')
         .pipe(plugins.less())
-        .pipe(plugins.autoprefixer())
+        .pipe(plugins.autoprefixer(config.autoprefixer))
         .pipe(plugins.rename('app.css'))
         .pipe(plugins.rev())
         .pipe(plugins.csso())
