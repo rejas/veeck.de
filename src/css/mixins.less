@@ -1,3 +1,7 @@
+/**
+ * less-based version of sass-mixin from https://medium.com/p/e258fce47a9b
+ */
+
 @base-font-size: 	16px;
 @base-line-height: 	1.5;
 
@@ -38,6 +42,10 @@
     padding-top: @baseline-distance;
     margin-bottom: @base-line-height - @baseline-distance + 0em;
 }
+
+/**
+ * other mixins
+ */
 
 .font-face (@family, @file-base, @weight: normal, @style: normal) {
     @font-face {
@@ -103,7 +111,5 @@
     width: 100%;
     top: 50%;
     margin: 0 auto;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
