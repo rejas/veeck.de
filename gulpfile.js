@@ -9,7 +9,7 @@ var gulp            = require('gulp'),
 var connect         = require('connect-livereload'),
     del             = require('del'),
     express         = require('express'),
-    pngquant = require('imagemin-pngquant'),
+    pngquant        = require('imagemin-pngquant'),
     stylish         = require('jshint-stylish'),
     tiny            = require('tiny-lr');
 
