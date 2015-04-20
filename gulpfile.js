@@ -94,6 +94,7 @@ gulp.task('scripts', ['clean'], function () {
 gulp.task('styles', ['clean'], function () {
     return gulp.src('src/css/main.less')
         .pipe(plugins.less())
+        .pipe(plugins.autoprefixer())
         .pipe(plugins.rename('app.css'))
         .pipe(plugins.rev())
         .pipe(plugins.csso())
