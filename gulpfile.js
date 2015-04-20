@@ -1,10 +1,15 @@
-// TODO
-// - randomize name of app.css/js on deploy
+/**
+ * GULP PLUGINS
+ */
 
 var gulp            = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
     gutil           = require('gulp-util'),
     plugins         = gulpLoadPlugins();
+
+/**
+ * OTHER PLUGINS
+ */
 
 var connect         = require('connect-livereload'),
     del             = require('del'),
@@ -12,6 +17,10 @@ var connect         = require('connect-livereload'),
     pngquant        = require('imagemin-pngquant'),
     stylish         = require('jshint-stylish'),
     tiny            = require('tiny-lr');
+
+/**
+ * CONFIGS
+ */
 
 var SRC             = 'src/';
 var DST             = 'dist/';
@@ -28,8 +37,8 @@ gulp.task('clean', function (cb) {
     del([DST], cb)
 });
 
+// Copy all application files except *.less and .js into the `dist` folder
 gulp.task('copy', ['clean'], function () {
-    // Copy all application files except *.less and .js into the `dist` folder
     return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/css/**/*.less'], { dot: true })
         .pipe(gulp.dest(DST));
 });
@@ -72,19 +81,21 @@ gulp.task('vendorscripts', ['clean'], function () {
         .pipe(gulp.dest(DST+'js/vendor'));
 });
 
+// Concatenate, minify and copy all JavaScript (except vendor scripts)
 gulp.task('scripts', ['clean'], function () {
-    // Concatenate, minify and copy all JavaScript (except vendor scripts)
     return gulp.src(['src/js/**/*.js', '!src/js/vendor/**'])
         .pipe(plugins.concat('app.js'))
+        .pipe(plugins.rev())
         .pipe(plugins.uglify())
         .pipe(gulp.dest(DST+'js'));
 });
 
+// Compile LESS files
 gulp.task('styles', ['clean'], function () {
-    // Compile LESS files
     return gulp.src('src/css/main.less')
         .pipe(plugins.less())
         .pipe(plugins.rename('app.css'))
+        .pipe(plugins.rev())
         .pipe(plugins.csso())
         .pipe(gulp.dest(DST+'css'))
 });
@@ -99,8 +110,8 @@ gulp.task('html', ['images', 'styles', 'scripts', 'vendorscripts'] , function() 
         .pipe(gulp.dest(DST));
 });
 
+// Optimize via Uncss (beware: doesnt work with JS styles like in mobilemenu)
 gulp.task('uncss', ['html'], function() {
-    // Optimize via Uncss (beware: doesnt work with JS styles like in mobilemenu)
     return gulp.src(DST+'css/app.css')
         .pipe(uncss({
             html: [DST+'index.html']
