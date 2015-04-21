@@ -10,9 +10,6 @@ $(document).ready(function ()
 {
     "use strict";
 
-    // my own fade plugin
-    $("nav li a").fadeLink("#main");
-
     // my own extender
     $(".extender").on("click", function () {
         $(".extend").slideToggle();

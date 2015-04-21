@@ -23,26 +23,6 @@
     }
 }());
 
-/**
- * my own fade plugin
- * @param b
- */
-(function($) {
-    'use strict';
-    $.fn.fadeLink = function(b) {
-        $(this).on('click', function (event) {
-            var $this = $(this);
-            var url = $this.attr('href'); // pick url for redirecting via javascript
-            if ((url.indexOf('#') !== 0) && ($this.attr('target') !== '_blank')) {
-                event.preventDefault();
-                $(b).fadeOut('fast', function () {
-                    document.location.href = url;
-                });
-            }
-        });
-    };
-})(jQuery);
-
 /*
  * Yet Another Jquery Accordion
  *
@@ -174,7 +154,6 @@
  * Version:  1.9.5
  *
  */
-
 (function($, window, document, undefined) {
     var $window = $(window);
 
@@ -1564,13 +1543,13 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
     }
     head.appendChild(style);
 }();
+
 /*!
  * jQuery Smooth Scroll - v1.5.5 - 2015-02-19
  * https://github.com/kswedberg/jquery-smooth-scroll
  * Copyright (c) 2015 Karl Swedberg
  * Licensed MIT (https://github.com/kswedberg/jquery-smooth-scroll/blob/master/LICENSE-MIT)
  */
-
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
