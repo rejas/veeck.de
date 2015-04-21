@@ -5,6 +5,7 @@
 var gulp            = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
     gutil           = require('gulp-util'),
+    minifyHTML      = require('gulp-minify-html'),
     plugins         = gulpLoadPlugins();
 
 /**
@@ -111,6 +112,7 @@ gulp.task('html', ['images', 'styles', 'scripts', 'vendorscripts'] , function() 
             addRootSlash: false,  // ensures proper relative paths
             ignorePath: '/dist/' // ensures proper relative paths
         }))
+        .pipe(minifyHTML(config.minifyHTML))
         .pipe(gulp.dest(DST));
 });
 
