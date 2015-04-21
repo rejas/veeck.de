@@ -4,5 +4,10 @@
   },
   "directories": {
 
+  },
+  "minifyHTML": {
+    "conditionals": true,
+    "empty": true,
+    "spare": true
   }
 }
