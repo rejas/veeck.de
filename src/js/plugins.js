@@ -39,7 +39,6 @@
 /*global define: false, module: false */
 
 (function( window ) {
-
     "use strict";
 
 // class helper functions from bonzo https://github.com/ded/bonzo
@@ -123,7 +122,6 @@
  * Version:  1.9.5
  *
  */
-
 (function($, window, document, undefined) {
     var $window = $(window);
 
