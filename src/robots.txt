@@ -2,4 +2,4 @@
 
 # Allow crawling of all content
 User-agent: *
-Disallow: /material/mp3
+Disallow: /files/mp3
