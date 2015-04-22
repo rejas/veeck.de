@@ -3,6 +3,24 @@
     "browsers": ["last 2 versions", "ie >=9", "iOS >=6", "Android >= 2.3"]
   },
   "directories": {
-
+    "src": "src/",
+    "dist": "dist/"
+  },
+  "imagemin": {
+    "progressive": true,
+    "use": "[pngquant()]"
+  },
+  "inject": {
+    "addRootSlash": false,
+    "ignorePath": "/dist/"
+  },
+  "minifyHTML": {
+    "conditionals": true,
+    "empty": true,
+    "spare": true
+  },
+  "ports": {
+    "livereload": 35729,
+    "express": 4000
   }
 }
