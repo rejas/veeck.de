@@ -41,12 +41,9 @@ gulp.task('copy', ['clean'], function () {
 });
 
 gulp.task('images', ['copy'], function () {
-    gulp.src(SRC + 'img/**/*.{jpg|png}')
-        .pipe(plugins.imagemin({
-            progressive: true,
-            use: [pngquant()]
-        }))
-        .pipe(gulp.dest(DST+'img'));
+    gulp.src(dirs.src + 'img/**/*.{jpg|png}')
+        .pipe(plugins.imagemin(config.imagemin))
+        .pipe(gulp.dest(dirs.dist+'img'));
 });
 
 // Detect errors and potential problems in your css code
