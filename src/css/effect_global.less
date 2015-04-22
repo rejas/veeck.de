@@ -115,34 +115,6 @@ button.trigger span::before {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-/* Navigation */
-nav {
-	position: absolute;
-	top: -100%;
-}
-
-nav a {
-	font-weight: 800;
-	text-transform: uppercase;
-	font-size: 0.7em;
-	letter-spacing: 1px;
-	padding: 0.3em 0;
-	display: inline-block;
-	margin: 0 0.5em;
-	white-space: nowrap;
-	color: @base4;
-}
-
-nav a:hover,
-nav a.current-demo {
-	opacity: 1;
-	color: @base2;
-}
-
-nav a.current-demo {
-	border-bottom: 3px solid @base4;
-}
-
 /* Content */
 .content {
 	margin: 0 auto;
@@ -184,4 +156,76 @@ nav a.current-demo {
     button.trigger::before {
         display: none;
     }
+}
+
+
+
+/* Navigation */
+nav {
+	position: absolute;
+	top: -100%;
+
+	a {
+		font-weight: 800;
+		text-transform: uppercase;
+		font-size: 0.7em;
+		letter-spacing: 1px;
+		padding: 0.3em 0;
+		display: inline-block;
+		margin: 0 0.5em;
+		white-space: nowrap;
+		color: @base4;
+
+		&:hover,
+		&.current-demo {
+			opacity: 1;
+			color: @base2;
+			border-bottom: 3px solid @base4;
+		}
+	}
+
+	ul {
+
+		li {
+			list-style: none;
+			float: left;
+			margin: 0 10px;
+		}
+	}
+}
+
+nav ul:after {
+	clear: both;
+	content: " ";
+	display: block;
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+}
+nav ul li a {
+	text-decoration: none;
+	display: block;
+	color: #333;
+	transition: background 0.3s ease-out 0s;
+}
+nav ul li.cat1:hover a,
+nav ul li.cat1:hover > ul li a  {
+	//background-color: #E6DD00;
+}
+nav ul li ul li a:hover {
+	color: #333;
+	background-color: #FAFAFA !important;
+}
+nav ul li:hover > ul {
+	visibility: visible;
+	left: 20%;
+}
+nav ul li ul{
+	display: inline;
+	visibility: hidden;
+	position: absolute;
+	padding: 0;
+}
+nav ul li ul li{
+	float: none;
 }
