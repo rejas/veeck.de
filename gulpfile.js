@@ -48,7 +48,7 @@ gulp.task('images', ['copy'], function () {
 
 // Detect errors and potential problems in your css code
 gulp.task('csslint', function () {
-    return gulp.src([dirs.src + 'css/*.less', '!'+dirs.src +'css/normalize.less'])
+    return gulp.src([dirs.src + 'css/*.less', '!'+dirs.src +'css/libs'])
         .pipe(plugins.csslint('.csslintrc'))
         .pipe(plugins.csslint.reporter())
 });

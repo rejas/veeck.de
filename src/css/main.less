@@ -10,43 +10,41 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-@import "../less/libs/normalize";
+@import "libs/normalize";
 
-@import "../less/libs/normalize_opentype";
+@import "libs/normalize_opentype";
 
-@import "../less/libs/boilerplate";
+@import "libs/boilerplate";
 
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
-@import "../less/variables.less";
+@import "variables.less";
 
-@import "../less/mixins.less";
+@import "mixins.less";
 
-@import "../less/fonts.less";
+@import "fonts.less";
 
-@import "plugin_lightbox";
+@import "libs/plugin_lightbox";
 
-@import "plugin_mobilemenu.less";
+@import "libs/plugin_mobilemenu.less";
 
-@import "plugin_dropdown.less";
+@import "libs/plugin_dropdown.less";
 
-@import "style_global.less";
+@import "modules/global.less";
 
-@import "style_smartphone.less" screen and (max-width: 599px) and (orientation: portrait),
-                                screen and (max-width: 767px) and (orientation: landscape);
+@import "modules/links.less";
 
-@import "style_tablet.less" screen and (min-width: 600px) and (max-width: 1023px) and (orientation: portrait),
-                            screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape);
+@import "modules/panorama.less";
 
-@import "style_monitor" screen and (min-width: 1024px);
+@import "modules/research.less";
 
 /* ==========================================================================
    Helper classes
    ========================================================================== */
 
-@import "../less/libs/boilerplate_helper";
+@import "libs/boilerplate_helper";
 
 /* ==========================================================================
    Print styles.
