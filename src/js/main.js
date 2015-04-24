@@ -10,10 +10,6 @@ $(document).ready(function ()
 {
     "use strict";
 
-    // replace no-js class if the browsers supports js
-    document.documentElement.className =
-        document.documentElement.className.replace("no-js","js");
-
     // my own extender
     $(".extender").on("click", function () {
         $(".extend").slideToggle();
