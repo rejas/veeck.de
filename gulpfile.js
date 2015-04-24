@@ -15,6 +15,7 @@ var gulp            = require('gulp'),
 var connect         = require('connect-livereload'),
     del             = require('del'),
     express         = require('express'),
+    ftp             = require('vinyl-ftp'),
     stylish         = require('jshint-stylish'),
     tiny            = require('tiny-lr');
 
@@ -129,7 +130,7 @@ gulp.task('sitemap', ['html'], function () {
 // Start express- and live-reload-server
 gulp.task('serve', function () {
     var server  = express(),
-        ports    = config.ports,
+        ports   = config.ports,
         root    = __dirname + '/' + dirs.src;
 
     server.use(connect());
@@ -151,20 +152,24 @@ gulp.task('serve', function () {
     });
 });
 
-gulp.task('ftp', function () {
+gulp.task('upload', function () {
     return gulp.src('.')
-        .pipe(prompt.prompt({
+        .pipe(plugins.prompt.prompt({
             type: 'password',
             name: 'pw',
             message: 'enter ftp password'
-        }, function(result){
-            return gulp.src(dirs.dist + '**/*')
-                .pipe(plugins.ftp({
-                    host: 'www.veeck.de',
-                    user: 'www.veeck.de' ,
-                    remotePath: 'dist',
-                    pass: result.pw
-                }));
+        }, function(result) {
+            var conn = ftp.create({
+                host:     config.ftp.host,
+                user:     config.ftp.user,
+                password: result.pw,
+                parallel: 1,
+                log: gutil.log
+            });
+
+            return gulp.src([dirs.dist + '**/*'], { base: '.', buffer: false } )
+                .pipe(conn.newer('/')) // only upload newer files
+                .pipe(conn.dest('/'));
         }));
 });
 
