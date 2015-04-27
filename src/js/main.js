@@ -42,7 +42,7 @@ $(document).ready(function ()
     $(".imgLiquidFill").imgLiquid({useBackgroundSize: true});
 
     /**
-     * Photoswipe
+     * ImageLightBox
      */
     var activityIndicatorOn = function()
         {
