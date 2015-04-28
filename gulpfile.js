@@ -6,6 +6,7 @@ var gulp            = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
     gutil           = require('gulp-util'),
     minifyHTML      = require('gulp-minify-html'),
+    spritesmith     = require('gulp.spritesmith'),
     plugins         = gulpLoadPlugins();
 
 /**
@@ -168,11 +169,30 @@ gulp.task('ftp', function () {
         }));
 });
 
+gulp.task('sprites:png', function () {
+    var spriteData = gulp.src('src/css/assets/icons/links/*.png').pipe(spritesmith({
+        imgName: 'links.png',
+        cssName: 'sprite_links.less'
+    }));
+
+    // Pipe image stream through image optimizer and onto disk
+    spriteData.img
+        //.pipe(plugins.imagemin(config.imagemin))
+        .pipe(gulp.dest('src/css/assets/sprites/'));
+
+    // Pipe CSS stream through CSS optimizer and onto disk
+    spriteData.css
+        .pipe(gulp.dest('src/css/modules/'));
+});
+
+
 /**
  * MAIN TASKS
  */
 
 gulp.task('check', ['jshint', 'csslint', 'htmlhint']);
+
+gulp.task('prepare', ['sprites:png']);
 
 gulp.task('watch', ['serve']);
 
