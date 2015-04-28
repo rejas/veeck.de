@@ -6,6 +6,11 @@
     "src": "src/",
     "dist": "dist/"
   },
+  "ftp": {
+    "host": "www.veeck.de",
+    "user": "www.veeck.de",
+    "remotePath": "."
+  },
   "imagemin": {
     "progressive": true,
     "use": "[pngquant()]"
