@@ -1,0 +1,176 @@
+
+/**
+ * Research
+ */
+
+.github-card {
+    float: left;
+    margin-right: 15px;
+
+    &::shadow .user {
+        width: 210px;
+    }
+
+    + h2 {
+        padding-left: 210px;
+    }
+}
+
+.research_article {
+
+    figure {
+        float: left;
+        margin: 0 0 0.75em 0;
+        min-width: 200px;
+        background-color: @base;
+        border-radius: 6px;
+    }
+
+    form {
+        display: table;
+
+        label {
+            display: table-cell;
+            float: left;
+        }
+    }
+
+    input[type="text"],
+    input[type="submit"] {
+        height: 32px;
+    }
+}
+
+@media only screen and (min-width : 1024px) {
+
+    .research_article {
+
+        figure {
+            width: auto;
+            margin: 0 1em 1em 0;
+        }
+
+        form {
+            max-width: 750px;
+            float: left;
+            margin-bottom: 2em;
+
+            label {
+                width: 175px;
+                float: none;
+                padding: 0 10px 0 0;
+            }
+        }
+
+        input,
+        select {
+            margin: 0 10px;
+            width: auto;
+            float: none;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            float: left;
+            margin-left: 0;
+        }
+
+        input[type="submit"] {
+            width: 90px;
+            float: none;
+            position: relative;
+            top: 27px;
+        }
+
+        .cd-dropdown,
+        .cd-select {
+            width: 175px;
+            margin: 0 auto;
+            float: left;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .research_article {
+
+        figure {
+            width: auto;
+            margin: 0 1em 1em 0;
+        }
+
+        form {
+            max-width: 750px;
+            float: left;
+            margin-bottom: 2em;
+
+            label {
+                width: 175px;
+                float: none;
+                padding: 0 10px 0 0;
+            }
+        }
+
+        input,
+        select {
+            width: auto;
+            float: none;
+            margin: 0 10px 0 0;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            float: left;
+            margin: 0;
+        }
+
+        input[type="submit"] {
+            float: none;
+            position: relative;
+            top: 27px;
+        }
+
+        .cd-dropdown,
+        .cd-select {
+            width: 175px;
+            margin: 0 auto;
+            float: left;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .research_article {
+
+        figure {
+            width: 100%;
+        }
+
+        form {
+            margin-bottom: 3em;
+
+            label {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+        }
+
+        input[type="text"] {
+            float: right;
+            width: 66%;
+        }
+
+        input[type="submit"] {
+            float: right;
+            width: 33%;
+        }
+
+        select {
+            float: right;
+            width: 66%;
+        }
+    }
+}
