@@ -171,7 +171,7 @@ gulp.task('ftp', function () {
 
 gulp.task('sprites:png', function () {
     var spriteData = gulp.src('src/css/assets/icons/links/*.png').pipe(spritesmith({
-        imgName: 'links.png',
+        imgName: 'assets/sprites/links.png',
         cssName: 'sprite_links.less'
     }));
 
