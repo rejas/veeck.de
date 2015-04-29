@@ -175,15 +175,15 @@ gulp.task('upload', function () {
 });
 
 gulp.task('sprites:png', function () {
-    var spriteData = gulp.src('src/css/assets/icons/links/*.png').pipe(spritesmith({
-        imgName: 'assets/sprites/links.png',
-        cssName: 'sprite_links.less'
+    var spriteData = gulp.src(['src/css/assets/icons/links/*.png', 'src/css/assets/icons/research/*.png']).pipe(spritesmith({
+        imgName:         'sprite.png',
+        cssName:         'sprite.less'
     }));
 
     // Pipe image stream through image optimizer and onto disk
     spriteData.img
         //.pipe(plugins.imagemin(config.imagemin))
-        .pipe(gulp.dest('src/css/assets/sprites/'));
+        .pipe(gulp.dest('src/css/assets/'));
 
     // Pipe CSS stream through CSS optimizer and onto disk
     spriteData.css
