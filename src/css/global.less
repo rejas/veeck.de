@@ -39,8 +39,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1,
-.headline1 {
+h1 {
     color: @base3;
     padding: 0.2em 0;
     font-family: @fontHeader, serif;
@@ -319,10 +318,6 @@ figcaption {
         min-height: 100%;
     }
 
-    h1 {
-        position: absolute;
-    }
-
     article {
         max-width: 960px;
     }
@@ -352,56 +347,6 @@ figcaption {
         .to_top {
             display: none;
         }
-    }
-
-    /**
-     * Navigation
-     */
-
-    nav {
-        position: fixed;
-        left: 1em;
-        top: 1em;
-        text-align: left;
-        height: 3em;
-        background: none;
-    }
-
-    nav ul.menu li ul.acitem li a {
-        font-size: 0.8em;
-    }
-
-    nav ul.menu li ul.acitem li a:hover,
-    nav ul.menu li ul.acitem li.inside a:hover,
-    nav li.expand ul.acitem li.active a:link,
-    nav li.expand ul.acitem li.active a:visited,
-    nav li a:hover,
-    nav li.active a:link,
-    nav li.active a:visited,
-    nav li.selected a:link,
-    nav li.selected a:visited,
-    nav li.inside a:hover {
-        background: @menuBackground;
-    }
-
-    nav li a:link,
-    nav li a:visited {
-        color: @menuColor;
-        font-size: 128.6%;
-        text-decoration: none;
-        padding: 8px 30px;
-        display: block;
-        min-height: 32px;
-    }
-
-    #desktopmenu {
-        background: @lighten1;
-        margin-top: 5em;
-    }
-
-    #menuButton {
-        float: left;
-        margin-left: 0;
     }
 
     /**
