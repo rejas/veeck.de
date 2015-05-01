@@ -79,7 +79,7 @@ $(document).ready(function ()
     });
 
     /**
-     * Photoswipe
+     * ImageLightBox
      */
     var activityIndicatorOn = function()
         {
