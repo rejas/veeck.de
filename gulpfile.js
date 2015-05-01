@@ -177,7 +177,8 @@ gulp.task('upload', function () {
 gulp.task('sprites:png', function () {
     var spriteData = gulp.src(['src/css/assets/icons/links/*.png', 'src/css/assets/icons/research/*.png']).pipe(spritesmith({
         imgName:         'sprite.png',
-        cssName:         'sprite.less'
+        cssName:         'sprite.less',
+        imgPath:         'assets/sprite.png'
     }));
 
     // Pipe image stream through image optimizer and onto disk
@@ -187,7 +188,7 @@ gulp.task('sprites:png', function () {
 
     // Pipe CSS stream through CSS optimizer and onto disk
     spriteData.css
-        .pipe(gulp.dest('src/css/modules/'));
+        .pipe(gulp.dest('src/css/base/'));
 });
 
 
