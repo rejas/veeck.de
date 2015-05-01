@@ -161,11 +161,10 @@ gulp.task('upload', function () {
             message: 'enter ftp password'
         }, function(result) {
             var conn = ftp.create({
-                host:     config.ftp.host,
-                user:     config.ftp.user,
-                password: result.pw,
-                parallel: 1,
-                log: gutil.log
+                host:       config.ftp.host,
+                user:       config.ftp.user,
+                password:   result.pw,
+                log:        gutil.log
             });
 
             return gulp.src([dirs.dist + '**/*'], { base: 'dist', buffer: false } )
