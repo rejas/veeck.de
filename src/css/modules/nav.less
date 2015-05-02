@@ -4,6 +4,10 @@
  */
 
 nav {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    z-index: 1000;
 
     a {
         font-weight: 800;
@@ -32,43 +36,35 @@ nav {
             margin: 0 10px;
 
             a {
-                text-decoration: none;
                 display: block;
-                color: #333;
+                color: @color_black;
                 transition: background 0.3s ease-out 0s;
             }
-        }
 
-        &:after {
-            clear: both;
-            content: " ";
-            display: block;
-            font-size: 0;
-            height: 0;
-            visibility: hidden;
+            &:hover > ul {
+                visibility: visible;
+            }
+
+            ul {
+                display: inline;
+                visibility: hidden;
+                position: absolute;
+                padding: 0;
+
+                li {
+                    float: none;
+
+                    a:hover {
+                        color: @color_black;
+                        background-color: @color_white !important;
+                    }
+                }
+            }
         }
     }
 }
 
-nav ul li.category:hover a,
-nav ul li.category:hover > ul li a  {
-    //background-color: #E6DD00;
-}
-nav ul li ul li a:hover {
-    color: #333;
-    background-color: #FAFAFA !important;
-}
-nav ul li:hover > ul {
-    visibility: visible;
-    left: 20%;
-}
-nav ul li ul {
-    display: inline;
-    visibility: hidden;
-    position: absolute;
-    padding: 0;
-
-    li{
-        float: none;
-    }
+.modify nav ul li.category:hover a,
+.modify nav ul li.category:hover > ul li a  {
+    background-color: @menuBackground2;
 }
