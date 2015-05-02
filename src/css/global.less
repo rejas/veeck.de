@@ -133,23 +133,24 @@ select {
 footer {
     padding: 1em;
     clear: both;
-    background-color: @backgroundColor;
 }
 
 /**
  * Header
  */
 
-.title p {
-    padding: 0 0 0.6em;
-    font-weight: 300;
-    font-size: 0.85em;
-    margin: 0 auto;
-}
+.title {
+    p {
+        padding: 0 0 0.6em;
+        font-weight: 300;
+        font-size: 0.85em;
+        margin: 0 auto;
+    }
 
-.title .subline {
-    line-height: 1;
-    font-size: 1.75em;
+    .subline {
+        line-height: 1;
+        font-size: 1.75em;
+    }
 }
 
 /**
@@ -303,10 +304,10 @@ article ul li {
         height: 100%;
         width: 38.2%;
         position: fixed;
-    }
 
-    header .more {
-        display: none;
+        .more {
+            display: none;
+        }
     }
 
     #main {
