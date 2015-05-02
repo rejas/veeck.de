@@ -2,66 +2,21 @@
     display: block;
 }
 
-.icon-canoo {
-    .sprite(@canoo);
-}
-
-.icon-chefkoch {
-    .sprite(@chefkoch);
-}
-
-.icon-duckduckgo {
-    .sprite(@duckduckgo);
-}
-
-.icon-google {
-    .sprite(@google);
-}
-
-.icon-imdb {
-    .sprite(@imdb);
-}
-
-.icon-iros {
-    .sprite(@res-iros2004);
-}
-
-.icon-leo {
-    .sprite(@leo);
-}
-
-.icon-nsis {
-    .sprite(@res-nsis);
-}
-
-.icon-rasterbator {
-    .sprite(@res-rasterbator);
-}
-
-.icon-uni {
-    .sprite(@res-unilogo);
-}
-
-.icon-wikipedia {
-    .sprite(@wikipedia);
-}
-
-.icon-woxikon {
-    .sprite(@woxikon);
-}
-
-.icon-wow {
-    .sprite(@res-wow);
-}
-
-.icon-wowhead {
-    .sprite(@wowhead);
-}
-
-.icon-youtube {
-    .sprite(@youtube);
-}
-
+.icon-canoo         { .sprite(@canoo);              }
+.icon-chefkoch      { .sprite(@chefkoch);           }
+.icon-duckduckgo    { .sprite(@duckduckgo);         }
+.icon-google        { .sprite(@google);             }
+.icon-imdb          { .sprite(@imdb);               }
+.icon-iros          { .sprite(@res-iros2004);       }
+.icon-leo           { .sprite(@leo);                }
+.icon-nsis          { .sprite(@res-nsis);           }
+.icon-rasterbator   { .sprite(@res-rasterbator);    }
+.icon-uni           { .sprite(@res-unilogo);        }
+.icon-wikipedia     { .sprite(@wikipedia);          }
+.icon-woxikon       { .sprite(@woxikon);            }
+.icon-wow           { .sprite(@res-wow);            }
+.icon-wowhead       { .sprite(@wowhead);            }
+.icon-youtube       { .sprite(@youtube);            }
 
 .icon-font-left:after:extend(.icon-font:after) {
     content: "a";
@@ -97,6 +52,33 @@
     content: "p";
 }
 
+
+// Share Button Icons
+
+.entypo-export:before {
+    &:extend(.icon-font-share:after);
+    position: relative;
+    top: 2px;
+}
+
+.entypo-twitter:before {
+    &:extend(.icon-font-twitter:after);
+}
+
+.entypo-facebook:before {
+    &:extend(.icon-font-facebook:after);
+}
+
+.entypo-gplus:before {
+    &:extend(.icon-font-google:after);
+}
+
+.entypo-pinterest:before {
+    &:extend(.icon-font-pinterest:after);
+}
+
+// Other Icons
+
 #menuButton:after {
     &:extend(.icon-font-menu:after);
 }
@@ -115,26 +97,4 @@
 .cd-dropdown.cd-active > span:after {
     &:extend(.icon-font-up:after);
     line-height: 1.25em;
-}
-
-footer .entypo-export:before {
-    &:extend(.icon-font-share:after);
-    position: relative;
-    top: 2px;
-}
-
-footer .entypo-twitter:before {
-    &:extend(.icon-font-twitter:after);
-}
-
-footer .entypo-facebook:before {
-    &:extend(.icon-font-facebook:after);
-}
-
-footer .entypo-gplus:before {
-    &:extend(.icon-font-google:after);
-}
-
-footer .entypo-pinterest:before {
-    &:extend(.icon-font-pinterest:after);
 }

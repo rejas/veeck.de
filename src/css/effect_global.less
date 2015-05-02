@@ -39,13 +39,24 @@ html, body, .container, .header {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	-webkit-transform: translateX(-50%) translateY(-50%);
 	transform: translateX(-50%) translateY(-50%);
 
 	.headline1 {
-		position: relative;
+		position: absolute;
 		.vertical-align();
 	}
+
+    .subline {
+        line-height: 1;
+        font-size: 1.75em;
+    }
+
+    p {
+        padding: 0 0 0.6em;
+        font-weight: 300;
+        font-size: 0.85em;
+        margin: 0 auto;
+    }
 }
 
 /* Trigger Button */
@@ -74,27 +85,26 @@ html, body, .container, .header {
 }
 
 .container:not(.notrans) .trigger {
-	-webkit-transition: opacity 0.3s 0.5s;
 	transition: opacity 0.3s 0.5s;
 }
 
 .container.modify:not(.notrans) .trigger {
 	opacity: 0;
 	pointer-events: none;
-	-webkit-transition-delay: 0s;
 	transition-delay: 0s;
 }
 
 
 /* Content */
 .content {
-	margin: 0 auto;
+	margin: 4em auto 0;
 	padding: 0 0 3em;
 
 	> div:not(.title) {
 		margin: -80px auto 0;
 		max-width: 900px;
 		padding: 0 1.25em;
+
 		p {
 			margin: 0 auto 1.5em auto;
 
@@ -127,77 +137,4 @@ html, body, .container, .header {
     .trigger::before {
         display: none;
     }
-}
-
-
-
-/* Navigation */
-nav {
-
-	a {
-		font-weight: 800;
-		text-transform: uppercase;
-		font-size: 0.7em;
-		letter-spacing: 1px;
-		padding: 0.3em 0;
-		display: inline-block;
-		margin: 0 0.5em;
-		white-space: nowrap;
-		color: @base4;
-
-		&:hover,
-		&.active-nav {
-			opacity: 1;
-			color: @base2;
-			border-bottom: 3px solid @base4;
-		}
-	}
-
-	ul {
-
-		li {
-			list-style: none;
-			float: left;
-			margin: 0 10px;
-
-			a {
-				text-decoration: none;
-				display: block;
-				color: #333;
-				transition: background 0.3s ease-out 0s;
-			}
-		}
-
-		&:after {
-			clear: both;
-			content: " ";
-			display: block;
-			font-size: 0;
-			height: 0;
-			visibility: hidden;
-		}
-	}
-}
-
-nav ul li.category:hover a,
-nav ul li.category:hover > ul li a  {
-	//background-color: #E6DD00;
-}
-nav ul li ul li a:hover {
-	color: #333;
-	background-color: #FAFAFA !important;
-}
-nav ul li:hover > ul {
-	visibility: visible;
-	left: 20%;
-}
-nav ul li ul {
-	display: inline;
-	visibility: hidden;
-	position: absolute;
-	padding: 0;
-
-	li{
-		float: none;
-	}
 }

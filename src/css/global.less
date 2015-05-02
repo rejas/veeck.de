@@ -1,5 +1,3 @@
-@import "base/mixins.less";
-@import "base/variables.less";
 
 /**
  * Apply a natural box layout model to all elements
@@ -20,10 +18,6 @@
     color: @base2;
     text-shadow: none;
 }
-
-/**
- *
- */
 
 body {
     color: @base4;
@@ -130,28 +124,6 @@ select {
     border-radius: 4px;
 }
 
-footer {
-    padding: 1em;
-    clear: both;
-}
-
-/**
- * Header
- */
-
-.title {
-    p {
-        padding: 0 0 0.6em;
-        font-weight: 300;
-        font-size: 0.85em;
-        margin: 0 auto;
-    }
-
-    .subline {
-        line-height: 1;
-        font-size: 1.75em;
-    }
-}
 
 /**
  * Figures
@@ -310,42 +282,8 @@ article ul li {
         }
     }
 
-    #main {
-        width: 61.8%;
-        float: right;
-        padding: 1em;
-        min-height: 100%;
-    }
-
     article {
         max-width: 960px;
-    }
-
-    footer {
-        position: fixed;
-        bottom: 1em;
-        left: 0;
-        width: 38.2%;
-        height: 2em;
-        padding: 0 1em;
-        margin: 0;
-        background: none;
-
-        time {
-            position: absolute;
-            right: 0;
-            font-size: 0.75em;
-            margin: 0;
-        }
-
-        .shareButton {
-            bottom: -5px;
-            position: relative;
-        }
-
-        .to_top {
-            display: none;
-        }
     }
 
     /**
@@ -394,18 +332,6 @@ article ul li {
         }
     }
 
-    footer {
-
-        time {
-            float: right;
-            margin-bottom: 0;
-        }
-
-        .to_top {
-            display: none;
-        }
-    }
-
     .portrait {
         width: 33%;
     }
@@ -444,28 +370,6 @@ article ul li {
             p {
                 margin: 0;
             }
-        }
-    }
-
-    #main {
-        overflow-x: hidden;
-    }
-
-    footer {
-        text-align: right;
-        font-size: 0.75em;
-        font-weight: normal;
-        font-style: italic;
-
-        time {
-            margin: 0;
-        }
-
-        .to_top {
-            width: 100%;
-            float: left;
-            text-align: center;
-            text-decoration: none;
         }
     }
 
