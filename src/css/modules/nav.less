@@ -7,7 +7,7 @@ nav {
     position: absolute;
     top: 1em;
     left: 1em;
-    z-index: 1000;
+    z-index: @z-index-3;
 
     a {
         font-weight: 800;
@@ -19,13 +19,6 @@ nav {
         margin: 0 0.5em;
         white-space: nowrap;
         color: @base4;
-
-        &:hover,
-        &.active-nav {
-            opacity: 1;
-            color: @base2;
-            border-bottom: 3px solid @base4;
-        }
     }
 
     ul {
@@ -34,6 +27,13 @@ nav {
             list-style: none;
             float: left;
             margin: 0 10px;
+
+            &:hover,
+            &.active-nav {
+                opacity: 1;
+                color: @base2;
+                border-bottom: 3px solid @base4;
+            }
 
             a {
                 display: block;
@@ -50,13 +50,19 @@ nav {
                 visibility: hidden;
                 position: absolute;
                 padding: 0;
+                margin-top: 3px;
 
                 li {
                     float: none;
+                    margin: 0;
 
-                    a:hover {
-                        color: @color_black;
-                        background-color: @color_white !important;
+                    a {
+                        padding: 0.3em;
+
+                        &:hover {
+                            color: @color_black;
+                            background-color: @color_white !important;
+                        }
                     }
                 }
             }
@@ -67,4 +73,11 @@ nav {
 .modify nav ul li.category:hover a,
 .modify nav ul li.category:hover > ul li a  {
     background-color: @menuBackground2;
+}
+
+@media screen and (max-width: 47em) {
+
+    nav a {
+        font-size: 80%;
+    }
 }
