@@ -19,6 +19,10 @@
     text-shadow: none;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     color: @base4;
     margin: 0;
@@ -244,16 +248,6 @@ figcaption {
         height: 100%;
     }
 
-    header {
-        height: 100%;
-        width: 38.2%;
-        position: fixed;
-
-        .more {
-            display: none;
-        }
-    }
-
     article {
         max-width: 960px;
     }
@@ -295,15 +289,6 @@ figcaption {
         height: 100%;
     }
 
-    header {
-        height: 50%;
-        width: 100%;
-
-        .more {
-            display: none;
-        }
-    }
-
     .portrait {
         width: 33%;
     }
@@ -321,28 +306,6 @@ figcaption {
 
     body {
         height: 100%;
-    }
-
-    header {
-        height: 100%;
-        width: 100%;
-
-        .more {
-            bottom: 0;
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            cursor: pointer;
-
-            :after {
-                font-size: 48px;
-                cursor: pointer;
-            }
-
-            p {
-                margin: 0;
-            }
-        }
     }
 
     .portrait {
