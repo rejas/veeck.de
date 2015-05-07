@@ -19,11 +19,18 @@
     text-shadow: none;
 }
 
-html, body {
+html {
     height: 100%;
+    background: none;
+    font-family: 'mobile';
+
+    @media @desktop {
+        font-family: "desktop";
+    }
 }
 
 body {
+    height: 100%;
     color: @base4;
     margin: 0;
     padding: 0;
@@ -35,6 +42,14 @@ body {
     line-height: 1.5;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+
+    &:after {
+        display: none;
+
+        @media @desktop {
+            content: "desktop";
+        }
+    }
 }
 
 h1 {
@@ -236,14 +251,6 @@ figcaption {
 
 @media @desktop {
 
-    html {
-        height: 100%;
-    }
-
-    body {
-        height: 100%;
-    }
-
     article {
         max-width: 960px;
     }
@@ -277,14 +284,6 @@ figcaption {
 
 @media @tablets {
 
-    html {
-        height: 100%;
-    }
-
-    body {
-        height: 100%;
-    }
-
     .portrait {
         width: 33%;
     }
@@ -295,14 +294,6 @@ figcaption {
 }
 
 @media @smartphones {
-
-    html {
-        height: 100%;
-    }
-
-    body {
-        height: 100%;
-    }
 
     .portrait {
         width: 50%;
