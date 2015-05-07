@@ -101,6 +101,32 @@ $(document).ready(function ()
             }
         }
     });
+
+    /**
+     * decide if mobile or not
+     * @type {Array}
+     */
+    var queries = [
+        {
+            context: 'mobile',
+            match: function() {
+                $('nav').remove();
+                $myVars.nav.clone().prependTo('header').addClass('mobile-nav').removeClass('desktop-nav').dlmenu();
+            },
+            unmatch: function() {
+            }
+        },
+        {
+            context: 'desktop',
+            match: function() {
+                $('nav').remove();
+                $myVars.nav.clone().prependTo('header').removeClass('mobile-nav').addClass('desktop-nav');
+            },
+            unmatch: function() {
+            }
+        }
+    ];
+    MQ.init(queries);
 });
 
 
