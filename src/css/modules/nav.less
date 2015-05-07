@@ -3,7 +3,7 @@
  * Nav
  */
 
-nav {
+.desktop-nav {
     position: absolute;
     top: 1em;
     left: 1em;
@@ -73,16 +73,13 @@ nav {
             }
         }
     }
-}
 
-.modify nav ul li.category:hover a,
-.modify nav ul li.category:hover > ul li a  {
-    background-color: @menuBackground2;
-}
-
-@media screen and (max-width: 47em) {
-
-    nav a {
-        font-size: 80%;
+    .mobile-menu-button {
+        display: none;
     }
+}
+
+.modify .desktop-nav ul li.category:hover a,
+.modify .desktop-nav ul li.category:hover > ul li a  {
+    background-color: @menuBackground2;
 }
