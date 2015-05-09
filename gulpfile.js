@@ -38,7 +38,7 @@ gulp.task('clean', function (cb) {
 
 // Copy all application files except *.less and .js into the `dist` folder
 gulp.task('copy', ['clean'], function () {
-    return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/css/**/*.less'], { dot: true })
+    return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/css/**/*.less', '!src/components/less'], { dot: true })
         .pipe(gulp.dest(dirs.dist));
 });
 
@@ -195,10 +195,10 @@ gulp.task('sprites:png', function () {
  * MAIN TASKS
  */
 
-gulp.task('check', ['jshint', 'csslint', 'htmlhint']);
+gulp.task('check',      ['jshint', 'csslint', 'htmlhint']);
 
-gulp.task('prepare', ['sprites:png']);
+gulp.task('prepare',    ['sprites:png']);
 
-gulp.task('watch', ['serve']);
+gulp.task('watch',      ['serve']);
 
-gulp.task('default', ['html']);
+gulp.task('default',    ['html']);
