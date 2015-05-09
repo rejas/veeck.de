@@ -40,6 +40,10 @@
                 }
             }
 
+            &:hover > a {
+                background-color: @base;
+            }
+
             a {
                 display: block;
                 color: @color_black;
@@ -48,6 +52,10 @@
 
             &:hover > ul {
                 visibility: visible;
+
+                li a {
+                    background-color: @base;
+                }
             }
 
             ul {
@@ -79,9 +87,4 @@
     .mobile-menu-button {
         display: none;
     }
-}
-
-.modify .desktop-nav ul li.category:hover a,
-.modify .desktop-nav ul li.category:hover > ul li a  {
-    background-color: @menuBackground2;
 }
