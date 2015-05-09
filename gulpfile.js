@@ -72,7 +72,7 @@ gulp.task('htmlhint', function () {
 
 gulp.task('vendorscripts', ['clean'], function () {
     // Minify and copy all vendor scripts
-    return gulp.src([dirs.src + 'js/vendor/**', '!'+ dirs.src + 'js/vendor/less.min.js'])
+    return gulp.src([dirs.src + 'js/vendor/**'])
         .pipe(plugins.uglify())
         .pipe(gulp.dest(dirs.dist + 'js/vendor'));
 });
