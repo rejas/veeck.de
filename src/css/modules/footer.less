@@ -6,49 +6,23 @@
 footer {
     position: relative;
 
+
     time {
+        float: right;
         position: relative;
-        right: 0;
         font-size: 0.75em;
+        font-style: italic;
         padding: 0 1em 1em 0;
     }
 
     .to_top {
         display: none;
-    }
-}
 
-
-@media @tablets {
-
-    footer {
-
-        time {
-            float: right;
-            margin-bottom: 0;
-        }
-
-        .to_top {
-            display: none;
-        }
-    }
-}
-
-@media @smartphones {
-
-    footer {
-        text-align: right;
-        font-size: 0.75em;
-        font-weight: normal;
-        font-style: italic;
-
-        time {
-            margin: 0;
-        }
-
-        .to_top {
+        @media @smartphones {
+            display: block;
             width: 100%;
-            float: left;
+            position: absolute;
+            bottom: 1em;
             text-align: center;
             text-decoration: none;
         }
