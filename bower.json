@@ -1,0 +1,19 @@
+{
+  "name": "homepage",
+  "version": "3.2.0",
+  "authors": [
+    "rejas <github@veeck.de>"
+  ],
+  "description": "my private homepage",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "less": "~2.5.0"
+  }
+}
