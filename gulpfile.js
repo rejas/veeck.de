@@ -100,7 +100,7 @@ gulp.task('styles', ['clean'], function () {
 gulp.task('html', ['images', 'styles', 'scripts', 'vendorscripts'] , function() {
     // We src all html files
     return gulp.src(dirs.src + '*.html')
-        .pipe(plugins.inject(gulp.src(["./dist/**/*.*", '!./dist/js/vendor/**'], {read: false}), config.inject))
+        .pipe(plugins.inject(gulp.src(["./dist/**/*.*", '!./dist/js/vendor/**', '!./dist/components/**'], {read: false}), config.inject))
         .pipe(minifyHTML(config.minifyHTML))
         .pipe(gulp.dest(dirs.dist));
 });
