@@ -167,7 +167,7 @@ gulp.task('upload', function () {
                 log:        gutil.log
             });
 
-            return gulp.src([dirs.dist + '**/*'], { base: 'dist', buffer: false } )
+            return gulp.src([dirs.dist + '**/*', '!'+dirs.dist + 'files/**/*'], { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/'));
         }));
