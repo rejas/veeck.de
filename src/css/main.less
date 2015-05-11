@@ -36,7 +36,17 @@
 
 @import "libs/plugin_dropdown.less";
 
-@import "global.less";
+@import "base/global.less";
+
+@import "modules/header.less";
+
+@import "modules/nav.less";
+
+@import "modules/footer.less";
+
+@import "modules/content.less";
+
+@import "modules/effect_side.less";
 
 @import "modules/links.less";
 
@@ -123,9 +133,5 @@
     h2,
     h3 {
         page-break-after: avoid;
-    }
-
-    .dont_print {
-        display: none;
     }
 }

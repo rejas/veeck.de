@@ -1,0 +1,34 @@
+
+/**
+ * Footer
+ */
+
+footer {
+    position: relative;
+
+    .shareButton {
+        position: relative;
+        left: 2em;
+    }
+
+    time {
+        float: right;
+        position: relative;
+        font-size: 0.75em;
+        font-style: italic;
+        padding: 0 1em 1em 0;
+    }
+
+    .to_top {
+        display: none;
+
+        @media @smartphones {
+            display: block;
+            width: 100%;
+            position: absolute;
+            bottom: 1em;
+            text-align: center;
+            text-decoration: none;
+        }
+    }
+}

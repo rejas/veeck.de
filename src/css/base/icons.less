@@ -2,62 +2,99 @@
     display: block;
 }
 
-.icon-canoo {
-    .sprite(@canoo);
+.icon-canoo         { .sprite(@canoo);              }
+.icon-chefkoch      { .sprite(@chefkoch);           }
+.icon-duckduckgo    { .sprite(@duckduckgo);         }
+.icon-google        { .sprite(@google);             }
+.icon-imdb          { .sprite(@imdb);               }
+.icon-iros          { .sprite(@res-iros2004);       }
+.icon-leo           { .sprite(@leo);                }
+.icon-nsis          { .sprite(@res-nsis);           }
+.icon-rasterbator   { .sprite(@res-rasterbator);    }
+.icon-uni           { .sprite(@res-unilogo);        }
+.icon-wikipedia     { .sprite(@wikipedia);          }
+.icon-woxikon       { .sprite(@woxikon);            }
+.icon-wow           { .sprite(@res-wow);            }
+.icon-wowhead       { .sprite(@wowhead);            }
+.icon-youtube       { .sprite(@youtube);            }
+
+.icon-font-left:after:extend(.icon-font:after) {
+    content: "a";
+}
+.icon-font-right:after:extend(.icon-font:after) {
+    content: "b";
+}
+.icon-font-up:after:extend(.icon-font:after) {
+    content: "c";
+}
+.icon-font-down:after:extend(.icon-font:after) {
+    content: "d";
+}
+.icon-font-more:after:extend(.icon-font:after) {
+    content: "d";
+}
+.icon-font-menu:after:extend(.icon-font:after) {
+    content: "m";
+}
+.icon-font-share:after:extend(.icon-font:after) {
+    content: "s";
+}
+.icon-font-google:after:extend(.icon-font:after) {
+    content: "g";
+}
+.icon-font-twitter:after:extend(.icon-font:after) {
+    content: "t";
+}
+.icon-font-facebook:after:extend(.icon-font:after) {
+    content: "f";
+}
+.icon-font-pinterest:after:extend(.icon-font:after) {
+    content: "p";
 }
 
-.icon-chefkoch {
-    .sprite(@chefkoch);
+
+// Share Button Icons
+
+.entypo-export:before {
+    &:extend(.icon-font-share:after);
+    position: relative;
+    top: 2px;
 }
 
-.icon-duckduckgo {
-    .sprite(@duckduckgo);
+.entypo-twitter:before {
+    &:extend(.icon-font-twitter:after);
 }
 
-.icon-google {
-    .sprite(@google);
+.entypo-facebook:before {
+    &:extend(.icon-font-facebook:after);
 }
 
-.icon-imdb {
-    .sprite(@imdb);
+.entypo-gplus:before {
+    &:extend(.icon-font-google:after);
 }
 
-.icon-iros {
-    .sprite(@res-iros2004);
+.entypo-pinterest:before {
+    &:extend(.icon-font-pinterest:after);
 }
 
-.icon-leo {
-    .sprite(@leo);
+// Other Icons
+
+.mobile-menu-button:after {
+    &:extend(.icon-font-menu:after);
 }
 
-.icon-nsis {
-    .sprite(@res-nsis);
+.mobile-nav li.dl-back:after,
+.mobile-nav li > a:not(:only-child):after {
+    &:extend(.icon-font-right:after);
+    display: none;
 }
 
-.icon-rasterbator {
-    .sprite(@res-rasterbator);
+.cd-dropdown > span:after {
+    &:extend(.icon-font-down:after);
+    line-height: 1.25em;
 }
 
-.icon-uni {
-    .sprite(@res-unilogo);
-}
-
-.icon-wikipedia {
-    .sprite(@wikipedia);
-}
-
-.icon-woxikon {
-    .sprite(@woxikon);
-}
-
-.icon-wow {
-    .sprite(@res-wow);
-}
-
-.icon-wowhead {
-    .sprite(@wowhead);
-}
-
-.icon-youtube {
-    .sprite(@youtube);
+.cd-dropdown.cd-active > span:after {
+    &:extend(.icon-font-up:after);
+    line-height: 1.25em;
 }
