@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "my private homepage",
   "repository": "https://bitbucket.org/mveeck/homepage.git",
   "private": true,
