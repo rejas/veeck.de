@@ -131,6 +131,7 @@ $(document).ready(function ()
 
 
 (function() {
+    "use strict";
 
     // detect if IE : from http://stackoverflow.com/a/16657946
     var ie = (function(){
@@ -159,8 +160,9 @@ $(document).ready(function ()
 
     function preventDefault(e) {
         e = e || window.event;
-        if (e.preventDefault)
+        if (e.preventDefault) {
             e.preventDefault();
+        }
         e.returnValue = false;
     }
 
@@ -210,7 +212,9 @@ $(document).ready(function ()
         scrollVal = scrollY();
 
         if( noscroll && !ie ) {
-            if( scrollVal < 0 ) return false;
+            if( scrollVal < 0 ) {
+                return false;
+            }
             // keep it that way
             window.scrollTo( 0, 0 );
         }
