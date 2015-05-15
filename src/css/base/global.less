@@ -41,11 +41,12 @@ body {
     overflow-x: hidden;
     -ms-touch-action: auto;
     font-family: @fontMain;
-    font-weight: 400;
-    font-size: 1.25em;
-    line-height: 1.5;
+    font-weight: @base-font-weight;
+    font-size: @base-font-size;
+    line-height: @base-line-height;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    .baseline (@base-font-size);
 
     &:after {
         display: none;
@@ -57,20 +58,14 @@ body {
 }
 
 h1 {
-    color: @base3;
-    padding: 0.2em 0;
+    color: @base4;
+    font-size: 3.25em;
     font-family: @fontHeader, serif;
     font-weight: 400;
     font-style: italic;
-    font-size: 3.25em;
     line-height: 1;
-    text-transform: none;
-    margin: 0 auto;
-    background: @menuBackground3;
-    text-align: center;
     text-transform: uppercase;
-    margin: 0;
-    .vertical-align();
+    margin: 0 auto;
 }
 
 h2, h3, h4 {
@@ -272,13 +267,6 @@ article ul li {
     padding: 0.35em;
     margin: 15px 0 15px 0;
     border: 3px solid @base;
-}
-
-.shareButton.dont_print.sharer-0 label span {
-    font-family: @fontMain !important;
-}
-.shareButton.dont_print.sharer-0 .social.active.right {
-    margin-left: 0 !important;
 }
 
 /**

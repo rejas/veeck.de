@@ -9,6 +9,10 @@
     left: 1em;
     z-index: @z-index-3;
 
+    @media @print {
+        display: none;
+    }
+
     a {
         font-weight: 800;
         text-transform: uppercase;
