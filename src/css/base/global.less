@@ -12,13 +12,13 @@
 }
 
 ::-moz-selection {
-    background: @base3;
+    background: @base;
     color: @base2;
     text-shadow: none;
 }
 
 ::selection {
-    background: @base3;
+    background: @base;
     color: @base2;
     text-shadow: none;
 }
@@ -29,7 +29,7 @@ html {
     font-family: 'mobile';
 
     @media @desktop {
-        font-family: "desktop";
+        font-family: 'desktop';
     }
 }
 
@@ -51,7 +51,7 @@ body {
         display: none;
 
         @media @desktop {
-            content: "desktop";
+            content: 'desktop';
         }
     }
 }
@@ -116,7 +116,7 @@ p {
 }
 
 a, a:visited {
-    color: @base4;
+    color: @complement2;
     outline: none;
     text-decoration: none;
 }
@@ -131,7 +131,7 @@ time {
 }
 
 input {
-    padding: 4px 8px 4px 8px;
+    padding: 4px 8px;
     border: 1px solid @base3;
 }
 
