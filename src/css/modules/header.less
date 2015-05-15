@@ -118,14 +118,24 @@
 
         .icon {
             color: black;
+            width: 60px;
+            margin: 0 auto;
+            border-radius: 30px;
+            background-color: @menuBackground;
 
             &:after {
                 &:extend(.icon-font-more:after);
-                font-size: 48px;
+                font-size: 50px;
+                position: relative;
+                top: 3px;
             }
 
             &:focus {
                 outline: none;
+            }
+
+            &:hover {
+                background-color: @menuBackground3;
             }
         }
     }

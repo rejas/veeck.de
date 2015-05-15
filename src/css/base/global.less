@@ -46,7 +46,6 @@ body {
     line-height: @base-line-height;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    .baseline (@base-font-size);
 
     &:after {
         display: none;
@@ -91,6 +90,10 @@ h3, h4 {
     @media @smartphones {
         font-size: 1.25em;
     }
+}
+
+article {
+    .baseline (@base-font-size);
 }
 
 section {
