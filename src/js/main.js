@@ -11,8 +11,9 @@ $(document).ready(function ()
     "use strict";
 
     // my own extender
-    $(".extender").on("click", function () {
-        $(".extend").slideToggle();
+    $(".js-extender").on("click", function (e) {
+        e.preventDefault();
+        $('.' + $(this).data('toExtend')).slideToggle();
     });
 
     /**
