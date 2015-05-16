@@ -48,7 +48,7 @@ $(document).ready(function ()
     /**
      * Animsitions
      */
-    $(".animsition").animsition({
+    $(".js-animsition").animsition({
 
         inClass               :   'zoom-in-sm',
         outClass              :   'zoom-out-sm',
