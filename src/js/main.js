@@ -40,7 +40,10 @@ $(document).ready(function ()
         zindex: 10
     });
 
-    $(".imgLiquidFill").imgLiquid({useBackgroundSize: true});
+    /**
+     * Fill background hero image
+     */
+    $(".js-img-liquid").imgLiquid({useBackgroundSize: true});
 
     /**
      * ImageLightBox
