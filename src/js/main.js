@@ -41,9 +41,9 @@ $(document).ready(function ()
     });
 
     /**
-     * Fill out the background header images
+     * Fill background hero image
      */
-    $(".imgLiquidFill").imgLiquid({useBackgroundSize: true});
+    $(".js-img-liquid").imgLiquid({useBackgroundSize: true});
 
     /**
      * Animsitions
