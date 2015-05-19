@@ -5,6 +5,7 @@
 var gulp            = require('gulp'),
     gulpLoadPlugins = require('gulp-load-plugins'),
     gutil           = require('gulp-util'),
+    browserify      = require('browserify'),
     minifyHTML      = require('gulp-minify-html'),
     spritesmith     = require('gulp.spritesmith'),
     plugins         = gulpLoadPlugins();
@@ -84,6 +85,20 @@ gulp.task('scripts', ['clean'], function () {
         .pipe(plugins.rev())
         .pipe(plugins.uglify())
         .pipe(gulp.dest(dirs.dist + 'js'));
+});
+
+// Browserify task
+gulp.task('browserify', function() {
+    // Single point of entry (make sure not to src ALL your files, browserify will figure it out for you)
+    gulp.src(['src/components/main.js'])
+        .pipe(browserify({
+            insertGlobals: true,
+            debug: true
+        }))
+        // Bundle to a single file
+        .pipe(plugins.concat('bundle.js'))
+        // Output it to our src folder
+        .pipe(gulp.dest('src/js'));
 });
 
 // Compile LESS files
