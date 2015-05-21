@@ -127,6 +127,8 @@
  *
  */
 (function($, window, document, undefined) {
+    "use strict";
+
     var $window = $(window);
 
     $.fn.lazyload = function(options) {
@@ -1312,6 +1314,8 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
  */
 
 ;(function (root, factory) {
+    "use strict";
+
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
         define(function () {
@@ -1329,6 +1333,8 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
      * Initialises the MQ object and sets the initial media query callbacks
      * @returns Void(0)
      */
+    "use strict";
+
     mq.init = function(query_array) {
 
         // Container for all callbacks registered with the plugin
@@ -1533,7 +1539,7 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
         }
 
         return -1;
-    }
+    };
 
     // Expose the functions.
     return mq;
