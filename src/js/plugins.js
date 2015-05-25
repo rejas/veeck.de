@@ -1343,7 +1343,7 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
         this.new_context = ''; //current active query to be read inside callbacks, as this.context won't be set when they're called!
 
         if (typeof(query_array) !== 'undefined' ) {
-            for (i = 0; i < query_array.length; i++) {
+            for (var i = 0; i < query_array.length; i++) {
                 var r = this.addQuery(query_array[i]);
             }
         }
