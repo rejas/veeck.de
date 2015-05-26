@@ -46,16 +46,21 @@
             font-size: 50px;
         }
 
-        &:hover,
         &.dl-active {
             transform: translateY(0) scale(1.05, 1.05);
+            background-color: darken(@menuBackground, 15%);
+        }
+
+        &:hover {
+            transform: translateY(0) scale(1.05, 1.05);
+            background-color: lighten(@menuBackground, 15%);
         }
     }
 
     ul {
         padding: 0;
         transform-style: preserve-3d;
-        background: @lighten1;
+        background: @menuBackground;
 
         li {
             list-style: none;
@@ -167,31 +172,23 @@
     /* Animation classes for moving out and in */
 
     .dl-menu.dl-animate-out-1 {
-        -webkit-animation: MenuAnimOut1 0.4s;
-        -moz-animation: MenuAnimOut1 0.4s;
         animation: MenuAnimOut1 0.4s;
     }
 
     .dl-menu.dl-animate-in-1 {
-        -webkit-animation: MenuAnimIn1 0.3s;
-        -moz-animation: MenuAnimIn1 0.3s;
         animation: MenuAnimIn1 0.3s;
     }
 
     .mobile-nav > .dl-submenu.dl-animate-in-1 {
-        -webkit-animation: SubMenuAnimIn1 0.4s ease;
-        -moz-animation: SubMenuAnimIn1 0.4s ease;
         animation: SubMenuAnimIn1 0.4s ease;
     }
 
     .mobile-nav > .dl-submenu.dl-animate-out-1 {
-        -webkit-animation: SubMenuAnimOut1 0.4s ease;
-        -moz-animation: SubMenuAnimOut1 0.4s ease;
         animation: SubMenuAnimOut1 0.4s ease;
     }
 
     .no-touch .mobile-nav li a:hover {
-        background: @menuBackground;
+        background-color: lighten(@menuBackground, 15%);
     }
 
     /* No JS Fallback */

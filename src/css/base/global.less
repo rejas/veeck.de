@@ -12,13 +12,13 @@
 }
 
 ::-moz-selection {
-    background: @base3;
+    background: @base;
     color: @base2;
     text-shadow: none;
 }
 
 ::selection {
-    background: @base3;
+    background: @base;
     color: @base2;
     text-shadow: none;
 }
@@ -29,21 +29,21 @@ html {
     font-family: 'mobile';
 
     @media @desktop {
-        font-family: "desktop";
+        font-family: 'desktop';
     }
 }
 
 body {
     height: 100%;
-    color: @base4;
+    color: @base2;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     -ms-touch-action: auto;
     font-family: @fontMain;
-    font-weight: 400;
-    font-size: 1.25em;
-    line-height: 1.5;
+    font-weight: @base-font-weight;
+    font-size: @base-font-size;
+    line-height: @base-line-height;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 
@@ -51,40 +51,47 @@ body {
         display: none;
 
         @media @desktop {
-            content: "desktop";
+            content: 'desktop';
         }
     }
 }
 
 h1 {
-    color: @base3;
-    padding: 0.2em 0;
+    font-size: 3.25em;
     font-family: @fontHeader, serif;
     font-weight: 400;
     font-style: italic;
-    font-size: 3.25em;
     line-height: 1;
-    text-transform: none;
+    text-transform: uppercase;
     margin: 0 auto;
-    background: @menuBackground3;
-    text-align: center;
 }
 
 h2, h3, h4 {
-    color: @base3;
     font-family: @fontHeader, serif;
     text-transform: uppercase;
     margin: 0 0 0.5em 0;
 }
 
 h2 {
-    font-size: 2.5em;
+    font-size: 2.25em;
     line-height: 1.2em;
+
+    @media @smartphones {
+        font-size: 1.5em;
+    }
 }
 
 h3, h4 {
     font-size: 2em;
     line-height: 1em;
+
+    @media @smartphones {
+        font-size: 1.25em;
+    }
+}
+
+article {
+    .baseline (1em);
 }
 
 section {
@@ -107,7 +114,7 @@ p {
 }
 
 a, a:visited {
-    color: @base4;
+    color: @base3;
     outline: none;
     text-decoration: none;
 }
@@ -122,7 +129,7 @@ time {
 }
 
 input {
-    padding: 4px 8px 4px 8px;
+    padding: 4px 8px;
     border: 1px solid @base3;
 }
 
@@ -196,7 +203,7 @@ figcaption {
     text-align: center;
     text-transform: uppercase;
     padding: 0.25em;
-    color: @base3;
+    color: @base2;
     background-color: @base;
 }
 
@@ -231,18 +238,11 @@ figcaption {
     height: 266px;
 }
 
-.extend {
+.to_extend {
     display: none;
     padding: 0.35em;
     margin: 15px 0 15px 0;
     border: 3px solid @base;
-}
-
-.shareButton.dont_print.sharer-0 label span {
-    font-family: @fontMain !important;
-}
-.shareButton.dont_print.sharer-0 .social.active.right {
-    margin-left: 0 !important;
 }
 
 /**

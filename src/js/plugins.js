@@ -23,6 +23,8 @@
     }
 }());
 
+
+
 /*!
 * classie v1.0.1
 * class helper functions
@@ -108,6 +110,8 @@
 
 })( window );
 
+
+
 /*!
  * Lazy Load - jQuery plugin for lazy loading images
  *
@@ -123,6 +127,8 @@
  *
  */
 (function($, window, document, undefined) {
+    "use strict";
+
     var $window = $(window);
 
     $.fn.lazyload = function(options) {
@@ -353,9 +359,9 @@
 
 })(jQuery, window, document);
 
+
 /**
- * jquery.dlmenu.js v1.0.1
- * http://www.codrops.com
+ * ResponsiveMultiLevelMenu v1.0.2
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
@@ -363,7 +369,7 @@
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
-( function( $, window, undefined ) {
+;( function( $, window, undefined ) {
 
     'use strict';
 
@@ -386,7 +392,13 @@
         // el is the link element (li); ev is the event obj
         onLinkClick : function( el, ev ) { return false; },
         backLabel: 'Back',
-        useActiveItemAsBackLabel: false
+        // Change to "true" to use the active item as back link label.
+        useActiveItemAsBackLabel: false,
+        // Change to "true" to add a navigable link to the active item to its child
+        // menu.
+        useActiveItemAsLink: false,
+        // On close reset the menu to root
+        resetOnClose: true
     };
 
     $.DLMenu.prototype = {
@@ -420,11 +432,9 @@
 
             var ua = navigator.userAgent;
             var match = ua.match(/Android\s([0-9\.]*)/);
-            if( ua.indexOf("Android") >= 0 )
-            {
+            if( ua.indexOf("Android") > -1 && ua.indexOf("Chrome") === -1 && ua.indexOf("Firefox") === -1)  {
                 var androidversion = parseFloat(match[1], 10);
-                if (androidversion < 4)
-                {
+                if (androidversion < 4) {
                     this.supportAnimations = false;
                     this.supportTransitions = false;
                 }
@@ -437,43 +447,57 @@
             this.open = false;
             this.$trigger = this.$el.children( '.dl-trigger' );
             this.$menu = this.$el.children( 'ul.dl-menu' );
-            this.$menuitems = this.$menu.find( 'li:not(.dl-back)' );
+            this.$menu.hide();
+            this.$el.css('z-index', '9999');
             this.$el.find( 'ul.dl-submenu' ).prepend( '<li class="dl-back"><a href="#">' + this.options.backLabel + '</a></li>' );
-            this.$back = this.$menu.find( 'li.dl-back' );
 
+            // Set the label text for the back link.
             if (this.options.useActiveItemAsBackLabel) {
-                this.$back.each(function() {
+                this.$menu.find( 'li.dl-back' ).each(function() {
                     var $this = $(this),
                         parentLabel = $this.parents('li:first').find('a:first').text();
 
                     $this.find('a').html(parentLabel);
                 });
             }
+            // If the active item should also be a clickable link, create one and put
+            // it at the top of our menu.
+            if (this.options.useActiveItemAsLink) {
+                this.$el.find( 'ul.dl-submenu' ).prepend(function() {
+                    var parentli = $(this).parents('li:not(.dl-back):first').find('a:first');
+                    return '<li class="dl-parent"><a href="' + parentli.attr('href') + '">' + parentli.text() + '</a></li>';
+                });
+            }
+
         },
         _initEvents : function() {
 
             var self = this;
 
             this.$trigger.on( 'click.dlmenu', function() {
-
                 if( self.open ) {
                     self._closeMenu();
                 }
                 else {
                     self._openMenu();
+                    // clicking somewhere else makes the menu close
+                    $body.off( 'click' ).children().on( 'click.dlmenu', function() {
+                        self._closeMenu() ;
+                    } );
                 }
                 return false;
-
             } );
 
-            this.$menuitems.on( 'click.dlmenu', function( event ) {
+            this.$menu.on( 'click.dlmenu', 'li:not(.dl-back)', function( event ) {
 
                 event.stopPropagation();
 
                 var $item = $(this),
                     $submenu = $item.children( 'ul.dl-submenu' );
 
-                if( $submenu.length > 0 ) {
+                // Only go to the next menu level if one exists AND the link isn't the
+                // one we added specifically for navigating to parent item pages.
+                if( ($submenu.length > 0) && !($(event.currentTarget).hasClass('dl-subviewopen'))) {
 
                     var $flyin = $submenu.clone().css( 'opacity', 0 ).insertAfter( self.$menu ),
                         onAnimationEndFn = function() {
@@ -496,13 +520,15 @@
                     } );
 
                     return false;
+
                 }
                 else {
                     self.options.onLinkClick( $item, event );
                 }
+
             } );
 
-            this.$back.on( 'click.dlmenu', function( event ) {
+            this.$menu.on( 'click.dlmenu', 'li.dl-back', function( event ) {
 
                 var $this = $( this ),
                     $submenu = $this.parents( 'ul.dl-submenu:first' ),
@@ -535,7 +561,9 @@
                 } );
 
                 return false;
+
             } );
+
         },
         closeMenu : function() {
             if( this.open ) {
@@ -546,7 +574,9 @@
             var self = this,
                 onTransitionEndFn = function() {
                     self.$menu.off( self.transEndEventName );
-                    self._resetMenu();
+                    if( self.options.resetOnClose ){
+                        self._resetMenu();
+                    }
                 };
 
             this.$menu.removeClass( 'dl-menuopen' );
@@ -559,6 +589,7 @@
             else {
                 onTransitionEndFn.call();
             }
+            this.$menu.hide();
 
             this.open = false;
         },
@@ -569,6 +600,9 @@
         },
         _openMenu : function() {
             var self = this;
+
+            this.$menu.show();
+
             // clicking somewhere else makes the menu close
             $body.off( 'click' ).on( 'click.dlmenu', function() {
                 self._closeMenu() ;
@@ -582,7 +616,7 @@
         // resets the menu to its original state (first level of options)
         _resetMenu : function() {
             this.$menu.removeClass( 'dl-subview' );
-            this.$menuitems.removeClass( 'dl-subview dl-subviewopen' );
+            this.$menu.find( 'li:not(.dl-back)' ).removeClass( 'dl-subview dl-subviewopen' );
         }
     };
 
@@ -624,6 +658,7 @@
     };
 
 } )( jQuery, window );
+
 
 /**
  * jquery.dropdown.js v1.0.0
@@ -834,6 +869,8 @@
     };
 
 } )( jQuery, window );
+
+
 
 /*!
 imgLiquid v0.9.944 / 03-05-2013
@@ -1264,6 +1301,7 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
 }();
 
 
+
 /*
  * onMediaQuery
  * http://springload.co.nz/love-the-web/
@@ -1276,6 +1314,8 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
  */
 
 ;(function (root, factory) {
+    "use strict";
+
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
         define(function () {
@@ -1293,6 +1333,8 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
      * Initialises the MQ object and sets the initial media query callbacks
      * @returns Void(0)
      */
+    "use strict";
+
     mq.init = function(query_array) {
 
         // Container for all callbacks registered with the plugin
@@ -1301,7 +1343,7 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
         this.new_context = ''; //current active query to be read inside callbacks, as this.context won't be set when they're called!
 
         if (typeof(query_array) !== 'undefined' ) {
-            for (i = 0; i < query_array.length; i++) {
+            for (var i = 0; i < query_array.length; i++) {
                 var r = this.addQuery(query_array[i]);
             }
         }
@@ -1497,8 +1539,247 @@ imgLiquid.injectCss = '.imgLiquid img {visibility:hidden}';
         }
 
         return -1;
-    }
+    };
 
     // Expose the functions.
     return mq;
 }));
+
+
+
+/*!
+ * animsition v3.5.2
+ * http://blivesta.github.io/animsition/
+ * Licensed under MIT
+ * Author : blivesta
+ * http://blivesta.com/
+ */
+(function($) {
+    "use strict";
+    var namespace = "animsition";
+    var methods = {
+        init: function(options) {
+            options = $.extend({
+                inClass: "fade-in",
+                outClass: "fade-out",
+                inDuration: 1500,
+                outDuration: 800,
+                linkElement: ".animsition-link",
+                loading: true,
+                loadingParentElement: "body",
+                loadingClass: "animsition-loading",
+                unSupportCss: [ "animation-duration", "-webkit-animation-duration", "-o-animation-duration" ],
+                overlay: false,
+                overlayClass: "animsition-overlay-slide",
+                overlayParentElement: "body"
+            }, options);
+            var support = methods.supportCheck.call(this, options);
+            if (!support) {
+                if (!("console" in window)) {
+                    window.console = {};
+                    window.console.log = function(str) {
+                        return str;
+                    };
+                }
+                console.log("Animsition does not support this browser.");
+                return methods.destroy.call(this);
+            }
+            var overlayMode = methods.optionCheck.call(this, options);
+            if (overlayMode) {
+                methods.addOverlay.call(this, options);
+            }
+            if (options.loading) {
+                methods.addLoading.call(this, options);
+            }
+            return this.each(function() {
+                var _this = this;
+                var $this = $(this);
+                var $window = $(window);
+                var data = $this.data(namespace);
+                if (!data) {
+                    options = $.extend({}, options);
+                    $this.data(namespace, {
+                        options: options
+                    });
+                    $window.on("load." + namespace + " pageshow." + namespace, function() {
+                        methods.pageIn.call(_this);
+                    });
+                    $window.on("unload." + namespace, function() {});
+                    $(options.linkElement).on("click." + namespace, function(event) {
+                        event.preventDefault();
+                        var $self = $(this);
+                        var url = $self.attr("href");
+                        if (event.which === 2 || event.metaKey || event.shiftKey || navigator.platform.toUpperCase().indexOf("WIN") !== -1 && event.ctrlKey) {
+                            window.open(url, "_blank");
+                        } else {
+                            methods.pageOut.call(_this, $self, url);
+                        }
+                    });
+                }
+            });
+        },
+        addOverlay: function(options) {
+            $(options.overlayParentElement).prepend('<div class="' + options.overlayClass + '"></div>');
+        },
+        addLoading: function(options) {
+            $(options.loadingParentElement).append('<div class="' + options.loadingClass + '"></div>');
+        },
+        removeLoading: function() {
+            var $this = $(this);
+            var options = $this.data(namespace).options;
+            var $loading = $(options.loadingParentElement).children("." + options.loadingClass);
+            $loading.fadeOut().remove();
+        },
+        supportCheck: function(options) {
+            var $this = $(this);
+            var props = options.unSupportCss;
+            var propsNum = props.length;
+            var support = false;
+            if (propsNum === 0) {
+                support = true;
+            }
+            for (var i = 0; i < propsNum; i++) {
+                if (typeof $this.css(props[i]) === "string") {
+                    support = true;
+                    break;
+                }
+            }
+            return support;
+        },
+        optionCheck: function(options) {
+            var $this = $(this);
+            var overlayMode;
+            if (options.overlay || $this.data("animsition-overlay")) {
+                overlayMode = true;
+            } else {
+                overlayMode = false;
+            }
+            return overlayMode;
+        },
+        animationCheck: function(data, stateClass, stateIn) {
+            var $this = $(this);
+            var options = $this.data(namespace).options;
+            var dataType = typeof data;
+            var dataDuration = !stateClass && dataType === "number";
+            var dataClass = stateClass && dataType === "string" && data.length > 0;
+            if (dataDuration || dataClass) {
+                data = data;
+            } else if (stateClass && stateIn) {
+                data = options.inClass;
+            } else if (!stateClass && stateIn) {
+                data = options.inDuration;
+            } else if (stateClass && !stateIn) {
+                data = options.outClass;
+            } else if (!stateClass && !stateIn) {
+                data = options.outDuration;
+            }
+            return data;
+        },
+        pageIn: function() {
+            var _this = this;
+            var $this = $(this);
+            var options = $this.data(namespace).options;
+            var thisInDuration = $this.data("animsition-in-duration");
+            var thisInClass = $this.data("animsition-in");
+            var inDuration = methods.animationCheck.call(_this, thisInDuration, false, true);
+            var inClass = methods.animationCheck.call(_this, thisInClass, true, true);
+            var overlayMode = methods.optionCheck.call(_this, options);
+            if (options.loading) {
+                methods.removeLoading.call(_this);
+            }
+            if (overlayMode) {
+                methods.pageInOverlay.call(_this, inClass, inDuration);
+            } else {
+                methods.pageInBasic.call(_this, inClass, inDuration);
+            }
+        },
+        pageInBasic: function(inClass, inDuration) {
+            var $this = $(this);
+            $this.trigger("animsition.start").css({
+                "animation-duration": inDuration / 1e3 + "s"
+            }).addClass(inClass).animateCallback(function() {
+                $this.removeClass(inClass).css({
+                    opacity: 1
+                }).trigger("animsition.end");
+            });
+        },
+        pageInOverlay: function(inClass, inDuration) {
+            var $this = $(this);
+            var options = $this.data(namespace).options;
+            $this.trigger("animsition.start").css({
+                opacity: 1
+            });
+            $(options.overlayParentElement).children("." + options.overlayClass).css({
+                "animation-duration": inDuration / 1e3 + "s"
+            }).addClass(inClass).animateCallback(function() {
+                $this.trigger("animsition.end");
+            });
+        },
+        pageOut: function($self, url) {
+            var _this = this;
+            var $this = $(this);
+            var options = $this.data(namespace).options;
+            var selfOutClass = $self.data("animsition-out");
+            var thisOutClass = $this.data("animsition-out");
+            var selfOutDuration = $self.data("animsition-out-duration");
+            var thisOutDuration = $this.data("animsition-out-duration");
+            var isOutClass = selfOutClass ? selfOutClass : thisOutClass;
+            var isOutDuration = selfOutDuration ? selfOutDuration : thisOutDuration;
+            var outClass = methods.animationCheck.call(_this, isOutClass, true, false);
+            var outDuration = methods.animationCheck.call(_this, isOutDuration, false, false);
+            var overlayMode = methods.optionCheck.call(_this, options);
+            if (overlayMode) {
+                methods.pageOutOverlay.call(_this, outClass, outDuration, url);
+            } else {
+                methods.pageOutBasic.call(_this, outClass, outDuration, url);
+            }
+        },
+        pageOutBasic: function(outClass, outDuration, url) {
+            var $this = $(this);
+            $this.css({
+                "animation-duration": outDuration / 1e3 + "s"
+            }).addClass(outClass).animateCallback(function() {
+                location.href = url;
+            });
+        },
+        pageOutOverlay: function(outClass, outDuration, url) {
+            var _this = this;
+            var $this = $(this);
+            var options = $this.data(namespace).options;
+            var thisInClass = $this.data("animsition-in");
+            var inClass = methods.animationCheck.call(_this, thisInClass, true, true);
+            $(options.overlayParentElement).children("." + options.overlayClass).css({
+                "animation-duration": outDuration / 1e3 + "s"
+            }).removeClass(inClass).addClass(outClass).animateCallback(function() {
+                location.href = url;
+            });
+        },
+        destroy: function() {
+            return this.each(function() {
+                var $this = $(this);
+                $(window).unbind("." + namespace);
+                $this.css({
+                    opacity: 1
+                }).removeData(namespace);
+            });
+        }
+    };
+    $.fn.animateCallback = function(callback) {
+        var end = "animationend webkitAnimationEnd mozAnimationEnd oAnimationEnd MSAnimationEnd";
+        return this.each(function() {
+            $(this).bind(end, function() {
+                $(this).unbind(end);
+                return callback.call(this);
+            });
+        });
+    };
+    $.fn.animsition = function(method) {
+        if (methods[method]) {
+            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+        } else if (typeof method === "object" || !method) {
+            return methods.init.apply(this, arguments);
+        } else {
+            $.error("Method " + method + " does not exist on jQuery." + namespace);
+        }
+    };
+})(jQuery);

@@ -9,6 +9,10 @@
     left: 1em;
     z-index: @z-index-3;
 
+    @media @print {
+        display: none;
+    }
+
     a {
         font-weight: 800;
         text-transform: uppercase;
@@ -18,7 +22,7 @@
         display: inline-block;
         margin: 0 0.5em;
         white-space: nowrap;
-        color: @base4;
+        color: @base2;
         border-bottom: 3px solid transparent;
     }
 
@@ -37,7 +41,7 @@
                 color: @base2;
 
                 > a {
-                    border-bottom: 3px solid @base4;
+                    border-bottom: 3px solid @base2;
                 }
             }
 

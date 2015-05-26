@@ -17,7 +17,6 @@
         left: 0;
         right: 0;
         bottom: 0;
-        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
 
         img {
@@ -31,7 +30,7 @@
     }
 
     .title {
-        z-index: @z-index-2;
+        z-index: @z-index-1;
         margin: 0 auto;
         width: 100%;
         text-align: center;
@@ -41,7 +40,7 @@
         transform: translateX(-50%) translateY(-50%);
 
         @media @smartphones {
-            font-size: 50%;
+            font-size: 75%;
 
             .trigger::before {
                 display: none;
@@ -54,8 +53,10 @@
 
         .headline1 {
             position: relative;
-            color: @base4;
-            text-transform: uppercase;
+            padding: 0.2em 0;
+            background: @menuBackground;
+            text-align: center;
+            word-wrap: break-word;
         }
 
         .subline {
@@ -78,33 +79,7 @@
 
         ul,
         .headline1 {
-            background: @menuBackground3;
-        }
-    }
-}
-
-.trigger {
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-    height: 90px;
-    text-align: center;
-    cursor: pointer;
-    color: transparent;
-    background: transparent;
-    border: none;
-    z-index: @z-index-3;
-
-    .icon {
-        color: black;
-
-        &:after {
-            &:extend(.icon-font-more:after);
-            font-size: 48px;
-        }
-
-        &:focus {
-            outline: none;
+            background: @menuBackground;
         }
     }
 }
@@ -112,13 +87,55 @@
 .container {
     height: 100%;
 
-    :not(.notrans) .trigger {
+    &:not(.notrans) .trigger {
         transition: opacity 0.3s 0.5s;
     }
 
-    .modify:not(.notrans) .trigger {
-        opacity: 0;
-        pointer-events: none;
-        transition-delay: 0s;
+    &.modify:not(.notrans) {
+
+        .headline1 {
+            background: none;
+        }
+
+        .trigger {  opacity: 0;
+            pointer-events: none;
+            transition-delay: 0s;
+        }
+    }
+
+    .trigger {
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+        height: 90px;
+        text-align: center;
+        cursor: pointer;
+        color: transparent;
+        background: transparent;
+        border: none;
+        z-index: @z-index-2;
+
+        .icon {
+            color: black;
+            width: 60px;
+            margin: 0 auto;
+            border-radius: 30px;
+            background-color: @menuBackground;
+
+            &:after {
+                &:extend(.icon-font-more:after);
+                font-size: 50px;
+                position: relative;
+                top: 3px;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:hover {
+                background-color: @menuBackground;
+            }
+        }
     }
 }

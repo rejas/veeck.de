@@ -1,30 +1,23 @@
 @color_white: #FFFFFF;
 @color_black: #242021;
 
-@base: #CECECE;
-@base2: #A07272;
-@base3: #5C5C5C;
-@base4: @color_black;
+@base:  #a6cfe5;
+@base2: #444a28;
+@base3: #dab476;
 
-@complement1: spin(@base, 180);
-@complement2: darken(spin(@base, 180), 5%);
-@lighten1: lighten(@base, 15%);
-@lighten2: lighten(@base, 30%);
-
-@menuColor: #242021;
-@menuBackground: rgba(255,248,213,0.25);
-@menuBackground2: rgba(100,100,100,1);
-@menuBackground3: rgba(255, 255, 255, 0.75);
-
-@backgroundColor: #f7f7f7;
+@menuColor:         @color_black;
+@menuBackground:    lighten(@base, 15%);
 
 @fontHeader:    'Lora';
 @fontMain:      'Raleway';
 
+@z-index-0:     0;
 @z-index-1:     1;
 @z-index-2:     2;
 @z-index-3:     3;
+@z-index-5:     5;
 
 @smartphones: ~"only screen and (max-width: 767px)";
 @tablets: ~"only screen and (min-width: 768px) and (max-width: 1023px)";
 @desktop: ~"only screen and (min-width: 1024px)";
+@print: ~"only print";

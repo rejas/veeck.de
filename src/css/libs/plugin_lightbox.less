@@ -1,56 +1,59 @@
 #imagelightbox {
     cursor: pointer;
     position: fixed;
-    z-index: 10000;
+    z-index: @z-index-2;
     -ms-touch-action: none;
     touch-action: none;
-    box-shadow: 0 0 3.125em 0.75;
+    box-shadow: 0 0 3.125em 0.75em;
 }
 
-#imagelightbox-overlay
-{
+#imagelightbox-overlay {
     background-color: rgba( 255, 255, 255, .9 );
     position: fixed;
-    z-index: 9998;
+    z-index: @z-index-2;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
 }
 
-.spinner-loading,
-.spinner-loading div
-{
-    border-radius: 9999px;
-}
-
-.spinner-loading.spinner-absolute
-{
-    position: absolute;
-}
-
-.spinner-loading.spinner-fixed
-{
+#imagelightbox-caption {
+    text-align: center;
+    color: #fff;
+    background-color: @color_black;
     position: fixed;
+    z-index: @z-index-3;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.625em; /* 10 */
 }
 
-.spinner-loading
-{
-    background-color: @base4;
-    z-index: 10003;
+.spinner-loading {
+    border-radius: 9999px;
+    background-color: @color_black;
+    z-index: @z-index-3;
     top: 50%;
     left: 50%;
     padding: 0.65em; /* 10 */
     margin: -1.3em 0 0 -1.3em; /* 20 */
     box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.75);
-}
 
-.spinner-loading div
-{
-    width: 1.3em; /* 20 */
-    height: 1.3em; /* 20 */
-    background-color: #fff;
-    animation: imagelightbox-loading 5s ease infinite;
+    &.spinner-absolute {
+        position: absolute;
+    }
+
+    &.spinner-fixed {
+        position: fixed;
+    }
+
+    div {
+        border-radius: 9999px;
+        width: 1.3em; /* 20 */
+        height: 1.3em; /* 20 */
+        background-color: #fff;
+        animation: imagelightbox-loading 5s ease infinite;
+    }
 }
 
 @-webkit-keyframes imagelightbox-loading {
@@ -111,17 +114,4 @@
         opacity: .5;
         transform: scale(.75);
     }
-}
-
-#imagelightbox-caption
-{
-    text-align: center;
-    color: #fff;
-    background-color: @base4;
-    position: fixed;
-    z-index: 10001;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 0.625em; /* 10 */
 }

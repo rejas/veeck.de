@@ -28,25 +28,8 @@ var config          = require('./config.json'),
     dirs            = config.directories;
 
 /**
- * SUB TASKS
+ * Check
  */
-
-// Clear the destination folder
-gulp.task('clean', function (cb) {
-    del([dirs.dist], cb)
-});
-
-// Copy all application files except *.less and .js into the `dist` folder
-gulp.task('copy', ['clean'], function () {
-    return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/css/**/*.less', '!src/components/less'], { dot: true })
-        .pipe(gulp.dest(dirs.dist));
-});
-
-gulp.task('images', ['copy'], function () {
-    gulp.src(dirs.src + 'img/**/*.{jpg|png}')
-        .pipe(plugins.imagemin(config.imagemin))
-        .pipe(gulp.dest(dirs.dist+'img'));
-});
 
 // Detect errors and potential problems in your css code
 gulp.task('csslint', function () {
@@ -68,6 +51,76 @@ gulp.task('htmlhint', function () {
     return gulp.src([dirs.src + '*.html'])
         .pipe(plugins.htmlhint())
         .pipe(plugins.htmlhint.reporter());
+});
+
+/**
+ * Prepare
+ */
+
+gulp.task('prepare:sprites', function () {
+    var spriteData = gulp.src(['src/css/assets/icons/links/*.png', 'src/css/assets/icons/research/*.png']).pipe(spritesmith({
+        imgName:         'sprite.png',
+        cssName:         'sprite.less',
+        imgPath:         'assets/sprite.png'
+    }));
+
+    // Pipe image stream through image optimizer and onto disk
+    spriteData.img
+        //.pipe(plugins.imagemin(config.imagemin))
+        .pipe(gulp.dest('src/css/assets/'));
+
+    // Pipe CSS stream through CSS optimizer and onto disk
+    spriteData.css
+        .pipe(gulp.dest('src/css/base/'));
+});
+
+gulp.task('optimize:images', function () {
+    gulp.src(dirs.src + 'img/**/*')
+        .pipe(plugins.imagemin(config.imagemin))
+        .pipe(gulp.dest(dirs.src + 'img'));
+});
+
+/**
+ * Watch
+ */
+
+gulp.task('serve', function () {
+    var server  = express(),
+        ports   = config.ports,
+        root    = __dirname + '/' + dirs.src;
+
+    server.use(connect());
+    server.use(express.static(root));
+    server.listen(ports.express, function() {
+        gutil.log('Listening on port ' + ports.express);
+    });
+
+    var lr = tiny();
+    lr.listen(ports.livereload, function (err) {
+        if (err) {
+            gutil.log(err);
+        }
+    });
+
+    gulp.watch([dirs.src + '**/*.html', dirs.src + 'css/**/*.less', dirs.src + 'js/**/*.js'] , function (event) {
+        gulp.src(event.path, {read: false})
+            .pipe(plugins.livereload(lr));
+    });
+});
+
+/**
+ * Default
+ */
+
+// Clear the destination folder
+gulp.task('clean', function (cb) {
+    del([dirs.dist], cb)
+});
+
+// Copy all application files except *.less and .js into the `dist` folder
+gulp.task('copy', ['clean'], function () {
+    return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/css/**/*.less', '!src/components/less'], { dot: true })
+        .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('vendorscripts', ['clean'], function () {
@@ -97,26 +150,8 @@ gulp.task('styles', ['clean'], function () {
         .pipe(gulp.dest(dirs.dist + 'css'))
 });
 
-gulp.task('html', ['images', 'styles', 'scripts', 'vendorscripts'] , function() {
-    // We src all html files
-    return gulp.src(dirs.src + '*.html')
-        .pipe(plugins.inject(gulp.src(["./dist/**/*.*", '!./dist/js/vendor/**', '!./dist/components/**'], {read: false}), config.inject))
-        .pipe(minifyHTML(config.minifyHTML))
-        .pipe(gulp.dest(dirs.dist));
-});
-
-// Optimize via Uncss (beware: doesnt work with JS styles like in mobilemenu)
-gulp.task('uncss', ['html'], function() {
-    return gulp.src(dirs.dist + 'css/app.css')
-        .pipe(uncss({
-            html: [dirs.dist + 'index.html']
-        }))
-        .pipe(plugins.csso())
-        .pipe(gulp.dest(dirs.dist + 'css/'));
-});
-
-gulp.task('sitemap', ['html'], function () {
-    return gulp.src([dirs.src + '**/*.html', '!'+ dirs.src + '/**/google*.html'], {read: false})
+gulp.task('sitemap', function () {
+    return gulp.src([dirs.src + '**/*.html', '!'+ dirs.src + 'webcomponent/*.html'], {read: false})
         .pipe(plugins.sitemap({
             fileName: 'sitemap.xml',
             newLine: '\n',
@@ -128,30 +163,17 @@ gulp.task('sitemap', ['html'], function () {
         .pipe(gulp.dest(dirs.src));
 });
 
-// Start express- and live-reload-server
-gulp.task('serve', function () {
-    var server  = express(),
-        ports   = config.ports,
-        root    = __dirname + '/' + dirs.src;
-
-    server.use(connect());
-    server.use(express.static(root));
-    server.listen(ports.express, function() {
-        gutil.log('Listening on port ' + ports.express);
-    });
-
-    var lr = tiny();
-    lr.listen(ports.livereload, function (err) {
-        if (err) {
-            gutil.log(err);
-        }
-    });
-
-    gulp.watch([dirs.src + '**/*.html', dirs.src + 'css/**/*.less', dirs.src + 'js/**/*.js'] , function (event) {
-        gulp.src(event.path, {read: false})
-            .pipe(plugins.livereload(lr));
-    });
+gulp.task('html', ['copy', 'styles', 'scripts', 'vendorscripts', 'sitemap'] , function() {
+    // We src all html files
+    return gulp.src(dirs.src + '*.html')
+        .pipe(plugins.inject(gulp.src(["./dist/**/*.*", '!./dist/js/vendor/**', '!./dist/components/**'], {read: false}), config.inject))
+        .pipe(minifyHTML(config.minifyHTML))
+        .pipe(gulp.dest(dirs.dist));
 });
+
+/**
+ * Deploy
+ */
 
 gulp.task('upload', function () {
     return gulp.src('.')
@@ -167,29 +189,11 @@ gulp.task('upload', function () {
                 log:        gutil.log
             });
 
-            return gulp.src([dirs.dist + '**/*', '!'+dirs.dist + 'files/**/*'], { base: 'dist', buffer: false } )
+            return gulp.src([dirs.dist + '**/*', '!'+dirs.dist + 'files/**/*', '!'+dirs.dist + 'img/**/*'], { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/'));
         }));
 });
-
-gulp.task('sprites:png', function () {
-    var spriteData = gulp.src(['src/css/assets/icons/links/*.png', 'src/css/assets/icons/research/*.png']).pipe(spritesmith({
-        imgName:         'sprite.png',
-        cssName:         'sprite.less',
-        imgPath:         'assets/sprite.png'
-    }));
-
-    // Pipe image stream through image optimizer and onto disk
-    spriteData.img
-        //.pipe(plugins.imagemin(config.imagemin))
-        .pipe(gulp.dest('src/css/assets/'));
-
-    // Pipe CSS stream through CSS optimizer and onto disk
-    spriteData.css
-        .pipe(gulp.dest('src/css/base/'));
-});
-
 
 /**
  * MAIN TASKS
@@ -197,8 +201,10 @@ gulp.task('sprites:png', function () {
 
 gulp.task('check',      ['jshint', 'csslint', 'htmlhint']);
 
-gulp.task('prepare',    ['sprites:png']);
+gulp.task('prepare',    ['prepare:sprites', 'optimize:images']);
 
 gulp.task('watch',      ['serve']);
 
 gulp.task('default',    ['html']);
+
+gulp.task('deploy',     ['upload']);

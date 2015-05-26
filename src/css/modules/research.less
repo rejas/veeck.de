@@ -7,12 +7,23 @@
     float: left;
     margin-right: 15px;
 
-    &::shadow .user {
-        width: 210px;
+    @media @smartphones {
+        width: 100%;
+
+        &::shadow .user {
+            width: 100%;
+        }
     }
 
-    + h2 {
-        padding-left: 210px;
+    @media @tablets, @desktop {
+
+        &::shadow .user {
+            width: 200px;
+        }
+
+        + h2 {
+            padding-left: 200px;
+        }
     }
 }
 
