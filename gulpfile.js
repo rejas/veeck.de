@@ -42,12 +42,6 @@ gulp.task('copy', ['clean'], function () {
         .pipe(gulp.dest(dirs.dist));
 });
 
-gulp.task('images', ['copy'], function () {
-    gulp.src(dirs.src + 'img/**/*.{jpg|png}')
-        .pipe(plugins.imagemin(config.imagemin))
-        .pipe(gulp.dest(dirs.dist+'img'));
-});
-
 // Detect errors and potential problems in your css code
 gulp.task('csslint', function () {
     return gulp.src([dirs.src + 'css/*.less', '!'+dirs.src +'css/libs'])
@@ -173,7 +167,7 @@ gulp.task('upload', function () {
         }));
 });
 
-gulp.task('sprites:png', function () {
+gulp.task('prepare:sprites', function () {
     var spriteData = gulp.src(['src/css/assets/icons/links/*.png', 'src/css/assets/icons/research/*.png']).pipe(spritesmith({
         imgName:         'sprite.png',
         cssName:         'sprite.less',
@@ -190,6 +184,11 @@ gulp.task('sprites:png', function () {
         .pipe(gulp.dest('src/css/base/'));
 });
 
+gulp.task('optimize:images', function () {
+    gulp.src(dirs.src + 'img/**/*')
+        .pipe(plugins.imagemin(config.imagemin))
+        .pipe(gulp.dest(dirs.src + 'img'));
+});
 
 /**
  * MAIN TASKS
@@ -197,7 +196,7 @@ gulp.task('sprites:png', function () {
 
 gulp.task('check',      ['jshint', 'csslint', 'htmlhint']);
 
-gulp.task('prepare',    ['sprites:png']);
+gulp.task('prepare',    ['prepare:sprites', 'optimize:images']);
 
 gulp.task('watch',      ['serve']);
 
