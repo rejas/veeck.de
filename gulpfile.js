@@ -91,7 +91,7 @@ gulp.task('styles', ['clean'], function () {
         .pipe(gulp.dest(dirs.dist + 'css'))
 });
 
-gulp.task('html', ['images', 'styles', 'scripts', 'vendorscripts'] , function() {
+gulp.task('html', ['copy', 'styles', 'scripts', 'vendorscripts'] , function() {
     // We src all html files
     return gulp.src(dirs.src + '*.html')
         .pipe(plugins.inject(gulp.src(["./dist/**/*.*", '!./dist/js/vendor/**', '!./dist/components/**'], {read: false}), config.inject))
