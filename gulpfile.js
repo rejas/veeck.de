@@ -210,6 +210,50 @@ gulp.task('upload', function () {
         }));
 });
 
+gulp.task('upload:images', function () {
+    return gulp.src('.')
+        .pipe(plugins.prompt.prompt({
+            type: 'password',
+            name: 'pw',
+            message: 'enter ftp password'
+        }, function(result) {
+            var conn = ftp.create({
+                host:       config.ftp.host,
+                user:       config.ftp.user,
+                password:   result.pw,
+                log:        gutil.log
+            });
+
+            return gulp.src([dirs.dist + 'img/**/*'], { base: 'dist', buffer: false } )
+                .pipe(conn.newer('/')) // only upload newer files
+                .pipe(conn.dest('/'));
+        }));
+});
+
+
+gulp.task('upload:material', function () {
+    return gulp.src('.')
+        .pipe(plugins.prompt.prompt({
+            type: 'password',
+            name: 'pw',
+            message: 'enter ftp password'
+        }, function(result) {
+            var conn = ftp.create({
+                host:       config.ftp.host,
+                user:       config.ftp.user,
+                password:   result.pw,
+                log:        gutil.log
+            });
+
+            return gulp.src([dirs.dist + 'material/**/*'], { base: 'dist', buffer: false } )
+                .pipe(conn.newer('/')) // only upload newer files
+                .pipe(conn.dest('/'));
+        }));
+});
+
+
+
+
 /**
  * MAIN TASKS
  */
