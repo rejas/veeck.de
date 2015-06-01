@@ -28,7 +28,7 @@
     "gulp-sitemap": "^0.1.6",
     "gulp-uglify": "^0.2.1",
     "gulp-util": "^2.2.20",
-    "gulp.spritesmith": "^3.7.0",
+    "gulp.spritesmith": "^3.8.0",
     "imagemin-pngquant": "^4.1.0",
     "jshint-stylish": "^0.1.5",
     "tiny-lr": "0.0.7",
