@@ -22,6 +22,7 @@
     "imgLiquid": "~0.9.944",
     "animsition": "~3.5.2",
     "imagelightbox2": "~0.3.2",
-    "on-media-query": "~0.2.0"
+    "on-media-query": "~0.2.0",
+    "classie": "~1.0.1"
   }
 }

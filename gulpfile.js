@@ -287,7 +287,7 @@ server.all('/*', function(req, res) {
 
 // Browserify task
 gulp.task('browserify', function() {
-    return browserify({ entries: ['src/components/main.js'] })
+    return browserify({ entries: ['src/js/main.js'] })
         .bundle()
         .pipe(source('main.bundled.js'))
         .pipe(gulp.dest('dist/js'));
