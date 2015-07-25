@@ -145,7 +145,7 @@ gulp.task('styles', ['clean'], function () {
     return gulp.src(dirs.src + 'css/main.less')
         .pipe(plugins.less())
         .pipe(plugins.autoprefixer(config.autoprefixer))
-        .pipe(plugins.rename('app.css'))
+        .pipe(plugins.rename('main.css'))
         .pipe(plugins.rev())
         .pipe(plugins.csso())
         .pipe(gulp.dest(dirs.dist + 'css'))
@@ -255,17 +255,11 @@ server.use(livereload({port: livereloadport}));
 // Use our 'dist' folder as rootfolder
 server.use(express.static('./dist'));
 // Because I like HTML5 pushstate .. this redirects everything back to our index.html
+/*
 server.all('/*', function(req, res) {
     res.sendfile('index.html', { root: 'dist' });
 });
-
-// Dev task
-gulp.task('dev', ['watch'], function() {
-    // Start webserver
-    server.listen(serverport);
-    // Start live reload
-    lrserver.listen(livereloadport);
-});
+*/
 
 // Browserify task
 gulp.task('browserify', function() {
@@ -275,6 +269,19 @@ gulp.task('browserify', function() {
         .pipe(source('main.bundled.js'))
         .pipe(gulp.dest('dist/js'));
 });
+
+// Compile LESS files
+gulp.task('css', [], function () {
+    return gulp.src(dirs.src + 'css/main.less')
+        .pipe(plugins.less())
+        .pipe(plugins.autoprefixer(config.autoprefixer))
+        .pipe(plugins.rename('main.css'))
+        //.pipe(plugins.rev())
+        .pipe(plugins.csso())
+        .pipe(gulp.dest(dirs.dist + 'css'))
+});
+
+
 // Views task
 gulp.task('views', function() {
     // Get our index.html
@@ -283,15 +290,26 @@ gulp.task('views', function() {
         .pipe(gulp.dest('dist/'))
         .pipe(refresh(lrserver)); // Tell the lrserver to refresh
 });
+
 gulp.task('watch', function() {
     gulp.watch(['src/components/*.js'],[
         'browserify'
+    ]);
+    gulp.watch(['src/css/**/*.less'], [
+        'css'
     ]);
     gulp.watch(['src/*.html'], [
         'views'
     ]);
 });
 
+// Dev task
+gulp.task('dev', ['images', 'css', 'vendorscripts', 'watch'], function() {
+    // Start webserver
+    server.listen(serverport);
+    // Start live reload
+    lrserver.listen(livereloadport);
+});
 
 
 
