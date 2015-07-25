@@ -2,7 +2,8 @@
  *
  */
 
-var Share = require('../components/share-button/build/share.js');
+var Share = require('../components/share-button/build/share.js'),
+    MQ = require('../components/on-media-query/js/onmediaquery.js');
 
 require ('../components/animsition/dist/js/jquery.animsition.js');
 require ('../components/imgLiquid/js/imgLiquid.js');
@@ -11,6 +12,33 @@ require ('../components/jquery.lazyload/jquery.lazyload.js');
 
 $(document).ready(function () {
     "use strict";
+
+    /**
+     * decide if mobile or not
+     * @type {Array}
+     */
+    var $myNav = $('nav').clone();
+    var queries = [
+        {
+            context: 'mobile',
+            match: function() {
+                $('nav').remove();
+                //$myNav.clone().prependTo('header').addClass('mobile-nav').removeClass('desktop-nav').dlmenu();
+            },
+            unmatch: function() {
+            }
+        },
+        {
+            context: 'desktop',
+            match: function() {
+                $('nav').remove();
+                $myNav.clone().prependTo('header').removeClass('mobile-nav').addClass('desktop-nav');
+            },
+            unmatch: function() {
+            }
+        }
+    ];
+    MQ.init(queries);
 
     /**
      * Share Button Config
@@ -29,6 +57,12 @@ $(document).ready(function () {
                 enabled: false
             }
         }
+    });
+
+    // my own extender
+    $(".js-extender").on("click", function (e) {
+        e.preventDefault();
+        $('.' + $(this).data('toExtend')).slideToggle();
     });
 
     /**
