@@ -87,20 +87,6 @@ gulp.task('scripts', ['clean'], function () {
         .pipe(gulp.dest(dirs.dist + 'js'));
 });
 
-// Browserify task
-gulp.task('browserify', function() {
-    // Single point of entry (make sure not to src ALL your files, browserify will figure it out for you)
-    gulp.src(['src/components/main.js'])
-        .pipe(browserify({
-            insertGlobals: true,
-            debug: true
-        }))
-        // Bundle to a single file
-        .pipe(plugins.concat('bundle.js'))
-        // Output it to our src folder
-        .pipe(gulp.dest('src/js'));
-});
-
 // Compile LESS files
 gulp.task('styles', ['clean'], function () {
     return gulp.src(dirs.src + 'css/main.less')
@@ -206,6 +192,64 @@ gulp.task('sprites:png', function () {
 });
 
 
+var embedlr = require('gulp-embedlr'),
+    refresh = require('gulp-livereload'),
+    lrserver = require('tiny-lr')(),
+    livereload = require('connect-livereload'),
+    source = require('vinyl-source-stream'),
+    livereloadport = 35729,
+    serverport = 5000;
+
+
+
+// Set up an express server (but not starting it yet)
+var server = express();
+// Add live reload
+server.use(livereload({port: livereloadport}));
+// Use our 'dist' folder as rootfolder
+server.use(express.static('./dist'));
+// Because I like HTML5 pushstate .. this redirects everything back to our index.html
+server.all('/*', function(req, res) {
+    res.sendfile('index.html', { root: 'dist' });
+});
+
+// Dev task
+gulp.task('dev', ['watch'], function() {
+    // Start webserver
+    server.listen(serverport);
+    // Start live reload
+    lrserver.listen(livereloadport);
+});
+
+// Browserify task
+gulp.task('browserify', function() {
+
+    return browserify({ entries: ['src/components/main.js'] })
+        .bundle()
+        .pipe(source('main.bundled.js'))
+        .pipe(gulp.dest('dist/js'));
+});
+// Views task
+gulp.task('views', function() {
+    // Get our index.html
+    gulp.src('src/*.html')
+        // And put it in the dist folder
+        .pipe(gulp.dest('dist/'))
+        .pipe(refresh(lrserver)); // Tell the lrserver to refresh
+});
+gulp.task('watch', function() {
+    gulp.watch(['src/components/*.js'],[
+        'browserify'
+    ]);
+    gulp.watch(['src/*.html'], [
+        'views'
+    ]);
+});
+
+
+
+
+
 /**
  * MAIN TASKS
  */
@@ -214,6 +258,6 @@ gulp.task('check',      ['jshint', 'csslint', 'htmlhint']);
 
 gulp.task('prepare',    ['sprites:png']);
 
-gulp.task('watch',      ['serve']);
+gulp.task('devold',     ['serve']);
 
 gulp.task('default',    ['html']);
