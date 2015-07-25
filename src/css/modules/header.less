@@ -54,7 +54,7 @@
         .headline1 {
             position: relative;
             padding: 0.2em 0;
-            background: @menuBackground3;
+            background: @color_white;
             text-align: center;
             word-wrap: break-word;
         }
@@ -73,17 +73,6 @@
     }
 }
 
-.header_light {
-
-    .desktop-nav {
-
-        ul,
-        .headline1 {
-            background: @menuBackground3;
-        }
-    }
-}
-
 .container {
     height: 100%;
 
@@ -93,11 +82,8 @@
 
     &.modify:not(.notrans) {
 
-        .headline1 {
-            background: none;
-        }
-
-        .trigger {  opacity: 0;
+        .trigger {
+            opacity: 0;
             pointer-events: none;
             transition-delay: 0s;
         }
@@ -134,7 +120,7 @@
             }
 
             &:hover {
-                background-color: @menuBackground3;
+                background-color: @menuBackground;
             }
         }
     }

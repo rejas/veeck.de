@@ -3,22 +3,18 @@
  * Content
  */
 
-.content {
-	&:extend(.clearfix all);
-	margin: 0 auto;
-	padding: 0 0 3em;
+article {
+    &:extend(.clearfix all);
+    .baseline (1em);
 
-	> div:not(.title) {
-		margin: 0 auto;
-		max-width: 900px;
-		padding: 0 1.25em;
+    margin: 0 auto;
+    padding: 0 1em 3em;
 
-		p {
-			margin: 0 auto 1.5em auto;
+    @media @desktop {
+        max-width: 960px;
+    }
+}
 
-			&:first-child {
-				font-size: 1.35em;
-			}
-		}
-	}
+section {
+    margin-bottom: 2em;
 }

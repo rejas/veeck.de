@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "my private homepage",
   "repository": "https://bitbucket.org/mveeck/homepage.git",
   "private": true,
@@ -29,7 +29,6 @@
     "gulp-rev": "^3.0.1",
     "gulp-sitemap": "^0.1.6",
     "gulp-uglify": "^0.2.1",
-    "gulp-uncss": "^0.4.5",
     "gulp-util": "^2.2.20",
     "gulp.spritesmith": "^3.8.2",
     "imagemin-pngquant": "^4.1.2",
