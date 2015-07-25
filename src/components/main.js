@@ -2,8 +2,10 @@
  * Created by veeck on 19.05.15.
  */
 
-var Share = require('../components/share-button/build/share.js'),
-    LazyLoad = require ('../components/jquery.lazyload/jquery.lazyload.js');
+var Share = require('../components/share-button/build/share.js');
+
+require ('../components/imgLiquid/js/imgLiquid.js');
+require ('../components/jquery.lazyload/jquery.lazyload.js');
 
 $(document).ready(function () {
     "use strict";
@@ -27,6 +29,12 @@ $(document).ready(function () {
         }
     });
 
+    /**
+     * Fill out the background header images
+     */
+    $(".js-img-liquid").imgLiquid({
+        useBackgroundSize: true
+    });
 
     /**
      * Lazy Load - jQuery plugin for lazy loading images

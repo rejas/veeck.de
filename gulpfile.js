@@ -43,7 +43,7 @@ gulp.task('copy', ['clean'], function () {
         .pipe(gulp.dest(dirs.dist));
 });
 
-gulp.task('images', ['copy'], function () {
+gulp.task('imagesOld', ['copy'], function () {
     gulp.src(dirs.src + 'img/**/*.{jpg|png}')
         .pipe(plugins.imagemin(config.imagemin))
         .pipe(gulp.dest(dirs.dist+'img'));
@@ -71,7 +71,7 @@ gulp.task('htmlhint', function () {
         .pipe(plugins.htmlhint.reporter());
 });
 
-gulp.task('vendorscripts', ['clean'], function () {
+gulp.task('vendorscripts', [], function () {
     // Minify and copy all vendor scripts
     return gulp.src([dirs.src + 'js/vendor/**'])
         .pipe(plugins.uglify())
@@ -98,7 +98,7 @@ gulp.task('styles', ['clean'], function () {
         .pipe(gulp.dest(dirs.dist + 'css'))
 });
 
-gulp.task('html', ['images', 'styles', 'scripts', 'vendorscripts'] , function() {
+gulp.task('htmlOLD', ['images', 'styles', 'scripts', 'vendorscripts'] , function() {
     // We src all html files
     return gulp.src(dirs.src + '*.html')
         .pipe(plugins.inject(gulp.src(["./dist/**/*.*", '!./dist/js/vendor/**', '!./dist/components/**'], {read: false}), config.inject))
@@ -225,7 +225,7 @@ gulp.task('browserify', function() {
 });
 
 // Compile LESS files
-gulp.task('css', [], function () {
+gulp.task('css', function () {
     return gulp.src(dirs.src + 'css/main.less')
         .pipe(plugins.less())
         .pipe(plugins.autoprefixer(config.autoprefixer))
@@ -235,9 +235,14 @@ gulp.task('css', [], function () {
         .pipe(gulp.dest(dirs.dist + 'css'))
 });
 
+gulp.task('images', function () {
+    gulp.src(dirs.src + 'img/**/*.jpg')
+        //.pipe(plugins.imagemin(config.imagemin))
+        .pipe(gulp.dest(dirs.dist + 'img'));
+});
 
 // Views task
-gulp.task('views', function() {
+gulp.task('html', function() {
     // Get our index.html
     gulp.src('src/*.html')
         // And put it in the dist folder
@@ -253,12 +258,12 @@ gulp.task('watch', function() {
         'css'
     ]);
     gulp.watch(['src/*.html'], [
-        'views'
+        'html'
     ]);
 });
 
 // Dev task
-gulp.task('dev', ['images', 'css', 'vendorscripts', 'watch'], function() {
+gulp.task('dev', ['images', 'css', 'vendorscripts', 'browserify', 'html', 'watch'], function() {
     // Start webserver
     server.listen(serverport);
     // Start live reload
