@@ -49,22 +49,21 @@
     $.fn.imageLightbox = function( opts )
     {
         var options = $.extend(
-                {
-                    selector:		'id="imagelightbox"',
-                    allowedTypes:	'png|jpg|jpeg||gif', // add support for generated images without an extension
-                    animationSpeed:	250,
-                    preloadNext:	true,
-                    enableKeyboard:	true,
-                    quitOnEnd:		false,
-                    quitOnImgClick: false,
-                    quitOnDocClick: true,
-                    quitOnEscKey:   true,               // quit when Esc key is pressed
-                    onStart:		false,
-                    onEnd:			false,
-                    onLoadStart:	false,
-                    onLoadEnd:		false
-                },
-                opts ),
+            {
+                selector:		'id="imagelightbox"',
+                allowedTypes:	'png|jpg|jpeg|gif',
+                animationSpeed:	250,
+                preloadNext:	true,
+                enableKeyboard:	true,
+                quitOnEnd:		false,
+                quitOnImgClick: false,
+                quitOnDocClick: true,
+                onStart:		false,
+                onEnd:			false,
+                onLoadStart:	false,
+                onLoadEnd:		false
+            },
+            opts ),
 
             targets		= $([]),
             target		= $(),
@@ -83,7 +82,7 @@
 
             setImage = function()
             {
-                if( !image.length ) { return true; }
+                if( !image.length ) { return false; }
 
                 var screenWidth	 = $( window ).width() * 0.8,
                     screenHeight = $( window ).height() * 0.9,
@@ -138,9 +137,7 @@
                 setTimeout( function()
                 {
                     var imgPath = target.attr( 'href' );
-                    if ( imgPath === undefined ) {
-                        imgPath = target.attr( 'data-lightbox' );
-                    }
+                    if ( imgPath === undefined ) imgPath = target.attr( 'data-lightbox' );
                     image = $( '<img ' + options.selector + ' />' )
                         .attr( 'src', imgPath )
                         .load( function()
@@ -266,7 +263,7 @@
             {
                 if( !image.length ) { return true; }
                 e.preventDefault();
-                if( e.keyCode === 27 && options.quitOnEscKey === true ) { quitLightbox(); }
+                if( e.keyCode === 27 ) { quitLightbox(); }
                 if( e.keyCode === 37 || e.keyCode === 39 )
                 {
                     target = targets.eq( targets.index( target ) - ( e.keyCode === 37 ? 1 : -1 ) );
