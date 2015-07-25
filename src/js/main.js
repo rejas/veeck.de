@@ -17,13 +17,6 @@ $(document).ready(function ()
     });
 
     /**
-     * Lazy Load - jQuery plugin for lazy loading images
-     */
-    $("img.lazy").lazyload({
-        effect : "fadeIn"
-    });
-
-    /**
      * Dropdown style all <select> elements
      */
     $('#char_region').dropdown({
@@ -39,11 +32,6 @@ $(document).ready(function ()
         slidingIn : false,
         zindex: 10
     });
-
-    /**
-     * Fill background hero image
-     */
-    $(".js-img-liquid").imgLiquid({useBackgroundSize: true});
 
     /**
      * Animsitions
