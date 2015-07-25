@@ -124,7 +124,7 @@ gulp.task('copy', ['clean'], function () {
         .pipe(gulp.dest(dirs.dist));
 });
 
-gulp.task('vendorscripts', ['clean'], function () {
+gulp.task('vendorscripts', function () {
     // Minify and copy all vendor scripts
     return gulp.src([dirs.src + 'js/vendor/**'])
         .pipe(plugins.uglify())
@@ -260,11 +260,9 @@ gulp.task('default',    ['html']);
 
 gulp.task('deploy',     ['upload']);
 
-
 /**
  * NEW
  */
-
 
 var embedlr = require('gulp-embedlr'),
     refresh = require('gulp-livereload'),
@@ -289,7 +287,6 @@ server.all('/*', function(req, res) {
 
 // Browserify task
 gulp.task('browserify', function() {
-
     return browserify({ entries: ['src/components/main.js'] })
         .bundle()
         .pipe(source('main.bundled.js'))
@@ -335,7 +332,7 @@ gulp.task('watch', function() {
 });
 
 // Dev task
-gulp.task('dev', ['images', 'css', 'vendorscripts', 'browserify', 'html', 'watch'], function() {
+gulp.task('dev', ['images', 'vendorscripts', 'browserify', 'css', 'markup', 'watch'], function() {
     // Start webserver
     server.listen(serverport);
     // Start live reload

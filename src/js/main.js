@@ -1,20 +1,8 @@
 /*global $*/
 
-window.$myVars =
-{
-    // Initialize all the queries you want to use more than once
-    nav : $('nav').clone()
-};
-
 $(document).ready(function ()
 {
     "use strict";
-
-    // my own extender
-    $(".js-extender").on("click", function (e) {
-        e.preventDefault();
-        $('.' + $(this).data('toExtend')).slideToggle();
-    });
 
     /**
      * Dropdown style all <select> elements
@@ -32,32 +20,6 @@ $(document).ready(function ()
         slidingIn : false,
         zindex: 10
     });
-
-    /**
-     * decide if mobile or not
-     * @type {Array}
-     */
-    var queries = [
-        {
-            context: 'mobile',
-            match: function() {
-                $('nav').remove();
-                $myVars.nav.clone().prependTo('header').addClass('mobile-nav').removeClass('desktop-nav').dlmenu();
-            },
-            unmatch: function() {
-            }
-        },
-        {
-            context: 'desktop',
-            match: function() {
-                $('nav').remove();
-                $myVars.nav.clone().prependTo('header').removeClass('mobile-nav').addClass('desktop-nav');
-            },
-            unmatch: function() {
-            }
-        }
-    ];
-    MQ.init(queries);
 });
 
 
