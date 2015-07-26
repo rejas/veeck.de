@@ -21,7 +21,7 @@
     "jquery.lazyload": "~1.9.5",
     "imgLiquid": "~0.9.944",
     "animsition": "~3.5.2",
-    "imagelightbox2": "~0.3.2",
+    "imagelightbox2": "~0.3.3",
     "on-media-query": "~0.2.0",
     "classie": "~1.0.1"
   }
