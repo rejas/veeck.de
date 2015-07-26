@@ -293,6 +293,12 @@ gulp.task('browserify', function() {
         .pipe(gulp.dest('dist/js'));
 });
 
+// Copy all application files except *.less and .js into the `dist` folder
+gulp.task('files', function () {
+    return gulp.src(['src/**/*', '!src/*.html', '!src/js/**/*.js', '!src/css/**/*.less', '!src/components'], { dot: true })
+        .pipe(gulp.dest(dirs.dist));
+});
+
 // Compile LESS files
 gulp.task('css', function () {
     return gulp.src(dirs.src + 'css/main.less')
@@ -332,7 +338,7 @@ gulp.task('watch', function() {
 });
 
 // Dev task
-gulp.task('dev', ['images', 'vendorscripts', 'browserify', 'css', 'markup', 'watch'], function() {
+gulp.task('dev', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'markup', 'watch'], function() {
     // Start webserver
     server.listen(serverport);
     // Start live reload
