@@ -1,6 +1,4 @@
-/**
- *
- */
+/* global require */
 
 var classie = require ('../components/classie/classie.js'),
     Share = require('../components/share-button/build/share.js'),
