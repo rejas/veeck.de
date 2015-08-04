@@ -312,12 +312,13 @@
 
         if( options.quitOnDocClick )
         {
-            // fix the bug , using the opera (moblie) and wechat. 
-            $( document ).on('click', function( e )
-            // $( document ).on( hasTouch ? 'touchend' : 'click', function( e )
+            $( document ).on( hasTouch ? 'touchend' : 'click', function( e )
             {
-                e.preventDefault();
-                if( image.length && !$( e.target ).is( image ) ) { quitLightbox(); }
+                if( image.length && !$( e.target ).is( image ) )
+                {
+                    e.preventDefault();
+                    quitLightbox();
+                }
             });
         }
 
