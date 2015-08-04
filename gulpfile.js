@@ -3,23 +3,24 @@
  */
 
 var gulp            = require('gulp'),
-    gulpLoadPlugins = require('gulp-load-plugins'),
     gutil           = require('gulp-util'),
-    browserify      = require('browserify'),
     minifyHTML      = require('gulp-minify-html'),
+    plugins         = require('gulp-load-plugins')(),
     spritesmith     = require('gulp.spritesmith'),
-    plugins         = gulpLoadPlugins();
+    refresh         = require('gulp-livereload');
 
 /**
  * OTHER PLUGINS
  */
 
-var connect         = require('connect-livereload'),
+var browserify      = require('browserify'),
     del             = require('del'),
     express         = require('express'),
     ftp             = require('vinyl-ftp'),
-    stylish         = require('jshint-stylish'),
-    tiny            = require('tiny-lr');
+    lrserver        = require('tiny-lr')(),
+    livereload      = require('connect-livereload'),
+    source          = require('vinyl-source-stream'),
+    stylish         = require('jshint-stylish');
 
 /**
  * CONFIGS
@@ -102,28 +103,28 @@ gulp.task('optimize:images', function () {
  * Watch
  */
 
-gulp.task('serve', function () {
-    var server  = express(),
-        ports   = config.ports,
-        root    = __dirname + '/' + dirs.src;
+gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'markup'], function () {
+    // Set up an express server (but not starting it yet)
+    var server = express();
+    // Add live reload
+    server.use(livereload({port: config.ports.livereload}));
+    // Use our 'dist' folder as rootfolder
+    server.use(express.static('./dist'));
 
-    server.use(connect());
-    server.use(express.static(root));
-    server.listen(ports.express, function() {
-        gutil.log('Listening on port ' + ports.express);
-    });
+    // Start webserver
+    server.listen(config.ports.express);
+    // Start live reload
+    lrserver.listen(config.ports.livereload);
 
-    var lr = tiny();
-    lr.listen(ports.livereload, function (err) {
-        if (err) {
-            gutil.log(err);
-        }
-    });
-
-    gulp.watch([dirs.src + '**/*.html', dirs.src + 'css/**/*.less', dirs.src + 'js/**/*.js'] , function (event) {
-        gulp.src(event.path, {read: false})
-            .pipe(plugins.livereload(lr));
-    });
+    gulp.watch(['src/components/*.js'],[
+        'browserify'
+    ]);
+    gulp.watch(['src/css/**/*.less'], [
+        'css'
+    ]);
+    gulp.watch(['src/*.html'], [
+        'markup'
+    ]);
 });
 
 /**
@@ -280,7 +281,7 @@ gulp.task('check',      ['jshint', 'csslint', 'htmlhint']);
 
 gulp.task('prepare',    ['prepare:sprites', 'optimize:images']);
 
-gulp.task('devold',     ['serve']);
+gulp.task('dev',        ['serve']);
 
 gulp.task('default',    ['html']);
 
@@ -289,29 +290,6 @@ gulp.task('deploy',     ['upload']);
 /**
  * NEW
  */
-
-var embedlr = require('gulp-embedlr'),
-    refresh = require('gulp-livereload'),
-    lrserver = require('tiny-lr')(),
-    livereload = require('connect-livereload'),
-    source = require('vinyl-source-stream'),
-    livereloadport = 35729,
-    serverport = 5000;
-
-
-
-// Set up an express server (but not starting it yet)
-var server = express();
-// Add live reload
-server.use(livereload({port: livereloadport}));
-// Use our 'dist' folder as rootfolder
-server.use(express.static('./dist'));
-// Because I like HTML5 pushstate .. this redirects everything back to our index.html
-/*
-server.all('/*', function(req, res) {
-    res.sendfile('index.html', { root: 'dist' });
-});
-*/
 
 // Browserify task
 gulp.task('browserify', function() {
@@ -352,40 +330,3 @@ gulp.task('html', function() {
         .pipe(gulp.dest('dist/'))
         .pipe(refresh(lrserver)); // Tell the lrserver to refresh
 });
-
-gulp.task('watch', function() {
-    gulp.watch(['src/components/*.js'],[
-        'browserify'
-    ]);
-    gulp.watch(['src/css/**/*.less'], [
-        'css'
-    ]);
-    gulp.watch(['src/*.html'], [
-        'html'
-    ]);
-});
-
-// Dev task
-gulp.task('dev', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'markup', 'watch'], function() {
-    // Start webserver
-    server.listen(serverport);
-    // Start live reload
-    lrserver.listen(livereloadport);
-});
-
-
-
-
-/**
- * MAIN TASKS
- */
-
-gulp.task('check',      ['jshint', 'csslint', 'htmlhint']);
-
-gulp.task('prepare',    ['prepare:sprites', 'optimize:images']);
-
-gulp.task('devold',     ['serve']);
-
-gulp.task('default',    ['html']);
-
-gulp.task('deploy',     ['upload']);
