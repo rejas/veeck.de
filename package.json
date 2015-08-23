@@ -7,7 +7,7 @@
   "devDependencies": {
     "browserify": "^11.0.1",
     "connect-livereload": "^0.5.3",
-    "del": "^1.2.0",
+    "del": "^1.2.1",
     "event-stream": "^3.3.1",
     "express": "^4.13.3",
     "gulp": "^3.9.0",
