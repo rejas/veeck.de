@@ -3,22 +3,24 @@
  */
 
 var gulp            = require('gulp'),
-    gulpLoadPlugins = require('gulp-load-plugins'),
     gutil           = require('gulp-util'),
     minifyHTML      = require('gulp-minify-html'),
+    plugins         = require('gulp-load-plugins')(),
     spritesmith     = require('gulp.spritesmith'),
-    plugins         = gulpLoadPlugins();
+    refresh         = require('gulp-livereload');
 
 /**
  * OTHER PLUGINS
  */
 
-var connect         = require('connect-livereload'),
+var browserify      = require('browserify'),
     del             = require('del'),
     express         = require('express'),
     ftp             = require('vinyl-ftp'),
-    stylish         = require('jshint-stylish'),
-    tiny            = require('tiny-lr');
+    lrserver        = require('tiny-lr')(),
+    livereload      = require('connect-livereload'),
+    source          = require('vinyl-source-stream'),
+    stylish         = require('jshint-stylish');
 
 /**
  * CONFIGS
@@ -84,28 +86,28 @@ gulp.task('optimize:images', function () {
  * Watch
  */
 
-gulp.task('serve', function () {
-    var server  = express(),
-        ports   = config.ports,
-        root    = __dirname + '/' + dirs.src;
+gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'markup'], function () {
+    // Set up an express server (but not starting it yet)
+    var server = express();
+    // Add live reload
+    server.use(livereload({port: config.ports.livereload}));
+    // Use our 'dist' folder as rootfolder
+    server.use(express.static('./dist'));
 
-    server.use(connect());
-    server.use(express.static(root));
-    server.listen(ports.express, function() {
-        gutil.log('Listening on port ' + ports.express);
-    });
+    // Start webserver
+    server.listen(config.ports.express);
+    // Start live reload
+    lrserver.listen(config.ports.livereload);
 
-    var lr = tiny();
-    lr.listen(ports.livereload, function (err) {
-        if (err) {
-            gutil.log(err);
-        }
-    });
-
-    gulp.watch([dirs.src + '**/*.html', dirs.src + 'css/**/*.less', dirs.src + 'js/**/*.js'] , function (event) {
-        gulp.src(event.path, {read: false})
-            .pipe(plugins.livereload(lr));
-    });
+    gulp.watch(['src/components/*.js'],[
+        'browserify'
+    ]);
+    gulp.watch(['src/css/**/*.less'], [
+        'css'
+    ]);
+    gulp.watch(['src/*.html'], [
+        'markup'
+    ]);
 });
 
 /**
@@ -123,7 +125,7 @@ gulp.task('copy', ['clean'], function () {
         .pipe(gulp.dest(dirs.dist));
 });
 
-gulp.task('vendorscripts', ['clean'], function () {
+gulp.task('vendorscripts', function () {
     // Minify and copy all vendor scripts
     return gulp.src([dirs.src + 'js/vendor/**'])
         .pipe(plugins.uglify())
@@ -144,14 +146,32 @@ gulp.task('styles', ['clean'], function () {
     return gulp.src(dirs.src + 'css/main.less')
         .pipe(plugins.less())
         .pipe(plugins.autoprefixer(config.autoprefixer))
-        .pipe(plugins.rename('app.css'))
+        .pipe(plugins.rename('main.css'))
         .pipe(plugins.rev())
         .pipe(plugins.csso())
         .pipe(gulp.dest(dirs.dist + 'css'))
 });
 
-gulp.task('sitemap', function () {
-    return gulp.src([dirs.src + '**/*.html', '!'+ dirs.src + 'webcomponent/*.html'], {read: false})
+gulp.task('html', ['images', 'styles', 'scripts', 'vendorscripts'] , function() {
+    // We src all html files
+    return gulp.src(dirs.src + '*.html')
+        .pipe(plugins.inject(gulp.src(["./dist/**/*.*", '!./dist/js/vendor/**', '!./dist/components/**'], {read: false}), config.inject))
+        .pipe(minifyHTML(config.minifyHTML))
+        .pipe(gulp.dest(dirs.dist));
+});
+
+// Optimize via Uncss (beware: doesnt work with JS styles like in mobilemenu)
+gulp.task('uncss', ['html'], function() {
+    return gulp.src(dirs.dist + 'css/app.css')
+        .pipe(uncss({
+            html: [dirs.dist + 'index.html']
+        }))
+        .pipe(plugins.csso())
+        .pipe(gulp.dest(dirs.dist + 'css/'));
+});
+
+gulp.task('sitemap', ['html'], function () {
+    return gulp.src([dirs.src + '**/*.html', '!'+ dirs.src + '/**/google*.html'], {read: false})
         .pipe(plugins.sitemap({
             fileName: 'sitemap.xml',
             newLine: '\n',
@@ -161,14 +181,6 @@ gulp.task('sitemap', function () {
             spacing: '    '
         }))
         .pipe(gulp.dest(dirs.src));
-});
-
-gulp.task('html', ['copy', 'styles', 'scripts', 'vendorscripts', 'sitemap'] , function() {
-    // We src all html files
-    return gulp.src(dirs.src + '*.html')
-        .pipe(plugins.inject(gulp.src(["./dist/**/*.*", '!./dist/js/vendor/**', '!./dist/components/**'], {read: false}), config.inject))
-        .pipe(minifyHTML(config.minifyHTML))
-        .pipe(gulp.dest(dirs.dist));
 });
 
 /**
@@ -215,7 +227,6 @@ gulp.task('upload:images', function () {
         }));
 });
 
-
 gulp.task('upload:material', function () {
     return gulp.src('.')
         .pipe(plugins.prompt.prompt({
@@ -236,9 +247,6 @@ gulp.task('upload:material', function () {
         }));
 });
 
-
-
-
 /**
  * MAIN TASKS
  */
@@ -247,8 +255,52 @@ gulp.task('check',      ['jshint', 'csslint', 'htmlhint']);
 
 gulp.task('prepare',    ['prepare:sprites', 'optimize:images']);
 
-gulp.task('watch',      ['serve']);
+gulp.task('dev',        ['serve']);
 
 gulp.task('default',    ['html']);
 
 gulp.task('deploy',     ['upload']);
+
+/**
+ * NEW
+ */
+
+// Browserify task
+gulp.task('browserify', function() {
+    return browserify({ entries: ['src/js/main.js'] })
+        .bundle()
+        .pipe(source('main.bundled.js'))
+        .pipe(gulp.dest('dist/js'));
+});
+
+// Copy all application files except *.less and .js into the `dist` folder
+gulp.task('files', function () {
+    return gulp.src(['src/**/*', '!src/*.html', '!src/js/**/*.js', '!src/css/**/*.less', '!src/components'], { dot: true })
+        .pipe(gulp.dest(dirs.dist));
+});
+
+// Compile LESS files
+gulp.task('css', function () {
+    return gulp.src(dirs.src + 'css/main.less')
+        .pipe(plugins.less())
+        .pipe(plugins.autoprefixer(config.autoprefixer))
+        .pipe(plugins.rename('main.css'))
+        //.pipe(plugins.rev())
+        .pipe(plugins.csso())
+        .pipe(gulp.dest(dirs.dist + 'css'))
+});
+
+gulp.task('images', function () {
+    gulp.src(dirs.src + 'img/**/*.jpg')
+        //.pipe(plugins.imagemin(config.imagemin))
+        .pipe(gulp.dest(dirs.dist + 'img'));
+});
+
+// Views task
+gulp.task('markup', function() {
+    // Get our index.html
+    gulp.src('src/*.html')
+        // And put it in the dist folder
+        .pipe(gulp.dest('dist/'))
+        .pipe(refresh(lrserver)); // Tell the lrserver to refresh
+});

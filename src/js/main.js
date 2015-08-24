@@ -1,14 +1,63 @@
-/*global $*/
+/* global require */
 
-window.$myVars =
-{
-    // Initialize all the queries you want to use more than once
-    nav : $('nav').clone()
-};
+var classie = require ('../components/classie/classie.js'),
+    Share = require('../components/share-button/build/share.js'),
+    MQ = require('../components/on-media-query/js/onmediaquery.js');
 
-$(document).ready(function ()
-{
+require ('../components/animsition/dist/js/jquery.animsition.js');
+require ('../components/imgLiquid/js/imgLiquid.js');
+require ('../components/imagelightbox2/dist/imagelightbox.min.js');
+require ('../components/jquery.lazyload/jquery.lazyload.js');
+require ('../components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
+
+$(document).ready(function () {
     "use strict";
+
+    /**
+     * decide if mobile or not
+     * @type {Array}
+     */
+    var $myNav = $('nav').clone();
+    var queries = [
+        {
+            context: 'mobile',
+            match: function() {
+                $('nav').remove();
+                $myNav.clone().prependTo('header').addClass('mobile-nav').removeClass('desktop-nav').dlmenu();
+            },
+            unmatch: function() {
+            }
+        },
+        {
+            context: 'desktop',
+            match: function() {
+                $('nav').remove();
+                $myNav.clone().prependTo('header').removeClass('mobile-nav').addClass('desktop-nav');
+            },
+            unmatch: function() {
+            }
+        }
+    ];
+    MQ.init(queries);
+
+    /**
+     * Share Button Config
+     */
+    new Share ('.shareButton', {
+        ui: {
+            flyout: "top right",
+            button_font: false,
+            icon_font: false
+        },
+        networks: {
+            facebook: {
+                app_id: "244426142407482"
+            },
+            email: {
+                enabled: false
+            }
+        }
+    });
 
     // my own extender
     $(".js-extender").on("click", function (e) {
@@ -17,33 +66,18 @@ $(document).ready(function ()
     });
 
     /**
+     * Fill out the background header images
+     */
+    $(".js-img-liquid").imgLiquid({
+        useBackgroundSize: true
+    });
+
+    /**
      * Lazy Load - jQuery plugin for lazy loading images
      */
     $("img.lazy").lazyload({
         effect : "fadeIn"
     });
-
-    /**
-     * Dropdown style all <select> elements
-     */
-    $('#char_region').dropdown({
-        gutter : 5,
-        stack : false,
-        slidingIn : false,
-        zindex: 15
-    });
-
-    $('#guild_region').dropdown({
-        gutter : 5,
-        stack : false,
-        slidingIn : false,
-        zindex: 10
-    });
-
-    /**
-     * Fill out the background header images
-     */
-    $(".js-img-liquid").imgLiquid({useBackgroundSize: true});
 
     /**
      * Animsitions
@@ -59,9 +93,9 @@ $(document).ready(function ()
         loading               :    true,
         loadingParentElement  :   'body', //animsition wrapper element
         loadingClass          :   'animsition-loading',
-        unSupportCss          : [ 'animation-duration',
-                                  '-webkit-animation-duration',
-                                  '-o-animation-duration'
+        unSupportCss          : [ '-webkit-animation-duration',
+            '-o-animation-duration',
+            'animation-duration'
         ],
         //"unSupportCss" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
         //The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
@@ -71,7 +105,6 @@ $(document).ready(function ()
         overlayClass          :   'animsition-overlay-slide',
         overlayParentElement  :   'body'
     });
-
 
     /**
      * ImageLightBox
@@ -96,7 +129,7 @@ $(document).ready(function ()
         {
             var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'alt' );
             if( description !== undefined && description.length > 0 ) {
-               $( '<div id="imagelightbox-caption">' + description + '</div>' ).appendTo( 'body' );
+                $( '<div id="imagelightbox-caption">' + description + '</div>' ).appendTo( 'body' );
             }
         },
         captionOff = function()
@@ -107,61 +140,49 @@ $(document).ready(function ()
     var gallery = $("a.gallery, .gallery_article figure a");
     if (gallery.length > 0) {
         gallery.imageLightbox(
-        {
-            onStart: 	 function() { overlayOn(); },
-            onEnd:	 	 function() { captionOff(); overlayOff(); activityIndicatorOff(); },
-            onLoadStart: function() { captionOff(); activityIndicatorOn(); },
-            onLoadEnd:	 function() { captionOn(); activityIndicatorOff(); }
-        });
+            {
+                onStart: 	 function() { overlayOn(); },
+                onEnd:	 	 function() { captionOff(); overlayOff(); activityIndicatorOff(); },
+                onLoadStart: function() { captionOff(); activityIndicatorOn(); },
+                onLoadEnd:	 function() { captionOn(); activityIndicatorOff(); }
+            });
     }
-
-    /**
-     * Share Button Config
-     */
-    new window.Share('.shareButton', {
-        ui: {
-            flyout: "top right",
-            button_font: false,
-            icon_font: false
-        },
-        networks: {
-            facebook: {
-                app_id: "244426142407482"
-            },
-            email: {
-                enabled: false
-            }
-        }
-    });
-
-    /**
-     * decide if mobile or not
-     * @type {Array}
-     */
-    var queries = [
-        {
-            context: 'mobile',
-            match: function() {
-                $('nav').remove();
-                $myVars.nav.clone().prependTo('header').addClass('mobile-nav').removeClass('desktop-nav').dlmenu();
-            },
-            unmatch: function() {
-            }
-        },
-        {
-            context: 'desktop',
-            match: function() {
-                $('nav').remove();
-                $myVars.nav.clone().prependTo('header').removeClass('mobile-nav').addClass('desktop-nav');
-            },
-            unmatch: function() {
-            }
-        }
-    ];
-    MQ.init(queries);
 });
 
+// Avoid `console` errors in browsers that lack a console.
+(function() {
+    "use strict";
 
+    var method;
+    var noop = function () {};
+    var methods = [
+        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+        'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
+    ];
+    var length = methods.length;
+    var console = (window.console = window.console || {});
+
+    while (length--) {
+        method = methods[length];
+
+        // Only stub undefined methods.
+        if (!console[method]) {
+            console[method] = noop;
+        }
+    }
+}());
+
+/**
+ * ArticleIntroEffects
+ *
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ * Copyright 2014, Codrops
+ * http://www.codrops.com
+ */
 (function() {
     "use strict";
 
@@ -183,7 +204,6 @@ $(document).ready(function ()
 
         return ((rv > -1) ? rv : undef);
     }());
-
 
     // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
     // left: 37, up: 38, right: 39, down: 40,
