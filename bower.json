@@ -18,9 +18,9 @@
     "normalize-opentype.css": "~0.2.4",
     "normalize.css": "~3.0.3",
     "share-button": "~0.5.0",
-    "jquery.lazyload": "~1.9.5",
+    "jquery.lazyload": "~1.9.7",
     "imgLiquid": "~0.9.944",
-    "animsition": "~3.5.2",
+    "animsition": "~3.6.0",
     "imagelightbox2": "~0.3.4",
     "on-media-query": "~0.2.0",
     "classie": "~1.0.1"
