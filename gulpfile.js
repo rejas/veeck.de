@@ -7,7 +7,8 @@ var gulp            = require('gulp'),
     minifyHTML      = require('gulp-minify-html'),
     plugins         = require('gulp-load-plugins')(),
     spritesmith     = require('gulp.spritesmith'),
-    refresh         = require('gulp-livereload');
+    refresh         = require('gulp-livereload'),
+    runSequence     = require('run-sequence');
 
 /**
  * OTHER PLUGINS
@@ -19,6 +20,7 @@ var browserify      = require('browserify'),
     ftp             = require('vinyl-ftp'),
     lrserver        = require('tiny-lr')(),
     livereload      = require('connect-livereload'),
+    buffer          = require('vinyl-buffer'),
     source          = require('vinyl-source-stream'),
     stylish         = require('jshint-stylish');
 
@@ -83,7 +85,65 @@ gulp.task('optimize:images', function () {
 });
 
 /**
- * Watch
+ * Default
+ */
+
+// Clear the destination folder
+gulp.task('clean', function (cb) {
+    del([dirs.dist], cb)
+});
+
+// Browserify task
+gulp.task('browserify', function() {
+    return browserify({ entries: ['src/js/main.js'] })
+        .bundle()
+        .pipe(source('main.bundled.js'))
+        .pipe(buffer())
+        .pipe(plugins.uglify())
+        //.pipe(plugins.rev())
+        .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('vendorscripts', function () {
+    // Minify and copy all vendor scripts
+    return gulp.src([dirs.src + 'js/vendor/**'])
+        .pipe(plugins.uglify())
+        .pipe(gulp.dest(dirs.dist + 'js/vendor'));
+});
+
+// Copy all application files except *.less and .js into the `dist` folder
+gulp.task('files', function () {
+    return gulp.src(['src/**/*', '!src/*.html', '!src/js/**/*.js', '!src/css/**/*.less', '!src/components'], { dot: true })
+        .pipe(gulp.dest(dirs.dist));
+});
+
+// Compile LESS files
+gulp.task('css', function () {
+    return gulp.src(dirs.src + 'css/main.less')
+        .pipe(plugins.less())
+        .pipe(plugins.autoprefixer(config.autoprefixer))
+        .pipe(plugins.rename('main.css'))
+        .pipe(plugins.csso())
+        //.pipe(plugins.rev())
+        .pipe(gulp.dest(dirs.dist + 'css'))
+});
+
+gulp.task('images', function () {
+    gulp.src(dirs.src + 'img/**/*.jpg')
+        .pipe(gulp.dest(dirs.dist + 'img'));
+});
+
+// Views task
+gulp.task('markup', function() {
+    // Get our index.html
+    gulp.src('src/*.html')
+        // And put it in the dist folder
+        .pipe(gulp.dest('dist/'))
+        .pipe(refresh(lrserver)); // Tell the lrserver to refresh
+});
+
+/**
+ * Dev
  */
 
 gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'markup'], function () {
@@ -114,78 +174,29 @@ gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'ma
  * Default
  */
 
-// Clear the destination folder
-gulp.task('clean', function (cb) {
-    del([dirs.dist], cb)
-});
-
-// Copy all application files except *.less and .js into the `dist` folder
-gulp.task('copy', ['clean'], function () {
-    return gulp.src(['src/**/*', '!src/js/**/*.js', '!src/css/**/*.less', '!src/components/less'], { dot: true })
-        .pipe(gulp.dest(dirs.dist));
-});
-
-gulp.task('vendorscripts', function () {
-    // Minify and copy all vendor scripts
-    return gulp.src([dirs.src + 'js/vendor/**'])
-        .pipe(plugins.uglify())
-        .pipe(gulp.dest(dirs.dist + 'js/vendor'));
-});
-
-// Concatenate, minify and copy all JavaScript (except vendor scripts)
-gulp.task('scripts', ['clean'], function () {
-    return gulp.src([dirs.src + 'js/**/*.js', '!'+dirs.src + 'js/vendor/**'])
-        .pipe(plugins.concat('app.js'))
-        .pipe(plugins.rev())
-        .pipe(plugins.uglify())
-        .pipe(gulp.dest(dirs.dist + 'js'));
-});
-
-// Compile LESS files
-gulp.task('styles', ['clean'], function () {
-    return gulp.src(dirs.src + 'css/main.less')
-        .pipe(plugins.less())
-        .pipe(plugins.autoprefixer(config.autoprefixer))
-        .pipe(plugins.rename('main.css'))
-        .pipe(plugins.rev())
-        .pipe(plugins.csso())
-        .pipe(gulp.dest(dirs.dist + 'css'))
-});
-
-gulp.task('html', ['images', 'styles', 'scripts', 'vendorscripts'] , function() {
+gulp.task('html', ['images', 'files', 'vendorscripts', 'browserify', 'css'] , function() {
     // We src all html files
     return gulp.src(dirs.src + '*.html')
-        .pipe(plugins.inject(gulp.src(["./dist/**/*.*", '!./dist/js/vendor/**', '!./dist/components/**'], {read: false}), config.inject))
         .pipe(minifyHTML(config.minifyHTML))
         .pipe(gulp.dest(dirs.dist));
 });
 
-// Optimize via Uncss (beware: doesnt work with JS styles like in mobilemenu)
-gulp.task('uncss', ['html'], function() {
-    return gulp.src(dirs.dist + 'css/app.css')
-        .pipe(uncss({
-            html: [dirs.dist + 'index.html']
-        }))
-        .pipe(plugins.csso())
-        .pipe(gulp.dest(dirs.dist + 'css/'));
-});
+/**
+ * Deploy
+ */
 
 gulp.task('sitemap', ['html'], function () {
-    return gulp.src([dirs.src + '**/*.html', '!'+ dirs.src + '/**/google*.html'], {read: false})
+    return gulp.src([dirs.src + '/*.html', '!'+ dirs.src + '/google*.html'], {read: false})
         .pipe(plugins.sitemap({
             fileName: 'sitemap.xml',
             newLine: '\n',
-            changeFreq: 'daily',
+            changefreq: 'daily',
             priority: '0.5',
             siteUrl: 'http://veeck.de',
             spacing: '    '
         }))
         .pipe(gulp.dest(dirs.src));
 });
-
-/**
- * Deploy
- */
 
 gulp.task('upload', function () {
     return gulp.src('.')
@@ -257,50 +268,6 @@ gulp.task('prepare',    ['prepare:sprites', 'optimize:images']);
 
 gulp.task('dev',        ['serve']);
 
-gulp.task('default',    ['html']);
+gulp.task('default',    function (cb) { runSequence('clean', ['html'], cb) });
 
 gulp.task('deploy',     ['upload']);
-
-/**
- * NEW
- */
-
-// Browserify task
-gulp.task('browserify', function() {
-    return browserify({ entries: ['src/js/main.js'] })
-        .bundle()
-        .pipe(source('main.bundled.js'))
-        .pipe(gulp.dest('dist/js'));
-});
-
-// Copy all application files except *.less and .js into the `dist` folder
-gulp.task('files', function () {
-    return gulp.src(['src/**/*', '!src/*.html', '!src/js/**/*.js', '!src/css/**/*.less', '!src/components'], { dot: true })
-        .pipe(gulp.dest(dirs.dist));
-});
-
-// Compile LESS files
-gulp.task('css', function () {
-    return gulp.src(dirs.src + 'css/main.less')
-        .pipe(plugins.less())
-        .pipe(plugins.autoprefixer(config.autoprefixer))
-        .pipe(plugins.rename('main.css'))
-        //.pipe(plugins.rev())
-        .pipe(plugins.csso())
-        .pipe(gulp.dest(dirs.dist + 'css'))
-});
-
-gulp.task('images', function () {
-    gulp.src(dirs.src + 'img/**/*.jpg')
-        //.pipe(plugins.imagemin(config.imagemin))
-        .pipe(gulp.dest(dirs.dist + 'img'));
-});
-
-// Views task
-gulp.task('markup', function() {
-    // Get our index.html
-    gulp.src('src/*.html')
-        // And put it in the dist folder
-        .pipe(gulp.dest('dist/'))
-        .pipe(refresh(lrserver)); // Tell the lrserver to refresh
-});

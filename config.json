@@ -12,12 +12,7 @@
     "remotePath": "."
   },
   "imagemin": {
-    "progressive": true,
-    "use": "[pngquant()]"
-  },
-  "inject": {
-    "addRootSlash": false,
-    "ignorePath": "/dist/"
+    "progressive": true
   },
   "minifyHTML": {
     "conditionals": true,
