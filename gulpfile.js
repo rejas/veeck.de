@@ -20,6 +20,7 @@ var browserify      = require('browserify'),
     ftp             = require('vinyl-ftp'),
     lrserver        = require('tiny-lr')(),
     livereload      = require('connect-livereload'),
+    buffer          = require('vinyl-buffer'),
     source          = require('vinyl-source-stream'),
     stylish         = require('jshint-stylish');
 
@@ -97,8 +98,9 @@ gulp.task('browserify', function() {
     return browserify({ entries: ['src/js/main.js'] })
         .bundle()
         .pipe(source('main.bundled.js'))
+        .pipe(buffer())
+        .pipe(plugins.uglify())
         //.pipe(plugins.rev())
-        //.pipe(plugins.uglify())
         .pipe(gulp.dest('dist/js'));
 });
 
@@ -121,14 +123,13 @@ gulp.task('css', function () {
         .pipe(plugins.less())
         .pipe(plugins.autoprefixer(config.autoprefixer))
         .pipe(plugins.rename('main.css'))
-        //.pipe(plugins.rev())
         .pipe(plugins.csso())
+        //.pipe(plugins.rev())
         .pipe(gulp.dest(dirs.dist + 'css'))
 });
 
 gulp.task('images', function () {
     gulp.src(dirs.src + 'img/**/*.jpg')
-        //.pipe(plugins.imagemin(config.imagemin))
         .pipe(gulp.dest(dirs.dist + 'img'));
 });
 

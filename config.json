@@ -14,10 +14,6 @@
   "imagemin": {
     "progressive": true
   },
-  "inject": {
-    "addRootSlash": false,
-    "ignorePath": "/dist/"
-  },
   "minifyHTML": {
     "conditionals": true,
     "empty": true,
