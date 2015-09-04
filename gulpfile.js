@@ -203,11 +203,11 @@ gulp.task('html', ['images', 'files', 'vendorscripts', 'browserify', 'css'] , fu
  */
 
 gulp.task('sitemap', ['html'], function () {
-    return gulp.src([dirs.src + '**/*.html', '!'+ dirs.src + '/**/google*.html'], {read: false})
+    return gulp.src([dirs.src + '/*.html', '!'+ dirs.src + '/google*.html'], {read: false})
         .pipe(plugins.sitemap({
             fileName: 'sitemap.xml',
             newLine: '\n',
-            changeFreq: 'daily',
+            changefreq: 'daily',
             priority: '0.5',
             siteUrl: 'http://veeck.de',
             spacing: '    '
