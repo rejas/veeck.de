@@ -34,7 +34,8 @@
     "jshint-stylish": "^2.0.1",
     "run-sequence": "^1.1.2",
     "tiny-lr": "^0.1.6",
-    "vinyl-ftp": "^0.4.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-ftp": "^0.4.4",
     "vinyl-paths": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   }
