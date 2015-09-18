@@ -79,24 +79,26 @@ gulp.task('htmlhint', function () {
  */
 
 gulp.task('prepare:sprites', function () {
-    var spriteData = gulp.src(['src/css/assets/icons/links/*.png', 'src/css/assets/icons/research/*.png']).pipe(spritesmith({
-        imgName:         'sprite.png',
-        cssName:         'sprite.less',
-        imgPath:         'assets/sprite.png'
-    }));
+    var spriteData = gulp.src([dirs.src + 'css/assets/icons/links/*.png', dirs.src + 'css/assets/icons/research/*.png'])
+        .pipe(spritesmith({
+            imgName:         'sprite.png',
+            cssName:         'sprite.less',
+            imgPath:         'assets/sprite.png'
+        })
+    );
 
     // Pipe image stream through image optimizer and onto disk
     spriteData.img
         //.pipe(plugins.imagemin(config.imagemin))
-        .pipe(gulp.dest('src/css/assets/'));
+        .pipe(gulp.dest(dirs.src + 'css/assets/'));
 
     // Pipe CSS stream through CSS optimizer and onto disk
     spriteData.css
-        .pipe(gulp.dest('src/css/base/'));
+        .pipe(gulp.dest(dirs.src + 'css/base/'));
 });
 
 gulp.task('optimize:images', function () {
-    gulp.src(dirs.src + 'img/**/*')
+    return gulp.src(dirs.src + 'img/**/*')
         .pipe(plugins.imagemin(config.imagemin))
         .pipe(gulp.dest(dirs.src + 'img'));
 });
@@ -107,18 +109,18 @@ gulp.task('optimize:images', function () {
 
 // Clear the destination folder
 gulp.task('clean', function (cb) {
-    del([dirs.dist], cb)
+    del(['./' + dirs.dist]).then(function () { cb(); });
 });
 
 // Browserify task
 gulp.task('browserify', function() {
-    return browserify({ entries: ['src/js/main.js'] })
+    return browserify({ entries: [dirs.src + 'js/main.js'] })
         .bundle()
         .pipe(source('main.bundled.js'))
         .pipe(buffer())
         .pipe(plugins.uglify())
         //.pipe(plugins.rev())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest(dirs.dist + '/js'));
 });
 
 gulp.task('vendorscripts', function () {
@@ -130,7 +132,8 @@ gulp.task('vendorscripts', function () {
 
 // Copy all application files except *.less and .js into the `dist` folder
 gulp.task('files', function () {
-    return gulp.src(['src/**/*', '!src/*.html', '!src/js/**/*.js', '!src/css/**/*.less', '!src/components'], { dot: true })
+    return gulp.src([dirs.src + '**/*', '!'+dirs.src + '*.html', '!'+dirs.src + 'js/**/*.js',
+        '!'+dirs.src + 'css/**/*.less', '!'+dirs.src + 'components'], { dot: true })
         .pipe(gulp.dest(dirs.dist));
 });
 
@@ -146,16 +149,16 @@ gulp.task('css', function () {
 });
 
 gulp.task('images', function () {
-    gulp.src(dirs.src + 'img/**/*.jpg')
+    return gulp.src(dirs.src + 'img/**/*.jpg')
         .pipe(gulp.dest(dirs.dist + 'img'));
 });
 
 // Views task
 gulp.task('markup', function() {
     // Get our index.html
-    gulp.src('src/*.html')
+    return gulp.src(dirs.src + '*.html')
         // And put it in the dist folder
-        .pipe(gulp.dest('dist/'))
+        .pipe(gulp.dest(dirs.dist))
         .pipe(refresh(lrserver)); // Tell the lrserver to refresh
 });
 
@@ -169,20 +172,20 @@ gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'ma
     // Add live reload
     server.use(livereload({port: config.ports.livereload}));
     // Use our 'dist' folder as rootfolder
-    server.use(express.static('./dist'));
+    server.use(express.static('./' + dirs.dist));
 
     // Start webserver
     server.listen(config.ports.express);
     // Start live reload
     lrserver.listen(config.ports.livereload);
 
-    gulp.watch(['src/components/*.js'],[
+    gulp.watch([dirs.src + 'components/*.js'],[
         'browserify'
     ]);
-    gulp.watch(['src/css/**/*.less'], [
+    gulp.watch([dirs.src + 'css/**/*.less'], [
         'css'
     ]);
-    gulp.watch(['src/*.html'], [
+    gulp.watch([dirs.src + '*.html'], [
         'markup'
     ]);
 });
@@ -229,7 +232,8 @@ gulp.task('upload', function () {
                 log:        gutil.log
             });
 
-            return gulp.src([dirs.dist + '**/*', '!'+dirs.dist + 'files/**/*', '!'+dirs.dist + 'img/**/*'], { base: 'dist', buffer: false } )
+            return gulp.src([dirs.dist + '**/*', '!'+dirs.dist + 'files/**/*', '!'+dirs.dist + 'img/**/*'], {
+                    base: 'dist', buffer: false })
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/'));
         }));
@@ -286,6 +290,6 @@ gulp.task('prepare',    ['prepare:sprites', 'optimize:images']);
 
 gulp.task('dev',        ['serve']);
 
-gulp.task('default',    function (cb) { runSequence('clean', ['html'], cb) });
+gulp.task('default',    function (cb) { runSequence('clean', 'html', cb) });
 
 gulp.task('deploy',     ['upload']);
