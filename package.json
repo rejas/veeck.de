@@ -4,8 +4,17 @@
   "description": "my private homepage",
   "repository": "https://bitbucket.org/mveeck/homepage.git",
   "private": true,
+  "browserify": {
+      "transform": [
+        "browserify-shim"
+      ]
+  },
+  "browserify-shim": {
+      "jquery": "global:$"
+  },
   "devDependencies": {
     "browserify": "^11.1.0",
+    "browserify-shim": "^3.8.10",
     "connect-livereload": "^0.5.3",
     "del": "^2.0.2",
     "event-stream": "^3.3.1",
