@@ -30,6 +30,6 @@
     "commit": "8bad7826aef8f33a82229c788d4fb03c99998df0"
   },
   "_source": "git://github.com/less/less.git",
-  "_target": "*",
+  "_target": "~2.5.1",
   "_originalSource": "less"
 }
