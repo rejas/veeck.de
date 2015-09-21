@@ -133,7 +133,7 @@ gulp.task('vendorscripts', function () {
 // Copy all application files except *.less and .js into the `dist` folder
 gulp.task('files', function () {
     return gulp.src([dirs.src + '**/*', '!'+dirs.src + '*.html', '!'+dirs.src + 'js/**/*.js',
-        '!'+dirs.src + 'css/**/*.less', '!'+dirs.src + 'components'], { dot: true })
+        '!'+dirs.src + 'css/**/*.less', '!'+dirs.src + 'components/**/*'], { dot: true })
         .pipe(gulp.dest(dirs.dist));
 });
 
@@ -232,7 +232,7 @@ gulp.task('upload', function () {
                 log:        gutil.log
             });
 
-            return gulp.src([dirs.dist + '**/*', '!'+dirs.dist + 'files/**/*', '!'+dirs.dist + 'img/**/*'], {
+            return gulp.src([dirs.dist + '**/*', '!'+dirs.dist + 'files/**/*', '!'+dirs.dist + 'img/**/*', , '!'+dirs.dist + 'components'], {
                     base: 'dist', buffer: false })
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/'));
@@ -259,8 +259,7 @@ gulp.task('upload:images', function () {
         }));
 });
 
-
-gulp.task('upload:material', function () {
+gulp.task('upload:files', function () {
     return gulp.src('.')
         .pipe(plugins.prompt.prompt({
             type: 'password',
@@ -274,7 +273,7 @@ gulp.task('upload:material', function () {
                 log:        gutil.log
             });
 
-            return gulp.src([dirs.dist + 'material/**/*'], { base: 'dist', buffer: false } )
+            return gulp.src([dirs.dist + 'files/**/*'], { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/'));
         }));
