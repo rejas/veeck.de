@@ -14,15 +14,14 @@
     "tests"
   ],
   "dependencies": {
-    "animsition": "~3.6.0",
-    "classie": "~1.0.1",
-    "imagelightbox2": "~0.3.4",
-    "imgLiquid": "~0.9.944",
-    "jquery.lazyload": "~1.9.7",
-    "less": "~2.5.1",
-    "modernizr": "~3.0.0",
+    "less": "~2.5.3",
     "normalize-opentype.css": "~0.2.4",
     "normalize.css": "~3.0.3",
+    "share-button": "~0.5.0",
+    "jquery.lazyload": "~1.9.7",
+    "imgLiquid": "~0.9.944",
+    "animsition": "~4.0.0",
+    "imagelightbox2": "~0.3.4",
     "on-media-query": "~0.2.0",
     "share-button": "~0.5.0"
   }

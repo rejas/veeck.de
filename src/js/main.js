@@ -4,7 +4,7 @@ var classie = require ('../components/classie/classie.js'),
     Share = require('../components/share-button/build/share.js'),
     MQ = require('../components/on-media-query/js/onmediaquery.js');
 
-require ('../components/animsition/dist/js/jquery.animsition.js');
+require ('../components/animsition/dist/js/animsition.js');
 require ('../components/imgLiquid/js/imgLiquid.js');
 require ('../components/imagelightbox2/dist/imagelightbox.min.js');
 require ('../components/jquery.lazyload/jquery.lazyload.js');
