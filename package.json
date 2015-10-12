@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "description": "my private homepage",
   "repository": "https://bitbucket.org/mveeck/homepage.git",
   "private": true,
@@ -41,7 +41,7 @@
     "gulp.spritesmith": "^4.1.1",
     "jshint-stylish": "^2.0.1",
     "run-sequence": "^1.1.3",
-    "tiny-lr": "^0.2.0",
+    "tiny-lr": "^0.2.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-ftp": "^0.4.5",
     "vinyl-paths": "^2.0.0",
