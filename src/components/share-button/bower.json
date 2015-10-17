@@ -1,0 +1,17 @@
+{
+  "name": "share-button",
+  "homepage": "http://sharebutton.co",
+  "authors": [
+    "Jeff Escalante <hello@jenius.me>"
+  ],
+  "description": "fast, beautiful, and painless social shares.",
+  "main": "build/share.min.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "share",
+    "social"
+  ],
+  "license": "MIT"
+}
