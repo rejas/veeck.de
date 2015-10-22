@@ -1,38 +1,29 @@
 {
   "name": "animsition",
   "description": "A simple and easy jQuery plugin for CSS animated page transitions.",
-  "version": "3.5.2",
   "keywords": [
     "css3",
     "js",
-    "less",
     "animation",
     "page transition",
-    "jquery"
+    "jQuery"
   ],
   "homepage": "http://git.blivesta.com/animsition",
   "main": [
-    "dist/css/animsition.css",
     "dist/css/animsition.min.css",
-    "dist/js/jquery.animsition.js",
-    "dist/js/jquery.animsition.min.js"
+    "dist/js/animsition.min.js"
   ],
   "ignore": [
-    ".*",
-    "src/js",
-    "build"
+    ".*"
   ],
-  "dependencies": {
-    "jquery": ">= 1.11.0"
-  },
-  "_release": "3.5.2",
+  "version": "4.0.0",
+  "_release": "4.0.0",
   "_resolution": {
     "type": "version",
-    "tag": "v3.5.2",
-    "commit": "e7c331aa49d0de0d0c96bc1fe3ebcc365b5da4ce"
+    "tag": "v4.0.0",
+    "commit": "08abbcf6d7d27564a4fb4577b01d769d8f34eb50"
   },
   "_source": "git://github.com/blivesta/animsition.git",
-  "_target": "~3.5.2",
-  "_originalSource": "animsition",
-  "_direct": true
+  "_target": "~4.0.0",
+  "_originalSource": "animsition"
 }

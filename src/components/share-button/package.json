@@ -1,7 +1,7 @@
 {
   "name": "share-button",
   "description": "fast, beautiful, and painless social shares",
-  "version": "0.4.1",
+  "version": "1.0.2",
   "homepage": "http://sharebutton.co",
   "bugs": {
     "url": "https://github.com/carrot/share-button/issues"
@@ -11,6 +11,14 @@
     {
       "name": "Tom Milewski",
       "email": "tmilewski@gmail.com"
+    },
+    {
+      "name": "Henry Snopek",
+      "email": "hhsnopek@gmail.com"
+    },
+    {
+      "name": "Patrick Bacon-Blaber",
+      "email": "pablaber225@gmail.com"
     }
   ],
   "repository": {
@@ -18,25 +26,27 @@
     "url": "https://github.com/carrot/share-button"
   },
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "pioneer": "^0.11.6"
+  },
   "devDependencies": {
-    "accord": "0.0.4",
-    "autoprefixer-stylus": "0.0.2",
-    "axis-css": "^0.2.0-rc.3",
-    "clean-css": "^2.1.8",
-    "coffee-script": "^1.7.1",
-    "colors": "^0.6.2",
-    "mocha": "^1.19.0",
-    "monocle": "^1.1.51",
-    "should": "^3.3.2",
-    "stylus": "^0.38.0",
-    "uglifyjs": "^2.3.6",
-    "umd": "^2.1.0",
-    "when": "^2.8.0",
-    "zombie": "*"
+    "autoprefixer-stylus": "^0.8.0",
+    "axis": "^0.5.0",
+    "babelify": "^6.3.0",
+    "core-js": "^1.2.0",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-accord": "^0.2.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.4.1",
+    "postcss-svg": "^1.0.1",
+    "poststylus": "^0.2.1",
+    "stylus": "^0.52.4"
   },
   "scripts": {
-    "test": "mocha test"
+    "test": "pioneer"
   },
   "keywords": [
     "share",

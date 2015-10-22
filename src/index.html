@@ -11,9 +11,15 @@
     <meta property="og:url"         content="https://www.veeck.de/index.html" />
     <meta property="og:image"       content="https://www.veeck.de/img/backgrounds/index.jpg" />
     <meta property="og:site_name"   content="Veeck" />
-    <meta name="twitter:card"       value="summary">
+    <meta name="twitter:card"       content="summary">
     <link rel="apple-touch-icon"    href="apple-touch-icon.png">
     <link rel="stylesheet"          href="css/main.css" />
+    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+    <script type="text/javascript">
+        window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"dark-bottom"};
+    </script>
+    <script type="text/javascript" src="//s3.amazonaws.com/cc.silktide.com/cookieconsent.latest.min.js"></script>
+    <!-- End Cookie Consent plugin -->
 </head>
 <body>
     <!--[if lt IE 9]>
@@ -98,7 +104,7 @@
             <section>
                 <h3>what has changed</h3>
                 <ul class="changelog">
-                    <li><time datetime="2015-08-29">2015/08/29: </time>Part 1 of my <a href="travel_15_costarica.html#part1" class="animsition-link">Costa Rica travel diary</a></li>
+                    <li><time datetime="2015-10-19">2015/10/19: </time>Finally all parts of my <a href="travel_15_costarica.html#part4" class="animsition-link">Costa Rica travel diary</a> are now online</li>
                     <li><time datetime="2015-05-12">2015/05/12: </time>Added opengraph stuff for cooler facebook / twitter posts</li>
                     <li><time datetime="2015-05-11">2015/05/11: </time>New fresh design, hope you like it</li>
                     <li><time datetime="2015-04-20">2015/04/20: </time>Added a link to my github profile on the <a href="personal_research.html#github" class="animsition-link">research page</a> using a webcomponent from <a href="http://pazguille.github.io/github-card/">Guille Paz</a></li>
@@ -151,13 +157,14 @@
     </article>
 
     <footer>
-        <div class="shareButton dont_print"></div>
+        <share-button class="dont_print"></share-button>
         <a class="to_top" href="#">back to top</a>
-        <time datetime="2015-05-12">page last modified 2015/05/12</time>
+        <time datetime="2015-10-19">page last modified 2015/10/19</time>
     </footer>
 
     <script src="js/vendor/modernizr.min.js" type="text/javascript"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js" crossorigin="anonymous"
+            integrity="sha384-R4/ztc4ZlRqWjqIuvf6RX5yb/v90qNGx6fS48N0tRxiGkqveZETq72KgDVJCp2TC"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
 
     <script src="js/main.bundled.js"></script>
