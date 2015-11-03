@@ -2,12 +2,18 @@
   "name": "share-button",
   "homepage": "http://sharebutton.co",
   "authors": [
-    "Jeff Escalante <hello@jenius.me>"
+    "Jeff Escalante <hello@jenius.me>",
+    "Henry Snopek <henry@carrotcreative.com>"
   ],
   "description": "fast, beautiful, and painless social shares.",
-  "main": "build/share.min.js",
+  "main": [
+	  "./share-button.js",
+	  "./share-button.css"
+	],
   "moduleType": [
-    "globals"
+    "globals",
+    "amd",
+    "node"
   ],
   "keywords": [
     "share",
