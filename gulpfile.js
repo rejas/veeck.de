@@ -275,3 +275,19 @@ gulp.task('dev',        ['serve']);
 gulp.task('default',    function (cb) { runSequence('clean', 'html', cb) });
 
 gulp.task('deploy',     ['upload']);
+
+gulp.task("mod", function() {
+    return gulp.src(dirs.src + "components/modernizr/bin/modernizr")
+        .pipe(require("gulp-modulizr")([
+            "animations",
+            "transitions",
+            "svg"
+        ]))
+        /*
+        .pipe(require("gulp-add-src")([
+            "bower_components/modernizr/feature-detects/url-data-uri.js"
+        ]))
+        */
+        .pipe(require("gulp-concat")("custom-modernizr.js"))
+        .pipe(gulp.dest(dirs.dist));
+});
