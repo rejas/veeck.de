@@ -20,7 +20,7 @@ module.exports = function(it){
   return toString.call(it).slice(8, -1);
 };
 },{}],6:[function(_dereq_,module,exports){
-var core = module.exports = {version: '1.2.1'};
+var core = module.exports = {version: '1.2.3'};
 if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 },{}],7:[function(_dereq_,module,exports){
 var global     = _dereq_('./$.global')
@@ -117,9 +117,8 @@ module.exports.get = function getOwnPropertyNames(it){
 };
 },{"./$":22,"./$.to-iobject":30}],12:[function(_dereq_,module,exports){
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-var UNDEFINED = 'undefined';
-var global = module.exports = typeof window != UNDEFINED && window.Math == Math
-  ? window : typeof self != UNDEFINED && self.Math == Math ? self : Function('return this')();
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
 if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
 },{}],13:[function(_dereq_,module,exports){
 var hasOwnProperty = {}.hasOwnProperty;
@@ -136,9 +135,9 @@ module.exports = _dereq_('./$.support-desc') ? function(object, key, value){
   return object;
 };
 },{"./$":22,"./$.property-desc":25,"./$.support-desc":28}],15:[function(_dereq_,module,exports){
-// indexed object, fallback for non-array-like ES3 strings
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
 var cof = _dereq_('./$.cof');
-module.exports = 0 in Object('z') ? Object : function(it){
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
   return cof(it) == 'String' ? it.split('') : Object(it);
 };
 },{"./$.cof":5}],16:[function(_dereq_,module,exports){
@@ -205,8 +204,8 @@ module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCE)
   Iterators[TAG]  = returnThis;
   if(DEFAULT){
     methods = {
-      keys:    IS_SET            ? _default : createMethod(KEYS),
       values:  DEFAULT == VALUES ? _default : createMethod(VALUES),
+      keys:    IS_SET            ? _default : createMethod(KEYS),
       entries: DEFAULT != VALUES ? _default : createMethod('entries')
     };
     if(FORCE)for(key in methods){
@@ -272,8 +271,8 @@ _dereq_('./$.core').inspectSource = function(it){
 
 (module.exports = function(O, key, val, safe){
   if(typeof val == 'function'){
-    hide(val, SRC, O[key] ? '' + O[key] : TPL.join(String(key)));
-    if(!('name' in val))val.name = key;
+    val.hasOwnProperty(SRC) || hide(val, SRC, O[key] ? '' + O[key] : TPL.join(String(key)));
+    val.hasOwnProperty('name') || hide(val, 'name', key);
   }
   if(O === global){
     O[key] = val;
@@ -297,14 +296,14 @@ module.exports = !_dereq_('./$.fails')(function(){
   return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
 });
 },{"./$.fails":10}],29:[function(_dereq_,module,exports){
-var has  = _dereq_('./$.has')
-  , hide = _dereq_('./$.hide')
-  , TAG  = _dereq_('./$.wks')('toStringTag');
+var def = _dereq_('./$').setDesc
+  , has = _dereq_('./$.has')
+  , TAG = _dereq_('./$.wks')('toStringTag');
 
 module.exports = function(it, tag, stat){
-  if(it && !has(it = stat ? it : it.prototype, TAG))hide(it, TAG, tag);
+  if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
 };
-},{"./$.has":13,"./$.hide":14,"./$.wks":33}],30:[function(_dereq_,module,exports){
+},{"./$":22,"./$.has":13,"./$.wks":33}],30:[function(_dereq_,module,exports){
 // to indexed object, toObject with fallback for non-array-like ES3 strings
 var IObject = _dereq_('./$.iobject')
   , defined = _dereq_('./$.defined');
@@ -393,7 +392,6 @@ var $              = _dereq_('./$')
   , $names         = _dereq_('./$.get-names')
   , enumKeys       = _dereq_('./$.enum-keys')
   , isArray        = _dereq_('./$.is-array')
-  , isObject       = _dereq_('./$.is-object')
   , anObject       = _dereq_('./$.an-object')
   , toIObject      = _dereq_('./$.to-iobject')
   , createDesc     = _dereq_('./$.property-desc')
@@ -493,8 +491,9 @@ var $getOwnPropertySymbols = function getOwnPropertySymbols(it){
 var $stringify = function stringify(it){
   var args = [it]
     , i    = 1
+    , $$   = arguments
     , replacer, $replacer;
-  while(arguments.length > i)args.push(arguments[i++]);
+  while($$.length > i)args.push($$[i++]);
   replacer = args[1];
   if(typeof replacer == 'function')$replacer = replacer;
   if($replacer || !isArray(replacer))replacer = function(key, value){
@@ -516,7 +515,7 @@ var buggyJSON = $fails(function(){
 if(!useNative){
   $Symbol = function Symbol(){
     if(isSymbol(this))throw TypeError('Symbol is not a constructor');
-    return wrap(uid(arguments[0]));
+    return wrap(uid(arguments.length > 0 ? arguments[0] : undefined));
   };
   $redef($Symbol.prototype, 'toString', function toString(){
     return this._k;
@@ -565,13 +564,12 @@ var symbolStatics = {
 // 19.4.2.13 Symbol.toStringTag
 // 19.4.2.14 Symbol.unscopables
 $.each.call((
-    'hasInstance,isConcatSpreadable,iterator,match,replace,search,' +
-    'species,split,toPrimitive,toStringTag,unscopables'
-  ).split(','), function(it){
-    var sym = wks(it);
-    symbolStatics[it] = useNative ? sym : wrap(sym);
-  }
-);
+  'hasInstance,isConcatSpreadable,iterator,match,replace,search,' +
+  'species,split,toPrimitive,toStringTag,unscopables'
+).split(','), function(it){
+  var sym = wks(it);
+  symbolStatics[it] = useNative ? sym : wrap(sym);
+});
 
 setter = true;
 
@@ -603,12 +601,12 @@ setTag($Symbol, 'Symbol');
 setTag(Math, 'Math', true);
 // 24.3.3 JSON[@@toStringTag]
 setTag(global.JSON, 'JSON', true);
-},{"./$":22,"./$.an-object":4,"./$.def":7,"./$.enum-keys":9,"./$.fails":10,"./$.get-names":11,"./$.global":12,"./$.has":13,"./$.is-array":16,"./$.is-object":17,"./$.keyof":23,"./$.library":24,"./$.property-desc":25,"./$.redef":26,"./$.shared":27,"./$.support-desc":28,"./$.tag":29,"./$.to-iobject":30,"./$.uid":31,"./$.wks":33}],37:[function(_dereq_,module,exports){
+},{"./$":22,"./$.an-object":4,"./$.def":7,"./$.enum-keys":9,"./$.fails":10,"./$.get-names":11,"./$.global":12,"./$.has":13,"./$.is-array":16,"./$.keyof":23,"./$.library":24,"./$.property-desc":25,"./$.redef":26,"./$.shared":27,"./$.support-desc":28,"./$.tag":29,"./$.to-iobject":30,"./$.uid":31,"./$.wks":33}],37:[function(_dereq_,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -665,8 +663,7 @@ var ShareButton = (function (_ShareUtils) {
         buttonText: 'Share',
         namespace: 'sb-',
         networkOrder: [],
-        collision: false,
-        updateShareButtonSize: true
+        collision: false
       },
 
       networks: {
