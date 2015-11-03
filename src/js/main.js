@@ -1,7 +1,7 @@
 /* global require */
 
 var classie = require ('../components/classie/classie.js'),
-    ShareButton = require('../components/share-button/dist/share-button.js'),
+    ShareButton = require('../components/share-button/share-button.js'),
     MQ = require('../components/on-media-query/js/onmediaquery.js');
 
 require ('../components/animsition/dist/js/animsition.js');
