@@ -32,7 +32,6 @@
     "gulp-livereload": "^3.8.0",
     "gulp-load-plugins": "^1.0.0-rc.1",
     "gulp-minify-html": "^1.0.4",
-    "gulp-modulizr": "0.0.2",
     "gulp-prompt": "^0.1.2",
     "gulp-rename": "^1.2.2",
     "gulp-rev": "^6.0.1",
