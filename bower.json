@@ -23,6 +23,7 @@
     "normalize-opentype.css": "~0.2.4",
     "normalize.css": "~3.0.3",
     "on-media-query": "~0.2.0",
+    "outdated-browser": "~1.1.2",
     "ResponsiveMultiLevelMenu2": "~1.0.2",
     "share-button": "~1.0.2"
   }
