@@ -125,7 +125,7 @@ gulp.task('browserify', function() {
 
 gulp.task('vendorscripts', function () {
     // Minify and copy all vendor scripts
-    return gulp.src([dirs.src + 'js/vendor/**'])
+    return gulp.src([dirs.src + 'components/jquery/dist/jquery.min.js', dirs.src + 'components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js'])
         .pipe(plugins.uglify())
         .pipe(gulp.dest(dirs.dist + 'js/vendor'));
 });
@@ -179,7 +179,7 @@ gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'ma
     // Start live reload
     lrserver.listen(config.ports.livereload);
 
-    gulp.watch([dirs.src + 'components/*.js'],[
+    gulp.watch([dirs.src + 'components/*.js', dirs.src + 'js/**/*.js'],[
         'browserify'
     ]);
     gulp.watch([dirs.src + 'css/**/*.less'], [
