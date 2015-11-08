@@ -23,9 +23,11 @@
     <!-- End Cookie Consent plugin -->
 </head>
 <body>
-    <!--[if lt IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    <div id="outdated">
+        <h6>Your browser is out-of-date!</h6>
+        <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+        <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+    </div>
 
     <div id="container" class="container intro-effect-side">
         <header class="header">
@@ -162,7 +164,7 @@
         <time datetime="2015-10-19">page last modified 2015/10/19</time>
     </footer>
 
-    <script src="your_path/outdatedbrowser/outdatedbrowser.min.js"></script>
+    <script src="js/vendor/outdatedbrowser.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js" crossorigin="anonymous"
             integrity="sha384-R4/ztc4ZlRqWjqIuvf6RX5yb/v90qNGx6fS48N0tRxiGkqveZETq72KgDVJCp2TC"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
