@@ -1,9 +1,37 @@
-/* global require */
+/* global require, outdatedBrowser */
+
+
+// Avoid `console` errors in browsers that lack a console.
+(function() {
+    "use strict";
+
+    var method;
+    var noop = function () {};
+    var methods = [
+        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+        'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
+    ];
+    var length = methods.length;
+    var console = (window.console = window.console || {});
+
+    while (length--) {
+        method = methods[length];
+
+        // Only stub undefined methods.
+        if (!console[method]) {
+            console[method] = noop;
+        }
+    }
+}());
 
 //event listener: DOM ready
 function addLoadEvent(func) {
+    "use strict";
+
     var oldonload = window.onload;
-    if (typeof window.onload != 'function') {
+    if (typeof window.onload !== 'function') {
         window.onload = func;
     } else {
         window.onload = function() {
@@ -11,17 +39,19 @@ function addLoadEvent(func) {
                 oldonload();
             }
             func();
-        }
+        };
     }
 }
 //call plugin function after DOM ready
 addLoadEvent(function(){
+    "use strict";
+
     outdatedBrowser({
         bgColor: '#f25648',
         color: '#ffffff',
         lowerThan: 'transform',
         languagePath: ''
-    })
+    });
 });
 
 var classie = require ('../components/classie/classie.js'),
@@ -172,31 +202,6 @@ $(document).ready(function () {
             });
     }
 });
-
-// Avoid `console` errors in browsers that lack a console.
-(function() {
-    "use strict";
-
-    var method;
-    var noop = function () {};
-    var methods = [
-        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
-        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
-        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
-        'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
-    ];
-    var length = methods.length;
-    var console = (window.console = window.console || {});
-
-    while (length--) {
-        method = methods[length];
-
-        // Only stub undefined methods.
-        if (!console[method]) {
-            console[method] = noop;
-        }
-    }
-}());
 
 /**
  * ArticleIntroEffects
