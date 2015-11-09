@@ -63,9 +63,22 @@ require ('../components/imgLiquid/js/imgLiquid.js');
 require ('../components/imagelightbox2/dist/imagelightbox.min.js');
 require ('../components/jquery.lazyload/jquery.lazyload.js');
 require ('../components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
+require ('../components/cookieconsent2/build/cookieconsent.min');
 
 $(document).ready(function () {
     "use strict";
+
+    /**
+     *
+     * @type {{message: string, dismiss: string, learnMore: string, link: null, theme: string}}
+     */
+    window.cookieconsent_options = {
+        "message":"This website uses cookies to ensure you get the best experience on our website",
+        "dismiss":"Got it!",
+        "learnMore":"More info",
+        "link":null,
+        "theme":"dark-bottom"
+    };
 
     /**
      * decide if mobile or not
