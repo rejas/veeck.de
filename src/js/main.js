@@ -48,7 +48,7 @@ addLoadEvent(function(){
 
     outdatedBrowser({
         bgColor: '#f25648',
-        color: '#ffffff',
+        color: '#fefefe',
         lowerThan: 'transform',
         languagePath: ''
     });
