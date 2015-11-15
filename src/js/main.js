@@ -43,7 +43,7 @@ function addLoadEvent(func) {
     }
 }
 //call plugin function after DOM ready
-addLoadEvent(function(){
+addLoadEvent(function() {
     "use strict";
 
     outdatedBrowser({
@@ -79,6 +79,14 @@ $(document).ready(function () {
         "link":null,
         "theme":"dark-bottom"
     };
+
+    /**
+     * Back to top
+     */
+    $('.js-to-top').click(function (e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop: 0}, 800);
+    });
 
     /**
      * decide if mobile or not
