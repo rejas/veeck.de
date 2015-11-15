@@ -108,7 +108,9 @@ gulp.task('browserify', function() {
 
 gulp.task('vendorscripts', function () {
     // Minify and copy all vendor scripts
-    return gulp.src([dirs.src + 'components/jquery/dist/jquery.min.js', dirs.src + 'components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js'])
+    return gulp.src([dirs.src + 'components/jquery/dist/jquery.min.js',
+                     dirs.src + 'components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js',
+                     dirs.src + 'js/vendor/modernizr.min.js'])
         .pipe(plugins.uglify())
         .pipe(gulp.dest(dirs.dist + 'js/vendor'));
 });
