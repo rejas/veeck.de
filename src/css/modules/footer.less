@@ -7,33 +7,27 @@ footer {
     position: relative;
 
     share-button {
-        left: 1em;
+        position: absolute;
         bottom: 1em;
-
-        &:before {
-            left: 0.45em;
-            top: 0.45em;
-        }
+        &:extend(.button all);
+        &:extend(.button-l);
     }
 
     time {
-        float: right;
-        position: relative;
+        display: block;
         font-size: 0.75em;
         font-style: italic;
-        padding: 0 1em 1em 0;
+        text-align: center;
     }
 
-    .to_top {
-        display: none;
+    .to-top {
+        position: absolute;
+        bottom: 1em;
+        &:extend(.button all);
+        &:extend(.button-r);
 
-        @media @smartphones {
-            display: block;
-            width: 100%;
-            position: absolute;
-            bottom: 1em;
-            text-align: center;
-            text-decoration: none;
+        &:before {
+            content: "^";
         }
     }
 }
