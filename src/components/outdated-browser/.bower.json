@@ -28,7 +28,6 @@
     "commit": "b89c97392ec600d18a1515403716bc011f601c9c"
   },
   "_source": "git://github.com/burocratik/outdated-browser.git",
-  "_target": "~1.1.2",
-  "_originalSource": "outdated-browser",
-  "_direct": true
+  "_target": "1.1.2",
+  "_originalSource": "outdated-browser"
 }
