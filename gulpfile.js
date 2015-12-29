@@ -4,7 +4,6 @@
 
 var gulp            = require('gulp'),
     gutil           = require('gulp-util'),
-    minifyHTML      = require('gulp-minify-html'),
     plugins         = require('gulp-load-plugins')(),
     spritesmith     = require('gulp.spritesmith'),
     refresh         = require('gulp-livereload'),
@@ -32,7 +31,7 @@ var config          = require('./config.json'),
     dirs            = config.directories;
 
 /**
- * Check
+ * SUB TASKS
  */
 
 // Detect errors and potential problems in your css code
@@ -57,10 +56,14 @@ gulp.task('htmlhint', function () {
         .pipe(plugins.htmlhint.reporter());
 });
 
-/**
- * Prepare
- */
+//
+gulp.task('imagemin', function () {
+    return gulp.src(dirs.src + 'img/**/*')
+        .pipe(plugins.imagemin(config.imagemin))
+        .pipe(gulp.dest(dirs.src + 'img'));
+});
 
+//
 gulp.task('prepare:sprites', function () {
     var spriteData = gulp.src([dirs.src + 'css/assets/icons/links/*.png', dirs.src + 'css/assets/icons/research/*.png'])
         .pipe(spritesmith({
@@ -79,16 +82,6 @@ gulp.task('prepare:sprites', function () {
     spriteData.css
         .pipe(gulp.dest(dirs.src + 'css/base/'));
 });
-
-gulp.task('optimize:images', function () {
-    return gulp.src(dirs.src + 'img/**/*')
-        .pipe(plugins.imagemin(config.imagemin))
-        .pipe(gulp.dest(dirs.src + 'img'));
-});
-
-/**
- * Default
- */
 
 // Clear the destination folder
 gulp.task('clean', function (cb) {
@@ -133,12 +126,13 @@ gulp.task('css', function () {
         .pipe(gulp.dest(dirs.dist + 'css'))
 });
 
+//
 gulp.task('images', function () {
     return gulp.src(dirs.src + 'img/**/*.jpg')
         .pipe(gulp.dest(dirs.dist + 'img'));
 });
 
-// Views task
+//
 gulp.task('markup', function() {
     // Get our index.html
     return gulp.src(dirs.src + '*.html')
@@ -179,10 +173,10 @@ gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'ma
  * Default
  */
 
-gulp.task('html', ['images', 'files', 'vendorscripts', 'browserify', 'css'] , function() {
+gulp.task('html', ['prepare:sprites', 'images', 'files', 'vendorscripts', 'browserify', 'css'] , function() {
     // We src all html files
     return gulp.src(dirs.src + '*.html')
-        .pipe(minifyHTML(config.minifyHTML))
+        .pipe(plugins.htmlmin(config.htmlmin))
         .pipe(gulp.dest(dirs.dist));
 });
 
@@ -268,9 +262,7 @@ gulp.task('upload:files', function () {
  * MAIN TASKS
  */
 
-gulp.task('check',      ['jshint', 'csslint', 'htmlhint']);
-
-gulp.task('prepare',    ['prepare:sprites', 'optimize:images']);
+gulp.task('check',      ['jshint', 'csslint', 'htmlhint', 'imagemin']);
 
 gulp.task('dev',        ['serve']);
 
