@@ -1,11 +1,12 @@
 figure {
+    .BoxShadowHelper(1);
     text-decoration: none;
     position: relative;
     margin: 0;
 
     img {
         width: 100%;
-        border: 2px solid @base;
+        //border: 2px solid @base;
     }
 
     > .overlay {
@@ -76,7 +77,7 @@ figcaption {
     }
 
     figure:hover:not(.dont_link) {
-        box-shadow: 0 11px 18px rgba(0,0,0,0.2);
+        .BoxShadowHelper(3);
         transform: translateY(0px) scale(1.05, 1.05);
         transform-origin: center;
         transform-style: preserve-3D;
