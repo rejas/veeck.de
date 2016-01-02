@@ -13,9 +13,33 @@ article {
     @media @desktop {
         max-width: 960px;
     }
+
+    &.capped-article {
+
+        p:first-of-type:first-letter {
+            float: left;
+            font-size: 3.25em;
+            font-weight: bold;
+            line-height: 1em;
+            margin: 0.125em 0.125em 0.125em 0;
+            padding: 0.125em 0.25em;
+            background-color: @base3;
+            border: 2px solid @color_black;
+        }
+    }
+
+    .article_intro {
+        margin-bottom: 2em;
+    }
 }
 
 section {
     &:extend(.clearfix all);
-    margin-bottom: 2em;
+    margin-bottom: 3em;
+
+    h2 {
+        border-bottom: 2px solid @color_black;
+        padding-bottom: 0.25em;
+        text-align: center;
+    }
 }
