@@ -62,9 +62,9 @@
  *     -webkit-transition: all 250ms;
  *     -moz-transition: all 250ms;
  *     transition: all 250ms;
- *     .BoxShadowHelper(1);
+ *     .boxshadow(1);
  *     &:hover {
- *         .BoxShadowHelper(3);
+ *         .boxshadow(3);
  *         -webkit-transform: translateY(-5px);
  *         -moz-transform: translateY(-5px);
  *         transform: translateY(-5px);
@@ -72,7 +72,7 @@
  * }
  *
  */
-.BoxShadowHelper(@level: 1){
+.boxshadow(@level: 1){
     & when (@level = 1) {
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
