@@ -15,6 +15,7 @@ article {
     }
 
     &.capped-article {
+
         p:first-of-type:first-letter {
             float: left;
             font-size: 3.25em;
@@ -30,11 +31,18 @@ article {
 
 section {
     &:extend(.clearfix all);
-    margin-bottom: 2em;
+    margin-bottom: 3em;
 
-    h2,
-    h3 {
+    h2 {
         border-bottom: 2px solid @color_black;
+        padding-bottom: 0.25em;
         text-align: center;
+    }
+}
+
+.sections {
+
+    .section_intro {
+        margin-bottom: 2em;
     }
 }
