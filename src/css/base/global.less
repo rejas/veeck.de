@@ -31,7 +31,7 @@ html {
 
 body {
     height: 100%;
-    color: @base2;
+    color: @color_black;
     background-color: @color_white;
     margin: 0;
     padding: 0;
@@ -54,20 +54,21 @@ body {
     }
 }
 
-h1 {
-    font-size: 3.25em;
+h1, h2, h3, h4, h5 {
     font-family: @fontHeader, serif;
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1;
-    text-transform: uppercase;
-    margin: 0 auto;
+    margin: 0 0 0.5em 0;
 }
 
-h2, h3, h4 {
-    font-family: @fontHeader, serif;
+h1, h2, h3 {
     text-transform: uppercase;
-    margin: 0 0 0.5em 0;
+}
+
+h1 {
+    font-size: 3.25em;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1em;
+    margin: 0 auto;
 }
 
 h2 {
@@ -79,12 +80,30 @@ h2 {
     }
 }
 
-h3, h4 {
+h3 {
     font-size: 2em;
     line-height: 1em;
 
     @media @smartphones {
         font-size: 1.25em;
+    }
+}
+
+h4 {
+    font-size: 1.5em;
+    line-height: 1em;
+
+    @media @smartphones {
+        font-size: 1em;
+    }
+}
+
+p {
+    hyphens: auto;
+    margin: 0;
+
+    + p {
+        text-indent: 1em;
     }
 }
 
