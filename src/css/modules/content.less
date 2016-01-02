@@ -13,6 +13,19 @@ article {
     @media @desktop {
         max-width: 960px;
     }
+
+    &.capped-article {
+        p:first-of-type:first-letter {
+            float: left;
+            font-size: 3.25em;
+            font-weight: bold;
+            line-height: 1em;
+            margin: 0.125em 0.125em 0.125em 0;
+            padding: 0.125em 0.25em;
+            background-color: @base3;
+            border: 2px solid @color_black;
+        }
+    }
 }
 
 section {
@@ -23,16 +36,5 @@ section {
     h3 {
         border-bottom: 2px solid @color_black;
         text-align: center;
-    }
-
-    p:first-of-type:first-letter {
-        float: left;
-        font-size: 3.25em;
-        font-weight: bold;
-        line-height: 1em;
-        margin: 0.125em 0.125em 0.125em 0;
-        padding: 0.125em 0.25em;
-        background-color: @base3;
-        border: 2px solid @color_black;
     }
 }
