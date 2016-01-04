@@ -14,10 +14,8 @@
   "imagemin": {
     "progressive": true
   },
-  "minifyHTML": {
-    "conditionals": true,
-    "empty": true,
-    "spare": true
+  "htmlmin": {
+    "collapseWhitespace": true
   },
   "ports": {
     "livereload": 35729,

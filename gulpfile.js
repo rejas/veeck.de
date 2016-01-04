@@ -4,7 +4,6 @@
 
 var gulp            = require('gulp'),
     gutil           = require('gulp-util'),
-    minifyHTML      = require('gulp-minify-html'),
     plugins         = require('gulp-load-plugins')(),
     spritesmith     = require('gulp.spritesmith'),
     refresh         = require('gulp-livereload'),
@@ -32,62 +31,7 @@ var config          = require('./config.json'),
     dirs            = config.directories;
 
 /**
- * Check
- */
-
-// Detect errors and potential problems in your css code
-gulp.task('csslint', function () {
-    return gulp.src([dirs.src + 'css/*.less', '!'+dirs.src +'css/libs'])
-        .pipe(plugins.csslint('.csslintrc'))
-        .pipe(plugins.csslint.reporter())
-});
-
-// Detect errors and potential problems in your JavaScript code (except vendor scripts)
-// You can enable or disable default JSHint options in the .jshintrc file
-gulp.task('jshint', function () {
-    return gulp.src([dirs.src + 'js/**/*.js', '!'+dirs.src + 'js/vendor/**'])
-        .pipe(plugins.jshint('.jshintrc'))
-        .pipe(plugins.jshint.reporter(stylish));
-});
-
-// Detect errors and potential problems in your html code
-gulp.task('htmlhint', function () {
-    return gulp.src([dirs.src + '*.html'])
-        .pipe(plugins.htmlhint())
-        .pipe(plugins.htmlhint.reporter());
-});
-
-/**
- * Prepare
- */
-
-gulp.task('prepare:sprites', function () {
-    var spriteData = gulp.src([dirs.src + 'css/assets/icons/links/*.png', dirs.src + 'css/assets/icons/research/*.png'])
-        .pipe(spritesmith({
-            imgName:         'sprite.png',
-            cssName:         'sprite.less',
-            imgPath:         'assets/sprite.png'
-        })
-    );
-
-    // Pipe image stream through image optimizer and onto disk
-    spriteData.img
-        //.pipe(plugins.imagemin(config.imagemin))
-        .pipe(gulp.dest(dirs.src + 'css/assets/'));
-
-    // Pipe CSS stream through CSS optimizer and onto disk
-    spriteData.css
-        .pipe(gulp.dest(dirs.src + 'css/base/'));
-});
-
-gulp.task('optimize:images', function () {
-    return gulp.src(dirs.src + 'img/**/*')
-        .pipe(plugins.imagemin(config.imagemin))
-        .pipe(gulp.dest(dirs.src + 'img'));
-});
-
-/**
- * Default
+ * SUB TASKS
  */
 
 // Clear the destination folder
@@ -106,6 +50,7 @@ gulp.task('browserify', function() {
         .pipe(gulp.dest(dirs.dist + '/js'));
 });
 
+//
 gulp.task('vendorscripts', function () {
     // Minify and copy all vendor scripts
     return gulp.src([dirs.src + 'components/jquery/dist/jquery.min.js',
@@ -133,12 +78,13 @@ gulp.task('css', function () {
         .pipe(gulp.dest(dirs.dist + 'css'))
 });
 
+//
 gulp.task('images', function () {
     return gulp.src(dirs.src + 'img/**/*.jpg')
         .pipe(gulp.dest(dirs.dist + 'img'));
 });
 
-// Views task
+//
 gulp.task('markup', function() {
     // Get our index.html
     return gulp.src(dirs.src + '*.html')
@@ -148,7 +94,33 @@ gulp.task('markup', function() {
 });
 
 /**
- * Dev
+ * CHECK TASKS
+ */
+
+// Detect errors and potential problems in your html code
+gulp.task('check:html', function () {
+    return gulp.src([dirs.src + '*.html'])
+        .pipe(plugins.htmlhint())
+        .pipe(plugins.htmlhint.reporter());
+});
+
+// Detect errors and potential problems in your JavaScript code (except vendor scripts)
+// You can enable or disable default JSHint options in the .jshintrc file
+gulp.task('check:js', function () {
+    return gulp.src([dirs.src + 'js/**/*.js', '!'+dirs.src + 'js/vendor/**'])
+        .pipe(plugins.jshint('.jshintrc'))
+        .pipe(plugins.jshint.reporter(stylish));
+});
+
+// Detect errors and potential problems in your css code
+gulp.task('check:less', function () {
+    return gulp.src([dirs.src + 'css/**/*.less', '!'+dirs.src +'css/main.less', '!'+dirs.src +'css/libs'])
+        .pipe(plugins.lesshint('.lesshintrc'))
+        .pipe(plugins.lesshint.reporter())
+});
+
+/**
+ * DEV TASKS
  */
 
 gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'markup'], function () {
@@ -179,29 +151,16 @@ gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'ma
  * Default
  */
 
-gulp.task('html', ['images', 'files', 'vendorscripts', 'browserify', 'css'] , function() {
+gulp.task('html', ['prepare:sprites', 'images', 'files', 'vendorscripts', 'browserify', 'css'] , function() {
     // We src all html files
     return gulp.src(dirs.src + '*.html')
-        .pipe(minifyHTML(config.minifyHTML))
+        .pipe(plugins.htmlmin(config.htmlmin))
         .pipe(gulp.dest(dirs.dist));
 });
 
 /**
  * Deploy
  */
-
-gulp.task('sitemap', ['html'], function () {
-    return gulp.src([dirs.src + '/*.html', '!'+ dirs.src + '/google*.html'], {read: false})
-        .pipe(plugins.sitemap({
-            fileName: 'sitemap.xml',
-            newLine: '\n',
-            changefreq: 'daily',
-            priority: '0.5',
-            siteUrl: 'http://veeck.de',
-            spacing: '    '
-        }))
-        .pipe(gulp.dest(dirs.src));
-});
 
 gulp.task('upload', function () {
     return gulp.src('.')
@@ -265,15 +224,60 @@ gulp.task('upload:files', function () {
 });
 
 /**
+ * PREPARE TASKS
+ */
+
+//
+gulp.task('prepare:images', function () {
+    return gulp.src(dirs.src + 'img/**/*')
+        .pipe(plugins.imagemin(config.imagemin))
+        .pipe(gulp.dest(dirs.src + 'img'));
+});
+
+//
+gulp.task('prepare:sprites', function () {
+    var spriteData = gulp.src([dirs.src + 'css/assets/icons/links/*.png', dirs.src + 'css/assets/icons/research/*.png'])
+        .pipe(spritesmith({
+                imgName:         'sprite.png',
+                cssName:         'sprite.less',
+                imgPath:         'assets/sprite.png'
+            })
+        );
+
+    // Pipe image stream through image optimizer and onto disk
+    spriteData.img
+        //.pipe(plugins.imagemin(config.imagemin))
+        .pipe(gulp.dest(dirs.src + 'css/assets/'));
+
+    // Pipe CSS stream through CSS optimizer and onto disk
+    spriteData.css
+        .pipe(gulp.dest(dirs.src + 'css/base/'));
+});
+
+//
+gulp.task('prepare:sitemap', ['html'], function () {
+    return gulp.src([dirs.src + '/*.html', '!'+ dirs.src + '/google*.html'], {read: false})
+        .pipe(plugins.sitemap({
+            fileName: 'sitemap.xml',
+            newLine: '\n',
+            changefreq: 'daily',
+            priority: '0.5',
+            siteUrl: 'http://veeck.de',
+            spacing: '    '
+        }))
+        .pipe(gulp.dest(dirs.src));
+});
+
+/**
  * MAIN TASKS
  */
 
-gulp.task('check',      ['jshint', 'csslint', 'htmlhint']);
-
-gulp.task('prepare',    ['prepare:sprites', 'optimize:images']);
+gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
 gulp.task('dev',        ['serve']);
 
 gulp.task('default',    function (cb) { runSequence('clean', 'html', cb) });
 
 gulp.task('deploy',     ['upload']);
+
+gulp.task('prepare',    ['prepare:sprites', 'prepare:images', 'prepare:sitemap']);

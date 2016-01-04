@@ -1,6 +1,5 @@
 /* global require, outdatedBrowser */
 
-
 // Avoid `console` errors in browsers that lack a console.
 (function() {
     "use strict";
@@ -313,6 +312,10 @@ $(document).ready(function () {
     function scrollPage() {
         scrollVal = scrollY();
 
+        if( isAnimating ) {
+            return false;
+        }
+
         if( noscroll && !ie ) {
             if( scrollVal < 0 ) {
                 return false;
@@ -323,10 +326,6 @@ $(document).ready(function () {
 
         if( classie.has( container, 'notrans' ) ) {
             classie.remove( container, 'notrans' );
-            return false;
-        }
-
-        if( isAnimating ) {
             return false;
         }
 
