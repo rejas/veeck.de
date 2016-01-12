@@ -62,8 +62,9 @@ gulp.task('vendorscripts', function () {
 
 // Copy all application files except *.less and .js into the `dist` folder
 gulp.task('files', function () {
-    return gulp.src([dirs.src + '**/*', '!'+dirs.src + '*.html', '!'+dirs.src + 'js/**/*.js',
-        '!'+dirs.src + 'css/**/*.less', '!'+dirs.src + 'components/**/*'], { dot: true })
+    return gulp.src([dirs.src + '**/*',
+            '!'+dirs.src + '*.html', '!'+dirs.src + 'js/**/*.js', '!'+dirs.src + 'css/**/*.less',
+            '!'+dirs.src + 'components/**/*', '!'+dirs.src + '/**/.DS_Store'], { dot: true })
         .pipe(gulp.dest(dirs.dist));
 });
 
@@ -257,14 +258,7 @@ gulp.task('prepare:sprites', function () {
 //
 gulp.task('prepare:sitemap', ['html'], function () {
     return gulp.src([dirs.src + '/*.html', '!'+ dirs.src + '/google*.html'], {read: false})
-        .pipe(plugins.sitemap({
-            fileName: 'sitemap.xml',
-            newLine: '\n',
-            changefreq: 'daily',
-            priority: '0.5',
-            siteUrl: 'http://veeck.de',
-            spacing: '    '
-        }))
+        .pipe(plugins.sitemap(config.sitemap))
         .pipe(gulp.dest(dirs.src));
 });
 
