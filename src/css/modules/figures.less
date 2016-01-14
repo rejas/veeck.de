@@ -1,4 +1,5 @@
 figure {
+    .boxshadow(1);
     text-decoration: none;
     position: relative;
     margin: 0;
@@ -75,7 +76,7 @@ figcaption {
     }
 
     figure:hover:not(.dont_link) {
-        box-shadow: 0 11px 18px rgba(0,0,0,0.2);
+        .boxshadow(3);
         transform: translateY(0px) scale(1.05, 1.05);
         transform-origin: center;
         transform-style: preserve-3D;
@@ -113,5 +114,55 @@ figcaption {
 
     figure img {
         width: 100%;
+    }
+}
+
+.ribbon {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    overflow: hidden;
+    width: 75px;
+    height: 75px;
+
+    span {
+        position: absolute;
+        top: 19px;
+        right: -21px;
+        font-size: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 20px;
+        transform: rotate(45deg);
+        width: 100px;
+        display: block;
+        color: @color_white;
+        background-color: @base3;
+        .boxshadow(2);
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 100%;
+            z-index: -1;
+            border-left: 3px solid darken(@base3, 15%);
+            border-right: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+            border-top: 3px solid darken(@base3, 15%);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 100%;
+            z-index: -1;
+            border-left: 3px solid transparent;
+            border-right: 3px solid darken(@base3, 15%);
+            border-bottom: 3px solid transparent;
+            border-top: 3px solid darken(@base3, 15%);
+        }
     }
 }
