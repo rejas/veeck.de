@@ -20,5 +20,13 @@
   "ports": {
     "livereload": 35729,
     "express": 4000
+  },
+  "sitemap": {
+    "fileName": "sitemap.xml",
+    "newLine": "\n",
+    "changefreq": "daily",
+    "priority": "0.5",
+    "siteUrl": "http://veeck.de",
+    "spacing": "    "
   }
 }
