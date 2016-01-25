@@ -2,80 +2,71 @@
     display: block;
 }
 
-.icon-canoo         { .sprite(@canoo);              }
-.icon-chefkoch      { .sprite(@chefkoch);           }
-.icon-duckduckgo    { .sprite(@duckduckgo);         }
-.icon-google        { .sprite(@google);             }
-.icon-imdb          { .sprite(@imdb);               }
-.icon-iros          { .sprite(@res-iros2004);       }
-.icon-leo           { .sprite(@leo);                }
-.icon-nsis          { .sprite(@res-nsis);           }
-.icon-rasterbator   { .sprite(@res-rasterbator);    }
-.icon-uni           { .sprite(@res-unilogo);        }
-.icon-wikipedia     { .sprite(@wikipedia);          }
-.icon-woxikon       { .sprite(@woxikon);            }
-.icon-wow           { .sprite(@res-wow);            }
-.icon-wowhead       { .sprite(@wowhead);            }
-.icon-youtube       { .sprite(@youtube);            }
+.icon-canoo {
+    .sprite(@canoo);
+}
+.icon-chefkoch {
+    .sprite(@chefkoch);
+}
+.icon-duckduckgo {
+    .sprite(@duckduckgo);
+}
+.icon-google {
+    .sprite(@google);
+}
+.icon-imdb {
+    .sprite(@imdb);
+}
+.icon-iros {
+    .sprite(@res-iros2004);
+}
+.icon-leo {
+    .sprite(@leo);
+}
+.icon-nsis {
+    .sprite(@res-nsis);
+}
+.icon-rasterbator {
+    .sprite(@res-rasterbator);
+}
+.icon-uni {
+    .sprite(@res-unilogo);
+}
+.icon-wikipedia {
+    .sprite(@wikipedia);
+}
+.icon-woxikon {
+    .sprite(@woxikon);
+}
+.icon-wow {
+    .sprite(@res-wow);
+}
+.icon-wowhead {
+    .sprite(@wowhead);
+}
+.icon-youtube {
+    .sprite(@youtube);
+}
 
 .icon-font-left:after:extend(.icon-font:after) {
-    content: "a";
+    content: 'a';
 }
 .icon-font-right:after:extend(.icon-font:after) {
-    content: "b";
+    content: 'b';
 }
 .icon-font-up:after:extend(.icon-font:after) {
-    content: "c";
+    content: 'c';
 }
 .icon-font-down:after:extend(.icon-font:after) {
-    content: "d";
+    content: 'd';
 }
 .icon-font-more:after:extend(.icon-font:after) {
-    content: "d";
+    content: 'd';
 }
 .icon-font-menu:after:extend(.icon-font:after) {
-    content: "m";
-}
-.icon-font-share:after:extend(.icon-font:after) {
-    content: "s";
-}
-.icon-font-google:after:extend(.icon-font:after) {
-    content: "g";
-}
-.icon-font-twitter:after:extend(.icon-font:after) {
-    content: "t";
-}
-.icon-font-facebook:after:extend(.icon-font:after) {
-    content: "f";
-}
-.icon-font-pinterest:after:extend(.icon-font:after) {
-    content: "p";
+    content: 'm';
 }
 
-
-// Share Button Icons
-
-.entypo-export:before {
-    &:extend(.icon-font-share:after);
-    position: relative;
-    top: 2px;
-}
-
-.entypo-twitter:before {
-    &:extend(.icon-font-twitter:after);
-}
-
-.entypo-facebook:before {
-    &:extend(.icon-font-facebook:after);
-}
-
-.entypo-gplus:before {
-    &:extend(.icon-font-google:after);
-}
-
-.entypo-pinterest:before {
-    &:extend(.icon-font-pinterest:after);
-}
 
 // Other Icons
 
@@ -83,8 +74,11 @@
     &:extend(.icon-font-menu:after);
 }
 
-.mobile-nav li.dl-back:after,
-.mobile-nav li > a:not(:only-child):after {
-    &:extend(.icon-font-right:after);
-    display: none;
+.mobile-nav {
+
+    li.dl-back:after,
+    li > a:not(:only-child):after {
+        &:extend(.icon-font-right:after);
+        display: none;
+    }
 }

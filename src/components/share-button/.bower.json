@@ -1,15 +1,33 @@
 {
   "name": "share-button",
-  "homepage": "https://github.com/carrot/share-button",
-  "version": "0.5.0",
-  "_release": "0.5.0",
+  "homepage": "http://sharebutton.co",
+  "authors": [
+    "Jeff Escalante <hello@jenius.me>",
+    "Henry Snopek <henry@carrotcreative.com>"
+  ],
+  "description": "fast, beautiful, and painless social shares.",
+  "main": [
+    "./share-button.js",
+    "./share-button.css"
+  ],
+  "moduleType": [
+    "globals",
+    "amd",
+    "node"
+  ],
+  "keywords": [
+    "share",
+    "social"
+  ],
+  "license": "MIT",
+  "version": "1.0.3",
+  "_release": "1.0.3",
   "_resolution": {
     "type": "version",
-    "tag": "v0.5.0",
-    "commit": "037a3521f98723781de8b7e66ca602f439ac0f54"
+    "tag": "v1.0.3",
+    "commit": "157af8e7bb56d572193951c64348fba0f8dda9d0"
   },
-  "_source": "git://github.com/carrot/share-button.git",
-  "_target": "~0.5.0",
-  "_originalSource": "share-button",
-  "_direct": true
+  "_source": "git://github.com/carrot/share-button-bower.git",
+  "_target": "1.0.3",
+  "_originalSource": "share-button"
 }

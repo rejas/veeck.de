@@ -11,23 +11,19 @@
   "homepage": "http://git.blivesta.com/animsition",
   "main": [
     "dist/css/animsition.min.css",
-    "dist/js/jquery.animsition.min.js"
+    "dist/js/animsition.min.js"
   ],
   "ignore": [
-    ".*",
-    "sandbox"
+    ".*"
   ],
-  "dependencies": {
-    "jquery": ">= 1.11.0"
-  },
-  "version": "3.6.0",
-  "_release": "3.6.0",
+  "version": "4.0.1",
+  "_release": "4.0.1",
   "_resolution": {
     "type": "version",
-    "tag": "v3.6.0",
-    "commit": "9191bcafa1a9912b80bef120d511f32493570ce0"
+    "tag": "v4.0.1",
+    "commit": "fdd815b8e28588fcccbfd37c46cf98b93ab48fed"
   },
   "_source": "git://github.com/blivesta/animsition.git",
-  "_target": "~3.6.0",
+  "_target": "4.0.1",
   "_originalSource": "animsition"
 }

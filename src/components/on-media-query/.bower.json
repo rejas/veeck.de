@@ -26,7 +26,6 @@
     "commit": "3db5141a2fc69957e7d4b29d00ea66d44872d8f9"
   },
   "_source": "git://github.com/JoshBarr/on-media-query.git",
-  "_target": "~0.2.0",
-  "_originalSource": "on-media-query",
-  "_direct": true
+  "_target": "0.2.0",
+  "_originalSource": "on-media-query"
 }

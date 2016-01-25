@@ -36,10 +36,10 @@ $ gulp
 ## CDN
 [cdnjs](https://cdnjs.com/libraries/animsition)
 
-- css/animsition.css
-- css/animsition.min.css
-- js/jquery.animsition.js
-- js/jquery.animsition.min.js
+- dist/css/animsition.css
+- dist/css/animsition.min.css
+- dist/js/animsition.js
+- dist/js/animsition.min.js
 
 ## Contributing
 
@@ -60,6 +60,9 @@ Please check that everything works before opening a pull-request.
 - [@kkirsche](https://github.com/kkirsche)
 - [@justbartlett](https://github.com/justbartlett)
 - [@brianmontanaweb](https://github.com/brianmontanaweb)
+- [@Superpencil](https://github.com/Superpencil)
+- [@tegansnyder](https://github.com/tegansnyder)
+- [@nvartolomei](https://github.com/nvartolomei)
 
 ## License
 Released under the [MIT](https://github.com/blivesta/animsition/blob/master/LICENSE.md) license.
