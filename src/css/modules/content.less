@@ -31,15 +31,23 @@ article {
     .article_intro {
         margin-bottom: 2em;
     }
-}
 
-section {
-    &:extend(.clearfix all);
-    margin-bottom: 3em;
+    section {
+        &:extend(.clearfix all);
+        margin-bottom: 2em;
 
-    h2 {
-        border-bottom: 2px solid @color_black;
-        padding-bottom: 0.25em;
-        text-align: center;
+        h2 {
+            border-bottom: 2px solid @color_black;
+            padding-bottom: 0.25em;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        time {
+            position: relative;
+            font-size: 0.75em;
+            text-align: right;
+            display: block;
+        }
     }
 }
