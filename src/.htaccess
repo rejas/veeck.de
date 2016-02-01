@@ -715,6 +715,7 @@ ServerSignature Off
 # ----------------------------------------------------------------------
 
 <IfModule mod_deflate.c>
+    mod_gzip_on Yes
 
     # Force compression for mangled `Accept-Encoding` request headers
     # https://developer.yahoo.com/blogs/ydn/pushing-beyond-gzipping-25601.html
@@ -999,8 +1000,4 @@ FileETag None
 
     RewriteCond %{REQUEST_URI} /janitor/index.html$ [NC]
     RewriteRule ^(.*)$ /index.html [G]
-</IfModule>
-
-<IfModule mod_deflate.c>
-    mod_gzip_on Yes
 </IfModule>
