@@ -2,9 +2,9 @@
  * less-based version of sass-mixin from https://medium.com/p/e258fce47a9b
  */
 
-@base-font-size: 	1.25em;
+@base-font-size:    2em;
 @base-font-weight:  400;
-@base-line-height: 	1.5;
+@base-line-height:  1.5;
 
 // this value may vary for each font
 // unitless value relative to 1em
@@ -27,19 +27,19 @@
 
     @baseline-distance: (@line-height - @cap-height) / 2;
 
-/////////////////
-// METHOD 1
-//
-// this method can relatively move down elements you may not want to
-// position: relative;
-// top: @baseline-distance + 0em;
+    /////////////////
+    // METHOD 1
+    //
+    // this method can relatively move down elements you may not want to
+    // position: relative;
+    // top: @baseline-distance + 0em;
 
-/////////////////
-// METHOD 2
-// if you use this mixin only on elements that have one direction margins
-// http://csswizardry.com/2012/06/single-direction-margin-declarations/
-// you can use this method with no worries.
-// this method assumes the direction is down and the margin is @base-line-height
+    /////////////////
+    // METHOD 2
+    // if you use this mixin only on elements that have one direction margins
+    // http://csswizardry.com/2012/06/single-direction-margin-declarations/
+    // you can use this method with no worries.
+    // this method assumes the direction is down and the margin is @base-line-height
     padding-top: @baseline-distance;
     margin-bottom: @base-line-height - @baseline-distance + 0em;
 }
