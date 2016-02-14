@@ -66,13 +66,13 @@
         li {
             list-style: none;
             position: relative;
+            margin: 0;
 
             a {
                 display: block;
                 position: relative;
                 padding: 15px 20px;
                 text-transform: uppercase;
-                font-weight: 300;
                 color: @menuColor;
                 outline: none;
                 text-decoration: none;
@@ -86,6 +86,7 @@
             /* Hide the inner submenus */
             .dl-submenu {
                 display: none;
+                font-size: 100%;
             }
         }
     }
@@ -143,7 +144,7 @@
     .mobile-nav li.dl-back:after {
         color: @menuColor;
         left: 10px;
-        line-height: 46px;
+        //line-height: 46px;
         transform: rotate(180deg);
     }
 
