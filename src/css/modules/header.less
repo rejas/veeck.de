@@ -40,40 +40,31 @@
         transform: translateX(-50%) translateY(-50%);
 
         @media @smartphones {
-            font-size: 75%;
 
             .trigger::before {
                 display: none;
             }
         }
 
-        @media @tablets {
-            font-size: 75%;
-        }
-
         .headline1 {
             position: relative;
-            padding: 0.2em 0;
+            padding: .5rem;
             background: @color_white;
             text-align: center;
             word-wrap: break-word;
         }
 
         .subline {
-            line-height: 1;
-            font-size: 1.75em;
+            font-size: 2.5rem;
         }
 
         p {
-            padding: 0 0 0.6em;
-            font-weight: 300;
-            font-size: 0.85em;
             margin: 0 auto;
         }
     }
 }
 
-.container {
+.intro-effect-side {
     height: 100%;
 
     &:not(.notrans) .trigger {
@@ -105,14 +96,14 @@
             color: black;
             width: 60px;
             margin: 0 auto;
-            border-radius: 30px;
+            border-radius: 3rem;
             background-color: @menuBackground;
 
             &:after {
                 &:extend(.icon-font-more:after);
-                font-size: 50px;
+                font-size: 4rem;
                 position: relative;
-                top: 3px;
+                top: .75rem;
             }
 
             &:focus {
