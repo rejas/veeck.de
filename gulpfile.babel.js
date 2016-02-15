@@ -45,7 +45,7 @@ const   dirs        = config.directories,
 
 // Clear the destination folder
 gulp.task('clean', (cb) => {
-    del(['./' + dirs.dist]).then(function () { cb(); });
+    del([dirs.dist]).then(function () { cb(); });
 });
 
 // Browserify task
@@ -124,7 +124,7 @@ gulp.task('check:js', () => {
 
 // Detect errors and potential problems in your css code
 gulp.task('check:less', () => {
-    gulp.src([dirs.src + 'css/**/*.less', '!'+dirs.src +'css/main.less', '!'+dirs.src +'css/libs'])
+    gulp.src([`${dirs.src}/css/**/*.less`, '!'+dirs.src +'css/main.less', '!'+dirs.src +'css/libs'])
         .pipe(plugins.lesshint('.lesshintrc'))
         .pipe(plugins.lesshint.reporter())
 });
