@@ -1,20 +1,29 @@
+'use strict';
+
+/**
+ * CONFIGS
+ */
+
+import config from './config.json';
+
 /**
  * GULP PLUGINS
  */
 
-var gulp            = require('gulp'),
-    gutil           = require('gulp-util'),
-    plugins         = require('gulp-load-plugins')(),
-    spritesmith     = require('gulp.spritesmith'),
-    refresh         = require('gulp-livereload'),
-    runSequence     = require('run-sequence');
+import gulp from 'gulp';
+import gutil from 'gulp-util';
+import gplugins from 'gulp-load-plugins';
 
 /**
  * OTHER PLUGINS
  */
 
-var browserify      = require('browserify'),
-    del             = require('del'),
+import del from 'del';
+
+var spritesmith     = require('gulp.spritesmith'),
+    refresh         = require('gulp-livereload'),
+    runSequence     = require('run-sequence'),
+    browserify      = require('browserify'),
     express         = require('express'),
     ftp             = require('vinyl-ftp'),
     lrserver        = require('tiny-lr')(),
@@ -24,24 +33,24 @@ var browserify      = require('browserify'),
     stylish         = require('jshint-stylish');
 
 /**
- * CONFIGS
+ * CONSTANTS
  */
 
-var config          = require('./config.json'),
-    dirs            = config.directories;
+const   dirs        = config.directories,
+        plugins     = gplugins();
 
 /**
  * SUB TASKS
  */
 
 // Clear the destination folder
-gulp.task('clean', function (cb) {
+gulp.task('clean', (cb) => {
     del(['./' + dirs.dist]).then(function () { cb(); });
 });
 
 // Browserify task
-gulp.task('browserify', function() {
-    return browserify({ entries: [dirs.src + 'js/main.js'] })
+gulp.task('browserify', () => {
+    browserify({ entries: [dirs.src + 'js/main.js'] })
         .bundle()
         .pipe(source('main.bundled.js'))
         .pipe(buffer())
@@ -51,26 +60,26 @@ gulp.task('browserify', function() {
 });
 
 //
-gulp.task('vendorscripts', function () {
+gulp.task('vendorscripts', () => {
     // Minify and copy all vendor scripts
-    return gulp.src([dirs.src + 'components/jquery/dist/jquery.min.js',
-                     dirs.src + 'components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js',
-                     dirs.src + 'js/vendor/modernizr.min.js'])
+    gulp.src([dirs.src + 'components/jquery/dist/jquery.min.js',
+            dirs.src + 'components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js',
+            dirs.src + 'js/vendor/modernizr.min.js'])
         .pipe(plugins.uglify())
         .pipe(gulp.dest(dirs.dist + 'js/vendor'));
 });
 
 // Copy all application files except *.less and .js into the `dist` folder
-gulp.task('files', function () {
-    return gulp.src([dirs.src + '**/*',
+gulp.task('files', () => {
+    gulp.src([dirs.src + '**/*',
             '!'+dirs.src + '*.html', '!'+dirs.src + 'js/**/*.js', '!'+dirs.src + 'css/**/*.less',
             '!'+dirs.src + 'components/**/*', '!'+dirs.src + '/**/.DS_Store'], { dot: true })
         .pipe(gulp.dest(dirs.dist));
 });
 
 // Compile LESS files
-gulp.task('css', function () {
-    return gulp.src(dirs.src + 'css/main.less')
+gulp.task('css', () => {
+    gulp.src(dirs.src + 'css/main.less')
         .pipe(plugins.less())
         .pipe(plugins.autoprefixer(config.autoprefixer))
         .pipe(plugins.rename('main.css'))
@@ -80,15 +89,15 @@ gulp.task('css', function () {
 });
 
 //
-gulp.task('images', function () {
-    return gulp.src(dirs.src + 'img/**/*.jpg')
+gulp.task('images', () => {
+    gulp.src(dirs.src + 'img/**/*.jpg')
         .pipe(gulp.dest(dirs.dist + 'img'));
 });
 
 //
-gulp.task('markup', function() {
+gulp.task('markup', () => {
     // Get our index.html
-    return gulp.src(dirs.src + '*.html')
+    gulp.src(dirs.src + '*.html')
         // And put it in the dist folder
         .pipe(gulp.dest(dirs.dist))
         .pipe(refresh(lrserver)); // Tell the lrserver to refresh
@@ -99,23 +108,23 @@ gulp.task('markup', function() {
  */
 
 // Detect errors and potential problems in your html code
-gulp.task('check:html', function () {
-    return gulp.src([dirs.src + '*.html'])
+gulp.task('check:html', () => {
+    gulp.src([dirs.src + '*.html'])
         .pipe(plugins.htmlhint())
         .pipe(plugins.htmlhint.reporter());
 });
 
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
 // You can enable or disable default JSHint options in the .jshintrc file
-gulp.task('check:js', function () {
-    return gulp.src([dirs.src + 'js/**/*.js', '!'+dirs.src + 'js/vendor/**'])
+gulp.task('check:js', () => {
+    gulp.src([dirs.src + 'js/**/*.js', '!'+dirs.src + 'js/vendor/**'])
         .pipe(plugins.jshint('.jshintrc'))
         .pipe(plugins.jshint.reporter(stylish));
 });
 
 // Detect errors and potential problems in your css code
-gulp.task('check:less', function () {
-    return gulp.src([dirs.src + 'css/**/*.less', '!'+dirs.src +'css/main.less', '!'+dirs.src +'css/libs'])
+gulp.task('check:less', () => {
+    gulp.src([dirs.src + 'css/**/*.less', '!'+dirs.src +'css/main.less', '!'+dirs.src +'css/libs'])
         .pipe(plugins.lesshint('.lesshintrc'))
         .pipe(plugins.lesshint.reporter())
 });
@@ -124,9 +133,9 @@ gulp.task('check:less', function () {
  * DEV TASKS
  */
 
-gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'markup'], function () {
+gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'markup'], () => {
     // Set up an express server (but not starting it yet)
-    var server = express();
+    let server = express();
     // Add live reload
     server.use(livereload({port: config.ports.livereload}));
     // Use our 'dist' folder as rootfolder
@@ -152,9 +161,9 @@ gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'ma
  * Default
  */
 
-gulp.task('html', ['prepare:sprites', 'images', 'files', 'vendorscripts', 'browserify', 'css'] , function() {
+gulp.task('html', ['prepare:sprites', 'images', 'files', 'vendorscripts', 'browserify', 'css'], () => {
     // We src all html files
-    return gulp.src(dirs.src + '*.html')
+    gulp.src(dirs.src + '*.html')
         .pipe(plugins.htmlmin(config.htmlmin))
         .pipe(gulp.dest(dirs.dist));
 });
@@ -163,62 +172,62 @@ gulp.task('html', ['prepare:sprites', 'images', 'files', 'vendorscripts', 'brows
  * Deploy
  */
 
-gulp.task('upload', function () {
-    return gulp.src('.')
+gulp.task('upload', () => {
+    gulp.src('.')
         .pipe(plugins.prompt.prompt({
             type: 'password',
             name: 'pw',
             message: 'enter ftp password'
         }, function(result) {
-            var conn = ftp.create({
+            const conn = ftp.create({
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
                 log:        gutil.log
             });
 
-            return gulp.src([dirs.dist + '**/*', '!'+dirs.dist + 'files/**/*', '!'+dirs.dist + 'img/**/*', , '!'+dirs.dist + 'components'], {
+            gulp.src([dirs.dist + '**/*', '!'+dirs.dist + 'files/**/*', '!'+dirs.dist + 'img/**/*', , '!'+dirs.dist + 'components'], {
                     base: 'dist', buffer: false })
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/'));
         }));
 });
 
-gulp.task('upload:images', function () {
-    return gulp.src('.')
+gulp.task('upload:images', () => {
+    gulp.src('.')
         .pipe(plugins.prompt.prompt({
             type: 'password',
             name: 'pw',
             message: 'enter ftp password'
-        }, function(result) {
-            var conn = ftp.create({
+        }, (result) => {
+            const conn = ftp.create({
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
                 log:        gutil.log
             });
 
-            return gulp.src([dirs.dist + 'img/**/*'], { base: 'dist', buffer: false } )
+            gulp.src([dirs.dist + 'img/**/*'], { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/'));
         }));
 });
 
-gulp.task('upload:files', function () {
-    return gulp.src('.')
+gulp.task('upload:files', () => {
+    gulp.src('.')
         .pipe(plugins.prompt.prompt({
             type: 'password',
             name: 'pw',
             message: 'enter ftp password'
-        }, function(result) {
-            var conn = ftp.create({
+        }, (result) => {
+            const conn = ftp.create({
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
                 log:        gutil.log
             });
 
-            return gulp.src([dirs.dist + 'files/**/*'], { base: 'dist', buffer: false } )
+            gulp.src([dirs.dist + 'files/**/*'], { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/'));
         }));
@@ -229,15 +238,15 @@ gulp.task('upload:files', function () {
  */
 
 //
-gulp.task('prepare:images', function () {
-    return gulp.src(dirs.src + 'img/**/*')
+gulp.task('prepare:images', () => {
+    gulp.src(dirs.src + 'img/**/*')
         .pipe(plugins.imagemin(config.imagemin))
         .pipe(gulp.dest(dirs.src + 'img'));
 });
 
 //
-gulp.task('prepare:sprites', function () {
-    var spriteData = gulp.src([dirs.src + 'css/assets/icons/links/*.png', dirs.src + 'css/assets/icons/research/*.png'])
+gulp.task('prepare:sprites', () => {
+    let spriteData = gulp.src([dirs.src + 'css/assets/icons/links/*.png', dirs.src + 'css/assets/icons/research/*.png'])
         .pipe(spritesmith({
                 imgName:         'sprite.png',
                 cssName:         'sprite.less',
@@ -256,8 +265,8 @@ gulp.task('prepare:sprites', function () {
 });
 
 //
-gulp.task('prepare:sitemap', ['html'], function () {
-    return gulp.src([dirs.src + '/*.html', '!'+ dirs.src + '/google*.html'], {read: false})
+gulp.task('prepare:sitemap', ['html'], () => {
+    gulp.src([dirs.src + '/*.html', '!'+ dirs.src + '/google*.html'], {read: false})
         .pipe(plugins.sitemap(config.sitemap))
         .pipe(gulp.dest(dirs.src));
 });
@@ -270,7 +279,7 @@ gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
 gulp.task('dev',        ['serve']);
 
-gulp.task('default',    function (cb) { runSequence('clean', 'html', cb) });
+gulp.task('default',    (cb) => { runSequence('clean', 'html', cb) });
 
 gulp.task('deploy',     ['upload']);
 
