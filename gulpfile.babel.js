@@ -50,13 +50,13 @@ gulp.task('clean', (cb) => {
 
 // Browserify task
 gulp.task('browserify', () => {
-    browserify({ entries: [dirs.src + 'js/main.js'] })
+    browserify({ entries: [`${dirs.src}/js/main.js`] })
         .bundle()
         .pipe(source('main.bundled.js'))
         .pipe(buffer())
         .pipe(plugins.uglify())
         //.pipe(plugins.rev())
-        .pipe(gulp.dest(dirs.dist + '/js'));
+        .pipe(gulp.dest(`${dirs.dist}/js`));
 });
 
 //
@@ -66,7 +66,7 @@ gulp.task('vendorscripts', () => {
             dirs.src + 'components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js',
             dirs.src + 'js/vendor/modernizr.min.js'])
         .pipe(plugins.uglify())
-        .pipe(gulp.dest(dirs.dist + 'js/vendor'));
+        .pipe(gulp.dest(`${dirs.dist}/js/vendor`));
 });
 
 // Copy all application files except *.less and .js into the `dist` folder
@@ -79,25 +79,25 @@ gulp.task('files', () => {
 
 // Compile LESS files
 gulp.task('css', () => {
-    gulp.src(dirs.src + 'css/main.less')
+    gulp.src(`${dirs.src}/css/main.less`)
         .pipe(plugins.less())
         .pipe(plugins.autoprefixer(config.autoprefixer))
         .pipe(plugins.rename('main.css'))
         .pipe(plugins.csso())
         //.pipe(plugins.rev())
-        .pipe(gulp.dest(dirs.dist + 'css'))
+        .pipe(gulp.dest(`${dirs.dist}/css`))
 });
 
 //
 gulp.task('images', () => {
-    gulp.src(dirs.src + 'img/**/*.jpg')
-        .pipe(gulp.dest(dirs.dist + 'img'));
+    gulp.src(`${dirs.src}/img/**/*.jpg`)
+        .pipe(gulp.dest(`${dirs.dist}/img`));
 });
 
 //
 gulp.task('markup', () => {
     // Get our index.html
-    gulp.src(dirs.src + '*.html')
+    gulp.src(`${dirs.src}/*.html`)
         // And put it in the dist folder
         .pipe(gulp.dest(dirs.dist))
         .pipe(refresh(lrserver)); // Tell the lrserver to refresh
@@ -109,7 +109,7 @@ gulp.task('markup', () => {
 
 // Detect errors and potential problems in your html code
 gulp.task('check:html', () => {
-    gulp.src([dirs.src + '*.html'])
+    gulp.src([`${dirs.src}/*.html`])
         .pipe(plugins.htmlhint())
         .pipe(plugins.htmlhint.reporter());
 });
@@ -117,14 +117,14 @@ gulp.task('check:html', () => {
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
 // You can enable or disable default JSHint options in the .jshintrc file
 gulp.task('check:js', () => {
-    gulp.src([dirs.src + 'js/**/*.js', '!'+dirs.src + 'js/vendor/**'])
+    gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**`])
         .pipe(plugins.jshint('.jshintrc'))
         .pipe(plugins.jshint.reporter(stylish));
 });
 
 // Detect errors and potential problems in your css code
 gulp.task('check:less', () => {
-    gulp.src([`${dirs.src}/css/**/*.less`, '!'+dirs.src +'css/main.less', '!'+dirs.src +'css/libs'])
+    gulp.src([`${dirs.src}/css/**/*.less`, `!${dirs.src}/css/main.less`, `!${dirs.src}/css/libs`])
         .pipe(plugins.lesshint('.lesshintrc'))
         .pipe(plugins.lesshint.reporter())
 });
@@ -163,7 +163,7 @@ gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'ma
 
 gulp.task('html', ['prepare:sprites', 'images', 'files', 'vendorscripts', 'browserify', 'css'], () => {
     // We src all html files
-    gulp.src(dirs.src + '*.html')
+    gulp.src(`${dirs.src}/*.html`)
         .pipe(plugins.htmlmin(config.htmlmin))
         .pipe(gulp.dest(dirs.dist));
 });
@@ -239,9 +239,9 @@ gulp.task('upload:files', () => {
 
 //
 gulp.task('prepare:images', () => {
-    gulp.src(dirs.src + 'img/**/*')
+    gulp.src(`${dirs.src}/img/**/*`)
         .pipe(plugins.imagemin(config.imagemin))
-        .pipe(gulp.dest(dirs.src + 'img'));
+        .pipe(gulp.dest(`${dirs.src}/img`));
 });
 
 //
