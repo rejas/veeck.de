@@ -62,18 +62,16 @@ gulp.task('browserify', () => {
 //
 gulp.task('vendorscripts', () => {
     // Minify and copy all vendor scripts
-    gulp.src([dirs.src + 'components/jquery/dist/jquery.min.js',
-            dirs.src + 'components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js',
-            dirs.src + 'js/vendor/modernizr.min.js'])
+    gulp.src([`${dirs.src}/components/jquery/dist/jquery.min.js`, `${dirs.src}/js/vendor/modernizr.min.js`,
+              `${dirs.src}/components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js`])
         .pipe(plugins.uglify())
         .pipe(gulp.dest(`${dirs.dist}/js/vendor`));
 });
 
 // Copy all application files except *.less and .js into the `dist` folder
 gulp.task('files', () => {
-    gulp.src([dirs.src + '**/*',
-            '!'+dirs.src + '*.html', '!'+dirs.src + 'js/**/*.js', '!'+dirs.src + 'css/**/*.less',
-            '!'+dirs.src + 'components/**/*', '!'+dirs.src + '/**/.DS_Store'], { dot: true })
+    gulp.src([`${dirs.src}/**/*`, `!${dirs.src}/*.html`, `!${dirs.src}/js/**/*.js`, `!${dirs.src}/css/**/*.less`,
+             `!${dirs.src}/components/**/*`, `!${dirs.src}/**/.DS_Store`], { dot: true })
         .pipe(gulp.dest(dirs.dist));
 });
 
@@ -146,13 +144,13 @@ gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'ma
     // Start live reload
     lrserver.listen(config.ports.livereload);
 
-    gulp.watch([dirs.src + 'components/*.js', dirs.src + 'js/**/*.js'],[
+    gulp.watch([`${dirs.src}/components/*.js`, `${dirs.src}/js/**/*.js`],[
         'browserify'
     ]);
-    gulp.watch([dirs.src + 'css/**/*.less'], [
+    gulp.watch([`${dirs.src}/css/**/*.less`], [
         'css'
     ]);
-    gulp.watch([dirs.src + '*.html'], [
+    gulp.watch([`${dirs.src}/*.html`], [
         'markup'
     ]);
 });
@@ -186,7 +184,8 @@ gulp.task('upload', () => {
                 log:        gutil.log
             });
 
-            gulp.src([dirs.dist + '**/*', '!'+dirs.dist + 'files/**/*', '!'+dirs.dist + 'img/**/*', , '!'+dirs.dist + 'components'], {
+            gulp.src([`${dirs.dist}/**/*`,
+                    '!'+dirs.dist + 'files/**/*', '!'+dirs.dist + 'img/**/*', , '!'+dirs.dist + 'components'], {
                     base: 'dist', buffer: false })
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/'));
@@ -207,7 +206,7 @@ gulp.task('upload:images', () => {
                 log:        gutil.log
             });
 
-            gulp.src([dirs.dist + 'img/**/*'], { base: 'dist', buffer: false } )
+            gulp.src([`${dirs.dist}/img/**/*`], { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/'));
         }));
@@ -227,7 +226,7 @@ gulp.task('upload:files', () => {
                 log:        gutil.log
             });
 
-            gulp.src([dirs.dist + 'files/**/*'], { base: 'dist', buffer: false } )
+            gulp.src([`${dirs.dist}/files/**/*`], { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/'));
         }));
@@ -246,7 +245,7 @@ gulp.task('prepare:images', () => {
 
 //
 gulp.task('prepare:sprites', () => {
-    let spriteData = gulp.src([dirs.src + 'css/assets/icons/links/*.png', dirs.src + 'css/assets/icons/research/*.png'])
+    let spriteData = gulp.src([`${dirs.src}/css/assets/icons/links/*.png`, `${dirs.src}/css/assets/icons/research/*.png`])
         .pipe(spritesmith({
                 imgName:         'sprite.png',
                 cssName:         'sprite.less',
@@ -257,16 +256,16 @@ gulp.task('prepare:sprites', () => {
     // Pipe image stream through image optimizer and onto disk
     spriteData.img
         //.pipe(plugins.imagemin(config.imagemin))
-        .pipe(gulp.dest(dirs.src + 'css/assets/'));
+        .pipe(gulp.dest(`${dirs.src}/css/assets/`));
 
     // Pipe CSS stream through CSS optimizer and onto disk
     spriteData.css
-        .pipe(gulp.dest(dirs.src + 'css/base/'));
+        .pipe(gulp.dest(`${dirs.src}/css/base/`));
 });
 
 //
 gulp.task('prepare:sitemap', ['html'], () => {
-    gulp.src([dirs.src + '/*.html', '!'+ dirs.src + '/google*.html'], {read: false})
+    gulp.src([`${dirs.src}/*.html`, `!${dirs.src}/google*.html`], {read: false})
         .pipe(plugins.sitemap(config.sitemap))
         .pipe(gulp.dest(dirs.src));
 });
