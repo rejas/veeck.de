@@ -20,24 +20,25 @@ import gplugins from 'gulp-load-plugins';
 
 import del from 'del';
 
-var spritesmith     = require('gulp.spritesmith'),
-    refresh         = require('gulp-livereload'),
-    runSequence     = require('run-sequence'),
-    browserify      = require('browserify'),
-    express         = require('express'),
-    ftp             = require('vinyl-ftp'),
-    lrserver        = require('tiny-lr')(),
-    livereload      = require('connect-livereload'),
-    buffer          = require('vinyl-buffer'),
-    source          = require('vinyl-source-stream'),
-    stylish         = require('jshint-stylish');
+import spritesmith  from    'gulp.spritesmith';
+import refresh      from    'gulp-livereload';
+import runSequence  from    'run-sequence';
+import browserify   from    'browserify';
+import express      from    'express';
+import ftp          from    'vinyl-ftp';
+import tinylr       from    'tiny-lr';
+import livereload   from    'connect-livereload';
+import buffer       from    'vinyl-buffer';
+import source       from    'vinyl-source-stream';
+import stylish      from    'jshint-stylish';
 
 /**
  * CONSTANTS
  */
 
 const   dirs        = config.directories,
-        plugins     = gplugins();
+        plugins     = gplugins(),
+        lrserver     = tinylr();
 
 /**
  * SUB TASKS
@@ -185,7 +186,7 @@ gulp.task('upload', () => {
             });
 
             gulp.src([`${dirs.dist}/**/*`,
-                    '!'+dirs.dist + 'files/**/*', '!'+dirs.dist + 'img/**/*', , '!'+dirs.dist + 'components'], {
+                `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/components`], {
                     base: 'dist', buffer: false })
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/'));
