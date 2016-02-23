@@ -45,12 +45,15 @@ function addLoadEvent(func) {
 addLoadEvent(function() {
     "use strict";
 
-    outdatedBrowser({
-        bgColor: '#f25648',
-        color: '#fefefe',
-        lowerThan: 'transform',
-        languagePath: ''
-    });
+    if (typeof outdatedBrowser !== 'undefined')
+    {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#fefefe',
+            lowerThan: 'transform',
+            languagePath: ''
+        });
+    }
 });
 
 var classie = require ('../components/classie/classie.js'),
