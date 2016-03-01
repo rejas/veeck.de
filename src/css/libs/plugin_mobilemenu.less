@@ -38,7 +38,7 @@
             margin-left: 0;
         }
 
-        &:after {
+        &::after {
             position: absolute;
             top: 0;
             left: 0;
@@ -78,7 +78,7 @@
                 text-decoration: none;
             }
 
-            > a:after {
+            > a::after {
                 right: 10px;
                 color: rgba(0,0,0,0.15);
             }
@@ -132,8 +132,8 @@
         background: rgba(0,0,0,0.1);
     }
 
-    .mobile-nav li.dl-back:after,
-    .mobile-nav li > a:not(:only-child):after {
+    .mobile-nav li.dl-back::after,
+    .mobile-nav li > a:not(:only-child)::after {
         display: block;
         color: @menuColor;
         position: absolute;
@@ -141,7 +141,7 @@
         line-height: 55px;
     }
 
-    .mobile-nav li.dl-back:after {
+    .mobile-nav li.dl-back::after {
         color: @menuColor;
         left: 10px;
         //line-height: 46px;
@@ -210,7 +210,7 @@
         background: rgba(0,0,0,0.1);
     }
 
-    .no-js .mobile-nav li > a:not(:only-child):after {
+    .no-js .mobile-nav li > a:not(:only-child)::after {
         content: '';
     }
 }
