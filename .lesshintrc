@@ -2,5 +2,6 @@
     "importantRule":            false,
     "propertyOrdering":         false,
     "qualifyingElement":        false,
+    "spaceAroundComma":         false,
     "zeroUnit":                 false
 }

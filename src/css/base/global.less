@@ -44,7 +44,7 @@ body {
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
 
-    &:after {
+    &::after {
         display: none;
 
         @media @desktop {
@@ -136,11 +136,11 @@ select {
         background: rgba(162,155,170,0.8);
     }
 
-    &:before {
+    &::before {
         position: absolute;
-        line-height: 1em;
-        width: 1em;
-        height: 1em;
+        line-height: 2em;
+        width: 2em;
+        height: 2em;
         left: 0.5em;
         top: 0.5em;
     }
