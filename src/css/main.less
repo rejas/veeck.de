@@ -205,13 +205,13 @@ textarea {
  *    `:before` to contain the top-margins of child elements.
  */
 
-.clearfix:before,
-.clearfix:after {
+.clearfix::before,
+.clearfix::after {
     content: " "; /* 1 */
     display: table; /* 2 */
 }
 
-.clearfix:after {
+.clearfix::after {
     clear: both;
 }
 
@@ -223,10 +223,10 @@ textarea {
 
 @media print {
     *,
-    *:before,
-    *:after,
-    *:first-letter,
-    *:first-line {
+    *::before,
+    *::after,
+    *::first-letter,
+    *::first-line {
         background: transparent !important;
         color: #000 !important; /* Black prints faster:
                                    http://www.sanbeiji.com/archives/953 */
@@ -239,11 +239,11 @@ textarea {
         text-decoration: underline;
     }
 
-    a[href]:after {
+    a[href]::after {
         content: " (" attr(href) ")";
     }
 
-    abbr[title]:after {
+    abbr[title]::after {
         content: " (" attr(title) ")";
     }
 
@@ -252,8 +252,8 @@ textarea {
      * or use the `javascript:` pseudo protocol
      */
 
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
+    a[href^="#"]::after,
+    a[href^="javascript:"]::after {
         content: "";
     }
 
