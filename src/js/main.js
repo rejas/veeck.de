@@ -56,10 +56,13 @@ addLoadEvent(function() {
     }
 });
 
+window.$ = window.jQuery = require ('../components/jquery/dist/jquery.js');
+
 var classie = require ('../components/classie/classie.js'),
     ShareButton = require('../components/share-button/share-button.js'),
     MQ = require('../components/on-media-query/js/onmediaquery.js');
 
+require ('../components/modernizr.min.js');
 require ('../components/animsition/dist/js/animsition.js');
 require ('../components/imgLiquid/js/imgLiquid.js');
 require ('../components/imagelightbox2/dist/imagelightbox.min.js');
@@ -85,7 +88,7 @@ $(document).ready(function () {
     /**
      * Back to top
      */
-    $('.js-to-top').click(function (e) {
+    $('.js-to-top').on("click", function (e) {
         e.preventDefault();
         $('html, body').animate({scrollTop: 0}, 800);
     });

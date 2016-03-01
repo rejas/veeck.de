@@ -63,8 +63,7 @@ gulp.task('browserify', () => {
 //
 gulp.task('vendorscripts', () => {
     // Minify and copy all vendor scripts
-    gulp.src([`${dirs.src}/components/jquery/dist/jquery.min.js`, `${dirs.src}/js/vendor/modernizr.min.js`,
-              `${dirs.src}/components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js`])
+    gulp.src([`${dirs.src}/js/vendor/**/*.js`, `${dirs.src}/components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js`])
         .pipe(plugins.uglify())
         .pipe(gulp.dest(`${dirs.dist}/js/vendor`));
 });
@@ -116,7 +115,7 @@ gulp.task('check:html', () => {
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
 // You can enable or disable default JSHint options in the .jshintrc file
 gulp.task('check:js', () => {
-    gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**`])
+    gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.jshint('.jshintrc'))
         .pipe(plugins.jshint.reporter(stylish));
 });
