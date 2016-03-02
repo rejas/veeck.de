@@ -16,6 +16,7 @@
     .mobile-menu-button {
         position: relative;
         border: 0;
+        border-radius: 0;
         width: 1.5em;
         height: 1.5em;
         cursor: pointer;
@@ -47,13 +48,11 @@
         }
 
         &.dl-active {
-            transform: translateY(0) scale(1.05, 1.05);
             background-color: darken(@menuBackground, 15%);
         }
 
         &:hover {
-            transform: translateY(0) scale(1.05, 1.05);
-            background-color: lighten(@menuBackground, 15%);
+            background-color: darken(@menuBackground, 15%);
         }
     }
 
@@ -67,6 +66,10 @@
             list-style: none;
             position: relative;
             margin: 0;
+
+            &:hover {
+                background-color: darken(@menuBackground, 15%);
+            }
 
             a {
                 display: block;
@@ -144,7 +147,6 @@
     .mobile-nav li.dl-back::after {
         color: @menuColor;
         left: 10px;
-        //line-height: 46px;
         transform: rotate(180deg);
     }
 
