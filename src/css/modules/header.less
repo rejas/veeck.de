@@ -78,6 +78,16 @@
             pointer-events: none;
             transition-delay: 0s;
         }
+
+        .share-btn {
+            left: 0;
+            right: initial;
+        }
+
+        .to-top-btn {
+            left: initial;
+            right: 0;
+        }
     }
 
     .trigger {
@@ -113,6 +123,24 @@
             &:hover {
                 background-color: @menuBackground;
             }
+        }
+    }
+
+    .share-btn {
+        position: fixed;
+        bottom: 1em;
+        right: 100%;
+        &:extend(.button all);
+    }
+
+    .to-top-btn {
+        position: fixed;
+        bottom: 1em;
+        left: 100%;
+        &:extend(.button all);
+
+        &::before {
+            content: '^';
         }
     }
 }
