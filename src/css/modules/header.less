@@ -80,13 +80,13 @@
         }
 
         .share-btn {
-            left: 0;
+            left: -3px;
             right: initial;
         }
 
         .to-top-btn {
             left: initial;
-            right: 0;
+            right: -3px;
         }
     }
 
@@ -140,7 +140,7 @@
         &:extend(.button all);
 
         &::before {
-            content: '^';
+            &:extend(.icon-font-up::after);
         }
     }
 }
