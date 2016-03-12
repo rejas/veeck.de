@@ -131,6 +131,8 @@
         bottom: 1em;
         right: 100%;
         &:extend(.button all);
+        z-index: @z-index-5;
+        .boxshadow(1);
     }
 
     .to-top-btn {
@@ -138,6 +140,8 @@
         bottom: 1em;
         left: 100%;
         &:extend(.button all);
+        z-index: @z-index-5;
+        .boxshadow(1);
 
         &::before {
             &:extend(.icon-font-up::after);
