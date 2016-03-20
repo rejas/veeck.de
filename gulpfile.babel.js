@@ -20,17 +20,17 @@ import gplugins from 'gulp-load-plugins';
 
 import del from 'del';
 
-import spritesmith  from    'gulp.spritesmith';
+import browserify   from    'browserify';
+import buffer       from    'vinyl-buffer';
+import express      from    'express';
+import eslintformat from    'eslint-friendly-formatter';
+import ftp          from    'vinyl-ftp';
+import livereload   from    'connect-livereload';
 import refresh      from    'gulp-livereload';
 import runSequence  from    'run-sequence';
-import browserify   from    'browserify';
-import express      from    'express';
-import ftp          from    'vinyl-ftp';
-import tinylr       from    'tiny-lr';
-import livereload   from    'connect-livereload';
-import buffer       from    'vinyl-buffer';
 import source       from    'vinyl-source-stream';
-import stylish      from    'jshint-stylish';
+import spritesmith  from    'gulp.spritesmith';
+import tinylr       from    'tiny-lr';
 
 /**
  * CONSTANTS
@@ -113,17 +113,17 @@ gulp.task('check:html', () => {
 });
 
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
-// You can enable or disable default JSHint options in the .jshintrc file
+// You can enable or disable default eslint options in the .eslintrc file
 gulp.task('check:js', () => {
     gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
-        .pipe(plugins.jshint('.jshintrc'))
-        .pipe(plugins.jshint.reporter(stylish));
+        .pipe(plugins.eslint())
+        .pipe(plugins.eslint.format(eslintformat))
 });
 
 // Detect errors and potential problems in your css code
 gulp.task('check:less', () => {
     gulp.src([`${dirs.src}/css/**/*.less`, `!${dirs.src}/css/main.less`, `!${dirs.src}/css/libs`])
-        .pipe(plugins.lesshint('.lesshintrc'))
+        .pipe(plugins.lesshint())
         .pipe(plugins.lesshint.reporter())
 });
 
