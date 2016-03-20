@@ -1,5 +1,5 @@
 /* global require, outdatedBrowser */
-"use strict";
+'use strict';
 
 // Avoid `console` errors in browsers that lack a console.
 (function() {
@@ -41,9 +41,7 @@ function addLoadEvent(func) {
 }
 // Call plugin function after DOM ready
 addLoadEvent(function() {
-
-    if (typeof outdatedBrowser !== 'undefined')
-    {
+    if (typeof outdatedBrowser !== 'undefined') {
         outdatedBrowser({
             bgColor: '#f25648',
             color: '#fefefe',
@@ -53,22 +51,21 @@ addLoadEvent(function() {
     }
 });
 
-window.$ = window.jQuery = require ('../components/jquery/dist/jquery.js');
+window.$ = window.jQuery = require('../components/jquery/dist/jquery.js');
 
-var classie = require ('../components/classie/classie.js'),
+var classie = require('../components/classie/classie.js'),
     ShareButton = require('../components/share-button/share-button.js'),
     MQ = require('../components/on-media-query/js/onmediaquery.js');
 
-require ('../components/modernizr.min.js');
-require ('../components/animsition/dist/js/animsition.js');
-require ('../components/imgLiquid/js/imgLiquid.js');
-require ('../components/imagelightbox2/dist/imagelightbox.min.js');
-require ('../components/jquery.lazyload/jquery.lazyload.js');
-require ('../components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
-require ('../components/cookieconsent2/build/cookieconsent.min');
+require('../components/modernizr.min.js');
+require('../components/animsition/dist/js/animsition.js');
+require('../components/imgLiquid/js/imgLiquid.js');
+require('../components/imagelightbox2/dist/imagelightbox.min.js');
+require('../components/jquery.lazyload/jquery.lazyload.js');
+require('../components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
+require('../components/cookieconsent2/build/cookieconsent.min');
 
-$(document).ready(function () {
-
+$(document).ready(function() {
     /**
      *
      * @type {{message: string, dismiss: string, learnMore: string, link: null, theme: string}}
@@ -84,7 +81,7 @@ $(document).ready(function () {
     /**
      * Back to top
      */
-    $('.js-to-top').on('click', function (e) {
+    $('.js-to-top').on('click', function(e) {
         e.preventDefault();
         $('html, body').animate({scrollTop: 0}, 800);
     });
@@ -136,7 +133,7 @@ $(document).ready(function () {
     });
 
     // my own extender
-    $('.js-extender').on('click', function (e) {
+    $('.js-extender').on('click', function(e) {
         e.preventDefault();
         $('.' + $(this).data('toExtend')).slideToggle();
     });
@@ -152,7 +149,7 @@ $(document).ready(function () {
      * Lazy Load - jQuery plugin for lazy loading images
      */
     $('img.lazy').lazyload({
-        effect : 'fadeIn'
+        effect: 'fadeIn'
     });
 
     /**
@@ -229,10 +226,16 @@ $(document).ready(function () {
  * http://www.codrops.com
  */
 (function() {
+    // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
+    // left: 37, up: 38, right: 39, down: 40,
+    // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+    var keys = [32, 37, 38, 39, 40],
+        wheelIter = 0;
 
     // detect if IE : from http://stackoverflow.com/a/16657946
     var ie = (function() {
-        var undef,rv = -1; // Return value assumes failure.
+        var undef,
+            rv = -1; // Return value assumes failure.
         var ua = window.navigator.userAgent;
         var msie = ua.indexOf('MSIE ');
         var trident = ua.indexOf('Trident/');
@@ -248,11 +251,6 @@ $(document).ready(function () {
 
         return ((rv > -1) ? rv : undef);
     }());
-
-    // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
-    // left: 37, up: 38, right: 39, down: 40,
-    // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-    var keys = [32, 37, 38, 39, 40], wheelIter = 0;
 
     function preventDefault(e) {
         e = e || window.event;
@@ -297,48 +295,15 @@ $(document).ready(function () {
         isRevealed,
         noscroll,
         isAnimating,
-        container = document.getElementById( 'container' ),
-        trigger = container.querySelector( 'button.trigger' );
+        container = document.getElementById('container'),
+        trigger = container.querySelector('button.trigger');
 
-    function scrollY() {
-        return window.pageYOffset || docElem.scrollTop;
-    }
-
-    function scrollPage() {
-        scrollVal = scrollY();
-
-        if (isAnimating) {
-            return false;
-        }
-
-        if (noscroll && !ie) {
-            if(scrollVal < 0) {
-                return false;
-            }
-            // keep it that way
-            window.scrollTo(0, 0);
-        }
-
-        if (classie.has(container, 'notrans')) {
-            classie.remove(container, 'notrans');
-            return false;
-        }
-
-        if (scrollVal <= 0 && isRevealed) {
-            toggle(0);
-        }
-        else if (scrollVal > 0 && !isRevealed) {
-            toggle(1);
-        }
-    }
-
-    function toggle (reveal) {
+    function toggle(reveal) {
         isAnimating = true;
 
         if (reveal) {
             classie.add(container, 'modify');
-        }
-        else {
+        } else {
             noscroll = true;
             disable_scroll();
             classie.remove(container, 'modify');
@@ -355,16 +320,47 @@ $(document).ready(function () {
         }, 1200);
     }
 
+    function scrollY() {
+        return window.pageYOffset || docElem.scrollTop;
+    }
+
+    function scrollPage() {
+        scrollVal = scrollY();
+
+        if (isAnimating) {
+            return false;
+        }
+
+        if (noscroll && !ie) {
+            if (scrollVal < 0) {
+                return false;
+            }
+            // keep it that way
+            window.scrollTo(0, 0);
+        }
+
+        if (classie.has(container, 'notrans')) {
+            classie.remove(container, 'notrans');
+            return false;
+        }
+
+        if (scrollVal <= 0 && isRevealed) {
+            toggle(0);
+        } else if (scrollVal > 0 && !isRevealed) {
+            toggle(1);
+        }
+    }
+
     // refreshing the page...
     var pageScroll = scrollY();
     noscroll = pageScroll === 0;
 
     disable_scroll();
 
-    if( pageScroll ) {
+    if (pageScroll) {
         isRevealed = true;
-        classie.add( container, 'notrans' );
-        classie.add( container, 'modify' );
+        classie.add(container, 'notrans');
+        classie.add(container, 'modify');
     }
 
     window.addEventListener('scroll', scrollPage);
