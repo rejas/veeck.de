@@ -1,11 +1,10 @@
 /* global require, outdatedBrowser */
+"use strict";
 
 // Avoid `console` errors in browsers that lack a console.
 (function() {
-    "use strict";
-
     var method;
-    var noop = function () {};
+    var noop = function() {};
     var methods = [
         'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
         'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
@@ -25,11 +24,10 @@
     }
 }());
 
-//event listener: DOM ready
+// Event listener: DOM ready
 function addLoadEvent(func) {
-    "use strict";
-
     var oldonload = window.onload;
+
     if (typeof window.onload !== 'function') {
         window.onload = func;
     } else {
@@ -41,9 +39,8 @@ function addLoadEvent(func) {
         };
     }
 }
-//call plugin function after DOM ready
+// Call plugin function after DOM ready
 addLoadEvent(function() {
-    "use strict";
 
     if (typeof outdatedBrowser !== 'undefined')
     {
@@ -71,24 +68,23 @@ require ('../components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
 require ('../components/cookieconsent2/build/cookieconsent.min');
 
 $(document).ready(function () {
-    "use strict";
 
     /**
      *
      * @type {{message: string, dismiss: string, learnMore: string, link: null, theme: string}}
      */
     window.cookieconsent_options = {
-        "message":"This website uses cookies to ensure you get the best experience on our website",
-        "dismiss":"Got it!",
-        "learnMore":"More info",
-        "link":null,
-        "theme":"dark-bottom"
+        'message': 'This website uses cookies to ensure you get the best experience on our website',
+        'dismiss': 'Got it!',
+        'learnMore': 'More info',
+        'link': null,
+        'theme': 'dark-bottom'
     };
 
     /**
      * Back to top
      */
-    $('.js-to-top').on("click", function (e) {
+    $('.js-to-top').on('click', function (e) {
         e.preventDefault();
         $('html, body').animate({scrollTop: 0}, 800);
     });
@@ -123,15 +119,15 @@ $(document).ready(function () {
     /**
      * Share Button Config
      */
-    new ShareButton ({
+    var shareButton = new ShareButton ({
         ui: {
-            flyout: "top right",
+            flyout: 'top right',
             button_font: false,
             icon_font: false
         },
         networks: {
             facebook: {
-                app_id: "244426142407482"
+                app_id: '244426142407482'
             },
             email: {
                 enabled: false
@@ -140,7 +136,7 @@ $(document).ready(function () {
     });
 
     // my own extender
-    $(".js-extender").on("click", function (e) {
+    $('.js-extender').on('click', function (e) {
         e.preventDefault();
         $('.' + $(this).data('toExtend')).slideToggle();
     });
@@ -148,28 +144,28 @@ $(document).ready(function () {
     /**
      * Fill out the background header images
      */
-    $(".js-img-liquid").imgLiquid({
+    $('.js-img-liquid').imgLiquid({
         useBackgroundSize: true
     });
 
     /**
      * Lazy Load - jQuery plugin for lazy loading images
      */
-    $("img.lazy").lazyload({
-        effect : "fadeIn"
+    $('img.lazy').lazyload({
+        effect : 'fadeIn'
     });
 
     /**
      * Animsitions
      */
-    $(".js-animsition").animsition({
+    $('.js-animsition').animsition({
 
         inClass               :   'zoom-in-sm',
         outClass              :   'zoom-out-sm',
         inDuration            :    1500,
         outDuration           :    800,
         linkElement           :   '.animsition-link',
-        // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
+        // e.g. linkElement   :   'a:not([target='_blank']):not([href^=#])'
         loading               :    true,
         loadingParentElement  :   'body', //animsition wrapper element
         loadingClass          :   'animsition-loading',
@@ -177,7 +173,7 @@ $(document).ready(function () {
             '-o-animation-duration',
             'animation-duration'
         ],
-        //"unSupportCss" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+        //'unSupportCss' option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
         //The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
 
         overlay               :   false,
@@ -189,35 +185,29 @@ $(document).ready(function () {
     /**
      * ImageLightBox
      */
-    var activityIndicatorOn = function()
-        {
-            $( '<div id="ilb-loading" class="spinner-loading spinner-fixed"><div></div></div>' ).appendTo( 'body' );
-        },
-        activityIndicatorOff = function()
-        {
-            $( '#ilb-loading' ).remove();
-        },
-        overlayOn = function()
-        {
-            $( '<div id="imagelightbox-overlay"></div>' ).appendTo( 'body' );
-        },
-        overlayOff = function()
-        {
-            $( '#imagelightbox-overlay' ).remove();
-        },
-        captionOn = function()
-        {
-            var description = $( 'a[href="' + $( '#imagelightbox' ).attr( 'src' ) + '"] img' ).attr( 'alt' );
-            if( description !== undefined && description.length > 0 ) {
-                $( '<div id="imagelightbox-caption">' + description + '</div>' ).appendTo( 'body' );
-            }
-        },
-        captionOff = function()
-        {
-            $( '#imagelightbox-caption' ).remove();
-        };
+    var activityIndicatorOn = function() {
+        $('<div id="ilb-loading" class="spinner-loading spinner-fixed"><div></div></div>').appendTo('body');
+    },
+    activityIndicatorOff = function() {
+        $('#ilb-loading').remove();
+    },
+    overlayOn = function() {
+        $('<div id="imagelightbox-overlay"></div>' ).appendTo('body');
+    },
+    overlayOff = function() {
+        $('#imagelightbox-overlay').remove();
+    },
+    captionOn = function() {
+        var description = $('a[href="' + $('#imagelightbox').attr('src') + '"] img').attr('alt');
+        if (description !== undefined && description.length > 0) {
+            $('<div id="imagelightbox-caption">' + description + '</div>').appendTo('body');
+        }
+    },
+    captionOff = function() {
+        $('#imagelightbox-caption').remove();
+    };
 
-    var gallery = $("a.gallery, .gallery_article figure a");
+    var gallery = $('a.gallery, .gallery_article figure a');
     if (gallery.length > 0) {
         gallery.imageLightbox(
             {
@@ -239,10 +229,9 @@ $(document).ready(function () {
  * http://www.codrops.com
  */
 (function() {
-    "use strict";
 
     // detect if IE : from http://stackoverflow.com/a/16657946
-    var ie = (function(){
+    var ie = (function() {
         var undef,rv = -1; // Return value assumes failure.
         var ua = window.navigator.userAgent;
         var msie = ua.indexOf('MSIE ');
@@ -318,52 +307,52 @@ $(document).ready(function () {
     function scrollPage() {
         scrollVal = scrollY();
 
-        if( isAnimating ) {
+        if (isAnimating) {
             return false;
         }
 
-        if( noscroll && !ie ) {
-            if( scrollVal < 0 ) {
+        if (noscroll && !ie) {
+            if(scrollVal < 0) {
                 return false;
             }
             // keep it that way
-            window.scrollTo( 0, 0 );
+            window.scrollTo(0, 0);
         }
 
-        if( classie.has( container, 'notrans' ) ) {
-            classie.remove( container, 'notrans' );
+        if (classie.has(container, 'notrans')) {
+            classie.remove(container, 'notrans');
             return false;
         }
 
-        if( scrollVal <= 0 && isRevealed ) {
+        if (scrollVal <= 0 && isRevealed) {
             toggle(0);
         }
-        else if( scrollVal > 0 && !isRevealed ){
+        else if (scrollVal > 0 && !isRevealed) {
             toggle(1);
         }
     }
 
-    function toggle( reveal ) {
+    function toggle (reveal) {
         isAnimating = true;
 
-        if( reveal ) {
-            classie.add( container, 'modify' );
+        if (reveal) {
+            classie.add(container, 'modify');
         }
         else {
             noscroll = true;
             disable_scroll();
-            classie.remove( container, 'modify' );
+            classie.remove(container, 'modify');
         }
 
         // simulating the end of the transition:
-        setTimeout( function() {
+        setTimeout(function() {
             isRevealed = !isRevealed;
             isAnimating = false;
-            if( reveal ) {
+            if (reveal) {
                 noscroll = false;
                 enable_scroll();
             }
-        }, 1200 );
+        }, 1200);
     }
 
     // refreshing the page...
@@ -378,6 +367,8 @@ $(document).ready(function () {
         classie.add( container, 'modify' );
     }
 
-    window.addEventListener( 'scroll', scrollPage );
-    trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+    window.addEventListener('scroll', scrollPage);
+    trigger.addEventListener('click', function() {
+        toggle('reveal');
+    });
 })();
