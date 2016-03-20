@@ -49,7 +49,7 @@
         .headline1 {
             position: relative;
             padding: 0.5rem;
-            background: @color_white;
+            background: @primaryColor;
             text-align: center;
             word-wrap: break-word;
         }
@@ -80,13 +80,22 @@
         }
 
         .share-btn {
-            left: -3px;
-            right: initial;
+            left: initial;
+
+            @media @smartphones {
+                right: 2em;
+                bottom: 6em;
+            }
         }
 
         .to-top-btn {
             left: initial;
             right: -3px;
+
+            @media @smartphones {
+                right: 2em;
+                bottom: 1em;
+            }
         }
     }
 
@@ -126,25 +135,49 @@
         }
     }
 
-    .share-btn {
+    .share-btn,
+    .to-top-btn {
+        color: @color_white;
+        background-color: @accentColor;
         position: fixed;
-        bottom: 1em;
-        right: 100%;
-        &:extend(.button all);
+        width: 20px;
         z-index: @z-index-5;
         .boxshadow(1);
+
+        @media @smartphones {
+            border-radius: 50%;
+            width: 55.5px;
+            height: 55.5px;
+
+            &::before {
+                line-height: 55.5px;
+            }
+        }
+    }
+
+    .share-btn {
+        right: 100%;
+
+        @media @desktop {
+
+            &::after {
+                content: "share";
+            }
+        }
     }
 
     .to-top-btn {
-        position: fixed;
-        bottom: 1em;
         left: 100%;
-        &:extend(.button all);
-        z-index: @z-index-5;
-        .boxshadow(1);
 
         &::before {
             &:extend(.icon-font-up::after);
+        }
+
+        @media @desktop {
+
+            &::after {
+                content: "back to top";
+            }
         }
     }
 }
