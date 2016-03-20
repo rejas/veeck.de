@@ -1,6 +1,10 @@
 /* global require, outdatedBrowser */
 'use strict';
 
+var classie,
+    ShareButton,
+    MQ;
+
 // Avoid `console` errors in browsers that lack a console.
 (function() {
     var method;
@@ -52,10 +56,9 @@ addLoadEvent(function() {
 });
 
 window.$ = window.jQuery = require('../components/jquery/dist/jquery.js');
-
-var classie = require('../components/classie/classie.js'),
-    ShareButton = require('../components/share-button/share-button.js'),
-    MQ = require('../components/on-media-query/js/onmediaquery.js');
+classie = require('../components/classie/classie.js');
+ShareButton = require('../components/share-button/share-button.js');
+MQ = require('../components/on-media-query/js/onmediaquery.js');
 
 require('../components/modernizr.min.js');
 require('../components/animsition/dist/js/animsition.js');
@@ -230,15 +233,22 @@ $(document).ready(function() {
     // left: 37, up: 38, right: 39, down: 40,
     // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
     var keys = [32, 37, 38, 39, 40],
-        wheelIter = 0;
+        wheelIter = 0,
+        docElem = window.document.documentElement,
+        scrollVal,
+        isRevealed,
+        noscroll,
+        isAnimating,
+        container = document.getElementById('container'),
+        trigger = container.querySelector('button.trigger');
 
     // detect if IE : from http://stackoverflow.com/a/16657946
     var ie = (function() {
         var undef,
-            rv = -1; // Return value assumes failure.
-        var ua = window.navigator.userAgent;
-        var msie = ua.indexOf('MSIE ');
-        var trident = ua.indexOf('Trident/');
+            rv = -1, // Return value assumes failure.
+            ua = window.navigator.userAgent,
+            msie = ua.indexOf('MSIE '),
+            trident = ua.indexOf('Trident/');
 
         if (msie > 0) {
             // IE 10 or older => return version number
@@ -289,14 +299,6 @@ $(document).ready(function() {
     function enable_scroll() {
         window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
     }
-
-    var docElem = window.document.documentElement,
-        scrollVal,
-        isRevealed,
-        noscroll,
-        isAnimating,
-        container = document.getElementById('container'),
-        trigger = container.querySelector('button.trigger');
 
     function toggle(reveal) {
         isAnimating = true;
