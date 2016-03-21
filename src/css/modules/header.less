@@ -49,9 +49,11 @@
         .headline1 {
             position: relative;
             padding: 0.5rem;
-            background: @primaryColor;
+            background: @lightPrimaryColor;
             text-align: center;
             word-wrap: break-word;
+            border-radius: @border-radius;
+            .boxshadow(1);
         }
 
         .subline {
@@ -83,17 +85,14 @@
             left: initial;
 
             @media @smartphones {
-                right: 2em;
-                bottom: 6em;
+                bottom: 3em;
             }
         }
 
         .to-top-btn {
             left: initial;
-            right: -3px;
 
             @media @smartphones {
-                right: 2em;
                 bottom: 1em;
             }
         }
@@ -113,10 +112,12 @@
 
         .icon {
             color: black;
-            width: 60px;
+            width: 55px;
+            height: 55px;
             margin: 0 auto;
-            border-radius: 3rem;
+            border-radius: 50%;
             background-color: @menuBackground;
+            .boxshadow(1);
 
             &::after {
                 &:extend(.icon-font-more::after);
@@ -139,26 +140,30 @@
     .to-top-btn {
         color: @color_white;
         background-color: @accentColor;
+        padding: 0;
         position: fixed;
+        left: 100%;
         width: 20px;
         z-index: @z-index-5;
-        .boxshadow(1);
 
         @media @smartphones {
+            color: black;
+            font-size: 4rem;
+            text-align: center;
+            width: 55px;
+            height: 55px;
+            margin: 0 auto;
+            right: 1em;
             border-radius: 50%;
-            width: 55.5px;
-            height: 55.5px;
-
-            &::before {
-                line-height: 55.5px;
-            }
+            .boxshadow(1);
         }
     }
 
     .share-btn {
-        right: 100%;
+        color: transparent;
 
         @media @desktop {
+            right: 100%;
 
             &::after {
                 content: "share";
@@ -167,7 +172,6 @@
     }
 
     .to-top-btn {
-        left: 100%;
 
         &::before {
             &:extend(.icon-font-up::after);

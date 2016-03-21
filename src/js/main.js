@@ -121,7 +121,7 @@ $(document).ready(function() {
      */
     var shareButton = new ShareButton ({
         ui: {
-            flyout: 'top right',
+            flyout: 'top left',
             button_font: false,
             icon_font: false
         },
