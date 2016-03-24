@@ -6,15 +6,9 @@
     }
 }
 
-::-moz-selection {
-    background: @base;
-    color: @base2;
-    text-shadow: none;
-}
-
 ::selection {
-    background: @base;
-    color: @base2;
+    background: @primaryColor;
+    color: @textPrimaryColor;
     text-shadow: none;
 }
 
@@ -30,8 +24,8 @@ html {
 
 body {
     height: 100%;
-    color: @color_black;
-    background-color: @color_white;
+    color: @color-black;
+    background-color: @color-white;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -116,14 +110,14 @@ ul {
 
 a,
 a:visited {
-    color: @base3;
+    color: @accentColor;
     outline: none;
     text-decoration: none;
 }
 
 a:hover,
 a:focus {
-    color: @base2;
+    color: @lightPrimaryColor;
 }
 
 time {
@@ -133,23 +127,23 @@ time {
 
 input {
     padding: 4px 8px;
-    border: 1px solid @base3;
+    border: 1px solid @accentColor;
 }
 
 textarea {
-    border: 1px solid @base3;
+    border: 1px solid @accentColor;
     border-radius: 4px;
 }
 
 select {
-    border: 1px solid @base3;
+    border: 1px solid @accentColor;
     border-radius: 4px;
 }
 
 .button {
-    color: @color_black;
-    background: @base3;
-    border-color: @color_black;
+    color: @color-black;
+    background: @accentColor;
+    border-color: @color-black;
     font-family: Lato, sans-serif;
     transition: all 0.3s ease;
 
@@ -214,7 +208,7 @@ select {
     display: none;
     padding: 0.35em;
     margin: 15px 0 15px 0;
-    border: 3px solid @base;
+    border: 3px solid @darkPrimaryColor;
 }
 
 @media @smartphones {
