@@ -151,7 +151,7 @@ $(document).ready(function() {
     /**
      * Lazy Load - jQuery plugin for lazy loading images
      */
-    $('img.lazy').lazyload({
+    $('.js-lazyload').lazyload({
         effect: 'fadeIn'
     });
 
@@ -159,55 +159,52 @@ $(document).ready(function() {
      * Animsitions
      */
     $('.js-animsition').animsition({
-
-        inClass               :   'zoom-in-sm',
-        outClass              :   'zoom-out-sm',
-        inDuration            :    1500,
-        outDuration           :    800,
-        linkElement           :   '.animsition-link',
+        inClass: 'zoom-in-sm',
+        outClass: 'zoom-out-sm',
+        inDuration: 1500,
+        outDuration: 800,
+        linkElement: '.animsition-link',
         // e.g. linkElement   :   'a:not([target='_blank']):not([href^=#])'
-        loading               :    true,
-        loadingParentElement  :   'body', //animsition wrapper element
-        loadingClass          :   'animsition-loading',
-        unSupportCss          : [ '-webkit-animation-duration',
+        loading: true,
+        loadingParentElement: 'body', //animsition wrapper element
+        loadingClass: 'animsition-loading',
+        unSupportCss: [ '-webkit-animation-duration',
             '-o-animation-duration',
             'animation-duration'
         ],
         //'unSupportCss' option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
         //The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-
-        overlay               :   false,
-
-        overlayClass          :   'animsition-overlay-slide',
-        overlayParentElement  :   'body'
+        overlay: false,
+        overlayClass: 'animsition-overlay-slide',
+        overlayParentElement: 'body'
     });
 
     /**
      * ImageLightBox
      */
     var activityIndicatorOn = function() {
-        $('<div id="ilb-loading" class="spinner-loading spinner-fixed"><div></div></div>').appendTo('body');
-    },
-    activityIndicatorOff = function() {
-        $('#ilb-loading').remove();
-    },
-    overlayOn = function() {
-        $('<div id="imagelightbox-overlay"></div>' ).appendTo('body');
-    },
-    overlayOff = function() {
-        $('#imagelightbox-overlay').remove();
-    },
-    captionOn = function() {
-        var description = $('a[href="' + $('#imagelightbox').attr('src') + '"] img').attr('alt');
-        if (description !== undefined && description.length > 0) {
-            $('<div id="imagelightbox-caption">' + description + '</div>').appendTo('body');
-        }
-    },
-    captionOff = function() {
-        $('#imagelightbox-caption').remove();
-    };
+            $('<div id="ilb-loading" class="spinner-loading spinner-fixed"><div></div></div>').appendTo('body');
+        },
+        activityIndicatorOff = function() {
+            $('#ilb-loading').remove();
+        },
+        overlayOn = function() {
+            $('<div id="imagelightbox-overlay"></div>' ).appendTo('body');
+        },
+        overlayOff = function() {
+            $('#imagelightbox-overlay').remove();
+        },
+        captionOn = function() {
+            var description = $('a[href="' + $('#imagelightbox').attr('src') + '"] img').attr('alt');
+            if (description !== undefined && description.length > 0) {
+                $('<div id="imagelightbox-caption">' + description + '</div>').appendTo('body');
+            }
+        },
+        captionOff = function() {
+            $('#imagelightbox-caption').remove();
+        },
+        gallery = $('a.gallery, .gallery_article figure a');
 
-    var gallery = $('a.gallery, .gallery_article figure a');
     if (gallery.length > 0) {
         gallery.imageLightbox(
             {
@@ -248,14 +245,14 @@ $(document).ready(function() {
             rv = -1, // Return value assumes failure.
             ua = window.navigator.userAgent,
             msie = ua.indexOf('MSIE '),
-            trident = ua.indexOf('Trident/');
+            trident = ua.indexOf('Trident/'),
+            rvNum = ua.indexOf('rv:');
 
         if (msie > 0) {
             // IE 10 or older => return version number
             rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
         } else if (trident > 0) {
             // IE 11 (or newer) => return version number
-            var rvNum = ua.indexOf('rv:');
             rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
         }
 
