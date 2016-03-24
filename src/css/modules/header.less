@@ -83,18 +83,12 @@
 
         .share-btn {
             left: initial;
-
-            @media @smartphones {
-                bottom: 3em;
-            }
+            bottom: 3em;
         }
 
         .to-top-btn {
             left: initial;
-
-            @media @smartphones {
-                bottom: 1em;
-            }
+            bottom: 1em;
         }
     }
 
@@ -138,50 +132,44 @@
 
     .share-btn,
     .to-top-btn {
-        color: @color-white;
+        color: transparent;
         background-color: @accentColor;
-        padding: 0;
         position: fixed;
         left: 100%;
-        width: 20px;
+        right: 1em;
+        width: 55px;
+        height: 55px;
+        font-size: 4rem;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+        border-radius: 50%;
+        user-select: none;
         z-index: @z-index-5;
-
-        @media @smartphones {
-            color: black;
-            font-size: 4rem;
-            text-align: center;
-            width: 55px;
-            height: 55px;
-            margin: 0 auto;
-            right: 1em;
-            border-radius: 50%;
-            .boxshadow(1);
-        }
+        .boxshadow(1);
     }
 
     .share-btn {
-        color: transparent;
 
-        @media @desktop {
-            right: 100%;
+        &::before {
+            transform: scale(0.75);
+            left: 0.75rem;
+            top: 0.75rem;
+        }
 
-            &::after {
-                content: "share";
-            }
+        .sb-social.sb-left.active.sb-top {
+            top: -0.5em;
+            transform: translate(calc(-92%), -100%);
         }
     }
 
     .to-top-btn {
 
         &::before {
+            color: @menuColor;
             &:extend(.icon-font-up::after);
-        }
-
-        @media @desktop {
-
-            &::after {
-                content: "back to top";
-            }
+            position: relative;
+            left: 0.75rem;
         }
     }
 }
