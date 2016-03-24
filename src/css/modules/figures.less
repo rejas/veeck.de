@@ -1,4 +1,8 @@
 figure {
+    color: @primaryTextColor;
+    background-color: @primaryColor;
+    border-radius: @border-radius;
+    overflow: hidden;
     .boxshadow(1);
     text-decoration: none;
     position: relative;
@@ -20,11 +24,10 @@ figure {
         }
 
         > span {
+            background-color: @lightPrimaryColor;
             display: block;
             font-size: 3rem;
             font-weight: bold;
-            color: @color_white;
-            background-color: @base;
             text-align: center;
             position: relative;
             padding: 1rem 0;
@@ -53,7 +56,6 @@ figcaption {
     text-align: center;
     text-transform: uppercase;
     padding: 0.25em;
-    background-color: @base3;
 }
 
 
@@ -136,8 +138,8 @@ figcaption {
         transform: rotate(45deg);
         width: 100px;
         display: block;
-        color: @color_white;
-        background-color: @base3;
+        color: @color-white;
+        background-color: @accentColor;
         .boxshadow(2);
 
         &::before {
@@ -146,10 +148,10 @@ figcaption {
             left: 0;
             top: 100%;
             z-index: -1;
-            border-left: 3px solid darken(@base3, 15%);
+            border-left: 3px solid darken(@accentColor, 15%);
             border-right: 3px solid transparent;
             border-bottom: 3px solid transparent;
-            border-top: 3px solid darken(@base3, 15%);
+            border-top: 3px solid darken(@accentColor, 15%);
         }
 
         &::after {
@@ -159,9 +161,9 @@ figcaption {
             top: 100%;
             z-index: -1;
             border-left: 3px solid transparent;
-            border-right: 3px solid darken(@base3, 15%);
+            border-right: 3px solid darken(@accentColor, 15%);
             border-bottom: 3px solid transparent;
-            border-top: 3px solid darken(@base3, 15%);
+            border-top: 3px solid darken(@accentColor, 15%);
         }
     }
 }

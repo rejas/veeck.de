@@ -48,29 +48,29 @@
     .sprite(@youtube);
 }
 
-.icon-font-left:after:extend(.icon-font::after) {
+.icon-font-left::after:extend(.icon-font::after) {
     content: 'a';
 }
-.icon-font-right:after:extend(.icon-font::after) {
+.icon-font-right::after:extend(.icon-font::after) {
     content: 'b';
 }
-.icon-font-up:after:extend(.icon-font::after) {
+.icon-font-up::after:extend(.icon-font::after) {
     content: 'c';
 }
-.icon-font-down:after:extend(.icon-font::after) {
+.icon-font-down::after:extend(.icon-font::after) {
     content: 'd';
 }
-.icon-font-more:after:extend(.icon-font::after) {
+.icon-font-more::after:extend(.icon-font::after) {
     content: 'd';
 }
-.icon-font-menu:after:extend(.icon-font::after) {
+.icon-font-menu::after:extend(.icon-font::after) {
     content: 'm';
 }
 
 
 // Other Icons
 
-.mobile-menu-button::after {
+.mobile-menu-button::before {
     &:extend(.icon-font-menu::after);
 }
 

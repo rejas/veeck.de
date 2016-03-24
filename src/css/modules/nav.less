@@ -19,7 +19,7 @@
         text-transform: uppercase;
         font-size: 0.7em;
         letter-spacing: 1px;
-        color: @base2;
+        color: @menuColor;
         border-bottom: 3px solid transparent;
     }
 
@@ -36,15 +36,14 @@
             &:hover,
             &.active-nav {
                 opacity: 1;
-                color: @base2;
 
                 > a {
-                    border-bottom: 3px solid @base2;
+                    border-bottom: 3px solid @darkPrimaryColor;
                 }
             }
 
             &:hover > a {
-                background-color: @base;
+                background-color: @darkPrimaryColor;
             }
 
             > a {
@@ -83,7 +82,7 @@
                         margin: 0;
 
                         &:hover {
-                            background-color: @base !important;
+                            background-color: @darkPrimaryColor !important;
                         }
                     }
                 }

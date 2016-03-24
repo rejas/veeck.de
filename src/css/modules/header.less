@@ -49,9 +49,11 @@
         .headline1 {
             position: relative;
             padding: 0.5rem;
-            background: @color_white;
+            background: @lightPrimaryColor;
             text-align: center;
             word-wrap: break-word;
+            border-radius: @border-radius;
+            .boxshadow(1);
         }
 
         .subline {
@@ -78,6 +80,16 @@
             pointer-events: none;
             transition-delay: 0s;
         }
+
+        .share-btn {
+            left: initial;
+            bottom: 3em;
+        }
+
+        .to-top-btn {
+            left: initial;
+            bottom: 1em;
+        }
     }
 
     .trigger {
@@ -94,10 +106,12 @@
 
         .icon {
             color: black;
-            width: 60px;
+            width: 55px;
+            height: 55px;
             margin: 0 auto;
-            border-radius: 3rem;
+            border-radius: 50%;
             background-color: @menuBackground;
+            .boxshadow(1);
 
             &::after {
                 &:extend(.icon-font-more::after);
@@ -113,6 +127,49 @@
             &:hover {
                 background-color: @menuBackground;
             }
+        }
+    }
+
+    .share-btn,
+    .to-top-btn {
+        color: transparent;
+        background-color: @accentColor;
+        position: fixed;
+        left: 100%;
+        right: 1em;
+        width: 55px;
+        height: 55px;
+        font-size: 4rem;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+        border-radius: 50%;
+        user-select: none;
+        z-index: @z-index-5;
+        .boxshadow(1);
+    }
+
+    .share-btn {
+
+        &::before {
+            transform: scale(0.75);
+            left: 0.75rem;
+            top: 0.75rem;
+        }
+
+        .sb-social.sb-left.active.sb-top {
+            top: -0.5em;
+            transform: translate(calc(-92%), -100%);
+        }
+    }
+
+    .to-top-btn {
+
+        &::before {
+            color: @menuColor;
+            &:extend(.icon-font-up::after);
+            position: relative;
+            left: 0.75rem;
         }
     }
 }
