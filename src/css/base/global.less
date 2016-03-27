@@ -47,6 +47,29 @@ body {
     }
 }
 
+article {
+    .clearfix();
+    .baseline (1em);
+
+    margin: 1em auto;
+    padding: 0 1em 3em;
+
+    @media @desktop {
+        max-width: 960px;
+    }
+}
+
+section {
+    .clearfix();
+    margin-bottom: 2em;
+
+    h2 {
+        border-bottom: 2px solid @color-black;
+        padding-bottom: 0.25em;
+        text-align: center;
+    }
+}
+
 h1,
 h2,
 h3,
@@ -174,50 +197,9 @@ select {
     right: 0;
 }
 
-/**
- * Radio
- */
-
-.radio_article {
-
-    audio {
-        width: 100%;
-        margin: 10px 0 25px 0;
-    }
-
-    a {
-        float: right;
-    }
-}
-
-/**
- *
- */
-
-.adframe {
-    float: right;
-    margin: 3px 3px 0 3px;
-}
-
-.adfigure {
-    width: 316px;
-    height: 266px;
-}
-
 .to_extend {
     display: none;
     padding: 0.35em;
     margin: 15px 0 15px 0;
     border: 3px solid @darkPrimaryColor;
-}
-
-@media @smartphones {
-
-    .adframe {
-        max-width: 100%;
-    }
-
-    .adfigure {
-        max-width: 100%;
-    }
 }
