@@ -63,7 +63,7 @@ gulp.task('browserify', () => {
 //
 gulp.task('vendorscripts', () => {
     // Minify and copy all vendor scripts
-    gulp.src([`${dirs.src}/js/vendor/**/*.js`, `${dirs.src}/components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js`])
+    gulp.src([`${dirs.src}/components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js`])
         .pipe(plugins.uglify())
         .pipe(gulp.dest(`${dirs.dist}/js/vendor`));
 });

@@ -119,7 +119,7 @@ $(document).ready(function() {
     /**
      * Share Button Config
      */
-    var shareButton = new ShareButton ({
+    var shareButton = new ShareButton({
         ui: {
             flyout: 'top left',
             button_font: false,
@@ -166,14 +166,14 @@ $(document).ready(function() {
         linkElement: '.animsition-link',
         // e.g. linkElement   :   'a:not([target='_blank']):not([href^=#])'
         loading: true,
-        loadingParentElement: 'body', //animsition wrapper element
+        loadingParentElement: 'body', // animsition wrapper element
         loadingClass: 'animsition-loading',
-        unSupportCss: [ '-webkit-animation-duration',
+        unSupportCss: ['-webkit-animation-duration',
             '-o-animation-duration',
             'animation-duration'
         ],
-        //'unSupportCss' option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-        //The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+        // 'unSupportCss' option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+        // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
         overlay: false,
         overlayClass: 'animsition-overlay-slide',
         overlayParentElement: 'body'
@@ -189,7 +189,7 @@ $(document).ready(function() {
             $('#ilb-loading').remove();
         },
         overlayOn = function() {
-            $('<div id="imagelightbox-overlay"></div>' ).appendTo('body');
+            $('<div id="imagelightbox-overlay"></div>').appendTo('body');
         },
         overlayOff = function() {
             $('#imagelightbox-overlay').remove();
@@ -282,9 +282,9 @@ $(document).ready(function() {
 
     function wheel(e) {
         // for IE
-        //if( ie ) {
-        //preventDefault(e);
-        //}
+        // if( ie ) {
+        // preventDefault(e);
+        // }
     }
 
     function disable_scroll() {
@@ -352,6 +352,7 @@ $(document).ready(function() {
 
     // refreshing the page...
     var pageScroll = scrollY();
+
     noscroll = pageScroll === 0;
 
     disable_scroll();
