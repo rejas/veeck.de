@@ -3,7 +3,8 @@
 
 var classie,
     ShareButton,
-    MQ;
+    MQ,
+    Blazy;
 
 // Avoid `console` errors in browsers that lack a console.
 (function() {
@@ -59,12 +60,12 @@ window.$ = window.jQuery = require('../components/jquery/dist/jquery.js');
 classie = require('../components/classie/classie.js');
 ShareButton = require('../components/share-button/share-button.js');
 MQ = require('../components/on-media-query/js/onmediaquery.js');
+Blazy = require('../components/bLazy/blazy.js');
 
 require('../components/modernizr.min.js');
 require('../components/animsition/dist/js/animsition.js');
 require('../components/imgLiquid/js/imgLiquid.js');
 require('../components/imagelightbox2/dist/imagelightbox.min.js');
-require('../components/jquery.lazyload/jquery.lazyload.js');
 require('../components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
 require('../components/cookieconsent2/build/cookieconsent.min');
 
@@ -149,10 +150,11 @@ $(document).ready(function() {
     });
 
     /**
-     * Lazy Load - jQuery plugin for lazy loading images
+     * Lazyload images via blazy
      */
-    $('.js-lazyload').lazyload({
-        effect: 'fadeIn'
+    var bLazy = new Blazy({
+        selector: '.js-lazyload',
+        src: 'data-original'
     });
 
     /**

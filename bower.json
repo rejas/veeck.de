@@ -15,12 +15,12 @@
   ],
   "dependencies": {
     "animsition": "4.0.1",
+    "bLazy": "blazy#^1.5.4",
     "classie": "1.0.1",
     "cookieconsent2": "1.0.10",
     "imagelightbox2": "0.3.4",
     "imgLiquid": "0.9.944",
     "jquery": "2.2.2",
-    "jquery.lazyload": "1.9.7",
     "normalize-opentype.css": "0.2.4",
     "normalize.css": "4.0.0",
     "on-media-query": "0.2.0",
