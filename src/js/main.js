@@ -154,7 +154,12 @@ $(document).ready(function() {
      */
     var bLazy = new Blazy({
         selector: '.js-lazyload',
-        src: 'data-original'
+        src: 'data-original',
+        error: function(ele, msg) {
+            if (msg === 'missing' || msg === 'invalid') {
+                $(ele).attr('src', '');
+            }
+        }
     });
 
     /**
