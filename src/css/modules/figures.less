@@ -167,3 +167,28 @@ figcaption {
         }
     }
 }
+
+img.b-error {
+    min-height: 50px;
+
+    &::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        left: 0;
+        height: calc(100% + 10px);
+        width: 100%;
+        background-color: @lightPrimaryColor;
+    }
+
+    &::after {
+        content: "�" " Broken Image '" attr(alt) "'";
+        display: block;
+        color: @accentColor;
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+}
