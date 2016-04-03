@@ -62,7 +62,6 @@ ShareButton = require('../components/share-button/share-button.js');
 MQ = require('../components/on-media-query/js/onmediaquery.js');
 Blazy = require('../components/bLazy/blazy.js');
 
-require('../components/modernizr.min.js');
 require('../components/animsition/dist/js/animsition.js');
 require('../components/imgLiquid/js/imgLiquid.js');
 require('../components/imagelightbox2/dist/imagelightbox.min.js');
@@ -145,9 +144,11 @@ $(document).ready(function() {
     /**
      * Fill out the background header images
      */
-    $('.js-img-liquid').imgLiquid({
-        useBackgroundSize: true
-    });
+    if (!Modernizr.objectfit) {
+        $('.js-img-liquid').imgLiquid({
+            useBackgroundSize: true
+        });
+    }
 
     /**
      * Lazyload images via blazy
