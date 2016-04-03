@@ -1,4 +1,5 @@
 {
+    "hexNotation":              false,
     "importantRule":            false,
     "propertyOrdering":         false,
     "qualifyingElement":        false,
