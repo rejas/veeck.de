@@ -1,0 +1,51 @@
+{
+  "name": "css-hamburgers",
+  "version": "0.4.0",
+  "description": "Collection of tasty CSS-animated hamburger icons. Includes Sass files (modular and customizable), so cook up your own hamburger.",
+  "license": "MIT",
+  "author": {
+    "name": "Jonathan Suh",
+    "email": "hello@jonsuh.com",
+    "url": "https://jonsuh.com/hamburgers"
+  },
+  "main": "_sass/hamburgers/hamburgers.scss",
+  "keywords": [
+    "css",
+    "hamburger",
+    "hamburgers",
+    "menu",
+    "sass",
+    "scss"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonsuh/hamburgers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonsuh/hamburgers/issues"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "js",
+    "_js",
+    "css",
+    "*.mp4",
+    "*.ogv",
+    "*.webm",
+    "favicon.ico",
+    "hamburger.png",
+    "index.html"
+  ],
+  "homepage": "https://github.com/jonsuh/hamburgers",
+  "_release": "0.4.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.4.0",
+    "commit": "49ab6a8acf85297bc6fd4cb08e34990b80899a02"
+  },
+  "_source": "git://github.com/jonsuh/hamburgers.git",
+  "_target": "^0.4.0",
+  "_originalSource": "css-hamburgers",
+  "_direct": true
+}

@@ -1,0 +1,142 @@
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+
+// Settings
+// ==================================================
+$hamburger-padding-x                       : 15px !default;
+$hamburger-padding-y                       : 15px !default;
+$hamburger-layer-width                     : 40px !default;
+$hamburger-layer-height                    : 4px !default;
+$hamburger-layer-spacing                   : 6px !default;
+$hamburger-layer-color                     : #000 !default;
+$hamburger-layer-border-radius             : 4px !default;
+$hamburger-hover-opacity                   : 0.7 !default;
+$hamburger-hover-transition-duration       : 0.15s !default;
+$hamburger-hover-transition-timing-function: linear !default;
+
+// To use CSS filters as the hover effect instead of opacity,
+// set $hamburger-hover-use-filter as true and
+// change the value of $hamburger-hover-filter accordingly.
+$hamburger-hover-use-filter: false !default;
+$hamburger-hover-filter    : opacity(50%) !default;
+
+// Types (Remove or comment out what you don’t need)
+// ==================================================
+$hamburger-types: (
+  3dx,
+  3dx-r,
+  3dy,
+  3dy-r,
+  arrow,
+  arrow-r,
+  arrowalt,
+  arrowalt-r,
+  boring,
+  collapse,
+  collapse-r,
+  elastic,
+  elastic-r,
+  emphatic,
+  emphatic-r,
+  slider,
+  slider-r,
+  spring,
+  spring-r,
+  stand,
+  stand-r,
+  spin,
+  spin-r,
+  squeeze,
+  vortex,
+  vortex-r
+) !default;
+
+// Base Hamburger (We need this)
+// ==================================================
+@import "base";
+
+// Include/exclude based on $hamburger-types
+// ==================================================
+@if index($hamburger-types, 3dx) {
+  @import "types/3dx";
+}
+@if index($hamburger-types, 3dx-r) {
+  @import "types/3dx-r";
+}
+@if index($hamburger-types, 3dy) {
+  @import "types/3dy";
+}
+@if index($hamburger-types, 3dy-r) {
+  @import "types/3dy-r";
+}
+@if index($hamburger-types, arrow) {
+  @import "types/arrow";
+}
+@if index($hamburger-types, arrow-r) {
+  @import "types/arrow-r";
+}
+@if index($hamburger-types, arrowalt) {
+  @import "types/arrowalt";
+}
+@if index($hamburger-types, arrowalt-r) {
+  @import "types/arrowalt-r";
+}
+@if index($hamburger-types, boring) {
+  @import "types/boring";
+}
+@if index($hamburger-types, collapse) {
+  @import "types/collapse";
+}
+@if index($hamburger-types, collapse-r) {
+  @import "types/collapse-r";
+}
+@if index($hamburger-types, elastic) {
+  @import "types/elastic";
+}
+@if index($hamburger-types, elastic-r) {
+  @import "types/elastic-r";
+}
+@if index($hamburger-types, emphatic) {
+  @import "types/emphatic";
+}
+@if index($hamburger-types, emphatic-r) {
+  @import "types/emphatic-r";
+}
+@if index($hamburger-types, slider) {
+  @import "types/slider";
+}
+@if index($hamburger-types, slider-r) {
+  @import "types/slider-r";
+}
+@if index($hamburger-types, spring) {
+  @import "types/spring";
+}
+@if index($hamburger-types, spring-r) {
+  @import "types/spring-r";
+}
+@if index($hamburger-types, stand) {
+  @import "types/stand";
+}
+@if index($hamburger-types, stand-r) {
+  @import "types/stand-r";
+}
+@if index($hamburger-types, spin) {
+  @import "types/spin";
+}
+@if index($hamburger-types, spin-r) {
+  @import "types/spin-r";
+}
+@if index($hamburger-types, squeeze) {
+  @import "types/squeeze";
+}
+@if index($hamburger-types, vortex) {
+  @import "types/vortex";
+}
+@if index($hamburger-types, vortex-r) {
+  @import "types/vortex-r";
+}
