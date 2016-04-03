@@ -141,6 +141,17 @@ $(document).ready(function() {
         $('.' + $(this).data('toExtend')).slideToggle();
     });
 
+    // trigger mobile button animation
+    var $trigger = $('.js-dl-trigger');
+    $trigger.on('click', function(ignore) {
+        $trigger.toggleClass('is-active');
+        if ($trigger.hasClass('is-active')) {
+            $('body').off( 'click' ).children().on( 'click', function() {
+                $trigger.removeClass('is-active');
+            });
+        }
+    });
+
     /**
      * Fill out the background header images
      */
