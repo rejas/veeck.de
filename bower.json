@@ -16,7 +16,7 @@
   "dependencies": {
     "animsition": "4.0.1",
     "bLazy": "blazy#^1.5.4",
-    "css-hamburgers": "0.4.0",
+    "css-hamburgers": "0.5.0",
     "classie": "1.0.1",
     "cookieconsent2": "1.0.10",
     "imagelightbox2": "0.3.4",
