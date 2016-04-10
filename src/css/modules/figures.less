@@ -1,6 +1,5 @@
 figure {
-    color: @primaryTextColor;
-    background-color: @primaryColor;
+    .colorVar(background-color, --primaryColor, @primaryColor);
     border-radius: @border-radius;
     overflow: hidden;
     .boxshadow(1);
@@ -24,7 +23,7 @@ figure {
         }
 
         > span {
-            background-color: @lightPrimaryColor;
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
             display: block;
             font-size: 3rem;
             font-weight: bold;
@@ -138,9 +137,9 @@ figcaption {
         transform: rotate(45deg);
         width: 100px;
         display: block;
-        color: @color-white;
-        background-color: @accentColor;
         .boxshadow(2);
+        .colorVar(color, --bgColor, @bgColor);
+        .colorVar(background-color, --accentColor, @accentColor);
 
         &::before {
             content: '';
@@ -178,7 +177,7 @@ img.b-error {
         left: 0;
         height: calc(100% + 10px);
         width: 100%;
-        background-color: @lightPrimaryColor;
+        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
     }
 
     &::after {
