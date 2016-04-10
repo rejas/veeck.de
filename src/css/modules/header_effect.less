@@ -36,7 +36,7 @@
 }
 
 .intro-effect-side .bg-img::before {
-    background: @color-white;
+    .colorVar(background-color, --bgColor, @bgColor);
     top: 0;
     left: 0;
     width: 60%;
@@ -49,7 +49,8 @@
 }
 
 .intro-effect-side .bg-img::after {
-    border: 80px solid @color-white;
+    border: 80px solid;
+    .colorVar(border-color, --bgColor, @bgColor);
     top: -80px;
     right: -80px;
     bottom: -80px;

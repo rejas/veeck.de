@@ -20,7 +20,7 @@
         margin-left: 252px;
         font-size: 4rem;
         padding: 0;
-        background-color: @menuBackground;
+        .colorVar(background-color, --primaryColor, @primaryColor);
         float: right;
         .boxshadow(1);
 
@@ -39,7 +39,7 @@
         padding: 0;
         margin: 0;
         transform-style: preserve-3d;
-        background: @menuBackground;
+        .colorVar(background-color, --primaryColor, @primaryColor);
 
         li {
             list-style: none;
@@ -47,7 +47,7 @@
             margin: 0;
 
             &:hover {
-                background-color: darken(@menuBackground, 15%);
+                .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
             }
 
             a {
@@ -55,7 +55,7 @@
                 position: relative;
                 padding: 15px 20px;
                 text-transform: uppercase;
-                color: @menuColor;
+                .colorVar(color, --primaryTextColor, @primaryTextColor);
                 outline: none;
                 text-decoration: none;
             }
@@ -118,14 +118,14 @@
     .mobile-nav li.dl-back::after,
     .mobile-nav li > a:not(:only-child)::after {
         display: block;
-        color: @menuColor;
+        .colorVar(color, --primaryTextColor, @primaryTextColor);
         position: absolute;
         top: 0;
         line-height: 55px;
     }
 
     .mobile-nav li.dl-back::after {
-        color: @menuColor;
+        .colorVar(color, --primaryTextColor, @primaryTextColor);
         left: 10px;
         transform: rotate(180deg);
     }
@@ -170,7 +170,7 @@
     }
 
     .no-touch .mobile-nav li a:hover {
-        background-color: lighten(@menuBackground, 15%);
+        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
     }
 
     /* No JS Fallback */

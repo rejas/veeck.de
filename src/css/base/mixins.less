@@ -120,6 +120,11 @@
  * other mixins
  */
 
+.colorVar (@property, @cssvar, @color) {
+    @{property}: @color;
+    @{property}: var(@cssvar);
+}
+
 .font-face (@family, @file-base, @weight: normal, @style: normal) {
     @font-face {
         font-family: @family;

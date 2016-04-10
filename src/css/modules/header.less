@@ -56,7 +56,7 @@
         .headline1 {
             position: relative;
             padding: 0.5rem;
-            background: @lightPrimaryColor;
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
             text-align: center;
             word-wrap: break-word;
             border-radius: @border-radius;
@@ -117,8 +117,8 @@
             height: 55px;
             margin: 0 auto;
             border-radius: 50%;
-            background-color: @menuBackground;
             .boxshadow(1);
+            .colorVar(background-color, --primaryColor, @primaryColor);
 
             &::after {
                 &:extend(.icon-font-more::after);
@@ -132,7 +132,7 @@
             }
 
             &:hover {
-                background-color: @menuBackground;
+                .colorVar(background-color, --primaryColor, @primaryColor);
             }
         }
     }
@@ -173,7 +173,7 @@
     .to-top-btn {
 
         &::before {
-            color: @menuColor;
+            .colorVar(color, --primaryTextColor, @primaryTextColor);
             &:extend(.icon-font-up::after);
             position: relative;
             left: 0.75rem;

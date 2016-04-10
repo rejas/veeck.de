@@ -19,12 +19,12 @@
         text-transform: uppercase;
         font-size: 0.7em;
         letter-spacing: 1px;
-        color: @menuColor;
+        .colorVar(color, --primaryTextColor, @primaryTextColor);
         border-bottom: 3px solid transparent;
     }
 
     .dl-menu {
-        background: @menuBackground;
+        .colorVar(background-color, --primaryColor, @primaryColor);
         height: 29px;
 
         .category {
@@ -38,12 +38,13 @@
                 opacity: 1;
 
                 > a {
-                    border-bottom: 3px solid @darkPrimaryColor;
+                    border-bottom: 3px solid;
+                    .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
                 }
             }
 
             &:hover > a {
-                background-color: @darkPrimaryColor;
+                .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
             }
 
             > a {
@@ -58,7 +59,7 @@
                 margin-top: 0;
 
                 > li > a {
-                    background-color: @menuBackground;
+                    .colorVar(background-color, --primaryColor, @primaryColor);
                 }
             }
 
@@ -82,7 +83,7 @@
                         margin: 0;
 
                         &:hover {
-                            background-color: @darkPrimaryColor !important;
+                            .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
                         }
                     }
                 }

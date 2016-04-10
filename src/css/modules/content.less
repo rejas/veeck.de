@@ -36,6 +36,7 @@ article {
         display: none;
         padding: 0.35em;
         margin: 15px 0 15px 0;
-        border: 3px solid @darkPrimaryColor;
+        border: 3px solid;
+        .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
     }
 }
