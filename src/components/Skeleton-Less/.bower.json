@@ -24,7 +24,7 @@
     "branch": "master",
     "commit": "8e7feee47097e158e09a5325b1e3e57034d7e41d"
   },
-  "_source": "git://github.com/whatsnewsaes/Skeleton-Less.git",
+  "_source": "https://github.com/whatsnewsaes/Skeleton-Less.git",
   "_target": "*",
   "_originalSource": "skeleton-less"
 }
