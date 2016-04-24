@@ -243,36 +243,14 @@ $(document).ready(function() {
     /**
      * ImageLightBox
      */
-    var activityIndicatorOn = function() {
-            $('<div id="ilb-loading" class="spinner-loading spinner-fixed"><div></div></div>').appendTo('body');
-        },
-        activityIndicatorOff = function() {
-            $('#ilb-loading').remove();
-        },
-        overlayOn = function() {
-            $('<div id="imagelightbox-overlay"></div>').appendTo('body');
-        },
-        overlayOff = function() {
-            $('#imagelightbox-overlay').remove();
-        },
-        captionOn = function() {
-            var description = $('a[href="' + $('#imagelightbox').attr('src') + '"] img').attr('alt');
-            if (description !== undefined && description.length > 0) {
-                $('<div id="imagelightbox-caption">' + description + '</div>').appendTo('body');
-            }
-        },
-        captionOff = function() {
-            $('#imagelightbox-caption').remove();
-        },
-        gallery = $('a.gallery, .gallery_article figure a');
-
+    var gallery = $('a.gallery, .gallery_article figure a');
     if (gallery.length > 0) {
         gallery.imageLightbox(
             {
-                onStart: 	 function() { overlayOn(); },
-                onEnd:	 	 function() { captionOff(); overlayOff(); activityIndicatorOff(); },
-                onLoadStart: function() { captionOff(); activityIndicatorOn(); },
-                onLoadEnd:	 function() { captionOn(); activityIndicatorOff(); }
+                activity:       true,                    // bool;            show activity indicator
+                caption:        true,                    // bool;            show captions
+                navigation:     true,                    // bool;            show navigation
+                overlay:        true                    // bool;            display the lightbox as an overlay
             });
     }
 });
