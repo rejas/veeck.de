@@ -30,7 +30,7 @@
     "tag": "v1.0.1",
     "commit": "2bd6dd1c02d45924dee7e6c283df9668d2276322"
   },
-  "_source": "git://github.com/desandro/classie.git",
+  "_source": "https://github.com/desandro/classie.git",
   "_target": "1.0.1",
   "_originalSource": "classie"
 }

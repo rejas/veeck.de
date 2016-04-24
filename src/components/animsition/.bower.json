@@ -23,7 +23,7 @@
     "tag": "v4.0.1",
     "commit": "fdd815b8e28588fcccbfd37c46cf98b93ab48fed"
   },
-  "_source": "git://github.com/blivesta/animsition.git",
+  "_source": "https://github.com/blivesta/animsition.git",
   "_target": "4.0.1",
   "_originalSource": "animsition"
 }
