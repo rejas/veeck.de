@@ -1,7 +1,7 @@
 /* global require, outdatedBrowser */
 'use strict';
 
-var classie,
+var Intro,
     ShareButton,
     MQ,
     Blazy;
@@ -57,10 +57,10 @@ addLoadEvent(function() {
 });
 
 window.$ = window.jQuery = require('../components/jquery/dist/jquery.js');
-classie = require('../components/classie/classie.js');
-ShareButton = require('../components/share-button/share-button.js');
-MQ = require('../components/on-media-query/js/onmediaquery.js');
 Blazy = require('../components/bLazy/blazy.js');
+Intro = require('./modules/intro.js');
+MQ = require('../components/on-media-query/js/onmediaquery.js');
+ShareButton = require('../components/share-button/share-button.js');
 
 require('../components/animsition/dist/js/animsition.js');
 require('../components/imgLiquid/js/imgLiquid.js');
@@ -69,17 +69,6 @@ require('../components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
 require('../components/cookieconsent2/build/cookieconsent.min');
 
 $(document).ready(function() {
-    /**
-     *
-     * @type {{message: string, dismiss: string, learnMore: string, link: null, theme: string}}
-     */
-    window.cookieconsent_options = {
-        'message': 'This website uses cookies to ensure you get the best experience on our website',
-        'dismiss': 'Got it!',
-        'learnMore': 'More info',
-        'link': null,
-        'theme': 'dark-bottom'
-    };
 
     /**
      *    CSS provides HSL color mode that controls Hue, Saturation, Luminosity(Lightness) and optionaly Opacity
@@ -111,17 +100,34 @@ $(document).ready(function() {
     }
 
     /**
-     *
+     * Change custom colors if brwoser supports it
      */
     if (window.CSS && window.CSS.supports && window.CSS.supports('--primaryColor', 0)) {
         // CSS custom properties supported.
         var root = document.querySelector(':root');
         var htmlStyle = window.getComputedStyle(root);
         htmlStyle.getPropertyValue('--primaryColor');
-        root.style.setProperty('--primaryColor', '#3949AB');
-        root.style.setProperty('--lightPrimaryColor', ColorLuminance("3949AB", 0.35));
-        root.style.setProperty('--darkPrimaryColor', ColorLuminance("3949AB", -0.35));
+        root.style.setProperty('--primaryColor', '#ffeb3b');
+        root.style.setProperty('--lightPrimaryColor', ColorLuminance("ffeb3b", 0.15));
+        root.style.setProperty('--darkPrimaryColor', ColorLuminance("ffeb3b", -0.15));
     }
+
+    /**
+     * ArticelIntroEffect
+     */
+    Intro.init();
+
+    /**
+     *
+     * @type {{message: string, dismiss: string, learnMore: string, link: null, theme: string}}
+     */
+    window.cookieconsent_options = {
+        'message': 'This website uses cookies to ensure you get the best experience on our website',
+        'dismiss': 'Got it!',
+        'learnMore': 'More info',
+        'link': null,
+        'theme': 'dark-bottom'
+    };
 
     /**
      * Back to top
@@ -245,165 +251,11 @@ $(document).ready(function() {
      */
     var gallery = $('a.gallery, .gallery_article figure a');
     if (gallery.length > 0) {
-        gallery.imageLightbox(
-            {
-                activity:       true,                    // bool;            show activity indicator
-                caption:        true,                    // bool;            show captions
-                navigation:     true,                    // bool;            show navigation
-                overlay:        true                    // bool;            display the lightbox as an overlay
-            });
+        gallery.imageLightbox({
+            activity:       true,
+            caption:        true,
+            navigation:     true,
+            overlay:        true
+        });
     }
 });
-
-/**
- * ArticleIntroEffects
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2014, Codrops
- * http://www.codrops.com
- */
-(function() {
-    // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
-    // left: 37, up: 38, right: 39, down: 40,
-    // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-    var keys = [32, 37, 38, 39, 40],
-        wheelIter = 0,
-        docElem = window.document.documentElement,
-        scrollVal,
-        isRevealed,
-        noscroll,
-        isAnimating,
-        container = document.getElementById('container'),
-        trigger = container.querySelector('button.trigger');
-
-    // detect if IE : from http://stackoverflow.com/a/16657946
-    var ie = (function() {
-        var undef,
-            rv = -1, // Return value assumes failure.
-            ua = window.navigator.userAgent,
-            msie = ua.indexOf('MSIE '),
-            trident = ua.indexOf('Trident/'),
-            rvNum = ua.indexOf('rv:');
-
-        if (msie > 0) {
-            // IE 10 or older => return version number
-            rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
-        } else if (trident > 0) {
-            // IE 11 (or newer) => return version number
-            rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
-        }
-
-        return ((rv > -1) ? rv : undef);
-    }());
-
-    function preventDefault(e) {
-        e = e || window.event;
-        if (e.preventDefault) {
-            e.preventDefault();
-        }
-        e.returnValue = false;
-    }
-
-    function keydown(e) {
-        for (var i = keys.length; i--;) {
-            if (e.keyCode === keys[i]) {
-                preventDefault(e);
-                return;
-            }
-        }
-    }
-
-    function touchmove(e) {
-        preventDefault(e);
-    }
-
-    function wheel(e) {
-        // for IE
-        // if( ie ) {
-        // preventDefault(e);
-        // }
-    }
-
-    function disable_scroll() {
-        window.onmousewheel = document.onmousewheel = wheel;
-        document.onkeydown = keydown;
-        document.body.ontouchmove = touchmove;
-    }
-
-    function enable_scroll() {
-        window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
-    }
-
-    function toggle(reveal) {
-        isAnimating = true;
-
-        if (reveal) {
-            classie.add(container, 'modify');
-        } else {
-            noscroll = true;
-            disable_scroll();
-            classie.remove(container, 'modify');
-        }
-
-        // simulating the end of the transition:
-        setTimeout(function() {
-            isRevealed = !isRevealed;
-            isAnimating = false;
-            if (reveal) {
-                noscroll = false;
-                enable_scroll();
-            }
-        }, 1200);
-    }
-
-    function scrollY() {
-        return window.pageYOffset || docElem.scrollTop;
-    }
-
-    function scrollPage() {
-        scrollVal = scrollY();
-
-        if (isAnimating) {
-            return false;
-        }
-
-        if (noscroll && !ie) {
-            if (scrollVal < 0) {
-                return false;
-            }
-            // keep it that way
-            window.scrollTo(0, 0);
-        }
-
-        if (classie.has(container, 'notrans')) {
-            classie.remove(container, 'notrans');
-            return false;
-        }
-
-        if (scrollVal <= 0 && isRevealed) {
-            toggle(0);
-        } else if (scrollVal > 0 && !isRevealed) {
-            toggle(1);
-        }
-    }
-
-    // refreshing the page...
-    var pageScroll = scrollY();
-
-    noscroll = pageScroll === 0;
-
-    disable_scroll();
-
-    if (pageScroll) {
-        isRevealed = true;
-        classie.add(container, 'notrans');
-        classie.add(container, 'modify');
-    }
-
-    window.addEventListener('scroll', scrollPage);
-    trigger.addEventListener('click', function() {
-        toggle('reveal');
-    });
-})();
