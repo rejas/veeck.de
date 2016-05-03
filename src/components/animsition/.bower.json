@@ -16,14 +16,14 @@
   "ignore": [
     ".*"
   ],
-  "version": "4.0.1",
-  "_release": "4.0.1",
+  "version": "4.0.2",
+  "_release": "4.0.2",
   "_resolution": {
     "type": "version",
-    "tag": "v4.0.1",
-    "commit": "fdd815b8e28588fcccbfd37c46cf98b93ab48fed"
+    "tag": "v4.0.2",
+    "commit": "f25d11d45c37116ba88452be0db55b364849b7f4"
   },
   "_source": "https://github.com/blivesta/animsition.git",
-  "_target": "4.0.1",
+  "_target": "^4.0.2",
   "_originalSource": "animsition"
 }

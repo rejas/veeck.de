@@ -26,5 +26,6 @@
   },
   "_source": "https://github.com/whatsnewsaes/Skeleton-Less.git",
   "_target": "*",
-  "_originalSource": "skeleton-less"
+  "_originalSource": "skeleton-less",
+  "_direct": true
 }
