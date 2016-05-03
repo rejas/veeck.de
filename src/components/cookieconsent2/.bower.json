@@ -27,6 +27,6 @@
     "commit": "ed517ce243eae84b850e61b2fa4091a083563abd"
   },
   "_source": "https://github.com/silktide/cookieconsent2.git",
-  "_target": "1.0.10",
+  "_target": "^1.0.10",
   "_originalSource": "cookieconsent2"
 }
