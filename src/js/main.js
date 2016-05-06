@@ -1,4 +1,4 @@
-/* global require, outdatedBrowser */
+/* global require, outdatedBrowser, Modernizr */
 'use strict';
 
 var Intro,
@@ -62,7 +62,6 @@ Intro = require('./modules/intro.js');
 MQ = require('../components/on-media-query/js/onmediaquery.js');
 ShareButton = require('../components/share-button/share-button.js');
 
-require('../components/animsition/dist/js/animsition.js');
 require('../components/imgLiquid/js/imgLiquid.js');
 require('../components/imagelightbox2/dist/imagelightbox.min.js');
 require('../components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
@@ -79,7 +78,7 @@ $(document).ready(function() {
      *    hex —> hex color value such as “#abc” or “#123456″ (the hash is optional)
      *    lum —> luminosity factor: -0.1 is 10% darker, 0.2 is 20% lighter
      */
-    function ColorLuminance(hex, lum) {
+    function convertColorLuminance(hex, lum) {
         var rgb = '#', c, i;
 
         // validate hex string
@@ -106,10 +105,11 @@ $(document).ready(function() {
         // CSS custom properties supported.
         var root = document.querySelector(':root');
         var htmlStyle = window.getComputedStyle(root);
+
         htmlStyle.getPropertyValue('--primaryColor');
         root.style.setProperty('--primaryColor', '#ffeb3b');
-        root.style.setProperty('--lightPrimaryColor', ColorLuminance("ffeb3b", 0.15));
-        root.style.setProperty('--darkPrimaryColor', ColorLuminance("ffeb3b", -0.15));
+        root.style.setProperty('--lightPrimaryColor', convertColorLuminance('ffeb3b', 0.15));
+        root.style.setProperty('--darkPrimaryColor', convertColorLuminance('ffeb3b', -0.15));
     }
 
     /**
@@ -194,7 +194,7 @@ $(document).ready(function() {
     $trigger.on('click', function(ignore) {
         $trigger.toggleClass('is-active');
         if ($trigger.hasClass('is-active')) {
-            $('body').off( 'click' ).children().on( 'click', function() {
+            $('body').off('click').children().on('click', function() {
                 $trigger.removeClass('is-active');
             });
         }
@@ -220,30 +220,6 @@ $(document).ready(function() {
                 $(ele).attr('src', '');
             }
         }
-    });
-
-    /**
-     * Animsitions
-     */
-    $('.js-animsition').animsition({
-        inClass: 'zoom-in-sm',
-        outClass: 'zoom-out-sm',
-        inDuration: 1500,
-        outDuration: 800,
-        linkElement: '.animsition-link',
-        // e.g. linkElement   :   'a:not([target='_blank']):not([href^=#])'
-        loading: true,
-        loadingParentElement: 'body', // animsition wrapper element
-        loadingClass: 'animsition-loading',
-        unSupportCss: ['-webkit-animation-duration',
-            '-o-animation-duration',
-            'animation-duration'
-        ],
-        // 'unSupportCss' option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-        // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-        overlay: false,
-        overlayClass: 'animsition-overlay-slide',
-        overlayParentElement: 'body'
     });
 
     /**
