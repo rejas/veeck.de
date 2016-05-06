@@ -4,6 +4,7 @@
 var Intro,
     ShareButton,
     MQ,
+    Nav,
     Blazy;
 
 // Avoid `console` errors in browsers that lack a console.
@@ -59,7 +60,7 @@ addLoadEvent(function() {
 window.$ = window.jQuery = require('../components/jquery/dist/jquery.js');
 Blazy = require('../components/bLazy/blazy.js');
 Intro = require('./modules/intro.js');
-MQ = require('../components/on-media-query/js/onmediaquery.js');
+Nav = require('./modules/nav.js');
 ShareButton = require('../components/share-button/share-button.js');
 
 require('../components/imgLiquid/js/imgLiquid.js');
@@ -118,6 +119,11 @@ $(document).ready(function() {
     Intro.init();
 
     /**
+     * Navigation
+     */
+    Nav.init();
+
+    /**
      *
      * @type {{message: string, dismiss: string, learnMore: string, link: null, theme: string}}
      */
@@ -136,33 +142,6 @@ $(document).ready(function() {
         e.preventDefault();
         $('html, body').animate({scrollTop: 0}, 800);
     });
-
-    /**
-     * decide if mobile or not
-     * @type {Array}
-     */
-    var $myNav = $('nav').clone();
-    var queries = [
-        {
-            context: 'mobile',
-            match: function() {
-                $('nav').remove();
-                $myNav.clone().prependTo('header').addClass('mobile-nav').removeClass('desktop-nav').dlmenu();
-            },
-            unmatch: function() {
-            }
-        },
-        {
-            context: 'desktop',
-            match: function() {
-                $('nav').remove();
-                $myNav.clone().prependTo('header').removeClass('mobile-nav').addClass('desktop-nav');
-            },
-            unmatch: function() {
-            }
-        }
-    ];
-    MQ.init(queries);
 
     /**
      * Share Button Config
@@ -187,17 +166,6 @@ $(document).ready(function() {
     $('.js-extender').on('click', function(e) {
         e.preventDefault();
         $('.' + $(this).data('toExtend')).slideToggle();
-    });
-
-    // trigger mobile button animation
-    var $trigger = $('.js-dl-trigger');
-    $trigger.on('click', function(ignore) {
-        $trigger.toggleClass('is-active');
-        if ($trigger.hasClass('is-active')) {
-            $('body').off('click').children().on('click', function() {
-                $trigger.removeClass('is-active');
-            });
-        }
     });
 
     /**
