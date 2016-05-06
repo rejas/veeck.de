@@ -8,12 +8,13 @@
  * http://www.codrops.com
  */
 
+'use strict';
+
 var classie = require('../../components/classie/classie.js');
 
 module.exports = {
 
-    init: function () {
-        "use strict";
+    init: function() {
 
         // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
         // left: 37, up: 38, right: 39, down: 40,
@@ -76,13 +77,13 @@ module.exports = {
             // }
         }
 
-        function disable_scroll() {
+        function disableScroll() {
             window.onmousewheel = document.onmousewheel = wheel;
             document.onkeydown = keydown;
             document.body.ontouchmove = touchmove;
         }
 
-        function enable_scroll() {
+        function enableScroll() {
             window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
         }
 
@@ -93,7 +94,7 @@ module.exports = {
                 classie.add(container, 'modify');
             } else {
                 noscroll = true;
-                disable_scroll();
+                disableScroll();
                 classie.remove(container, 'modify');
             }
 
@@ -103,7 +104,7 @@ module.exports = {
                 isAnimating = false;
                 if (reveal) {
                     noscroll = false;
-                    enable_scroll();
+                    enableScroll();
                 }
             }, 1200);
         }
@@ -137,6 +138,8 @@ module.exports = {
             } else if (scrollVal > 0 && !isRevealed) {
                 toggle(1);
             }
+
+            return;
         }
 
         // refreshing the page...
@@ -144,7 +147,7 @@ module.exports = {
 
         noscroll = pageScroll === 0;
 
-        disable_scroll();
+        disableScroll();
 
         if (pageScroll) {
             isRevealed = true;
@@ -157,4 +160,4 @@ module.exports = {
             toggle('reveal');
         });
     }
-}
+};
