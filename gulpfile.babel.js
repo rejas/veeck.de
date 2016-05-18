@@ -22,6 +22,8 @@ import del from 'del';
 
 import autoprefixer from    'autoprefixer';
 import browserify   from    'browserify';
+import cssmqpacker  from    'css-mqpacker';
+import cssnano      from    'cssnano';
 import buffer       from    'vinyl-buffer';
 import express      from    'express';
 import eslintformat from    'eslint-friendly-formatter';
@@ -39,7 +41,12 @@ import tinylr       from    'tiny-lr';
 
 const   dirs        = config.directories,
         plugins     = gplugins(),
-        lrserver     = tinylr();
+        lrserver    = tinylr(),
+        processors  = [
+            autoprefixer(config.autoprefixer),
+            cssmqpacker(),
+            cssnano()
+        ];
 
 /**
  * SUB TASKS
@@ -79,15 +86,9 @@ gulp.task('files', () => {
 
 // Compile LESS files
 gulp.task('css', () => {
-
-    var processors = [
-        autoprefixer(config.autoprefixer)
-    ];
-
     gulp.src(`${dirs.src}/css/main.less`)
         .pipe(plugins.less())
         .pipe(plugins.postcss(processors))
-        .pipe(plugins.csso())
         //.pipe(plugins.rev())
         .pipe(gulp.dest(`${dirs.dist}/css`))
 });
