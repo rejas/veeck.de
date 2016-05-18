@@ -4,24 +4,26 @@
  * CONFIGS
  */
 
-import config from './config.json';
+import config       from    './config.json';
 
 /**
  * GULP PLUGINS
  */
 
-import gulp from 'gulp';
-import gutil from 'gulp-util';
-import gplugins from 'gulp-load-plugins';
+import gulp         from    'gulp';
+import gutil        from    'gulp-util';
+import gplugins     from    'gulp-load-plugins';
 
 /**
  * OTHER PLUGINS
  */
 
-import del from 'del';
-
+import autoprefixer from    'autoprefixer';
 import browserify   from    'browserify';
 import buffer       from    'vinyl-buffer';
+import cssmqpacker  from    'css-mqpacker';
+import cssnano      from    'cssnano';
+import del          from    'del';
 import express      from    'express';
 import eslintformat from    'eslint-friendly-formatter';
 import ftp          from    'vinyl-ftp';
@@ -38,7 +40,12 @@ import tinylr       from    'tiny-lr';
 
 const   dirs        = config.directories,
         plugins     = gplugins(),
-        lrserver     = tinylr();
+        lrserver    = tinylr(),
+        processors  = [
+            autoprefixer(config.autoprefixer),
+            cssmqpacker(),
+            cssnano()
+        ];
 
 /**
  * SUB TASKS
@@ -76,13 +83,11 @@ gulp.task('files', () => {
         .pipe(gulp.dest(dirs.dist));
 });
 
-// Compile LESS files
+// Compile LESS files and postcss them
 gulp.task('css', () => {
     gulp.src(`${dirs.src}/css/main.less`)
         .pipe(plugins.less())
-        .pipe(plugins.autoprefixer(config.autoprefixer))
-        .pipe(plugins.rename('main.css'))
-        .pipe(plugins.csso())
+        .pipe(plugins.postcss(processors))
         //.pipe(plugins.rev())
         .pipe(gulp.dest(`${dirs.dist}/css`))
 });
