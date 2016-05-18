@@ -20,6 +20,7 @@ import gplugins from 'gulp-load-plugins';
 
 import del from 'del';
 
+import autoprefixer from    'autoprefixer';
 import browserify   from    'browserify';
 import buffer       from    'vinyl-buffer';
 import express      from    'express';
@@ -78,10 +79,14 @@ gulp.task('files', () => {
 
 // Compile LESS files
 gulp.task('css', () => {
+
+    var processors = [
+        autoprefixer(config.autoprefixer)
+    ];
+
     gulp.src(`${dirs.src}/css/main.less`)
         .pipe(plugins.less())
-        .pipe(plugins.autoprefixer(config.autoprefixer))
-        .pipe(plugins.rename('main.css'))
+        .pipe(plugins.postcss(processors))
         .pipe(plugins.csso())
         //.pipe(plugins.rev())
         .pipe(gulp.dest(`${dirs.dist}/css`))
