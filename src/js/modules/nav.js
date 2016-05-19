@@ -1,3 +1,4 @@
+/* global require, module */
 'use strict';
 
 var MQ = require('../../components/on-media-query/js/onmediaquery.js'),
@@ -30,8 +31,7 @@ module.exports = {
          * @type {Array}
          */
         var $myNav = $('nav').clone(),
-            queries = [
-            {
+            queries = [{
                 context: 'mobile',
                 match: function() {
                     $('nav').remove();
@@ -40,8 +40,7 @@ module.exports = {
                 },
                 unmatch: function() {
                 }
-            },
-            {
+            },{
                 context: 'desktop',
                 match: function() {
                     $('nav').remove();
@@ -49,8 +48,7 @@ module.exports = {
                 },
                 unmatch: function() {
                 }
-            }
-        ];
+            }];
         MQ.init(queries);
     }
 };
