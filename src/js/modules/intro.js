@@ -1,3 +1,4 @@
+/* global require, module */
 /**
  * ArticleIntroEffects
  *
@@ -7,7 +8,6 @@
  * Copyright 2014, Codrops
  * http://www.codrops.com
  */
-
 'use strict';
 
 var classie = require('../../components/classie/classie.js');
