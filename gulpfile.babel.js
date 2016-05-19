@@ -86,8 +86,10 @@ gulp.task('files', () => {
 // Compile LESS files and postcss them
 gulp.task('css', () => {
     gulp.src(`${dirs.src}/css/main.less`)
+        .pipe(plugins.sourcemaps.init())
         .pipe(plugins.less())
         .pipe(plugins.postcss(processors))
+        .pipe(plugins.sourcemaps.write('.'))
         //.pipe(plugins.rev())
         .pipe(gulp.dest(`${dirs.dist}/css`))
 });
