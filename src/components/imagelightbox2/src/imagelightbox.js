@@ -57,22 +57,22 @@
 
     $.fn.imageLightbox = function (opts) {
         var options = $.extend({
-            selector: 'a[data-imagelightbox]',
-            id: 'imagelightbox',
-            allowedTypes: 'png|jpg|jpeg||gif',
+            selector:       'a[data-imagelightbox]',
+            id:             'imagelightbox',
+            allowedTypes:   'png|jpg|jpeg||gif',
             animationSpeed: 250,
-            preloadNext: true,
+            activity:       false,
+            arrows:         false,
+            button:         false,
+            caption:        false,
             enableKeyboard: true,
-            activity: false,
-            arrows: false,
-            button: false,
-            navigation: false,
-            overlay: false,
-            caption: false,
-            quitOnEnd: false,
+            navigation:     false,
+            overlay:        false,
+            preloadNext:    true,
+            quitOnEnd:      false,
             quitOnImgClick: false,
             quitOnDocClick: true,
-            quitOnEscKey: true,
+            quitOnEscKey:   true,
             onStart: function () {
                 if (options.arrows) {
                     arrowsOn(this);
@@ -269,7 +269,8 @@
                 }
 
                 var screenWidth = $(window).width() * 0.8,
-                    screenHeight = $(window).height() * 0.9,
+                    wHeight = (window.innerHeight) ? window.innerHeight : $(window).height(),                    
+                    screenHeight = wHeight * 0.9,
                     tmpImage = new Image();
 
                 tmpImage.src = image.attr('src');
@@ -286,7 +287,7 @@
                     image.css({
                         'width': imageWidth + 'px',
                         'height': imageHeight + 'px',
-                        'top': ( $(window).height() - imageHeight ) / 2 + 'px',
+                        'top': ( wHeight - imageHeight ) / 2 + 'px',
                         'left': ( $(window).width() - imageWidth ) / 2 + 'px'
                     });
                 };
