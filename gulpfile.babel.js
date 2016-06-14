@@ -29,6 +29,7 @@ import eslintformat from    'eslint-friendly-formatter';
 import ftp          from    'vinyl-ftp';
 import livereload   from    'connect-livereload';
 import refresh      from    'gulp-livereload';
+import revReplace   from    'gulp-rev-replace';
 import runSequence  from    'run-sequence';
 import source       from    'vinyl-source-stream';
 import spritesmith  from    'gulp.spritesmith';
@@ -63,8 +64,13 @@ gulp.task('browserify', () => {
         .pipe(source('main.bundled.js'))
         .pipe(buffer())
         .pipe(plugins.uglify())
-        //.pipe(plugins.rev())
-        .pipe(gulp.dest(`${dirs.dist}/js`));
+        .pipe(plugins.rev())
+        .pipe(gulp.dest(`${dirs.dist}/js`))
+        .pipe(plugins.rev.manifest({
+            base: 'dist/',
+            merge: true
+        }))
+        .pipe(gulp.dest(`${dirs.dist}`));
 });
 
 //
@@ -90,23 +96,19 @@ gulp.task('css', () => {
         .pipe(plugins.less())
         .pipe(plugins.postcss(processors))
         .pipe(plugins.sourcemaps.write('.'))
-        //.pipe(plugins.rev())
+        .pipe(plugins.rev())
         .pipe(gulp.dest(`${dirs.dist}/css`))
+        .pipe(plugins.rev.manifest({
+            base: 'dist/',
+            merge: true
+        }))
+        .pipe(gulp.dest(`${dirs.dist}`));
 });
 
 //
 gulp.task('images', () => {
     gulp.src(`${dirs.src}/img/**/*.jpg`)
         .pipe(gulp.dest(`${dirs.dist}/img`));
-});
-
-//
-gulp.task('markup', () => {
-    // Get our index.html
-    gulp.src(`${dirs.src}/*.html`)
-        // And put it in the dist folder
-        .pipe(gulp.dest(dirs.dist))
-        .pipe(refresh(lrserver)); // Tell the lrserver to refresh
 });
 
 /**
@@ -139,7 +141,19 @@ gulp.task('check:less', () => {
  * DEV TASKS
  */
 
-gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'markup'], () => {
+//
+gulp.task('markup', ['prepare:images', 'images', 'files', 'vendorscripts', 'browserify', 'css'], () => {
+    var manifest = gulp.src(`./rev-manifest.json`);
+
+    // Get our index.html
+    gulp.src(`${dirs.src}/*.html`)
+    // And put it in the dist folder
+        .pipe(revReplace({manifest: manifest}))
+        .pipe(gulp.dest(dirs.dist))
+        .pipe(refresh(lrserver)); // Tell the lrserver to refresh
+});
+
+gulp.task('serve', ['markup'], () => {
     // Set up an express server (but not starting it yet)
     let server = express();
     // Add live reload
@@ -167,9 +181,12 @@ gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'ma
  * Default
  */
 
-gulp.task('html', ['prepare:sprites', 'images', 'files', 'vendorscripts', 'browserify', 'css'], () => {
+gulp.task('html', ['images', 'files', 'vendorscripts', 'browserify', 'css'], () => {
+    var manifest = gulp.src(`./rev-manifest.json`);
+
     // We src all html files
     gulp.src(`${dirs.src}/*.html`)
+        .pipe(revReplace({manifest: manifest}))
         .pipe(plugins.htmlmin(config.htmlmin))
         .pipe(gulp.dest(dirs.dist));
 });
@@ -286,7 +303,7 @@ gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
 gulp.task('dev',        ['serve']);
 
-gulp.task('default',    (cb) => { runSequence('clean', 'html', cb) });
+gulp.task('default',    (cb) => { runSequence('clean', 'prepare', 'html', cb) });
 
 gulp.task('deploy',     ['upload']);
 
