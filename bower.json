@@ -28,5 +28,7 @@
     "ResponsiveMultiLevelMenu2": "^1.0.2",
     "share-button": "^1.0.3",
     "Skeleton-Less": "skeleton-less#*"
-  }
+    "bootstrap": "~3.2.0"
+  },
+  "private": true
 }
