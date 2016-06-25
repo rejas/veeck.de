@@ -1,60 +1,41 @@
 {
   "name": "homepage",
   "version": "4.3.3",
-  "description": "my private homepage",
-  "repository": "https://bitbucket.org/mveeck/homepage.git",
   "private": true,
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
+  "homepage": "https://github.com/rejas/homepage",
+  "author": {
+    "name": "rejas",
+    "url": "http://github.com/rejas/"
   },
-  "browserify": {
-    "transform": [
-      "browserify-shim"
-    ]
   },
-  "browserify-shim": {
-    "jquery": "global:$"
+  "engines": {
+    "node": ">=0.10"
+  },
+  "scripts": {
+    "test": "grunt assemble"
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "babel-core": "^6.9.1",
-    "babel-preset-es2015": "^6.9.0",
-    "browserify": "^13.0.1",
-    "browserify-shim": "^3.8.12",
-    "connect-livereload": "^0.5.4",
-    "css-mqpacker": "^5.0.1",
-    "cssnano": "^3.7.0",
-    "del": "^2.2.0",
-    "eslint-friendly-formatter": "^2.0.5",
-    "event-stream": "^3.3.2",
-    "express": "^4.13.4",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-embedlr": "^0.5.2",
-    "gulp-eslint": "^2.0.0",
-    "gulp-htmlhint": "^0.3.1",
-    "gulp-htmlmin": "^2.0.0",
-    "gulp-imagemin": "^3.0.1",
-    "gulp-less": "^3.1.0",
-    "gulp-lesshint": "^1.1.0",
-    "gulp-livereload": "^3.8.1",
-    "gulp-load-plugins": "^1.2.4",
-    "gulp-postcss": "^6.1.1",
-    "gulp-prompt": "^0.2.0",
-    "gulp-rev": "^7.0.0",
-    "gulp-rev-replace": "^0.4.3",
-    "gulp-sitemap": "^4.1.1",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.3",
-    "gulp-util": "^3.0.7",
-    "gulp.spritesmith": "^6.2.1",
-    "run-sequence": "^1.2.1",
-    "tiny-lr": "^0.2.1",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-ftp": "^0.4.5",
-    "vinyl-paths": "^2.1.0",
-    "vinyl-source-stream": "^1.1.0"
-  }
+    "assemble": "^0.4.42",
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-copy": "^0.5.0",
+    "load-grunt-tasks": "^0.6.0",
+    "time-grunt": "^1.0.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/rejas/homepage/blob/master/LICENSE-MIT"
+    }
+  ],
+  "keywords": [
+    "assemble",
+    "templates",
+    "handlebars",
+    "site generator",
+    "site builder",
+    "grunt"
+  ]
 }
