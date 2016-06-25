@@ -87,11 +87,11 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      theme: {
+      assets: {
         expand: true,
         cwd: 'src/assets/',
         src: '**',
-        dest: '<%= config.dist %>/assets/css/'
+        dest: '<%= config.dist %>/assets/'
       },
       img: {
         expand: true,
@@ -113,7 +113,7 @@ module.exports = function(grunt) {
           paths: ["<%= config.src %>/css"]
         },
         files: {
-          "<%= config.src %>/assets/main.css": "<%= config.src %>/css/main.less"
+          "<%= config.dist %>/assets/main.css": "<%= config.src %>/css/main.less"
         }
       },
       production: {
@@ -122,7 +122,7 @@ module.exports = function(grunt) {
           compress: true
         },
         files: {
-          "<%= config.src %>/assets/main.css": "<%= config.src %>/css/main.less"
+          "<%= config.dist %>/assets/main.css": "<%= config.src %>/css/main.less"
         }
       }
     },
