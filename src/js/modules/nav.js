@@ -1,7 +1,7 @@
 /* global require, module */
 'use strict';
 
-var MQ = require('../../components/on-media-query/js/onmediaquery.js'),
+var MQ = require('../../bower_components/on-media-query/js/onmediaquery.js'),
     $trigger;
 
 function cssButton() {
