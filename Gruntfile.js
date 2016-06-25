@@ -93,13 +93,34 @@ module.exports = function(grunt) {
       }
     },
 
+    less: {
+      development: {
+        options: {
+          paths: ["<%= config.src %>/css"]
+        },
+        files: {
+          "<%= config.src %>/assets/main.css": "<%= config.src %>/css/main.less"
+        }
+      },
+      production: {
+        options: {
+          paths: ["<%= config.src %>/css"],
+          compress: true
+        },
+        files: {
+          "<%= config.src %>/assets/main.css": "<%= config.src %>/css/main.less"
+        }
+      }
+    },
+
     // Before generating any new files,
     // remove any previously-created files.
     clean: ['<%= config.dist %>/**/*.{html,xml}']
 
   });
-
   grunt.loadNpmTasks('assemble');
+
+  grunt.loadNpmTasks('assemble-less');
 
   grunt.registerTask('server', [
     'build',
@@ -110,6 +131,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean',
     'copy',
+    'less',
     'assemble'
   ]);
 
