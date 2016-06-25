@@ -10,7 +10,7 @@
  */
 'use strict';
 
-var classie = require('../../components/classie/classie.js');
+var classie = require('../../bower_components/classie/classie.js');
 
 module.exports = {
 

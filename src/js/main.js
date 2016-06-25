@@ -57,16 +57,16 @@ addLoadEvent(function() {
     }
 });
 
-window.$ = window.jQuery = require('../components/jquery/dist/jquery.js');
-Blazy = require('../components/bLazy/blazy.js');
+window.$ = window.jQuery = require('../bower_components/jquery/dist/jquery.js');
+Blazy = require('../bower_components/bLazy/blazy.js');
 Intro = require('./modules/intro.js');
 Nav = require('./modules/nav.js');
-ShareButton = require('../components/share-button/share-button.js');
+ShareButton = require('../bower_components/share-button/share-button.js');
 
-require('../components/imgLiquid/js/imgLiquid.js');
-require('../components/imagelightbox2/dist/imagelightbox.min.js');
-require('../components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
-require('../components/cookieconsent2/build/cookieconsent.min');
+require('../bower_components/imgLiquid/js/imgLiquid.js');
+require('../bower_components/imagelightbox2/dist/imagelightbox.min.js');
+require('../bower_components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
+require('../bower_components/cookieconsent2/build/cookieconsent.min');
 
 $(document).ready(function() {
 

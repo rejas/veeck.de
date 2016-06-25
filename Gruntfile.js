@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 
     watch: {
       assemble: {
-        files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
+        files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml,less}'],
         tasks: ['assemble']
       },
       livereload: {
@@ -40,6 +40,7 @@ module.exports = function(grunt) {
         files: [
           '<%= config.dist %>/{,*/}*.html',
           '<%= config.dist %>/assets/{,*/}*.css',
+          '<%= config.dist %>/assets/{,*/}*.less',
           '<%= config.dist %>/assets/{,*/}*.js',
           '<%= config.dist %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
@@ -78,13 +79,14 @@ module.exports = function(grunt) {
       }
     },
 
+    browserify: {
+      main: {
+        src: '<%= config.src %>/js/main.js',
+        dest: '<%= config.dist %>/js/main.bundled.js'
+      }
+    },
+
     copy: {
-      bootstrap: {
-        expand: true,
-        cwd: 'bower_components/bootstrap/dist/',
-        src: '**',
-        dest: '<%= config.dist %>/assets/'
-      },
       theme: {
         expand: true,
         cwd: 'src/assets/',
@@ -118,9 +120,12 @@ module.exports = function(grunt) {
     clean: ['<%= config.dist %>/**/*.{html,xml}']
 
   });
-  grunt.loadNpmTasks('assemble');
 
   grunt.loadNpmTasks('assemble-less');
+
+  grunt.loadNpmTasks('grunt-assemble');
+
+  grunt.loadNpmTasks('grunt-browserify');
 
   grunt.registerTask('server', [
     'build',
@@ -132,6 +137,7 @@ module.exports = function(grunt) {
     'clean',
     'copy',
     'less',
+    'browserify',
     'assemble'
   ]);
 
