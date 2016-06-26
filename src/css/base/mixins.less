@@ -101,21 +101,29 @@
  *    that receive the `clearfix` class.
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
+ *
+ * Source: http://nicolasgallagher.com/micro-clearfix-hack/
  */
 
-.clearfix:before,
-.clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.clearfix:after {
-    clear: both;
+.clearfix() {
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+    &:after {
+        clear: both;
+    }
 }
 
 /**
  * other mixins
  */
+
+.colorVar (@property, @cssvar, @color) {
+    @{property}: @color;
+    @{property}: var(@cssvar);
+}
 
 .font-face (@family, @file-base, @weight: normal, @style: normal) {
     @font-face {

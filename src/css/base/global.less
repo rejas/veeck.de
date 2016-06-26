@@ -7,8 +7,8 @@
 }
 
 ::selection {
-    background: @primaryColor;
-    color: @textPrimaryColor;
+    .colorVar(color, --bgColor, @bgColor);
+    .colorVar(background-color, --primaryTextColor, @primaryTextColor);
     text-shadow: none;
 }
 
@@ -23,9 +23,9 @@ html {
 }
 
 body {
+    .colorVar(color, --primaryTextColor, @primaryTextColor);
+    .colorVar(background-color, --bgColor, @bgColor);
     height: 100%;
-    color: @color-black;
-    background-color: @color-white;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -44,6 +44,29 @@ body {
         @media @desktop {
             content: 'desktop';
         }
+    }
+}
+
+article {
+    .clearfix();
+    .baseline (1em);
+    margin: 1em auto;
+    padding: 0 1em 3em;
+
+    @media @desktop {
+        max-width: 960px;
+    }
+}
+
+section {
+    .clearfix();
+    margin-bottom: 2em;
+
+    h2 {
+        border-bottom: 2px solid;
+        .colorVar(border-color, --primaryTextColor, @primaryTextColor);
+        padding-bottom: 0.25em;
+        text-align: center;
     }
 }
 
@@ -110,7 +133,7 @@ ul {
 
 a,
 a:visited {
-    color: @accentColor;
+    .colorVar(color, --accentColor, @accentColor);
     outline: none;
     text-decoration: none;
 }
@@ -127,97 +150,18 @@ time {
 
 input {
     padding: 4px 8px;
-    border: 1px solid @accentColor;
+    border: 1px solid;
+    .colorVar(border-color, --accentColor, @accentColor);
 }
 
 textarea {
-    border: 1px solid @accentColor;
+    border: 1px solid;
     border-radius: 4px;
+    .colorVar(border-color, --accentColor, @accentColor);
 }
 
 select {
-    border: 1px solid @accentColor;
+    border: 1px solid;
     border-radius: 4px;
-}
-
-.button {
-    color: @color-black;
-    background: @accentColor;
-    border-color: @color-black;
-    font-family: Lato, sans-serif;
-    transition: all 0.3s ease;
-
-    &:hover {
-        color: rgba(51,51,51,0.8);
-        background: rgba(162,155,170,0.8);
-    }
-
-    &::before {
-        position: absolute;
-        line-height: 2em;
-        width: 2em;
-        height: 2em;
-        left: 0.5em;
-        top: 0.5em;
-    }
-}
-
-.button-l {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    left: 0;
-}
-
-.button-r {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-    right: 0;
-}
-
-/**
- * Radio
- */
-
-.radio_article {
-
-    audio {
-        width: 100%;
-        margin: 10px 0 25px 0;
-    }
-
-    a {
-        float: right;
-    }
-}
-
-/**
- *
- */
-
-.adframe {
-    float: right;
-    margin: 3px 3px 0 3px;
-}
-
-.adfigure {
-    width: 316px;
-    height: 266px;
-}
-
-.to_extend {
-    display: none;
-    padding: 0.35em;
-    margin: 15px 0 15px 0;
-    border: 3px solid @darkPrimaryColor;
-}
-
-@media @smartphones {
-
-    .adframe {
-        max-width: 100%;
-    }
-
-    .adfigure {
-        max-width: 100%;
-    }
+    .colorVar(border-color, --accentColor, @accentColor);
 }

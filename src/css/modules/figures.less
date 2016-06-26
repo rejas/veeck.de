@@ -1,6 +1,5 @@
 figure {
-    color: @primaryTextColor;
-    background-color: @primaryColor;
+    .colorVar(background-color, --primaryColor, @primaryColor);
     border-radius: @border-radius;
     overflow: hidden;
     .boxshadow(1);
@@ -24,7 +23,7 @@ figure {
         }
 
         > span {
-            background-color: @lightPrimaryColor;
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
             display: block;
             font-size: 3rem;
             font-weight: bold;
@@ -70,7 +69,7 @@ figcaption {
      */
 
     figure:not(.dont_link) {
-        transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+        transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
         transform: translateY(0) scale(1, 1);
         transform-origin: center;
         transform-style: preserve-3D;
@@ -138,9 +137,9 @@ figcaption {
         transform: rotate(45deg);
         width: 100px;
         display: block;
-        color: @color-white;
-        background-color: @accentColor;
         .boxshadow(2);
+        .colorVar(color, --bgColor, @bgColor);
+        .colorVar(background-color, --accentColor, @accentColor);
 
         &::before {
             content: '';
@@ -165,5 +164,30 @@ figcaption {
             border-bottom: 3px solid transparent;
             border-top: 3px solid darken(@accentColor, 15%);
         }
+    }
+}
+
+img.b-error {
+    min-height: 50px;
+
+    &::before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        height: calc(100% + 10px);
+        width: 100%;
+        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+    }
+
+    &::after {
+        content: 'I am sorry, this image got eaten by the bug monster :(';
+        display: block;
+        color: @accentColor;
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 100%;
+        text-align: center;
     }
 }

@@ -4,29 +4,32 @@
  * CONFIGS
  */
 
-import config from './config.json';
+import config       from    './config.json';
 
 /**
  * GULP PLUGINS
  */
 
-import gulp from 'gulp';
-import gutil from 'gulp-util';
-import gplugins from 'gulp-load-plugins';
+import gulp         from    'gulp';
+import gutil        from    'gulp-util';
+import gplugins     from    'gulp-load-plugins';
 
 /**
  * OTHER PLUGINS
  */
 
-import del from 'del';
-
+import autoprefixer from    'autoprefixer';
 import browserify   from    'browserify';
 import buffer       from    'vinyl-buffer';
+import cssmqpacker  from    'css-mqpacker';
+import cssnano      from    'cssnano';
+import del          from    'del';
 import express      from    'express';
 import eslintformat from    'eslint-friendly-formatter';
 import ftp          from    'vinyl-ftp';
 import livereload   from    'connect-livereload';
 import refresh      from    'gulp-livereload';
+import revReplace   from    'gulp-rev-replace';
 import runSequence  from    'run-sequence';
 import source       from    'vinyl-source-stream';
 import spritesmith  from    'gulp.spritesmith';
@@ -38,7 +41,12 @@ import tinylr       from    'tiny-lr';
 
 const   dirs        = config.directories,
         plugins     = gplugins(),
-        lrserver     = tinylr();
+        lrserver    = tinylr(),
+        processors  = [
+            autoprefixer(config.autoprefixer),
+            cssmqpacker(),
+            cssnano()
+        ];
 
 /**
  * SUB TASKS
@@ -56,14 +64,20 @@ gulp.task('browserify', () => {
         .pipe(source('main.bundled.js'))
         .pipe(buffer())
         .pipe(plugins.uglify())
-        //.pipe(plugins.rev())
-        .pipe(gulp.dest(`${dirs.dist}/js`));
+        .pipe(plugins.rev())
+        .pipe(gulp.dest(`${dirs.dist}/js`))
+        .pipe(plugins.rev.manifest({
+            base: 'dist/',
+            merge: true
+        }))
+        .pipe(gulp.dest(`${dirs.dist}`));
 });
 
 //
 gulp.task('vendorscripts', () => {
     // Minify and copy all vendor scripts
-    gulp.src([`${dirs.src}/js/vendor/**/*.js`, `${dirs.src}/components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js`])
+    gulp.src([`${dirs.src}/js/vendor/**/*.js`,
+              `${dirs.src}/components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js`])
         .pipe(plugins.uglify())
         .pipe(gulp.dest(`${dirs.dist}/js/vendor`));
 });
@@ -75,30 +89,26 @@ gulp.task('files', () => {
         .pipe(gulp.dest(dirs.dist));
 });
 
-// Compile LESS files
+// Compile LESS files and postcss them
 gulp.task('css', () => {
     gulp.src(`${dirs.src}/css/main.less`)
+        .pipe(plugins.sourcemaps.init())
         .pipe(plugins.less())
-        .pipe(plugins.autoprefixer(config.autoprefixer))
-        .pipe(plugins.rename('main.css'))
-        .pipe(plugins.csso())
-        //.pipe(plugins.rev())
+        .pipe(plugins.postcss(processors))
+        .pipe(plugins.sourcemaps.write('.'))
+        .pipe(plugins.rev())
         .pipe(gulp.dest(`${dirs.dist}/css`))
+        .pipe(plugins.rev.manifest({
+            base: 'dist/',
+            merge: true
+        }))
+        .pipe(gulp.dest(`${dirs.dist}`));
 });
 
 //
 gulp.task('images', () => {
     gulp.src(`${dirs.src}/img/**/*.jpg`)
         .pipe(gulp.dest(`${dirs.dist}/img`));
-});
-
-//
-gulp.task('markup', () => {
-    // Get our index.html
-    gulp.src(`${dirs.src}/*.html`)
-        // And put it in the dist folder
-        .pipe(gulp.dest(dirs.dist))
-        .pipe(refresh(lrserver)); // Tell the lrserver to refresh
 });
 
 /**
@@ -131,7 +141,19 @@ gulp.task('check:less', () => {
  * DEV TASKS
  */
 
-gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'markup'], () => {
+//
+gulp.task('markup', ['prepare:images', 'images', 'files', 'vendorscripts', 'browserify', 'css'], () => {
+    var manifest = gulp.src(`./rev-manifest.json`);
+
+    // Get our index.html
+    gulp.src(`${dirs.src}/*.html`)
+    // And put it in the dist folder
+        .pipe(revReplace({manifest: manifest}))
+        .pipe(gulp.dest(dirs.dist))
+        .pipe(refresh(lrserver)); // Tell the lrserver to refresh
+});
+
+gulp.task('serve', ['markup'], () => {
     // Set up an express server (but not starting it yet)
     let server = express();
     // Add live reload
@@ -159,9 +181,12 @@ gulp.task('serve', ['images', 'files', 'vendorscripts', 'browserify', 'css', 'ma
  * Default
  */
 
-gulp.task('html', ['prepare:sprites', 'images', 'files', 'vendorscripts', 'browserify', 'css'], () => {
+gulp.task('html', ['images', 'files', 'vendorscripts', 'browserify', 'css'], () => {
+    var manifest = gulp.src(`./rev-manifest.json`);
+
     // We src all html files
     gulp.src(`${dirs.src}/*.html`)
+        .pipe(revReplace({manifest: manifest}))
         .pipe(plugins.htmlmin(config.htmlmin))
         .pipe(gulp.dest(dirs.dist));
 });
@@ -278,7 +303,7 @@ gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
 gulp.task('dev',        ['serve']);
 
-gulp.task('default',    (cb) => { runSequence('clean', 'html', cb) });
+gulp.task('default',    (cb) => { runSequence('clean', 'prepare', 'html', cb) });
 
 gulp.task('deploy',     ['upload']);
 

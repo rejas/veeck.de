@@ -1,18 +1,18 @@
 //
 
-@import (less) "../components/normalize.css/normalize.css";
+@import (less) "../bower_components/normalize.css/normalize.css";
 
-@import (less) "../components/normalize-opentype.css/normalize-opentype.css";
+@import (less) "../bower_components/normalize-opentype.css/normalize-opentype.css";
 
-@import (less) "../components/outdated-browser/outdatedbrowser/outdatedbrowser.css";
+@import (less) "../bower_components/css-hamburgers/dist/hamburgers.min.css";
 
-@import (less) "../components/animsition/dist/css/animsition.css";
+@import (less) "../bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.css";
 
-@import (less) "../components/imagelightbox2/src/imagelightbox.css";
+@import (less) "../bower_components/imagelightbox2/src/imagelightbox.css";
 
-@import (less) "../components/share-button/share-button.css";
+@import (less) "../bower_components/share-button/share-button.css";
 
-@import "../components/Skeleton-Less/less/skeleton.less";
+@import "../bower_components/Skeleton-Less/less/skeleton.less";
 
 //
 
@@ -26,13 +26,15 @@
 
 @import "base/icons.less";
 
-@import "libs/plugin_mobilemenu.less";
-
 @import "base/global.less";
+
+@import "modules/ads.less";
 
 @import "modules/header.less";
 
 @import "modules/nav.less";
+
+@import "modules/nav_mobile.less";
 
 @import "modules/footer.less";
 
@@ -40,10 +42,10 @@
 
 @import "modules/figures.less";
 
-@import "modules/effect_side.less";
+@import "modules/header_effect.less";
 
-@import "modules/links.less";
+@import "pages/links.less";
 
-@import "modules/panorama.less";
+@import "pages/panorama.less";
 
-@import "modules/research.less";
+@import "pages/research.less";

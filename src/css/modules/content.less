@@ -4,15 +4,6 @@
  */
 
 article {
-    &:extend(.clearfix all);
-    .baseline (1em);
-
-    margin: 1em auto;
-    padding: 0 1em 3em;
-
-    @media @desktop {
-        max-width: 960px;
-    }
 
     &.capped-article {
 
@@ -41,14 +32,11 @@ article {
         margin-bottom: 2em;
     }
 
-    section {
-        &:extend(.clearfix all);
-        margin-bottom: 2em;
-
-        h2 {
-            border-bottom: 2px solid @color-black;
-            padding-bottom: 0.25em;
-            text-align: center;
-        }
+    .to_extend {
+        display: none;
+        padding: 0.35em;
+        margin: 15px 0 15px 0;
+        border: 3px solid;
+        .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
     }
 }
