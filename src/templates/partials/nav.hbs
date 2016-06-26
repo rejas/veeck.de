@@ -1,7 +1,6 @@
 ---
 component: navbar
 ---
-
 <nav>
     <button class="hamburger hamburger--spin js-dl-trigger dl-trigger" type="button">
         <span class="hamburger-box">
@@ -10,13 +9,7 @@ component: navbar
     </button>
     <ul class="dl-menu">
         <!-- you can exclude pages using \{{#isnt}} helper: \{{#isnt data.title 'Blog'}} -->
-        {{#each pages}}
-            <li class="category{{#if this.isCurrentPage}} active{{/if}}">
-                <a href="{{relative dest this.dest}}">{{ data.title }}</a>
-            </li>
-        {{/each}}
-
-        <!--
+        <li class="category"><a href="index.html">home</a></li>
         <li class="category">
             <a href="#">personal</a>
             <ul class="dl-submenu">
@@ -48,7 +41,7 @@ component: navbar
             <a href="#">panoramas</a>
             <ul class="dl-submenu">
                 <li><a href="panorama_big.html">large sizes</a></li>
-                <li><a href="panorama_360.html">360 degree</a></li>
+                <li><a href="panorama_360.html">360 degrees</a></li>
                 <li><a href="panorama_perspective.html">perspective</a></li>
                 <li><a href="panorama_skyscraper.html">skyscraper</a></li>
                 <li><a href="panorama_cities.html">cities</a></li>
@@ -57,6 +50,5 @@ component: navbar
             </ul>
         </li>
         <li class="category"><a href="links.html">links</a></li>
-        -->
     </ul>
 </nav>
