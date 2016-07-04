@@ -14,7 +14,7 @@
     "test": "grunt assemble"
   },
   "devDependencies": {
-    "assemble": "^0.14.0",
+    "assemble": "^0.15.0",
     "assemble-less": "^0.7.0",
     "grunt": "^1.0.1",
     "grunt-assemble": "^0.4.0",

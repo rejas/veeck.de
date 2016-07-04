@@ -105,12 +105,18 @@ module.exports = function(grunt) {
         src: '**',
         dest: '<%= config.dist %>/img/'
       },
-      vendor: {
-        expand: true,
-        cwd: 'src/js/vendor',
-        src: '**',
-        dest: '<%= config.dist %>/js/vendor/'
-      }
+        vendor: {
+            expand: true,
+            cwd: 'src/js/vendor',
+            src: '**',
+            dest: '<%= config.dist %>/js/vendor/'
+        },
+        web: {
+            expand: true,
+            cwd: 'src/webcomponent',
+            src: '**',
+            dest: '<%= config.dist %>/webcomponent/'
+        }
     },
 
     less: {
@@ -136,7 +142,6 @@ module.exports = function(grunt) {
     // Before generating any new files,
     // remove any previously-created files.
     clean: ['<%= config.dist %>/**/*.{html,xml}']
-
   });
 
   grunt.loadNpmTasks('assemble-less');
@@ -162,5 +167,4 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'build'
   ]);
-
 };
