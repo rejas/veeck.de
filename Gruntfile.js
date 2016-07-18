@@ -1,41 +1,29 @@
 /* global module, require */
-/*
- * Generated on 2016-06-25
- * generator-assemble v0.5.0
- * https://github.com/assemble/generator-assemble
- *
- * Copyright (c) 2016 Hariadi Hinta
- * Licensed under the MIT license.
- */
-
 'use strict';
 
 // # Globbing
 // for performance reasons we're only matching one level down:
-// '<%= config.src %>/templates/pages/{,*/}*.hbs'
+// '<%= dir.src %>/templates/pages/{,*/}*.hbs'
 // use this if you want to match all subfolders:
-// '<%= config.src %>/templates/pages/**/*.hbs'
+// '<%= dir.src %>/templates/pages/**/*.hbs'
 
 module.exports = function(grunt) {
+  var config = require('./config.json');
 
   require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
 
-  // Project configuration.
   grunt.initConfig({
 
-    config: {
-      src: 'src',
-      dist: 'dist'
-    },
+    dir: config.directories,
 
     watch: {
       assemble: {
-        files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
+        files: ['<%= dir.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
         tasks: ['assemble']
       },
       less: {
-        files: ['<%= config.src %>/css/{,*/}*.{css, less}'],
+        files: ['<%= dir.src %>/css/{,*/}*.{css, less}'],
         tasks: ['less']
       },
       livereload: {
@@ -43,10 +31,10 @@ module.exports = function(grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= config.dist %>/{,*/}*.html',
-          '<%= config.dist %>/assets/{,*/}*.css',
-          '<%= config.dist %>/js/{,*/}*.js',
-          '<%= config.dist %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= dir.dist %>/{,*/}*.html',
+          '<%= dir.dist %>/assets/{,*/}*.css',
+          '<%= dir.dist %>/js/{,*/}*.js',
+          '<%= dir.dist %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
@@ -62,7 +50,7 @@ module.exports = function(grunt) {
         options: {
           open: true,
             base: [
-            '<%= config.dist %>'
+            '<%= dir.dist %>'
           ]
         }
       }
@@ -72,21 +60,21 @@ module.exports = function(grunt) {
       pages: {
         options: {
           flatten: true,
-          assets: '<%= config.dist %>/assets',
-          layout: '<%= config.src %>/templates/layouts/default.hbs',
-          data: '<%= config.src %>/data/*.{json,yml}',
-          partials: '<%= config.src %>/templates/partials/*.hbs'
+          assets: '<%= dir.dist %>/assets',
+          layout: '<%= dir.src %>/templates/layouts/default.hbs',
+          data: '<%= dir.src %>/data/*.{json,yml}',
+          partials: '<%= dir.src %>/templates/partials/*.hbs'
         },
         files: {
-          '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs']
+          '<%= dir.dist %>/': ['<%= dir.src %>/templates/pages/*.hbs']
         }
       }
     },
 
     browserify: {
       main: {
-        src: '<%= config.src %>/js/main.js',
-        dest: '<%= config.dist %>/js/main.bundled.js'
+        src: '<%= dir.src %>/js/main.js',
+        dest: '<%= dir.dist %>/js/main.bundled.js'
       }
     },
 
@@ -95,72 +83,76 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'src/assets/',
         src: '**',
-        dest: '<%= config.dist %>/assets/'
+        dest: '<%= dir.dist %>/assets/'
       },
       files: {
         expand: true,
         cwd: 'src/files/',
         src: '**',
-        dest: '<%= config.dist %>/files/'
+        dest: '<%= dir.dist %>/files/'
       },
       img: {
         expand: true,
         cwd: 'src/img/',
         src: '**',
-        dest: '<%= config.dist %>/img/'
+        dest: '<%= dir.dist %>/img/'
       },
       vendor: {
         expand: true,
         cwd: 'src/js/vendor',
         src: '**',
-        dest: '<%= config.dist %>/js/vendor/'
+        dest: '<%= dir.dist %>/js/vendor/'
       },
       web: {
         expand: true,
         cwd: 'src/webcomponent',
         src: '**',
-        dest: '<%= config.dist %>/webcomponent/'
+        dest: '<%= dir.dist %>/webcomponent/'
       }
     },
 
     less: {
       development: {
         options: {
-          paths: ['<%= config.src %>/css']
+          paths: ['<%= dir.src %>/css']
         },
         files: {
-          '<%= config.dist %>/assets/main.css': '<%= config.src %>/css/main.less'
+          '<%= dir.dist %>/assets/main.css': '<%= dir.src %>/css/main.less'
         }
       },
       production: {
         options: {
-          paths: ['<%= config.src %>/css'],
+          paths: ['<%= dir.src %>/css'],
           compress: true
         },
         files: {
-          '<%= config.dist %>/assets/main.css': '<%= config.src %>/css/main.less'
+          '<%= dir.dist %>/assets/main.css': '<%= dir.src %>/css/main.less'
         }
       }
     },
 
-    // Before generating any new files,
-    // remove any previously-created files.
-    clean: ['<%= config.dist %>/**/*'],
+    clean: ['<%= dir.dist %>/**/*'],
 
     postcss: {
       options: {
         processors: [
-          require('autoprefixer')({
-            browsers: ['last 2 versions']
-          }),
+          require('autoprefixer')(config.autoprefixer),
           require('css-mqpacker')(),
           require('cssnano')()
         ]
       },
       dist: {
-        src: '<%= config.dist %>/assets/main.css'
+        src: '<%= dir.dist %>/assets/main.css'
       }
-    }
+    },
+
+    uglify: {
+      dist: {
+        files: {
+          '<%= dir.dist %>/js/main.bundled.js': ['<%= dir.dist %>/js/main.bundled.js']
+        }
+      }
+    },
   });
 
   grunt.loadNpmTasks('assemble-less');
@@ -177,6 +169,7 @@ module.exports = function(grunt) {
     'less',
     'postcss',
     'browserify',
+    'uglify',
     'assemble'
   ]);
 
