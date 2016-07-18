@@ -3,7 +3,6 @@
 
 var Intro,
     ShareButton,
-    MQ,
     Nav,
     Blazy;
 
