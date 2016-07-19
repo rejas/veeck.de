@@ -23,7 +23,7 @@ module.exports = function(grunt) {
         tasks: ['assemble']
       },
       less: {
-        files: ['<%= dir.src %>/css/{,*/}*.{css, less}'],
+        files: ['<%= dir.src %>/css/**/*.{css, less}'],
         tasks: ['less']
       },
       livereload: {
@@ -31,10 +31,10 @@ module.exports = function(grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= dir.dist %>/{,*/}*.html',
-          '<%= dir.dist %>/assets/{,*/}*.css',
-          '<%= dir.dist %>/js/{,*/}*.js',
-          '<%= dir.dist %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= dir.dist %>/*.html',
+          '<%= dir.dist %>/assets/css/**/*.css',
+          '<%= dir.dist %>/js/**/*.js',
+          '<%= dir.dist %>/img/**/*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
