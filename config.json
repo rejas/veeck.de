@@ -3,8 +3,8 @@
     "browsers": ["last 2 versions", "ie >=10", "iOS >=8", "Android >= 4.1"]
   },
   "directories": {
-    "src": "src/",
-    "dist": "dist/"
+    "src": "src",
+    "dist": "dist"
   },
   "ftp": {
     "host": "www.veeck.de",

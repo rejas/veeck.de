@@ -26,6 +26,10 @@ module.exports = function(grunt) {
         files: ['<%= dir.src %>/css/**/*.{css, less}'],
         tasks: ['less']
       },
+      js: {
+        files: ['<%= dir.src %>/js/**/*.js'],
+        tasks: ['postjs']
+      },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -163,13 +167,17 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
+  grunt.registerTask('postjs', [
+    'browserify',
+    'uglify'
+  ]);
+
   grunt.registerTask('build', [
     'clean',
     'copy',
     'less',
     'postcss',
-    'browserify',
-    'uglify',
+    'postjs',
     'assemble'
   ]);
 

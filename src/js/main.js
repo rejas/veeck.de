@@ -29,7 +29,6 @@ var Intro,
     }
 }());
 
-/*
 // Event listener: DOM ready
 function addLoadEvent(func) {
     var oldonload = window.onload;
@@ -56,7 +55,6 @@ addLoadEvent(function() {
         });
     }
 });
-*/
 
 window.$ = window.jQuery = require('../bower_components/jquery/dist/jquery.js');
 Blazy = require('../bower_components/bLazy/blazy.js');
