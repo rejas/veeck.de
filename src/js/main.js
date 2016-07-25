@@ -63,9 +63,9 @@ Nav = require('./modules/nav.js');
 ShareButton = require('../bower_components/share-button/share-button.js');
 
 require('../bower_components/imgLiquid/js/imgLiquid.js');
-require('../bower_components/imagelightbox2/dist/imagelightbox.min.js');
+require('../bower_components/imagelightbox2/src/imagelightbox.js');
 require('../bower_components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
-require('../bower_components/cookieconsent2/build/cookieconsent.min');
+require('../bower_components/cookieconsent2/cookieconsent.js');
 
 $(document).ready(function() {
 
