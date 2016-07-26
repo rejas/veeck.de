@@ -76,7 +76,7 @@ module.exports = function(grunt) {
     },
 
     browserify: {
-      main: {
+      dist: {
         src: '<%= dir.src %>/js/main.js',
         dest: '<%= dir.dist %>/js/main.bundled.js'
       }
@@ -116,18 +116,9 @@ module.exports = function(grunt) {
     },
 
     less: {
-      development: {
+      dist: {
         options: {
           paths: ['<%= dir.src %>/css']
-        },
-        files: {
-          '<%= dir.dist %>/assets/main.css': '<%= dir.src %>/css/main.less'
-        }
-      },
-      production: {
-        options: {
-          paths: ['<%= dir.src %>/css'],
-          compress: true
         },
         files: {
           '<%= dir.dist %>/assets/main.css': '<%= dir.src %>/css/main.less'
@@ -156,7 +147,7 @@ module.exports = function(grunt) {
           '<%= dir.dist %>/js/main.bundled.js': ['<%= dir.dist %>/js/main.bundled.js']
         }
       }
-    },
+    }
   });
 
   grunt.loadNpmTasks('assemble-less');
