@@ -7,12 +7,6 @@
     "name": "rejas",
     "url": "http://github.com/rejas/"
   },
-  "engines": {
-    "node": ">=0.10"
-  },
-  "scripts": {
-    "test": "grunt assemble"
-  },
   "devDependencies": {
     "assemble": "^0.16.1",
     "assemble-less": "^0.7.0",
@@ -31,19 +25,5 @@
     "grunt-postcss": "^0.8.0",
     "load-grunt-tasks": "^3.5.0",
     "time-grunt": "^1.4.0"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/rejas/homepage/blob/master/LICENSE-MIT"
-    }
-  ],
-  "keywords": [
-    "assemble",
-    "templates",
-    "handlebars",
-    "site generator",
-    "site builder",
-    "grunt"
-  ]
+  }
 }
