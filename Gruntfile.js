@@ -17,49 +17,6 @@ module.exports = function(grunt) {
 
         dir: config.directories,
 
-        watch: {
-            assemble: {
-                files: ['<%= dir.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
-                tasks: ['assemble']
-            },
-            less: {
-                files: ['<%= dir.src %>/css/**/*.{css, less}'],
-                tasks: ['less']
-            },
-            js: {
-                files: ['<%= dir.src %>/js/**/*.js'],
-                tasks: ['postjs']
-            },
-            livereload: {
-                options: {
-                    livereload: '<%= connect.options.livereload %>'
-                },
-                files: [
-                    '<%= dir.dist %>/*.html',
-                    '<%= dir.dist %>/assets/css/**/*.css',
-                    '<%= dir.dist %>/js/**/*.js',
-                    '<%= dir.dist %>/img/**/*.{png,jpg,jpeg,gif,webp,svg}'
-                ]
-            }
-        },
-
-        connect: {
-            options: {
-                port: 9000,
-                livereload: 35729,
-                // change this to '0.0.0.0' to access the server from outside
-                hostname: 'localhost'
-            },
-            livereload: {
-                options: {
-                    open: true,
-                    base: [
-                        '<%= dir.dist %>'
-                    ]
-                }
-            }
-        },
-
         assemble: {
             pages: {
                 options: {
@@ -82,6 +39,25 @@ module.exports = function(grunt) {
             }
         },
 
+        clean: ['<%= dir.dist %>/**/*'],
+
+        connect: {
+            options: {
+                port: 9000,
+                livereload: 35729,
+                // change this to '0.0.0.0' to access the server from outside
+                hostname: 'localhost'
+            },
+            livereload: {
+                options: {
+                    open: true,
+                    base: [
+                        '<%= dir.dist %>'
+                    ]
+                }
+            }
+        },
+
         copy: {
             assets: {
                 expand: true,
@@ -100,6 +76,12 @@ module.exports = function(grunt) {
                 cwd: 'src/img/',
                 src: '**',
                 dest: '<%= dir.dist %>/img/'
+            },
+            page: {
+                expand: true,
+                cwd: 'src/page',
+                src: '**',
+                dest: '<%= dir.dist %>/'
             },
             vendor: {
                 expand: true,
@@ -135,8 +117,6 @@ module.exports = function(grunt) {
             }
         },
 
-        clean: ['<%= dir.dist %>/**/*'],
-
         postcss: {
             options: {
                 processors: [
@@ -156,20 +136,46 @@ module.exports = function(grunt) {
                     '<%= dir.dist %>/js/main.bundled.js': ['<%= dir.dist %>/js/main.bundled.js']
                 }
             }
+        },
+
+        watch: {
+            assemble: {
+                files: ['<%= dir.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
+                tasks: ['assemble']
+            },
+            less: {
+                files: ['<%= dir.src %>/css/**/*.{css, less}'],
+                tasks: ['less']
+            },
+            js: {
+                files: ['<%= dir.src %>/js/**/*.js'],
+                tasks: ['postjs']
+            },
+            livereload: {
+                options: {
+                    livereload: '<%= connect.options.livereload %>'
+                },
+                files: [
+                    '<%= dir.dist %>/*.html',
+                    '<%= dir.dist %>/assets/css/**/*.css',
+                    '<%= dir.dist %>/js/**/*.js',
+                    '<%= dir.dist %>/img/**/*.{png,jpg,jpeg,gif,webp,svg}'
+                ]
+            }
         }
     });
 
     grunt.loadNpmTasks('assemble-less');
 
-    grunt.registerTask('server', [
-        'build',
-        'connect:livereload',
-        'watch'
-    ]);
-
     grunt.registerTask('postjs', [
         'browserify',
         'uglify'
+    ]);
+
+    grunt.registerTask('serve', [
+        'build',
+        'connect:livereload',
+        'watch'
     ]);
 
     grunt.registerTask('build', [
