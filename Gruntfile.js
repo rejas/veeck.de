@@ -98,18 +98,9 @@ module.exports = function(grunt) {
         },
 
         less: {
-            development: {
+            dist: {
                 options: {
                     paths: ['<%= dir.src %>/css']
-                },
-                files: {
-                    '<%= dir.dist %>/assets/main.css': '<%= dir.src %>/css/main.less'
-                }
-            },
-            production: {
-                options: {
-                    paths: ['<%= dir.src %>/css'],
-                    compress: true
                 },
                 files: {
                     '<%= dir.dist %>/assets/main.css': '<%= dir.src %>/css/main.less'
