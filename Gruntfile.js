@@ -1,166 +1,184 @@
-/*
- * Generated on 2016-06-25
- * generator-assemble v0.5.0
- * https://github.com/assemble/generator-assemble
- *
- * Copyright (c) 2016 Hariadi Hinta
- * Licensed under the MIT license.
- */
-
+/* global module, require */
 'use strict';
 
 // # Globbing
 // for performance reasons we're only matching one level down:
-// '<%= config.src %>/templates/pages/{,*/}*.hbs'
+// '<%= dir.src %>/templates/pages/{,*/}*.hbs'
 // use this if you want to match all subfolders:
-// '<%= config.src %>/templates/pages/**/*.hbs'
+// '<%= dir.src %>/templates/pages/**/*.hbs'
 
 module.exports = function(grunt) {
+    var config = require('./config.json');
 
-  require('time-grunt')(grunt);
-  require('load-grunt-tasks')(grunt);
+    require('time-grunt')(grunt);
+    require('load-grunt-tasks')(grunt);
 
-  // Project configuration.
-  grunt.initConfig({
+    grunt.initConfig({
 
-    config: {
-      src: 'src',
-      dist: 'dist'
-    },
+        dir: config.directories,
 
-    watch: {
-      assemble: {
-        files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml,less}'],
-        tasks: ['assemble']
-      },
-      livereload: {
-        options: {
-          livereload: '<%= connect.options.livereload %>'
+        assemble: {
+            pages: {
+                options: {
+                    flatten: true,
+                    assets: '<%= dir.dist %>/assets',
+                    layout: '<%= dir.src %>/templates/layouts/default.hbs',
+                    data: '<%= dir.src %>/data/*.{json,yml}',
+                    partials: '<%= dir.src %>/templates/partials/*.hbs'
+                },
+                files: {
+                    '<%= dir.dist %>/': ['<%= dir.src %>/templates/pages/*.hbs']
+                }
+            }
         },
-        files: [
-          '<%= config.dist %>/{,*/}*.html',
-          '<%= config.dist %>/assets/{,*/}*.css',
-          '<%= config.dist %>/assets/{,*/}*.less',
-          '<%= config.dist %>/assets/{,*/}*.js',
-          '<%= config.dist %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
-      }
-    },
 
-    connect: {
-      options: {
-        port: 9000,
-        livereload: 35729,
-        // change this to '0.0.0.0' to access the server from outside
-        hostname: 'localhost'
-      },
-      livereload: {
-        options: {
-          open: true,
-          base: [
-            '<%= config.dist %>'
-          ]
-        }
-      }
-    },
-
-    assemble: {
-      pages: {
-        options: {
-          flatten: true,
-          assets: '<%= config.dist %>/assets',
-          layout: '<%= config.src %>/templates/layouts/default.hbs',
-          data: '<%= config.src %>/data/*.{json,yml}',
-          partials: '<%= config.src %>/templates/partials/*.hbs'
+        browserify: {
+            main: {
+                src: '<%= dir.src %>/js/main.js',
+                dest: '<%= dir.dist %>/js/main.bundled.js'
+            }
         },
-        files: {
-          '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs']
-        }
-      }
-    },
 
-    browserify: {
-      main: {
-        src: '<%= config.src %>/js/main.js',
-        dest: '<%= config.dist %>/js/main.bundled.js'
-      }
-    },
+        clean: ['<%= dir.dist %>/**/*'],
 
-    copy: {
-      assets: {
-        expand: true,
-        cwd: 'src/assets/',
-        src: '**',
-        dest: '<%= config.dist %>/assets/'
-      },
-      files: {
-        expand: true,
-        cwd: 'src/files/',
-        src: '**',
-        dest: '<%= config.dist %>/files/'
-      },
-      img: {
-        expand: true,
-        cwd: 'src/img/',
-        src: '**',
-        dest: '<%= config.dist %>/img/'
-      },
-      vendor: {
-        expand: true,
-        cwd: 'src/js/vendor',
-        src: '**',
-        dest: '<%= config.dist %>/js/vendor/'
-      }
-    },
-
-    less: {
-      development: {
-        options: {
-          paths: ["<%= config.src %>/css"]
+        connect: {
+            options: {
+                port: 9000,
+                livereload: 35729,
+                // change this to '0.0.0.0' to access the server from outside
+                hostname: 'localhost'
+            },
+            livereload: {
+                options: {
+                    open: true,
+                    base: [
+                        '<%= dir.dist %>'
+                    ]
+                }
+            }
         },
-        files: {
-          "<%= config.dist %>/assets/main.css": "<%= config.src %>/css/main.less"
-        }
-      },
-      production: {
-        options: {
-          paths: ["<%= config.src %>/css"],
-          compress: true
+
+        copy: {
+            assets: {
+                expand: true,
+                cwd: 'src/assets/',
+                src: '**',
+                dest: '<%= dir.dist %>/assets/'
+            },
+            files: {
+                expand: true,
+                cwd: 'src/files/',
+                src: '**',
+                dest: '<%= dir.dist %>/files/'
+            },
+            img: {
+                expand: true,
+                cwd: 'src/img/',
+                src: '**',
+                dest: '<%= dir.dist %>/img/'
+            },
+            page: {
+                expand: true,
+                cwd: 'src/page',
+                src: '**',
+                dest: '<%= dir.dist %>/'
+            },
+            vendor: {
+                expand: true,
+                cwd: 'src/js/vendor',
+                src: '**',
+                dest: '<%= dir.dist %>/js/vendor/'
+            },
+            web: {
+                expand: true,
+                cwd: 'src/webcomponent',
+                src: '**',
+                dest: '<%= dir.dist %>/webcomponent/'
+            }
         },
-        files: {
-          "<%= config.dist %>/assets/main.css": "<%= config.src %>/css/main.less"
+
+        less: {
+            dist: {
+                options: {
+                    paths: ['<%= dir.src %>/css']
+                },
+                files: {
+                    '<%= dir.dist %>/assets/main.css': '<%= dir.src %>/css/main.less'
+                }
+            }
+        },
+
+        postcss: {
+            options: {
+                processors: [
+                    require('autoprefixer')(config.autoprefixer),
+                    require('css-mqpacker')(),
+                    require('cssnano')()
+                ]
+            },
+            dist: {
+                src: '<%= dir.dist %>/assets/main.css'
+            }
+        },
+
+        uglify: {
+            dist: {
+                files: {
+                    '<%= dir.dist %>/js/main.bundled.js': ['<%= dir.dist %>/js/main.bundled.js']
+                }
+            }
+        },
+
+        watch: {
+            assemble: {
+                files: ['<%= dir.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
+                tasks: ['assemble']
+            },
+            less: {
+                files: ['<%= dir.src %>/css/**/*.{css, less}'],
+                tasks: ['less']
+            },
+            js: {
+                files: ['<%= dir.src %>/js/**/*.js'],
+                tasks: ['postjs']
+            },
+            livereload: {
+                options: {
+                    livereload: '<%= connect.options.livereload %>'
+                },
+                files: [
+                    '<%= dir.dist %>/*.html',
+                    '<%= dir.dist %>/assets/css/**/*.css',
+                    '<%= dir.dist %>/js/**/*.js',
+                    '<%= dir.dist %>/img/**/*.{png,jpg,jpeg,gif,webp,svg}'
+                ]
+            }
         }
-      }
-    },
+    });
 
-    // Before generating any new files,
-    // remove any previously-created files.
-    clean: ['<%= config.dist %>/**/*.{html,xml}']
+    grunt.loadNpmTasks('assemble-less');
 
-  });
+    grunt.registerTask('postjs', [
+        'browserify',
+        'uglify'
+    ]);
 
-  grunt.loadNpmTasks('assemble-less');
+    grunt.registerTask('serve', [
+        'build',
+        'connect:livereload',
+        'watch'
+    ]);
 
-  grunt.loadNpmTasks('grunt-assemble');
+    grunt.registerTask('build', [
+        'clean',
+        'copy',
+        'less',
+        'postcss',
+        'postjs',
+        'assemble'
+    ]);
 
-  grunt.loadNpmTasks('grunt-browserify');
-
-  grunt.registerTask('server', [
-    'build',
-    'connect:livereload',
-    'watch'
-  ]);
-
-  grunt.registerTask('build', [
-    'clean',
-    'copy',
-    'less',
-    'browserify',
-    'assemble'
-  ]);
-
-  grunt.registerTask('default', [
-    'build'
-  ]);
-
+    grunt.registerTask('default', [
+        'build'
+    ]);
 };

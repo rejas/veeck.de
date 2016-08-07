@@ -1,10 +1,10 @@
 {
   "autoprefixer": {
-    "browsers": ["last 2 versions", "ie >=9", "iOS >=6", "Android >= 2.3"]
+    "browsers": ["last 2 versions", "ie >=10", "iOS >=8", "Android >= 4.1"]
   },
   "directories": {
-    "src": "src/",
-    "dist": "dist/"
+    "src": "src",
+    "dist": "dist"
   },
   "ftp": {
     "host": "www.veeck.de",

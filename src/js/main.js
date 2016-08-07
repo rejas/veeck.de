@@ -3,7 +3,6 @@
 
 var Intro,
     ShareButton,
-    MQ,
     Nav,
     Blazy;
 
@@ -30,7 +29,6 @@ var Intro,
     }
 }());
 
-/*
 // Event listener: DOM ready
 function addLoadEvent(func) {
     var oldonload = window.onload;
@@ -57,7 +55,6 @@ addLoadEvent(function() {
         });
     }
 });
-*/
 
 window.$ = window.jQuery = require('../bower_components/jquery/dist/jquery.js');
 Blazy = require('../bower_components/bLazy/blazy.js');
@@ -66,9 +63,9 @@ Nav = require('./modules/nav.js');
 ShareButton = require('../bower_components/share-button/share-button.js');
 
 require('../bower_components/imgLiquid/js/imgLiquid.js');
-require('../bower_components/imagelightbox2/dist/imagelightbox.min.js');
+require('../bower_components/imagelightbox2/src/imagelightbox.js');
 require('../bower_components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
-require('../bower_components/cookieconsent2/build/cookieconsent.min');
+require('../bower_components/cookieconsent2/cookieconsent.js');
 
 $(document).ready(function() {
 
