@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/silktide/cookieconsent2.svg)](https://travis-ci.org/silktide/cookieconsent2)
+[![Build Status](https://travis-ci.org/insites/cookieconsent.svg)](https://travis-ci.org/insites/cookieconsent)
 
 ## What is Cookie Consent? 
 
@@ -8,15 +8,20 @@ It is designed to help you comply with the hideous EU Cookie Law and not make yo
 
 ## Installation
 
-The easiest way to get up and running is to use our [wizard](http://silktide.com/tools/cookie-consent/download/). 
+The easiest way to get up and running is to use our [wizard](https://cookieconsent.insites.com/download/). 
 
 ## Documentation 
 
-See our [full documentation](http://silktide.com/tools/cookie-consent/docs/).
+See our [full documentation](https://cookieconsent.insites.com/documentation/).
 
 ## Contributing
 
 Feel free to improve the plugin and send us a pull request.  
+
+The easiest way to develop is to host the files with a local webserver. I.e. 
+```
+python -m SimpleHTTPServer
+```
 
 We use gulp to compile scss and minify the javascript. Assuming [nodejs](http://nodejs.org/) is installed, you can run a build with:
 
