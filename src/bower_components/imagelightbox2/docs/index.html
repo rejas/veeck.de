@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Imagelightbox</title>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/demo.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="stylesheets/imagelightbox.css" media="screen">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Imagelightbox by rejas</title>
+</head>
+
+<body>
+<div id="container">
+    <div class="inner">
+
+        <header>
+            <h1>Imagelightbox</h1>
+            <h2>Image Lightbox, Responsive and Touch‑friendly</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+            <a href="https://github.com/rejas/imagelightbox/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+            <a href="https://github.com/rejas/imagelightbox/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+            <a href="https://github.com/rejas/imagelightbox" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <section id="main_content">
+            <h2>With activity indication</h2>
+            <ul>
+                <li><a href="images/demo1.jpg" data-imagelightbox="a"><img src="images/thumb1.jpg"></a></li>
+                <li><a href="images/demo2.jpg" data-imagelightbox="a"><img src="images/thumb2.jpg"></a></li>
+                <li><a href="images/demo3.jpg" data-imagelightbox="a"><img src="images/thumb3.jpg"></a></li>
+            </ul>
+            <pre><code>$('a[data-imagelightbox="a"]')
+                    .imageLightbox(activity: true});
+            </code></pre>
+            <h2>With overlay</h2>
+            <ul>
+                <li><a href="images/demo1.jpg" data-imagelightbox="b"><img src="images/thumb1.jpg"></a></li>
+                <li><a href="images/demo2.jpg" data-imagelightbox="b"><img src="images/thumb2.jpg"></a></li>
+                <li><a href="images/demo3.jpg" data-imagelightbox="b"><img src="images/thumb3.jpg"></a></li>
+            </ul>
+            <pre><code>$('a[data-imagelightbox="b"]')
+                .imageLightbox({overlay: true});
+            </code></pre>
+            <h2>With "close" button</h2>
+            <ul>
+                <li><a href="images/demo1.jpg" data-imagelightbox="c"><img src="images/thumb1.jpg"></a></li>
+                <li><a href="images/demo2.jpg" data-imagelightbox="c"><img src="images/thumb2.jpg"></a></li>
+                <li><a href="images/demo3.jpg" data-imagelightbox="c"><img src="images/thumb3.jpg"></a></li>
+            </ul>
+            <pre><code>$('a[data-imagelightbox="c"]')
+                .imageLightbox({button: true, quitOnDocClick: false});
+            </code></pre>
+            <h2>With caption</h2>
+            <ul>
+                <li><a href="images/demo1.jpg" data-imagelightbox="d"><img src="images/thumb1.jpg" alt="Sunset in Tanzania"></a></li>
+                <li><a href="images/demo2.jpg" data-imagelightbox="d"><img src="images/thumb2.jpg" alt="Trafic jam in Tanzania"></a></li>
+                <li><a href="images/demo3.jpg" data-imagelightbox="d"><img src="images/thumb3.jpg" alt="Just another sunset in Tanzania"></a></li>
+            </ul>
+            <pre><code>$('a[data-imagelightbox="d"]')
+                .imageLightbox({caption: true});
+            </code></pre>
+            <h2>With navigation</h2>
+            <ul>
+                <li><a href="images/demo1.jpg" data-imagelightbox="e"><img src="images/thumb1.jpg"></a></li>
+                <li><a href="images/demo2.jpg" data-imagelightbox="e"><img src="images/thumb2.jpg"></a></li>
+                <li><a href="images/demo3.jpg" data-imagelightbox="e"><img src="images/thumb3.jpg"></a></li>
+            </ul>
+            <h2>With arrows</h2>
+            <ul>
+                <li><a href="images/demo1.jpg" data-imagelightbox="f"><img src="images/thumb1.jpg"></a></li>
+                <li><a href="images/demo2.jpg" data-imagelightbox="f"><img src="images/thumb2.jpg"></a></li>
+                <li><a href="images/demo3.jpg" data-imagelightbox="f"><img src="images/thumb3.jpg"></a></li>
+            </ul>
+            <pre><code>$('a[data-imagelightbox="f"]')
+                .imageLightbox({arrows: true});
+            </code></pre>
+            <h2>All of the above</h2>
+            <ul>
+                <li><a href="images/demo1.jpg" data-imagelightbox="g"><img src="images/thumb1.jpg"></a></li>
+                <li><a href="images/demo2.jpg" data-imagelightbox="g"><img src="images/thumb2.jpg"></a></li>
+                <li><a href="images/demo3.jpg" data-imagelightbox="g"><img src="images/thumb3.jpg"></a></li>
+            </ul>
+            <h2>With manual trigger</h2>
+            <ul>
+                <li><a href="images/demo1.jpg" data-imagelightbox="h"><img src="images/thumb1.jpg"></a></li>
+                <li><a href="images/demo2.jpg" data-imagelightbox="h"><img src="images/thumb2.jpg"></a></li>
+                <li><a href="images/demo3.jpg" data-imagelightbox="h"><img src="images/thumb3.jpg"></a></li>
+            </ul>
+            <button class="trigger-button">Klick Me!</button>
+            <h2>dynamically adding</h2>
+            <ul id="dynamically_adding">
+                <li><a href="images/demo1.jpg" data-imagelightbox="i"><img src="images/thumb1.jpg" alt="Klaipeda in the night"></a></li>
+                <li><a href="images/demo2.jpg" data-imagelightbox="i"><img src="images/thumb2.jpg" alt="Frozen river Dane"></a></li>
+                <li><a href="images/demo3.jpg" data-imagelightbox="i"><img src="images/thumb3.jpg" alt="Snowy road Klaipeda-Vilnius"></a></li>
+            </ul>
+            <button id="addimage">Add another image</button>
+
+            <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+            <script src="./javascripts/imagelightbox.js"></script>
+            <script src="./javascripts/main.js"></script>
+        </section>
+
+        <footer>
+            <p>Imagelightbox is maintained by <a href="https://github.com/rejas">rejas</a> Photos taken by <a href="https://www.veeck.de">me</a>.
+            Original work by <a href="http://osvaldas.info/image-lightbox-responsive-touch-friendly">Osvaldas Valutis</a>.</p>
+            <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.
+            Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
