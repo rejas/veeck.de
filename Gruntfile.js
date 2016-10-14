@@ -144,7 +144,7 @@ module.exports = function(grunt) {
                 tasks: ['assemble']
             },
             less: {
-                files: ['<%= dir.src %>/css/**/*.{css, less}'],
+                files: ['<%= dir.src %>/css/**/*.{css,less}'],
                 tasks: ['less']
             },
             js: {
