@@ -1,12 +1,12 @@
 {
   "name": "cookieconsent",
-  "version": "2.0.0",
+  "version": "3.0.1",
   "homepage": "http://cookieconsent.insites.com/",
   "authors": [
     "Insites"
   ],
   "description": "Insites' cookie consent plugin v2",
-  "main": "cookieconsent.js",
+  "main": "build/cookieconsent.min.js",
   "keywords": [
     "cookieconsent",
     "cookie",
