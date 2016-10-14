@@ -1,12 +1,12 @@
 {
   "name": "cookieconsent",
-  "version": "2.0.0",
+  "version": "3.0.1",
   "homepage": "http://cookieconsent.insites.com/",
   "authors": [
     "Insites"
   ],
   "description": "Insites' cookie consent plugin v2",
-  "main": "cookieconsent.js",
+  "main": "build/cookieconsent.min.js",
   "keywords": [
     "cookieconsent",
     "cookie",
@@ -20,13 +20,13 @@
     "test",
     "tests"
   ],
-  "_release": "2.0.0",
+  "_release": "3.0.1",
   "_resolution": {
     "type": "version",
-    "tag": "2.0.0",
-    "commit": "973eb0a951de60d403ccc7107796cec06964af00"
+    "tag": "3.0.1",
+    "commit": "dc768a36e6b470ae5c32275895fb044a0bae4d40"
   },
   "_source": "https://github.com/silktide/cookieconsent2.git",
-  "_target": "^2.0.0",
+  "_target": "^3.0.1",
   "_originalSource": "cookieconsent2"
 }

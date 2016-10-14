@@ -1,7 +1,7 @@
 {
   "name": "bLazy",
   "main": "blazy.js",
-  "version": "1.6.2",
+  "version": "1.7.0",
   "description": "A fast lightweight pure JavaScript script for lazy loading and multi-serving images, iframes, videos and more.",
   "homepage": "https://github.com/dinbror/blazy",
   "keywords": [
@@ -29,13 +29,13 @@
     "CommonJS"
   ],
   "ignore": [],
-  "_release": "1.6.2",
+  "_release": "1.7.0",
   "_resolution": {
     "type": "version",
-    "tag": "1.6.2",
-    "commit": "b0cc033a0c968094bf15987368b55231878ae887"
+    "tag": "1.7.0",
+    "commit": "e238f24b5a31a1a47fac57a962e0724a1351e84d"
   },
   "_source": "https://github.com/dinbror/blazy.git",
-  "_target": "^1.6.2",
+  "_target": "^1.7.0",
   "_originalSource": "blazy"
 }

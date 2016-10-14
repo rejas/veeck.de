@@ -1,10 +1,13 @@
-hey, be lazy
-=====
+#hey, be lazy
+[![Downloads](https://img.shields.io/npm/dm/blazy.svg?style=flat)](https://www.npmjs.com/package/blazy)
+[![Latest Stable Version](https://img.shields.io/npm/v/blazy.svg?style=flat)](https://www.npmjs.com/package/blazy)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dinbror/blazy/blob/master/LICENSE)
+
 bLazy is a lightweight script for lazy loading and multi-serving images, iframes, videos and more (less than 1.4KB minified and gzipped). It’s written in pure JavaScript why it doesn’t depend on 3rd-party libraries such as jQuery. It lets you lazy load and multi-serve your images so you can save bandwidth and server requests. The user will have faster load times and save data usage if he/she doesn't browse the whole page.
 
 **Table of Contents**<br>
 1. [Demo](https://github.com/dinbror/blazy#demo)<br>
-2. [Usage & API](https://github.com/dinbror/blazy#how-to--api)<br>
+2. [Usage & API](https://github.com/dinbror/blazy#usage--api)<br>
 3. [Why be lazy?](https://github.com/dinbror/blazy#why-be-lazy)<br>
 4. [Changelog](https://github.com/dinbror/blazy#changelog)<br>
 5. [License](https://github.com/dinbror/blazy#license)<br>
@@ -48,7 +51,27 @@ Exchange `latest` with the specific version number if you want to lock it in.
 * bLazy supports all browsers used today including legacy browsers like IE7 and 8.
 * bLazy supports all main module formats like AMD, CommonJS and globals.  
 
+
+## WISHLIST/NEW FEATURES REQUESTED BY YOU
+* Only preload "first frame" of progressive jpegs.
+* Add support for CSS background property; [image-set](https://cloudfour.com/examples/image-set/) ([caniuse](http://caniuse.com/#feat=css-image-set)). 
+* Add a class when the lazyloading begins.
+* Option to keen load once on screen images have loaded.
+* Add option to disable success/error classes
+* Animate the container that contains the image you lazy load. You can do that today by adding/removing a class in the success callback.
+
 ## CHANGELOG
+### v 1.7.0 (2016/10/10) ###
+* Bugfix: When lazyloading picture elements it also loaded the fallback/regular image [#92](https://github.com/dinbror/blazy/issues/92) and [108](https://github.com/dinbror/blazy/pull/108). Thanks [@idoshamun](https://github.com/idoshamun)
+* Refactored loadElement function to avoid redundancy. 
+
+### v 1.6.4 (2016/10/08) ###
+* Bugfix: When lazyloading srcset images it also loaded the fallback/regular image [#99](https://github.com/dinbror/blazy/pull/99). Thanks [@m0uH](https://github.com/m0uH)
+
+### v 1.6.3 (2016/09/30) ###
+* Changed event listener to passive listener [#106](https://github.com/dinbror/blazy/pull/106). Thanks [@idoshamun](https://github.com/idoshamun)
+* Added support for web components (shadow dom) [#107](https://github.com/dinbror/blazy/pull/107). Thanks again [@idoshamun](https://github.com/idoshamun)
+
 ### v 1.6.2 (2016/05/09) ###
 * Fixed bug introduced in v.1.6.0, not using retina/breakpoint src [#90](https://github.com/dinbror/blazy/issues/90).
 

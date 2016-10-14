@@ -44,6 +44,7 @@ $( selector ).imageLightbox({
     button:         false,                   // bool;            show close button
     caption:        false,                   // bool;            show captions
     enableKeyboard: true,                    // bool;            enable keyboard shortcuts (arrows Left/Right and Esc)
+    lockBody:       false,                   // bool;            disables body scrolling when lightbox is open
     navigation:     false,                   // bool;            show navigation
     overlay:        false,                   // bool;            display the lightbox as an overlay
     preloadNext:    true,                    // bool;            silently preload the next image
@@ -97,5 +98,7 @@ imageLightBox allows adding more images dynamically at runtime
                         
 ## Changelog
 
+* 0.5.3 Add lockBody option thanks to @Paxperscientiam
+* 0.5.2 Updates to demo page, cleanups
 * 0.5.1 Fix startImageLightbox
 * 0.5.0 Support jQuery3

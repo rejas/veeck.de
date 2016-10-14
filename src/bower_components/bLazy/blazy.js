@@ -1,5 +1,5 @@
 /*!
-  hey, [be]Lazy.js - v1.6.2 - 2016.05.09
+  hey, [be]Lazy.js - v1.7.0 - 2016.10.10
   A fast, small and dependency free lazy load script (https://github.com/dinbror/blazy)
   (c) Bjoern Klinggaard - @bklinggaard - http://dinbror.dk/blazy
 */
@@ -48,6 +48,7 @@
         scope.options = options || {};
         scope.options.error = scope.options.error || false;
         scope.options.offset = scope.options.offset || 100;
+        scope.options.root = scope.options.root || document;
         scope.options.success = scope.options.success || false;
         scope.options.selector = scope.options.selector || '.b-lazy';
         scope.options.separator = scope.options.separator || '|';
@@ -127,7 +128,7 @@
     function initialize(self) {
         var util = self._util;
         // First we create an array of elements to lazy load
-        util.elements = toArray(self.options.selector);
+        util.elements = toArray(self.options);
         util.count = util.elements.length;
         // Then we bind resize and scroll events if not already binded
         if (util.destroyed) {
@@ -176,7 +177,10 @@
             if (dataSrc) {
                 var dataSrcSplitted = dataSrc.split(options.separator);
                 var src = dataSrcSplitted[_isRetina && dataSrcSplitted.length > 1 ? 1 : 0];
+                var srcset = ele.getAttribute(options.srcset);
                 var isImage = equal(ele, 'img');
+                var parent = ele.parentNode;
+                var isPicture = parent && equal(parent, 'picture');
                 // Image or background image
                 if (isImage || ele.src === undefined) {
                     var img = new Image();
@@ -192,14 +196,8 @@
                     var onLoadHandler = function() {
                         // Is element an image
                         if (isImage) {
-                            setSrc(ele, src); //src
-                            handleSource(ele, _attrSrcset, options.srcset); //srcset
-                            //picture element
-                            var parent = ele.parentNode;
-                            if (parent && equal(parent, 'picture')) {
-                                each(parent.getElementsByTagName('source'), function(source) {
-                                    handleSource(source, _attrSrcset, options.srcset);
-                                });
+                            if(!isPicture) {
+                                handleSources(ele, src, srcset);
                             }
                         // or background-image
                         } else {
@@ -209,9 +207,18 @@
                         unbindEvent(img, 'load', onLoadHandler);
                         unbindEvent(img, 'error', onErrorHandler);
                     };
+                    
+                    // Picture element
+                    if (isPicture) {
+                        img = ele; // Image tag inside picture element wont get preloaded
+                        each(parent.getElementsByTagName('source'), function(source) {
+                            handleSource(source, _attrSrcset, options.srcset);
+                        });
+                    }
                     bindEvent(img, 'error', onErrorHandler);
                     bindEvent(img, 'load', onLoadHandler);
-                    setSrc(img, src); //preload
+                    handleSources(img, src, srcset); // Preload
+
                 } else { // An item with src like iframe, unity, simpelvideo etc
                     setSrc(ele, src);
                     itemLoaded(ele, options);
@@ -237,6 +244,7 @@
         if (options.success) options.success(ele);
         // cleanup markup, remove data source attributes
         ele.removeAttribute(options.src);
+        ele.removeAttribute(options.srcset);
         each(options.breakpoints, function(object) {
             ele.removeAttribute(object.src);
         });
@@ -254,6 +262,13 @@
         }
     }
 
+    function handleSources(ele, src, srcset){
+        if(srcset) {
+            ele[_attrSrcset] = srcset; //srcset
+        }
+        setSrc(ele, src); //src 
+    }
+
     function equal(ele, str) {
         return ele.nodeName.toLowerCase() === str;
     }
@@ -268,9 +283,9 @@
         }
     }
 
-    function toArray(selector) {
+    function toArray(options) {
         var array = [];
-        var nodelist = document.querySelectorAll(selector);
+        var nodelist = (options.root).querySelectorAll(options.selector);
         for (var i = nodelist.length; i--; array.unshift(nodelist[i])) {}
         return array;
     }
@@ -284,7 +299,7 @@
         if (ele.attachEvent) {
             ele.attachEvent && ele.attachEvent('on' + type, fn);
         } else {
-            ele.addEventListener(type, fn, false);
+            ele.addEventListener(type, fn, { capture: false, passive: true });
         }
     }
 
@@ -292,7 +307,7 @@
         if (ele.detachEvent) {
             ele.detachEvent && ele.detachEvent('on' + type, fn);
         } else {
-            ele.removeEventListener(type, fn, false);
+            ele.removeEventListener(type, fn, { capture: false, passive: true });
         }
     }
 
