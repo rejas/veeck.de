@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "4.9.0",
+  "version": "4.9.1",
   "private": true,
   "homepage": "https://github.com/rejas/homepage",
   "author": {
@@ -8,14 +8,14 @@
     "url": "http://github.com/rejas/"
   },
   "devDependencies": {
-    "assemble": "^0.16.1",
+    "assemble": "^0.17.1",
     "assemble-less": "^0.7.0",
-    "autoprefixer": "^6.3.7",
+    "autoprefixer": "^6.5.1",
     "css-mqpacker": "^5.0.1",
-    "cssnano": "^3.7.3",
-    "eslint": "^3.1.1",
+    "cssnano": "^3.7.7",
+    "eslint": "^3.7.1",
     "grunt": "^1.0.1",
-    "grunt-assemble": "^0.4.0",
+    "grunt-assemble": "^0.5.0",
     "grunt-browserify": "^5.0.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-connect": "^1.0.2",
@@ -23,7 +23,8 @@
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-postcss": "^0.8.0",
-    "load-grunt-tasks": "^3.5.0",
+    "grunt-release-it": "^1.0.1",
+    "load-grunt-tasks": "^3.5.2",
     "time-grunt": "^1.4.0"
   }
 }

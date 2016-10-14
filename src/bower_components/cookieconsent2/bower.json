@@ -1,12 +1,12 @@
 {
-  "name": "cookieconsent2",
-  "version": "1.0.9",
-  "homepage": "https://github.com/silktide/cookieconsent2",
+  "name": "cookieconsent",
+  "version": "3.0.1",
+  "homepage": "http://cookieconsent.insites.com/",
   "authors": [
-    "silktide"
+    "Insites"
   ],
-  "description": "Silktide's cookie consent plugin v2",
-  "main": "cookieconsent.js",
+  "description": "Insites' cookie consent plugin v2",
+  "main": "build/cookieconsent.min.js",
   "keywords": [
     "cookieconsent",
     "cookie",

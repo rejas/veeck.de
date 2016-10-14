@@ -65,7 +65,7 @@ ShareButton = require('../bower_components/share-button/share-button.js');
 require('../bower_components/imgLiquid/js/imgLiquid.js');
 require('../bower_components/imagelightbox2/src/imagelightbox.js');
 require('../bower_components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
-require('../bower_components/cookieconsent2/cookieconsent.js');
+require('../bower_components/cookieconsent2/src/cookieconsent.js');
 
 $(document).ready(function() {
 

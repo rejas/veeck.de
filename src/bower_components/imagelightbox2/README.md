@@ -12,7 +12,7 @@ See most of the available options at the [Demo Page](http://rejas.github.io/imag
 
 ## Requirements and Browser support
 
-* jQuery 1.12 (earlier version not tested), feel free to use jQuery v2 if you don't need to support older browsers
+* jQuery 1.12 (earlier version not tested), feel free to use jQuery v2 or v3 if you don't need to support older browsers
 * All mayor desktop browsers and versions as well as mobile browsers on Android, iOS and Windows Phone. 
 * IE8 is NOT supported
 
@@ -44,6 +44,7 @@ $( selector ).imageLightbox({
     button:         false,                   // bool;            show close button
     caption:        false,                   // bool;            show captions
     enableKeyboard: true,                    // bool;            enable keyboard shortcuts (arrows Left/Right and Esc)
+    lockBody:       false,                   // bool;            disables body scrolling when lightbox is open
     navigation:     false,                   // bool;            show navigation
     overlay:        false,                   // bool;            display the lightbox as an overlay
     preloadNext:    true,                    // bool;            silently preload the next image
@@ -94,4 +95,10 @@ imageLightBox allows adding more images dynamically at runtime
     });
 </script>  
 ````
-             
+                        
+## Changelog
+
+* 0.5.3 Add lockBody option thanks to @Paxperscientiam
+* 0.5.2 Updates to demo page, cleanups
+* 0.5.1 Fix startImageLightbox
+* 0.5.0 Support jQuery3

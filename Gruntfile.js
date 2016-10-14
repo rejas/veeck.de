@@ -135,7 +135,7 @@ module.exports = function(grunt) {
                 tasks: ['assemble']
             },
             less: {
-                files: ['<%= dir.src %>/css/**/*.{css, less}'],
+                files: ['<%= dir.src %>/css/**/*.{css,less}'],
                 tasks: ['less']
             },
             js: {
@@ -153,10 +153,21 @@ module.exports = function(grunt) {
                     '<%= dir.dist %>/img/**/*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
             }
+        },
+
+        'release-it': {
+            options: {
+                pkgFiles: ['package.json'],
+                commitMessage: 'Release %s',
+                tagName: '%s',
+                tagAnnotation: 'Release %s',
+                buildCommand: false
+            }
         }
     });
 
     grunt.loadNpmTasks('assemble-less');
+    grunt.loadNpmTasks('grunt-release-it');
 
     grunt.registerTask('postjs', [
         'browserify',
