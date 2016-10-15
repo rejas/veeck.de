@@ -1,6 +1,6 @@
 {
   "name": "imagelightbox",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Image Lightbox, Responsive and Touch‑friendly",
   "repository": "https://github.com/rejas/imagelightbox.git",
   "license": "MIT",
@@ -20,13 +20,13 @@
     "package.json"
   ],
   "homepage": "https://github.com/rejas/imagelightbox",
-  "_release": "0.5.3",
+  "_release": "0.5.4",
   "_resolution": {
     "type": "version",
-    "tag": "0.5.3",
-    "commit": "ebc0a850c17b671e4b7a262b5c50e5a92353f1af"
+    "tag": "0.5.4",
+    "commit": "449fce83f8706fa3259df7a12c3a7ec905878e64"
   },
   "_source": "https://github.com/rejas/imagelightbox.git",
-  "_target": "^0.5.3",
+  "_target": "^0.5.4",
   "_originalSource": "imagelightbox2"
 }
