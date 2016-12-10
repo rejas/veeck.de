@@ -36,27 +36,46 @@ $(document).ready(function() {
         selector: 'a[data-imagelightbox="f"]'
     });
 
-    var gallery = $('a[data-imagelightbox="h"]').imageLightbox();
-    $('.trigger-button').on('click', function () {
+    var gallery = $('a[data-imagelightbox="h"]').imageLightbox({
+        arrows: true
+    });
+    $('.trigger-lightbox').on('click', function () {
         gallery.startImageLightbox();
     });
 
-    var instanceI =  $('a[data-imagelightbox="i"]').imageLightbox();
-    $("#addimage").on('click', function(){
+    var instanceI =  $('a[data-imagelightbox="i"]').imageLightbox({
+        arrows: true
+    });
+    $(".add-image").on('click', function(){
         var adding_ul = $("#dynamically_adding");
         var li = $('<li></li>').appendTo( adding_ul );
         var a = $("<a></a>")
-            .attr('data-imagelightbox',"add")
+            .attr('data-imagelightbox',"i")
             .attr('href', "images/demo4.jpg")
             .appendTo( li );
         $("<img />")
             .attr("src", "images/thumb4.jpg")
             .appendTo( a );
         // dynamically adding
-        instanceI.addToImageLightbox( $("a[data-imagelightbox='add']") );
+        instanceI.addToImageLightbox( $("a[data-imagelightbox='i']") );
     });
 
     $('a[data-imagelightbox="j"]').imageLightbox({
         lockBody: true
     });
+
+    $('a[data-imagelightbox="k"]').imageLightbox();
+    $(document)
+        .on("start.ilb2", function () {
+            console.log("start.ilb2");
+        })
+        .on("quit.ilb2", function () {
+            console.log("quit.ilb2");
+        })
+        .on("previous.ilb2", function () {
+            console.log("previous.ilb2");
+        })
+        .on("next.ilb2", function () {
+            console.log("next.ilb2");
+        });
 });

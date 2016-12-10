@@ -51,11 +51,7 @@ $( selector ).imageLightbox({
     quitOnEnd:      false,                   // bool;            quit after viewing the last image
     quitOnImgClick: false,                   // bool;            quit when the viewed image is clicked
     quitOnDocClick: true,                    // bool;            quit when anything but the viewed image is clicked
-    quitOnEscKey:   true,                    // bool;            quit when Esc key is pressed
-    onStart:        false,                   // function/bool;   calls function when the lightbox starts
-    onEnd:          false,                   // function/bool;   calls function when the lightbox quits
-    onLoadStart:    false,                   // function/bool;   calls function when the image load begins
-    onLoadEnd:      false                    // function/bool;   calls function when the image finishes loading
+    quitOnEscKey:   true                     // bool;            quit when Esc key is pressed    
 });
 ````
 
@@ -76,7 +72,69 @@ imageLightBox can be started with *startImageLightbox()* JavaScript function cal
     });
 </script>
 ````
-             
+## Adding captions to lightbox 
+
+add an "ilb2-caption" data-attribute to the element, fallback value is the alt-attribute of the thumbnail-image
+                
+````html    
+    <a data-imagelightbox="x" data-ilb2-caption="caption text"
+        href="image.jpg">
+        <img src="thumbnail.jpg" alt="fallback caption"/>
+    </a>
+````         
+
+## Hooks
+
+Image Lightbox now triggers unique events upon start, finish, and when either the next or previous image is requested.
+These events are, respectively, "start.ilb2", "quit.ilb2", "next.ilb2", and "previous.ilb2".
+
+Usage example:
+````javascript
+ $(document)
+    .on("start.ilb2", function () {
+    console.log("Image Lightbox has started.");
+    })
+    .on("next.ilb2", function () {
+    console.log("Next image");
+    })
+    .on("previous.ilb2", function () {
+    console.log("Previous image");
+    })
+    .on("quit.ilb2", function () {
+    console.log("Image Lightbox has quit.");
+    });
+````
+
+## Using multiple sets
+
+As of commit bf2b4db, imageLightbox supports "sets."
+A set is defined by the links with a common value for the "data-imagelightbox" attribute.
+
+For example:
+
+````html
+    <a data-imagelightbox="a"
+        href="image_1.jpg">
+        <img src="thumbnail_1.jpg" alt="caption"/>
+    </a>
+    <a data-imagelightbox="a"
+        href="image_2.jpg">
+        <img src="thumbnail_2.jpg" alt="caption"/>
+    </a>
+    
+    <a data-imagelightbox="b"
+        href="image_3.jpg">
+        <img src="thumbnail_3.jpg" alt="caption"/>
+    </a>
+    <a data-imagelightbox="b"
+        href="image_4.jpg">
+        <img src="thumbnail_4.jpg" alt="caption"/>
+    </a>
+````
+When the user clicks any of the thumbnails with a data-imagelightbox value of "a", only those images will appear in the lightbox. The same is true when clicking an image with data-imagelightbox value of "b" and any other.
+
+In order to "capture" all possible sets on a give webpage, it is necessary to apply imageLightbox to "a[data-imagelightbox]"; that is, without specifying a particular data-imagelightbox attribute value.
+
 ## Adding images dynamically to lightbox 
 
 imageLightBox allows adding more images dynamically at runtime
@@ -98,7 +156,9 @@ imageLightBox allows adding more images dynamically at runtime
                         
 ## Changelog
 
-* 0.5.3 Add lockBody option thanks to @Paxperscientiam
+* 0.6.0 Replaced onStart/onEnd/onLoadStart/onLoadEnd with event hooks (@Paxperscientiam), added ui-tests 
+* 0.5.4 Add ilb2-caption option (@Paxperscientiam)
+* 0.5.3 Add lockBody option (@Paxperscientiam)
 * 0.5.2 Updates to demo page, cleanups
 * 0.5.1 Fix startImageLightbox
 * 0.5.0 Support jQuery3
