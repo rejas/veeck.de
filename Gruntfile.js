@@ -8,7 +8,7 @@
 // '<%= dir.src %>/templates/pages/**/*.hbs'
 
 module.exports = function(grunt) {
-    var config = require('./config.json');
+    const config = require('./config.json');
 
     require('time-grunt')(grunt);
     require('load-grunt-tasks')(grunt);
@@ -22,12 +22,12 @@ module.exports = function(grunt) {
                 options: {
                     flatten: true,
                     assets: '<%= dir.dist %>/assets',
-                    layout: '<%= dir.src %>/templates/layouts/default.hbs',
-                    data: '<%= dir.src %>/data/*.{json,yml}',
-                    partials: '<%= dir.src %>/templates/partials/*.hbs'
+                    layout: '<%= dir.assemble %>/layouts/default.hbs',
+                    data: '<%= dir.assemble %>/data/*.{json,yml}',
+                    partials: '<%= dir.assemble %>/partials/*.hbs'
                 },
                 files: {
-                    '<%= dir.dist %>/': ['<%= dir.src %>/templates/pages/*.hbs']
+                    '<%= dir.dist %>/': ['<%= dir.assemble %>/pages/*.hbs']
                 }
             }
         },
@@ -131,7 +131,7 @@ module.exports = function(grunt) {
 
         watch: {
             assemble: {
-                files: ['<%= dir.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
+                files: ['<%= dir.assemble %>/{,*/}*.{md,hbs,yml}'],
                 tasks: ['assemble']
             },
             less: {

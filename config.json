@@ -3,6 +3,7 @@
     "browsers": ["last 2 versions", "ie >=10", "iOS >=8", "Android >= 4.1"]
   },
   "directories": {
+    "assemble": "src/assemble",
     "src": "src",
     "dist": "dist"
   },
