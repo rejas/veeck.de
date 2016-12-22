@@ -103,8 +103,8 @@ $(document).ready(function() {
      */
     if (window.CSS && window.CSS.supports && window.CSS.supports('--primaryColor', 0)) {
         // CSS custom properties supported.
-        var root = document.querySelector(':root');
-        var htmlStyle = window.getComputedStyle(root);
+        var root = document.querySelector(':root'),
+            htmlStyle = window.getComputedStyle(root);
 
         htmlStyle.getPropertyValue('--primaryColor');
         root.style.setProperty('--primaryColor', '#ffeb3b');
