@@ -56,7 +56,7 @@ addLoadEvent(function() {
     }
 });
 
-window.$ = window.jQuery = require('../bower_components/jquery/dist/jquery.js');
+window.$ = window.jquery = window.jQuery = require('../bower_components/jquery/dist/jquery.js');
 Blazy = require('../bower_components/bLazy/blazy.js');
 Intro = require('./modules/intro.js');
 Nav = require('./modules/nav.js');
@@ -67,7 +67,31 @@ require('../bower_components/imagelightbox2/src/imagelightbox.js');
 require('../bower_components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
 require('../bower_components/cookieconsent2/src/cookieconsent.js');
 
+require('../bower_components/slick-carousel/slick/slick.js');
+require('../bower_components/slick-lightbox/dist/slick-lightbox.js');
+
 $(document).ready(function() {
+
+    $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: true,
+        centerMode: true,
+        focusOnSelect: true
+    });
+
+
+
+
+    //$('#default-demo').slickLightbox();
 
     /**
      *    CSS provides HSL color mode that controls Hue, Saturation, Luminosity(Lightness) and optionaly Opacity
