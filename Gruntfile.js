@@ -50,7 +50,7 @@ module.exports = function(grunt) {
             },
             livereload: {
                 options: {
-                    open: true,
+                    open: false,
                     base: [
                         '<%= dir.dist %>'
                     ]
@@ -148,7 +148,7 @@ module.exports = function(grunt) {
                 },
                 files: [
                     '<%= dir.dist %>/*.html',
-                    '<%= dir.dist %>/assets/css/**/*.css',
+                    '<%= dir.dist %>/assets/**/*.css',
                     '<%= dir.dist %>/js/**/*.js',
                     '<%= dir.dist %>/img/**/*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
