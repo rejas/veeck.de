@@ -7,6 +7,9 @@
     "name": "rejas",
     "url": "http://github.com/rejas/"
   },
+  "scripts": {
+      "fix": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js --fix"
+  },
   "devDependencies": {
     "assemble": "^0.17.1",
     "assemble-less": "^0.7.0",
