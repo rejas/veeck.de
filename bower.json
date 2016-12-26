@@ -28,6 +28,8 @@
     "outdated-browser": "^1.1.3",
     "ResponsiveMultiLevelMenu2": "^1.0.2",
     "share-button": "^1.0.3",
-    "Skeleton-Less": "skeleton-less#*"
+    "Skeleton-Less": "skeleton-less#*",
+    "slick-lightbox": "^0.2.6",
+    "slick-carousel": "~1.4.1"
   }
 }
