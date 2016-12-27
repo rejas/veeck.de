@@ -29,7 +29,6 @@
     "ResponsiveMultiLevelMenu2": "^1.0.2",
     "share-button": "^1.0.3",
     "Skeleton-Less": "skeleton-less#*",
-    "slick-lightbox": "^0.2.6",
-    "slick-carousel": "~1.4.1"
+    "slick-carousel": "^1.6.0"
   }
 }
