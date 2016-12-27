@@ -66,32 +66,24 @@ require('../bower_components/imgLiquid/js/imgLiquid.js');
 require('../bower_components/imagelightbox2/src/imagelightbox.js');
 require('../bower_components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
 require('../bower_components/cookieconsent2/src/cookieconsent.js');
-
 require('../bower_components/slick-carousel/slick/slick.js');
-require('../bower_components/slick-lightbox/dist/slick-lightbox.js');
 
 $(document).ready(function() {
 
     $('.slider-for').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: false,
+        arrows: true,
         fade: true,
         asNavFor: '.slider-nav'
     });
     $('.slider-nav').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
         asNavFor: '.slider-for',
+        arrows: false,
         dots: true,
-        centerMode: true,
+        centerMode: false,
         focusOnSelect: true
     });
-
-
-
-
-    //$('#default-demo').slickLightbox();
 
     /**
      *    CSS provides HSL color mode that controls Hue, Saturation, Luminosity(Lightness) and optionaly Opacity

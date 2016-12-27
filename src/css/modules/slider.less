@@ -1,0 +1,65 @@
+@import (less) "../../bower_components/slick-carousel/slick/slick.css";
+
+@import (less) "../../bower_components/slick-carousel/slick/slick-theme.css";
+
+.slider-element {
+    margin: 0 auto 20px;
+    max-width: 480px;
+
+    .normal-p {
+        background-color: rgba(0,0,0,0.5);
+        color: white;
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .slick-next,
+    .slick-prev {
+        margin-top: 0;
+        height: auto;
+        width: auto;
+    }
+
+    .slick-next:before,
+    .slick-prev:before {
+        padding: 5px;
+        width: 30px;
+        height: 25px;
+        color: @primaryTextColor;
+        border-radius: 20px;
+        border: 1px solid @primaryTextColor;
+        background-color: @lightAccentColor;
+    }
+
+    .slick-next {
+        right: -45px;
+    }
+
+    .slick-prev {
+        left: -40px;
+    }
+
+    .slider-for {
+        margin-bottom: 20px;
+
+        img {
+            height: auto;
+            max-width: 480px;
+        }
+    }
+
+    .img_carousel {
+        width: 40px;
+        background: #fff;
+        color: #3498db;
+        font-size: 36px;
+        line-height: 100px;
+        margin: 0 auto;
+        padding: 2%;
+        position: relative;
+        text-align: center;
+    }
+}
