@@ -165,3 +165,16 @@ select {
     border-radius: @figure-radius;
     .colorVar(border-color, --accentColor, @accentColor);
 }
+
+.btn {
+    .boxshadow(1);
+    .colorVar(background-color, --primaryColor, @primaryColor);
+    width: 54px;
+    height: 54px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 4rem;
+    padding: 0;
+    border-radius: @global-radius;
+    user-select: none;
+}
