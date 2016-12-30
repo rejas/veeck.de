@@ -45,15 +45,15 @@
             margin: 0;
 
             &:hover {
-                .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+                background-color: @hover-color;
             }
 
             a {
+                .colorVar(color, --primaryTextColor, @primaryTextColor);
                 display: block;
                 position: relative;
                 padding: 12px;
                 text-transform: uppercase;
-                .colorVar(color, --primaryTextColor, @primaryTextColor);
                 outline: none;
                 text-decoration: none;
             }
@@ -68,6 +68,10 @@
                 border-radius: 0 @figure-radius @figure-radius @figure-radius;
                 display: none;
                 font-size: 100%;
+
+                @media @tablets {
+                    border-radius: @figure-radius 0 @figure-radius @figure-radius;
+                }
             }
         }
     }
@@ -89,6 +93,10 @@
             pointer-events: auto;
             transform: translateY(0px);
             .boxshadow(5);
+
+            @media @tablets {
+                border-radius: @figure-radius 0 @figure-radius @figure-radius;
+            }
         }
     }
 
@@ -97,12 +105,11 @@
         width: 100%;
         position: absolute;
         left: 0;
-        margin: 3em 0 0 0;
+        margin: 54px 0 0 0;
     }
 
     li.dl-back > a {
         padding-left: 30px;
-        background: rgba(0,0,0,0.1);
     }
 
     li.dl-back::after,
@@ -111,7 +118,7 @@
         .colorVar(color, --primaryTextColor, @primaryTextColor);
         position: absolute;
         top: 0;
-        line-height: 55px;
+        line-height: 54px;
     }
 
     li.dl-back::after {
@@ -139,6 +146,15 @@
     .dl-menu.dl-subview li.dl-subviewopen > .dl-submenu,
     .dl-menu.dl-subview li.dl-subviewopen > .dl-submenu > li {
         display: block;
+    }
+
+    .dl-menu.dl-subview li.dl-subview,
+    .dl-menu.dl-subview li.dl-subviewopen {
+        border-radius: 0 @figure-radius @figure-radius @figure-radius;
+
+        @media @tablets {
+            border-radius: @figure-radius 0 @figure-radius @figure-radius;
+        }
     }
 
     /* Animation classes for moving out and in */
