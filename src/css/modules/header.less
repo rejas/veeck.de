@@ -110,36 +110,10 @@
         background: transparent;
         border: 0;
         z-index: @z-index-2;
-
-        .icon {
-            color: black;
-            width: 55px;
-            height: 55px;
-            margin: 0 auto;
-            border-radius: @global-radius;
-            .boxshadow(1);
-            .colorVar(background-color, --primaryColor, @primaryColor);
-
-            &::after {
-                &:extend(.icon-font-more::after);
-                font-size: 4rem;
-                position: relative;
-                top: 0.75rem;
-            }
-
-            &:focus {
-                outline: none;
-            }
-
-            &:hover {
-                .colorVar(background-color, --primaryColor, @primaryColor);
-            }
-        }
     }
 
     .share-btn,
     .to-top-btn {
-        color: transparent;
         background-color: @accentColor;
         position: fixed;
         left: 100%;
@@ -148,11 +122,12 @@
     }
 
     .share-btn {
+        color: transparent;
 
         &::before {
             transform: scale(0.75);
-            left: 0.75rem;
-            top: 0.75rem;
+            left: 0.5rem;
+            top: 0.5rem;
         }
 
         .sb-social.sb-left.active.sb-top {
@@ -162,12 +137,5 @@
     }
 
     .to-top-btn {
-
-        &::before {
-            .colorVar(color, --primaryTextColor, @primaryTextColor);
-            &:extend(.icon-font-up::after);
-            position: relative;
-            left: 0.75rem;
-        }
     }
 }

@@ -74,6 +74,8 @@ $(document).ready(function() {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
+        prevArrow: '<button type="button" class="btn btn-slick btn-slick-prev icon-font-left"></button>',
+        nextArrow: '<button type="button" class="btn btn-slick btn-slick-next icon-font-right"></button>',
         fade: true,
         asNavFor: '.slider-nav'
     });

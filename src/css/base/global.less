@@ -167,16 +167,23 @@ select {
 }
 
 .btn {
-    .boxshadow(1);
+    .colorVar(color, --primaryTextColor, @primaryTextColor);
     .colorVar(background-color, --primaryColor, @primaryColor);
+    cursor: pointer;
+    display: block;
     width: 54px;
     height: 54px;
     text-align: center;
     margin: 0 auto;
     font-size: 4rem;
     padding: 0;
+    border: 3px solid rgba(0,0,0,0.125);
     border-radius: @global-radius;
     user-select: none;
+
+    &:hover {
+        border-color: @hover-color;
+    }
 }
 
 .hidden-lg {
