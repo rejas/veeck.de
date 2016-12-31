@@ -130,12 +130,23 @@
             top: 0.5rem;
         }
 
-        .sb-social.sb-left.active.sb-top {
-            top: -0.5em;
-            transform: translate(calc(-92%), -100%);
+        .sb-social {
+
+            &.sb-left.active.sb-top {
+                left: 0.65em;
+                top: -0.65em;
+                transform: translate(calc(-92%), -100%);
+            }
+
+            > ul > li {
+                border: 3px solid rgba(0,0,0,.125);
+                border-radius: @global-radius;
+                margin: 0 8px;
+                width: 48px;
+                height: 48px;
+                padding: 0;
+            }
         }
     }
 
-    .to-top-btn {
-    }
 }
