@@ -3,18 +3,8 @@
 @import (less) "../../bower_components/slick-carousel/slick/slick-theme.css";
 
 .slider-element {
-    margin: 0 auto 20px;
-    max-width: 480px;
-
-    .normal-p {
-        background-color: rgba(0,0,0,0.5);
-        color: white;
-        position: absolute;
-        bottom: 0;
-        margin: 0;
-        padding: 10px;
-        width: 100%;
-    }
+    margin: 3rem auto;
+    width: 100%;
 
     .btn-slick-next,
     .btn-slick-prev {
@@ -29,22 +19,28 @@
     }
 
     .btn-slick-next {
-        right: -60px;
+        right: -3rem;
     }
 
     .btn-slick-prev {
-        left: -60px;
+        left: -3rem;
     }
 
     .slider-for {
-        margin-bottom: 20px;
+        padding: 0 3rem;
+        margin: 0 3rem 1.5rem;
 
-        img {
-            height: auto;
-            max-width: 480px;
+        .slider-img {
+            float: right;
+            width: 50%;
         }
-    }
 
-    .img_carousel {
+        .slider-text {
+            float: left;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px;
+            width: 50%;
+        }
     }
 }
