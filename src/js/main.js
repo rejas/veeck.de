@@ -215,6 +215,7 @@ $(document).ready(function() {
         gallery.imageLightbox({
             activity:       true,
             caption:        true,
+            lockBody:       true,
             navigation:     true,
             overlay:        true
         });
