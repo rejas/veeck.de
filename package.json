@@ -25,7 +25,7 @@
     "autoprefixer": "^6.6.1",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.10.0",
-    "eslint": "^3.12.2",
+    "eslint": "^3.13.0",
     "grunt": "^1.0.1",
     "grunt-assemble": "^0.5.0",
     "grunt-browserify": "^5.0.0",
