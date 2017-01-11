@@ -110,6 +110,31 @@
         background: transparent;
         border: 0;
         z-index: @z-index-2;
+
+        .icon {
+            color: black;
+            width: 55px;
+            height: 55px;
+            margin: 0 auto;
+            border-radius: @global-radius;
+            .boxshadow(1);
+            .colorVar(background-color, --primaryColor, @primaryColor);
+
+            &::after {
+                &:extend(.icon-font-more::after);
+                font-size: 2rem;
+                position: relative;
+                top: 0.75rem;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &:hover {
+                .colorVar(background-color, --primaryColor, @primaryColor);
+            }
+        }
     }
 
     .share-btn,
@@ -118,6 +143,14 @@
         position: fixed;
         left: 100%;
         right: 1em;
+        width: 55px;
+        height: 55px;
+        font-size: 2rem;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+        border-radius: @global-radius;
+        user-select: none;
         z-index: @z-index-5;
     }
 

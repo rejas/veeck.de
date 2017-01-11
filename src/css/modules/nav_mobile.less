@@ -16,6 +16,9 @@
     .hamburger {
         position: relative;
         margin-left: 252px;
+        font-size: 2rem;
+        padding: 0;
+        .colorVar(background-color, --primaryColor, @primaryColor);
         float: right;
 
         @media @smartphones {
@@ -68,11 +71,7 @@
             .dl-submenu {
                 border-radius: 0 @figure-radius @figure-radius @figure-radius;
                 display: none;
-                font-size: 100%;
-
-                @media @tablets {
-                    border-radius: @figure-radius 0 @figure-radius @figure-radius;
-                }
+                font-size: 1rem;
             }
         }
     }
