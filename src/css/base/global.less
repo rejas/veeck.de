@@ -30,10 +30,12 @@ body {
     padding: 0;
     overflow-x: hidden;
     -ms-touch-action: auto;
+
+    font-size: calc(0.5em + 1vw);
+    line-height: calc(0.6em + 1vw);
+
     font-family: @fontMain;
-    font-weight: @base-font-weight;
-    font-size: @base-font-size;
-    line-height: @base-line-height;
+    font-weight: @font-weight-normal;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
@@ -49,7 +51,6 @@ body {
 
 article {
     .clearfix();
-    .baseline (1em);
     margin: 1em auto;
     padding: 0 1em 3em;
 
