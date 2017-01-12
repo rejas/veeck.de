@@ -54,13 +54,13 @@
         }
 
         .headline1 {
-            position: relative;
-            padding: 0.5rem;
-            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-            text-align: center;
-            word-wrap: break-word;
             border-radius: @figure-radius;
             .boxshadow(1);
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+            padding: 1rem;
+            position: relative;
+            text-align: center;
+            word-wrap: break-word;
         }
 
         .subline {
@@ -122,7 +122,7 @@
 
             &::after {
                 &:extend(.icon-font-more::after);
-                font-size: 4rem;
+                font-size: 2rem;
                 position: relative;
                 top: 0.75rem;
             }
@@ -146,7 +146,7 @@
         right: 1em;
         width: 55px;
         height: 55px;
-        font-size: 4rem;
+        font-size: 2rem;
         text-align: center;
         margin: 0 auto;
         padding: 0;
@@ -165,7 +165,7 @@
         }
 
         .sb-social.sb-left.active.sb-top {
-            top: -0.5em;
+            top: -0.5rem;
             transform: translate(calc(-92%), -100%);
         }
     }
@@ -177,6 +177,7 @@
             &:extend(.icon-font-up::after);
             position: relative;
             left: 0.75rem;
+            top: 0.5rem;
         }
     }
 }
