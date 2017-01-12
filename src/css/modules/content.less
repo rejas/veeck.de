@@ -7,20 +7,17 @@ article {
 
     &.capped-article {
 
-        p:first-of-type:first-letter:not('.normal-p') {
+        p:first-of-type:first-letter {
             float: left;
-            font-size: 5rem;
-            font-weight: bold;
-            line-height: 5rem;
-            margin: -2rem 0.5rem 0 0;
+            font-size: 3rem;
+            font-weight: @font-weight-bold;
+            line-height: 3rem;
+            margin: 0 0.5rem 0 0;
             padding: 0;
         }
 
-        h2 {
-            margin-bottom: 3rem;
-        }
-
         time {
+            font-size: @font-size-small;
             position: relative;
             text-align: right;
             display: block;

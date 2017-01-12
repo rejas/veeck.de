@@ -25,12 +25,11 @@ figure {
         > span {
             .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
             display: block;
-            font-size: 3rem;
-            font-weight: bold;
+            font-size: 2em;
+            font-weight: @font-weight-bold;
             text-align: center;
             position: relative;
-            padding: 1rem 0;
-            width: 100%;
+            padding: 0.5rem 0;
             .vertical-align();
         }
     }
@@ -51,8 +50,8 @@ figure {
 }
 
 figcaption {
-    font-family: @fontHeader, serif;
-    font-weight: bold;
+    font-family: @font-header, serif;
+    font-weight: @font-weight-bold;
     text-align: center;
     text-transform: uppercase;
     padding: 0.25em;
@@ -130,11 +129,11 @@ figcaption {
         position: absolute;
         top: 19px;
         right: -21px;
-        font-size: 1rem;
-        font-weight: bold;
+        font-size: @font-size-small;
+        line-height: 1rem;
+        font-weight: @font-weight-bold;
         text-transform: uppercase;
         text-align: center;
-        line-height: 20px;
         transform: rotate(45deg);
         width: 100px;
         display: block;
