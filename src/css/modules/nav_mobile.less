@@ -18,7 +18,7 @@
         width: 1.5em;
         height: 1.5em;
         margin-left: 252px;
-        font-size: 4rem;
+        font-size: 2rem;
         padding: 0;
         .colorVar(background-color, --primaryColor, @primaryColor);
         float: right;
@@ -67,8 +67,9 @@
 
             /* Hide the inner submenus */
             .dl-submenu {
+                border-radius: 0 @figure-radius @figure-radius @figure-radius;
                 display: none;
-                font-size: 100%;
+                font-size: 1rem;
             }
         }
     }
@@ -91,6 +92,7 @@
         }
 
         &.dl-menuopen {
+            border-radius: 0 @figure-radius @figure-radius @figure-radius;
             opacity: 1;
             pointer-events: auto;
             transform: translateY(0px);

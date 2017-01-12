@@ -2,6 +2,14 @@
 
 Changelog for Hamburgers.
 
+## [0.7.0] - 11/29/2016
+### Added
+- [Eyeglass](http://eyeglass.rocks/) support.
+
+## [0.6.0] - 11/22/2016
+### Fixed
+- Fix `spin-r`’s `.is-active::after` rotation. See https://github.com/jonsuh/hamburgers/issues/28.
+
 ## [0.5.0] - 04/04/2016
 ### Fixed
 - `Error: Import directives may not be used within control directives or mixins.` in certain cases like when compiling with Ruby Sass.  
