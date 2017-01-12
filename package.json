@@ -8,8 +8,8 @@
     "url": "http://github.com/rejas/"
   },
   "scripts": {
-      "chk": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js",
-      "fix": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js --fix"
+    "chk": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js",
+    "fix": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js --fix"
   },
   "browserify": {
     "transform": [
@@ -23,6 +23,7 @@
     "assemble": "^0.17.1",
     "assemble-less": "^0.7.0",
     "autoprefixer": "^6.6.1",
+    "browserify-shim": "^3.8.12",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.10.0",
     "eslint": "^3.13.0",
