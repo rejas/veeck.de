@@ -54,13 +54,13 @@
         }
 
         .headline1 {
-            position: relative;
-            padding: 0.5rem;
-            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-            text-align: center;
-            word-wrap: break-word;
             border-radius: @figure-radius;
             .boxshadow(1);
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+            padding: 1rem;
+            position: relative;
+            text-align: center;
+            word-wrap: break-word;
         }
 
         .subline {
@@ -165,7 +165,7 @@
         }
 
         .sb-social.sb-left.active.sb-top {
-            top: -0.5em;
+            top: -0.5rem;
             transform: translate(calc(-92%), -100%);
         }
     }
@@ -177,6 +177,7 @@
             &:extend(.icon-font-up::after);
             position: relative;
             left: 0.75rem;
+            top: 0.5rem;
         }
     }
 }
