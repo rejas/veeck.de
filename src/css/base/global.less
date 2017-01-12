@@ -13,6 +13,9 @@
 }
 
 html {
+    font-size: calc(0.5em + 1vw);
+    line-height: calc(0.6em + 1vw);
+
     height: 100%;
     background: none;
     font-family: 'mobile';
@@ -30,11 +33,7 @@ body {
     padding: 0;
     overflow-x: hidden;
     -ms-touch-action: auto;
-
-    font-size: calc(0.5em + 1vw);
-    line-height: calc(0.6em + 1vw);
-
-    font-family: @fontMain;
+    font-family: @font-main, arial;
     font-weight: @font-weight-normal;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -51,8 +50,8 @@ body {
 
 article {
     .clearfix();
-    margin: 1em auto;
-    padding: 0 1em 3em;
+    margin: 1rem auto;
+    padding: 0 1rem 3rem;
 
     @media @desktop {
         max-width: 960px;
@@ -61,7 +60,7 @@ article {
 
 section {
     .clearfix();
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
 
     h2 {
         border-bottom: 2px solid;
@@ -76,7 +75,7 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: @fontHeader, serif;
+    font-family: @font-header, serif;
     margin: 0 0 0.5em 0;
 }
 
@@ -88,7 +87,7 @@ h3 {
 
 h1 {
     font-style: italic;
-    font-weight: normal;
+    font-weight: @font-weight-normal;
 }
 
 p {
@@ -147,7 +146,6 @@ a:focus {
 
 time {
     font-family: monospace;
-    font-size: 2rem;
 }
 
 input {
