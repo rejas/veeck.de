@@ -1,6 +1,6 @@
 {
   "name": "cookieconsent",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "homepage": "http://cookieconsent.insites.com/",
   "authors": [
     "Insites"
@@ -23,13 +23,13 @@
     "test",
     "tests"
   ],
-  "_release": "3.0.3",
+  "_release": "3.0.4",
   "_resolution": {
     "type": "version",
-    "tag": "3.0.3",
-    "commit": "21d91ff110c394f29b2bd1a5932da82dc159b8c5"
+    "tag": "3.0.4",
+    "commit": "966cd4e73b0425a6b7f4f56dfd74a74f6cfbd185"
   },
   "_source": "https://github.com/silktide/cookieconsent2.git",
-  "_target": "^3.0.3",
+  "_target": "^3.0.4",
   "_originalSource": "cookieconsent2"
 }

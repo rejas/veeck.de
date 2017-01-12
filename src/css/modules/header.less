@@ -54,13 +54,13 @@
         }
 
         .headline1 {
-            position: relative;
-            padding: 0.5rem;
-            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-            text-align: center;
-            word-wrap: break-word;
             border-radius: @figure-radius;
             .boxshadow(1);
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+            padding: 1rem;
+            position: relative;
+            text-align: center;
+            word-wrap: break-word;
         }
 
         .subline {
@@ -118,6 +118,7 @@
         position: fixed;
         left: 100%;
         right: 1em;
+        font-size: 2rem;
         z-index: @z-index-5;
     }
 
