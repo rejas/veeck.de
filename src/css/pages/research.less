@@ -57,121 +57,71 @@
     }
 }
 
-@media @desktop {
+.research_article {
 
-    .research_article {
+    figure {
+        width: auto;
+        margin: 0 1em 1em 0;
 
-        figure {
-            width: auto;
-            margin: 0 1em 1em 0;
-        }
-
-        form {
-            max-width: 750px;
-            float: left;
-            margin-bottom: 2em;
-
-            label {
-                width: 175px;
-                float: none;
-                padding: 0 10px 0 0;
-            }
-        }
-
-        input,
-        select {
-            margin: 0 10px;
-            width: auto;
-            float: none;
-        }
-
-        input[type='text'] {
+        @media @smartphones {
             width: 100%;
-            float: left;
-            margin-left: 0;
-        }
-
-        button {
-            float: none;
-            position: relative;
-            top: 38px;
         }
     }
-}
 
-@media @tablets {
+    form {
+        max-width: 750px;
+        float: left;
+        margin-bottom: 2em;
 
-    .research_article {
-
-        figure {
-            .boxshadow(1);
-            width: auto;
-            margin: 0 1em 1em 0;
-        }
-
-        form {
-            max-width: 750px;
-            float: left;
-            margin-bottom: 2em;
-
-            label {
-                width: 175px;
-                float: none;
-                padding: 0 10px 0 0;
-            }
-        }
-
-        input,
-        select {
-            width: auto;
+        @media @smartphones {
             float: none;
-            margin: 0 10px 0 0;
         }
 
-        input[type='text'] {
-            width: 100%;
-            float: left;
-            margin: 0;
-        }
-
-        button {
+        label {
+            width: 175px;
             float: none;
-            position: relative;
-            top: 38px;
-        }
-    }
-}
+            padding: 0 10px 0 0;
 
-@media @smartphones {
-
-    .research_article {
-
-        figure {
-            width: 100%;
-        }
-
-        form {
-            margin-bottom: 3em;
-
-            label {
+            @media @smartphones {
+                float: left;
                 margin-bottom: 10px;
+                padding: 0;
                 width: 100%;
             }
         }
+    }
 
-        input[type='text'] {
+    input,
+    select {
+        float: none;
+        width: auto;
+
+        @media @smartphones {
             float: right;
             width: 66%;
         }
+    }
 
-        button {
+    input[type='text'] {
+        float: left;
+        margin-left: 0;
+        width: 100%;
+
+        @media @smartphones {
+            float: right;
+            width: 66%;
+        }
+    }
+
+    button {
+        float: none;
+        position: relative;
+        top: 39px;
+
+        @media @smartphones {
             float: right;
             width: 33%;
-        }
-
-        select {
-            float: right;
-            width: 66%;
+            top: 0;
         }
     }
 }
