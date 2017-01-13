@@ -14,24 +14,28 @@
     }
 
     .hamburger {
-        position: relative;
-        width: 1.5em;
-        height: 1.5em;
-        margin-left: 252px;
-        font-size: 2rem;
-        padding: 0;
         .colorVar(background-color, --primaryColor, @primaryColor);
+        position: relative;
+        margin-left: 252px;
         float: right;
-        .boxshadow(1);
 
         @media @smartphones {
             float: left;
             margin-left: 0;
         }
 
+        &:hover {
+            opacity: 1;
+        }
+
         &.is-active {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+            border: 0;
+        }
+
+        .hamburger-box {
+            height: 100%;
         }
     }
 
@@ -47,15 +51,15 @@
             margin: 0;
 
             &:hover {
-                .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+                background-color: @hover-color;
             }
 
             a {
+                .colorVar(color, --primaryTextColor, @primaryTextColor);
                 display: block;
                 position: relative;
-                padding: 15px 20px;
+                padding: 12px;
                 text-transform: uppercase;
-                .colorVar(color, --primaryTextColor, @primaryTextColor);
                 outline: none;
                 text-decoration: none;
             }
@@ -69,13 +73,16 @@
             .dl-submenu {
                 border-radius: 0 @figure-radius @figure-radius @figure-radius;
                 display: none;
-                font-size: 1rem;
+
+                @media @tablets {
+                    border-radius: @figure-radius 0 @figure-radius @figure-radius;
+                }
             }
         }
     }
 
     .dl-menu {
-        margin: 3em 0 0 0;
+        margin: 54px 0 0 0;
         position: absolute;
         float: right;
         width: 100%;
@@ -85,18 +92,16 @@
         transition: all 0.3s ease;
         backface-visibility: hidden;
 
-        @media @smartphones {
-            float: right;
-            margin: 3em 0 0 0;
-            width: 100%;
-        }
-
         &.dl-menuopen {
             border-radius: 0 @figure-radius @figure-radius @figure-radius;
             opacity: 1;
             pointer-events: auto;
             transform: translateY(0px);
             .boxshadow(5);
+
+            @media @tablets {
+                border-radius: @figure-radius 0 @figure-radius @figure-radius;
+            }
         }
     }
 
@@ -105,30 +110,24 @@
         width: 100%;
         position: absolute;
         left: 0;
-        margin: 3em 0 0 0;
+        margin: 54px 0 0 0;
     }
-}
 
-
-@media @smartphones, @tablets {
-
-    .mobile-nav li.dl-back > a {
+    li.dl-back > a {
         padding-left: 30px;
-        background: rgba(0,0,0,0.1);
     }
 
-    .mobile-nav li.dl-back::after,
-    .mobile-nav li > a:not(:only-child)::after {
+    li.dl-back::after,
+    li > a:not(:only-child)::after {
         display: block;
         .colorVar(color, --primaryTextColor, @primaryTextColor);
         position: absolute;
-        top: 0;
-        line-height: 55px;
+        top: 20px;
     }
 
-    .mobile-nav li.dl-back::after {
+    li.dl-back::after {
         .colorVar(color, --primaryTextColor, @primaryTextColor);
-        left: 10px;
+        left: 5px;
         transform: rotate(180deg);
     }
 
@@ -153,6 +152,15 @@
         display: block;
     }
 
+    .dl-menu.dl-subview li.dl-subview,
+    .dl-menu.dl-subview li.dl-subviewopen {
+        border-radius: 0 @figure-radius @figure-radius @figure-radius;
+
+        @media @tablets {
+            border-radius: @figure-radius 0 @figure-radius @figure-radius;
+        }
+    }
+
     /* Animation classes for moving out and in */
 
     .dl-menu.dl-animate-out-1 {
@@ -163,68 +171,40 @@
         animation: MenuAnimIn1 0.3s;
     }
 
-    .mobile-nav > .dl-submenu.dl-animate-in-1 {
+    > .dl-submenu.dl-animate-in-1 {
         animation: SubMenuAnimIn1 0.4s ease;
     }
 
-    .mobile-nav > .dl-submenu.dl-animate-out-1 {
+    > .dl-submenu.dl-animate-out-1 {
         animation: SubMenuAnimOut1 0.4s ease;
     }
-
-    .no-touch .mobile-nav li a:hover {
-        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-    }
-
-    /* No JS Fallback */
-    .no-js .mobile-nav .dl-menu {
-        position: relative;
-        opacity: 1;
-        transform: none;
-    }
-
-    .no-js .mobile-nav li .dl-submenu {
-        display: block;
-    }
-
-    .no-js .mobile-nav li.dl-back {
-        display: none;
-    }
-
-    .no-js .mobile-nav li > a:not(:only-child) {
-        background: rgba(0,0,0,0.1);
-    }
-
-    .no-js .mobile-nav li > a:not(:only-child)::after {
-        content: '';
-    }
 }
 
-@-webkit-keyframes MenuAnimOut1 {
-    50% {
-        -webkit-transform: translateZ(-250px) rotateY(30deg);
-    }
-    75% {
-        -webkit-transform: translateZ(-372.5px) rotateY(15deg);
-        opacity: 0.5;
-    }
-    100% {
-        -webkit-transform: translateZ(-500px) rotateY(0deg);
-        opacity: 0;
-    }
+.no-touch .mobile-nav li a:hover {
+    .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
 }
 
-@-moz-keyframes MenuAnimOut1 {
-    50% {
-        -moz-transform: translateZ(-250px) rotateY(30deg);
-    }
-    75% {
-        -moz-transform: translateZ(-372.5px) rotateY(15deg);
-        opacity: 0.5;
-    }
-    100% {
-        -moz-transform: translateZ(-500px) rotateY(0deg);
-        opacity: 0;
-    }
+/* No JS Fallback */
+.no-js .mobile-nav .dl-menu {
+    position: relative;
+    opacity: 1;
+    transform: none;
+}
+
+.no-js .mobile-nav li .dl-submenu {
+    display: block;
+}
+
+.no-js .mobile-nav li.dl-back {
+    display: none;
+}
+
+.no-js .mobile-nav li > a:not(:only-child) {
+    background: rgba(0,0,0,0.1);
+}
+
+.no-js .mobile-nav li > a:not(:only-child)::after {
+    content: '';
 }
 
 @keyframes MenuAnimOut1 {
@@ -238,36 +218,6 @@
     100% {
         transform: translateZ(-500px) rotateY(0deg);
         opacity: 0;
-    }
-}
-
-@-webkit-keyframes MenuAnimIn1 {
-    0% {
-        -webkit-transform: translateZ(-500px) rotateY(0deg);
-        opacity: 0;
-    }
-    20% {
-        -webkit-transform: translateZ(-250px) rotateY(30deg);
-        opacity: 0.5;
-    }
-    100% {
-        -webkit-transform: translateZ(0px) rotateY(0deg);
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes MenuAnimIn1 {
-    0% {
-        -moz-transform: translateZ(-500px) rotateY(0deg);
-        opacity: 0;
-    }
-    20% {
-        -moz-transform: translateZ(-250px) rotateY(30deg);
-        opacity: 0.5;
-    }
-    100% {
-        -moz-transform: translateZ(0px) rotateY(0deg);
-        opacity: 1;
     }
 }
 
@@ -286,28 +236,6 @@
     }
 }
 
-@-webkit-keyframes SubMenuAnimIn1 {
-    0% {
-        -webkit-transform: translateX(50%);
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: translateX(0px);
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes SubMenuAnimIn1 {
-    0% {
-        -moz-transform: translateX(50%);
-        opacity: 0;
-    }
-    100% {
-        -moz-transform: translateX(0px);
-        opacity: 1;
-    }
-}
-
 @keyframes SubMenuAnimIn1 {
     0% {
         transform: translateX(50%);
@@ -316,28 +244,6 @@
     100% {
         transform: translateX(0px);
         opacity: 1;
-    }
-}
-
-@-webkit-keyframes SubMenuAnimOut1 {
-    0% {
-        -webkit-transform: translateX(0%);
-        opacity: 1;
-    }
-    100% {
-        -webkit-transform: translateX(50%);
-        opacity: 0;
-    }
-}
-
-@-moz-keyframes SubMenuAnimOut1 {
-    0% {
-        -moz-transform: translateX(0%);
-        opacity: 1;
-    }
-    100% {
-        -moz-transform: translateX(50%);
-        opacity: 0;
     }
 }
 

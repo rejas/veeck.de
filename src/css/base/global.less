@@ -13,8 +13,10 @@
 }
 
 html {
-    height: 100%;
     background: none;
+    font-size: calc(0.5em + 1vw);
+    line-height: calc(0.6em + 1vw);
+    height: 100%;
     font-family: 'mobile';
 
     @media @desktop {
@@ -30,11 +32,7 @@ body {
     padding: 0;
     overflow-x: hidden;
     -ms-touch-action: auto;
-
-    font-size: calc(0.5em + 1vw);
-    line-height: calc(0.6em + 1vw);
-
-    font-family: @fontMain;
+    font-family: @font-main, arial;
     font-weight: @font-weight-normal;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -51,8 +49,8 @@ body {
 
 article {
     .clearfix();
-    margin: 1em auto;
-    padding: 0 1em 3em;
+    margin: 1rem auto 0;
+    padding: 0 1rem 1rem;
 
     @media @desktop {
         max-width: 960px;
@@ -61,7 +59,7 @@ article {
 
 section {
     .clearfix();
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
 
     h2 {
         border-bottom: 2px solid;
@@ -76,7 +74,7 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: @fontHeader, serif;
+    font-family: @font-header, serif;
     margin: 0 0 0.5em 0;
 }
 
@@ -88,7 +86,7 @@ h3 {
 
 h1 {
     font-style: italic;
-    font-weight: normal;
+    font-weight: @font-weight-normal;
 }
 
 p {
@@ -147,23 +145,33 @@ a:focus {
 
 time {
     font-family: monospace;
-    font-size: 2rem;
 }
 
 input {
     padding: 4px 8px;
-    border: 1px solid;
+    border: 1px solid rgba(0,0,0,0.125);
+    border-radius: @figure-radius;
     .colorVar(border-color, --accentColor, @accentColor);
+    height: 1.75rem;
 }
 
 textarea {
-    border: 1px solid;
+    border: 1px solid rgba(0,0,0,0.125);
     border-radius: @figure-radius;
     .colorVar(border-color, --accentColor, @accentColor);
+    min-height: 1.75rem;
 }
 
 select {
-    border: 1px solid;
+    border: 1px solid rgba(0,0,0,0.125);
     border-radius: @figure-radius;
     .colorVar(border-color, --accentColor, @accentColor);
+    height: 1.75rem;
+}
+
+.hidden-lg {
+
+    @media @desktop {
+        display: none;
+    }
 }

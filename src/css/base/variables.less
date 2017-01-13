@@ -5,6 +5,7 @@
 @primaryTextColor:  #212121;
 @accentColor:       #607D8B;
 @bgColor:           #FCFCFC;
+@lightAccentColor:  lighten(@accentColor, 36.5%);
 @lightPrimaryColor: lighten(@primaryColor, 36.5%);
 @darkPrimaryColor:  darken(@primaryColor, 16.5%);
 
@@ -13,9 +14,12 @@
     --primaryTextColor: @primaryTextColor;
     --accentColor: @accentColor;
     --bgColor: @bgColor;
+    --lightAccentColor: lighten(@accentColor, 36.5%);
     --lightPrimaryColor: lighten(@primaryColor, 36.5%);
     --darkPrimaryColor: darken(@primaryColor, 16.5%);
 }
+
+@hover-color: rgba(0,0,0,0.25);
 
 @global-radius: 8px;
 @figure-radius: 4px;
@@ -23,13 +27,22 @@
 @font-weight-normal:    400;
 @font-weight-bold:      800;
 
-@fontHeader:    'Lora';
-@fontMain:      'Raleway';
+@font-size-small:    0.5em;
+
+@font-header:    'Lora';
+@font-main:      'Raleway';
+
+@base-font-size:    2em;
+@base-font-weight:  400;
+@base-line-height:  1.5;
+
+@font-weight-bold:  700;
 
 @z-index-0:     0;
 @z-index-1:     1;
 @z-index-2:     2;
 @z-index-3:     3;
+@z-index-4:     4;
 @z-index-5:     5;
 
 @smartphones: ~"only screen and (max-width: 767px)";

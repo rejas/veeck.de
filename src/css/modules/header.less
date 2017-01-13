@@ -64,11 +64,11 @@
         }
 
         .subline {
-            font-size: 2.5rem;
+            text-transform: uppercase;
         }
 
         p {
-            margin: 0 auto;
+            margin: 0 auto 0.5em;
         }
     }
 }
@@ -110,74 +110,42 @@
         background: transparent;
         border: 0;
         z-index: @z-index-2;
-
-        .icon {
-            color: black;
-            width: 55px;
-            height: 55px;
-            margin: 0 auto;
-            border-radius: @global-radius;
-            .boxshadow(1);
-            .colorVar(background-color, --primaryColor, @primaryColor);
-
-            &::after {
-                &:extend(.icon-font-more::after);
-                font-size: 2rem;
-                position: relative;
-                top: 0.75rem;
-            }
-
-            &:focus {
-                outline: none;
-            }
-
-            &:hover {
-                .colorVar(background-color, --primaryColor, @primaryColor);
-            }
-        }
     }
 
     .share-btn,
     .to-top-btn {
-        color: transparent;
         background-color: @accentColor;
         position: fixed;
         left: 100%;
         right: 1em;
-        width: 55px;
-        height: 55px;
-        font-size: 2rem;
-        text-align: center;
-        margin: 0 auto;
-        padding: 0;
-        border-radius: @global-radius;
-        user-select: none;
         z-index: @z-index-5;
-        .boxshadow(1);
     }
 
     .share-btn {
+        color: transparent;
 
         &::before {
             transform: scale(0.75);
-            left: 0.75rem;
-            top: 0.75rem;
+            left: 0.125rem;
+            top: 0.125rem;
         }
 
-        .sb-social.sb-left.active.sb-top {
-            top: -0.5rem;
-            transform: translate(calc(-92%), -100%);
-        }
-    }
+        .sb-social {
 
-    .to-top-btn {
+            &.sb-left.active.sb-top {
+                left: 0.65em;
+                top: -0.65em;
+                transform: translate(calc(-92%), -100%);
+            }
 
-        &::before {
-            .colorVar(color, --primaryTextColor, @primaryTextColor);
-            &:extend(.icon-font-up::after);
-            position: relative;
-            left: 0.75rem;
-            top: 0.5rem;
+            > ul > li {
+                border: 3px solid rgba(0,0,0,.125);
+                border-radius: @global-radius;
+                margin: 0 8px;
+                width: 48px;
+                height: 48px;
+                padding: 0;
+            }
         }
     }
 }

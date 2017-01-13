@@ -27,7 +27,7 @@ module.exports = {
             noscroll,
             isAnimating,
             container = document.getElementById('container'),
-            trigger = container.querySelector('button.trigger');
+            trigger = container.querySelector('.js-trigger');
 
         // detect if IE : from http://stackoverflow.com/a/16657946
         var ie = (function() {

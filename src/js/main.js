@@ -56,7 +56,7 @@ addLoadEvent(function() {
     }
 });
 
-window.$ = window.jQuery = require('../bower_components/jquery/dist/jquery.js');
+window.$ = window.jquery = window.jQuery = require('../bower_components/jquery/dist/jquery.js');
 Blazy = require('../bower_components/bLazy/blazy.js');
 Intro = require('./modules/intro.js');
 Nav = require('./modules/nav.js');
@@ -66,6 +66,7 @@ require('../bower_components/imgLiquid/js/imgLiquid.js');
 require('../bower_components/imagelightbox2/src/imagelightbox.js');
 require('../bower_components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
 require('../bower_components/cookieconsent2/src/cookieconsent.js');
+require('../bower_components/slick-carousel/slick/slick.js');
 
 $(document).ready(function() {
 
@@ -103,8 +104,8 @@ $(document).ready(function() {
      */
     if (window.CSS && window.CSS.supports && window.CSS.supports('--primaryColor', 0)) {
         // CSS custom properties supported.
-        var root = document.querySelector(':root');
-        var htmlStyle = window.getComputedStyle(root);
+        var root = document.querySelector(':root'),
+            htmlStyle = window.getComputedStyle(root);
 
         htmlStyle.getPropertyValue('--primaryColor');
         root.style.setProperty('--primaryColor', '#ffeb3b');
@@ -202,4 +203,24 @@ $(document).ready(function() {
             overlay:        true
         });
     }
+
+    /**
+     * Slider
+     */
+    $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-prev icon-font-left"></button>',
+        nextArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-next icon-font-right"></button>',
+        fade: true,
+        asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+        asNavFor: '.slider-for',
+        arrows: false,
+        dots: true,
+        centerMode: false,
+        focusOnSelect: true
+    });
 });
