@@ -70,23 +70,6 @@ require('../bower_components/slick-carousel/slick/slick.js');
 
 $(document).ready(function() {
 
-    $('.slider-for').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        prevArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-prev icon-font-left"></button>',
-        nextArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-next icon-font-right"></button>',
-        fade: true,
-        asNavFor: '.slider-nav'
-    });
-    $('.slider-nav').slick({
-        asNavFor: '.slider-for',
-        arrows: false,
-        dots: true,
-        centerMode: false,
-        focusOnSelect: true
-    });
-
     /**
      *    CSS provides HSL color mode that controls Hue, Saturation, Luminosity(Lightness) and optionaly Opacity
      *
@@ -220,4 +203,24 @@ $(document).ready(function() {
             overlay:        true
         });
     }
+
+    /**
+     * Slider
+     */
+    $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-prev icon-font-left"></button>',
+        nextArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-next icon-font-right"></button>',
+        fade: true,
+        asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+        asNavFor: '.slider-for',
+        arrows: false,
+        dots: true,
+        centerMode: false,
+        focusOnSelect: true
+    });
 });
