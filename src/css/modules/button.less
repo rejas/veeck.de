@@ -1,0 +1,33 @@
+
+.btn {
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    user-select: none;
+    border: 1px solid rgba(0,0,0,0.125);
+    border-radius: @figure-radius;
+    padding: 0 9px;
+
+    &:hover {
+        border-color: @hover-color;
+    }
+}
+
+.btn--m {
+    height: 38px;
+}
+
+.btn--l {
+    font-size: 2rem;
+    height: 54px;
+    width: 54px;
+}
+
+.btn--comic {
+    border: 3px solid rgba(0,0,0,0.125);
+    border-radius: @global-radius;
+    .colorVar(color, --primaryTextColor, @primaryTextColor);
+    .colorVar(background-color, --primaryColor, @primaryColor);
+    padding: 0;
+}

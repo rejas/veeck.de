@@ -13,11 +13,10 @@
 }
 
 html {
+    background: none;
     font-size: calc(0.5em + 1vw);
     line-height: calc(0.6em + 1vw);
-
     height: 100%;
-    background: none;
     font-family: 'mobile';
 
     @media @desktop {
@@ -150,40 +149,23 @@ time {
 
 input {
     padding: 4px 8px;
-    border: 1px solid;
+    border: 1px solid rgba(0,0,0,0.125);
+    border-radius: @figure-radius;
     .colorVar(border-color, --accentColor, @accentColor);
+    height: 38px;
 }
 
 textarea {
-    border: 1px solid;
+    border: 1px solid rgba(0,0,0,0.125);
     border-radius: @figure-radius;
     .colorVar(border-color, --accentColor, @accentColor);
 }
 
 select {
-    border: 1px solid;
+    border: 1px solid rgba(0,0,0,0.125);
     border-radius: @figure-radius;
     .colorVar(border-color, --accentColor, @accentColor);
-}
-
-.btn {
-    .colorVar(color, --primaryTextColor, @primaryTextColor);
-    .colorVar(background-color, --primaryColor, @primaryColor);
-    cursor: pointer;
-    display: block;
-    width: 54px;
-    height: 54px;
-    text-align: center;
-    margin: 0 auto;
-    font-size: 2rem;
-    padding: 0;
-    border: 3px solid rgba(0,0,0,0.125);
-    border-radius: @global-radius;
-    user-select: none;
-
-    &:hover {
-        border-color: @hover-color;
-    }
+    height: 38px;
 }
 
 .hidden-lg {
