@@ -145,7 +145,7 @@ module.exports = function(grunt) {
             },
             less: {
                 files: ['<%= dir.src %>/css/**/*.{css,less}'],
-                tasks: ['less']
+                tasks: ['less', 'postcss']
             },
             js: {
                 files: ['<%= dir.src %>/js/**/*.js'],
