@@ -155,6 +155,17 @@ module.exports = function(grunt) {
             }
         },
 
+        imagemin: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/img/',
+                    src: '**',
+                    dest: '<%= dir.dist %>/img/'
+                }]
+            }
+        },
+
         'release-it': {
             options: {
                 pkgFiles: ['package.json'],
@@ -167,6 +178,7 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('assemble-less');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-release-it');
 
     grunt.registerTask('postjs', [
