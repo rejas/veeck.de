@@ -48,9 +48,9 @@ module.exports = {
                         htmlStyle = window.getComputedStyle(root);
 
                     htmlStyle.getPropertyValue('--primaryColor');
-                    root.style.setProperty('--primaryColor', '#ffeb3b');
-                    root.style.setProperty('--lightPrimaryColor', convertColorLuminance('ffeb3b', 0.15));
-                    root.style.setProperty('--darkPrimaryColor', convertColorLuminance('ffeb3b', -0.15));
+                    root.style.setProperty('--primaryColor', '#F44336');
+                    root.style.setProperty('--lightPrimaryColor', convertColorLuminance('F44336', 0.15));
+                    root.style.setProperty('--darkPrimaryColor', convertColorLuminance('F44336', -0.15));
                 }
             }
         });
