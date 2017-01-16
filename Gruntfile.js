@@ -168,10 +168,13 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: 'src/img/',
-                    src: '**',
-                    dest: '<%= dir.dist %>/img/'
-                }]
+                    cwd: '<%= dir.src %>/img/',
+                    src: '**/*.jpg',
+                    dest: '<%= dir.src %>/img/'
+                }],
+                options: {
+                    progressive: true, // progressive jpgs
+                }
             }
         },
 
