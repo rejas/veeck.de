@@ -20,13 +20,13 @@
     "jquery": "global:jquery"
   },
   "devDependencies": {
-    "assemble": "^0.18.1",
+    "assemble": "^0.21.0",
     "assemble-less": "^0.7.0",
-    "autoprefixer": "^6.7.0",
+    "autoprefixer": "^6.7.2",
     "browserify-shim": "^3.8.13",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.10.0",
-    "eslint": "^3.14.1",
+    "eslint": "^3.15.0",
     "grunt": "^1.0.1",
     "grunt-assemble": "^0.5.0",
     "grunt-browserify": "^5.0.0",
