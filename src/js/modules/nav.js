@@ -2,6 +2,7 @@
 'use strict';
 
 var MQ = require('../../bower_components/on-media-query/js/onmediaquery.js'),
+    mqe = require('./mqe.js'),
     $trigger;
 
 function cssButton() {
@@ -25,6 +26,10 @@ function cssButton() {
 module.exports = {
 
     init: function() {
+
+        mqs.init({
+            mediaqueries: ['print']
+        });
 
         /**
          * decide if mobile or not
