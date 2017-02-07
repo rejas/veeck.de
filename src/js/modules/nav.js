@@ -27,7 +27,7 @@ module.exports = {
 
     init: function() {
 
-        mqs.init({
+        mqe.init({
             mediaqueries: ['print']
         });
 
