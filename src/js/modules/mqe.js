@@ -4,7 +4,8 @@
  */
 module.exports = {
 
-    init: function (mqs) {
+    init: function (options) {
+        var mqs = options.mediaqueries;
 
         var handleMediaChange = function (mediaQueryList) {
             var media = mqs.filter(function (el) {
