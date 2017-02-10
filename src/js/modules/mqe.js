@@ -1,11 +1,11 @@
 /**
  *
- * @type {{init: module.exports.init}}
  */
 module.exports = {
 
     init: function (options) {
-        var mqs = options.mediaqueries;
+        var mqs = options.mediaqueries,
+            arrayLength = mqs.length;
 
         var handleMediaChange = function (mediaQueryList) {
             var media = mqs.filter(function (el) {
@@ -30,7 +30,6 @@ module.exports = {
             }
         };
 
-        var arrayLength = mqs.length;
         for (var i = 0; i < arrayLength; i++) {
             var mql = window.matchMedia(mqs[i].media);
             mql.addListener(handleMediaChange);
