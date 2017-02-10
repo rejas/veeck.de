@@ -28,7 +28,15 @@ module.exports = {
     init: function() {
 
         mqe.init({
-            mediaqueries: ['print']
+            mediaqueries: [
+                {name: 'smartphone', media: '(max-width: 767px)'},
+                {name: 'tablet', media: '(max-width: 1023px) and (min-width: 768px)'},
+                {name: 'desktop', media: '(min-width: 1024px)'}
+            ]
+        });
+
+        $('body').on("mediaQuery:active", function (event) {
+            console.log(event);
         });
 
         /**
