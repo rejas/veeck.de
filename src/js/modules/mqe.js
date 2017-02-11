@@ -1,7 +1,11 @@
-
+/**
+ *
+ */
 module.exports = {
 
-    init: function (mqs) {
+    init: function (options) {
+        var mqs = options.mediaqueries,
+            arrayLength = mqs.length;
 
         var handleMediaChange = function (mediaQueryList) {
             var media = mqs.filter(function (el) {
@@ -14,19 +18,18 @@ module.exports = {
             media = media[0];
 
             if (mediaQueryList.matches) {
-                $("body").trigger({
-                    type: "mediaQuery:active",
+                $('body').trigger({
+                    type: 'mediaQuery:active',
                     media: media.name
                 });
             } else {
-                $("body").trigger({
-                    type: "mediaQuery:inactive",
+                $('body').trigger({
+                    type: 'mediaQuery:inactive',
                     media: media.name
                 });
             }
         };
 
-        var arrayLength = mqs.length;
         for (var i = 0; i < arrayLength; i++) {
             var mql = window.matchMedia(mqs[i].media);
             mql.addListener(handleMediaChange);
