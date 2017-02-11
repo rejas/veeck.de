@@ -18,13 +18,13 @@ module.exports = {
             media = media[0];
 
             if (mediaQueryList.matches) {
-                $("body").trigger({
-                    type: "mediaQuery:active",
+                $('body').trigger({
+                    type: 'mediaQuery:active',
                     media: media.name
                 });
             } else {
-                $("body").trigger({
-                    type: "mediaQuery:inactive",
+                $('body').trigger({
+                    type: 'mediaQuery:inactive',
                     media: media.name
                 });
             }

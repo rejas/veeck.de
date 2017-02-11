@@ -1,8 +1,7 @@
 /* global require, module */
 'use strict';
 
-var MQ = require('../../bower_components/on-media-query/js/onmediaquery.js'),
-    mqe = require('./mqe.js'),
+var mqe = require('./mqe.js'),
     $trigger;
 
 function cssButton() {
@@ -26,42 +25,24 @@ function cssButton() {
 module.exports = {
 
     init: function() {
+        var $myNav = $('nav').clone();
+
+        $('body').on('mediaQuery:active', function (event) {
+            if (event.media === 'desktop') {
+                $('nav').remove();
+                $myNav.clone().prependTo('header').removeClass('mobile-nav').addClass('desktop-nav');
+            } else {
+                $('nav').remove();
+                $myNav.clone().prependTo('header').addClass('mobile-nav').removeClass('desktop-nav').dlmenu();
+                cssButton();
+            }
+        });
 
         mqe.init({
             mediaqueries: [
-                {name: 'smartphone', media: '(max-width: 767px)'},
-                {name: 'tablet', media: '(max-width: 1023px) and (min-width: 768px)'},
+                {name: 'mobile', media: '(max-width: 1023px)'},
                 {name: 'desktop', media: '(min-width: 1024px)'}
             ]
         });
-
-        $('body').on("mediaQuery:active", function (event) {
-            console.log(event);
-        });
-
-        /**
-         * decide if mobile or not
-         * @type {Array}
-         */
-        var $myNav = $('nav').clone(),
-            queries = [{
-                context: 'mobile',
-                match: function() {
-                    $('nav').remove();
-                    $myNav.clone().prependTo('header').addClass('mobile-nav').removeClass('desktop-nav').dlmenu();
-                    cssButton();
-                },
-                unmatch: function() {
-                }
-            },{
-                context: 'desktop',
-                match: function() {
-                    $('nav').remove();
-                    $myNav.clone().prependTo('header').removeClass('mobile-nav').addClass('desktop-nav');
-                },
-                unmatch: function() {
-                }
-            }];
-        MQ.init(queries);
     }
 };
