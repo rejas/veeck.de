@@ -7,13 +7,6 @@
   ],
   "description": "my private homepage",
   "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
   "dependencies": {
     "bLazy": "blazy#^1.8.2",
     "css-hamburgers": "^0.7.0",
@@ -22,15 +15,12 @@
     "imagelightbox2": "^0.7.0",
     "imgLiquid": "^0.9.944",
     "jquery": "^3.1.1",
+    "konami-code": "^1.3.2",
     "normalize-opentype.css": "^0.2.4",
     "normalize.css": "^5.0.0",
-    "on-media-query": "^0.2.0",
     "outdated-browser": "^1.1.3",
     "ResponsiveMultiLevelMenu2": "^1.0.2",
     "share-button": "^1.0.3",
     "slick-carousel": "^1.6.0"
-  },
-  "devDependencies": {
-    "konami-code": "^1.3.2"
   }
 }
