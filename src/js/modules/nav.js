@@ -27,11 +27,16 @@ module.exports = {
     init: function() {
         var $myNav = $('nav').clone();
 
-        $('body').on('mediaQuery:active', function (event) {
-            if (event.media === 'desktop') {
+        document.addEventListener('mediaquery', function (event) {
+            if (!event.detail.active) {
+                return;
+            }
+            if (event.detail.media === 'desktop') {
                 $('nav').remove();
                 $myNav.clone().prependTo('header').removeClass('mobile-nav').addClass('desktop-nav');
-            } else {
+                return;
+            }
+            if (event.detail.media === 'mobile') {
                 $('nav').remove();
                 $myNav.clone().prependTo('header').addClass('mobile-nav').removeClass('desktop-nav').dlmenu();
                 cssButton();

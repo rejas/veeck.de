@@ -17,17 +17,14 @@ module.exports = {
             }
             media = media[0];
 
-            if (mediaQueryList.matches) {
-                $('body').trigger({
-                    type: 'mediaQuery:active',
+            var event = new CustomEvent('mediaquery', {
+                detail: {
+                    active: mediaQueryList.matches,
                     media: media.name
-                });
-            } else {
-                $('body').trigger({
-                    type: 'mediaQuery:inactive',
-                    media: media.name
-                });
-            }
+                }
+            });
+
+            document.dispatchEvent(event);
         };
 
         for (var i = 0; i < arrayLength; i++) {
