@@ -1,0 +1,19 @@
+{
+  "name": "mediaquery-event",
+  "version": "0.1.1",
+  "description": "get notifications when the mediaquery changes",
+  "main": "mqe.js",
+  "author": "Veeck <github@veeck.de>",
+  "license": "MIT",
+  "homepage": "https://github.com/rejas/mediaquery-event#readme",
+  "bugs": {
+    "url": "https://github.com/rejas/mediaquery-event/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://rejas@github.com/rejas/mediaquery-event.git"
+  }
+}
