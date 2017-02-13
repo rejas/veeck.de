@@ -1,7 +1,7 @@
 /* global require, module */
 'use strict';
 
-var mqe = require('../../bower_components/mediaquery-event/mqe.js'),
+var mqe = require('../../bower_components/mediaquery-event/dist/mqe.js'),
     $trigger;
 
 function cssButton() {

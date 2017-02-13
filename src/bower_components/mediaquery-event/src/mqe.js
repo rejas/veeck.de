@@ -3,12 +3,11 @@
  */
 module.exports = {
 
-    init: function (options) {
-        var mqs = options.mediaqueries,
-            arrayLength = mqs.length;
+    init: (options) => {
+        let mqs = options.mediaqueries;
 
-        var handleMediaChange = function (mediaQueryList) {
-            var media = mqs.filter(function (el) {
+        let handleMediaChange = (mediaQueryList)  => {
+            let media = mqs.filter(function (el) {
                 return el.media === mediaQueryList.media;
             });
 
@@ -17,7 +16,7 @@ module.exports = {
             }
             media = media[0];
 
-            var event = new CustomEvent('mediaquery', {
+            let event = new CustomEvent('mediaquery', {
                 detail: {
                     active: mediaQueryList.matches,
                     media: media.name
@@ -27,8 +26,8 @@ module.exports = {
             document.dispatchEvent(event);
         };
 
-        for (var i = 0; i < arrayLength; i++) {
-            var mql = window.matchMedia(mqs[i].media);
+        for (let mq of mqs) {
+            let mql = window.matchMedia(mq.media);
             mql.addListener(handleMediaChange);
             handleMediaChange(mql);
         }
