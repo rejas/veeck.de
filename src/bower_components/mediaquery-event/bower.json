@@ -1,6 +1,6 @@
 {
   "name": "mediaquery-event",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "get notifications when the mediaquery changes",
   "main": "mqe.js",
   "homepage": "https://github.com/rejas/mediaquery-event",
