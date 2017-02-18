@@ -203,34 +203,51 @@ img.b-error {
     }
 }
 
-#polaroid figure {
-    float:left;
-    position:relative;
-    overflow: visible;
-    margin:10px 20px;
-    padding: 6px 8px 10px 8px;
-    box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
-    background: #eee6d8;
-    background: linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
-    transform: rotate(-1deg);
+.travel-article {
 
-    &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        left:5px;
-        top: -15px;
-        width: 75px;
-        height: 25px;
-        background-color: rgba(222,220,198,0.7);
-        transform: rotate(-12deg);
+    figure {
+        overflow: visible;
+        padding: 6px 8px 10px 8px;
+        box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+        background: #eee6d8;
+        background: linear-gradient(top, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+
+        &:nth-child(1n) { transform: rotate(-1deg); }
+        &:nth-child(2n) { transform: rotate(2deg); }
+        &:nth-child(3n) { transform: rotate(-3deg); }
+        &:nth-child(5n) { transform: rotate(4deg); }
+        &:nth-child(7n) { transform: rotate(-5deg); }
+
+        &:nth-child(1n):before { transform: rotate(-15deg); }
+        &:nth-child(2n+1):before { transform: rotate(12deg); }
+        &:nth-child(3n+1):before { transform: rotate(-8deg); }
+        &:nth-child(5n+1):before { transform: rotate(4deg); }
+        &:nth-child(7n+1):before { transform: rotate(-1deg); }
+
+        &:nth-child(1n):before { left:15px; }
+        &:nth-child(2n-1):before { left:55px; }
+        &:nth-child(3n-1):before { left:75px; }
+        &:nth-child(5n-1):before { left:135px; }
+        &:nth-child(7n-1):before { left:195px; }
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+
+            top: -15px;
+            width: 75px;
+            height: 25px;
+            background-color: rgba(222,220,198,0.7);
+        }
+
+        figcaption{
+            text-align:center;
+            font-family: 'Reenie Beanie', cursive; /*Reenie Beanie is available through Google Webfonts http://code.google.com/webfonts/specimen/Reenie+Beanie*/
+            font-size:1.3em;
+            color:#454f40;
+            letter-spacing:0.09em;
+        }
     }
 
-    figcaption{
-        text-align:center;
-        font-family: 'Reenie Beanie', cursive; /*Reenie Beanie is available through Google Webfonts http://code.google.com/webfonts/specimen/Reenie+Beanie*/
-        font-size:1.3em;
-        color:#454f40;
-        letter-spacing:0.09em;
-    }
 }
