@@ -1,7 +1,7 @@
 {
   "name": "mediaquery-event",
-  "version": "0.2.0",
-  "description": "get notifications when the mediaquery changes",
+  "version": "0.3.0",
+  "description": "Get events when mediaquery changes happen",
   "main": "mqe.js",
   "author": "Veeck <github@veeck.de>",
   "license": "MIT",

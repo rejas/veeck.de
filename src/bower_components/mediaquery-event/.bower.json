@@ -1,8 +1,8 @@
 {
   "name": "mediaquery-event",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "get notifications when the mediaquery changes",
-  "main": "mqe.js",
+  "main": "dist/mqe.js",
   "homepage": "https://github.com/rejas/mediaquery-event",
   "author": "Veeck <github@veeck.de>",
   "license": "MIT",
@@ -13,13 +13,13 @@
     "test",
     "tests"
   ],
-  "_release": "0.2.0",
+  "_release": "0.3.0",
   "_resolution": {
     "type": "version",
-    "tag": "0.2.0",
-    "commit": "0135280e11ca1a6625e3fc7a13d502b0a431f557"
+    "tag": "0.3.0",
+    "commit": "b05c318a8feda7d10e46bec7468ab92ba13ff776"
   },
   "_source": "https://github.com/rejas/mediaquery-event.git",
-  "_target": "^0.2.0",
+  "_target": "^0.3.0",
   "_originalSource": "mediaquery-event"
 }
