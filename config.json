@@ -4,6 +4,7 @@
   },
   "directories": {
     "assemble": "src/assemble",
+    "org": "org",
     "src": "src",
     "dist": "dist"
   },
