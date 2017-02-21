@@ -194,18 +194,34 @@ module.exports = function(grunt) {
         },
 
         jimp: {
-            placeholders: {
+            small: {
                 options: {
-                    suffix: 'placeholder',
+                    suffix: 'small',
                     actions: {
-                        blur: 40,
-                        quality: 30,
+                        scaleToFit: [420, 420],
+                        quality: 70
                     }
                 },
                 files: [{
                     expand: true,
                     cwd: '<%= dir.src %>/img/travel',
-                    src: '**/*_small.jpg',
+                    src: '**/*_medium.jpg',
+                    dest: '<%= dir.src %>/img/travel'
+                }]
+            },
+            placeholders: {
+                options: {
+                    suffix: 'placeholder',
+                    actions: {
+                        scaleToFit: [420, 420],
+                        blur: 40,
+                        quality: 30
+                    }
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.src %>/img/travel',
+                    src: '**/*.small.jpg',
                     dest: '<%= dir.src %>/img/travel'
                 }]
             },
