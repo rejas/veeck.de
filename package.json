@@ -36,6 +36,7 @@
     "grunt-contrib-imagemin": "^1.0.1",
     "grunt-contrib-uglify": "^2.1.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-jimp": "0.0.5",
     "grunt-postcss": "^0.8.0",
     "grunt-release-it": "^1.0.1",
     "load-grunt-tasks": "^3.5.2",

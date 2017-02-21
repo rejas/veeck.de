@@ -13,6 +13,11 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     require('load-grunt-tasks')(grunt);
 
+    grunt.loadNpmTasks('assemble-less');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-release-it');
+    grunt.loadNpmTasks('grunt-jimp');
+
     grunt.initConfig({
 
         dir: config.directories,
@@ -186,12 +191,26 @@ module.exports = function(grunt) {
                 tagAnnotation: 'Release %s',
                 buildCommand: false
             }
-        }
-    });
+        },
 
-    grunt.loadNpmTasks('assemble-less');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-release-it');
+        jimp: {
+            placeholders: {
+                options: {
+                    suffix: 'placeholder',
+                    actions: {
+                        blur: 40,
+                        quality: 30,
+                    }
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.src %>/img/travel',
+                    src: '**/*_small.jpg',
+                    dest: '<%= dir.src %>/img/travel'
+                }]
+            },
+        },
+    });
 
     grunt.registerTask('postjs', [
         'browserify',
