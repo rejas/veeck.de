@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "4.9.3",
+  "version": "4.9.4",
   "private": true,
   "homepage": "https://github.com/rejas/homepage",
   "author": {
@@ -20,13 +20,13 @@
     "jquery": "global:jquery"
   },
   "devDependencies": {
-    "assemble": "^0.22.0",
+    "assemble": "^0.23.0",
     "assemble-less": "^0.7.0",
-    "autoprefixer": "^6.7.2",
+    "autoprefixer": "^6.7.4",
     "browserify-shim": "^3.8.13",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.10.0",
-    "eslint": "^3.15.0",
+    "eslint": "^3.16.0",
     "grunt": "^1.0.1",
     "grunt-assemble": "^0.5.0",
     "grunt-browserify": "^5.0.0",
@@ -36,6 +36,7 @@
     "grunt-contrib-imagemin": "^1.0.1",
     "grunt-contrib-uglify": "^2.1.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-jimp": "0.0.5",
     "grunt-postcss": "^0.8.0",
     "grunt-release-it": "^1.0.1",
     "load-grunt-tasks": "^3.5.2",

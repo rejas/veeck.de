@@ -13,6 +13,11 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     require('load-grunt-tasks')(grunt);
 
+    grunt.loadNpmTasks('assemble-less');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-release-it');
+    grunt.loadNpmTasks('grunt-jimp');
+
     grunt.initConfig({
 
         dir: config.directories,
@@ -155,6 +160,53 @@ module.exports = function(grunt) {
             }
         },
 
+        jimp: {
+            medium: {
+                options: {
+                    suffix: 'medium',
+                    actions: {
+                    }
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.org %>/img/travel',
+                    src: '**/*.jpg',
+                    dest: '<%= dir.src %>/img/travel'
+                }]
+            },
+            small: {
+                options: {
+                    suffix: 'small',
+                    actions: {
+                        scaleToFit: [420, 420],
+                        quality: 70
+                    }
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.org %>/img/travel',
+                    src: '**/*.jpg',
+                    dest: '<%= dir.src %>/img/travel'
+                }]
+            },
+            placeholders: {
+                options: {
+                    suffix: 'placeholder',
+                    actions: {
+                        scaleToFit: [420, 420],
+                        blur: 40,
+                        quality: 30
+                    }
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.src %>/img/travel',
+                    src: '**/*.small.jpg',
+                    dest: '<%= dir.src %>/img/travel'
+                }]
+            }
+        },
+
         imagemin: {
             dist: {
                 files: [{
@@ -180,9 +232,10 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks('assemble-less');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-release-it');
+    grunt.registerTask('prepare', [
+        'jimp',
+        'uglify'
+    ]);
 
     grunt.registerTask('postjs', [
         'browserify',
