@@ -237,7 +237,8 @@ module.exports = function(grunt) {
                         cwd: '<%= dir.src %>/img',
                         src: ['**/*.jpg'],
                         dest: '<%= dir.src %>/img',
-                        ext: '.jpg'
+                        ext: '.jpg',
+                        extDot: 'last'
                     }
                 ]
             }
