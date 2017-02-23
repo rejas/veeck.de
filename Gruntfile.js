@@ -113,6 +113,25 @@ module.exports = function(grunt) {
             }
         },
 
+        modernizr: {
+            dist: {
+                "crawl": false,
+                "parseFiles": true,
+                "customTests": [],
+                "dest": '<%= dir.dist %>/js/vendor/modernizr.min.js',
+                "tests": [
+                    "cssanimations",
+                    "objectfit"
+                ],
+                "options": [
+                    "prefixes",
+                    "prefixed",
+                    "setClasses"
+                ],
+                "uglify": true
+            }
+        },
+
         postcss: {
             options: {
                 processors: [
@@ -255,6 +274,7 @@ module.exports = function(grunt) {
         'clean',
         'copy',
         'less',
+        'modernizr',
         'postcss',
         'postjs',
         'assemble'
