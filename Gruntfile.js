@@ -113,6 +113,25 @@ module.exports = function(grunt) {
             }
         },
 
+        modernizr: {
+            dist: {
+                "crawl": false,
+                "parseFiles": true,
+                "customTests": [],
+                "dest": '<%= dir.dist %>/js/vendor/modernizr.min.js',
+                "tests": [
+                    "cssanimations",
+                    "objectfit"
+                ],
+                "options": [
+                    "prefixes",
+                    "prefixed",
+                    "setClasses"
+                ],
+                "uglify": true
+            }
+        },
+
         postcss: {
             options: {
                 processors: [
@@ -208,16 +227,20 @@ module.exports = function(grunt) {
         },
 
         imagemin: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= dir.src %>/img/',
-                    src: '**/*.{png,jpg,jpeg,svg}',
-                    dest: '<%= dir.src %>/img/'
-                }],
+            jpg: {
                 options: {
-                    progressive: true, // progressive jpgs
-                }
+                    progressive: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= dir.src %>/img',
+                        src: ['**/*.jpg'],
+                        dest: '<%= dir.src %>/img',
+                        ext: '.jpg',
+                        extDot: 'last'
+                    }
+                ]
             }
         },
 
@@ -234,7 +257,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('prepare', [
         'jimp',
-        'uglify'
+        'imagemin'
     ]);
 
     grunt.registerTask('postjs', [
@@ -252,6 +275,7 @@ module.exports = function(grunt) {
         'clean',
         'copy',
         'less',
+        'modernizr',
         'postcss',
         'postjs',
         'assemble'
