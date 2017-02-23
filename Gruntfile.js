@@ -217,16 +217,19 @@ module.exports = function(grunt) {
         },
 
         imagemin: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= dir.src %>/img/',
-                    src: '**/*.{png,jpg,jpeg,svg}',
-                    dest: '<%= dir.src %>/img/'
-                }],
+            jpg: {
                 options: {
-                    progressive: true, // progressive jpgs
-                }
+                    progressive: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= dir.src %>/img',
+                        src: ['**/*.jpg'],
+                        dest: '<%= dir.src %>/img',
+                        ext: '.jpg'
+                    }
+                ]
             }
         },
 
@@ -243,7 +246,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('prepare', [
         'jimp',
-        'uglify'
+        'imagemin'
     ]);
 
     grunt.registerTask('postjs', [
