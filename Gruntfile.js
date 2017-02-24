@@ -14,9 +14,6 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.loadNpmTasks('assemble-less');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-release-it');
-    grunt.loadNpmTasks('grunt-jimp');
 
     grunt.initConfig({
 
@@ -66,37 +63,37 @@ module.exports = function(grunt) {
         copy: {
             assets: {
                 expand: true,
-                cwd: 'src/assets/',
+                cwd: '<%= dir.src %>/assets/',
                 src: '**',
                 dest: '<%= dir.dist %>/assets/'
             },
             files: {
                 expand: true,
-                cwd: 'src/files/',
+                cwd: '<%= dir.src %>/files/',
                 src: '**',
                 dest: '<%= dir.dist %>/files/'
             },
             img: {
                 expand: true,
-                cwd: 'src/img/',
+                cwd: '<%= dir.src %>/img/',
                 src: '**',
                 dest: '<%= dir.dist %>/img/'
             },
             page: {
                 expand: true,
-                cwd: 'src/page',
+                cwd: '<%= dir.src %>/page',
                 src: '**',
                 dest: '<%= dir.dist %>/'
             },
             vendor: {
                 expand: true,
-                cwd: 'src/js/vendor',
+                cwd: '<%= dir.src %>/js/vendor',
                 src: '**',
                 dest: '<%= dir.dist %>/js/vendor/'
             },
             web: {
                 expand: true,
-                cwd: 'src/webcomponent',
+                cwd: '<%= dir.src %>/webcomponent',
                 src: '**',
                 dest: '<%= dir.dist %>/webcomponent/'
             }
