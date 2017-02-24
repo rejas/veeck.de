@@ -8,7 +8,8 @@
 // '<%= dir.src %>/templates/pages/**/*.hbs'
 
 module.exports = function(grunt) {
-    const config = require('./config.json');
+    const config = require('./config.json'),
+          webpackConfig = require('./webpack.config.js');
 
     require('time-grunt')(grunt);
     require('load-grunt-tasks')(grunt);
@@ -18,6 +19,20 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         dir: config.directories,
+
+        webpack: {
+            options: webpackConfig,
+            build: {
+                context: path.resolve(__dirname, '<%= dir.src %>'),
+                entry: {
+                    app: './js/main.js',
+                },
+                output: {
+                    path: path.resolve(__dirname, '<%= dir.dist %>'),
+                    filename: "[name].bundled.js"
+                }
+            }
+        },
 
         assemble: {
             pages: {
@@ -30,19 +45,6 @@ module.exports = function(grunt) {
                 },
                 files: {
                     '<%= dir.dist %>/': ['<%= dir.assemble %>/pages/*.hbs']
-                }
-            }
-        },
-
-        webpack: {
-            options: {
-                // configuration for all builds
-            },
-            build: {
-                entry: '<%= dir.src %>/js/main.js',
-                output: {
-                    path: '<%= dir.dist %>/js/',
-                    filename: "main.bundled.js"
                 }
             }
         },
