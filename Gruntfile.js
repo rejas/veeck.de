@@ -37,10 +37,16 @@ module.exports = function(grunt) {
             }
         },
 
-        browserify: {
-            main: {
-                src: '<%= dir.src %>/js/main.js',
-                dest: '<%= dir.dist %>/js/main.bundled.js'
+        webpack: {
+            options: {
+                // configuration for all builds
+            },
+            build: {
+                entry: '<%= dir.src %>/js/main.js',
+                output: {
+                    path: '<%= dir.dist %>/js/',
+                    filename: "main.bundled.js"
+                }
             }
         },
 
@@ -270,7 +276,7 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('postjs', [
-        'browserify',
+        'webpack',
         'uglify'
     ]);
 
