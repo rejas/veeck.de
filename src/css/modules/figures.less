@@ -169,6 +169,10 @@ figcaption {
     .imagelightbox-nav {
         border-radius: @figure-radius;
         .colorVar(background-color, --accentColor, @accentColor);
+
+        @media @smartphones {
+            display: none;
+        }
     }
 }
 
