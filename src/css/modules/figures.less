@@ -32,21 +32,47 @@ figure {
         }
     }
 
-    &.fig_full {
-        margin: 0.4em 0 1em;
+    @media @smartphones {
+        margin-bottom: 1rem;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
+        float: none;
+        width: 100%;
+
+        > .gallery {
+            display: block;
+            max-height: 50vh;
+            overflow: hidden;
+        }
     }
 
-    &.fig_left {
-        float: left;
-        margin: 0.4em 1em 1em 0;
-    }
+    @media @desktop, @tablets {
 
-    &.fig_right {
-        float: right;
-        margin: 0.4em 0 1em 1em;
+        &.fig_full {
+            margin: 0.4em 0 1em;
+        }
+
+        &.fig_left {
+            float: left;
+            margin: 0.4em 1em 1em 0;
+        }
+
+        &.fig_right {
+            float: right;
+            margin: 0.4em 0 1em 1em;
+        }
     }
 
     @media @desktop {
+
+        &.portrait {
+            width: 33%;
+        }
+
+        &.landscape {
+            width: 50%;
+        }
 
         &.fig_popup {
             transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -62,6 +88,17 @@ figure {
             }
         }
     }
+
+    @media @tablets {
+
+        &.portrait {
+            width: 33%;
+        }
+
+        &.landscape {
+            width: 50%;
+        }
+    }
 }
 
 figcaption {
@@ -69,43 +106,11 @@ figcaption {
     font-weight: @font-weight-bold;
     text-align: center;
     text-transform: uppercase;
-    padding: 0.25em;
-}
+    padding: 0.5em;
 
-@media @desktop {
-
-    .portrait {
-        width: 33%;
-    }
-
-    .landscape {
-        width: 50%;
-    }
-}
-
-@media @tablets {
-
-    .portrait {
-        width: 33%;
-    }
-
-    .landscape {
-        width: 50%;
-    }
-}
-
-@media @smartphones {
-
-    .portrait {
-        width: 50%;
-    }
-
-    .landscape {
-        width: 100%;
-    }
-
-    figure img {
-        width: 100%;
+    @media @smartphones {
+        font-size: @font-size-small;
+        padding-top: 0;
     }
 }
 
@@ -204,37 +209,40 @@ img.b-error {
 .travel-article {
 
     figure {
-        overflow: visible;
-        padding: .5em 0.5em 0;
-        box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
-        background: linear-gradient(to bottom, #ede1c9, #fef8e2 20%, #f2ebde 60%);
 
-        &:nth-child(1n) { transform: rotate(-1deg); }
-        &:nth-child(2n) { transform: rotate(2deg); }
-        &:nth-child(3n) { transform: rotate(-3deg); }
-        &:nth-child(5n) { transform: rotate(4deg); }
-        &:nth-child(7n) { transform: rotate(-5deg); }
+        @media @desktop, @tablets {
+            overflow: visible;
+            padding: .5em 0.5em 0;
+            box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
+            background: linear-gradient(to bottom, #ede1c9, #fef8e2 20%, #f2ebde 60%);
 
-        &:nth-child(1n):before { transform: rotate(-15deg); }
-        &:nth-child(2n+1):before { transform: rotate(12deg); }
-        &:nth-child(3n+1):before { transform: rotate(-8deg); }
-        &:nth-child(5n+1):before { transform: rotate(4deg); }
-        &:nth-child(7n+1):before { transform: rotate(-1deg); }
+            &:nth-child(1n) { transform: rotate(-1deg); }
+            &:nth-child(2n) { transform: rotate(2deg); }
+            &:nth-child(3n) { transform: rotate(-3deg); }
+            &:nth-child(5n) { transform: rotate(4deg); }
+            &:nth-child(7n) { transform: rotate(-5deg); }
 
-        &:nth-child(1n):before { left:15px; }
-        &:nth-child(2n-1):before { left:55px; }
-        &:nth-child(3n-1):before { left:75px; }
-        &:nth-child(5n-1):before { left:135px; }
-        &:nth-child(7n-1):before { left:195px; }
+            &:nth-child(1n):before { transform: rotate(-15deg); }
+            &:nth-child(2n+1):before { transform: rotate(12deg); }
+            &:nth-child(3n+1):before { transform: rotate(-8deg); }
+            &:nth-child(5n+1):before { transform: rotate(4deg); }
+            &:nth-child(7n+1):before { transform: rotate(-1deg); }
 
-        &:before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: -15px;
-            width: 75px;
-            height: 25px;
-            background-color: rgba(222,220,198,0.7);
+            &:nth-child(1n):before { left:15px; }
+            &:nth-child(2n-1):before { left:55px; }
+            &:nth-child(3n-1):before { left:75px; }
+            &:nth-child(5n-1):before { left:135px; }
+            &:nth-child(7n-1):before { left:195px; }
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: -15px;
+                width: 75px;
+                height: 25px;
+                background-color: rgba(222,220,198,0.7);
+            }
         }
     }
 }

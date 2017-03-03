@@ -14,7 +14,7 @@
 
 html {
     background: none;
-    font-size: calc(0.4em + 1vw);
+    font-size: calc(0.2em + 1vw);
     line-height: calc(0.5em + 1vw);
     height: 100%;
     font-family: 'mobile';
@@ -55,6 +55,11 @@ article {
     @media @desktop {
         max-width: 960px;
     }
+
+    @media @smartphones {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 section {
@@ -64,9 +69,13 @@ section {
     h2 {
         border-bottom: 2px solid;
         .colorVar(border-color, --primaryTextColor, @primaryTextColor);
-        padding-bottom: 0.25em;
+        padding: 0 1em 0.25em;
         text-align: center;
         word-break: break-word;
+    }
+
+    p {
+        padding: 0 1em;
     }
 }
 
