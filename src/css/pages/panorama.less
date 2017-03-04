@@ -10,87 +10,48 @@
         display: inline-block;
         margin: 0 0 1em 0;
         vertical-align: top;
-    }
 
-    .wide {
-        width: 100%;
-    }
-}
-
-@media @desktop {
-
-    .gallery_article {
-
-        .normal {
-            width: 48%;
-            margin-right: 2%;
+        &.wide {
+            width: 100%;
         }
 
-        .quader {
-            width: 48%;
-            margin-right: 2%;
-        }
-
-        .skyscraper {
-            width: 23%;
-            margin-right: 2%;
-        }
-
-        .normal:nth-child(2n),
-        .quader:nth-child(2n),
-        .skyscraper:nth-child(4n),
-        .wide:nth-child(2n) {
+        &.normal:nth-child(2n),
+        &.quader:nth-child(2n),
+        &.skyscraper:nth-child(4n),
+        &.wide:nth-child(2n) {
             margin-right: 0;
         }
-    }
-}
 
-@media @tablets {
-
-    .gallery_article {
-        float: left;
-
-        figure {
-            width: 32%;
-            margin-right: 0.8%;
-        }
-
-        .normal {
+        @media @desktop {
             width: 48%;
             margin-right: 2%;
-        }
-        .skyscraper {
-            width: 19%;
-            margin-right: 0.5%;
-        }
 
-        .normal:nth-child(2n),
-        .skyscraper:nth-child(5n) {
-            margin-right: 0;
-        }
-    }
-}
-
-@media @smartphones {
-
-    .gallery_article {
-
-        figure {
-            width: 48%;
-
-            &:nth-of-type(odd) {
+            &.skyscraper {
+                width: 23%;
                 margin-right: 2%;
             }
         }
-        .normal {
-            width: 100%;
-        }
-        .skyscraper {
-            width: 31%;
-            margin-right: 1.5%;
 
-            :nth-child(3n) {
-                margin-right: 0;
+        @media @tablet {
+            width: 32%;
+            margin-right: 0.8%;
+
+            .normal {
+                width: 48%;
+                margin-right: 2%;
+            }
+
+            .skyscraper {
+                width: 19%;
+                margin-right: 0.5%;
+            }
+        }
+
+        @media @phone {
+            width: 48%;
+
+            &.normal {
+                width: 100%;
             }
         }
     }
