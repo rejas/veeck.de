@@ -32,21 +32,6 @@ figure {
         }
     }
 
-    @media @smartphones {
-        margin-bottom: 1rem;
-        border-radius: 0;
-        box-shadow: none;
-        background-color: transparent;
-        float: none;
-        width: 100%;
-
-        > .gallery {
-            display: block;
-            max-height: 50vh;
-            overflow: hidden;
-        }
-    }
-
     @media @desktop, @tablets {
 
         &.fig_full {
@@ -97,6 +82,21 @@ figure {
 
         &.landscape {
             width: 50%;
+        }
+    }
+
+    @media @smartphones {
+        margin: 0 -1rem 1rem;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
+        float: none;
+        width: 100vw;
+
+        > .gallery {
+            display: block;
+            max-height: 50vh;
+            overflow: hidden;
         }
     }
 }
