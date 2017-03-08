@@ -52,9 +52,10 @@ addLoadEvent(function() {
 });
 
 window.$ = window.jquery = window.jQuery = require('../bower_components/jquery/dist/jquery.js');
+//import Konami from './modules/konami';
+//require('../bower_components/slick-carousel/slick/slick.js');
 
 import Intro from './modules/intro';
-import Konami from './modules/konami';
 import Nav from './modules/nav';
 
 const Blazy = require('../bower_components/bLazy/blazy.js');
@@ -64,7 +65,6 @@ require('../bower_components/imgLiquid/js/imgLiquid.js');
 require('../bower_components/imagelightbox2/src/imagelightbox.js');
 require('../bower_components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
 require('../bower_components/cookieconsent2/src/cookieconsent.js');
-//require('../bower_components/slick-carousel/slick/slick.js');
 
 $(document).ready(function() {
 
