@@ -188,8 +188,10 @@ $(document).ready(function() {
         focusOnSelect: true
     });
 
-    //
-    var angle = Math.random();
-    var red = document.querySelector('figure');
-    red.style.setProperty('---figure-angle-seed', angle + 'deg');
+    /**
+     *
+     */
+    $.each($('.travel-article figure.fig_popup'), function( index, value ) {
+        value.style.setProperty('--figure-angle-seed', (Math.random() * 12 - 6) + 'deg');
+    });
 });
