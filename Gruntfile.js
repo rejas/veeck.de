@@ -21,17 +21,7 @@ module.exports = function(grunt) {
         dir: config.directories,
 
         webpack: {
-            options: webpackConfig,
-            build: {
-                context: path.resolve(__dirname, '<%= dir.src %>'),
-                entry: {
-                    app: './js/main.js',
-                },
-                output: {
-                    path: path.resolve(__dirname, '<%= dir.dist %>'),
-                    filename: "[name].bundled.js"
-                }
-            }
+            dist: require("./webpack.config.js")
         },
 
         assemble: {

@@ -1,12 +1,6 @@
 /* global require, outdatedBrowser, Modernizr */
 'use strict';
 
-var Intro,
-    Konami,
-    ShareButton,
-    Nav,
-    Blazy;
-
 // Avoid `console` errors in browsers that lack a console.
 (function() {
     var method;
@@ -58,17 +52,19 @@ addLoadEvent(function() {
 });
 
 window.$ = window.jquery = window.jQuery = require('../bower_components/jquery/dist/jquery.js');
-Blazy = require('../bower_components/bLazy/blazy.js');
-Intro = require('./modules/intro.js');
-Konami = require('./modules/konami.js');
-Nav = require('./modules/nav.js');
-ShareButton = require('../bower_components/share-button/share-button.js');
+
+import Intro from './modules/intro';
+import Konami from './modules/konami';
+import Nav from './modules/nav';
+
+const Blazy = require('../bower_components/bLazy/blazy.js');
+const ShareButton = require('../bower_components/share-button/share-button.js');
 
 require('../bower_components/imgLiquid/js/imgLiquid.js');
 require('../bower_components/imagelightbox2/src/imagelightbox.js');
 require('../bower_components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
 require('../bower_components/cookieconsent2/src/cookieconsent.js');
-require('../bower_components/slick-carousel/slick/slick.js');
+//require('../bower_components/slick-carousel/slick/slick.js');
 
 $(document).ready(function() {
 
