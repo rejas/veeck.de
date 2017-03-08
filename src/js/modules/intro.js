@@ -10,11 +10,8 @@
  */
 'use strict';
 
-var classie = require('../../bower_components/classie/classie.js');
-
-module.exports = {
-
-    init: function() {
+const classie = require('../../bower_components/classie/classie.js'),
+    init = function() {
 
         // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
         // left: 37, up: 38, right: 39, down: 40,
@@ -159,5 +156,6 @@ module.exports = {
         trigger.addEventListener('click', function() {
             toggle('reveal');
         });
-    }
-};
+    };
+
+export default init;
