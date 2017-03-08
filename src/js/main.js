@@ -191,4 +191,9 @@ $(document).ready(function() {
         centerMode: false,
         focusOnSelect: true
     });
+
+    //
+    var angle = Math.random();
+    var red = document.querySelector('figure');
+    red.style.setProperty('---figure-angle-seed', angle + 'deg');
 });

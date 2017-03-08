@@ -216,6 +216,9 @@ img.b-error {
             box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
             background: linear-gradient(to bottom, #ede1c9, #fef8e2 20%, #f2ebde 60%);
 
+            transform: rotate(var(--figure-angle-seed));
+
+            /*
             &:nth-child(1n) { transform: rotate(-1deg); }
             &:nth-child(2n) { transform: rotate(2deg); }
             &:nth-child(3n) { transform: rotate(-3deg); }
@@ -233,8 +236,12 @@ img.b-error {
             &:nth-child(3n-1):before { left:75px; }
             &:nth-child(5n-1):before { left:135px; }
             &:nth-child(7n-1):before { left:195px; }
+            */
 
             &:before {
+                left: 15px;
+
+
                 content: '';
                 display: block;
                 position: absolute;
