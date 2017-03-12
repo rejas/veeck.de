@@ -1,6 +1,7 @@
-/* global require, outdatedBrowser, Modernizr */
+/* global require, outdatedBrowser, Modernizr*/
 'use strict';
 
+/*
 // Avoid `console` errors in browsers that lack a console.
 (function() {
     var method;
@@ -50,12 +51,12 @@ addLoadEvent(function() {
         });
     }
 });
+*/
 
+/*
 window.$ = window.jquery = window.jQuery = require('../bower_components/jquery/dist/jquery.js');
-//import Konami from './modules/konami';
-//require('../bower_components/slick-carousel/slick/slick.js');
 
-import Intro from './modules/intro';
+import Konami from './modules/konami';
 import Nav from './modules/nav';
 
 const Blazy = require('../bower_components/bLazy/blazy.js');
@@ -65,32 +66,37 @@ require('../bower_components/imgLiquid/js/imgLiquid.js');
 require('../bower_components/imagelightbox2/src/imagelightbox.js');
 require('../bower_components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
 require('../bower_components/cookieconsent2/src/cookieconsent.js');
+require('../bower_components/slick-carousel/slick/slick.js');
+ */
 
+import * as Intro from './modules/intro';
+
+/**
+ * ArticleIntroEffect
+ */
+Intro.init();
+
+/*
 $(document).ready(function() {
 
     var shareButton,
         gallery,
         bLazy;
-
-    /**
-     * ArticelIntroEffect
-     */
-    Intro.init();
+ */
 
     /**
      * Konami
-     */
     Konami.init();
+     */
 
     /**
      * Navigation
-     */
     Nav.init();
+     */
 
     /**
      *
      * @type {{message: string, dismiss: string, learnMore: string, link: null, theme: string}}
-     */
     window.cookieconsent_options = {
         'message': 'This website uses cookies to ensure you get the best experience on our website',
         'dismiss': 'Got it!',
@@ -98,18 +104,18 @@ $(document).ready(function() {
         'link': null,
         'theme': 'dark-bottom'
     };
+     */
 
     /**
      * Back to top
-     */
     $('.js-to-top').on('click', function(e) {
         e.preventDefault();
         $('html, body').animate({scrollTop: 0}, 800);
     });
+     */
 
     /**
      * Share Button Config
-     */
     shareButton = new ShareButton({
         ui: {
             flyout: 'top left',
@@ -125,25 +131,27 @@ $(document).ready(function() {
             }
         }
     });
+     */
 
-    // my own extender
+    /**
+     * my own extender
     $('.js-extender').on('click', function(e) {
         e.preventDefault();
         $('.' + $(this).data('toExtend')).slideToggle();
     });
+     */
 
     /**
      * Fill out the background header images
-     */
     if (!Modernizr.objectfit) {
         $('.js-img-liquid').imgLiquid({
             useBackgroundSize: true
         });
     }
+     */
 
     /**
      * Lazyload images via blazy
-     */
     bLazy = new Blazy({
         selector: '.js-lazyload',
         src: 'data-original',
@@ -153,10 +161,10 @@ $(document).ready(function() {
             }
         }
     });
+     */
 
     /**
      * ImageLightBox
-     */
     gallery = $('a.gallery, .gallery_article figure a');
     if (gallery.length > 0) {
         gallery.imageLightbox({
@@ -167,10 +175,10 @@ $(document).ready(function() {
             overlay:        true
         });
     }
+     */
 
     /**
      * Slider
-     */
     $('.slider-for').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -187,11 +195,12 @@ $(document).ready(function() {
         centerMode: false,
         focusOnSelect: true
     });
+     */
 
     /**
      *
-     */
     $.each($('.travel-article figure.fig_popup'), function( index, value ) {
         value.style.setProperty('--figure-angle-seed', (Math.random() * 12 - 6) + 'deg');
     });
-});
+     */
+//});
