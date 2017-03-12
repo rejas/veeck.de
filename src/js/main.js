@@ -57,7 +57,6 @@ addLoadEvent(function() {
 window.$ = window.jquery = window.jQuery = require('../bower_components/jquery/dist/jquery.js');
 
 import Konami from './modules/konami';
-import Nav from './modules/nav';
 
 const Blazy = require('../bower_components/bLazy/blazy.js');
 const ShareButton = require('../bower_components/share-button/share-button.js');
@@ -69,30 +68,35 @@ require('../bower_components/cookieconsent2/src/cookieconsent.js');
 require('../bower_components/slick-carousel/slick/slick.js');
  */
 
-import * as Intro from './modules/intro';
+import  'jquery';
 
-/**
- * ArticleIntroEffect
- */
-Intro.init();
+import * as Konami from './modules/konami';
+import * as Intro  from './modules/intro';
+//import * as Nav    from './modules/nav';
 
-/*
 $(document).ready(function() {
 
-    var shareButton,
-        gallery,
-        bLazy;
- */
+    /**
+     * ArticleIntroEffect
+     */
+    Intro.init();
 
     /**
      * Konami
-    Konami.init();
      */
+    Konami.init();
 
     /**
      * Navigation
-    Nav.init();
      */
+    //Nav.init();
+
+    /*
+     var shareButton,
+     gallery,
+     bLazy;
+     */
+
 
     /**
      *
@@ -203,4 +207,4 @@ $(document).ready(function() {
         value.style.setProperty('--figure-angle-seed', (Math.random() * 12 - 6) + 'deg');
     });
      */
-//});
+});

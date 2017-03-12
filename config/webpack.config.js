@@ -35,7 +35,13 @@ const config = {
     },
     plugins: [
         new ExtractTextPlugin('css/style.css')
-    ]
+    ],
+    resolve: {
+        alias: {
+            jquery: 'jquery/src/jquery'
+        },
+        modules: ['./src/bower_components', 'node_modules']
+    }
 };
 
 module.exports = config;
