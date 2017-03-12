@@ -6,6 +6,11 @@
     }
 }
 
+/* set the default transition time */
+:root {
+    --figure-angle-seed: 0deg;
+}
+
 ::selection {
     .colorVar(color, --bgColor, @bgColor);
     .colorVar(background-color, --primaryTextColor, @primaryTextColor);
@@ -14,7 +19,7 @@
 
 html {
     background: none;
-    font-size: calc(0.4em + 1vw);
+    font-size: calc(0.2em + 1vw);
     line-height: calc(0.5em + 1vw);
     height: 100%;
     font-family: 'mobile';
@@ -64,8 +69,9 @@ section {
     h2 {
         border-bottom: 2px solid;
         .colorVar(border-color, --primaryTextColor, @primaryTextColor);
-        padding-bottom: 0.25em;
+        padding: 0 1em 0.25em;
         text-align: center;
+        word-break: break-word;
     }
 }
 

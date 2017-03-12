@@ -8,7 +8,7 @@
     perspective-origin: 50% 200%;
     z-index: @z-index-3;
 
-    @media @smartphones {
+    @media @phone {
         float: none;
         left: 1em;
     }
@@ -19,7 +19,7 @@
         margin-left: 252px;
         float: right;
 
-        @media @smartphones {
+        @media @phone {
             float: left;
             margin-left: 0;
         }
@@ -74,7 +74,7 @@
                 border-radius: 0 @figure-radius @figure-radius @figure-radius;
                 display: none;
 
-                @media @tablets {
+                @media @tablet {
                     border-radius: @figure-radius 0 @figure-radius @figure-radius;
                 }
             }
@@ -99,7 +99,7 @@
             transform: translateY(0px);
             .boxshadow(5);
 
-            @media @tablets {
+            @media @tablet {
                 border-radius: @figure-radius 0 @figure-radius @figure-radius;
             }
         }
@@ -156,7 +156,7 @@
     .dl-menu.dl-subview li.dl-subviewopen {
         border-radius: 0 @figure-radius @figure-radius @figure-radius;
 
-        @media @tablets {
+        @media @tablet {
             border-radius: @figure-radius 0 @figure-radius @figure-radius;
         }
     }

@@ -187,4 +187,11 @@ $(document).ready(function() {
         centerMode: false,
         focusOnSelect: true
     });
+
+    /**
+     *
+     */
+    $.each($('.travel-article figure.fig_popup'), function( index, value ) {
+        value.style.setProperty('--figure-angle-seed', (Math.random() * 12 - 6) + 'deg');
+    });
 });
