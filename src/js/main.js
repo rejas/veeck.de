@@ -49,27 +49,33 @@ addLoadEvent(function() {
             languagePath: ''
         });
     }
+
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+                "background": "#252e39"
+            },
+            "button": {
+                "background": "#14a7d0"
+            }
+        },
+        "theme": "classic"
+    })
 });
 
-/*
-const Blazy = require('../bower_components/bLazy/blazy.js');
-const ShareButton = require('../bower_components/share-button/share-button.js');
-
 require('../bower_components/imgLiquid/js/imgLiquid.js');
-require('../bower_components/imagelightbox2/src/imagelightbox.js');
-require('../bower_components/cookieconsent2/src/cookieconsent.js');
-require('../bower_components/slick-carousel/slick/slick.js');
- */
+require('../bower_components/cookieconsent2/src/cookieconsent');
 
-import  'jquery';
-
-import  '../bower_components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js';
+import 'imagelightbox2/src/imagelightbox';
+import 'ResponsiveMultiLevelMenu2/js/jquery.dlmenu';
+import 'slick-carousel/slick/slick';
 
 import * as Konami from './modules/konami';
 import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
 
 import Blazy       from 'bLazy';
+import ShareButton from 'share-button/share-button';
 
 $(document).ready(function() {
 
@@ -89,28 +95,26 @@ $(document).ready(function() {
     Nav.init();
 
     /**
-     *
-     * @type {{message: string, dismiss: string, learnMore: string, link: null, theme: string}}
-    window.cookieconsent_options = {
-        'message': 'This website uses cookies to ensure you get the best experience on our website',
-        'dismiss': 'Got it!',
-        'learnMore': 'More info',
-        'link': null,
-        'theme': 'dark-bottom'
-    };
-     */
-
-    /**
      * Back to top
+     */
     $('.js-to-top').on('click', function(e) {
         e.preventDefault();
         $('html, body').animate({scrollTop: 0}, 800);
     });
+
+    /**
+     * my own extender
+     * TODO replace with :target?
      */
+    $('.js-extender').on('click', function(e) {
+        e.preventDefault();
+        $('.' + $(this).data('toExtend')).slideToggle();
+    });
 
     /**
      * Share Button Config
-    var shareButton = new ShareButton({
+     */
+    new ShareButton({
         ui: {
             flyout: 'top left',
             button_font: false,
@@ -125,24 +129,16 @@ $(document).ready(function() {
             }
         }
     });
-     */
-
-    /**
-     * my own extender
-    $('.js-extender').on('click', function(e) {
-        e.preventDefault();
-        $('.' + $(this).data('toExtend')).slideToggle();
-    });
-     */
 
     /**
      * Fill out the background header images
+     * TODO remove and replace with simpler fallback
+     */
     if (!Modernizr.objectfit) {
         $('.js-img-liquid').imgLiquid({
             useBackgroundSize: true
         });
     }
-     */
 
     /**
      * Lazyload images via blazy
@@ -159,7 +155,8 @@ $(document).ready(function() {
 
     /**
      * ImageLightBox
-    var gallery = $('a.gallery, .gallery_article figure a');
+     */
+    const gallery = $('a.gallery, .gallery_article figure a');
     if (gallery.length > 0) {
         gallery.imageLightbox({
             activity:       true,
@@ -169,10 +166,10 @@ $(document).ready(function() {
             overlay:        true
         });
     }
-     */
 
     /**
      * Slider
+     */
     $('.slider-for').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -189,7 +186,6 @@ $(document).ready(function() {
         centerMode: false,
         focusOnSelect: true
     });
-     */
 
     /**
      *
