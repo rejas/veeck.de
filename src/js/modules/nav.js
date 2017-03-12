@@ -1,20 +1,12 @@
-/* global require, module */
-'use strict';
-
-var mqe = require('../../bower_components/mediaquery-event/dist/mqe.js'),
-    $trigger;
+import * as mqe from '../../bower_components/mediaquery-event/src/mqe';
 
 function cssButton() {
-
-    // trigger mobile button animation
-    $trigger = $('.js-dl-trigger');
+    const $trigger = $('.js-dl-trigger');
 
     $trigger.on('click', function(ignore) {
-
         $trigger.toggleClass('is-active');
 
         if ($trigger.hasClass('is-active')) {
-
             $('body').off('click').children().on('click', function() {
                 $trigger.removeClass('is-active');
             });

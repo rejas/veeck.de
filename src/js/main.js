@@ -1,4 +1,3 @@
-/* global require, outdatedBrowser, Modernizr*/
 'use strict';
 
 // Avoid `console` errors in browsers that lack a console.
@@ -63,10 +62,9 @@ addLoadEvent(function() {
     })
 });
 
-require('../bower_components/imgLiquid/js/imgLiquid.js');
-require('../bower_components/cookieconsent2/src/cookieconsent');
-
+import 'cookieconsent2/src/cookieconsent';
 import 'imagelightbox2/src/imagelightbox';
+import 'imgLiquid/js/imgLiquid.js';
 import 'ResponsiveMultiLevelMenu2/js/jquery.dlmenu';
 import 'slick-carousel/slick/slick';
 
@@ -134,7 +132,7 @@ $(document).ready(function() {
      * Fill out the background header images
      * TODO remove and replace with simpler fallback
      */
-    if (!Modernizr.objectfit) {
+    if (Modernizr.objectfit) {
         $('.js-img-liquid').imgLiquid({
             useBackgroundSize: true
         });
@@ -156,16 +154,13 @@ $(document).ready(function() {
     /**
      * ImageLightBox
      */
-    const gallery = $('a.gallery, .gallery_article figure a');
-    if (gallery.length > 0) {
-        gallery.imageLightbox({
-            activity:       true,
-            caption:        true,
-            lockBody:       true,
-            navigation:     true,
-            overlay:        true
-        });
-    }
+    $('a.gallery, .gallery_article figure a').imageLightbox({
+        activity:       true,
+        caption:        true,
+        lockBody:       true,
+        navigation:     true,
+        overlay:        true
+    });
 
     /**
      * Slider
@@ -188,7 +183,7 @@ $(document).ready(function() {
     });
 
     /**
-     *
+     * Travel picture angle randomization
      */
     $.each($('.travel-article figure.fig_popup'), function( index, value ) {
         value.style.setProperty('--figure-angle-seed', (Math.random() * 12 - 6) + 'deg');
