@@ -9,7 +9,7 @@ function cssButton() {
     // trigger mobile button animation
     $trigger = $('.js-dl-trigger');
 
-    $trigger.on('click', function(ignore) {
+    $trigger.on('click', function() {
 
         $trigger.toggleClass('is-active');
 

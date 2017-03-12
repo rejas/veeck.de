@@ -195,7 +195,7 @@ $(document).ready(function() {
     /**
      *
      */
-    $.each($('.travel-article figure.fig_popup'), function( index, value ) {
-        value.style.setProperty('--figure-angle-seed', (Math.random() * 12 - 6) + 'deg');
+    $.each($('.travel-article .fig_popup'), function( index, value ) {
+        value.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 });
