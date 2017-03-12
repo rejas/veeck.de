@@ -1,7 +1,6 @@
 /* global require, outdatedBrowser, Modernizr*/
 'use strict';
 
-/*
 // Avoid `console` errors in browsers that lack a console.
 (function() {
     var method;
@@ -51,28 +50,26 @@ addLoadEvent(function() {
         });
     }
 });
-*/
 
 /*
-window.$ = window.jquery = window.jQuery = require('../bower_components/jquery/dist/jquery.js');
-
-import Konami from './modules/konami';
-
 const Blazy = require('../bower_components/bLazy/blazy.js');
 const ShareButton = require('../bower_components/share-button/share-button.js');
 
 require('../bower_components/imgLiquid/js/imgLiquid.js');
 require('../bower_components/imagelightbox2/src/imagelightbox.js');
-require('../bower_components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js');
 require('../bower_components/cookieconsent2/src/cookieconsent.js');
 require('../bower_components/slick-carousel/slick/slick.js');
  */
 
 import  'jquery';
 
+import  '../bower_components/ResponsiveMultiLevelMenu2/js/jquery.dlmenu.js';
+
 import * as Konami from './modules/konami';
 import * as Intro  from './modules/intro';
-//import * as Nav    from './modules/nav';
+import * as Nav    from './modules/nav';
+
+import Blazy       from 'bLazy';
 
 $(document).ready(function() {
 
@@ -89,14 +86,7 @@ $(document).ready(function() {
     /**
      * Navigation
      */
-    //Nav.init();
-
-    /*
-     var shareButton,
-     gallery,
-     bLazy;
-     */
-
+    Nav.init();
 
     /**
      *
@@ -120,7 +110,7 @@ $(document).ready(function() {
 
     /**
      * Share Button Config
-    shareButton = new ShareButton({
+    var shareButton = new ShareButton({
         ui: {
             flyout: 'top left',
             button_font: false,
@@ -156,7 +146,8 @@ $(document).ready(function() {
 
     /**
      * Lazyload images via blazy
-    bLazy = new Blazy({
+     */
+    new Blazy({
         selector: '.js-lazyload',
         src: 'data-original',
         error: function(ele, msg) {
@@ -165,11 +156,10 @@ $(document).ready(function() {
             }
         }
     });
-     */
 
     /**
      * ImageLightBox
-    gallery = $('a.gallery, .gallery_article figure a');
+    var gallery = $('a.gallery, .gallery_article figure a');
     if (gallery.length > 0) {
         gallery.imageLightbox({
             activity:       true,
@@ -203,8 +193,8 @@ $(document).ready(function() {
 
     /**
      *
+     */
     $.each($('.travel-article figure.fig_popup'), function( index, value ) {
         value.style.setProperty('--figure-angle-seed', (Math.random() * 12 - 6) + 'deg');
     });
-     */
 });
