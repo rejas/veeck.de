@@ -32,27 +32,24 @@ function convertColorLuminance(hex, lum) {
     return rgb;
 }
 
-module.exports = {
+export function init() {
 
-    init: function() {
+    $( window ).konami({
 
-        $( window ).konami({
+        cheat: function() {
+            /**
+             * Change custom colors if browser supports it
+             */
+            if (window.CSS && window.CSS.supports && window.CSS.supports('--primaryColor', 0)) {
+                // CSS custom properties supported.
+                const root = document.querySelector(':root'),
+                      htmlStyle = window.getComputedStyle(root);
 
-            cheat: function() {
-                /**
-                 * Change custom colors if browser supports it
-                 */
-                if (window.CSS && window.CSS.supports && window.CSS.supports('--primaryColor', 0)) {
-                    // CSS custom properties supported.
-                    var root = document.querySelector(':root'),
-                        htmlStyle = window.getComputedStyle(root);
-
-                    htmlStyle.getPropertyValue('--primaryColor');
-                    root.style.setProperty('--primaryColor', '#F44336');
-                    root.style.setProperty('--lightPrimaryColor', convertColorLuminance('F44336', 0.15));
-                    root.style.setProperty('--darkPrimaryColor', convertColorLuminance('F44336', -0.15));
-                }
+                htmlStyle.getPropertyValue('--primaryColor');
+                root.style.setProperty('--primaryColor', '#F44336');
+                root.style.setProperty('--lightPrimaryColor', convertColorLuminance('F44336', 0.15));
+                root.style.setProperty('--darkPrimaryColor', convertColorLuminance('F44336', -0.15));
             }
-        });
-    }
-};
+        }
+    });
+}
