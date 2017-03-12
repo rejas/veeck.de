@@ -1,14 +1,9 @@
 /* global module, require */
 'use strict';
 
-// # Globbing
-// for performance reasons we're only matching one level down:
-// '<%= dir.src %>/templates/pages/{,*/}*.hbs'
-// use this if you want to match all subfolders:
-// '<%= dir.src %>/templates/pages/**/*.hbs'
-
 module.exports = function(grunt) {
-    const config = require('./config/grunt.config.json');
+    const config = require('./config/grunt.config.json'),
+          webpackConfig = require('./config/webpack.config.js');
 
     require('time-grunt')(grunt);
     require('load-grunt-tasks')(grunt);
@@ -18,6 +13,10 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         dir: config.directories,
+
+        webpack: {
+            dist: webpackConfig
+        },
 
         assemble: {
             pages: {
@@ -31,13 +30,6 @@ module.exports = function(grunt) {
                 files: {
                     '<%= dir.dist %>/': ['<%= dir.assemble %>/pages/*.hbs']
                 }
-            }
-        },
-
-        browserify: {
-            main: {
-                src: '<%= dir.src %>/js/main.js',
-                dest: '<%= dir.dist %>/js/main.bundled.js'
             }
         },
 
@@ -258,7 +250,7 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('postjs', [
-        'browserify',
+        'webpack',
         'uglify'
     ]);
 
