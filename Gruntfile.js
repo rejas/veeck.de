@@ -8,7 +8,8 @@
 // '<%= dir.src %>/templates/pages/**/*.hbs'
 
 module.exports = function(grunt) {
-    const config = require('./config/grunt.config.json');
+    const config = require('./config/grunt.config.json'),
+          webpackConfig = require('./config/webpack.config.js');
 
     require('time-grunt')(grunt);
     require('load-grunt-tasks')(grunt);
