@@ -1,12 +1,6 @@
 /* global module, require */
 'use strict';
 
-// # Globbing
-// for performance reasons we're only matching one level down:
-// '<%= dir.src %>/templates/pages/{,*/}*.hbs'
-// use this if you want to match all subfolders:
-// '<%= dir.src %>/templates/pages/**/*.hbs'
-
 module.exports = function(grunt) {
     const config = require('./config/grunt.config.json'),
           webpackConfig = require('./config/webpack.config.js');

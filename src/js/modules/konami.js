@@ -1,7 +1,4 @@
-/* global require, module */
-'use strict';
-
-require('../../bower_components/konami-code/src/jquery.konami.js');
+import '../../bower_components/konami-code/src/jquery.konami';
 
 /**
  *    CSS provides HSL color mode that controls Hue, Saturation, Luminosity(Lightness) and optionaly Opacity
@@ -13,7 +10,7 @@ require('../../bower_components/konami-code/src/jquery.konami.js');
  *    lum —> luminosity factor: -0.1 is 10% darker, 0.2 is 20% lighter
  */
 function convertColorLuminance(hex, lum) {
-    var rgb = '#', c, i;
+    let rgb = '#', c, i;
 
     // validate hex string
     hex = String(hex).replace(/[^0-9a-f]/gi, '');
