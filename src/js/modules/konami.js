@@ -40,7 +40,7 @@ export function init() {
             if (window.CSS && window.CSS.supports && window.CSS.supports('--primaryColor', 0)) {
                 // CSS custom properties supported.
                 const root = document.querySelector(':root'),
-                      htmlStyle = window.getComputedStyle(root);
+                    htmlStyle = window.getComputedStyle(root);
 
                 htmlStyle.getPropertyValue('--primaryColor');
                 root.style.setProperty('--primaryColor', '#F44336');
