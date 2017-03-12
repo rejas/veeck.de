@@ -21,7 +21,7 @@ module.exports = function(grunt) {
         dir: config.directories,
 
         webpack: {
-            dist: require("./webpack.config.js")
+            dist: webpackConfig
         },
 
         assemble: {
