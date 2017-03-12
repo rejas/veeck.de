@@ -3,7 +3,7 @@ import * as mqe from '../../bower_components/mediaquery-event/src/mqe';
 function cssButton() {
     const $trigger = $('.js-dl-trigger');
 
-    $trigger.on('click', function(ignore) {
+    $trigger.on('click', function() {
         $trigger.toggleClass('is-active');
 
         if ($trigger.hasClass('is-active')) {

@@ -15,7 +15,7 @@ export function init() {
     // left: 37, up: 38, right: 39, down: 40,
     // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
     var keys = [32, 37, 38, 39, 40],
-        wheelIter = 0,
+        //wheelIter = 0,
         docElem = window.document.documentElement,
         scrollVal,
         isRevealed,
@@ -65,7 +65,7 @@ export function init() {
         preventDefault(e);
     }
 
-    function wheel(e) {
+    function wheel() {
         // for IE
         // if( ie ) {
         // preventDefault(e);
