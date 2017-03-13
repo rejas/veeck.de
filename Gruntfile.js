@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(grunt) {
-    const config = require('./config/grunt.config.json'),
+    const config = require('./config/grunt.config.js'),
           webpackConfig = require('./config/webpack.config.js');
 
     require('time-grunt')(grunt);
@@ -171,9 +171,7 @@ module.exports = function(grunt) {
         jimp: {
             medium: {
                 options: {
-                    suffix: 'medium',
-                    actions: {
-                    }
+                    suffix: 'medium'
                 },
                 files: [{
                     expand: true,
@@ -217,9 +215,7 @@ module.exports = function(grunt) {
 
         imagemin: {
             jpg: {
-                options: {
-                    progressive: true
-                },
+                options: config.imagemin,
                 files: [
                     {
                         expand: true,
@@ -234,12 +230,8 @@ module.exports = function(grunt) {
         },
 
         'release-it': {
-            options: {
-                pkgFiles: ['package.json'],
-                commitMessage: 'Release %s',
-                tagName: '%s',
-                tagAnnotation: 'Release %s',
-                buildCommand: false
+            dist: {
+                options: config.release
             }
         }
     });
