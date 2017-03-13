@@ -1,4 +1,3 @@
-/* global module, require */
 'use strict';
 
 module.exports = function(grunt) {
@@ -13,10 +12,6 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         dir: config.directories,
-
-        webpack: {
-            dist: webpackConfig
-        },
 
         assemble: {
             pages: {
@@ -143,14 +138,6 @@ module.exports = function(grunt) {
             }
         },
 
-        uglify: {
-            dist: {
-                files: {
-                    '<%= dir.dist %>/js/main.bundled.js': ['<%= dir.dist %>/js/main.bundled.js']
-                }
-            }
-        },
-
         watch: {
             assemble: {
                 files: ['<%= dir.assemble %>/{,*/}*.{md,hbs,yml}'],
@@ -162,7 +149,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['<%= dir.src %>/js/**/*.js'],
-                tasks: ['postjs']
+                tasks: ['webpack']
             },
             livereload: {
                 options: {
@@ -175,6 +162,10 @@ module.exports = function(grunt) {
                     '<%= dir.dist %>/img/**/*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
             }
+        },
+
+        webpack: {
+            dist: webpackConfig
         },
 
         jimp: {
@@ -253,32 +244,24 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('prepare', [
-        'jimp',
-        'imagemin'
-    ]);
-
-    grunt.registerTask('postjs', [
-        'webpack'
-    ]);
-
-    grunt.registerTask('serve', [
-        'build',
-        'connect:livereload',
-        'watch'
-    ]);
-
-    grunt.registerTask('build', [
+    grunt.registerTask('default', [
         'clean',
         'copy',
         'less',
         'modernizr',
         'postcss',
-        'postjs',
+        'webpack',
         'assemble'
     ]);
 
-    grunt.registerTask('default', [
-        'build'
+    grunt.registerTask('prepare', [
+        'jimp',
+        'imagemin'
+    ]);
+
+    grunt.registerTask('serve', [
+        'default',
+        'connect:livereload',
+        'watch'
     ]);
 };
