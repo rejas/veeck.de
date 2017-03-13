@@ -86,6 +86,12 @@ module.exports = function(grunt) {
             }
         },
 
+        htmlmin: {
+            dist: {
+                options: config.htmlmin
+            }
+        },
+
         less: {
             development: {
                 options: {
