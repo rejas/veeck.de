@@ -17,7 +17,8 @@ const config = {
         progressive: true
     },
     htmlmin: {
-        collapseWhitespace: true
+        collapseWhitespace: true,
+        removeComments: true
     },
     ports: {
         livereload: 35729,
