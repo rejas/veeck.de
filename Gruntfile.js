@@ -250,8 +250,7 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('postjs', [
-        'webpack',
-        'uglify'
+        'webpack'
     ]);
 
     grunt.registerTask('serve', [
