@@ -132,7 +132,7 @@ $(document).ready(function() {
      * Fill out the background header images
      * TODO remove and replace with simpler fallback
      */
-    if (Modernizr.objectfit) {
+    if (!Modernizr.objectfit) {
         $('.js-img-liquid').imgLiquid({
             useBackgroundSize: true
         });
