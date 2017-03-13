@@ -40,13 +40,12 @@ const config = {
             compress: {
                 warnings: false
             }
-        }),
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
         })
     ],
     resolve: {
+        alias: {
+            jquery: "jquery/src/jquery"
+        },
         modules: ['./src/bower_components', 'node_modules']
     }
 };
