@@ -35,6 +35,7 @@
     "grunt-postcss": "^0.8.0",
     "grunt-release-it": "^1.0.1",
     "grunt-webpack": "^2.0.1",
+    "less": "^2.7.2",
     "less-loader": "^3.0.0",
     "load-grunt-tasks": "^3.5.2",
     "style-loader": "^0.13.2",
