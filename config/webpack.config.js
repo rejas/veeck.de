@@ -36,6 +36,11 @@ const config = {
     },
     plugins: [
         new ExtractTextPlugin('css/style.css'),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
