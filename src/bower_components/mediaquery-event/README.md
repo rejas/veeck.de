@@ -22,8 +22,14 @@ document.addEventListener('mediaquery', function (event) {
 
 mqe.init({
     mediaqueries: [
-        {name: 'mobile', media: '(max-width: 1023px)'},
-        {name: 'desktop', media: '(min-width: 1024px)'}
+        {name: 'mobile', media: 'screen and (max-width: 1023px)'},
+        {name: 'desktop', media: 'screen and (min-width: 1024px)'}
     ]
 });
 ```
+
+## bugs and caveats
+
+Good ol' InternetExplorer handles some stuff differently (no kiddin'), not all of
+[these "issues"](http://www.javascriptkit.com/dhtmltutors/cssmediaqueries4.shtml) are handled yet:
+- Your mediaquery.media should start with "screen and", otherwise IE adds its own idea to it.
