@@ -148,7 +148,7 @@ module.exports = function(grunt) {
                 tasks: ['less', 'postcss']
             },
             js: {
-                files: ['<%= dir.src %>/js/**/*.js'],
+                files: ['<%= dir.src %>/js/**/*.js', '<%= dir.src %>/bower_components/**/*.js'],
                 tasks: ['webpack']
             },
             livereload: {
