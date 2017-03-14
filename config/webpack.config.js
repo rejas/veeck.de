@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const VENDOR_LIBS = [
     './src/bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.js',
