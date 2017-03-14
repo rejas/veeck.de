@@ -75,7 +75,7 @@ import * as Nav    from './modules/nav';
 import Blazy       from 'bLazy';
 import ShareButton from 'share-button/share-button';
 
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     /**
      * ArticleIntroEffect
@@ -95,10 +95,10 @@ $(document).ready(function() {
     /**
      * Back to top
      */
-    $('.js-to-top').on('click', function(e) {
-        e.preventDefault();
+    document.getElementsByClassName('js-to-top')[0].onclick = (event) => {
+        event.preventDefault();
         $('html, body').animate({scrollTop: 0}, 800);
-    });
+    };
 
     /**
      * my own extender
