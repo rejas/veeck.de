@@ -1,3 +1,4 @@
+/* global outdatedBrowser, Modernizr */
 'use strict';
 
 // Avoid `console` errors in browsers that lack a console.
@@ -50,16 +51,16 @@ addLoadEvent(function() {
     }
 
     window.cookieconsent.initialise({
-        "palette": {
-            "popup": {
-                "background": "#252e39"
+        'palette': {
+            'popup': {
+                'background': '#252e39'
             },
-            "button": {
-                "background": "#14a7d0"
+            'button': {
+                'background': '#14a7d0'
             }
         },
-        "theme": "classic"
-    })
+        'theme': 'classic'
+    });
 });
 
 import 'cookieconsent2/src/cookieconsent';
