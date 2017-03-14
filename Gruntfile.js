@@ -72,12 +72,6 @@ module.exports = function(grunt) {
                 src: '**',
                 dest: '<%= dir.dist %>/'
             },
-            vendor: {
-                expand: true,
-                cwd: '<%= dir.src %>/js/vendor',
-                src: '**',
-                dest: '<%= dir.dist %>/js/vendor/'
-            },
             web: {
                 expand: true,
                 cwd: '<%= dir.src %>/webcomponent',
@@ -102,7 +96,7 @@ module.exports = function(grunt) {
                 "crawl": false,
                 "parseFiles": true,
                 "customTests": [],
-                "dest": '<%= dir.dist %>/js/vendor/modernizr.min.js',
+                "dest": '<%= dir.src %>/js/vendor/modernizr.min.js',
                 "tests": [
                     "cssanimations",
                     "objectfit"
@@ -231,7 +225,6 @@ module.exports = function(grunt) {
         'clean',
         'copy',
         'less',
-        'modernizr',
         'postcss',
         'webpack',
         'assemble'
@@ -239,7 +232,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask('prepare', [
         'jimp',
-        'imagemin'
+        'imagemin',
+        'modernizr'
     ]);
 
     grunt.registerTask('serve', [
