@@ -14,28 +14,10 @@ const config = {
             {
                 test: /\.js$/,
                 use: 'babel-loader'
-            },
-            {
-                test: /\.less$/,
-                //use: ['style-loader', 'css-loader']
-                loader: ExtractTextPlugin.extract({
-                    loader:[ 'css-loader', 'less-loader' ]
-                })
-            },
-            {
-                test: /\.(jpe?g|png|gif|svg)$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: { limit: 40000 }
-                    },
-                    'image-webpack-loader'
-                ]
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin('css/style.css'),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
