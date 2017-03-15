@@ -2,6 +2,11 @@ const config = {
     autoprefixer: {
         "browsers": ["last 2 versions", "ie >=10", "iOS >=8", "Android >= 4.1"]
     },
+    connect: {
+        hostname: "localhost",
+        livereload: true,
+        port: 9000
+    },
     directories: {
         assemble: "./src/assemble",
         org: "./org",
@@ -20,10 +25,6 @@ const config = {
     htmlmin: {
         collapseWhitespace: true,
         removeComments: true
-    },
-    ports: {
-        livereload: 35729,
-        express: 4000
     },
     release: {
         pkgFiles: ['package.json'],
