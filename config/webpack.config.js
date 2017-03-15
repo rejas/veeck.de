@@ -25,10 +25,16 @@ const config = {
         ]
     },
     plugins: [
+        /*
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
             }
+        }),
+        */
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "vendor",
+            minChunks: Infinity
         }),
         new webpack.ProvidePlugin({
             $: "jquery",
