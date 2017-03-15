@@ -6,6 +6,7 @@ const config = {
         assemble: "./src/assemble",
         org: "./org",
         src: "./src",
+        tmp: "./tmp",
         dist: "./dist"
     },
     ftp: {
@@ -17,7 +18,8 @@ const config = {
         progressive: true
     },
     htmlmin: {
-        collapseWhitespace: true
+        collapseWhitespace: true,
+        removeComments: true
     },
     ports: {
         livereload: 35729,
