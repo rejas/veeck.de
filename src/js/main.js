@@ -104,15 +104,6 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     /**
-     * my own extender
-     * TODO replace with :target?
-     */
-    $('.js-extender').on('click', function(e) {
-        e.preventDefault();
-        $('.' + $(this).data('toExtend')).slideToggle();
-    });
-
-    /**
      * Share Button Config
      */
     new ShareButton({
