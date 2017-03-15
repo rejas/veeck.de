@@ -29,6 +29,17 @@ module.exports = function(grunt) {
 
         clean: ['<%= dir.dist %>/**/*'],
 
+        concat: {
+            options: {
+                separator: ';'
+            },
+            dist: {
+                src: ['<%= dir.src %>/js/vendor/modernizr.min.js',
+                      '<%= dir.src %>/bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js'],
+                dest: '<%= dir.dist %>/js/vendor.min.js'
+            }
+        },
+
         connect: {
             options: {
                 port: 9000,
@@ -246,6 +257,7 @@ module.exports = function(grunt) {
         'copy',
         'less',
         'postcss',
+        'concat',
         'webpack',
         'assemble',
         'htmlmin'
