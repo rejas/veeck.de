@@ -17,13 +17,12 @@ module.exports = function(grunt) {
             pages: {
                 options: {
                     flatten: true,
-                    assets: '<%= dir.dist %>/assets',
                     layout: '<%= dir.assemble %>/layouts/default.hbs',
                     data: '<%= dir.assemble %>/data/*.{json,yml}',
                     partials: '<%= dir.assemble %>/partials/*.hbs'
                 },
                 files: {
-                    '<%= dir.dist %>/': ['<%= dir.assemble %>/pages/*.hbs']
+                    '<%= dir.tmp %>/': ['<%= dir.assemble %>/pages/*.hbs']
                 }
             }
         },
@@ -80,6 +79,18 @@ module.exports = function(grunt) {
             }
         },
 
+        htmlmin: {
+            dist: {
+                options: config.htmlmin,
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.tmp %>',
+                    src: '*.html',
+                    dest: '<%= dir.dist %>'
+                }]
+            }
+        },
+
         less: {
             dist: {
                 options: {
@@ -126,7 +137,7 @@ module.exports = function(grunt) {
         watch: {
             assemble: {
                 files: ['<%= dir.assemble %>/{,*/}*.{md,hbs,yml}'],
-                tasks: ['assemble']
+                tasks: ['assemble', 'htmlmin']
             },
             less: {
                 files: ['<%= dir.src %>/css/**/*.{css,less}'],
@@ -227,7 +238,8 @@ module.exports = function(grunt) {
         'less',
         'postcss',
         'webpack',
-        'assemble'
+        'assemble',
+        'htmlmin'
     ]);
 
     grunt.registerTask('prepare', [
