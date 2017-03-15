@@ -23,7 +23,7 @@ module.exports = function(grunt) {
                     partials: '<%= dir.assemble %>/partials/*.hbs'
                 },
                 files: {
-                    '<%= dir.dist %>/': ['<%= dir.assemble %>/pages/*.hbs']
+                    '<%= dir.tmp %>/': ['<%= dir.assemble %>/pages/*.hbs']
                 }
             }
         },
@@ -82,7 +82,13 @@ module.exports = function(grunt) {
 
         htmlmin: {
             dist: {
-                options: config.htmlmin
+                options: config.htmlmin,
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.tmp %>',
+                    src: '*.html',
+                    dest: '<%= dir.dist %>'
+                }]
             }
         },
 
@@ -242,7 +248,8 @@ module.exports = function(grunt) {
         'less',
         'postcss',
         'webpack',
-        'assemble'
+        'assemble',
+        'htmlmin'
     ]);
 
     grunt.registerTask('prepare', [

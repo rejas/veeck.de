@@ -6,6 +6,7 @@ const config = {
         assemble: "./src/assemble",
         org: "./org",
         src: "./src",
+        tmp: "./tmp",
         dist: "./dist"
     },
     ftp: {
