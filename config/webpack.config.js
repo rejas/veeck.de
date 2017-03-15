@@ -1,11 +1,13 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path'),
+    webpack = require('webpack');
 
 const config = {
-    entry: './src/js/main.js',
+    entry: {
+        bundle: './src/js/main.js'
+    },
     output: {
         path: path.resolve(__dirname, '../dist/js'),
-        filename: 'main.bundled.js',
+        filename: '[name].js',
         publicPath: 'dist/'
     },
     module: {
