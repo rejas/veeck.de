@@ -41,7 +41,6 @@ function addLoadEvent(func) {
 }
 // Call plugin function after DOM ready
 addLoadEvent(function() {
-    console.log(typeof outdatedBrowser !== 'undefined');
     if (typeof outdatedBrowser !== 'undefined') {
         outdatedBrowser({
             bgColor: '#f25648',
@@ -78,7 +77,6 @@ import Blazy       from 'bLazy';
 import ShareButton from 'share-button/share-button';
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('DOMContentLoaded');
 
     /**
      * ArticleIntroEffect

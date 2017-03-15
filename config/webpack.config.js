@@ -1,15 +1,9 @@
-const path = require('path');
-const webpack = require('webpack');
-
-const VENDOR_LIBS = [
-    './src/bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.js',
-    './src/js/vendor/modernizr.min.js'
-];
+const path = require('path'),
+    webpack = require('webpack');
 
 const config = {
     entry: {
-        bundle: './src/js/main.js',
-        vendor: VENDOR_LIBS
+        bundle: './src/js/main.js'
     },
     output: {
         path: path.resolve(__dirname, '../dist/js'),
@@ -25,16 +19,10 @@ const config = {
         ]
     },
     plugins: [
-        /*
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
             }
-        }),
-        */
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
-            minChunks: Infinity
         }),
         new webpack.ProvidePlugin({
             $: "jquery",
