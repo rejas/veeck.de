@@ -101,6 +101,9 @@ document.addEventListener('DOMContentLoaded', function () {
         $('html, body').animate({scrollTop: 0}, 800);
     };
 
+    var c = document.getElementsByClassName('js-img-liquid')[0].getAttribute('data-color');
+    console.log(c);
+
     /**
      * Share Button Config
      */
