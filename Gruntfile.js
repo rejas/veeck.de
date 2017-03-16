@@ -14,16 +14,23 @@ module.exports = function(grunt) {
         dir: config.directories,
 
         assemble: {
+            options: {
+                flatten: true,
+                layout: 'default-layout.hbs',
+                layoutdir: '<%= dir.assemble %>/layouts/',
+                data: '<%= dir.assemble %>/data/*.{json,yml}',
+                partials: '<%= dir.assemble %>/partials/*.hbs',
+                helpers: '<%= dir.assemble %>/helpers/*.js'
+            },
             pages: {
-                options: {
-                    flatten: true,
-                    layout: '<%= dir.assemble %>/layouts/default.hbs',
-                    data: '<%= dir.assemble %>/data/*.{json,yml}',
-                    partials: '<%= dir.assemble %>/partials/*.hbs',
-                    helpers: '<%= dir.assemble %>/helpers/*.js'
-                },
                 files: {
                     '<%= dir.tmp %>/': ['<%= dir.assemble %>/pages/*.hbs']
+                }
+            },
+            blog: {
+                options: {layout: 'blog-layout.hbs' },
+                files: {
+                    '<%= dir.tmp %>/': ['<%= dir.assemble %>/blog/*.hbs']
                 }
             }
         },
