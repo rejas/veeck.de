@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
     $('a.gallery, .gallery_article figure a').imageLightbox({
         activity:       true,
         caption:        true,
+        fullscreen:     true,
         lockBody:       true,
         navigation:     true,
         overlay:        true
