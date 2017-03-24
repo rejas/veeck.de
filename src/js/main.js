@@ -166,8 +166,8 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
-        prevArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-prev icon-font-left"></button>',
-        nextArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-next icon-font-right"></button>',
+        prevArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-prev"><i class="icon icon--xs icon-arrow-left"></i></button>',
+        nextArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-next"><i class="icon icon--xs icon-arrow-right"></i></button>',
         fade: true,
         asNavFor: '.slider-nav'
     });
