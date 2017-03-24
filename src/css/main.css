@@ -1,0 +1,55 @@
+@import "../bower_components/normalize.css/normalize.css";
+
+@import "../bower_components/normalize-opentype.css/normalize-opentype.css";
+
+@import "../bower_components/cookieconsent2/build/cookieconsent.min.css";
+
+@import "../bower_components/css-hamburgers/dist/hamburgers.min.css";
+
+@import "../bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.css";
+
+@import "../bower_components/imagelightbox2/src/imagelightbox.css";
+
+@import "../bower_components/share-button/share-button.css";
+
+@import "base/variables.less";
+
+@import "base/mixins.less";
+
+@import "base/fonts.less";
+
+/*
+@import "base/sprite.less";
+
+@import "base/icons.less";
+*/
+
+@import "base/global.less";
+
+@import "modules/ads.less";
+
+@import "modules/button.less";
+
+@import "modules/header.less";
+
+@import "modules/nav.less";
+
+@import "modules/nav_mobile.less";
+
+@import "modules/footer.less";
+
+@import "modules/content.less";
+
+@import "modules/figures.less";
+
+/*
+@import "modules/slider.less";
+*/
+
+@import "modules/header_effect.less";
+
+@import "pages/links.less";
+
+@import "pages/panorama.less";
+
+@import "pages/research.less";
