@@ -63,6 +63,8 @@ addLoadEvent(function() {
     });
 });
 
+import styles from '../css/main.css';
+
 import 'cookieconsent2/src/cookieconsent';
 import 'imagelightbox2/src/imagelightbox';
 import 'imgLiquid/js/imgLiquid.js';

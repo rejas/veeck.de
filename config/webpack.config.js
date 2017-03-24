@@ -1,5 +1,6 @@
 const path = require('path'),
-    webpack = require('webpack');
+    webpack = require('webpack'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
     entry: {
@@ -15,10 +16,18 @@ const config = {
             {
                 test: /\.js$/,
                 use: 'babel-loader'
-            }
+            },
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    loader: "css-loader!less-loader"
+                }),
+            },
         ]
     },
     plugins: [
+        new ExtractTextPlugin('[name].css'),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false

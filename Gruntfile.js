@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     require('load-grunt-tasks')(grunt);
 
-    grunt.loadNpmTasks('assemble-less');
+    //grunt.loadNpmTasks('assemble-less');
 
     grunt.initConfig({
 
@@ -95,17 +95,6 @@ module.exports = function(grunt) {
             }
         },
 
-        less: {
-            dist: {
-                options: {
-                    paths: ['<%= dir.src %>/css']
-                },
-                files: {
-                    '<%= dir.dist %>/assets/main.css': '<%= dir.src %>/css/main.less'
-                }
-            }
-        },
-
         modernizr: {
             dist: {
                 "crawl": false,
@@ -124,7 +113,17 @@ module.exports = function(grunt) {
                 "uglify": true
             }
         },
-
+        /*
+        less: {
+            dist: {
+                options: {
+                    paths: ['<%= dir.src %>/css']
+                },
+                files: {
+                    '<%= dir.dist %>/assets/main.css': '<%= dir.src %>/css/main.less'
+                }
+            }
+        },
         postcss: {
             options: {
                 processors: [
@@ -137,7 +136,7 @@ module.exports = function(grunt) {
                 src: '<%= dir.dist %>/assets/main.css'
             }
         },
-
+        */
         watch: {
             assemble: {
                 files: ['<%= dir.assemble %>/{,*/}*.{md,hbs,yml}'],
@@ -239,8 +238,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'clean',
         'copy',
-        'less',
-        'postcss',
         'concat',
         'webpack',
         'assemble',
