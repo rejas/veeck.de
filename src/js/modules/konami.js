@@ -29,23 +29,25 @@ function convertColorLuminance(hex, lum) {
     return rgb;
 }
 
+function changeColor (c) {
+    const root = document.querySelector(':root'),
+        htmlStyle = window.getComputedStyle(root);
+
+    htmlStyle.getPropertyValue('--primaryColor');
+    root.style.setProperty('--primaryColor', '#'+c);
+    root.style.setProperty('--lightPrimaryColor', convertColorLuminance(c, 0.15));
+    root.style.setProperty('--darkPrimaryColor', convertColorLuminance(c, -0.15));
+    root.style.setProperty('--accentColor', convertColorLuminance(c, 0.35));
+}
+
 export function init() {
+    const supportsVariables = window.CSS && window.CSS.supports && window.CSS.supports('--primaryColor', 0),
+        newColor = document.getElementsByClassName('js-img-liquid')[0].getAttribute('data-color');
 
     $( window ).konami({
-
         cheat: function() {
-            /**
-             * Change custom colors if browser supports it
-             */
-            if (window.CSS && window.CSS.supports && window.CSS.supports('--primaryColor', 0)) {
-                // CSS custom properties supported.
-                const root = document.querySelector(':root'),
-                    htmlStyle = window.getComputedStyle(root);
-
-                htmlStyle.getPropertyValue('--primaryColor');
-                root.style.setProperty('--primaryColor', '#F44336');
-                root.style.setProperty('--lightPrimaryColor', convertColorLuminance('F44336', 0.15));
-                root.style.setProperty('--darkPrimaryColor', convertColorLuminance('F44336', -0.15));
+            if (newColor && supportsVariables) {
+                changeColor(newColor);
             }
         }
     });
