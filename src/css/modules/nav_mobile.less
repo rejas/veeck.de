@@ -33,10 +33,6 @@
             border-bottom-right-radius: 0;
             border: 0;
         }
-
-        .hamburger-box {
-            height: 100%;
-        }
     }
 
     ul {
@@ -58,7 +54,7 @@
                 .colorVar(color, --primaryTextColor, @primaryTextColor);
                 display: block;
                 position: relative;
-                padding: 12px;
+                padding: 10px 12px;
                 text-transform: uppercase;
                 outline: none;
                 text-decoration: none;
@@ -114,7 +110,7 @@
     }
 
     li.dl-back > a {
-        padding-left: 30px;
+        padding-left: 38px;
     }
 
     li.dl-back::after,
@@ -122,13 +118,12 @@
         display: block;
         .colorVar(color, --primaryTextColor, @primaryTextColor);
         position: absolute;
-        top: 16px;
+        top: 10px;
     }
 
     li.dl-back::after {
-        .colorVar(color, --primaryTextColor, @primaryTextColor);
-        left: 5px;
         transform: rotate(180deg);
+        top: 14px;
     }
 
     /*

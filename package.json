@@ -9,7 +9,7 @@
   },
   "scripts": {
     "bld": "webpack",
-    "chk": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js",
+    "chk": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js ",
     "fix": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js --fix"
   },
   "devDependencies": {
@@ -17,13 +17,13 @@
     "assemble-less": "^0.7.0",
     "autoprefixer": "^6.7.7",
     "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.0",
-    "babel-preset-env": "^1.2.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.2.2",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.10.0",
-    "eslint": "^3.17.1",
+    "eslint": "^3.18.0",
     "grunt": "^1.0.1",
-    "grunt-assemble": "^0.5.0",
+    "grunt-assemble": "^0.6.3",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-connect": "^1.0.2",
@@ -38,7 +38,8 @@
     "grunt-webpack": "^2.0.1",
     "less": "^2.7.2",
     "load-grunt-tasks": "^3.5.2",
+    "postcss-sprites": "^4.2.0",
     "time-grunt": "^1.4.0",
-    "webpack": "^2.2.1"
+    "webpack": "^2.3.2"
   }
 }
