@@ -7,6 +7,7 @@
 
     .btn-slick-next,
     .btn-slick-prev {
+        font-size: @font-size-large;
         position: absolute;
         .vertical-align();
         z-index: @z-index-4;
@@ -19,10 +20,18 @@
 
     .btn-slick-next {
         right: 0;
+
+        &::after {
+            content: '❯';
+        }
     }
 
     .btn-slick-prev {
         left: 0;
+
+        &::after {
+            content: '❮';
+        }
     }
 
     .slider-for {

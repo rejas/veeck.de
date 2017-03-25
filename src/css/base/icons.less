@@ -4,13 +4,13 @@
 }
 
 .icon--xs {
-    width: 36px;
-    height: 36px;
+    width: 24px;
+    height: 24px
 }
 
 .icon--s {
     width: 130px;
-    height: 21px;
+    height: 24px;
 }
 
 .icon--l {
@@ -46,7 +46,9 @@
 
     li.dl-back::after,
     li > a:not(:only-child)::after {
-        &:extend(.icon-font-right::after);
+        content: '❯';
+        height: 24px;
+        width: 24px;
         display: none;
     }
 }
