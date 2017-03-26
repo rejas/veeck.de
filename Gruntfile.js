@@ -58,20 +58,6 @@ module.exports = function(grunt) {
         },
 
         copy: {
-            /*
-            assets: {
-                expand: true,
-                cwd: '<%= dir.src %>/assets/',
-                src: '**',
-                dest: '<%= dir.dist %>/assets/'
-            },
-            */
-            files: {
-                expand: true,
-                cwd: '<%= dir.src %>/files/',
-                src: '**',
-                dest: '<%= dir.dist %>/files/'
-            },
             img: {
                 expand: true,
                 cwd: '<%= dir.src %>/img/',
