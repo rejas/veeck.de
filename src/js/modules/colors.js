@@ -1,5 +1,3 @@
-import '../../bower_components/konami-code/src/jquery.konami';
-
 /**
  *    CSS provides HSL color mode that controls Hue, Saturation, Luminosity(Lightness) and optionaly Opacity
  *
@@ -44,11 +42,7 @@ export function init() {
     const supportsVariables = window.CSS && window.CSS.supports && window.CSS.supports('--primaryColor', 0),
         newColor = document.getElementsByClassName('js-img-liquid')[0].getAttribute('data-color');
 
-    $( window ).konami({
-        cheat: function() {
-            if (newColor && supportsVariables) {
-                changeColor(newColor);
-            }
-        }
-    });
+    if (newColor && supportsVariables) {
+        changeColor(newColor);
+    }
 }
