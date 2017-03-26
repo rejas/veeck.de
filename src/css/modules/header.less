@@ -36,6 +36,17 @@
         }
     }
 
+    .hamburger-box {
+        width: 24px;
+
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            width: 24px;
+            height: 3px;
+        }
+    }
+
     .title {
         z-index: @z-index-1;
         margin: 0 auto;
@@ -53,7 +64,8 @@
             }
         }
 
-        .headline1 {
+        .headline {
+            border: 3px solid rgba(0,0,0,0.125);
             border-radius: @figure-radius;
             .boxshadow(1);
             .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
@@ -114,7 +126,6 @@
 
     .share-btn,
     .to-top-btn {
-        background-color: @accentColor;
         position: fixed;
         left: 100%;
         right: 1em;

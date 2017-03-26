@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "4.9.7",
+  "version": "4.9.8",
   "private": true,
   "homepage": "https://github.com/rejas/homepage",
   "author": {
@@ -38,7 +38,8 @@
     "grunt-webpack": "^2.0.1",
     "less": "^2.7.2",
     "load-grunt-tasks": "^3.5.2",
+    "postcss-sprites": "^4.2.0",
     "time-grunt": "^1.4.0",
-    "webpack": "^2.2.1"
+    "webpack": "^2.3.2"
   }
 }
