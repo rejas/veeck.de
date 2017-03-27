@@ -67,11 +67,12 @@ import styles from '../css/main.css';
 
 import 'cookieconsent2/src/cookieconsent';
 import 'imagelightbox2/src/imagelightbox';
-import 'imgLiquid/js/imgLiquid.js';
+import 'imgLiquid/js/imgLiquid';
 import 'ResponsiveMultiLevelMenu2/js/jquery.dlmenu';
 import 'slick-carousel/slick/slick';
+import 'konami-code/src/jquery.konami';
 
-import * as Konami from './modules/konami';
+import * as Colors from './modules/colors';
 import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
 
@@ -86,9 +87,9 @@ document.addEventListener('DOMContentLoaded', function () {
     Intro.init();
 
     /**
-     * Konami
+     * Colors
      */
-    Konami.init();
+    Colors.init();
 
     /**
      * Navigation
@@ -163,8 +164,8 @@ document.addEventListener('DOMContentLoaded', function () {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
-        prevArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-prev icon-font-left"></button>',
-        nextArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-next icon-font-right"></button>',
+        prevArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-prev"></button>',
+        nextArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-next"></button>',
         fade: true,
         asNavFor: '.slider-nav'
     });
@@ -181,5 +182,14 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     $.each($('.travel-article .fig_popup'), function( index, value ) {
         value.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
+    });
+
+    /**
+     * Use konami code for css linting
+     */
+    $( window ).konami({
+        cheat: function() {
+            $('body').addClass('debug');
+        }
     });
 });
