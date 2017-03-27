@@ -14,7 +14,6 @@
   },
   "devDependencies": {
     "assemble": "^0.23.0",
-    "assemble-less": "^0.7.0",
     "autoprefixer": "^6.7.7",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
