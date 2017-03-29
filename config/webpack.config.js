@@ -21,7 +21,7 @@ const config = {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    loader: "css-loader!less-loader"
+                    loader: "css-loader!less-loader!postcss-loader"
                 }),
             },
         ]
@@ -36,6 +36,13 @@ const config = {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
+        }),
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                postcss: [
+                    require('autoprefixer')()
+                ]
+            }
         })
     ],
     resolve: {
