@@ -91,7 +91,7 @@ module.exports = function(grunt) {
         less: {
             dist: {
                 options: {
-                    paths: ['<%= dir.src %>/css']
+                    paths: ['<%= dir.src %>/css', '<%= dir.src %>/bower_components']
                 },
                 files: {
                     '<%= dir.dist %>/styles/main.css': '<%= dir.src %>/css/main.less'
