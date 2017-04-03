@@ -18,10 +18,10 @@ const config = {
                 use: 'babel-loader'
             },
             {
-                test: /\.css$/,
+                test: /\.less$/,
                 loader: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    loader: "css-loader!less-loader!postcss-loader"
+                    loader: "css-loader!postcss-loader!less-loader"
                 }),
             },
         ]
