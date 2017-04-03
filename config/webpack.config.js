@@ -21,13 +21,15 @@ const config = {
                 test: /\.less$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    loader: "css-loader!postcss-loader!less-loader"
+                    use: ['css-loader', 'postcss-loader', 'less-loader']
                 }),
             },
         ]
     },
     plugins: [
-        new ExtractTextPlugin('[name].css'),
+        new ExtractTextPlugin({
+            filename: '[name].css'
+        }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
@@ -40,7 +42,8 @@ const config = {
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: [
-                    require('autoprefixer')()
+                    require('autoprefixer')(),
+                    require('css-mqpacker')()
                 ]
             }
         })
