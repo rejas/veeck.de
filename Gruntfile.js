@@ -101,7 +101,6 @@ module.exports = function(grunt) {
         },
 
         /*
-
         postcss: {
             options: {
                 processors: [
@@ -123,6 +122,10 @@ module.exports = function(grunt) {
             assemble: {
                 files: ['<%= dir.assemble %>/{,*/}*.{md,hbs,yml}'],
                 tasks: ['assemble', 'htmlmin']
+            },
+            css: {
+                files: ['<%= dir.src %>/css/**/*.{css,less}'],
+                tasks: ['webpack']
             },
             js: {
                 files: ['<%= dir.src %>/js/**/*.js', '<%= dir.src %>/bower_components/**/*.js'],
