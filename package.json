@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "4.9.7",
+  "version": "4.9.9",
   "private": true,
   "homepage": "https://github.com/rejas/homepage",
   "author": {
@@ -18,7 +18,11 @@
     "autoprefixer": "^6.7.7",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
+<<<<<<< HEAD
     "babel-preset-env": "^1.3.3",
+=======
+    "babel-preset-env": "^1.3.2",
+>>>>>>> fc005f8a51727c2765f04b55c55866d145556b8c
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.10.0",
     "eslint": "^3.19.0",
@@ -38,7 +42,12 @@
     "grunt-webpack": "^2.0.1",
     "less": "^2.7.2",
     "load-grunt-tasks": "^3.5.2",
+    "postcss-sprites": "^4.2.0",
     "time-grunt": "^1.4.0",
+<<<<<<< HEAD
     "webpack": "^2.3.3"
+=======
+    "webpack": "^2.3.2"
+>>>>>>> fc005f8a51727c2765f04b55c55866d145556b8c
   }
 }

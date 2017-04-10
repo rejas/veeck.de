@@ -51,18 +51,6 @@ module.exports = function(grunt) {
         },
 
         copy: {
-            assets: {
-                expand: true,
-                cwd: '<%= dir.src %>/assets/',
-                src: '**',
-                dest: '<%= dir.dist %>/assets/'
-            },
-            files: {
-                expand: true,
-                cwd: '<%= dir.src %>/files/',
-                src: '**',
-                dest: '<%= dir.dist %>/files/'
-            },
             img: {
                 expand: true,
                 cwd: '<%= dir.src %>/img/',
@@ -98,10 +86,10 @@ module.exports = function(grunt) {
         less: {
             dist: {
                 options: {
-                    paths: ['<%= dir.src %>/css']
+                    paths: ['<%= dir.src %>/css', '<%= dir.src %>/bower_components']
                 },
                 files: {
-                    '<%= dir.dist %>/assets/main.css': '<%= dir.src %>/css/main.less'
+                    '<%= dir.dist %>/styles/main.css': '<%= dir.src %>/css/main.less'
                 }
             }
         },
@@ -130,11 +118,14 @@ module.exports = function(grunt) {
                 processors: [
                     require('autoprefixer')(config.autoprefixer),
                     require('css-mqpacker')(),
-                    require('cssnano')()
+                    require('cssnano'),
+                    require('postcss-sprites')({
+                        spritePath: './dist/styles/'
+                    })
                 ]
             },
             dist: {
-                src: '<%= dir.dist %>/assets/main.css'
+                src: '<%= dir.dist %>/styles/main.css'
             }
         },
 
@@ -157,7 +148,7 @@ module.exports = function(grunt) {
                 },
                 files: [
                     '<%= dir.dist %>/*.html',
-                    '<%= dir.dist %>/assets/**/*.css',
+                    '<%= dir.dist %>/styles/**/*.css',
                     '<%= dir.dist %>/js/**/*.js',
                     '<%= dir.dist %>/img/**/*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
