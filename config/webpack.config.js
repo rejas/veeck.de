@@ -43,7 +43,10 @@ const config = {
             options: {
                 postcss: [
                     require('autoprefixer')(),
-                    require('css-mqpacker')()
+                    require('css-mqpacker')(),
+                    require('postcss-sprites')({
+                        spritePath: './dist/styles/'
+                    })
                 ]
             }
         })
