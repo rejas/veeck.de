@@ -24,10 +24,5 @@
   },
   "_source": "https://github.com/necolas/normalize.css.git",
   "_target": "^6.0.0",
-<<<<<<< HEAD:src/bower_components/normalize.css/.bower.json
-  "_originalSource": "normalize.css"
-=======
-  "_originalSource": "normalize-css",
-  "_direct": true
->>>>>>> fc005f8a51727c2765f04b55c55866d145556b8c:src/bower_components/normalize-css/.bower.json
+  "_originalSource": "normalize-css"
 }
