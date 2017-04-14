@@ -8,7 +8,7 @@
   "description": "my private homepage",
   "license": "MIT",
   "dependencies": {
-    "bLazy": "blazy#^1.8.2",
+    "blazy": "^1.8.2",
     "css-hamburgers": "^0.8.1",
     "classie": "^1.0.1",
     "cookieconsent2": "^3.0.4",
