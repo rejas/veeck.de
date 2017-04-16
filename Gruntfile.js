@@ -7,8 +7,6 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     require('load-grunt-tasks')(grunt);
 
-    grunt.loadNpmTasks('assemble-less');
-
     grunt.initConfig({
 
         dir: config.directories,
@@ -83,17 +81,6 @@ module.exports = function(grunt) {
             }
         },
 
-        less: {
-            dist: {
-                options: {
-                    paths: ['<%= dir.src %>/css', '<%= dir.src %>/bower_components']
-                },
-                files: {
-                    '<%= dir.dist %>/styles/main.css': '<%= dir.src %>/css/main.less'
-                }
-            }
-        },
-
         modernizr: {
             dist: {
                 "crawl": false,
@@ -113,6 +100,7 @@ module.exports = function(grunt) {
             }
         },
 
+        /*
         postcss: {
             options: {
                 processors: [
@@ -128,15 +116,16 @@ module.exports = function(grunt) {
                 src: '<%= dir.dist %>/styles/main.css'
             }
         },
+        */
 
         watch: {
             assemble: {
                 files: ['<%= dir.assemble %>/{,*/}*.{md,hbs,yml}'],
                 tasks: ['assemble', 'htmlmin']
             },
-            less: {
+            css: {
                 files: ['<%= dir.src %>/css/**/*.{css,less}'],
-                tasks: ['less', 'postcss']
+                tasks: ['webpack']
             },
             js: {
                 files: ['<%= dir.src %>/js/**/*.js', '<%= dir.src %>/bower_components/**/*.js'],
@@ -230,8 +219,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'clean',
         'copy',
-        'less',
-        'postcss',
         'concat',
         'webpack',
         'assemble',

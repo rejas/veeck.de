@@ -1,5 +1,6 @@
 const path = require('path'),
-    webpack = require('webpack');
+    webpack = require('webpack'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
     entry: {
@@ -15,10 +16,29 @@ const config = {
             {
                 test: /\.js$/,
                 use: 'babel-loader'
+            },
+            {
+                test: /\.less$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'postcss-loader', 'less-loader']
+                }),
+            },
+            {
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: 'img/[hash].[ext]',
+                    publicPath: './'
+                }
             }
         ]
     },
     plugins: [
+        new ExtractTextPlugin({
+            filename: '[name].css'
+        }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
@@ -27,6 +47,17 @@ const config = {
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
+        }),
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                postcss: [
+                    require('autoprefixer')(),
+                    require('css-mqpacker')(),
+                    require('postcss-sprites')({
+                        spritePath: 'tmp/'
+                    })
+                ]
+            }
         })
     ],
     resolve: {
