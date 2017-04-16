@@ -20,7 +20,7 @@ const config = {
             {
                 test: /\.less$/,
                 use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
+                    fallback: 'style-loader',
                     use: ['css-loader', 'postcss-loader', 'less-loader']
                 }),
             },
@@ -45,8 +45,19 @@ const config = {
             }
         }),
         new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery'
+            $: "jquery",
+            jQuery: "jquery"
+        }),
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                postcss: [
+                    require('autoprefixer')(),
+                    require('css-mqpacker')(),
+                    require('postcss-sprites')({
+                        spritePath: 'tmp/'
+                    })
+                ]
+            }
         })
     ],
     resolve: {
