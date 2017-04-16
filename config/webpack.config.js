@@ -20,7 +20,7 @@ const config = {
             {
                 test: /\.less$/,
                 use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
+                    fallback: 'style-loader',
                     use: ['css-loader', 'postcss-loader', 'less-loader']
                 }),
             },
@@ -54,7 +54,7 @@ const config = {
                     require('autoprefixer')(),
                     require('css-mqpacker')(),
                     require('postcss-sprites')({
-                        spritePath: './dist/styles/'
+                        spritePath: 'tmp/'
                     })
                 ]
             }
