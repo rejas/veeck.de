@@ -24,6 +24,15 @@ const config = {
                     use: ['css-loader', 'postcss-loader', 'less-loader']
                 }),
             },
+            {
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: 'img/[hash].[ext]',
+                    publicPath: './'
+                }
+            }
         ]
     },
     plugins: [
