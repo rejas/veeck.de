@@ -25,15 +25,15 @@ const config = {
             }
         }),
         new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
+            $: 'jquery',
+            jQuery: 'jquery'
         })
     ],
     resolve: {
         alias: {
-            jquery: "jquery/src/jquery"
+            jquery: 'jquery/src/jquery'
         },
-        modules: ['./src/bower_components', 'node_modules']
+        modules: ['src/bower_components', 'node_modules']
     }
 };
 
