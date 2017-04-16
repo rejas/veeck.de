@@ -45,23 +45,15 @@ const config = {
             }
         }),
         new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
-        }),
-        new webpack.LoaderOptionsPlugin({
-            options: {
-                postcss: [
-                    require('autoprefixer')(),
-                    require('css-mqpacker')()
-                ]
-            }
+            $: 'jquery',
+            jQuery: 'jquery'
         })
     ],
     resolve: {
         alias: {
-            jquery: "jquery/src/jquery"
+            jquery: 'jquery/src/jquery'
         },
-        modules: ['./src/bower_components', 'node_modules']
+        modules: ['src/bower_components', 'node_modules']
     }
 };
 
