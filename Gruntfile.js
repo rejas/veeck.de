@@ -88,15 +88,13 @@ module.exports = function(grunt) {
             }
         },
 
-        less: {
+        lesshint: {
             dist: {
                 options: {
-                    paths: ['<%= dir.src %>/css', '<%= dir.src %>/bower_components']
+                    lesshintrc: true
                 },
-                files: {
-                    '<%= dir.dist %>/styles/main.css': '<%= dir.src %>/css/main.less'
-                }
-            }
+                src: '<%= dir.src %>/**/*.less'
+            },
         },
 
         modernizr: {
@@ -222,7 +220,8 @@ module.exports = function(grunt) {
         'concat',
         'webpack',
         'assemble',
-        'htmlmin'
+        'htmlmin',
+        'lesshint'
     ]);
 
     grunt.registerTask('prepare', [
