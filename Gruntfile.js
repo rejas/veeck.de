@@ -81,6 +81,15 @@ module.exports = function(grunt) {
             }
         },
 
+        lesshint: {
+            dist: {
+                options: {
+                    lesshintrc: true
+                },
+                src: '<%= dir.src %>/**/*.less'
+            },
+        },
+
         modernizr: {
             dist: {
                 "crawl": false,
@@ -204,7 +213,8 @@ module.exports = function(grunt) {
         'concat',
         'webpack',
         'assemble',
-        'htmlmin'
+        'htmlmin',
+        'lesshint'
     ]);
 
     grunt.registerTask('prepare', [
