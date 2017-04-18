@@ -205,27 +205,3 @@ img.b-error {
         text-align: center;
     }
 }
-
-.travel-article {
-
-    figure {
-
-        @media @desktop, @tablet {
-            overflow: visible;
-            padding: .5em 0.5em 0;
-            box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, .75);
-            background: linear-gradient(to bottom, #ede1c9, #fef8e2 20%, #f2ebde 60%);
-            transform: rotate(var(--figure-angle-seed));
-
-            &:before {
-                content: '';
-                display: block;
-                position: absolute;
-                top: -15px;
-                width: 75px;
-                height: 25px;
-                background-color: rgba(222,220,198,0.7);
-            }
-        }
-    }
-}
