@@ -22,17 +22,37 @@ const webpackconfig = {
                 test: /\.less$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'postcss-loader', 'less-loader']
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
+                            minimize: true
+                        }
+                    }, {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function () {
+                                return [
+                                    require('autoprefixer')(config.autoprefixer),
+                                    require('css-mqpacker')(),
+                                    require('postcss-sprites')({
+                                        spritePath: 'tmp/'
+                                    })
+                                ]
+                            }
+                        }
+                    }, 'less-loader']
                 }),
             },
             {
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-                loader: 'url-loader',
-                options: {
-                    limit: 10000,
-                    name: 'img/[hash].[ext]',
-                    publicPath: './'
-                }
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000,
+                        name: 'img/[hash].[ext]',
+                        publicPath: './'
+                    }
+                }]
             }
         ]
     },
@@ -48,17 +68,6 @@ const webpackconfig = {
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
-        }),
-        new webpack.LoaderOptionsPlugin({
-            options: {
-                postcss: [
-                    require('autoprefixer')(config.autoprefixer),
-                    require('css-mqpacker')(),
-                    require('postcss-sprites')({
-                        spritePath: 'tmp/'
-                    })
-                ]
-            }
         })
     ],
     resolve: {
