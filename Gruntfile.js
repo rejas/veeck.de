@@ -117,23 +117,7 @@ module.exports = function(grunt) {
                 "uglify": true
             }
         },
-        /*
-        postcss: {
-            options: {
-                processors: [
-                    require('autoprefixer')(config.autoprefixer),
-                    require('css-mqpacker')(),
-                    require('cssnano'),
-                    require('postcss-sprites')({
-                        spritePath: './dist/styles/'
-                    })
-                ]
-            },
-            dist: {
-                src: '<%= dir.dist %>/styles/main.css'
-            }
-        },
-        */
+
         watch: {
             assemble: {
                 files: ['<%= dir.assemble %>/{,*/}*.{md,hbs,yml}'],
