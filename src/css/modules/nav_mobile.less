@@ -64,7 +64,7 @@
 
             > a::after {
                 right: 10px;
-                color: rgba(0,0,0,0.15);
+                color: rgba(0, 0, 0, 0.15);
             }
 
             /* Hide the inner submenus */
@@ -197,7 +197,7 @@
 }
 
 .no-js .mobile-nav li > a:not(:only-child) {
-    background: rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .no-js .mobile-nav li > a:not(:only-child)::after {
@@ -208,10 +208,12 @@
     50% {
         transform: translateZ(-250px) rotateY(30deg);
     }
+
     75% {
         transform: translateZ(-372.5px) rotateY(15deg);
         opacity: 0.5;
     }
+
     100% {
         transform: translateZ(-500px) rotateY(0deg);
         opacity: 0;
@@ -219,14 +221,17 @@
 }
 
 @keyframes MenuAnimIn1 {
+
     0% {
         transform: translateZ(-500px) rotateY(0deg);
         opacity: 0;
     }
+
     20% {
         transform: translateZ(-250px) rotateY(30deg);
         opacity: 0.5;
     }
+
     100% {
         transform: translateZ(0px) rotateY(0deg);
         opacity: 1;
@@ -234,10 +239,12 @@
 }
 
 @keyframes SubMenuAnimIn1 {
+
     0% {
         transform: translateX(50%);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0px);
         opacity: 1;
@@ -245,10 +252,12 @@
 }
 
 @keyframes SubMenuAnimOut1 {
+
     0% {
         transform: translateX(0%);
         opacity: 1;
     }
+
     100% {
         transform: translateX(50%);
         opacity: 0;

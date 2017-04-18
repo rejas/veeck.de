@@ -65,7 +65,7 @@
         }
 
         .headline {
-            border: 3px solid rgba(0,0,0,0.125);
+            border: 3px solid rgba(0, 0, 0, 0.125);
             border-radius: @figure-radius;
             .boxshadow(1);
             .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
@@ -178,12 +178,14 @@
                 transform: translate(calc(-92%), -100%);
             }
 
-        &::before {
-            .colorVar(color, --primaryTextColor, @primaryTextColor);
-            &:extend(.icon-font-up::after);
-            position: relative;
-            left: 0.75rem;
-            top: 0.5rem;
+            > ul > li {
+                border: 3px solid rgba(0, 0, 0, 0.125);
+                border-radius: @global-radius;
+                margin: 0 8px;
+                width: 48px;
+                height: 48px;
+                padding: 0;
+            }
         }
     }
 }
