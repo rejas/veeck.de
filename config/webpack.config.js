@@ -1,8 +1,9 @@
-const path = require('path'),
+const config = require('./grunt.config.js'),
+    path = require('path'),
     webpack = require('webpack'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const config = {
+const webpackconfig = {
     entry: {
         bundle: './src/js/main.js'
     },
@@ -51,7 +52,7 @@ const config = {
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: [
-                    require('autoprefixer')(),
+                    require('autoprefixer')(config.autoprefixer),
                     require('css-mqpacker')(),
                     require('postcss-sprites')({
                         spritePath: 'tmp/'
@@ -68,4 +69,4 @@ const config = {
     }
 };
 
-module.exports = config;
+module.exports = webpackconfig;
