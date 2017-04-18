@@ -69,6 +69,15 @@ module.exports = function(grunt) {
             }
         },
 
+        eslint: {
+            dist: {
+                options: {
+                    configFile: '.eslintrc.json'
+                },
+                src: '<%= dir.src %>/js/*.js'
+            },
+        },
+
         htmlmin: {
             dist: {
                 options: config.htmlmin,
@@ -213,8 +222,7 @@ module.exports = function(grunt) {
         'concat',
         'webpack',
         'assemble',
-        'htmlmin',
-        'lesshint'
+        'htmlmin'
     ]);
 
     grunt.registerTask('prepare', [
@@ -227,5 +235,10 @@ module.exports = function(grunt) {
         'default',
         'connect',
         'watch'
+    ]);
+
+    grunt.registerTask('check', [
+        'eslint',
+        'lesshint'
     ]);
 };
