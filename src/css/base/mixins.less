@@ -80,18 +80,6 @@
     @{property}: var(@cssvar);
 }
 
-.font-face (@family, @file-base, @weight: normal, @style: normal) {
-    @font-face {
-        font-family: @family;
-        src: url("@{file-base}.eot");
-        src: url("@{file-base}.eot?#iefix") format("embedded-opentype"),
-        url("@{file-base}.woff") format("woff"),
-        url("@{file-base}.ttf") format("truetype");
-        font-weight: @weight;
-        font-style: @style;
-    }
-}
-
 .transform (property) {
     transition: property .125s ease-in-out;
 }
