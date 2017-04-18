@@ -49,7 +49,7 @@ const webpackconfig = {
                     loader: 'url-loader',
                     options: {
                         limit: 10000,
-                        name: 'img/[hash].[ext]',
+                        name: '../css/[hash].[ext]',
                         publicPath: './'
                     }
                 }]
@@ -58,7 +58,7 @@ const webpackconfig = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: '[name].css'
+            filename: '../css/[name].css',
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
