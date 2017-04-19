@@ -2,16 +2,14 @@
 
 @import url('https://fonts.googleapis.com/css?family=Lora:400,400italic,700italic,700');
 
-.font-face('IconFont', '/assets/fonts/arrowmenufont', normal);
+@font-weight-normal:    400;
+@font-weight-bold:      800;
 
-.icon-font::after {
-    font-family: 'IconFont' !important;
-    font-style: normal !important;
-    font-weight: @font-weight-normal !important;
-    font-variant: normal !important;
-    text-transform: none !important;
-    speak: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+@font-header:    'Lora';
+@font-main:      'Raleway';
+
+@base-font-size:    calc(0.2em + 1vw);
+@base-line-height:  calc(0.5em + 1vw);
+
+@font-size-small:   0.75rem;
+@font-size-large:   1.25rem;

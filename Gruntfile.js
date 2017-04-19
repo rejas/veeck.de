@@ -7,8 +7,6 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     require('load-grunt-tasks')(grunt);
 
-    grunt.loadNpmTasks('assemble-less');
-
     grunt.initConfig({
 
         dir: config.directories,
@@ -31,12 +29,12 @@ module.exports = function(grunt) {
         clean: ['<%= dir.dist %>/**/*'],
 
         concat: {
-            options: {
-                separator: ';'
-            },
             dist: {
+                options: {
+                    separator: ';'
+                },
                 src: ['<%= dir.src %>/js/vendor/modernizr.min.js',
-                      '<%= dir.src %>/bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js'],
+                    '<%= dir.src %>/bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js'],
                 dest: '<%= dir.dist %>/js/vendor.min.js'
             }
         },
@@ -51,18 +49,6 @@ module.exports = function(grunt) {
         },
 
         copy: {
-            assets: {
-                expand: true,
-                cwd: '<%= dir.src %>/assets/',
-                src: '**',
-                dest: '<%= dir.dist %>/assets/'
-            },
-            files: {
-                expand: true,
-                cwd: '<%= dir.src %>/files/',
-                src: '**',
-                dest: '<%= dir.dist %>/files/'
-            },
             img: {
                 expand: true,
                 cwd: '<%= dir.src %>/img/',
@@ -83,6 +69,15 @@ module.exports = function(grunt) {
             }
         },
 
+        eslint: {
+            dist: {
+                options: {
+                    configFile: '.eslintrc.json'
+                },
+                src: '<%= dir.src %>/js/*.js'
+            },
+        },
+
         htmlmin: {
             dist: {
                 options: config.htmlmin,
@@ -95,15 +90,13 @@ module.exports = function(grunt) {
             }
         },
 
-        less: {
+        lesshint: {
             dist: {
                 options: {
-                    paths: ['<%= dir.src %>/css']
+                    lesshintrc: true
                 },
-                files: {
-                    '<%= dir.dist %>/assets/main.css': '<%= dir.src %>/css/main.less'
-                }
-            }
+                src: '<%= dir.src %>/**/*.less'
+            },
         },
 
         modernizr: {
@@ -125,27 +118,14 @@ module.exports = function(grunt) {
             }
         },
 
-        postcss: {
-            options: {
-                processors: [
-                    require('autoprefixer')(config.autoprefixer),
-                    require('css-mqpacker')(),
-                    require('cssnano')()
-                ]
-            },
-            dist: {
-                src: '<%= dir.dist %>/assets/main.css'
-            }
-        },
-
         watch: {
             assemble: {
                 files: ['<%= dir.assemble %>/{,*/}*.{md,hbs,yml}'],
                 tasks: ['assemble', 'htmlmin']
             },
-            less: {
+            css: {
                 files: ['<%= dir.src %>/css/**/*.{css,less}'],
-                tasks: ['less', 'postcss']
+                tasks: ['webpack']
             },
             js: {
                 files: ['<%= dir.src %>/js/**/*.js', '<%= dir.src %>/bower_components/**/*.js'],
@@ -157,7 +137,7 @@ module.exports = function(grunt) {
                 },
                 files: [
                     '<%= dir.dist %>/*.html',
-                    '<%= dir.dist %>/assets/**/*.css',
+                    '<%= dir.dist %>/styles/**/*.css',
                     '<%= dir.dist %>/js/**/*.js',
                     '<%= dir.dist %>/img/**/*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
@@ -239,8 +219,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'clean',
         'copy',
-        'less',
-        'postcss',
         'concat',
         'webpack',
         'assemble',
@@ -257,5 +235,10 @@ module.exports = function(grunt) {
         'default',
         'connect',
         'watch'
+    ]);
+
+    grunt.registerTask('check', [
+        'eslint',
+        'lesshint'
     ]);
 };

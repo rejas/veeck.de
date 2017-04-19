@@ -19,14 +19,9 @@
 
 html {
     background: none;
-    font-size: calc(0.2em + 1vw);
-    line-height: calc(0.5em + 1vw);
     height: 100%;
-    font-family: 'mobile';
-
-    @media @desktop {
-        font-family: 'desktop';
-    }
+    font-size: @base-font-size;
+    line-height: @base-line-height;
 }
 
 body {
@@ -42,14 +37,6 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
-
-    &::after {
-        display: none;
-
-        @media @desktop {
-            content: 'desktop';
-        }
-    }
 }
 
 article {
@@ -108,27 +95,7 @@ img,
 picture {
     max-width: 100vw;
     max-height: 100vh;
-}
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
     vertical-align: middle;
-}
-
-/*
- * Allow only vertical resizing of textareas.
- */
-textarea {
-    resize: vertical;
 }
 
 ul {
@@ -155,21 +122,22 @@ time {
 
 input {
     padding: 4px 8px;
-    border: 1px solid rgba(0,0,0,0.125);
+    border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: @figure-radius;
     .colorVar(border-color, --accentColor, @accentColor);
     height: 1.75rem;
 }
 
 textarea {
-    border: 1px solid rgba(0,0,0,0.125);
+    border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: @figure-radius;
     .colorVar(border-color, --accentColor, @accentColor);
     min-height: 1.75rem;
+    resize: vertical;
 }
 
 select {
-    border: 1px solid rgba(0,0,0,0.125);
+    border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: @figure-radius;
     .colorVar(border-color, --accentColor, @accentColor);
     height: 1.75rem;
