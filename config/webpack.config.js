@@ -5,12 +5,11 @@ const config = require('./grunt.config.js'),
 
 const webpackconfig = {
     entry: {
-        bundle: './src/js/main.js'
+        bundle: path.resolve(__dirname, '../src/js/main.js')
     },
     output: {
-        path: path.resolve(__dirname, '../dist/js'),
-        filename: '[name].js',
-        publicPath: 'dist/'
+        path: path.resolve(__dirname, '../dist/'),
+        filename: 'js/[name].js'
     },
     module: {
         rules: [
@@ -41,7 +40,7 @@ const webpackconfig = {
                             }
                         }
                     }, 'less-loader']
-                }),
+                })
             },
             {
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
@@ -49,8 +48,7 @@ const webpackconfig = {
                     loader: 'url-loader',
                     options: {
                         limit: 10000,
-                        name: '../css/[hash].[ext]',
-                        publicPath: './'
+                        name: '/css/[hash].[ext]'
                     }
                 }]
             }
@@ -58,7 +56,7 @@ const webpackconfig = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: '../css/[name].css',
+            filename: '/css/[name].css'
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
