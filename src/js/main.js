@@ -63,6 +63,8 @@ addLoadEvent(function() {
     });
 });
 
+import styles from '../css/main.less';
+
 import 'cookieconsent2/src/cookieconsent';
 import 'imagelightbox2/src/imagelightbox';
 import 'imgLiquid/js/imgLiquid';
@@ -74,7 +76,7 @@ import * as Colors from './modules/colors';
 import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
 
-import Blazy       from 'bLazy';
+import Blazy       from 'blazy';
 import ShareButton from 'share-button/share-button';
 
 document.addEventListener('DOMContentLoaded', function () {
