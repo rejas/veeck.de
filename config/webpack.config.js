@@ -15,7 +15,13 @@ const webpackconfig = {
         rules: [
             {
                 test: /\.js$/,
-                use: 'babel-loader'
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env']
+                    }
+                }
             },
             {
                 test: /\.less$/,
