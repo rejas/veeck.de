@@ -101,20 +101,18 @@ module.exports = function(grunt) {
 
         modernizr: {
             dist: {
-                "crawl": false,
-                "parseFiles": true,
-                "customTests": [],
-                "dest": '<%= dir.src %>/js/vendor/modernizr.min.js',
-                "tests": [
-                    "cssanimations",
-                    "objectfit"
-                ],
-                "options": [
+                cache: false,
+                dest: '<%= dir.src %>/js/vendor/modernizr.min.js',
+                files: {
+                    src: ['<%= dir.src %>/**/*.js']
+                },
+                options: [
                     "prefixes",
                     "prefixed",
                     "setClasses"
                 ],
-                "uglify": true
+                parseFiles: true,
+                uglify : false
             }
         },
 
