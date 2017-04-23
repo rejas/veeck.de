@@ -1,14 +1,11 @@
-* {
+:root {
+    --figure-angle-seed: 0deg;
     box-sizing: border-box;
+    height: 100%;
 
     &:focus {
         outline: 0;
     }
-}
-
-/* set the default transition time */
-:root {
-    --figure-angle-seed: 0deg;
 }
 
 ::selection {
@@ -17,24 +14,19 @@
     text-shadow: none;
 }
 
-html {
-    background: none;
-    height: 100%;
-    font-size: @base-font-size;
-    line-height: @base-line-height;
-}
-
 body {
     .colorVar(color, --primaryTextColor, @primaryTextColor);
     .colorVar(background-color, --bgColor, @bgColor);
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    -ms-touch-action: auto;
     font-family: @font-main, arial;
+    font-size: @base-font-size;
     font-weight: @font-weight-normal;
+    line-height: @base-line-height;
+    overflow-x: hidden;
     text-rendering: optimizeLegibility;
+    -ms-touch-action: auto;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
 }
