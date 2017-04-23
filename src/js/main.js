@@ -63,7 +63,7 @@ addLoadEvent(function() {
     });
 });
 
-import styles from '../css/main.less';
+import styles_webpack from '../css/main.less';
 
 import 'cookieconsent2/src/cookieconsent';
 import 'imagelightbox2/src/imagelightbox';

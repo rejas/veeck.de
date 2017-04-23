@@ -81,7 +81,7 @@ module.exports = function(grunt) {
                 options: {
                     configFile: '.eslintrc.json'
                 },
-                src: '<%= dir.src %>/js/*.js'
+                src: ['<%= dir.src %>/js/*.js']
             },
         },
 
@@ -102,7 +102,7 @@ module.exports = function(grunt) {
                 options: {
                     lesshintrc: true
                 },
-                src: '<%= dir.src %>/**/*.less'
+                src: ['<%= dir.src %>/**/*.less', '!<%= dir.src %>/bower_components/**/*.less']
             },
         },
 
