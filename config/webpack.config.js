@@ -30,7 +30,8 @@ const webpackconfig = {
                     use: [{
                         loader: 'css-loader',
                         options: {
-                            minimize: true
+                            minimize: true,
+                            sourceMap: true
                         }
                     }, {
                         loader: 'postcss-loader',
@@ -45,7 +46,12 @@ const webpackconfig = {
                                 ]
                             }
                         }
-                    }, 'less-loader']
+                    }, {
+                        loader: 'less-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }]
                 })
             },
             {
