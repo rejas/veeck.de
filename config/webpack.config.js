@@ -44,7 +44,8 @@ const webpackconfig = {
                                         spritePath: 'tmp/'
                                     })
                                 ]
-                            }
+                            },
+                            sourceMap: true
                         }
                     }, {
                         loader: 'less-loader',
