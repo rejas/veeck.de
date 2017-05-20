@@ -13,7 +13,7 @@
     "fix": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js --fix"
   },
   "devDependencies": {
-    "assemble": "^0.23.0",
+    "assemble": "^0.24.3",
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
