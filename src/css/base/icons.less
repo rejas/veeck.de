@@ -1,10 +1,12 @@
+@icon-size-m:  1.5rem;
+
 .icon {
     display: block;
     margin: 0 auto;
 
     &--xs {
-        width: 24px;
-        height: 24px
+        width: @icon-size-m;
+        height: @icon-size-m;
     }
 
     &--s {
@@ -47,8 +49,8 @@
     li.dl-back::after,
     li > a:not(:only-child)::after {
         content: '❯';
-        height: 24px;
-        width: 24px;
         display: none;
+        height: @btn-size-m;
+        width: @btn-size-m;
     }
 }

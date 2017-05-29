@@ -74,7 +74,7 @@ module.exports = function(grunt) {
                 options: {
                     configFile: '.eslintrc.json'
                 },
-                src: '<%= dir.src %>/js/*.js'
+                src: ['<%= dir.src %>/js/*.js']
             },
         },
 
@@ -95,26 +95,24 @@ module.exports = function(grunt) {
                 options: {
                     lesshintrc: true
                 },
-                src: '<%= dir.src %>/**/*.less'
+                src: ['<%= dir.src %>/**/*.less', '!<%= dir.src %>/bower_components/**/*.less']
             },
         },
 
         modernizr: {
             dist: {
-                "crawl": false,
-                "parseFiles": true,
-                "customTests": [],
-                "dest": '<%= dir.src %>/js/vendor/modernizr.min.js',
-                "tests": [
-                    "cssanimations",
-                    "objectfit"
-                ],
-                "options": [
+                cache: false,
+                dest: '<%= dir.src %>/js/vendor/modernizr.min.js',
+                files: {
+                    src: ['<%= dir.src %>/**/*.js']
+                },
+                options: [
                     "prefixes",
                     "prefixed",
                     "setClasses"
                 ],
-                "uglify": true
+                parseFiles: true,
+                uglify : false
             }
         },
 

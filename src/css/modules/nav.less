@@ -1,7 +1,7 @@
 .desktop-nav {
     position: absolute;
-    top: 1em;
-    left: 1em;
+    top: 1rem;
+    left: 1rem;
     z-index: @z-index-3;
 
     @media @print {
@@ -13,21 +13,21 @@
         .colorVar(color, --primaryTextColor, @primaryTextColor);
         display: block;
         font-weight: @font-weight-bold;
-        font-size: @font-size-small;
+        font-size: @font-size-sm;
         letter-spacing: 1px;
         text-transform: uppercase;
     }
 
     .dl-menu {
-        border-radius: @figure-radius;
+        border-radius: @figure-border-radius;
         .colorVar(background-color, --primaryColor, @primaryColor);
-        height: 1.5rem;
+        height: 2rem;
 
         .category {
             text-align: center;
             list-style: none;
             float: left;
-            margin: 0 0.66em;
+            margin: 0 0.5rem;
 
             &:hover,
             &.active-nav {
@@ -46,8 +46,7 @@
             > a {
                 width: 100%;
                 transition: background 0.3s ease-out 0s;
-                padding: 0 1em;
-                margin: 0;
+                padding: 0 1rem;
             }
 
             &:hover > .dl-submenu {
