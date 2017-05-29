@@ -1,0 +1,23 @@
+
+input {
+    padding: 4px 8px;
+    border: 1px solid;
+    border-radius: @figure-border-radius;
+    .colorVar(border-color, --darkAccentColor, @darkAccentColor);
+    height: 1.75rem;
+}
+
+textarea {
+    border: 1px solid;
+    border-radius: @figure-border-radius;
+    .colorVar(border-color, --darkAccentColor, @darkAccentColor);
+    min-height: 1.75rem;
+    resize: vertical;
+}
+
+select {
+    border: 1px solid;
+    border-radius: @figure-border-radius;
+    .colorVar(border-color, --darkAccentColor, @darkAccentColor);
+    height: 1.75rem;
+}

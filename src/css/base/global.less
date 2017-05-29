@@ -104,7 +104,7 @@ ul {
 
 a,
 a:visited {
-    .colorVar(color, --accentColor, @accentColor);
+    .colorVar(color, --darkAccentColor, @darkAccentColor);
     outline: none;
     text-decoration: none;
 }
@@ -116,29 +116,6 @@ a:focus {
 
 time {
     font-family: monospace;
-}
-
-input {
-    padding: 4px 8px;
-    border: 1px solid @color-transparent;
-    border-radius: @figure-border-radius;
-    .colorVar(border-color, --accentColor, @accentColor);
-    height: 1.75rem;
-}
-
-textarea {
-    border: 1px solid @color-transparent;
-    border-radius: @figure-border-radius;
-    .colorVar(border-color, --accentColor, @accentColor);
-    min-height: 1.75rem;
-    resize: vertical;
-}
-
-select {
-    border: 1px solid @color-transparent;
-    border-radius: @figure-border-radius;
-    .colorVar(border-color, --accentColor, @accentColor);
-    height: 1.75rem;
 }
 
 .hidden-lg {
