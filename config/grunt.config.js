@@ -1,7 +1,4 @@
 const config = {
-    autoprefixer: {
-        "browsers": ["last 2 versions", "ie >=10", "iOS >=8", "Android >= 4.1"]
-    },
     connect: {
         hostname: "localhost",
         livereload: true,
