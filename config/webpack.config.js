@@ -40,6 +40,7 @@ const webpackconfig = {
                                 return [
                                     require('autoprefixer')(),
                                     require('css-mqpacker')(),
+                                    require('postcss-normalize')(),
                                     require('postcss-sprites')({
                                         spritePath: 'tmp/'
                                     })
