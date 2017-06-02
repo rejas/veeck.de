@@ -52,6 +52,7 @@
 
 /*
  * Clearfix: contain floats
+ * Uses "display: flow-root" in browsers that supports it
  *
  * For modern browsers
  * 1. The space content is one way to avoid an Opera bug when the
@@ -73,6 +74,15 @@
 
     &:after {
         clear: both;
+    }
+
+    @supports (display: flow-root) {
+        display: flow-root;
+
+        &:before,
+        &:after {
+            content: none;
+        }
     }
 }
 
