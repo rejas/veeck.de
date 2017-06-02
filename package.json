@@ -7,6 +7,12 @@
     "name": "rejas",
     "url": "http://github.com/rejas/"
   },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 10",
+    "iOS >= 8",
+    "Android >= 4.1"
+  ],
   "scripts": {
     "bld": "webpack",
     "chk": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js ",
@@ -43,6 +49,7 @@
     "less-loader": "^4.0.4",
     "load-grunt-tasks": "^3.5.2",
     "postcss-loader": "^2.0.5",
+    "postcss-normalize": "^3.0.0",
     "postcss-sprites": "^4.2.1",
     "time-grunt": "^1.4.0",
     "url-loader": "^0.5.8",

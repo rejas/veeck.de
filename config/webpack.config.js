@@ -38,8 +38,9 @@ const webpackconfig = {
                         options: {
                             plugins: function () {
                                 return [
-                                    require('autoprefixer')(config.autoprefixer),
+                                    require('autoprefixer')(),
                                     require('css-mqpacker')(),
+                                    require('postcss-normalize')(),
                                     require('postcss-sprites')({
                                         spritePath: 'tmp/'
                                     })
