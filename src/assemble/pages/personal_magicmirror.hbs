@@ -14,37 +14,40 @@ last-modified: 2017-01-14
         <h2>Day 1 - Look what the cat dragged in from the street</h2>
         <p>Found an old monitor from Acer (Model AL1716) in the streets for free. A backup monitor is always
             welcome so I took him home with me.</p>
-        <h2>Day 2</h2>
+        <h2>Day 2 - Again?</h2>
         <p>Girlfriends asks me in the morning when she is getting ready to work while I can stay in bed
             for another hour what time it is and when the next tram will leave from the nearest station...</p>
-        <h2>Day 3</h2>
+        <h2>Day 3 - Is this groundhog day?</h2>
         <p>Girlfriends asks me again in the morning what time it is and when the next tram will leave from the nearest
             station. Twice this time because she is in such a hurry...</p>
-        <h2>Day 100</h2>
+        <h2>Day 100 - Enough is Enough!</h2>
         <p>Girlfriends asks me like everyday in the morning several time what time it is and when the next tram will
             leave from the nearest station...</p>
         <p>I open my regular computer magazine the
         <a href="https://www.heise.de/ct/ausgabe/2017-6-Raspberry-beschreibt-Spiegel-3636486.html">c't</a> and find an
-        article about on how you can build yourself a magic mirror
-        that is both mirror and display. Powered by a RaspberryPI you can show all kinds of information on it
-        like the weather, a clock and even other modules since it is opne-source. Is there a module for displaying the
-        local transportation system? Yes, there is and there is still this old monitor somewhere around here so let's
-            get started.</p>
+            article about on how you can build yourself a magic mirror that is both mirror and display. Powered by a
+            RaspberryPI you can show all kinds of information on it like the weather, a clock and even other modules
+            since it is opne-source. Is there a module for displaying the local transportation system? Yes, there is
+            and there is still this old monitor somewhere around here so let's get started.</p>
         <p>Neat, I still have a RaspberryPI Model 1 too so lets format the sd card, install the standard OS and follow
-        the instruction on the projects homepage.</p>
-        <p>Damn, the installation process won't finish, since the minimum version due to performance reasons is a Model 2.
-        The MagicMirror-software is written in javascript and bundled via the Electron-app. While this makes it easier
-        for me to hack on it myself, it takes it toll on the processing power of the PI.</p>
+            the instruction on the projects homepage.</p>
+        <p>Damn, the installation process won't finish, since the minimum version due to performance reasons is a Model
+            2.The MagicMirror-software is written in javascript and bundled via the Electron-app. While this makes it
+            easier for me to hack on it myself, it takes it toll on the processing power of the PI.</p>
 
-        <h2>Day X</h2>
+        <h2>Day Y - Don't move!</h2>
+        <p>Time to check how expensive this thing will be if I run it 24h nonstop for a year.</p>
+
+        <h2>Day X - Listen to me!</h2>
         <p>With the ps3 doing the motion detection, I turn my eye to voice recognition. How cool would it be if I could
-        tell my magicmirror to turn on the music? So, lets see if the ps3 microphone is also working outofthebox. Plug
-        it in aaaand...</p>
-        <p>Well, it does show up using this command:  cat /proc/asound/cards
-
-            but how do I find out if it actually records? Here
-            https://www.raspberrypi.org/forums/viewtopic.php?f=38&t=15851#p180474 I found a good command to see it
-            (arecord -vv /dev/null -r 16000 -f S16_LE -c 4 -D iec958:CARD=CameraB409241,DEV=0 /dev/null < /dev/null) and a
-        config file </p>
+            tell my magicmirror to turn on the music? So, lets see if the ps3 microphone is also working outofthebox.
+            Plug it in aaaand...</p>
+        <p>Well, it does show up using this command:</p>
+        <code>cat /proc/asound/cards</code>
+        <p>but how do I find out if it actually records?
+            <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=38&t=15851#p180474">NielsMayer</a> has some good
+            tips on how to get your mic configured and also wrote this command:</p>
+            <code>arecord -vv /dev/null -r 16000 -f S16_LE -c 4 -D iec958:CARD=CameraB409241,DEV=0 /dev/null &lt; /dev/null</code>
+         <p></p>
     </section>
 </article>

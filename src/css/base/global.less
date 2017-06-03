@@ -54,7 +54,7 @@ section {
     h2 {
         border-bottom: 0.1rem solid;
         .colorVar(border-color, --primaryTextColor, @primaryTextColor);
-        padding: 0 1rem 0.25rem;
+        padding: 2rem 1rem 0.5rem;
         text-align: center;
         word-break: break-word;
     }
@@ -82,7 +82,7 @@ h1 {
 
 p {
     hyphens: auto;
-    margin: 0 0 0.6rem 0;
+    margin: 0 0 0.5rem 0;
 
     + p {
         text-indent: 1rem;
@@ -112,6 +112,16 @@ a:visited {
 a:hover,
 a:focus {
     color: @accentColor;
+}
+
+code {
+    float: left;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: @accentColor;
+    border: @border-thickness solid @darkAccentColor;
+    border-radius: @figure-border-radius;
+    margin-bottom: 0.5rem;
 }
 
 time {
