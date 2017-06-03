@@ -14,12 +14,15 @@ last-modified: 2017-01-14
         <h2>Day 1 - Look what the cat dragged in from the street</h2>
         <p>Found an old monitor from Acer (Model AL1716) in the streets for free. A backup monitor is always
             welcome so I took him home with me.</p>
+
         <h2>Day 2 - Again?</h2>
         <p>Girlfriends asks me in the morning when she is getting ready to work while I can stay in bed
             for another hour what time it is and when the next tram will leave from the nearest station...</p>
+        
         <h2>Day 3 - Is this groundhog day?</h2>
         <p>Girlfriends asks me again in the morning what time it is and when the next tram will leave from the nearest
             station. Twice this time because she is in such a hurry...</p>
+
         <h2>Day 100 - Enough is Enough!</h2>
         <p>Girlfriends asks me like everyday in the morning several time what time it is and when the next tram will
             leave from the nearest station...</p>
@@ -43,7 +46,12 @@ last-modified: 2017-01-14
             tell my magicmirror to turn on the music? So, lets see if the ps3 microphone is also working outofthebox.
             Plug it in aaaand...</p>
         <p>Well, it does show up using this command:</p>
-        <code>cat /proc/asound/cards</code>
+        <code>cat /proc/asound/cards<br>
+            0 [ALSA]: bcm2835 - bcm2835 ALSA<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bcm2835 ALSA<br>
+            1 [CameraB409241]: USB-Audio - USB Camera-B4.09.24.1<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OmniVision Technologies, Inc. USB Camera-B4.09.24.1 at usb-3f980000.usb-1.3, hi
+        </code>
         <p>but how do I find out if it actually records?
             <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=38&t=15851#p180474">NielsMayer</a> has some good
             tips on how to get your mic configured and also wrote this command:</p>
