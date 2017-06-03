@@ -1,7 +1,7 @@
 figure {
     .boxshadow(1);
     .colorVar(background-color, --primaryColor, @primaryColor);
-    border-radius: @figure-radius;
+    border-radius: @figure-border-radius;
     overflow: hidden;
     text-decoration: none;
     position: relative;
@@ -16,7 +16,7 @@ figure {
         top: 0;
         width: 100%;
         height: 100%;
-        border-radius: @figure-radius;
+        border-radius: @figure-border-radius;
 
         &:hover {
             opacity: 0;
@@ -106,10 +106,10 @@ figcaption {
     font-weight: @font-weight-bold;
     text-align: center;
     text-transform: uppercase;
-    padding: 0.5em;
+    padding: 0.5rem;
 
     @media @phone {
-        font-size: @font-size-small;
+        font-size: @font-size-xs;
         padding-top: 0;
     }
 }
@@ -126,7 +126,7 @@ figcaption {
         position: absolute;
         top: 19px;
         right: -21px;
-        font-size: @font-size-small;
+        font-size: @font-size-xs;
         line-height: 1rem;
         font-weight: @font-weight-bold;
         text-transform: uppercase;
@@ -167,12 +167,12 @@ figcaption {
 .imagelightbox-wrapper {
 
     .imagelightbox-loading {
-        border-radius: @figure-radius;
+        border-radius: @figure-border-radius;
         .colorVar(background-color, --accentColor, @accentColor);
     }
 
     .imagelightbox-nav {
-        border-radius: @figure-radius;
+        border-radius: @figure-border-radius;
         .colorVar(background-color, --accentColor, @accentColor);
 
         @media @phone {

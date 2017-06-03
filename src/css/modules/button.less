@@ -1,37 +1,43 @@
+@btn-size-m:  1.75rem;
+@btn-size-l:  2.5rem;
+@btn-size-xl: 3.0rem;
 
 .btn {
+    border: 1px solid @color-transparent;
+    border-radius: @figure-border-radius;
+    box-sizing: border-box;
     cursor: pointer;
-    text-align: center;
+    font-size: @font-size-sm;
     margin: 0 auto;
-    user-select: none;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: @figure-radius;
     padding: 0 9px;
+    text-align: center;
+    user-select: none;
 
     &:hover {
-        border-color: @hover-color;
+        border-color: @color-transparent;
     }
 
     &--m {
-        height: 1.75rem;
+        min-height: @btn-size-m;
+        min-width: @btn-size-m;
     }
 
     &--l {
-        font-size: 2rem;
-        height: 2.5rem;
-        width: 2.5rem;
+        min-height: @btn-size-l;
+        min-width: @btn-size-l;
     }
 
     &--xl {
-         height: 3rem;
-         width: 3rem;
-     }
-}
+        min-height: @btn-size-xl;
+        min-width: @btn-size-xl;
+    }
 
-.btn--comic {
-    border: 3px solid rgba(0, 0, 0, 0.125);
-    border-radius: @global-radius;
-    .colorVar(color, --primaryTextColor, @primaryTextColor);
-    .colorVar(background-color, --primaryColor, @primaryColor);
-    padding: 0;
+    &--comic {
+        border: @border-thickness solid @color-transparent;
+        border-radius: @global-border-radius;
+        .colorVar(color, --primaryTextColor, @primaryTextColor);
+        .colorVar(background-color, --primaryColor, @primaryColor);
+        font-size: @font-size-l;
+        padding: 0;
+    }
 }

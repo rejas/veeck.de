@@ -1,6 +1,5 @@
 :root {
     --figure-angle-seed: 0deg;
-    box-sizing: border-box;
     height: 100%;
 
     &:focus {
@@ -14,16 +13,23 @@
     text-shadow: none;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
 body {
+    box-sizing: border-box;
     .colorVar(color, --primaryTextColor, @primaryTextColor);
     .colorVar(background-color, --bgColor, @bgColor);
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: @font-main, arial;
-    font-size: @base-font-size;
+    font-size: @font-size-m;
     font-weight: @font-weight-normal;
-    line-height: @base-line-height;
+    line-height: @line-height-m;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
     -ms-touch-action: auto;
@@ -46,9 +52,9 @@ section {
     margin-bottom: 2rem;
 
     h2 {
-        border-bottom: 2px solid;
+        border-bottom: 0.1rem solid;
         .colorVar(border-color, --primaryTextColor, @primaryTextColor);
-        padding: 0 1em 0.25em;
+        padding: 0 1rem 0.25rem;
         text-align: center;
         word-break: break-word;
     }
@@ -61,7 +67,7 @@ h4,
 h5 {
     font-family: @font-header, serif;
     font-weight: @font-weight-normal;
-    margin: 0 0 0.5em 0;
+    margin: 0 0 0.5rem 0;
 }
 
 h1,
@@ -76,10 +82,10 @@ h1 {
 
 p {
     hyphens: auto;
-    margin: 0 0 0.6em 0;
+    margin: 0 0 0.6rem 0;
 
     + p {
-        text-indent: 1em;
+        text-indent: 1rem;
     }
 }
 
@@ -98,41 +104,18 @@ ul {
 
 a,
 a:visited {
-    .colorVar(color, --accentColor, @accentColor);
+    .colorVar(color, --darkAccentColor, @darkAccentColor);
     outline: none;
     text-decoration: none;
 }
 
 a:hover,
 a:focus {
-    color: @lightPrimaryColor;
+    color: @accentColor;
 }
 
 time {
     font-family: monospace;
-}
-
-input {
-    padding: 4px 8px;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: @figure-radius;
-    .colorVar(border-color, --accentColor, @accentColor);
-    height: 1.75rem;
-}
-
-textarea {
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: @figure-radius;
-    .colorVar(border-color, --accentColor, @accentColor);
-    min-height: 1.75rem;
-    resize: vertical;
-}
-
-select {
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: @figure-radius;
-    .colorVar(border-color, --accentColor, @accentColor);
-    height: 1.75rem;
 }
 
 .hidden-lg {
