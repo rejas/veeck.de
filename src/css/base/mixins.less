@@ -1,3 +1,107 @@
+// First, pass in the important variables.
+.adaptive_placeholder(@height, @radius, @margin: 1em, @border: 1px) {
+    @borders: (@border * 2); // <- To avoid repeating below
+    box-sizing: border-box;  // <- Important for accurate sizing
+    width: 100%;             // <- Could be almost anything
+    height: ~"calc(@{height} + @{borders})";
+    margin: 0 0 @margin;
+    padding: @margin;
+    border: @border solid #ccc;
+    border-radius: @radius;
+    background: #fff;
+    resize: none;  // <- For textareas
+    outline: none; // <- Because ugly
+    //
+    // Following block controls all the color change
+    //
+    &[required] {
+        &:focus {
+            border-color: #00bafa;
+            + label {
+                &[placeholder] {
+                    &:before {
+                        color: #00bafa;
+                    }
+                }
+            }
+        }
+        //
+        // Following block selects label directly adjacent to input
+        //
+        &:focus,
+        &:valid {
+            + label {
+                &[placeholder] {
+                    &:before {
+                        transition-duration: .2s;
+                        //
+                        // Following lines move placeholder out of the way
+                        //
+                        transform: translate(0, (@margin * -1.5)) scale(.9, .9);
+                    }
+                }
+            }
+        }
+        //
+        // Following block injects string from label's 'alt' attr.
+        // It comes before the other 'content' property so I can
+        // override it. Uses "invalid" pseudo-selector to know
+        // when to do that.
+        //
+        &:invalid {
+            + label {
+                &[placeholder] {
+                    &[alt] {
+                        &:before {
+                            content: attr(alt); // Content property 1 of 2
+                        }
+                    }
+                }
+            }
+        }
+        + label {
+            &[placeholder] {
+                display: block;
+                pointer-events: none; // Allows clicking thru label
+                line-height: @margin * 1.25;
+                // Following pulls label into position
+                margin-top: ~"calc(-@{height} - @{borders})";
+                // Following offsets that above
+                margin-bottom: ~"calc((@{height} - @{margin}) + @{borders})";
+                //
+                // Following ':before' is needed to switch between
+                // different strings.
+                //
+                &:before {
+                    content: attr(placeholder); // Content property 2 of 2
+                    display: inline-block;
+                    margin: 0 ~"calc(@{margin} + @{borders})";
+                    padding: 0 2px;
+                    color: #898989;
+                    white-space: nowrap;
+                    transition: .3s ease-in-out;
+                    //
+                    // Following lines lets me use solid color as bkg img.
+                    // This lets me size bkg to something more sublte
+                    //
+                    background-image: linear-gradient(to bottom, #fff, #fff);
+                    background-size: 100% 5px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+        }
+    }
+}
+//
+// Following block is how I call the above function
+//
+input {
+    @height: 3em;
+    &[type="text"] {
+        .adaptive_placeholder(@height, (@height / 2));
+    }
+}
 
 /**
  * A mixin which helps you to add depth to elements according to the Google Material Design spec:
