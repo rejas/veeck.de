@@ -35,5 +35,16 @@ last-modified: 2017-01-14
         <p>Damn, the installation process won't finish, since the minimum version due to performance reasons is a Model 2.
         The MagicMirror-software is written in javascript and bundled via the Electron-app. While this makes it easier
         for me to hack on it myself, it takes it toll on the processing power of the PI.</p>
+
+        <h2>Day X</h2>
+        <p>With the ps3 doing the motion detection, I turn my eye to voice recognition. How cool would it be if I could
+        tell my magicmirror to turn on the music? So, lets see if the ps3 microphone is also working outofthebox. Plug
+        it in aaaand...</p>
+        <p>Well, it does show up using this command:  cat /proc/asound/cards
+
+            but how do I find out if it actually records? Here
+            https://www.raspberrypi.org/forums/viewtopic.php?f=38&t=15851#p180474 I found a good command to see it
+            (arecord -vv /dev/null -r 16000 -f S16_LE -c 4 -D iec958:CARD=CameraB409241,DEV=0 /dev/null < /dev/null) and a
+        config file </p>
     </section>
 </article>
