@@ -65,8 +65,8 @@ addLoadEvent(function() {
 
 import styles_webpack from '../css/main.less';
 
-import 'cookieconsent2/src/cookieconsent';
-import 'imagelightbox2/src/imagelightbox';
+import 'cookieconsent/src/cookieconsent';
+import 'imagelightbox/src/imagelightbox';
 import 'imgLiquid/js/imgLiquid';
 import 'ResponsiveMultiLevelMenu2/js/jquery.dlmenu';
 import 'slick-carousel/slick/slick';
@@ -77,7 +77,7 @@ import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
 
 import Blazy       from 'blazy';
-import ShareButton from 'share-button/share-button';
+import ShareButton from 'share-button/src/share-button';
 
 document.addEventListener('DOMContentLoaded', function () {
 
