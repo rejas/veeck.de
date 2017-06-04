@@ -4,7 +4,9 @@
 
 .btn {
     box-sizing: border-box;
+    color: @primaryTextColor;
     cursor: pointer;
+    font-family: @font-main, arial;
     font-size: @font-size-sm;
     margin: 0 auto;
     padding: 0 9px;
@@ -41,14 +43,15 @@
 
     &--normal {
         background: none;
-        border: @border-thickness solid @darkAccentColor;
+        border: @border-thickness solid @accentColor;
         border-radius: 0;
+        font-size: @font-size-m;
+        font-weight: @font-weight-bold;
         position: relative;
         transition: all 0.3s;
 
         &:hover {
-            background-color: @darkAccentColor;
-            color: @lightAccentColor;
+            background-color: @accentColor;
 
             &::after {
                 width: 90%;
