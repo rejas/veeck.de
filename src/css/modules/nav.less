@@ -9,7 +9,7 @@
     }
 
     a {
-        border-bottom: 3px solid transparent;
+        border-bottom: @border-thickness solid transparent;
         .colorVar(color, --primaryTextColor, @primaryTextColor);
         display: block;
         font-weight: @font-weight-bold;
@@ -34,7 +34,7 @@
                 opacity: 1;
 
                 > a {
-                    border-bottom: 3px solid;
+                    border-bottom: @border-thickness solid;
                     .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
                 }
             }
