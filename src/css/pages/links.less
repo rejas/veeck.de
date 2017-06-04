@@ -25,16 +25,17 @@
             display: table-cell;
         }
 
-        > div {
+        .input {
             display: table-cell;
+            border-bottom: @border-thickness solid @accentColor;
 
             > input {
-                text-align: right;
-                width: 100%;
-                padding: 4px 8px;
-                border: 1px solid;
-                border-radius: @figure-border-radius;
-                height: 1.75rem;
+                border: 0;
+                font-size: @font-size-m;
+
+                &:focus {
+                    outline: none;
+                }
             }
         }
 
