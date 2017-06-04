@@ -73,6 +73,7 @@ import 'slick-carousel/slick/slick';
 import 'konami-code/src/jquery.konami';
 
 import * as Colors from './modules/colors';
+import * as Input  from './modules/input';
 import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
 
@@ -90,6 +91,11 @@ document.addEventListener('DOMContentLoaded', function () {
      * Colors
      */
     Colors.init();
+
+    /**
+     * Input
+     */
+    Input.init();
 
     /**
      * Navigation
