@@ -48,7 +48,7 @@
         font-size: @font-size-m;
         font-weight: @font-weight-bold;
         position: relative;
-        transition: all 0.3s;
+        .transform(all);
 
         &:hover {
 
@@ -62,7 +62,7 @@
             content: '';
             position: absolute;
             z-index: @z-index-neg;
-            transition: all 0.3s;
+            .transform(all);
             width: 0;
             height: 100%;
             top: 50%;
