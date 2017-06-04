@@ -61,14 +61,14 @@
         background: @accentColor;
         top: 0;
         transform: translate3d(0, -100%, 0);
-        transition: transform 0.3s;
+        .transform(transform);
     }
 
     &::after {
         height: @border-thickness;
         background: @input-border-color;
         top: 100%;
-        transition: opacity 0.3s;
+        .transform(opacity);
     }
 }
 
@@ -76,13 +76,13 @@
     display: block;
     padding: 0;
     transform-origin: 0 0;
-    transition: transform 0.3s, color 0.3s;
+    .transform(transform color);
 }
 
 .input__field--manami:focus,
 .input--filled .input__field--manami {
     opacity: 1;
-    transition: opacity 0s 0.3s;
+    .transform(opacity);
 }
 
 .input__field--manami:focus + .input__label--manami::before,
