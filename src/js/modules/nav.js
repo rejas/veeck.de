@@ -1,4 +1,4 @@
-import * as mqe from '~mediaquery-event/src/mqe';
+import * as mqe from 'mediaquery-event/dist/mqe';
 
 function cssButton() {
     const $trigger = $('.js-dl-trigger');

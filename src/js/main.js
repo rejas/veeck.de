@@ -77,7 +77,7 @@ import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
 
 import Blazy       from 'blazy';
-import ShareButton from 'share-button/src/share-button';
+import ShareButton from 'share-button/dist/share-button';
 
 document.addEventListener('DOMContentLoaded', function () {
 
