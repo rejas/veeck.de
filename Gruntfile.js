@@ -106,11 +106,7 @@ module.exports = function(grunt) {
                 files: {
                     src: ['<%= dir.src %>/**/*.js']
                 },
-                options: [
-                    "prefixes",
-                    "prefixed",
-                    "setClasses"
-                ],
+                options: config.modernizr,
                 parseFiles: true,
                 uglify : false
             }
