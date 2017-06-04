@@ -3,10 +3,13 @@ input:not(.input--manami) {
     padding: 4px 8px;
     border: 1px solid;
     border-radius: @figure-border-radius;
-    .colorVar(border-color, --darkAccentColor, @darkAccentColor);
     height: 1.75rem;
 }
 */
+
+input {
+    .colorVar(border-color, --darkAccentColor, @darkAccentColor);
+}
 
 textarea {
     border: 1px solid;
@@ -17,10 +20,7 @@ textarea {
 }
 
 select {
-    border: 1px solid;
-    border-radius: @figure-border-radius;
     .colorVar(border-color, --darkAccentColor, @darkAccentColor);
-    height: 1.75rem;
 }
 
 /* Manami */
@@ -63,8 +63,8 @@ select {
 .input__label--manami {
     display: inline-block;
     float: right;
-    color: #6a7989;
-    font-weight: bold;
+    color: @darkAccentColor;
+    font-weight: @font-weight-bold;
     -webkit-touch-callout: none;
     user-select: none;
     width: 100%;
@@ -92,8 +92,8 @@ select {
 }
 
 .input__label--manami::after {
-    height: 2px;
-    background: #6a7989;
+    height: @border-thickness;
+    background: @darkAccentColor;
     top: 100%;
     transition: opacity 0.3s;
 }
@@ -124,4 +124,30 @@ select {
 .input--filled .input__label--manami .input__label-content--manami {
     color: #cbc4c6;
     transform: translate3d(0, 2.1em, 0) scale3d(0.65, 0.65, 1);
+}
+
+.input-select {
+    padding: 0.5em 0;
+    border-bottom: @border-thickness solid @darkAccentColor;
+    border-radius: 0;
+    margin: 0;
+    overflow: hidden;
+    //background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%;
+
+    select {
+        color: @darkAccentColor;
+        font-family: @font-main, arial;
+        font-size: 1em;
+        font-weight: @font-weight-bold;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+        background-image: none;
+        appearance: none;
+
+        &:focus {
+            outline: none;
+        }
+    }
 }
