@@ -2,6 +2,15 @@
 
 .input {
     border-color: @input-border-color;
+
+    > input {
+        border: 0;
+        font-size: @font-size-m;
+
+        &:focus {
+            outline: none;
+        }
+    }
 }
 
 .select {
@@ -28,12 +37,7 @@
     display: block;
     float: right;
     border: 0;
-    font-size: @font-size-m;
     -webkit-appearance: none; /* for box shadows to show on iOS */
-
-    &:focus {
-        outline: none;
-    }
 }
 
 .input__label--manami {
@@ -115,7 +119,7 @@
         right: 0;
         top: 1rem;
         width: 2rem;
-        height: 2rem;;
+        height: 2rem;
     }
 
     select {
