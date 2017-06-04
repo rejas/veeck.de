@@ -31,34 +31,55 @@ last-modified: 2015-04-20
         offer an API to access a JSON-encoded activity feed for character and guilds. Since a colleague held a
         presentation about node.js and how easy it is to deploy a server-app with it, I took the opportunity to
         enhance my javascript knowledge and wrote this JSON-to-RSS-Feed Converter for World-Of-Warcraft:</p>
-        <form action="https://wowfeed.herokuapp.com" >
-            <label>Character:<input type="text" name="character" /></label>
-            <label>Realm:    <input type="text" name="realm" /></label>
-            <label>Region:
+
+        <form action="https://wowfeed.herokuapp.com">
+
+            {{> input-text
+                name='character'
+                id='charname'
+                label='Character'}}
+
+            {{> input-text
+                name='realm'
+                id='charrealm'
+                label='Realm'}}
+
+            <span class="input input-select">
                 <select id="char_region" name="region">
-                    <option value="-1" selected>choose a region</option>
+                    <option value="-1" selected>Region</option>
                     <option value="eu">Europe</option>
                     <option value="us">US</option>
                     <option value="tw">Taiwan</option>
                     <option value="kr">Korea</option>
                 </select>
-            </label>
-            <button class="btn btn--m" type="submit">Get RSS</button>
+            </span>
+
+            <button class="btn btn--xl btn--normal" type="submit">Get RSS</button>
         </form>
 
         <form action="https://wowfeed.herokuapp.com">
-            <label>Guild:<input type="text" name="guild" /></label>
-            <label>Realm:<input type="text" name="realm" /></label>
-            <label>Region:
+
+            {{> input-text
+                name='guild'
+                id='guildname'
+                label='Guild'}}
+
+            {{> input-text
+                name='realm'
+                id='guildrealm'
+                label='Realm'}}
+
+            <span class="input input-select">
                 <select id="guild_region" name="region">
-                    <option value="-1" selected>choose a region</option>
+                    <option value="-1" selected>Region</option>
                     <option value="eu">Europe</option>
                     <option value="us">US</option>
                     <option value="tw">Taiwan</option>
                     <option value="kr">Korea</option>
                 </select>
-            </label>
-            <button class="btn btn--m" type="submit">Get RSS</button>
+            </span>
+
+            <button class="btn btn--xl btn--normal" type="submit">Get RSS</button>
         </form>
     </section>
 

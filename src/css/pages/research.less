@@ -5,7 +5,7 @@
 
 .github-card {
     float: left;
-    margin-right: 15px;
+    margin-right: 1rem;
 
     @media @phone {
         width: 100%;
@@ -40,29 +40,14 @@
 }
 
 .research_article {
-
-    figure {
-        float: left;
-        min-width: 200px;
-        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-    }
-
-    form {
-        display: table;
-
-        label {
-            display: table-cell;
-            float: left;
-        }
-    }
-}
-
-.research_article {
     .clearfix();
 
     figure {
-        width: auto;
+        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+        float: left;
         margin: 0 1rem 1rem 0;
+        min-width: 200px;
+        width: auto;
 
         @media @phone {
             width: 100%;
@@ -70,58 +55,17 @@
     }
 
     form {
-        max-width: 750px;
+        .clearfix();
+        margin-bottom: 2rem;
+    }
+
+    .input {
+        width: 49%;
+        margin-right: 1%;
         float: left;
-        margin-bottom: 2em;
 
         @media @phone {
-            float: none;
-        }
-
-        label {
-            width: 175px;
-            float: none;
-            padding: 0 10px 0 0;
-
-            @media @phone {
-                float: left;
-                margin-bottom: 10px;
-                padding: 0;
-                width: 100%;
-            }
-        }
-    }
-
-    input,
-    select {
-        float: none;
-        width: auto;
-
-        @media @phone {
-            float: right;
-            width: 66%;
-        }
-    }
-
-    input[type='text'] {
-        margin-left: 0;
-        width: 100%;
-
-        @media @phone {
-            float: right;
-            width: 66%;
-        }
-    }
-
-    button {
-        float: none;
-        position: relative;
-        top: 1.75rem;
-
-        @media @phone {
-            float: right;
-            width: 33%;
-            top: 0;
+            width: 100%;
         }
     }
 }
