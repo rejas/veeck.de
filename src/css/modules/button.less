@@ -3,8 +3,6 @@
 @btn-size-xl: 3.0rem;
 
 .btn {
-    border: 1px solid @color-transparent;
-    border-radius: @figure-border-radius;
     box-sizing: border-box;
     cursor: pointer;
     font-size: @font-size-sm;
@@ -12,10 +10,6 @@
     padding: 0 9px;
     text-align: center;
     user-select: none;
-
-    &:hover {
-        border-color: @color-transparent;
-    }
 
     &--m {
         min-height: @btn-size-m;
@@ -39,5 +33,40 @@
         .colorVar(background-color, --primaryColor, @primaryColor);
         font-size: @font-size-l;
         padding: 0;
+
+        &:hover {
+            border-color: @color-transparent;
+        }
+    }
+
+    &--normal {
+        background: none;
+        border: @border-thickness solid @darkAccentColor;
+        border-radius: 0;
+        position: relative;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: @darkAccentColor;
+            color: @lightAccentColor;
+
+            &::after {
+                width: 90%;
+                opacity: 1;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            transition: all 0.3s;
+            width: 0;
+            height: 103%;
+            top: 50%;
+            left: 50%;
+            background: @primaryColor;
+            transform: translateX(-50%) translateY(-50%);
+        }
     }
 }
