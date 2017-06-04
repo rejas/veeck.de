@@ -76,7 +76,7 @@
     display: block;
     padding: 0;
     transform-origin: 0 0;
-    .transform(transform color);
+    transition: transform @animation-duration, color @animation-duration;
 }
 
 .input__field--manami:focus,
@@ -102,12 +102,21 @@
 }
 
 .input-select {
+    position: relative;
     padding: 0.5rem 0;
     border-bottom: @border-thickness solid @input-border-color;
     border-radius: 0;
     margin: 0 0 1.5rem 0;
     overflow: hidden;
-    //background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%;
+
+    &::after:extend(.icon, .icon-arrow-down, .icon--xs) {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 1rem;
+        width: 2rem;
+        height: 2rem;;
+    }
 
     select {
         appearance: none;
