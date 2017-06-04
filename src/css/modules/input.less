@@ -7,7 +7,7 @@ input:not(.input--manami) {
 }
 */
 
-input {
+.input {
     .colorVar(border-color, --darkAccentColor, @darkAccentColor);
 }
 
@@ -34,7 +34,7 @@ select {
 .input__field--manami {
     width: 100%;
     background: transparent;
-    padding: 0.5rem;
+    padding: 0.75rem;
     margin-bottom: 1.5rem;
     color: @primaryTextColor;
     z-index: 100;
@@ -43,27 +43,17 @@ select {
     display: block;
     float: right;
     border: none;
-    border-radius: 0;
-    font-size: 125%;
-    font-weight: 400;
+    font-size: @font-size-m;
     -webkit-appearance: none; /* for box shadows to show on iOS */
-}
 
-.input__field:focus {
-    outline: none;
-}
-
-.input__label-content {
-    position: relative;
-    display: block;
-    padding: 1.6rem 0;
-    width: 100%;
+    &:focus {
+        outline: none;
+    }
 }
 
 .input__label--manami {
     float: right;
     color: @darkAccentColor;
-    font-weight: @font-weight-bold;
     -webkit-touch-callout: none;
     user-select: none;
     width: 100%;
@@ -71,33 +61,36 @@ select {
     text-align: left;
     padding: 0.5rem 0;
     pointer-events: none;
-    font-size: 1em;
+    font-size: @font-size-m;
+    font-weight: @font-weight-bold;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        left: 0;
+    }
+
+    &::before {
+        height: 100%;
+        background: @accentColor;
+        top: 0;
+        transform: translate3d(0, -100%, 0);
+        transition: transform 0.3s;
+    }
+
+    &::after {
+        height: @border-thickness;
+        background: @darkAccentColor;
+        top: 100%;
+        transition: opacity 0.3s;
+    }
 }
 
-.input__label--manami::before,
-.input__label--manami::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    left: 0;
-}
-
-.input__label--manami::before {
-    height: 100%;
-    background: @accentColor;
-    top: 0;
-    transform: translate3d(0, -100%, 0);
-    transition: transform 0.3s;
-}
-
-.input__label--manami::after {
-    height: @border-thickness;
-    background: @darkAccentColor;
-    top: 100%;
-    transition: opacity 0.3s;
-}
 
 .input__label-content--manami {
+    display: block;
     padding: 0;
     transform-origin: 0 0;
     transition: transform 0.3s, color 0.3s;
@@ -126,17 +119,17 @@ select {
 }
 
 .input-select {
-    padding: 0.5em 0;
+    padding: 0.5rem 0;
     border-bottom: @border-thickness solid @darkAccentColor;
     border-radius: 0;
-    margin: 0;
+    margin: 0 0 1.5rem 0;
     overflow: hidden;
     //background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%;
 
     select {
         color: @darkAccentColor;
         font-family: @font-main, arial;
-        font-size: 1em;
+        font-size: @font-size-m;
         font-weight: @font-weight-bold;
         width: 100%;
         border: none;
