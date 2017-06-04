@@ -43,7 +43,7 @@
 
     &--normal {
         background: none;
-        border: @border-thickness solid @accentColor;
+        border: @border-thickness solid @darkAccentColor;
         border-radius: 0;
         font-size: @font-size-m;
         font-weight: @font-weight-bold;
@@ -51,7 +51,7 @@
         transition: all 0.3s;
 
         &:hover {
-            background-color: @accentColor;
+            background-color: @darkAccentColor;
 
             &::after {
                 width: 90%;
@@ -62,7 +62,7 @@
         &::after {
             content: '';
             position: absolute;
-            z-index: -1;
+            z-index: @z-index-neg;
             transition: all 0.3s;
             width: 0;
             height: 103%;
