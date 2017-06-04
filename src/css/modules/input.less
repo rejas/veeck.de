@@ -1,11 +1,12 @@
-
-input {
+/*
+input:not(.input--manami) {
     padding: 4px 8px;
     border: 1px solid;
     border-radius: @figure-border-radius;
     .colorVar(border-color, --darkAccentColor, @darkAccentColor);
     height: 1.75rem;
 }
+*/
 
 textarea {
     border: 1px solid;
@@ -20,4 +21,107 @@ select {
     border-radius: @figure-border-radius;
     .colorVar(border-color, --darkAccentColor, @darkAccentColor);
     height: 1.75rem;
+}
+
+/* Manami */
+.input--manami {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.input__field--manami {
+    width: 100%;
+    background: transparent;
+    padding: 0.5em;
+    margin-bottom: 2em;
+    color: @primaryTextColor;
+    z-index: 100;
+    opacity: 0;
+    position: relative;
+    display: block;
+    float: right;
+    border: none;
+    border-radius: 0;
+    font-size: 125%;
+    font-weight: 400;
+    -webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+.input__field:focus {
+    outline: none;
+}
+
+.input__label-content {
+    position: relative;
+    display: block;
+    padding: 1.6em 0;
+    width: 100%;
+}
+
+.input__label--manami {
+    display: inline-block;
+    float: right;
+    color: #6a7989;
+    font-weight: bold;
+    -webkit-touch-callout: none;
+    user-select: none;
+    width: 100%;
+    position: absolute;
+    text-align: left;
+    padding: 0.5em 0;
+    pointer-events: none;
+    font-size: 1em;
+}
+
+.input__label--manami::before,
+.input__label--manami::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.input__label--manami::before {
+    height: 100%;
+    background: @accentColor;
+    top: 0;
+    transform: translate3d(0, -100%, 0);
+    transition: transform 0.3s;
+}
+
+.input__label--manami::after {
+    height: 2px;
+    background: #6a7989;
+    top: 100%;
+    transition: opacity 0.3s;
+}
+
+.input__label-content--manami {
+    padding: 0;
+    transform-origin: 0 0;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.input__field--manami:focus,
+.input--filled .input__field--manami {
+    opacity: 1;
+    transition: opacity 0s 0.3s;
+}
+
+.input__field--manami:focus + .input__label--manami::before,
+.input--filled .input__label--manami::before {
+    transform: translate3d(0, 0, 0);
+}
+
+.input__field--manami:focus + .input__label--manami::after,
+.input--filled .input__label--manami::after {
+    opacity: 0;
+}
+
+.input__field--manami:focus + .input__label--manami .input__label-content--manami,
+.input--filled .input__label--manami .input__label-content--manami {
+    color: #cbc4c6;
+    transform: translate3d(0, 2.1em, 0) scale3d(0.65, 0.65, 1);
 }

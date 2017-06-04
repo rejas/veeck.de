@@ -31,13 +31,22 @@ last-modified: 2015-04-20
         offer an API to access a JSON-encoded activity feed for character and guilds. Since a colleague held a
         presentation about node.js and how easy it is to deploy a server-app with it, I took the opportunity to
         enhance my javascript knowledge and wrote this JSON-to-RSS-Feed Converter for World-Of-Warcraft:</p>
-        <form action="https://wowfeed.herokuapp.com" >
 
-            <input required='' type='text' name="character">
-            <label alt='Character' placeholder='Adaptive Placeholder'></label>
+        <form action="https://wowfeed.herokuapp.com">
 
-            <input required='' type='text' name="realm">
-            <label alt='Realm' placeholder='Adaptive Placeholder'></label>
+            <span class="input input--manami">
+                <input class="input__field input__field--manami" type="text" name="character" id="charname" />
+                <label class="input__label input__label--manami" for="charname">
+                    <span class="input__label-content input__label-content--manami">Character</span>
+                </label>
+            </span>
+
+            <span class="input input--manami">
+                <input class="input__field input__field--manami" type="text" name="realm" id="charrealm" />
+                <label class="input__label input__label--manami" for="charrealm">
+                    <span class="input__label-content input__label-content--manami">Realm</span>
+                </label>
+            </span>
 
             <label>Region:
                 <select id="char_region" name="region">
@@ -53,11 +62,19 @@ last-modified: 2015-04-20
 
         <form action="https://wowfeed.herokuapp.com">
 
-            <input required='' type='text' name="guild">
-            <label alt='Realm' placeholder='Adaptive Placeholder'></label>
+            <span class="input input--manami">
+                <input class="input__field input__field--manami" type="text" name="guild" id="guildname" />
+                <label class="input__label input__label--manami" for="guildname">
+                    <span class="input__label-content input__label-content--manami">Guild</span>
+                </label>
+            </span>
 
-            <input required='' type='text' name="realm">
-            <label alt='Guild' placeholder='Adaptive Placeholder'></label>
+            <span class="input input--manami">
+                <input class="input__field input__field--manami" type="text" name="realm" id="guildrealm" />
+                <label class="input__label input__label--manami" for="guildrealm">
+                    <span class="input__label-content input__label-content--manami">Realm</span>
+                </label>
+            </span>
 
             <label>Region:
                 <select id="guild_region" name="region">
