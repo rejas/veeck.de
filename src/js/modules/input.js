@@ -1,4 +1,4 @@
-import classie from '../../bower_components/classie/classie';
+import classie from 'classie/lib/classie';
 
 function onInputFocus( ev ) {
     classie.add( ev.target.parentNode, 'input--filled' );
