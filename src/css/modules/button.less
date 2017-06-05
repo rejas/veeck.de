@@ -4,11 +4,14 @@
 
 .btn {
     box-sizing: border-box;
+    color: @primaryTextColor;
     cursor: pointer;
+    font-family: @font-main, arial;
     font-size: @font-size-sm;
     margin: 0 auto;
-    padding: 0 9px;
+    padding: 0 1rem;
     text-align: center;
+    text-transform: uppercase;
     user-select: none;
 
     &--m {
@@ -43,12 +46,12 @@
         background: none;
         border: @border-thickness solid @darkAccentColor;
         border-radius: 0;
+        font-size: @font-size-m;
+        font-weight: @font-weight-bold;
         position: relative;
-        transition: all 0.3s;
+        .transform(all);
 
         &:hover {
-            background-color: @darkAccentColor;
-            color: @lightAccentColor;
 
             &::after {
                 width: 90%;
@@ -59,13 +62,13 @@
         &::after {
             content: '';
             position: absolute;
-            z-index: -1;
-            transition: all 0.3s;
+            z-index: @z-index-neg;
+            .transform(all);
             width: 0;
-            height: 103%;
+            height: 100%;
             top: 50%;
             left: 50%;
-            background: @primaryColor;
+            background: @darkAccentColor;
             transform: translateX(-50%) translateY(-50%);
         }
     }

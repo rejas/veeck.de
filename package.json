@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "4.9.11",
+  "version": "4.9.13",
   "private": true,
   "homepage": "https://github.com/rejas/homepage",
   "author": {
@@ -17,6 +17,18 @@
     "bld": "webpack",
     "chk": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js ",
     "fix": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js --fix"
+  },
+  "dependencies": {
+    "blazy": "^1.8.2",
+    "classie": "^1.0.0",
+    "cookieconsent": "^3.0.4",
+    "hamburgers": "^0.8.1",
+    "imagelightbox": "^0.7.5",
+    "jquery": "^3.2.1",
+    "mediaquery-event": "^0.4.0",
+    "normalize-opentype.css": "^0.2.4",
+    "share-button": "^1.0.3",
+    "slick-carousel": "^1.6.0"
   },
   "devDependencies": {
     "assemble": "^0.24.3",

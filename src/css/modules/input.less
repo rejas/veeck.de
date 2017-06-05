@@ -1,17 +1,20 @@
+@input-border-color: @darkAccentColor;
+
 .input {
-    .colorVar(border-color, --darkAccentColor, @darkAccentColor);
+    border-color: @input-border-color;
+
+    > input {
+        border: 0;
+        font-size: @font-size-m;
+
+        &:focus {
+            outline: none;
+        }
+    }
 }
 
-textarea {
-    border: 1px solid;
-    border-radius: @figure-border-radius;
-    .colorVar(border-color, --darkAccentColor, @darkAccentColor);
-    min-height: 1.75rem;
-    resize: vertical;
-}
-
-select {
-    .colorVar(border-color, --darkAccentColor, @darkAccentColor);
+.select {
+    border-color: @input-border-color;
 }
 
 /* Manami */
@@ -19,7 +22,7 @@ select {
     display: inline-block;
     overflow: hidden;
     position: relative;
-    z-index: 1;
+    z-index: @z-index-1;
 }
 
 .input__field--manami {
@@ -28,23 +31,17 @@ select {
     padding: 0.75rem;
     margin-bottom: 1.5rem;
     color: @primaryTextColor;
-    z-index: 100;
+    z-index: @z-index-5;
     opacity: 0;
     position: relative;
     display: block;
     float: right;
-    border: none;
-    font-size: @font-size-m;
+    border: 0;
     -webkit-appearance: none; /* for box shadows to show on iOS */
-
-    &:focus {
-        outline: none;
-    }
 }
 
 .input__label--manami {
     float: right;
-    color: @darkAccentColor;
     -webkit-touch-callout: none;
     user-select: none;
     width: 100%;
@@ -68,29 +65,28 @@ select {
         background: @accentColor;
         top: 0;
         transform: translate3d(0, -100%, 0);
-        transition: transform 0.3s;
+        .transform(transform);
     }
 
     &::after {
         height: @border-thickness;
-        background: @darkAccentColor;
+        background: @input-border-color;
         top: 100%;
-        transition: opacity 0.3s;
+        .transform(opacity);
     }
 }
-
 
 .input__label-content--manami {
     display: block;
     padding: 0;
     transform-origin: 0 0;
-    transition: transform 0.3s, color 0.3s;
+    transition: transform @animation-duration, color @animation-duration;
 }
 
 .input__field--manami:focus,
 .input--filled .input__field--manami {
     opacity: 1;
-    transition: opacity 0s 0.3s;
+    .transform(opacity);
 }
 
 .input__field--manami:focus + .input__label--manami::before,
@@ -105,29 +101,37 @@ select {
 
 .input__field--manami:focus + .input__label--manami .input__label-content--manami,
 .input--filled .input__label--manami .input__label-content--manami {
-    color: #cbc4c6;
-    transform: translate3d(0, 2.1em, 0) scale3d(0.65, 0.65, 1);
+    color: @darkPrimaryColor;
+    transform: translate3d(0, 2em, 0) scale3d(0.75, 0.75, 1);
 }
 
 .input-select {
+    position: relative;
     padding: 0.5rem 0;
-    border-bottom: @border-thickness solid @darkAccentColor;
+    border-bottom: @border-thickness solid @input-border-color;
     border-radius: 0;
     margin: 0 0 1.5rem 0;
     overflow: hidden;
-    //background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%;
+
+    &::after:extend(.icon, .icon-arrow-down, .icon--xs) {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 1rem;
+        width: 2rem;
+        height: 2rem;
+    }
 
     select {
-        color: @darkAccentColor;
+        appearance: none;
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+        color: @primaryTextColor;
         font-family: @font-main, arial;
         font-size: @font-size-m;
         font-weight: @font-weight-bold;
         width: 100%;
-        border: none;
-        box-shadow: none;
-        background-color: transparent;
-        background-image: none;
-        appearance: none;
 
         &:focus {
             outline: none;

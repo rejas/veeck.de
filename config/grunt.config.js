@@ -23,6 +23,11 @@ const config = {
         collapseWhitespace: true,
         removeComments: true
     },
+    modernizr: [
+        "prefixes",
+        "prefixed",
+        "setClasses"
+    ],
     release: {
         pkgFiles: ['package.json'],
         commitMessage: 'Release %s',

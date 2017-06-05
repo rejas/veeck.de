@@ -76,7 +76,9 @@
     }
 
     @supports (display: flow-root) {
-        display: flow-root;
+        & {
+            display: flow-root;
+        }
 
         &:before,
         &:after {
@@ -105,8 +107,8 @@
     }
 }
 
-.transform (property) {
-    transition: property 0.125s ease-in-out;
+.transform (@property) {
+    transition: @property @animation-duration cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .vertical-align () {
