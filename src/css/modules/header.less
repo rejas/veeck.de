@@ -37,10 +37,27 @@
     }
 
     &--wrapper {
+        z-index: @z-index-1;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
+
+        .headline {
+
+            @media @phone {
+
+                .trigger::before {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &--title {
         border: @border-thickness solid @color-transparent;
         border-radius: @figure-border-radius;
         .boxshadow(1);
@@ -48,39 +65,10 @@
         padding: 1rem;
         text-align: center;
         word-wrap: break-word;
-
-        &.animated {
-            background-color: @bgColor;
-        }
-
-        &:not(animated) {
-
-            .headline {
-                z-index: @z-index-1;
-                margin: 0 auto;
-                width: 100%;
-                text-align: center;
-
-                @media @phone {
-
-                    .trigger::before {
-                        display: none;
-                    }
-                }
-            }
-        }
     }
 
-
-    .title:not(.animated) {
-
-        .subline {
-            text-transform: uppercase;
-        }
-
-        p {
-            margin: 0 auto 0.5rem;
-        }
+    &--subtitle {
+        text-transform: uppercase;
     }
 }
 
@@ -190,19 +178,13 @@
 }
 
 
-.animated {
-    /*
-    */
+.title-animated {
 
-    h1 {
-        color: black;
-        text-align: center;
+    .header--title {
+        background-color: @lightPrimaryColor;
         font-size: 4rem;
         line-height: 3rem;
         position: relative;
-        font-weight: @font-weight-bold;
-        text-transform: uppercase;
-        margin-top: 2rem;
 
         &::after {
             content: attr(data-heading);
@@ -210,7 +192,7 @@
             left: 0;
             overflow: hidden;
             width: 100%;
-            height: 49%;
+            height: 1.5rem;
             color: black;
             transform: translateX(0);
             animation: fracture 5s infinite ease;
@@ -222,9 +204,9 @@
             left: 0;
             overflow: hidden;
             width: 100%;
-            height: 50%;
-            color: white;
-            text-shadow: 3px -2px 5px white, -3px 3px 4px white;
+            height: 1.5rem;
+            color: @lightPrimaryColor;
+            text-shadow: 3px -2px 5px @lightPrimaryColor, -3px 3px 4px @lightPrimaryColor;
             text-align: center;
         }
     }
