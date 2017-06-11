@@ -28,11 +28,12 @@ module.exports = function(grunt) {
 
         clean: ['<%= dir.dist %>/**/*'],
 
-        concat: {
-            dist: {
-                options: {
-                    separator: ';'
-                },
+        uglify: {
+            options: {
+                compress: true,
+                mangle: true
+            },
+            target: {
                 src: ['<%= dir.src %>/js/vendor/modernizr.min.js',
                     '<%= dir.src %>/bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js'],
                 dest: '<%= dir.dist %>/js/vendor.min.js'
@@ -213,7 +214,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'clean',
         'copy',
-        'concat',
+        'uglify',
         'webpack',
         'assemble',
         'htmlmin'
