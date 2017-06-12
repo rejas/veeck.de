@@ -67,7 +67,6 @@ import styles_webpack from '../css/main.less';
 
 import 'cookieconsent/src/cookieconsent';
 import 'imagelightbox/src/imagelightbox';
-import 'imgLiquid/js/imgLiquid';
 import 'ResponsiveMultiLevelMenu2/js/jquery.dlmenu';
 import 'slick-carousel/slick/slick';
 import 'konami-code/src/jquery.konami';
@@ -78,6 +77,7 @@ import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
 
 import Blazy       from 'blazy';
+import objectFitImages from 'object-fit-images';
 import ShareButton from 'share-button/dist/share-button';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -133,9 +133,12 @@ document.addEventListener('DOMContentLoaded', function () {
      * Fill out the background header images
      */
     if (!Modernizr.objectfit) {
+        objectFitImages();
+        /*
         $('.js-img-liquid').imgLiquid({
             useBackgroundSize: true
         });
+        */
     }
 
     /**
