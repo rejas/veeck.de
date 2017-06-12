@@ -70,15 +70,6 @@ module.exports = function(grunt) {
             }
         },
 
-        eslint: {
-            dist: {
-                options: {
-                    configFile: '.eslintrc.json'
-                },
-                src: ['<%= dir.src %>/js/*.js']
-            },
-        },
-
         htmlmin: {
             dist: {
                 options: config.htmlmin,
