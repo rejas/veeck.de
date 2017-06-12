@@ -39,7 +39,7 @@
     "css-loader": "^0.28.4",
     "css-mqpacker": "^6.0.1",
     "cssnano": "^3.10.0",
-    "eslint": "^3.19.0",
+    "eslint": "^4.0.0",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
     "grunt": "^1.0.1",
@@ -65,7 +65,7 @@
     "postcss-sprites": "^4.2.1",
     "style-loader": "^0.18.2",
     "time-grunt": "^1.4.0",
-    "url-loader": "^0.5.8",
+    "url-loader": "^0.5.9",
     "webpack": "^2.6.1"
   }
 }
