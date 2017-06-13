@@ -51,7 +51,7 @@
     "grunt-contrib-imagemin": "^1.0.1",
     "grunt-contrib-uglify": "^3.0.1",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-eslint": "^19.0.0",
+    "grunt-eslint": "^20.0.0",
     "grunt-jimp": "^0.0.5",
     "grunt-lesshint": "^1.5.1",
     "grunt-modernizr": "^1.0.2",
