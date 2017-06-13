@@ -95,14 +95,19 @@ ul {
 
 a,
 a:visited {
-    .colorVar(color, --darkAccentColor, @darkAccentColor);
+    color: @primaryTextColor;
+    .colorVar(border-bottom-color, --primaryColor, @primaryColor);
     outline: none;
     text-decoration: none;
+    border-bottom: @border-thickness solid var(--primaryColor);
+    cursor: pointer;
+    .transform(all);
+    background-color: transparent;
 }
 
 a:hover,
 a:focus {
-    color: @accentColor;
+    .colorVar(background-color, --primaryColor, @primaryColor);
 }
 
 time {
