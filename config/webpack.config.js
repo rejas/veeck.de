@@ -15,12 +15,14 @@ const webpackconfig = {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /(node_modules)/,
+                exclude: /(node_modules|bower_components)/,
                 use: [{
                     loader: 'babel-loader',
                     options: {
                         presets: ['env']
                     }
+                }, {
+                    loader: 'eslint-loader'
                 }]
             },
             {
@@ -41,6 +43,7 @@ const webpackconfig = {
                                     require('autoprefixer')(),
                                     require('css-mqpacker')(),
                                     require('postcss-normalize')(),
+                                    require('postcss-object-fit-images')(),
                                     require('postcss-sprites')({
                                         spritePath: 'tmp/'
                                     })
