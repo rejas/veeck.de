@@ -19,20 +19,11 @@
         bottom: 0;
         backface-visibility: hidden;
 
-        img {
+        .object-fit-img {
             min-width: 100%;
             min-height: 100%;
-
-            .no-objectfit & {
-                position: absolute;
-                top: 0;
-                left: 0;
-                display: block;
-            }
-
-            .objectfit & {
-                object-fit: cover;
-            }
+            object-fit: cover;
+            font-family: 'object-fit: cover;';
         }
     }
 
