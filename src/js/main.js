@@ -76,9 +76,9 @@ import * as Input  from './modules/input';
 import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
 
-import Blazy       from 'blazy';
-import objectFitImages from 'object-fit-images';
-import ShareButton from 'share-button/dist/share-button';
+import Blazy            from 'blazy';
+import objectFitImages  from 'object-fit-images';
+import ShareButton      from 'share-button/dist/share-button';
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -134,11 +134,6 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     if (!Modernizr.objectfit) {
         objectFitImages();
-        /*
-        $('.js-img-liquid').imgLiquid({
-            useBackgroundSize: true
-        });
-        */
     }
 
     /**

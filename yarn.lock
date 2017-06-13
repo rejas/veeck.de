@@ -2168,13 +2168,13 @@ coffee-script@1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/coffee-script/-/coffee-script-1.6.3.tgz#6355d32cf1b04cdff6b484e5e711782b2f0c39be"
 
-coffee-script@1.x.x, coffee-script@^1.12.4:
-  version "1.12.6"
-  resolved "https://registry.yarnpkg.com/coffee-script/-/coffee-script-1.12.6.tgz#285a3f7115689065064d6bf9ef4572db66695cbf"
-
-coffee-script@~1.10.0:
+coffee-script@1.x.x, coffee-script@~1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/coffee-script/-/coffee-script-1.10.0.tgz#12938bcf9be1948fa006f92e0c4c9e81705108c0"
+
+coffee-script@^1.12.4:
+  version "1.12.6"
+  resolved "https://registry.yarnpkg.com/coffee-script/-/coffee-script-1.12.6.tgz#285a3f7115689065064d6bf9ef4572db66695cbf"
 
 collection-visit@^0.2.0, collection-visit@^0.2.1, collection-visit@^0.2.3:
   version "0.2.3"
