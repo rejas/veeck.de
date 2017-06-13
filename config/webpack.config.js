@@ -43,6 +43,7 @@ const webpackconfig = {
                                     require('autoprefixer')(),
                                     require('css-mqpacker')(),
                                     require('postcss-normalize')(),
+                                    require('postcss-object-fit-images')(),
                                     require('postcss-sprites')({
                                         spritePath: 'tmp/'
                                     })
