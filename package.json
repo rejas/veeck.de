@@ -59,6 +59,7 @@
     "grunt-modernizr": "^1.0.2",
     "grunt-release-it": "^1.0.1",
     "grunt-webpack": "^3.0.0",
+    "imagemin-mozjpeg": "5.1.0",
     "less": "^2.7.2",
     "less-loader": "^4.0.4",
     "load-grunt-tasks": "^3.5.2",
