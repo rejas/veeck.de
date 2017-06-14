@@ -4949,6 +4949,14 @@ imagemin-jpegtran@^4.0.0:
     jpegtran-bin "^3.0.0"
     through2 "^2.0.0"
 
+imagemin-mozjpeg@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/imagemin-mozjpeg/-/imagemin-mozjpeg-5.1.0.tgz#50d3f571d207472433766569b9a8edd359d5e1f2"
+  dependencies:
+    is-jpg "^1.0.0"
+    mozjpeg "^4.0.0"
+    through2 "^0.6.1"
+
 imagemin-optipng@^4.0.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/imagemin-optipng/-/imagemin-optipng-4.3.0.tgz#7604663ab2ee315733274726fd1c374d2b44adb6"
@@ -5722,9 +5730,9 @@ klaw@^1.0.0:
   optionalDependencies:
     graceful-fs "^4.1.9"
 
-konami-code.js@^1.4.7:
+"konami-code.js@https://github.com/rejas/konami-js.git#module_export":
   version "1.4.7"
-  resolved "https://registry.yarnpkg.com/konami-code.js/-/konami-code.js-1.4.7.tgz#60a7d147d7742dcfb1c122137e3696fd07650f20"
+  resolved "https://github.com/rejas/konami-js.git#d73b6921190b0d9fcfa11018a6c126d851616a1e"
 
 layout@~2.2.0:
   version "2.2.0"
@@ -6670,6 +6678,14 @@ morgan@^1.6.1:
     depd "~1.1.0"
     on-finished "~2.3.0"
     on-headers "~1.0.1"
+
+mozjpeg@^4.0.0:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/mozjpeg/-/mozjpeg-4.1.1.tgz#859030b24f689a53db9b40f0160d89195b88fd50"
+  dependencies:
+    bin-build "^2.0.0"
+    bin-wrapper "^3.0.0"
+    logalot "^2.0.0"
 
 ms@0.7.1:
   version "0.7.1"
