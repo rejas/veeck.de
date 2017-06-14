@@ -2,7 +2,8 @@
 
 module.exports = function(grunt) {
     const config = require('./config/grunt.config.js'),
-          webpackConfig = require('./config/webpack.config.js');
+          webpackConfig = require('./config/webpack.config.js'),
+          mozjpeg = require('imagemin-mozjpeg');
 
     require('time-grunt')(grunt);
     require('load-grunt-tasks')(grunt);
@@ -181,7 +182,9 @@ module.exports = function(grunt) {
 
         imagemin: {
             jpg: {
-                options: config.imagemin,
+                options: {
+                    progressive: true
+                },
                 files: [
                     {
                         expand: true,
