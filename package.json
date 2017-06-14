@@ -25,6 +25,7 @@
     "hamburgers": "^0.8.1",
     "imagelightbox": "^0.7.5",
     "jquery": "^3.2.1",
+    "konami-code.js": "https://github.com/rejas/konami-js.git#module_export",
     "mediaquery-event": "^0.4.0",
     "normalize-opentype.css": "^0.2.4",
     "object-fit-images": "^3.2.3",
