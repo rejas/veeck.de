@@ -69,12 +69,13 @@ import 'cookieconsent/src/cookieconsent';
 import 'imagelightbox/src/imagelightbox';
 import 'ResponsiveMultiLevelMenu2/js/jquery.dlmenu';
 import 'slick-carousel/slick/slick';
-import 'konami-code/src/jquery.konami';
 
 import * as Colors from './modules/colors';
 import * as Input  from './modules/input';
 import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
+
+import Konami from './modules/konami';
 
 import Blazy            from 'blazy';
 import objectFitImages  from 'object-fit-images';
@@ -191,9 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /**
      * Use konami code for css linting
      */
-    $( window ).konami({
-        cheat: function() {
-            $('body').addClass('debug');
-        }
+    new Konami(function() {
+        $('body').addClass('debug');
     });
 });
