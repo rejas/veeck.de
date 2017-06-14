@@ -6,24 +6,24 @@ var Konami = function (callback) {
                 obj.addEventListener(type, fn, false);
             else if (obj.attachEvent) {
                 // IE
-                obj["e" + type + fn] = fn;
+                obj['e' + type + fn] = fn;
                 obj[type + fn] = function () {
-                    obj["e" + type + fn](window.event, ref_obj);
-                }
-                obj.attachEvent("on" + type, obj[type + fn]);
+                    obj['e' + type + fn](window.event, ref_obj);
+                };
+                obj.attachEvent('on' + type, obj[type + fn]);
             }
         },
-        input: "",
-        pattern: "38384040373937396665",
+        input: '',
+        pattern: '38384040373937396665',
         load: function (link) {
-            this.addEvent(document, "keydown", function (e, ref_obj) {
+            this.addEvent(document, 'keydown', function (e, ref_obj) {
                 if (ref_obj) konami = ref_obj; // IE
                 konami.input += e ? e.keyCode : event.keyCode;
                 if (konami.input.length > konami.pattern.length)
                     konami.input = konami.input.substr((konami.input.length - konami.pattern.length));
-                if (konami.input == konami.pattern) {
+                if (konami.input === konami.pattern) {
                     konami.code(link);
-                    konami.input = "";
+                    konami.input = '';
                     e.preventDefault();
                     return false;
                 }
@@ -31,7 +31,7 @@ var Konami = function (callback) {
             this.iphone.load(link);
         },
         code: function (link) {
-            window.location = link
+            window.location = link;
         },
         iphone: {
             start_x: 0,
@@ -40,15 +40,15 @@ var Konami = function (callback) {
             stop_y: 0,
             tap: false,
             capture: false,
-            orig_keys: "",
-            keys: ["UP", "UP", "DOWN", "DOWN", "LEFT", "RIGHT", "LEFT", "RIGHT", "TAP", "TAP"],
+            orig_keys: '',
+            keys: ['UP', 'UP', 'DOWN', 'DOWN', 'LEFT', 'RIGHT', 'LEFT', 'RIGHT', 'TAP', 'TAP'],
             code: function (link) {
                 konami.code(link);
             },
             load: function (link) {
                 this.orig_keys = this.keys;
-                konami.addEvent(document, "touchmove", function (e) {
-                    if (e.touches.length == 1 && konami.iphone.capture == true) {
+                konami.addEvent(document, 'touchmove', function (e) {
+                    if (e.touches.length === 1 && konami.iphone.capture === true) {
                         var touch = e.touches[0];
                         konami.iphone.stop_x = touch.pageX;
                         konami.iphone.stop_y = touch.pageY;
@@ -57,10 +57,10 @@ var Konami = function (callback) {
                         konami.iphone.check_direction();
                     }
                 });
-                konami.addEvent(document, "touchend", function (evt) {
-                    if (konami.iphone.tap == true) konami.iphone.check_direction(link);
+                konami.addEvent(document, 'touchend', function () {
+                    if (konami.iphone.tap === true) konami.iphone.check_direction(link);
                 }, false);
-                konami.addEvent(document, "touchstart", function (evt) {
+                konami.addEvent(document, 'touchstart', function (evt) {
                     konami.iphone.start_x = evt.changedTouches[0].pageX;
                     konami.iphone.start_y = evt.changedTouches[0].pageY;
                     konami.iphone.tap = true;
@@ -68,24 +68,25 @@ var Konami = function (callback) {
                 });
             },
             check_direction: function (link) {
-                x_magnitude = Math.abs(this.start_x - this.stop_x);
-                y_magnitude = Math.abs(this.start_y - this.stop_y);
-                x = ((this.start_x - this.stop_x) < 0) ? "RIGHT" : "LEFT";
-                y = ((this.start_y - this.stop_y) < 0) ? "DOWN" : "UP";
-                result = (x_magnitude > y_magnitude) ? x : y;
-                result = (this.tap == true) ? "TAP" : result;
+                var x_magnitude = Math.abs(this.start_x - this.stop_x),
+                    y_magnitude = Math.abs(this.start_y - this.stop_y),
+                    x = ((this.start_x - this.stop_x) < 0) ? 'RIGHT' : 'LEFT',
+                    y = ((this.start_y - this.stop_y) < 0) ? 'DOWN' : 'UP',
+                    result = (x_magnitude > y_magnitude) ? x : y;
 
-                if (result == this.keys[0]) this.keys = this.keys.slice(1, this.keys.length);
-                if (this.keys.length == 0) {
+                result = (this.tap === true) ? 'TAP' : result;
+
+                if (result === this.keys[0]) this.keys = this.keys.slice(1, this.keys.length);
+                if (this.keys.length === 0) {
                     this.keys = this.orig_keys;
                     this.code(link);
                 }
             }
         }
-    }
+    };
 
-    typeof callback === "string" && konami.load(callback);
-    if (typeof callback === "function") {
+    typeof callback === 'string' && konami.load(callback);
+    if (typeof callback === 'function') {
         konami.code = callback;
         konami.load();
     }
