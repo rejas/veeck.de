@@ -75,7 +75,8 @@ import * as Input  from './modules/input';
 import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
 
-import 'konami-code.js/konami';
+import Konami from './modules/konami';
+
 import Blazy            from 'blazy';
 import objectFitImages  from 'object-fit-images';
 import ShareButton      from 'share-button/dist/share-button';
