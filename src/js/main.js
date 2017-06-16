@@ -68,12 +68,12 @@ import styles_webpack from '../css/main.less';
 import 'cookieconsent/src/cookieconsent';
 import 'imagelightbox/src/imagelightbox';
 import 'ResponsiveMultiLevelMenu2/js/jquery.dlmenu';
-import { tns } from 'tiny-slider';
 
 import * as Colors from './modules/colors';
 import * as Input  from './modules/input';
 import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
+import * as TNS    from 'tiny-slider/src/tiny-slider';
 
 import Blazy            from 'blazy';
 import Konami           from 'konami-code.js';
@@ -182,8 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
         focusOnSelect: true
     });
      */
-
-    var slider = tns({
+    TNS.tns({
         container: document.querySelector('.slider'),
         items: 3,
         slideBy: 'page',
