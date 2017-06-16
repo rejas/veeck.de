@@ -30,8 +30,8 @@
     "normalize-opentype.css": "^0.2.4",
     "object-fit-images": "^3.2.3",
     "share-button": "^1.0.3",
-    "siema": "^1.4.6",
-    "slick-carousel": "^1.6.0"
+    "slick-carousel": "^1.6.0",
+    "smoothscroll-polyfill": "^0.3.5"
   },
   "devDependencies": {
     "assemble": "^0.24.3",

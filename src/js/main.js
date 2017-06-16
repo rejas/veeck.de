@@ -75,11 +75,10 @@ import * as Input  from './modules/input';
 import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
 
-import * as ScrollIt    from './modules/scrollIt';
-
 import Blazy            from 'blazy';
 import Konami           from 'konami-code.js';
 import objectFitImages  from 'object-fit-images';
+import Smoothscroll     from 'smoothscroll-polyfill';
 import ShareButton      from 'share-button/dist/share-button';
 import Siema            from 'siema';
 
@@ -108,12 +107,10 @@ document.addEventListener('DOMContentLoaded', function () {
     /**
      * Back to top
      */
+    Smoothscroll.polyfill();
+
     document.querySelector('.js-to-top').onclick = () => {
-        ScrollIt.init(
-            0,
-            300,
-            'easeOutQuad'
-        );
+        window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     };
 
     /**
