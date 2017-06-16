@@ -68,7 +68,7 @@ import styles_webpack from '../css/main.less';
 import 'cookieconsent/src/cookieconsent';
 import 'imagelightbox/src/imagelightbox';
 import 'ResponsiveMultiLevelMenu2/js/jquery.dlmenu';
-import 'slick-carousel/slick/slick';
+import { tns } from 'tiny-slider';
 
 import * as Colors from './modules/colors';
 import * as Input  from './modules/input';
@@ -80,7 +80,6 @@ import Konami           from 'konami-code.js';
 import objectFitImages  from 'object-fit-images';
 import Smoothscroll     from 'smoothscroll-polyfill';
 import ShareButton      from 'share-button/dist/share-button';
-import Siema            from 'siema';
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -166,7 +165,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /**
      * Slider
-     */
     $('.slider-for').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -183,21 +181,14 @@ document.addEventListener('DOMContentLoaded', function () {
         centerMode: false,
         focusOnSelect: true
     });
+     */
 
-    /*
-    new Siema({
-        selector: '.siema',
-        duration: 200,
-        easing: 'ease-out',
-        perPage: 1,
-        startIndex: 0,
-        draggable: true,
-        threshold: 20,
-        loop: false,
-        onInit: () => {},
-        onChange: () => {},
+    var slider = tns({
+        container: document.querySelector('.slider'),
+        items: 3,
+        slideBy: 'page',
+        autoplay: true
     });
-    */
 
     /**
      * Travel picture angle randomization
