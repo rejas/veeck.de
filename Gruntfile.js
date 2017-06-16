@@ -196,7 +196,7 @@ module.exports = function(grunt) {
             bg: {
                 options: {
                     progressive: true,
-                    use: [mozjpeg()]
+                    use: [mozjpeg({quality: 60})]
                 },
                 files: [{
                     expand: true,
