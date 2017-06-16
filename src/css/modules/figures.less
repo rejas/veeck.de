@@ -1,7 +1,7 @@
 figure {
     .boxshadow(1);
     .colorVar(background-color, --primaryColor, @primaryColor);
-    border-radius: @figure-radius;
+    border-radius: @figure-border-radius;
     overflow: hidden;
     text-decoration: none;
     position: relative;
@@ -16,7 +16,7 @@ figure {
         top: 0;
         width: 100%;
         height: 100%;
-        border-radius: @figure-radius;
+        border-radius: @figure-border-radius;
 
         &:hover {
             opacity: 0;
@@ -35,17 +35,17 @@ figure {
     @media @desktop, @tablet {
 
         &.fig_full {
-            margin: 0.4em 0 1em;
+            margin: 0.5rem 0 1rem;
         }
 
         &.fig_left {
             float: left;
-            margin: 0.4em 1em 1em 0;
+            margin: 0.5em 1rem 1rem 0;
         }
 
         &.fig_right {
             float: right;
-            margin: 0.4em 0 1em 1em;
+            margin: 0.5rem 0 1rem 1rem;
         }
     }
 
@@ -60,7 +60,7 @@ figure {
         }
 
         &.fig_popup {
-            transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+            .transform(all);
             transform: translateY(0) scale(1, 1);
             transform-origin: center;
             transform-style: preserve-3D;
@@ -105,11 +105,10 @@ figcaption {
     font-family: @font-header, serif;
     font-weight: @font-weight-bold;
     text-align: center;
-    text-transform: uppercase;
-    padding: 0.5em;
+    padding: 0.5rem;
 
     @media @phone {
-        font-size: @font-size-small;
+        font-size: @font-size-xs;
         padding-top: 0;
     }
 }
@@ -126,7 +125,7 @@ figcaption {
         position: absolute;
         top: 19px;
         right: -21px;
-        font-size: @font-size-small;
+        font-size: @font-size-xs;
         line-height: 1rem;
         font-weight: @font-weight-bold;
         text-transform: uppercase;
@@ -167,12 +166,12 @@ figcaption {
 .imagelightbox-wrapper {
 
     .imagelightbox-loading {
-        border-radius: @figure-radius;
+        border-radius: @figure-border-radius;
         .colorVar(background-color, --accentColor, @accentColor);
     }
 
     .imagelightbox-nav {
-        border-radius: @figure-radius;
+        border-radius: @figure-border-radius;
         .colorVar(background-color, --accentColor, @accentColor);
 
         @media @phone {

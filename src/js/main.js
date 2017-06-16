@@ -63,21 +63,22 @@ addLoadEvent(function() {
     });
 });
 
-import styles from '../css/main.less';
+import styles_webpack from '../css/main.less';
 
-import 'cookieconsent2/src/cookieconsent';
-import 'imagelightbox2/src/imagelightbox';
-import 'imgLiquid/js/imgLiquid';
+import 'cookieconsent/src/cookieconsent';
+import 'imagelightbox/src/imagelightbox';
 import 'ResponsiveMultiLevelMenu2/js/jquery.dlmenu';
 import 'slick-carousel/slick/slick';
-import 'konami-code/src/jquery.konami';
 
 import * as Colors from './modules/colors';
+import * as Input  from './modules/input';
 import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
 
-import Blazy       from 'blazy';
-import ShareButton from 'share-button/share-button';
+import Blazy            from 'blazy';
+import Konami           from 'konami-code.js';
+import objectFitImages  from 'object-fit-images';
+import ShareButton      from 'share-button/dist/share-button';
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -90,6 +91,11 @@ document.addEventListener('DOMContentLoaded', function () {
      * Colors
      */
     Colors.init();
+
+    /**
+     * Input
+     */
+    Input.init();
 
     /**
      * Navigation
@@ -127,9 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
      * Fill out the background header images
      */
     if (!Modernizr.objectfit) {
-        $('.js-img-liquid').imgLiquid({
-            useBackgroundSize: true
-        });
+        objectFitImages();
     }
 
     /**
@@ -187,9 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /**
      * Use konami code for css linting
      */
-    $( window ).konami({
-        cheat: function() {
-            $('body').addClass('debug');
-        }
+    new Konami(function() {
+        $('body').addClass('debug');
     });
 });

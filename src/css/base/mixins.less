@@ -1,10 +1,9 @@
-
 /**
  * A mixin which helps you to add depth to elements according to the Google Material Design spec:
  * http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality
  *
- * Please note that the values given in the specification cannot be used as is. To create the same visual experience
- * the blur parameter has to be doubled.
+ * Please note that the values given in the specification cannot be used as is. To create the same
+ * visual experience the blur parameter has to be doubled.
  *
  * Author: Florian Kutschera (@gefangenimnetz), Conceptboard GmbH (@conceptboardapp)
  *
@@ -52,6 +51,7 @@
 
 /*
  * Clearfix: contain floats
+ * Uses "display: flow-root" in browsers that supports it
  *
  * For modern browsers
  * 1. The space content is one way to avoid an Opera bug when the
@@ -70,8 +70,20 @@
         content: ' '; // 1
         display: table; // 2
     }
+
     &:after {
         clear: both;
+    }
+
+    @supports (display: flow-root) {
+        & {
+            display: flow-root;
+        }
+
+        &:before,
+        &:after {
+            content: none;
+        }
     }
 }
 
@@ -84,8 +96,19 @@
     @{property}: var(@cssvar);
 }
 
-.transform (property) {
-    transition: property 0.125s ease-in-out;
+.font-face (@family, @file-base, @weight: normal, @style: normal) {
+    @font-face {
+        font-family: @family;
+        src: url('@{file-base}.woff') format('woff'),
+             url('@{file-base}.woff2') format('woff2'),
+             url('@{file-base}.ttf') format('truetype');
+        font-weight: @weight;
+        font-style: @style;
+    }
+}
+
+.transform (@property) {
+    transition: @property @animation-duration cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .vertical-align () {

@@ -7,7 +7,7 @@
  * Copyright 2014, Codrops
  * http://www.codrops.com
  */
-import classie from '../../bower_components/classie/classie';
+import classie from 'classie/lib/classie';
 
 export function init() {
 

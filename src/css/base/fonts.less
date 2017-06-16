@@ -1,15 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=CoreCircus');
 
-@import url('https://fonts.googleapis.com/css?family=Lora:400,400italic,700italic,700');
+.font-face('BungeeColor-Regular', '../fonts/BungeeColor-Regular_svg', 'normal');
+
+@font-header:           'Lobster';
+@font-color:            'BungeeColor-Regular';
+@font-main:             'Raleway';
+
+@base-font-size:        calc(0.25rem + 1vw);
+@base-line-height:      calc(0.75rem + 1vw);
+
+@font-size-xs:          0.75rem;
+@font-size-sm:          1.00rem;
+@font-size-m:           @base-font-size;
+@font-size-l:           2.00rem;
+@font-size-xl:          3.00rem;
+
+@line-height-m:         @base-line-height;
+@line-height-xl:        3.00rem;
 
 @font-weight-normal:    400;
-@font-weight-bold:      800;
-
-@font-header:    'Lora';
-@font-main:      'Raleway';
-
-@base-font-size:    calc(0.2em + 1vw);
-@base-line-height:  calc(0.5em + 1vw);
-
-@font-size-small:   0.75rem;
-@font-size-large:   1.25rem;
+@font-weight-bold:      700;

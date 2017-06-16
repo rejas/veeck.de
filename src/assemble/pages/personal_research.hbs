@@ -1,16 +1,17 @@
 ---
 title: My research and software projects
+titlestyle: title-animated
 heading: research
 lang: en
 lead: computerschlampereien and other projects
 img: research.jpg
-img-color: FEF79B
+img-color: EAEAEA
 last-modified: 2015-04-20
 ---
 <link rel="import" href="webcomponent/github-card.html">
 
 <article class="content">
-    <section id="github" class="research_article clearfix">
+    <section id="github" class="research_article">
         <h2>my github profile</h2>
         <github-card class="github-card" user="rejas"></github-card>
         <p>In case you are running chrome or any other modern browser that already supports
@@ -22,7 +23,7 @@ last-modified: 2015-04-20
         </ul>
     </section>
 
-    <section id="wowFeed" class="research_article clearfix">
+    <section id="wowFeed" class="research_article">
         <h2>World of Warcraft RSS Feed</h2>
         <figure>
             <a href="https://www.worldofwarcraft.com/"><i class="icon icon--l icon-wow"></i></a>
@@ -31,38 +32,59 @@ last-modified: 2015-04-20
         offer an API to access a JSON-encoded activity feed for character and guilds. Since a colleague held a
         presentation about node.js and how easy it is to deploy a server-app with it, I took the opportunity to
         enhance my javascript knowledge and wrote this JSON-to-RSS-Feed Converter for World-Of-Warcraft:</p>
-        <form action="https://wowfeed.herokuapp.com" >
-            <label>Character:<input type="text" name="character" /></label>
-            <label>Realm:    <input type="text" name="realm" /></label>
-            <label>Region:
-                <select id="char_region" name="region">
-                    <option value="-1" selected>choose a region</option>
+
+        <form action="https://wowfeed.herokuapp.com">
+
+            {{> input-text
+                name='character'
+                id='charname'
+                label='Character'}}
+
+            {{> input-text
+                name='realm'
+                id='charrealm'
+                label='Realm'}}
+
+            <span class="input input-select">
+                <select id="char_region" name="region" class="select">
+                    <option value="-1" selected>Region</option>
                     <option value="eu">Europe</option>
                     <option value="us">US</option>
                     <option value="tw">Taiwan</option>
                     <option value="kr">Korea</option>
                 </select>
-            </label>
-            <button class="btn btn--m" type="submit">Get RSS</button>
+            </span>
+
+            <button class="btn btn--xl btn--normal" type="submit">Get RSS</button>
         </form>
 
         <form action="https://wowfeed.herokuapp.com">
-            <label>Guild:<input type="text" name="guild" /></label>
-            <label>Realm:<input type="text" name="realm" /></label>
-            <label>Region:
-                <select id="guild_region" name="region">
-                    <option value="-1" selected>choose a region</option>
+
+            {{> input-text
+                name='guild'
+                id='guildname'
+                label='Guild'}}
+
+            {{> input-text
+                name='realm'
+                id='guildrealm'
+                label='Realm'}}
+
+            <span class="input input-select">
+                <select id="guild_region" name="region" class="select">
+                    <option value="-1" selected>Region</option>
                     <option value="eu">Europe</option>
                     <option value="us">US</option>
                     <option value="tw">Taiwan</option>
                     <option value="kr">Korea</option>
                 </select>
-            </label>
-            <button class="btn btn--m" type="submit">Get RSS</button>
+            </span>
+
+            <button class="btn btn--xl btn--normal" type="submit">Get RSS</button>
         </form>
     </section>
 
-    <section id="rasterbator" class="research_article clearfix">
+    <section id="rasterbator" class="research_article">
         <h2>The Rasterbator</h2>
         <figure>
             <a href="http://arje.net/rasterbator"><i class="icon icon--l icon-rasterbator"></i></a>
@@ -79,7 +101,7 @@ last-modified: 2015-04-20
         </ul>
     </section>
 
-    <section class="research_article clearfix">
+    <section class="research_article">
         <h2>NSIS Installer Scripts</h2>
         <figure>
             <a href="http://nsis.sourceforge.net/"><i class="icon icon--l icon-nsis"></i></a>
@@ -93,7 +115,7 @@ last-modified: 2015-04-20
         </ul>
     </section>
 
-    <section class="research_article clearfix">
+    <section class="research_article">
         <h2>IROS 2004 research paper</h2>
         <figure>
             <a href="#"><i class="icon icon--l icon-iros"></i></a>
@@ -113,7 +135,7 @@ last-modified: 2015-04-20
             YEAR = {2004}</p>
     </section>
 
-    <section class="research_article clearfix">
+    <section class="research_article">
         <h2>My diplom thesis</h2>
         <figure>
             <a href="https://www.uni-freiburg.de/"><i class="icon icon--l icon-uni"></i></a>

@@ -1,7 +1,4 @@
 const config = {
-    autoprefixer: {
-        "browsers": ["last 2 versions", "ie >=10", "iOS >=8", "Android >= 4.1"]
-    },
     connect: {
         hostname: "localhost",
         livereload: true,
@@ -19,13 +16,15 @@ const config = {
         user: "www.veeck.de",
         remotePath: "."
     },
-    imagemin: {
-        progressive: true
-    },
     htmlmin: {
         collapseWhitespace: true,
         removeComments: true
     },
+    modernizr: [
+        "prefixes",
+        "prefixed",
+        "setClasses"
+    ],
     release: {
         pkgFiles: ['package.json'],
         commitMessage: 'Release %s',

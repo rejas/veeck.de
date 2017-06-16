@@ -1,37 +1,75 @@
+@btn-size-m:  1.75rem;
+@btn-size-l:  2.5rem;
+@btn-size-xl: 3.0rem;
 
 .btn {
+    box-sizing: border-box;
+    color: @primaryTextColor;
     cursor: pointer;
-    text-align: center;
+    font-family: @font-main, arial;
+    font-size: @font-size-sm;
     margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+    text-transform: uppercase;
     user-select: none;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: @figure-radius;
-    padding: 0 9px;
-
-    &:hover {
-        border-color: @hover-color;
-    }
 
     &--m {
-        height: 1.75rem;
+        min-height: @btn-size-m;
+        min-width: @btn-size-m;
     }
 
     &--l {
-        font-size: 2rem;
-        height: 2.5rem;
-        width: 2.5rem;
+        min-height: @btn-size-l;
+        min-width: @btn-size-l;
     }
 
     &--xl {
-         height: 3rem;
-         width: 3rem;
-     }
-}
+        min-height: @btn-size-xl;
+        min-width: @btn-size-xl;
+    }
 
-.btn--comic {
-    border: 3px solid rgba(0, 0, 0, 0.125);
-    border-radius: @global-radius;
-    .colorVar(color, --primaryTextColor, @primaryTextColor);
-    .colorVar(background-color, --primaryColor, @primaryColor);
-    padding: 0;
+    &--comic {
+        border: @border-thickness solid @color-transparent;
+        border-radius: @global-border-radius;
+        .colorVar(color, --primaryTextColor, @primaryTextColor);
+        .colorVar(background-color, --primaryColor, @primaryColor);
+        font-size: @font-size-l;
+        padding: 0;
+
+        &:hover {
+            border-color: @color-transparent;
+        }
+    }
+
+    &--normal {
+        background: none;
+        border: @border-thickness solid @darkAccentColor;
+        border-radius: 0;
+        font-size: @font-size-m;
+        font-weight: @font-weight-bold;
+        position: relative;
+        .transform(all);
+
+        &:hover {
+
+            &::after {
+                width: 90%;
+                opacity: 1;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: @z-index-neg;
+            .transform(all);
+            width: 0;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            background: @darkAccentColor;
+            transform: translateX(-50%) translateY(-50%);
+        }
+    }
 }

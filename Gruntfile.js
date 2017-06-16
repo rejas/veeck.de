@@ -2,7 +2,8 @@
 
 module.exports = function(grunt) {
     const config = require('./config/grunt.config.js'),
-          webpackConfig = require('./config/webpack.config.js');
+          webpackConfig = require('./config/webpack.config.js'),
+          mozjpeg = require('imagemin-mozjpeg');
 
     require('time-grunt')(grunt);
     require('load-grunt-tasks')(grunt);
@@ -28,11 +29,12 @@ module.exports = function(grunt) {
 
         clean: ['<%= dir.dist %>/**/*'],
 
-        concat: {
-            dist: {
-                options: {
-                    separator: ';'
-                },
+        uglify: {
+            options: {
+                compress: true,
+                mangle: true
+            },
+            target: {
                 src: ['<%= dir.src %>/js/vendor/modernizr.min.js',
                     '<%= dir.src %>/bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js'],
                 dest: '<%= dir.dist %>/js/vendor.min.js'
@@ -69,15 +71,6 @@ module.exports = function(grunt) {
             }
         },
 
-        eslint: {
-            dist: {
-                options: {
-                    configFile: '.eslintrc.json'
-                },
-                src: '<%= dir.src %>/js/*.js'
-            },
-        },
-
         htmlmin: {
             dist: {
                 options: config.htmlmin,
@@ -95,26 +88,20 @@ module.exports = function(grunt) {
                 options: {
                     lesshintrc: true
                 },
-                src: '<%= dir.src %>/**/*.less'
+                src: ['<%= dir.src %>/**/*.less', '!<%= dir.src %>/bower_components/**/*.less']
             },
         },
 
         modernizr: {
             dist: {
-                "crawl": false,
-                "parseFiles": true,
-                "customTests": [],
-                "dest": '<%= dir.src %>/js/vendor/modernizr.min.js',
-                "tests": [
-                    "cssanimations",
-                    "objectfit"
-                ],
-                "options": [
-                    "prefixes",
-                    "prefixed",
-                    "setClasses"
-                ],
-                "uglify": true
+                cache: false,
+                dest: '<%= dir.src %>/js/vendor/modernizr.min.js',
+                files: {
+                    src: ['<%= dir.src %>/**/*.js']
+                },
+                options: config.modernizr,
+                parseFiles: true,
+                uglify : false
             }
         },
 
@@ -195,7 +182,9 @@ module.exports = function(grunt) {
 
         imagemin: {
             jpg: {
-                options: config.imagemin,
+                options: {
+                    progressive: true
+                },
                 files: [
                     {
                         expand: true,
@@ -219,7 +208,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'clean',
         'copy',
-        'concat',
+        'uglify',
         'webpack',
         'assemble',
         'htmlmin'

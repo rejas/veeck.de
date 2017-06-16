@@ -9,15 +9,15 @@ article {
 
         p:first-of-type:first-letter {
             float: left;
-            font-size: 3rem;
+            font-size: @font-size-xl;
             font-weight: @font-weight-bold;
-            line-height: 3rem;
+            line-height: @line-height-xl;
             margin: 0 0.5rem 0 0;
             padding: 0;
         }
 
         time {
-            font-size: @font-size-small;
+            font-size: @font-size-xs;
             position: relative;
             text-align: right;
             display: block;
@@ -25,16 +25,16 @@ article {
     }
 
     .article_intro {
-        margin-bottom: 2em;
+        margin-bottom: 2rem;
     }
 }
 
 
 .extendee {
     display: none;
-    padding: 0.35em;
-    margin: 15px 0 15px 0;
-    border: 3px solid;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: @border-thickness solid;
     .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
 
     &:target {

@@ -10,10 +10,10 @@
         padding-left: 0;
 
         li {
-            padding: 0.2em 0 0.4em;
+            padding: 0.5rem 0;
 
             a {
-                padding-right: 0.4em;
+                padding-right: 0.5rem;
             }
         }
     }
@@ -25,18 +25,14 @@
             display: table-cell;
         }
 
-        > div {
+        .input {
             display: table-cell;
-
-            > input {
-                text-align: right;
-                width: 100%;
-            }
+            border-bottom: @border-thickness solid @accentColor;
         }
 
         button[type='submit'] {
             display: table-cell;
-            margin-left: 30px;
+            margin-left: 1rem;
         }
     }
 }
