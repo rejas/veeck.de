@@ -184,8 +184,8 @@ document.addEventListener('DOMContentLoaded', function () {
     /**
      * Travel picture angle randomization
      */
-    $.each($('.travel-article figure.fig_popup'), function( index, value ) {
-        value.style.setProperty('--figure-angle-seed', (Math.random() * 12 - 6) + 'deg');
+    Array.prototype.forEach.call(document.getElementsByClassName('js-travel_figure'), function(figure) {
+        figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 
     /**
