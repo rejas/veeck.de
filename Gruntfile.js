@@ -195,9 +195,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= dir.org %>/img/backgrounds',
+                    cwd: '<%= dir.src %>/img',
                     src: '**/*.jpg',
-                    dest: '<%= dir.src %>/img/backgrounds'
+                    dest: '<%= dir.src %>/img'
                 }]
             },
             bg: {
@@ -207,9 +207,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= dir.src %>/img',
+                    cwd: '<%= dir.org %>/img/backgrounds',
                     src: '**/*.jpg',
-                    dest: '<%= dir.src %>/img'
+                    dest: '<%= dir.src %>/img/backgrounds'
                 }]
             }
         },
