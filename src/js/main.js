@@ -79,6 +79,7 @@ import Blazy            from 'blazy';
 import Konami           from 'konami-code.js';
 import objectFitImages  from 'object-fit-images';
 import ShareButton      from 'share-button/dist/share-button';
+import Siema            from 'siema';
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -180,6 +181,21 @@ document.addEventListener('DOMContentLoaded', function () {
         centerMode: false,
         focusOnSelect: true
     });
+
+    /*
+    new Siema({
+        selector: '.siema',
+        duration: 200,
+        easing: 'ease-out',
+        perPage: 1,
+        startIndex: 0,
+        draggable: true,
+        threshold: 20,
+        loop: false,
+        onInit: () => {},
+        onChange: () => {},
+    });
+    */
 
     /**
      * Travel picture angle randomization
