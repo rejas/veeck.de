@@ -138,7 +138,11 @@ module.exports = function(grunt) {
         jimp: {
             medium: {
                 options: {
-                    suffix: 'medium'
+                    suffix: 'medium',
+                    actions: {
+                        scaleToFit: [1920, 1920],
+                        quality: 60
+                    }
                 },
                 files: [{
                     expand: true,
@@ -151,8 +155,8 @@ module.exports = function(grunt) {
                 options: {
                     suffix: 'small',
                     actions: {
-                        scaleToFit: [420, 420],
-                        quality: 70
+                        scaleToFit: [448, 387],
+                        quality: 60
                     }
                 },
                 files: [{
@@ -166,7 +170,7 @@ module.exports = function(grunt) {
                 options: {
                     suffix: 'placeholder',
                     actions: {
-                        scaleToFit: [420, 420],
+                        scaleToFit: [448, 387],
                         blur: 40,
                         quality: 30
                     }
