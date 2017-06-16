@@ -9,7 +9,7 @@ const webpackconfig = {
     },
     output: {
         path: path.resolve(__dirname, '../dist/'),
-        filename: 'js/[name]-[hash].js'
+        filename: 'js/[name].js'
     },
     module: {
         rules: [
@@ -73,7 +73,7 @@ const webpackconfig = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: '/css/[name]-[hash].css'
+            filename: '/css/[name].css'
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
