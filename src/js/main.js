@@ -142,9 +142,9 @@ document.addEventListener('DOMContentLoaded', function () {
     new Blazy({
         selector: '.js-lazyload',
         src: 'data-original',
-        error: function(ele, msg) {
-            if (msg === 'missing' || msg === 'invalid') {
-                $(ele).attr('src', '');
+        error: function(element, message) {
+            if (message === 'missing' || message === 'invalid') {
+                element.setAttribute('src', '');
             }
         }
     });
@@ -192,6 +192,6 @@ document.addEventListener('DOMContentLoaded', function () {
      * Use konami code for css linting
      */
     new Konami(function() {
-        $('body').addClass('debug');
+        document.body.className += ' debug';
     });
 });
