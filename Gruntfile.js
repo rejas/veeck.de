@@ -188,20 +188,29 @@ module.exports = function(grunt) {
         },
 
         imagemin: {
-            jpg: {
+            all: {
                 options: {
-                    progressive: true
+                    progressive: true,
+                    use: [mozjpeg()]
                 },
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= dir.src %>/img',
-                        src: ['**/*.jpg'],
-                        dest: '<%= dir.src %>/img',
-                        ext: '.jpg',
-                        extDot: 'last'
-                    }
-                ]
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.org %>/img/backgrounds',
+                    src: '**/*.jpg',
+                    dest: '<%= dir.src %>/img/backgrounds'
+                }]
+            },
+            bg: {
+                options: {
+                    progressive: true,
+                    use: [mozjpeg()]
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= dir.src %>/img',
+                    src: '**/*.jpg',
+                    dest: '<%= dir.src %>/img'
+                }]
             }
         },
 
