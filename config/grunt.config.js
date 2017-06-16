@@ -16,9 +16,6 @@ const config = {
         user: "www.veeck.de",
         remotePath: "."
     },
-    imagemin: {
-        progressive: true
-    },
     htmlmin: {
         collapseWhitespace: true,
         removeComments: true
