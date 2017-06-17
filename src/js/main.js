@@ -1,4 +1,4 @@
-/* global outdatedBrowser, Modernizr */
+/* global Modernizr */
 'use strict';
 
 // Avoid `console` errors in browsers that lack a console.
@@ -41,14 +41,6 @@ function addLoadEvent(func) {
 }
 // Call plugin function after DOM ready
 addLoadEvent(function() {
-    if (typeof outdatedBrowser !== 'undefined') {
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#fefefe',
-            lowerThan: 'transform',
-            languagePath: ''
-        });
-    }
 
     window.cookieconsent.initialise({
         'palette': {
@@ -77,12 +69,18 @@ import * as Nav    from './modules/nav';
 import * as TNS    from 'tiny-slider/src/tiny-slider';
 
 import Blazy            from 'blazy';
+import browserUpdate    from 'browser-update';
 import Konami           from 'konami-code.js';
 import objectFitImages  from 'object-fit-images';
 import Smoothscroll     from 'smoothscroll-polyfill';
 import ShareButton      from 'share-button/dist/share-button';
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    /**
+     * Check browser version
+     */
+    browserUpdate();
 
     /**
      * ArticleIntroEffect
