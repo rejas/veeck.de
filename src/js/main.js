@@ -181,10 +181,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
      */
     TNS.tns({
-        container: document.querySelector('.slider'),
-        items: 3,
+        container: document.querySelector('.slider-for'),
+        navContainer: document.querySelector('.slider-nav'),
+        items: 1,
         slideBy: 'page',
-        autoplay: true
+        animateIn: 'jello',
+        animateOut: 'rollOut',
+        animateDelay: 100 * 3
     });
 
     /**
