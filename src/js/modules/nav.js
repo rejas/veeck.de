@@ -1,17 +1,17 @@
 import * as mqe from 'mediaquery-event/dist/mqe';
 
 function cssButton() {
-    const $trigger = $('.js-dl-trigger');
+    const trigger = document.querySelector('.js-dl-trigger');
 
-    $trigger.on('click', function() {
-        $trigger.toggleClass('is-active');
+    trigger.onclick = () => {
+        trigger.classList.toggle('is-active');
 
-        if ($trigger.hasClass('is-active')) {
+        if (trigger.classList.contains('is-active')) {
             $('body').off('click').children().on('click', function() {
-                $trigger.removeClass('is-active');
+                trigger.classList.remove('is-active');
             });
         }
-    });
+    };
 }
 
 export function init() {
