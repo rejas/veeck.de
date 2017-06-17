@@ -8,7 +8,6 @@
     "description": "my private homepage",
     "license": "MIT",
     "dependencies": {
-        "outdated-browser": "^1.1.3",
-        "ResponsiveMultiLevelMenu2": "^1.0.2"
+        "outdated-browser": "^1.1.3"
     }
 }

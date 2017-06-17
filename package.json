@@ -29,6 +29,7 @@
     "mediaquery-event": "^0.4.0",
     "normalize-opentype.css": "^0.2.4",
     "object-fit-images": "^3.2.3",
+    "responsivemultilevelmenu": "^1.0.3",
     "share-button": "^1.0.3",
     "tiny-slider": "^1.5.4"
   },
