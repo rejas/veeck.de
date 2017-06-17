@@ -184,10 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
         container: document.querySelector('.slider-for'),
         navContainer: document.querySelector('.slider-nav'),
         items: 1,
-        slideBy: 'page',
-        animateIn: 'jello',
-        animateOut: 'rollOut',
-        animateDelay: 100 * 3
+        slideBy: 'page'
     });
 
     /**
