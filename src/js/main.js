@@ -39,9 +39,9 @@ function addLoadEvent(func) {
         };
     }
 }
+
 // Call plugin function after DOM ready
 addLoadEvent(function() {
-
     window.cookieconsent.initialise({
         'palette': {
             'popup': {
