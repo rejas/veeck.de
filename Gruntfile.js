@@ -57,6 +57,7 @@ module.exports = function(grunt) {
                 dest: '<%= dir.dist %>/img/'
             },
             page: {
+                dot: true,
                 expand: true,
                 cwd: '<%= dir.src %>/page',
                 src: '**',
