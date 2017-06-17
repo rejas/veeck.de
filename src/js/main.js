@@ -67,7 +67,7 @@ import styles_webpack from '../css/main.less';
 
 import 'cookieconsent/src/cookieconsent';
 import 'imagelightbox/src/imagelightbox';
-import 'ResponsiveMultiLevelMenu2/js/jquery.dlmenu';
+import 'responsivemultilevelmenu/js/jquery.dlmenu';
 import 'slick-carousel/slick/slick';
 
 import * as Colors from './modules/colors';
