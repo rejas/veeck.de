@@ -1,13 +1,13 @@
 @import '~tiny-slider/dist/tiny-slider.css';
 
 .slider-element {
+    position: relative;
     margin: 1.5rem auto;
     width: 100%;
 
     .btn-slick-next,
     .btn-slick-prev {
         position: absolute;
-        .vertical-align();
         z-index: @z-index-4;
     }
 
@@ -42,7 +42,6 @@
 
         .slider-text {
             float: left;
-            color: white;
             padding: 1rem;
             width: 50%;
         }
@@ -56,5 +55,11 @@
             height: @btn-size-l;
             width: @btn-size-l;
         }
+    }
+
+    .slider-controls {
+        position: absolute;
+        .vertical-align();
+        width: 100%;
     }
 }
