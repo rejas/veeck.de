@@ -18,16 +18,18 @@ export function init() {
     const $myNav = $('nav').clone();
 
     document.addEventListener('mediaquery', function (event) {
+        const nav = document.querySelector('nav');
+
         if (!event.detail.active) {
             return;
         }
         if (event.detail.media === 'desktop') {
-            $('nav').remove();
+            nav.parentNode.removeChild(nav);
             $myNav.clone().prependTo('header').removeClass('mobile-nav').addClass('desktop-nav');
             return;
         }
         if (event.detail.media === 'mobile') {
-            $('nav').remove();
+            nav.parentNode.removeChild(nav);
             $myNav.clone().prependTo('header').addClass('mobile-nav').removeClass('desktop-nav').dlmenu();
             cssButton();
         }
