@@ -163,26 +163,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /**
      * Slider
-    $('.slider-for').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        prevArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-prev"></button>',
-        nextArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-next"></button>',
-        fade: true,
-        asNavFor: '.slider-nav'
-    });
-    $('.slider-nav').slick({
-        asNavFor: '.slider-for',
-        arrows: false,
-        dots: true,
-        centerMode: false,
-        focusOnSelect: true
-    });
      */
     TNS.tns({
         container: document.querySelector('.slider-for'),
         navContainer: document.querySelector('.slider-nav'),
+        controlsContainer: document.querySelector('.slider-controls'),
         items: 1,
         slideBy: 'page'
     });
