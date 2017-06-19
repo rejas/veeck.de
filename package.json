@@ -32,7 +32,8 @@
     "object-fit-images": "^3.2.3",
     "responsivemultilevelmenu": "^1.0.3",
     "share-button": "^1.0.3",
-    "tiny-slider": "^1.5.4"
+    "smoothscroll-polyfill": "^0.3.5",
+    "tiny-slider": "^1.5.5"
   },
   "devDependencies": {
     "assemble": "^0.24.3",
