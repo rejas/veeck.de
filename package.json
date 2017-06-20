@@ -24,7 +24,7 @@
     "classie": "^1.0.0",
     "cookieconsent": "^3.0.4",
     "hamburgers": "^0.8.1",
-    "imagelightbox": "^0.7.5",
+    "imagelightbox": "^0.7.6",
     "jquery": "^3.2.1",
     "konami-code.js": "https://github.com/rejas/konami-js.git",
     "mediaquery-event": "^0.4.0",
