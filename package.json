@@ -67,7 +67,7 @@
     "less-loader": "^4.0.4",
     "load-grunt-tasks": "^3.5.2",
     "postcss-loader": "^2.0.6",
-    "postcss-normalize": "^3.0.0",
+    "postcss-normalize": "^4.0.0",
     "postcss-object-fit-images": "^1.1.2",
     "postcss-sprites": "^4.2.1",
     "style-loader": "^0.18.2",
