@@ -65,7 +65,6 @@ import * as Colors from './modules/colors';
 import * as Input  from './modules/input';
 import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
-import * as TNS    from 'tiny-slider/src/tiny-slider';
 
 import Blazy            from 'blazy';
 import browserUpdate    from 'browser-update';
@@ -159,17 +158,6 @@ document.addEventListener('DOMContentLoaded', function () {
         lockBody:       true,
         navigation:     true,
         overlay:        true
-    });
-
-    /**
-     * Slider
-     */
-    TNS.tns({
-        container: document.querySelector('.slider-for'),
-        navContainer: document.querySelector('.slider-nav'),
-        controlsContainer: document.querySelector('.slider-controls'),
-        items: 1,
-        slideBy: 'page'
     });
 
     /**
