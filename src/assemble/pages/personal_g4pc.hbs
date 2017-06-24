@@ -20,7 +20,7 @@ last-modified: 2017-01-14
         </p>
 
         <div class="slider-element">
-            <div class="slider slider-for">
+            <div class="slider-for">
                 <div>
                     <p class="slider-text">I have seen modifications to G4 cases which just stuck everything into the case
                         without keeping the old layout. Those are of course not able to open the PC while running, which is the
@@ -53,7 +53,13 @@ last-modified: 2017-01-14
                          onmouseout="document.getElementById('g4_light').src='/img/g4pc/g4_light3.jpg'"/>
                 </div>
             </div>
-            <div class="slider slider-nav" data-slick='{"slidesToShow": 5}'>
+            <div class="slider-controls" aria-label="Carousel Navigation" tabindex="0">
+                <button type="button" class="btn btn--l btn--comic btn-slick btn-slick-prev" data-controls="prev"
+                        aria-controls="customize" tabindex="-1"></button>
+                <button type="button" class="btn btn--l btn--comic btn-slick btn-slick-next" data-controls="next"
+                        aria-controls="customize" tabindex="-1"></button>
+            </div>
+            <div class="slider-nav">
                 <div><img src="/img/g4pc/g4_opened_small.jpg"   class="btn btn--xl btn--comic img_carousel"/></div>
                 <div><img src="/img/g4pc/g4_ram_small.jpg"      class="btn btn--xl btn--comic img_carousel"/></div>
                 <div><img src="/img/g4pc/g4_psu_small.jpg"      class="btn btn--xl btn--comic img_carousel"/></div>
@@ -64,7 +70,9 @@ last-modified: 2017-01-14
 
         <p>Later the project was dissassembled and I moved on to a normal laptop. But in 2014 I came across a second
         g4 case I could use for spare parts. So I wanted to do it right this time and also get a nice paint job done.</p>
+    </section>
 
+    <section>
         <h2>Specs 2006 Version</h2>
 
         {{> figure-basic
@@ -108,5 +116,5 @@ last-modified: 2017-01-14
             <li><span>Monitor:</span> Samsung TV+Monitor T27A550</li>
             <li><span>OS:</span> Windows 10 (64bit)</li>
         </ul>
-        </section>
+    </section>
 </article>

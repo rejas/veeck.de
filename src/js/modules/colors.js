@@ -40,7 +40,7 @@ function changeColor (c) {
 
 export function init() {
     const supportsVariables = window.CSS && window.CSS.supports && window.CSS.supports('--primaryColor', 0),
-        newColor = document.getElementsByClassName('header')[0].getAttribute('data-color');
+        newColor = document.querySelector('header').getAttribute('data-color');
 
     if (newColor && supportsVariables) {
         changeColor(newColor);

@@ -23,19 +23,13 @@
         <script async src="https://www.google-analytics.com/analytics.js"></script>
     </head>
     <body>
-        <div id="outdated">
-            <h6>Your browser is out-of-date!</h6>
-            <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
-            <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-        </div>
-
-        <div id="container" class="intro-effect-side">
+        <div class="intro-effect-side js-intro-effect-side">
             {{> header }}
         </div>
 
         {{> body }}
 
-        <footer role="contentinfo">
+        <footer>
             <time datetime="{{last-modified}}">page last modified {{last-modified}}</time>
         </footer>
 

@@ -35,8 +35,7 @@ module.exports = function(grunt) {
                 mangle: true
             },
             target: {
-                src: ['<%= dir.src %>/js/vendor/modernizr.min.js',
-                    '<%= dir.src %>/bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js'],
+                src: ['<%= dir.src %>/js/vendor/modernizr.min.js'],
                 dest: '<%= dir.dist %>/js/vendor.min.js'
             }
         },
@@ -58,6 +57,7 @@ module.exports = function(grunt) {
                 dest: '<%= dir.dist %>/img/'
             },
             page: {
+                dot: true,
                 expand: true,
                 cwd: '<%= dir.src %>/page',
                 src: '**',

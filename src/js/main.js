@@ -1,4 +1,4 @@
-/* global outdatedBrowser, Modernizr */
+/* global Modernizr */
 'use strict';
 
 // Avoid `console` errors in browsers that lack a console.
@@ -39,17 +39,9 @@ function addLoadEvent(func) {
         };
     }
 }
+
 // Call plugin function after DOM ready
 addLoadEvent(function() {
-    if (typeof outdatedBrowser !== 'undefined') {
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#fefefe',
-            lowerThan: 'transform',
-            languagePath: ''
-        });
-    }
-
     window.cookieconsent.initialise({
         'palette': {
             'popup': {
@@ -67,20 +59,27 @@ import styles_webpack from '../css/main.less';
 
 import 'cookieconsent/src/cookieconsent';
 import 'imagelightbox/src/imagelightbox';
-import 'ResponsiveMultiLevelMenu2/js/jquery.dlmenu';
-import 'slick-carousel/slick/slick';
+import 'responsivemultilevelmenu/js/jquery.dlmenu';
 
 import * as Colors from './modules/colors';
 import * as Input  from './modules/input';
 import * as Intro  from './modules/intro';
 import * as Nav    from './modules/nav';
+import * as TNS    from 'tiny-slider/src/tiny-slider';
 
 import Blazy            from 'blazy';
+import browserUpdate    from 'browser-update';
 import Konami           from 'konami-code.js';
 import objectFitImages  from 'object-fit-images';
+import Smoothscroll     from 'smoothscroll-polyfill';
 import ShareButton      from 'share-button/dist/share-button';
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    /**
+     * Check browser version
+     */
+    browserUpdate();
 
     /**
      * ArticleIntroEffect
@@ -105,9 +104,10 @@ document.addEventListener('DOMContentLoaded', function () {
     /**
      * Back to top
      */
-    document.getElementsByClassName('js-to-top')[0].onclick = (event) => {
-        event.preventDefault();
-        $('html, body').animate({scrollTop: 0}, 800);
+    Smoothscroll.polyfill();
+
+    document.querySelector('.js-to-top').onclick = () => {
+        window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     };
 
     /**
@@ -142,9 +142,9 @@ document.addEventListener('DOMContentLoaded', function () {
     new Blazy({
         selector: '.js-lazyload',
         src: 'data-original',
-        error: function(ele, msg) {
-            if (msg === 'missing' || msg === 'invalid') {
-                $(ele).attr('src', '');
+        error: function(element, message) {
+            if (message === 'missing' || message === 'invalid') {
+                element.setAttribute('src', '');
             }
         }
     });
@@ -164,34 +164,25 @@ document.addEventListener('DOMContentLoaded', function () {
     /**
      * Slider
      */
-    $('.slider-for').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        prevArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-prev"></button>',
-        nextArrow: '<button type="button" class="btn btn--l btn--comic btn-slick btn-slick-next"></button>',
-        fade: true,
-        asNavFor: '.slider-nav'
-    });
-    $('.slider-nav').slick({
-        asNavFor: '.slider-for',
-        arrows: false,
-        dots: true,
-        centerMode: false,
-        focusOnSelect: true
+    TNS.tns({
+        container: document.querySelector('.slider-for'),
+        navContainer: document.querySelector('.slider-nav'),
+        controlsContainer: document.querySelector('.slider-controls'),
+        items: 1,
+        slideBy: 'page'
     });
 
     /**
      * Travel picture angle randomization
      */
-    $.each($('.travel-article .fig_popup'), function( index, value ) {
-        value.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
+    Array.prototype.forEach.call(document.getElementsByClassName('js-travel_figure'), function(figure) {
+        figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 
     /**
      * Use konami code for css linting
      */
     new Konami(function() {
-        $('body').addClass('debug');
+        document.body.className += ' debug';
     });
 });
