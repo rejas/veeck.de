@@ -238,10 +238,6 @@ ansi-escapes@^1.1.0, ansi-escapes@^1.1.1:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-1.4.0.tgz#d3a8a83b319aa67793662b13e761c7911422306e"
 
-ansi-escapes@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-2.0.0.tgz#5bae52be424878dd9783e8910e3fc2922e83c81b"
-
 ansi-gray@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/ansi-gray/-/ansi-gray-0.1.1.tgz#2962cf54ec9792c48510a3deb524436861ef7251"
@@ -2336,7 +2332,15 @@ concat-stream@1.5.0:
     readable-stream "~2.0.0"
     typedarray "~0.0.5"
 
-concat-stream@^1.4.1, concat-stream@^1.4.6, concat-stream@^1.4.7, concat-stream@^1.6.0, concat-stream@~1.6.0:
+concat-stream@^1.4.1, concat-stream@^1.4.6, concat-stream@^1.4.7, concat-stream@~1.5.1:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.5.2.tgz#708978624d856af41a5a741defdd261da752c266"
+  dependencies:
+    inherits "~2.0.1"
+    readable-stream "~2.0.0"
+    typedarray "~0.0.5"
+
+concat-stream@^1.6.0, concat-stream@~1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.6.0.tgz#0aac662fd52be78964d5532f694784e70110acf7"
   dependencies:
@@ -2349,14 +2353,6 @@ concat-stream@~1.0.0:
   resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.0.1.tgz#018b18bc1c7d073a2dc82aa48442341a2c4dd79f"
   dependencies:
     bops "0.0.6"
-
-concat-stream@~1.5.1:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.5.2.tgz#708978624d856af41a5a741defdd261da752c266"
-  dependencies:
-    inherits "~2.0.1"
-    readable-stream "~2.0.0"
-    typedarray "~0.0.5"
 
 configstore@^0.3.0:
   version "0.3.2"
@@ -3279,9 +3275,9 @@ eslint-scope@^3.7.1:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.0.0.tgz#7277c01437fdf41dccd168d5aa0e49b75ca1f260"
+eslint@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.1.0.tgz#bbb55a28220ee08b69da9554d45a6b2ebfd7d913"
   dependencies:
     babel-code-frame "^6.22.0"
     chalk "^1.1.3"
@@ -3305,6 +3301,7 @@ eslint@^4.0.0:
     json-stable-stringify "^1.0.1"
     levn "^0.3.0"
     lodash "^4.17.4"
+    minimatch "^3.0.2"
     mkdirp "^0.5.1"
     natural-compare "^1.4.0"
     optionator "^0.8.2"
@@ -3557,7 +3554,7 @@ extend@3, extend@^3.0.0, extend@~3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
 
-external-editor@^2.0.1, external-editor@^2.0.4:
+external-editor@^2.0.1:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/external-editor/-/external-editor-2.0.4.tgz#1ed9199da9cbfe2ef2f7a31b2fde8b0d12368972"
   dependencies:
@@ -4192,7 +4189,7 @@ glob@^5.0.3, glob@~5.0.0:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.2, glob@~7.1.1:
+glob@^7.0.0, glob@^7.0.3, glob@^7.1.2, glob@~7.1.1:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
   dependencies:
@@ -4203,14 +4200,7 @@ glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.2, glob@~7.1.1:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@~3.2.7, glob@~3.2.8, glob@~3.2.9:
-  version "3.2.11"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-3.2.11.tgz#4a973f635b9190f715d10987d5c00fd2815ebe3d"
-  dependencies:
-    inherits "2"
-    minimatch "0.3"
-
-glob@~7.0.0:
+glob@^7.0.5, glob@~7.0.0:
   version "7.0.6"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.0.6.tgz#211bafaf49e525b8cd93260d14ab136152b3f57a"
   dependencies:
@@ -4220,6 +4210,13 @@ glob@~7.0.0:
     minimatch "^3.0.2"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
+
+glob@~3.2.7, glob@~3.2.8, glob@~3.2.9:
+  version "3.2.11"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-3.2.11.tgz#4a973f635b9190f715d10987d5c00fd2815ebe3d"
+  dependencies:
+    inherits "2"
+    minimatch "0.3"
 
 global-modules@^0.2.3:
   version "0.2.3"
@@ -4429,9 +4426,9 @@ grunt-contrib-htmlmin@^2.4.0:
     html-minifier "~3.5.0"
     pretty-bytes "^4.0.2"
 
-grunt-contrib-imagemin@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/grunt-contrib-imagemin/-/grunt-contrib-imagemin-2.0.0.tgz#0fdc90c8e5b001a9daa3c7b5f092471543651167"
+grunt-contrib-imagemin@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/grunt-contrib-imagemin/-/grunt-contrib-imagemin-2.0.1.tgz#e91e490ad8187dd8e57b09ce2a7ac3d2d2ab7208"
   dependencies:
     chalk "^1.0.0"
     imagemin "^5.3.1"
@@ -5092,7 +5089,7 @@ inquirer2@^0.1.1:
     strip-color "^0.1.0"
     through2 "^2.0.0"
 
-inquirer@3.0.6:
+inquirer@3.0.6, inquirer@^3.0.6:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-3.0.6.tgz#e04aaa9d05b7a3cb9b0f407d04375f0447190347"
   dependencies:
@@ -5106,25 +5103,6 @@ inquirer@3.0.6:
     mute-stream "0.0.7"
     run-async "^2.2.0"
     rx "^4.1.0"
-    string-width "^2.0.0"
-    strip-ansi "^3.0.0"
-    through "^2.3.6"
-
-inquirer@^3.0.6:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-3.1.0.tgz#e05400d48b94937c2d3caa7038663ba9189aab01"
-  dependencies:
-    ansi-escapes "^2.0.0"
-    chalk "^1.0.0"
-    cli-cursor "^2.1.0"
-    cli-width "^2.0.0"
-    external-editor "^2.0.4"
-    figures "^2.0.0"
-    lodash "^4.3.0"
-    mute-stream "0.0.7"
-    run-async "^2.2.0"
-    rx-lite "^4.0.8"
-    rx-lite-aggregates "^4.0.8"
     string-width "^2.0.0"
     strip-ansi "^3.0.0"
     through "^2.3.6"
@@ -5631,7 +5609,14 @@ js-tokens@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
 
-js-yaml@^3.0.2, js-yaml@^3.1.0, js-yaml@^3.4.3, js-yaml@^3.8.1, js-yaml@^3.8.2, js-yaml@^3.8.4:
+js-yaml@^3.0.2, js-yaml@~3.5.2:
+  version "3.5.5"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.5.5.tgz#0377c38017cabc7322b0d1fbcd25a491641f2fbe"
+  dependencies:
+    argparse "^1.0.2"
+    esprima "^2.6.0"
+
+js-yaml@^3.1.0, js-yaml@^3.4.3, js-yaml@^3.8.1, js-yaml@^3.8.2, js-yaml@^3.8.4:
   version "3.8.4"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.8.4.tgz#520b4564f86573ba96662af85a8cafa7b4b5a6f6"
   dependencies:
@@ -5644,13 +5629,6 @@ js-yaml@~3.0.2:
   dependencies:
     argparse "~ 0.1.11"
     esprima "~ 1.0.2"
-
-js-yaml@~3.5.2:
-  version "3.5.5"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.5.5.tgz#0377c38017cabc7322b0d1fbcd25a491641f2fbe"
-  dependencies:
-    argparse "^1.0.2"
-    esprima "^2.6.0"
 
 js-yaml@~3.7.0:
   version "3.7.0"
@@ -8723,13 +8701,7 @@ run-async@^2.2.0:
   dependencies:
     is-promise "^2.1.0"
 
-rx-lite-aggregates@^4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/rx-lite-aggregates/-/rx-lite-aggregates-4.0.8.tgz#753b87a89a11c95467c4ac1626c4efc4e05c67be"
-  dependencies:
-    rx-lite "*"
-
-rx-lite@*, rx-lite@^4.0.7, rx-lite@^4.0.8:
+rx-lite@^4.0.7:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-4.0.8.tgz#0b1e11af8bc44836f04a6407e92da42467b79444"
 
