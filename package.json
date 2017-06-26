@@ -43,7 +43,7 @@
     "css-loader": "^0.28.4",
     "css-mqpacker": "^6.0.1",
     "cssnano": "^3.10.0",
-    "eslint": "^4.1.0",
+    "eslint": "^4.1.1",
     "eslint-loader": "^1.8.0",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
