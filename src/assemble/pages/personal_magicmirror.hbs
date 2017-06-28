@@ -11,36 +11,42 @@ last-modified: 2017-01-14
 <article class="content capped-article">
 
     <section>
-        <h2>Day 1 - Look what the cat dragged in from the street</h2>
-        <p>Found an old monitor from Acer (Model AL1716) in the streets for free. A backup monitor is always
-            welcome so I took him home with me.</p>
+        <div class="content-box">
+            <h3>Day 1 - Look what the cat dragged in from the street</h3>
+            <p>Found an old monitor from Acer (Model AL1716) in the streets for free. A backup monitor is always
+                welcome so I took him home with me.</p>
+        </div>
+        <div class="content-box">
+            <h3>Day 2 - Again?</h3>
+            <p>Girlfriends asks me in the morning when she is getting ready to work while I can stay in bed
+                for another hour what time it is and when the next tram will leave from the nearest station...</p>
+        </div>
+        <div class="content-box">
+            <h3>Day 3 - Is this groundhog day?</h3>
+            <p>Girlfriends asks me again in the morning what time it is and when the next tram will leave from the nearest
+                station. Twice this time because she is in such a hurry...</p>
+        </div>
+        <div class="content-box">
+            <h3>Day 100 - Enough is Enough!</h3>
+            <p>Girlfriends asks me like everyday in the morning several time what time it is and when the next tram will
+                leave from the nearest station...</p>
+            <p>I open my regular computer magazine the
+            <a href="https://www.heise.de/ct/ausgabe/2017-6-Raspberry-beschreibt-Spiegel-3636486.html">c't</a> and find an
+                article about on how you can build yourself a magic mirror that is both mirror and display. Powered by a
+                RaspberryPI you can show all kinds of information on it like the weather, a clock and even other modules
+                since it is open-source. Is there a module for displaying the local transportation system? Yes, there is
+                and there is still this old monitor somewhere around here so let's get started.</p>
+            <p>Neat, I still have a RaspberryPI Model 1 too so lets format the sd card, install the standard OS and follow
+                the instruction on the projects homepage.</p>
+            <p>Damn, the installation process won't finish, since the minimum version due to performance reasons is a Model
+                2. The MagicMirror-software is written in javascript and bundled via the Electron-app. While this makes it
+                easier for me to hack on it myself, it takes it toll on the processing power of the PI.</p>
+            <p>But that isn't a crisis but merely an opportunity to buy a brandnew Model 3. So a few days later I have
+            a package in the mailbox. Time to assemble...</p>
+        </div>
 
-        <h2>Day 2 - Again?</h2>
-        <p>Girlfriends asks me in the morning when she is getting ready to work while I can stay in bed
-            for another hour what time it is and when the next tram will leave from the nearest station...</p>
-
-        <h2>Day 3 - Is this groundhog day?</h2>
-        <p>Girlfriends asks me again in the morning what time it is and when the next tram will leave from the nearest
-            station. Twice this time because she is in such a hurry...</p>
-
-        <h2>Day 100 - Enough is Enough!</h2>
-        <p>Girlfriends asks me like everyday in the morning several time what time it is and when the next tram will
-            leave from the nearest station...</p>
-        <p>I open my regular computer magazine the
-        <a href="https://www.heise.de/ct/ausgabe/2017-6-Raspberry-beschreibt-Spiegel-3636486.html">c't</a> and find an
-            article about on how you can build yourself a magic mirror that is both mirror and display. Powered by a
-            RaspberryPI you can show all kinds of information on it like the weather, a clock and even other modules
-            since it is open-source. Is there a module for displaying the local transportation system? Yes, there is
-            and there is still this old monitor somewhere around here so let's get started.</p>
-        <p>Neat, I still have a RaspberryPI Model 1 too so lets format the sd card, install the standard OS and follow
-            the instruction on the projects homepage.</p>
-        <p>Damn, the installation process won't finish, since the minimum version due to performance reasons is a Model
-            2. The MagicMirror-software is written in javascript and bundled via the Electron-app. While this makes it
-            easier for me to hack on it myself, it takes it toll on the processing power of the PI.</p>
-        <p>But that isn't a crisis but merely an opportunity to buy a brandnew Model 3. So a few days later I have
-        a package in the mailbox. Time to assemble...</p>
-
-        <h2>Day 101 - A trip to the hardware store</h2>
+        <div class="content-box">
+        <h3>Day 101 - A trip to the hardware store</h3>
 
         {{> figure-popup
             class='fig_left landscape'
@@ -65,7 +71,11 @@ last-modified: 2017-01-14
             internet. While I wait for it to arrive, I already start to assemble the display into the frame.
         </p>
 
-        <h2>Day Y - Don't move!</h2>
+        </div>
+
+        <div class="content-box">
+
+        <h3>Day Y - Don't move!</h3>
         <p>Time to check how expensive this thing will be if I run it 24h nonstop for a year.... Lets see, the pi takes
             around 4 kw, the monitor 25, round it up to 30, multiply it with a lot of zeros to get the per year amount.
             Multiply by 0.28cents per kwh... 70 EUR??? Nope, too much, the monitor has to be put in standby if noone is
@@ -96,9 +106,10 @@ last-modified: 2017-01-14
             img='/img/projects/magicmirror/projMM_04_wall'
             caption='Painted and assembled 2k16 version'}}
 
+        </div>
 
-
-        <h2>Days to come: - Listen to me!</h2>
+        <div class="content-box">
+        <h3>Days to come: - Listen to me!</h3>
         <p>With the ps3 doing the motion detection, I now turn my eye to voice recognition. How cool would it be if I could
             tell my magicmirror to turn on the music? So, lets see if the ps3 microphone is also working outofthebox.
             Plug it in aaaand...</p>
@@ -116,5 +127,6 @@ last-modified: 2017-01-14
          <p>
 
          </p>
+        </div>
     </section>
 </article>
