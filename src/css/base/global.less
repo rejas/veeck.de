@@ -52,19 +52,24 @@ section {
     .clearfix();
     margin-bottom: 3rem;
 
-    h2 {
+    .h2 {
         border-bottom: @border-thickness solid @primaryTextColor;
         padding: 0 0.5rem 0.25rem;
         text-align: center;
         word-break: break-word;
     }
+
+    .h3 {
+        margin-top: 2rem;
+        text-transform: none;
+    }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
     font-family: @font-header, serif;
     font-weight: @font-weight-bold;
     text-transform: lowercase;
@@ -103,11 +108,11 @@ a:visited {
     cursor: pointer;
     .transform(all);
     background-color: transparent;
-}
 
-a:hover,
-a:focus {
-    .colorVar(background-color, --primaryColor, @primaryColor);
+    &:hover,
+    &:focus {
+        .colorVar(background-color, --primaryColor, @primaryColor);
+    }
 }
 
 code {
