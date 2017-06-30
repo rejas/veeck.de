@@ -8,9 +8,10 @@ img: proj_mm.jpg
 img-color: 113C9C
 last-modified: 2017-01-14
 ---
-<article class="content">
+<article class="content project-article">
 
     <section>
+        <h2 class="h2">the problem</h2>
         <h3>Day 1 - Look what the cat dragged in from the street</h3>
         <p>Found an old monitor from Acer (Model AL1716) in the streets for free. A backup monitor is always
             welcome so I took him home with me.</p>
@@ -22,22 +23,36 @@ last-modified: 2017-01-14
         <h3>Day 3 - Is this groundhog day?</h3>
         <p>Girlfriends asks me again in the morning what time it is and when the next tram will leave from the nearest
             station. Twice this time because she is in such a hurry...</p>
-        <h3>Day 100 - Enough is Enough!</h3>
+
+        <h3>Day 99 - Enough is Enough!</h3>
         <p>Girlfriends asks me like everyday in the morning several time what time it is and when the next tram will
             leave from the nearest station...</p>
+    </section>
+
+    <section>
+        <h2 class="h2">the solution</h2>
+        <h3>Day 100 - Enough is Enough!</h3>
         <p>I open my regular computer magazine the
         <a href="https://www.heise.de/ct/ausgabe/2017-6-Raspberry-beschreibt-Spiegel-3636486.html">c't</a> and find an
             article about on how you can build yourself a magic mirror that is both mirror and display. Powered by a
             RaspberryPI you can show all kinds of information on it like the weather, a clock and even other modules
             since it is open-source. Is there a module for displaying the local transportation system? Yes, there is
             and there is still this old monitor somewhere around here so let's get started.</p>
+
         <p>Neat, I still have a RaspberryPI Model 1 too so lets format the sd card, install the standard OS and follow
             the instruction on the projects homepage.</p>
-        <p>Damn, the installation process won't finish, since the minimum version due to performance reasons is a Model
-            2. The MagicMirror-software is written in javascript and bundled via the Electron-app. While this makes it
-            easier for me to hack on it myself, it takes it toll on the processing power of the PI.</p>
-        <p>But that isn't a crisis but merely an opportunity to buy a brandnew Model 3. So a few days later I have
-        a package in the mailbox. Time to assemble...</p>
+        <div class="content-box">
+            <p class="content__text">Damn, the installation process won't finish, since the minimum version due to
+                performance reasons is a Model 2. The MagicMirror-software is written in javascript and bundled via
+                the Electron-app. While this makes it easier for me to hack on it myself, it takes it toll on the
+                processing power of the PI.<br>
+                But that isn't a crisis but merely an opportunity to buy a brandnew Model 3. So a few days later I have
+                a package in the mailbox and the installation process works flawlessly. In the meantime I started to
+                assemble...</p>
+            {{> figure-popup
+                img='/img/projects/magicmirror/projMM_03_install'
+                caption='Installing the OS'}}
+        </div>
 
         <h3>Day 101 - A trip to the hardware store</h3>
         <div class="content-box">
@@ -68,10 +83,6 @@ last-modified: 2017-01-14
                 around 4 kw, the monitor 25, round it up to 30, multiply it with a lot of zeros to get the per year amount.
                 Multiply by 0.28cents per kwh... 70 EUR??? Nope, too much, the monitor has to be put in standby if noone is
                 near...</p>
-            {{> figure-popup
-                class='fig_right landscape'
-                img='/img/projects/magicmirror/projMM_03_install'
-                caption='Installing the OS'}}
         </div>
 
         <p>Good thing there is a module for that, the <a href="https://github.com/alexyak/motiondetector">motiondetector</a>.
@@ -90,10 +101,6 @@ last-modified: 2017-01-14
             box with this software? Wait, what... the ps3 move camera is working with the pi too and can be plugged just into
             the usb ports? Good thing I have one of these lying around too, this sounds way to good to be true (and I didnt
             play those ps3 move games anyway :-)</p>
-            {{> figure-popup
-                class='fig_right portrait'
-                img='/img/projects/magicmirror/projMM_04_wall'
-                caption='Painted and assembled 2k16 version'}}
         </div>
 
         <h3>Days to come: - Listen to me!</h3>
@@ -111,8 +118,12 @@ last-modified: 2017-01-14
             <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=38&t=15851#p180474">NielsMayer</a> has some good
             tips on how to get your mic configured and also wrote this command:</p>
             <code>arecord -vv /dev/null -r 16000 -f S16_LE -c 4 -D iec958:CARD=CameraB409241,DEV=0 /dev/null &lt; /dev/null</code>
-         <p>
+        <p>
 
-         </p>
+             {{> figure-popup
+                 class='fig_right portrait'
+                 img='/img/projects/magicmirror/projMM_04_wall'
+                 caption='Painted and assembled 2k16 version'}}
+        </p>
     </section>
 </article>
