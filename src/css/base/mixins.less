@@ -87,13 +87,26 @@
     }
 }
 
-/**
- * other mixins
- */
-
 .colorVar (@property, @cssvar, @color) {
     @{property}: @color;
     @{property}: var(@cssvar);
+}
+
+/**
+ * Fluid type mixin from https://codepen.io/MadeByMike/pen/RWJyML
+ * Based on http://www.adrenalinmedia.com.au/blog/january-2016/this-changes-everything-css-%E2%80%98fluid-properties%E2%80%99
+ * and https://medium.com/@jakobud/css-polyfluidsizing-using-calc-vw-breakpoints-and-linear-equations-8e15505d21ab
+ */
+.fluid-type(@property, @min-vw, @max-vw, @min-size, @max-size) {
+    @{property}: @min-size;
+
+    @media screen and (min-width: @min-vw) {
+        @{property}: calc( @min-size ~" + " unit(@max-size - @min-size) ~" * ((100vw - " @min-vw ~") /" unit(@max-vw - @min-vw) ~")" );
+    }
+
+    @media screen and (min-width: @max-vw) {
+        @{property}: @max-size;
+    }
 }
 
 .font-face (@family, @file-base, @weight: normal, @style: normal) {
