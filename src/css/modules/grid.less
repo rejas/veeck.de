@@ -1,0 +1,26 @@
+@gutter-width: 12px;
+@grid-columns: 12;
+
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.calc(@prop; @val) {
+    @{prop}: calc(~'@{val}' - @gutter-width);
+}
+
+.generate-columns(@n, @s, @i: 1) when (@i =< @n) {
+    .grid-column-@{s}-@{i} {
+        .calc(width; @i * 100% / @n);
+    }
+    .generate-columns(@n, @s, (@i + 1));
+}
+
+.generate-columns(@grid-columns, xs);
+.generate-columns(@grid-columns, md);
+.generate-columns(@grid-columns, lg);
