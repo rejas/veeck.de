@@ -1180,9 +1180,9 @@ babel-plugin-transform-strict-mode@^6.24.1:
     babel-runtime "^6.22.0"
     babel-types "^6.24.1"
 
-babel-preset-env@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.5.2.tgz#cd4ae90a6e94b709f97374b33e5f8b983556adef"
+babel-preset-env@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.6.0.tgz#2de1c782a780a0a5d605d199c957596da43c44e4"
   dependencies:
     babel-plugin-check-es2015-constants "^6.22.0"
     babel-plugin-syntax-trailing-function-commas "^6.22.0"
@@ -6144,9 +6144,9 @@ klaw@^1.0.0:
   optionalDependencies:
     graceful-fs "^4.1.9"
 
-"konami-code.js@https://github.com/rejas/konami-js.git":
+"konami-code.js@git+https://github.com/rejas/konami-js.git":
   version "1.4.7"
-  resolved "https://github.com/rejas/konami-js.git#72aa22ed1c553e3a8c4b889352a76377834e5de0"
+  resolved "git+https://github.com/rejas/konami-js.git#72aa22ed1c553e3a8c4b889352a76377834e5de0"
 
 latest-version@^3.0.0:
   version "3.1.0"
