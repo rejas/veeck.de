@@ -1,3 +1,12 @@
+/*
+ * https://stackoverflow.com/a/14676665/2244646
+ *
+ * NOTE: The @import line of code should be the very first line in your CSS file.
+ */
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=CoreCircus');
+
 //
 
 @import (less) '~normalize-opentype.css/normalize-opentype.css';
@@ -12,19 +21,21 @@
 
 //
 
-@import 'modules/lint';
+@import 'base/lint';
 
 @import 'base/colors';
+
+@import 'base/fonts';
 
 @import 'base/variables';
 
 @import 'base/mixins';
 
-@import 'base/fonts';
-
 @import 'base/icons';
 
 @import 'base/global';
+
+//
 
 @import 'modules/grid';
 
@@ -47,6 +58,8 @@
 @import 'modules/figures';
 
 @import 'modules/header_effect';
+
+//
 
 @import 'pages/links';
 
