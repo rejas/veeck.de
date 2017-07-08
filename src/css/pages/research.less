@@ -30,22 +30,32 @@
 
 .project-article {
 
-}
+    .content__box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 1rem;
 
-.content__box:extend(.grid--row) {
-    margin: 0 0 1rem;
+        @media @tablet, @desktop {
+            flex-wrap: nowrap;
+        }
 
-    &:nth-child(odd) {
-        flex-direction: row-reverse;
+        &:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+    }
+
+    .content__image {
+        margin: 0 auto;
+    }
+
+    .content__text {
+
+        @media @tablet, @desktop {
+            padding: 0 0.5rem;
+        }
     }
 }
-
-.content__image:extend(.col--xs-12, .col--md-6, .col--lg-4) {
-}
-
-.content__text:extend(.col--xs-12, .col--md-6, .col--lg-8) {
-}
-
 
 .radio_article {
 
