@@ -23,7 +23,6 @@
     "browser-update": "^2.1.4",
     "classie": "^1.0.0",
     "cookieconsent": "^3.0.4",
-    "fluidable": "git+https://github.com/andri/fluidable.git",
     "hamburgers": "^0.8.1",
     "imagelightbox": "^0.7.6",
     "jquery": "^3.2.1",

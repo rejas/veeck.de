@@ -27,23 +27,25 @@
     }
 }
 
+
 .project-article {
 
 }
 
-.content__box:extend(.container) {
-    margin-bottom: 1rem;
+.content__box:extend(.grid--row) {
+    margin: 0 0 1rem;
 
     &:nth-child(odd) {
         flex-direction: row-reverse;
     }
 }
 
-.content__image:extend(.col-mb-12, .col-6, .col-dt-4) {
+.content__image:extend(.col--xs-12, .col--md-6, .col--lg-4) {
 }
 
-.content__text:extend(.col-mb-12, .col-6, .col-dt-8) {
+.content__text:extend(.col--xs-12, .col--md-6, .col--lg-8) {
 }
+
 
 .radio_article {
 
