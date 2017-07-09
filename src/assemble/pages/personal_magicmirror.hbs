@@ -67,31 +67,50 @@ last-modified: 2017-01-14
             <img class="content__image" src="/img/projects/magicmirror/projMM_01_fitting.small.jpg"/>
         </div>
         <div class="content__box">
-            <p class="content__text">A quick trip to the local hardware store yields a nearly perfectly fitting frame. The sheet is ordered on the
-                internet. While I wait for it to arrive, I already start to assemble the display into the frame.
+            <p class="content__text">A quick trip to the local hardware store yields a nearly perfectly fitting frame.
+                The sheet is ordered on the internet. While I wait for it to arrive, I already start to assemble the
+                display into the frame.
             </p>
             <img class="content__image" src="/img/projects/magicmirror/projMM_02_assembled.small.jpg"/>
         </div>
 
-        <h3>Day Y - Don't move!</h3>
+        <h3>Day 102 - Do it yourself</h3>
+        <p>The semi-transparent sheet arrives but damn, attaching it to the glas is mighty difficult and doesn't
+            yield the best results if you are living together with cats :-) Put it on my list of "Things to later
+            improve": Buy something finished from the shop. Like the paintwork of my <a href="personal_g4pc.html">g4pc</a>
+            a craftsman can do it a thousand times better in his shop than me in my home.
+        </p>
+
+        <h3>Day 103 - Don't move!</h3>
         <p>Time to check how expensive this thing will be if I run it 24h nonstop for a year.... Lets see, the pi takes
-            around 4 kw, the monitor 25, round it up to 30, multiply it with a lot of zeros to get the per year amount.
+            around 4W, the monitor 25W, round it up to 30, multiply it with a lot of zeros to get the per year amount.
             Multiply by 0.28cents per kwh... 70 EUR??? Nope, too much, the monitor has to be put in standby if noone is
             near...</p>
         <p>Good thing there is a module for that, the <a href="https://github.com/alexyak/motiondetector">motiondetector</a>.
-            The documentation is non-existing but with a little guess work and looking at the code I came up with this
-            config:</p>
+            The documentation is non-existing but the biggest problem: What camera should I use? Should I buy one
+            especially for the pi and which one is working out of the box with this software? Let's google for it...
+            Wait, what... the ps3 move camera is working with the pi too and can be plugged just into
+            the usb ports? Good thing I have one of these lying around too, this sounds way to good to be true (and I didnt
+            play those ps3 move games anyway :-)</p>
+        <p>Aaaaand it works right out of the box! Well, if you are not using an old linux kernel where support for it
+            was temporarily broken. But with the latest OS and drivers it's not a problem. As for the motiondetector
+            module I used this config:</p>
         <pre>config: {
             captureIntervalTime: 1000,
             scoreThreshold: 100,
             timeout: 120000
         }</pre>
-        <p>But, what camera do I use? Should I buy one especially for the pi and which one is working out of the
-        box with this software? Wait, what... the ps3 move camera is working with the pi too and can be plugged just into
-        the usb ports? Good thing I have one of these lying around too, this sounds way to good to be true (and I didnt
-        play those ps3 move games anyway :-)</p>
+        <p>So now the monitor gets suspended if no motion is detected for a minute. That puts the energy consumption
+        down to less than 1W for the display, leaving a total at 5W. Now the costs of running the mirror are at a
+        reasonable level.</p>
 
-        <h3>Days to come: - Listen to me!</h3>
+        <h3>Day 104 - Hanging around</h3>
+        <div class="content__box">
+            <p class="content__text">So this is how it currently loks like:</p>
+            <img class="content__image" src="/img/projects/magicmirror/projMM_04_wall.small.jpg"/>
+        </div>
+
+        <h3>Days to come - Listen to me!</h3>
         <p>With the ps3 doing the motion detection, I now turn my eye to voice recognition. How cool would it be if I could
             tell my magicmirror to turn on the music? So, lets see if the ps3 microphone is also working outofthebox.
             Plug it in aaaand...</p>
@@ -134,8 +153,5 @@ last-modified: 2017-01-14
         </pre>
         <p>With this out of the way the next step is to install some modules for the mirror to read and process the
             voice commands...</p>
-        <div class="content__box">
-            <img class="content__image" src="/img/projects/magicmirror/projMM_04_wall.small.jpg"/>
-        </div>
     </section>
 </article>
