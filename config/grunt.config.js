@@ -18,6 +18,7 @@ const config = {
     },
     htmlmin: {
         collapseWhitespace: true,
+        preserveLineBreaks: true,
         removeComments: true
     },
     modernizr: [
