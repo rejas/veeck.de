@@ -5,8 +5,8 @@ lang: en
 lead: mirror mirror on the wall
 when: 2017
 img: proj_mm.jpg
-img-color: 113C9C
-last-modified: 2017-01-14
+img-color: A309BB
+last-modified: 2017-07-09
 ---
 <article class="content">
 
@@ -39,7 +39,7 @@ last-modified: 2017-01-14
             since it is open-source. Is there a module for displaying the local transportation system? Yes, there is
             and there is still this old monitor somewhere around here so let's get started.</p>
         <p>Neat, I still have a RaspberryPI Model 1 too so lets format the sd card, install the standard OS and follow
-            the instruction on the projects homepage.</p>
+            the instruction on the <a href="https://magicmirror.builders/">projects homepage.</a></p>
 
         <div class="content__box">
             <p class="content__text">Damn, the installation process won't finish, since the minimum version due to
@@ -93,8 +93,10 @@ last-modified: 2017-01-14
             the usb ports? Good thing I have one of these lying around too, this sounds way to good to be true (and I didnt
             play those ps3 move games anyway :-)</p>
         <p>Aaaaand it works right out of the box! Well, if you are not using an old linux kernel where support for it
-            was temporarily broken. But with the latest OS and drivers it's not a problem. As for the motiondetector
-            module I used this config:</p>
+            was temporarily broken. But with the latest OS and drivers it's not a problem.</p>
+        <p>As for the motiondetector, since it is open source, not very well documented and I had the urge to add a
+            threshold to the detection, I forked it and made my <a href="https://github.com/rejas/MMM-MotionDetector">own
+            module</a> using this config:</p>
         <pre>config: {
             captureIntervalTime: 1000,
             scoreThreshold: 100,
@@ -151,7 +153,8 @@ last-modified: 2017-01-14
             hw_ptr       : 0
             #+                                                 | 01%
         </pre>
-        <p>With this out of the way the next step is to install some modules for the mirror to read and process the
-            voice commands...</p>
+        <p>See that 01% at the end? Yeah, background noise that gets detected! Awesome! With this out of the way the
+            next step is to install some modules for the mirror to read and process the voice commands...</p>
+        <p>To be continued...</p>
     </section>
 </article>
