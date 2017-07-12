@@ -45,7 +45,7 @@
     "cssnano": "^3.10.0",
     "eslint": "^4.2.0",
     "eslint-loader": "^1.9.0",
-    "extract-text-webpack-plugin": "^2.1.2",
+    "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "grunt": "^1.0.1",
     "grunt-assemble": "^0.6.3",
@@ -61,10 +61,10 @@
     "grunt-lesshint": "^1.5.1",
     "grunt-modernizr": "^1.0.2",
     "grunt-release-it": "^1.0.1",
-    "grunt-webpack": "^3.0.0",
+    "grunt-webpack": "^3.0.2",
     "imagemin-mozjpeg": "6.0.0",
     "less": "^2.7.2",
-    "less-loader": "^4.0.4",
+    "less-loader": "^4.0.5",
     "load-grunt-tasks": "^3.5.2",
     "postcss-loader": "^2.0.6",
     "postcss-normalize": "^4.0.0",
@@ -73,6 +73,6 @@
     "style-loader": "^0.18.2",
     "time-grunt": "^1.4.0",
     "url-loader": "^0.5.9",
-    "webpack": "^3.1.0"
+    "webpack": "^3.2.0"
   }
 }
