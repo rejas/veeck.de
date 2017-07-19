@@ -4,7 +4,8 @@
  * CONFIGS
  */
 
-import config       from    './config/grunt.config.js';
+import config           from    './config/grunt.config.js';
+import webpackConfig    from    './config/webpack.config.js';
 
 /**
  * GULP PLUGINS
@@ -13,6 +14,14 @@ import config       from    './config/grunt.config.js';
 import gulp         from    'gulp';
 import gplugins     from    'gulp-load-plugins';
 import assemble     from    'assemble';
+
+/**
+ * OTHER PLUGINS
+ */
+
+import del          from    'del';
+import runSequence  from    'run-sequence';
+import webpack      from    'webpack-stream';
 
 /**
  * CONSTANTS
@@ -35,7 +44,13 @@ gulp.task('clean', (cb) => {
  * ASSEMBLE
  */
 
-gulp.task('load', function(cb) {
+gulp.task('webpack', () => {
+    return gulp.src('./src/js/main.js')
+        .pipe(webpack( webpackConfig, require('webpack')))
+        .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('load', (cb) => {
     app.partials(`${dirs.assemble}/partials/**/*.hbs`);
     app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
@@ -49,10 +64,11 @@ gulp.task('load', function(cb) {
         }
         next();
     } );
+
     cb();
 });
 
-gulp.task('assemble', ['load'], function() {
+gulp.task('assemble', ['load'], () => {
 
     app.helper('md', require('helper-md'));
 
@@ -69,5 +85,4 @@ gulp.task('assemble', ['load'], function() {
 
 gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
-gulp.task('default',    ['assemble']);
-
+gulp.task('default',    (cb) => { runSequence('clean', 'webpack', 'assemble', cb) });

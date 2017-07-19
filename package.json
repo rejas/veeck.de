@@ -31,9 +31,10 @@
     "normalize-opentype.css": "^0.2.4",
     "object-fit-images": "^3.2.3",
     "responsivemultilevelmenu": "^1.0.3",
+    "run-sequence": "^2.0.0",
     "share-button": "^1.0.3",
     "smoothscroll-polyfill": "^0.3.5",
-    "tinyreset": "^1.0.1"
+    "webpack-stream": "^3.2.0"
   },
   "devDependencies": {
     "assemble": "^0.24.3",
