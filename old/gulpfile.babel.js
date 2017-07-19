@@ -308,31 +308,3 @@ gulp.task('default',    (cb) => { runSequence('clean', 'prepare', 'html', cb) })
 gulp.task('deploy',     ['upload']);
 
 gulp.task('prepare',    ['prepare:sprites', 'prepare:images', 'prepare:sitemap']);
-
-
-let extname     = require('gulp-extname'),
-    assemble    = require('assemble'),
-    app         = assemble();
-
-gulp.task('load', ['clean'], function(cb) {
-    //
-    //app.engine('hbs', require('engine-handlebars'));
-
-    // block helper
-    //app.helper('markdown', require('helper-markdown'));
-
-    // "include" helper
-    app.helper('md', require('helper-md'));
-
-    app.partials('src/assemble/partials/*.hbs');
-    app.layouts('src/assemble/layouts/*.hbs');
-    app.pages('src/assemble/pages/*.hbs');
-    cb();
-});
-
-gulp.task('assemble', ['load'], function() {
-    return app.toStream('pages')
-        .pipe(app.renderFile({ layout: 'default.hbs' }))
-        .pipe(extname())
-        .pipe(app.dest('dist'));
-});
