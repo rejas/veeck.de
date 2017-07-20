@@ -12,65 +12,6 @@ module.exports = function(grunt) {
 
         dir: config.directories,
 
-        assemble: {
-            pages: {
-                options: {
-                    flatten: true,
-                    layout: '<%= dir.assemble %>/layouts/default.hbs',
-                    data: '<%= dir.assemble %>/data/*.{json,yml}',
-                    partials: '<%= dir.assemble %>/partials/*.hbs',
-                    helpers: '<%= dir.assemble %>/helpers/*.js'
-                },
-                files: {
-                    '<%= dir.tmp %>/': ['<%= dir.assemble %>/pages/*.hbs']
-                }
-            }
-        },
-
-        clean: ['<%= dir.dist %>/**/*'],
-
-        uglify: {
-            options: {
-                compress: true,
-                mangle: true
-            },
-            target: {
-                src: ['<%= dir.src %>/js/vendor/modernizr.min.js'],
-                dest: '<%= dir.dist %>/js/vendor.min.js'
-            }
-        },
-
-        connect: {
-            options: config.connect,
-            livereload: {
-                options: {
-                    base: '<%= dir.dist %>'
-                }
-            }
-        },
-
-        copy: {
-            img: {
-                expand: true,
-                cwd: '<%= dir.src %>/img/',
-                src: '**',
-                dest: '<%= dir.dist %>/img/'
-            },
-            page: {
-                dot: true,
-                expand: true,
-                cwd: '<%= dir.src %>/page',
-                src: '**',
-                dest: '<%= dir.dist %>/'
-            },
-            web: {
-                expand: true,
-                cwd: '<%= dir.src %>/webcomponent',
-                src: '**',
-                dest: '<%= dir.dist %>/webcomponent/'
-            }
-        },
-
         htmlmin: {
             dist: {
                 options: config.htmlmin,
