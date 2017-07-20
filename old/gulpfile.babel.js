@@ -52,36 +52,6 @@ const   dirs        = config.directories,
  * SUB TASKS
  */
 
-// Clear the destination folder
-gulp.task('clean', (cb) => {
-    del([dirs.dist]).then(function () { cb(); });
-});
-
-// Browserify task
-gulp.task('browserify', () => {
-    browserify({ entries: [`${dirs.src}/js/main.js`] })
-        .bundle()
-        .pipe(source('main.bundled.js'))
-        .pipe(buffer())
-        .pipe(plugins.uglify())
-        .pipe(plugins.rev())
-        .pipe(gulp.dest(`${dirs.dist}/js`))
-        .pipe(plugins.rev.manifest({
-            base: 'dist/',
-            merge: true
-        }))
-        .pipe(gulp.dest(`${dirs.dist}`));
-});
-
-//
-gulp.task('vendorscripts', () => {
-    // Minify and copy all vendor scripts
-    gulp.src([`${dirs.src}/js/vendor/**/*.js`,
-              `${dirs.src}/components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js`])
-        .pipe(plugins.uglify())
-        .pipe(gulp.dest(`${dirs.dist}/js/vendor`));
-});
-
 // Copy all application files except *.less and .js into the `dist` folder
 gulp.task('files', () => {
     gulp.src([`${dirs.src}/**/*`, `!${dirs.src}/*.html`, `!${dirs.src}/js/**/*.js`, `!${dirs.src}/css/**/*.less`,
@@ -89,52 +59,9 @@ gulp.task('files', () => {
         .pipe(gulp.dest(dirs.dist));
 });
 
-// Compile LESS files and postcss them
-gulp.task('css', () => {
-    gulp.src(`${dirs.src}/css/main.less`)
-        .pipe(plugins.sourcemaps.init())
-        .pipe(plugins.less())
-        .pipe(plugins.postcss(processors))
-        .pipe(plugins.sourcemaps.write('.'))
-        .pipe(plugins.rev())
-        .pipe(gulp.dest(`${dirs.dist}/css`))
-        .pipe(plugins.rev.manifest({
-            base: 'dist/',
-            merge: true
-        }))
-        .pipe(gulp.dest(`${dirs.dist}`));
-});
-
-//
 gulp.task('images', () => {
     gulp.src(`${dirs.src}/img/**/*.jpg`)
         .pipe(gulp.dest(`${dirs.dist}/img`));
-});
-
-/**
- * CHECK TASKS
- */
-
-// Detect errors and potential problems in your html code
-gulp.task('check:html', () => {
-    gulp.src([`${dirs.src}/*.html`])
-        .pipe(plugins.htmlhint())
-        .pipe(plugins.htmlhint.reporter());
-});
-
-// Detect errors and potential problems in your JavaScript code (except vendor scripts)
-// You can enable or disable default eslint options in the .eslintrc file
-gulp.task('check:js', () => {
-    gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
-        .pipe(plugins.eslint())
-        .pipe(plugins.eslint.format(eslintformat))
-});
-
-// Detect errors and potential problems in your css code
-gulp.task('check:less', () => {
-    gulp.src([`${dirs.src}/css/**/*.less`, `!${dirs.src}/css/main.less`, `!${dirs.src}/css/libs`])
-        .pipe(plugins.lesshint())
-        .pipe(plugins.lesshint.reporter())
 });
 
 /**
@@ -191,71 +118,6 @@ gulp.task('html', ['images', 'files', 'vendorscripts', 'browserify', 'css'], () 
         .pipe(gulp.dest(dirs.dist));
 });
 
-/**
- * Deploy
- */
-
-gulp.task('upload', () => {
-    gulp.src('.')
-        .pipe(plugins.prompt.prompt({
-            type: 'password',
-            name: 'pw',
-            message: 'enter ftp password'
-        }, function(result) {
-            const conn = ftp.create({
-                host:       config.ftp.host,
-                user:       config.ftp.user,
-                password:   result.pw,
-                log:        gutil.log
-            });
-
-            gulp.src([`${dirs.dist}/**/*`,
-                `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/components`], {
-                    base: 'dist', buffer: false })
-                .pipe(conn.newer('/')) // only upload newer files
-                .pipe(conn.dest('/'));
-        }));
-});
-
-gulp.task('upload:images', () => {
-    gulp.src('.')
-        .pipe(plugins.prompt.prompt({
-            type: 'password',
-            name: 'pw',
-            message: 'enter ftp password'
-        }, (result) => {
-            const conn = ftp.create({
-                host:       config.ftp.host,
-                user:       config.ftp.user,
-                password:   result.pw,
-                log:        gutil.log
-            });
-
-            gulp.src([`${dirs.dist}/img/**/*`], { base: 'dist', buffer: false } )
-                .pipe(conn.newer('/')) // only upload newer files
-                .pipe(conn.dest('/'));
-        }));
-});
-
-gulp.task('upload:files', () => {
-    gulp.src('.')
-        .pipe(plugins.prompt.prompt({
-            type: 'password',
-            name: 'pw',
-            message: 'enter ftp password'
-        }, (result) => {
-            const conn = ftp.create({
-                host:       config.ftp.host,
-                user:       config.ftp.user,
-                password:   result.pw,
-                log:        gutil.log
-            });
-
-            gulp.src([`${dirs.dist}/files/**/*`], { base: 'dist', buffer: false } )
-                .pipe(conn.newer('/')) // only upload newer files
-                .pipe(conn.dest('/'));
-        }));
-});
 
 /**
  * PREPARE TASKS
@@ -299,12 +161,9 @@ gulp.task('prepare:sitemap', ['html'], () => {
  * MAIN TASKS
  */
 
-gulp.task('check',      ['check:html', 'check:js', 'check:less']);
-
 gulp.task('dev',        ['serve']);
 
 gulp.task('default',    (cb) => { runSequence('clean', 'prepare', 'html', cb) });
 
-gulp.task('deploy',     ['upload']);
 
 gulp.task('prepare',    ['prepare:sprites', 'prepare:images', 'prepare:sitemap']);

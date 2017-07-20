@@ -12,6 +12,7 @@ import webpackConfig    from    './config/webpack.config.js';
  */
 
 import gulp         from    'gulp';
+import gutil        from    'gulp-util';
 import gplugins     from    'gulp-load-plugins';
 import assemble     from    'assemble';
 
@@ -21,6 +22,7 @@ import assemble     from    'assemble';
 
 import del          from    'del';
 import eslintformat from    'eslint-friendly-formatter';
+import ftp          from    'vinyl-ftp';
 import runSequence  from    'run-sequence';
 import webpack      from    'webpack-stream';
 
@@ -77,6 +79,72 @@ gulp.task('check:less', () => {
 });
 
 /**
+ * Deploy
+ */
+
+gulp.task('upload', () => {
+    gulp.src('.')
+        .pipe(plugins.prompt.prompt({
+            type: 'password',
+            name: 'pw',
+            message: 'enter ftp password'
+        }, function(result) {
+            const conn = ftp.create({
+                host:       config.ftp.host,
+                user:       config.ftp.user,
+                password:   result.pw,
+                log:        gutil.log
+            });
+
+            gulp.src([`${dirs.dist}/**/*`,
+                `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/components`], {
+                base: 'dist', buffer: false })
+                .pipe(conn.newer('/')) // only upload newer files
+                .pipe(conn.dest('/'));
+        }));
+});
+
+gulp.task('upload:images', () => {
+    gulp.src('.')
+        .pipe(plugins.prompt.prompt({
+            type: 'password',
+            name: 'pw',
+            message: 'enter ftp password'
+        }, (result) => {
+            const conn = ftp.create({
+                host:       config.ftp.host,
+                user:       config.ftp.user,
+                password:   result.pw,
+                log:        gutil.log
+            });
+
+            gulp.src([`${dirs.dist}/img/**/*`], { base: 'dist', buffer: false } )
+                .pipe(conn.newer('/')) // only upload newer files
+                .pipe(conn.dest('/'));
+        }));
+});
+
+gulp.task('upload:files', () => {
+    gulp.src('.')
+        .pipe(plugins.prompt.prompt({
+            type: 'password',
+            name: 'pw',
+            message: 'enter ftp password'
+        }, (result) => {
+            const conn = ftp.create({
+                host:       config.ftp.host,
+                user:       config.ftp.user,
+                password:   result.pw,
+                log:        gutil.log
+            });
+
+            gulp.src([`${dirs.dist}/files/**/*`], { base: 'dist', buffer: false } )
+                .pipe(conn.newer('/')) // only upload newer files
+                .pipe(conn.dest('/'));
+        }));
+});
+
+/**
  * ASSEMBLE
  */
 
@@ -121,3 +189,5 @@ gulp.task('assemble', ['load', 'vendorscripts'], () => {
 gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
 gulp.task('default',    (cb) => { runSequence('clean', 'webpack', 'assemble', cb) });
+
+gulp.task('deploy',     ['upload']);
