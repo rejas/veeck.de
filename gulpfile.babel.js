@@ -20,6 +20,7 @@ import assemble     from    'assemble';
  */
 
 import del          from    'del';
+import eslintformat from    'eslint-friendly-formatter';
 import runSequence  from    'run-sequence';
 import webpack      from    'webpack-stream';
 
@@ -41,20 +42,46 @@ gulp.task('clean', (cb) => {
 });
 
 /**
+ * CHECK TASKS
+ */
+
+// Detect errors and potential problems in your html code
+gulp.task('check:html', () => {
+    gulp.src([`${dirs.src}/*.html`])
+        .pipe(plugins.htmlhint())
+        .pipe(plugins.htmlhint.reporter());
+});
+
+// Detect errors and potential problems in your JavaScript code (except vendor scripts)
+// You can enable or disable default eslint options in the .eslintrc file
+gulp.task('check:js', () => {
+    gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
+        .pipe(plugins.eslint())
+        .pipe(plugins.eslint.format(eslintformat))
+});
+
+// Detect errors and potential problems in your css code
+gulp.task('check:less', () => {
+    gulp.src([`${dirs.src}/css/**/*.less`, `!${dirs.src}/css/main.less`, `!${dirs.src}/css/libs`])
+        .pipe(plugins.lesshint())
+        .pipe(plugins.lesshint.reporter())
+});
+
+/**
  * ASSEMBLE
  */
 
 gulp.task('webpack', () => {
-    return gulp.src('./src/js/main.js')
+    return gulp.src(`${dirs.src}/src/js/main.js`)
         .pipe(webpack( webpackConfig, require('webpack')))
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('load', (cb) => {
     app.partials(`${dirs.assemble}/partials/**/*.hbs`);
     app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
-    app.data(['./src/assemble/data/*.{json,yml}']);
+    app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
     app.option('layout', 'default');
 
     app.preLayout( /./, function ( view, next ) {
@@ -69,7 +96,6 @@ gulp.task('load', (cb) => {
 });
 
 gulp.task('assemble', ['load'], () => {
-
     app.helper('md', require('helper-md'));
 
     return app.toStream('pages')
