@@ -24,7 +24,7 @@
     "classie": "^1.0.0",
     "cookieconsent": "^3.0.4",
     "hamburgers": "^0.9.1",
-    "imagelightbox": "^0.7.6",
+    "imagelightbox": "^0.7.7",
     "jquery": "^3.2.1",
     "konami-code.js": "git+https://github.com/rejas/konami-js.git",
     "mediaquery-event": "^0.4.0",
@@ -34,7 +34,7 @@
     "run-sequence": "^2.0.0",
     "share-button": "^1.0.3",
     "smoothscroll-polyfill": "^0.3.5",
-    "webpack-stream": "^3.2.0"
+    "tinyreset": "^1.0.1"
   },
   "devDependencies": {
     "assemble": "^0.24.3",
@@ -48,7 +48,8 @@
     "cssnano": "^3.10.0",
     "eslint": "^4.2.0",
     "eslint-friendly-formatter": "^3.0.0",
-    "extract-text-webpack-plugin": "^2.1.2",
+    "eslint-loader": "^1.9.0",
+    "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "grunt": "^1.0.1",
     "grunt-assemble": "^0.6.3",
@@ -63,7 +64,7 @@
     "grunt-lesshint": "^1.5.1",
     "grunt-modernizr": "^1.0.2",
     "grunt-release-it": "^1.0.1",
-    "grunt-webpack": "^3.0.0",
+    "grunt-webpack": "^3.0.2",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-eslint": "^4.0.0",
@@ -79,7 +80,7 @@
     "helper-md": "^0.2.2",
     "imagemin-mozjpeg": "6.0.0",
     "less": "^2.7.2",
-    "less-loader": "^4.0.4",
+    "less-loader": "^4.0.5",
     "load-grunt-tasks": "^3.5.2",
     "postcss-loader": "^2.0.6",
     "postcss-normalize": "^4.0.0",
@@ -89,6 +90,7 @@
     "time-grunt": "^1.4.0",
     "url-loader": "^0.5.9",
     "vinyl-ftp": "^0.6.0",
-    "webpack": "^3.1.0"
+    "webpack": "^3.3.0",
+    "webpack-stream": "^3.2.0"
   }
 }
