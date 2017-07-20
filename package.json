@@ -23,6 +23,8 @@
     "browser-update": "^2.1.4",
     "classie": "^1.0.0",
     "cookieconsent": "^3.0.4",
+    "gulp-prompt": "^0.2.0",
+    "gulp-util": "^3.0.8",
     "hamburgers": "^0.9.1",
     "imagelightbox": "^0.7.6",
     "jquery": "^3.2.1",
@@ -84,6 +86,7 @@
     "style-loader": "^0.18.2",
     "time-grunt": "^1.4.0",
     "url-loader": "^0.5.9",
+    "vinyl-ftp": "^0.6.0",
     "webpack": "^3.1.0"
   }
 }
