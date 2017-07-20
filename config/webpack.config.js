@@ -71,7 +71,7 @@ const webpackconfig = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: '/css/[name].css'
+            filename: 'css/[name].css'
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
