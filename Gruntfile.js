@@ -24,6 +24,15 @@ module.exports = function(grunt) {
             }
         },
 
+        lesshint: {
+            dist: {
+                options: {
+                    lesshintrc: true
+                },
+                src: ['<%= dir.src %>/**/*.less']
+            },
+        },
+
         modernizr: {
             dist: {
                 cache: false,
@@ -35,6 +44,36 @@ module.exports = function(grunt) {
                 parseFiles: true,
                 uglify : false
             }
+        },
+
+        watch: {
+            assemble: {
+                files: ['<%= dir.assemble %>/{,*/}*.{md,hbs,yml}'],
+                tasks: ['assemble', 'htmlmin']
+            },
+            css: {
+                files: ['<%= dir.src %>/css/**/*.{css,less}'],
+                tasks: ['webpack']
+            },
+            js: {
+                files: ['<%= dir.src %>/js/**/*.js'],
+                tasks: ['webpack']
+            },
+            livereload: {
+                options: {
+                    livereload: '<%= connect.options.livereload %>'
+                },
+                files: [
+                    '<%= dir.dist %>/*.html',
+                    '<%= dir.dist %>/styles/**/*.css',
+                    '<%= dir.dist %>/js/**/*.js',
+                    '<%= dir.dist %>/img/**/*.{png,jpg,jpeg,gif,webp,svg}'
+                ]
+            }
+        },
+
+        webpack: {
+            dist: webpackConfig
         },
 
         jimp: {
