@@ -88,7 +88,7 @@ module.exports = function(grunt) {
                 options: {
                     lesshintrc: true
                 },
-                src: ['<%= dir.src %>/**/*.less', '!<%= dir.src %>/bower_components/**/*.less']
+                src: ['<%= dir.src %>/**/*.less']
             },
         },
 
@@ -115,7 +115,7 @@ module.exports = function(grunt) {
                 tasks: ['webpack']
             },
             js: {
-                files: ['<%= dir.src %>/js/**/*.js', '<%= dir.src %>/bower_components/**/*.js'],
+                files: ['<%= dir.src %>/js/**/*.js'],
                 tasks: ['webpack']
             },
             livereload: {
