@@ -41,6 +41,15 @@ gulp.task('clean', (cb) => {
     del([dirs.dist]).then(function () { cb(); });
 });
 
+//
+gulp.task('vendorscripts', () => {
+    // Minify and copy all vendor scripts
+    gulp.src([`${dirs.src}/js/vendor/**/*.js`])
+        .pipe(plugins.concat('vendor.min.js'))
+        .pipe(plugins.uglify())
+        .pipe(gulp.dest(`${dirs.dist}/js`));
+});
+
 /**
  * CHECK TASKS
  */
@@ -95,7 +104,7 @@ gulp.task('load', (cb) => {
     cb();
 });
 
-gulp.task('assemble', ['load'], () => {
+gulp.task('assemble', ['load', 'vendorscripts'], () => {
     app.helper('md', require('helper-md'));
 
     return app.toStream('pages')
