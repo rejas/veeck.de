@@ -92,7 +92,7 @@ const webpackconfig = {
         alias: {
             jquery: 'jquery/src/jquery'
         },
-        modules: ['src/bower_components', 'node_modules']
+        modules: ['node_modules']
     }
 };
 
