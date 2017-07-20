@@ -44,7 +44,7 @@ gulp.task('clean', (cb) => {
 });
 
 /**
- * Copy TASKS
+ * COPY TASKS
  */
 
 // Copy all page files (including webcomponents) into the `dist` folder
@@ -59,7 +59,7 @@ gulp.task('copy:images', () => {
         .pipe(gulp.dest(`${dirs.dist}/img`));
 });
 
-// Create vendorscripts (maybe move to webpack too later)
+// Create and copy vendorscripts (maybe move to webpack too later)
 gulp.task('copy:vendorscripts', () => {
     // Minify and copy all vendor scripts
     gulp.src([`${dirs.src}/js/vendor/**/*.js`])
@@ -161,7 +161,17 @@ gulp.task('upload:files', () => {
 });
 
 /**
- * ASSEMBLE
+ * PREPARE TASKS
+ */
+
+gulp.task('prepare:sitemap', ['assemble'], () => {
+    gulp.src([`${dirs.src}/*.html`, `!${dirs.src}/google*.html`], { read: false })
+        .pipe(plugins.sitemap(config.sitemap))
+        .pipe(gulp.dest(dirs.src));
+});
+
+/**
+ * ASSEMBLE TASKS
  */
 
 gulp.task('webpack', () => {
@@ -177,7 +187,7 @@ gulp.task('load', (cb) => {
     app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
     app.option('layout', 'default');
 
-    app.preLayout( /./, function ( view, next ) {
+    app.preLayout( /./, function (view, next) {
         // if the layout is not defined, use the default one ...
         if (!view.layout && app.options.layout) {
             view.layout = app.options.layout;
@@ -209,3 +219,5 @@ gulp.task('copy',       ['copy:files', 'copy:images', 'copy:vendorscripts']);
 gulp.task('default',    (cb) => { runSequence('clean', 'copy',  'webpack', 'assemble', cb) });
 
 gulp.task('deploy',     ['upload']);
+
+gulp.task('prepare',    ['prepare:sitemap']);
