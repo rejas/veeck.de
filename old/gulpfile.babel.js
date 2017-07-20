@@ -165,5 +165,4 @@ gulp.task('dev',        ['serve']);
 
 gulp.task('default',    (cb) => { runSequence('clean', 'prepare', 'html', cb) });
 
-
 gulp.task('prepare',    ['prepare:sprites', 'prepare:images', 'prepare:sitemap']);

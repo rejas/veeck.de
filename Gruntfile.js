@@ -96,7 +96,7 @@ module.exports = function(grunt) {
                     lesshintrc: true
                 },
                 src: ['<%= dir.src %>/**/*.less', '!<%= dir.src %>/bower_components/**/*.less']
-            },
+            }
         },
 
         modernizr: {
