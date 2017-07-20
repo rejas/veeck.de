@@ -65,7 +65,7 @@ const webpackconfig = {
                     loader: 'url-loader',
                     options: {
                         limit: 10000,
-                        name: '/css/[hash].[ext]'
+                        name: 'css/[hash].[ext]'
                     }
                 }]
             }
