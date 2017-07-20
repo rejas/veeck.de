@@ -43,8 +43,24 @@ gulp.task('clean', (cb) => {
     del([dirs.dist]).then(function () { cb(); });
 });
 
-//
-gulp.task('vendorscripts', () => {
+/**
+ * Copy TASKS
+ */
+
+// Copy all page files (including webcomponents) into the `dist` folder
+gulp.task('copy:files', () => {
+    gulp.src([`${dirs.src}/page/**/*`, `!${dirs.src}/**/.DS_Store`], { dot: true })
+        .pipe(gulp.dest(dirs.dist));
+});
+
+// Copy all image into the `dist` folder
+gulp.task('copy:images', () => {
+    gulp.src(`${dirs.src}/img/**/*.jpg`)
+        .pipe(gulp.dest(`${dirs.dist}/img`));
+});
+
+// Create vendorscripts (maybe move to webpack too later)
+gulp.task('copy:vendorscripts', () => {
     // Minify and copy all vendor scripts
     gulp.src([`${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.concat('vendor.min.js'))
@@ -79,7 +95,7 @@ gulp.task('check:less', () => {
 });
 
 /**
- * Deploy
+ * DEPLOY TASKS
  */
 
 gulp.task('upload', () => {
@@ -172,7 +188,7 @@ gulp.task('load', (cb) => {
     cb();
 });
 
-gulp.task('assemble', ['load', 'vendorscripts'], () => {
+gulp.task('assemble', ['load'], () => {
     app.helper('md', require('helper-md'));
 
     return app.toStream('pages')
@@ -188,6 +204,8 @@ gulp.task('assemble', ['load', 'vendorscripts'], () => {
 
 gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
-gulp.task('default',    (cb) => { runSequence('clean', 'webpack', 'assemble', cb) });
+gulp.task('copy',       ['copy:files', 'copy:images', 'copy:vendorscripts']);
+
+gulp.task('default',    (cb) => { runSequence('clean', 'copy',  'webpack', 'assemble', cb) });
 
 gulp.task('deploy',     ['upload']);
