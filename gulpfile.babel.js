@@ -177,7 +177,8 @@ gulp.task('prepare:sitemap', ['assemble'], () => {
 gulp.task('webpack', () => {
     return gulp.src(`${dirs.src}/src/js/main.js`)
         .pipe(webpack( webpackConfig, require('webpack')))
-        .pipe(gulp.dest(dirs.dist));
+        .pipe(gulp.dest(dirs.dist))
+        .pipe(plugins.connect.reload());
 });
 
 gulp.task('load', (cb) => {
@@ -204,13 +205,41 @@ gulp.task('assemble', ['load'], () => {
     return app.toStream('pages')
         .pipe(app.renderFile())
         .pipe(plugins.extname())
-        .pipe(app.dest(dirs.dist));
+        .pipe(app.dest(dirs.dist))
+        .pipe(plugins.connect.reload());
 });
 
 
 /**
+ * SERVE TASKS
+ */
+
+gulp.task('connect', function() {
+    plugins.connect.server({
+        root: 'dist',
+        livereload: true,
+        port: 9000
+    });
+});
+
+gulp.task('watch', function () {
+
+    gulp.watch([`${dirs.src}/js/**/*.js`],[
+        'webpack'
+    ]);
+    gulp.watch([`${dirs.src}/css/**/*.less`], [
+        'webpack'
+    ]);
+    gulp.watch([`${dirs.assemble}/**/*.hbs`], [
+        'assemble'
+    ]);
+});
+
+/**
  * MAIN TASKS
  */
+
+gulp.task('dev',        ['connect', 'watch']);
 
 gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
