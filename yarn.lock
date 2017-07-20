@@ -5574,9 +5574,9 @@ image-size@~0.5.0:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
 
-imagelightbox@^0.7.6:
-  version "0.7.6"
-  resolved "https://registry.yarnpkg.com/imagelightbox/-/imagelightbox-0.7.6.tgz#52eaafe8df9e17061fbdf7b700ab5daafc759668"
+imagelightbox@^0.7.7:
+  version "0.7.7"
+  resolved "https://registry.yarnpkg.com/imagelightbox/-/imagelightbox-0.7.7.tgz#3d7abadd94862550a7cafa98d42867c705bd4157"
 
 imagemin-gifsicle@^5.0.0:
   version "5.1.0"

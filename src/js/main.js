@@ -58,7 +58,7 @@ addLoadEvent(function() {
 import styles_webpack from '../css/main.less';
 
 import 'cookieconsent/src/cookieconsent';
-import 'imagelightbox/src/imagelightbox';
+import 'imagelightbox';
 import 'responsivemultilevelmenu/js/jquery.dlmenu';
 import 'slick-carousel/slick/slick';
 
