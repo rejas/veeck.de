@@ -72,7 +72,7 @@ const webpackconfig = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: '/css/[name].css'
+            filename: 'css/[name].css'
         }),
         new HtmlWebpackPlugin({
             filename: path.resolve(__dirname, '../src/assemble/layouts/default.hbs'),

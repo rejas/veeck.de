@@ -239,7 +239,7 @@ gulp.task('watch', function () {
  * MAIN TASKS
  */
 
-gulp.task('dev',        ['connect', 'watch']);
+gulp.task('dev',        ['default', 'connect', 'watch']);
 
 gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
