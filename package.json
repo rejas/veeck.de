@@ -31,7 +31,6 @@
     "normalize-opentype.css": "^0.2.4",
     "object-fit-images": "^3.2.3",
     "responsivemultilevelmenu": "^1.0.3",
-    "run-sequence": "^2.0.0",
     "share-button": "^1.0.3",
     "smoothscroll-polyfill": "^0.3.5",
     "webpack-stream": "^3.2.0"
@@ -86,6 +85,7 @@
     "postcss-normalize": "^4.0.0",
     "postcss-object-fit-images": "^1.1.2",
     "postcss-sprites": "^4.2.1",
+    "run-sequence": "^2.0.0",
     "style-loader": "^0.18.2",
     "time-grunt": "^1.4.0",
     "url-loader": "^0.5.9",
