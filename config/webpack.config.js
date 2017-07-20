@@ -21,8 +21,6 @@ const webpackconfig = {
                     options: {
                         presets: ['env']
                     }
-                }, {
-                    loader: 'eslint-loader'
                 }]
             },
             {
