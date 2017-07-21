@@ -200,8 +200,8 @@ gulp.task('scale:small', () => {
         .pipe(gulp.dest(`${dirs.src}/img/travel`));
 });
 
-gulp.task('scale:placeholder', ['scale:medium', 'scale:small'], () => {
-    return gulp.src(`${dirs.src}/img/travel/**/*`)
+gulp.task('scale:placeholder', ['scale:small'], () => {
+    return gulp.src(`${dirs.src}/img/travel/**/*.small.jpg`)
         .pipe(plugins.jimp({
             '.placeholder': {
                 scaleToFit: { width: 448, height: 387 },
@@ -213,7 +213,7 @@ gulp.task('scale:placeholder', ['scale:medium', 'scale:small'], () => {
 });
 
 /**
- * ASSEMBLE TASKS
+ * HTML TASKS
  */
 
 gulp.task('clean', (cb) => {
@@ -275,10 +275,7 @@ gulp.task('connect', () => {
 });
 
 gulp.task('watch', () => {
-    gulp.watch([`${dirs.src}/js/**/*.js`],[
-        'webpack'
-    ]);
-    gulp.watch([`${dirs.src}/css/**/*.less`], [
+    gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.less`], [
         'webpack'
     ]);
     gulp.watch([`${dirs.assemble}/**/*.hbs`], [
@@ -300,6 +297,8 @@ gulp.task('default',    (cb) => { runSequence('clean', 'copy',  'webpack', 'html
 
 gulp.task('deploy',     ['upload']);
 
-gulp.task('prepare',    ['prepare:images', 'prepare:modernizr', 'prepare:sitemap', 'scale:placeholder']);
+gulp.task('scale',      ['scale:medium', 'scale:small', 'scale:placeholder']);
+
+gulp.task('prepare',    ['prepare:images', 'prepare:modernizr', 'prepare:sitemap', 'scale']);
 
 grelease(gulp);
