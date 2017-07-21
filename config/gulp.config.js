@@ -6,6 +6,7 @@ const config = {
     },
     directories: {
         assemble: "./src/assemble",
+        node: "./node_modules",
         org: "./org",
         src: "./src",
         tmp: "./tmp",
