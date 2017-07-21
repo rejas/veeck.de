@@ -4,7 +4,7 @@
  * CONFIGS
  */
 
-import config           from    './config/grunt.config.js';
+import config           from    './config/gulp.config.js';
 import webpackConfig    from    './config/webpack.config.js';
 
 /**
@@ -36,15 +36,6 @@ const   dirs        = config.directories,
         app         = assemble();
 
 /**
- * SUB TASKS
- */
-
-// Clear the destination folder
-gulp.task('clean', (cb) => {
-    del([dirs.dist]).then(function () { cb(); });
-});
-
-/**
  * COPY TASKS
  */
 
@@ -56,7 +47,7 @@ gulp.task('copy:files', () => {
 
 // Copy all image into the `dist` folder
 gulp.task('copy:images', () => {
-    return gulp.src(`${dirs.src}/img/**/*.jpg`)
+    return gulp.src([`${dirs.src}/img/**/*.jpg`,`${dirs.src}/img/**/*.png`])
         .pipe(gulp.dest(`${dirs.dist}/img`));
 });
 
@@ -178,9 +169,59 @@ gulp.task('prepare:sitemap', ['assemble'], () => {
         .pipe(gulp.dest(dirs.src));
 });
 
+/* TODO prepare modernizr
+modernizr: {
+    dist: {
+        dest: '<%= dir.src %>/js/vendor/modernizr.min.js',
+        options: config.modernizr,
+            parseFiles: true,
+            uglify : false
+    }
+}
+*/
+
+gulp.task('scale:medium', function () {
+    return gulp.src(`${dirs.org}/img/travel/**/*`)
+        .pipe(plugins.jimp({
+            '.medium': {
+                scaleToFit: { width: 1920, height: 1920 },
+                quality: 60
+            }
+        }))
+        .pipe(gulp.dest(`${dirs.src}/img/travel`));
+});
+
+gulp.task('scale:small', function () {
+    return gulp.src(`${dirs.org}/img/travel/**/*`)
+        .pipe(plugins.jimp({
+            '.small': {
+                scaleToFit: { width: 448, height: 387 },
+                quality: 60
+            }
+        }))
+        .pipe(gulp.dest(`${dirs.src}/img/travel`));
+});
+
+
+gulp.task('scale:placeholder', ['scale:medium', 'scale:small'], function () {
+    return gulp.src(`${dirs.src}/img/travel/**/*`)
+        .pipe(plugins.jimp({
+            '.placeholder': {
+                scaleToFit: { width: 448, height: 387 },
+                blur: 40,
+                quality: 30
+            }
+        }))
+        .pipe(gulp.dest(`${dirs.src}/img/travel`));
+});
+
 /**
  * ASSEMBLE TASKS
  */
+
+gulp.task('clean', (cb) => {
+    del([dirs.dist]).then(function () { cb(); });
+});
 
 gulp.task('webpack', () => {
     return gulp.src(`${dirs.src}/src/js/main.js`)
@@ -264,6 +305,6 @@ gulp.task('default',    (cb) => { runSequence('clean', 'copy',  'webpack', 'html
 
 gulp.task('deploy',     ['upload']);
 
-gulp.task('prepare',    ['prepare:images', 'prepare:sitemap']);
+gulp.task('prepare',    ['prepare:images', 'prepare:sitemap', 'scale:placeholder']);
 
 grelease(gulp);
