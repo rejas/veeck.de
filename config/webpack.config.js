@@ -1,4 +1,4 @@
-const config = require('./grunt.config.js'),
+const config = require('./gulp.config.js'),
     path = require('path'),
     webpack = require('webpack'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -21,8 +21,6 @@ const webpackconfig = {
                     options: {
                         presets: ['env']
                     }
-                }, {
-                    loader: 'eslint-loader'
                 }]
             },
             {
@@ -65,7 +63,8 @@ const webpackconfig = {
                     loader: 'url-loader',
                     options: {
                         limit: 10000,
-                        name: '/css/[hash].[ext]'
+                        name: 'css/[hash].[ext]',
+                        publicPath: '/'
                     }
                 }]
             }
@@ -73,7 +72,7 @@ const webpackconfig = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: '/css/[name].css'
+            filename: 'css/[name].css'
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {

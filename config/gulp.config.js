@@ -26,13 +26,6 @@ const config = {
         "prefixed",
         "setClasses"
     ],
-    release: {
-        pkgFiles: ['package.json'],
-        commitMessage: 'Release %s',
-        tagName: '%s',
-        tagAnnotation: 'Release %s',
-        buildCommand: false
-    },
     sitemap: {
         fileName: "sitemap.xml",
         newLine: "\n",
