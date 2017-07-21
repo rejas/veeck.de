@@ -14,6 +14,7 @@ import webpackConfig    from    './config/webpack.config.js';
 import gulp         from    'gulp';
 import gutil        from    'gulp-util';
 import gplugins     from    'gulp-load-plugins';
+import grelease     from    'gulp-release-it';
 import assemble     from    'assemble';
 
 /**
@@ -264,3 +265,5 @@ gulp.task('default',    (cb) => { runSequence('clean', 'copy',  'webpack', 'html
 gulp.task('deploy',     ['upload']);
 
 gulp.task('prepare',    ['prepare:images', 'prepare:sitemap']);
+
+grelease(gulp);

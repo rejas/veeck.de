@@ -72,39 +72,6 @@ module.exports = function(grunt) {
                     dest: '<%= dir.src %>/img/travel'
                 }]
             }
-        },
-
-        imagemin: {
-            all: {
-                options: {
-                    progressive: true,
-                    use: [mozjpeg()]
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%= dir.src %>/img',
-                    src: '**/*.jpg',
-                    dest: '<%= dir.src %>/img'
-                }]
-            },
-            bg: {
-                options: {
-                    progressive: true,
-                    use: [mozjpeg({quality: 60})]
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%= dir.org %>/img/backgrounds',
-                    src: '**/*.jpg',
-                    dest: '<%= dir.src %>/img/backgrounds'
-                }]
-            }
-        },
-
-        'release-it': {
-            dist: {
-                options: config.release
-            }
         }
     });
 
