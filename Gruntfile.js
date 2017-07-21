@@ -12,27 +12,6 @@ module.exports = function(grunt) {
 
         dir: config.directories,
 
-        htmlmin: {
-            dist: {
-                options: config.htmlmin,
-                files: [{
-                    expand: true,
-                    cwd: '<%= dir.tmp %>',
-                    src: '*.html',
-                    dest: '<%= dir.dist %>'
-                }]
-            }
-        },
-
-        lesshint: {
-            dist: {
-                options: {
-                    lesshintrc: true
-                },
-                src: ['<%= dir.src %>/**/*.less']
-            },
-        },
-
         modernizr: {
             dist: {
                 cache: false,
