@@ -210,6 +210,13 @@ gulp.task('assemble', ['load'], () => {
         .pipe(plugins.connect.reload());
 });
 
+gulp.task('html', ['assemble'], () => {
+
+    return gulp.src(`${dirs.dist}/*.html`)
+        .pipe(plugins.htmlmin(config.htmlmin))
+        .pipe(gulp.dest(dirs.dist));
+});
+
 
 /**
  * SERVE TASKS
@@ -246,7 +253,7 @@ gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
 gulp.task('copy',       ['copy:files', 'copy:images', 'copy:vendorscripts']);
 
-gulp.task('default',    (cb) => { runSequence('clean', 'copy',  'webpack', 'assemble', cb) });
+gulp.task('default',    (cb) => { runSequence('clean', 'copy',  'webpack', 'html', cb) });
 
 gulp.task('deploy',     ['upload']);
 
