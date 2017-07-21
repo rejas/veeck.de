@@ -169,18 +169,16 @@ gulp.task('prepare:sitemap', ['assemble'], () => {
         .pipe(gulp.dest(dirs.src));
 });
 
-/* TODO prepare modernizr
-modernizr: {
-    dist: {
-        dest: '<%= dir.src %>/js/vendor/modernizr.min.js',
-        options: config.modernizr,
-            parseFiles: true,
-            uglify : false
-    }
-}
-*/
+gulp.task('prepare:modernizr', () => {
+    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/responsivemultilevelmenu/js/jquery.dlmenu.js`,
+                    `!${dirs.src}/js/vendor/**/*.js`])
+        .pipe(plugins.modernizr('modernizr.min.js', {
+            "options": config.modernizr
+        }))
+        .pipe(gulp.dest(`${dirs.src}/js/vendor/`));
+});
 
-gulp.task('scale:medium', function () {
+gulp.task('scale:medium', () => {
     return gulp.src(`${dirs.org}/img/travel/**/*`)
         .pipe(plugins.jimp({
             '.medium': {
@@ -191,7 +189,7 @@ gulp.task('scale:medium', function () {
         .pipe(gulp.dest(`${dirs.src}/img/travel`));
 });
 
-gulp.task('scale:small', function () {
+gulp.task('scale:small', () => {
     return gulp.src(`${dirs.org}/img/travel/**/*`)
         .pipe(plugins.jimp({
             '.small': {
@@ -202,8 +200,7 @@ gulp.task('scale:small', function () {
         .pipe(gulp.dest(`${dirs.src}/img/travel`));
 });
 
-
-gulp.task('scale:placeholder', ['scale:medium', 'scale:small'], function () {
+gulp.task('scale:placeholder', ['scale:medium', 'scale:small'], () => {
     return gulp.src(`${dirs.src}/img/travel/**/*`)
         .pipe(plugins.jimp({
             '.placeholder': {
@@ -259,7 +256,6 @@ gulp.task('assemble', ['load'], () => {
 });
 
 gulp.task('html', ['assemble'], () => {
-
     return gulp.src(`${dirs.dist}/*.html`)
         .pipe(plugins.htmlmin(config.htmlmin))
         .pipe(gulp.dest(dirs.dist));
@@ -270,7 +266,7 @@ gulp.task('html', ['assemble'], () => {
  * SERVE TASKS
  */
 
-gulp.task('connect', function() {
+gulp.task('connect', () => {
     plugins.connect.server({
         root: 'dist',
         livereload: true,
@@ -278,8 +274,7 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task('watch', function () {
-
+gulp.task('watch', () => {
     gulp.watch([`${dirs.src}/js/**/*.js`],[
         'webpack'
     ]);
@@ -305,6 +300,6 @@ gulp.task('default',    (cb) => { runSequence('clean', 'copy',  'webpack', 'html
 
 gulp.task('deploy',     ['upload']);
 
-gulp.task('prepare',    ['prepare:images', 'prepare:sitemap', 'scale:placeholder']);
+gulp.task('prepare',    ['prepare:images', 'prepare:modernizr', 'prepare:sitemap', 'scale:placeholder']);
 
 grelease(gulp);
