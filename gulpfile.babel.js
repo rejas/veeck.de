@@ -49,20 +49,20 @@ gulp.task('clean', (cb) => {
 
 // Copy all page files (including webcomponents) into the `dist` folder
 gulp.task('copy:files', () => {
-    gulp.src([`${dirs.src}/page/**/*`, `!${dirs.src}/**/.DS_Store`], { dot: true })
+    return gulp.src([`${dirs.src}/page/**/*`, `!${dirs.src}/**/.DS_Store`], { dot: true })
         .pipe(gulp.dest(dirs.dist));
 });
 
 // Copy all image into the `dist` folder
 gulp.task('copy:images', () => {
-    gulp.src(`${dirs.src}/img/**/*.jpg`)
+    return gulp.src(`${dirs.src}/img/**/*.jpg`)
         .pipe(gulp.dest(`${dirs.dist}/img`));
 });
 
 // Create and copy vendorscripts (maybe move to webpack too later)
 gulp.task('copy:vendorscripts', () => {
     // Minify and copy all vendor scripts
-    gulp.src([`${dirs.src}/js/vendor/**/*.js`])
+    return gulp.src([`${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.concat('vendor.min.js'))
         .pipe(plugins.uglify())
         .pipe(gulp.dest(`${dirs.dist}/js`));
@@ -74,7 +74,7 @@ gulp.task('copy:vendorscripts', () => {
 
 // Detect errors and potential problems in your html code
 gulp.task('check:html', () => {
-    gulp.src([`${dirs.src}/*.html`])
+    return gulp.src([`${dirs.src}/*.html`])
         .pipe(plugins.htmlhint())
         .pipe(plugins.htmlhint.reporter());
 });
@@ -82,14 +82,14 @@ gulp.task('check:html', () => {
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
 // You can enable or disable default eslint options in the .eslintrc file
 gulp.task('check:js', () => {
-    gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
+    return gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.eslint())
         .pipe(plugins.eslint.format(eslintformat))
 });
 
 // Detect errors and potential problems in your css code
 gulp.task('check:less', () => {
-    gulp.src([`${dirs.src}/css/**/*.less`])
+    return gulp.src([`${dirs.src}/css/**/*.less`])
         .pipe(plugins.lesshint())
         .pipe(plugins.lesshint.reporter())
         .pipe(plugins.lesshint.failOnError());
@@ -100,7 +100,7 @@ gulp.task('check:less', () => {
  */
 
 gulp.task('upload', () => {
-    gulp.src('.')
+    return gulp.src('.')
         .pipe(plugins.prompt.prompt({
             type: 'password',
             name: 'pw',
@@ -122,7 +122,7 @@ gulp.task('upload', () => {
 });
 
 gulp.task('upload:images', () => {
-    gulp.src('.')
+    return gulp.src('.')
         .pipe(plugins.prompt.prompt({
             type: 'password',
             name: 'pw',
@@ -142,7 +142,7 @@ gulp.task('upload:images', () => {
 });
 
 gulp.task('upload:files', () => {
-    gulp.src('.')
+    return gulp.src('.')
         .pipe(plugins.prompt.prompt({
             type: 'password',
             name: 'pw',
@@ -165,8 +165,14 @@ gulp.task('upload:files', () => {
  * PREPARE TASKS
  */
 
+gulp.task('prepare:images', () => {
+    return gulp.src(`${dirs.src}/img/**/*`)
+        .pipe(plugins.imagemin(config.imagemin))
+        .pipe(gulp.dest(`${dirs.src}/img`));
+});
+
 gulp.task('prepare:sitemap', ['assemble'], () => {
-    gulp.src([`${dirs.src}/*.html`, `!${dirs.src}/google*.html`], { read: false })
+    return gulp.src([`${dirs.src}/*.html`, `!${dirs.src}/google*.html`], { read: false })
         .pipe(plugins.sitemap(config.sitemap))
         .pipe(gulp.dest(dirs.src));
 });
@@ -257,4 +263,4 @@ gulp.task('default',    (cb) => { runSequence('clean', 'copy',  'webpack', 'html
 
 gulp.task('deploy',     ['upload']);
 
-gulp.task('prepare',    ['prepare:sitemap']);
+gulp.task('prepare',    ['prepare:images', 'prepare:sitemap']);
