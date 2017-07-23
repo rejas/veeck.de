@@ -7,7 +7,7 @@
  *    hex —> hex color value such as “#abc” or “#123456″ (the hash is optional)
  *    lum —> luminosity factor: -0.1 is 10% darker, 0.2 is 20% lighter
  */
-function convertColorLuminance(hex, lum) {
+function convertColorLuminance (hex, lum) {
     let rgb = '#', c, i;
 
     // validate hex string
