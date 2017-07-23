@@ -73,7 +73,7 @@ import objectFitImages  from 'object-fit-images';
 import Smoothscroll     from 'smoothscroll-polyfill';
 import ShareButton      from 'share-button/dist/share-button';
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Check browser version
