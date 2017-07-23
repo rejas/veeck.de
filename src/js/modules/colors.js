@@ -39,8 +39,11 @@ function changeColor (c) {
 }
 
 export function init() {
-    const supportsVariables = window.CSS && window.CSS.supports && window.CSS.supports('--primaryColor', 0),
-        newColor = document.querySelector('header').getAttribute('data-color');
+    const supportsVariables = window.CSS && window.CSS.supports && window.CSS.supports('--primaryColor', 0);
+
+    let newColor = document.querySelector('header').getAttribute('data-color');
+    if (!newColor)
+        newColor = '000000'.replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
 
     if (newColor && supportsVariables) {
         changeColor(newColor);
