@@ -267,12 +267,14 @@
     width: @icon-size-m;
 
     .hamburger-inner {
+        .colorVar(background-color, --primaryTextColor, @primaryTextColor);
         top: 3px;
     }
 
     .hamburger-inner,
     .hamburger-inner::before,
     .hamburger-inner::after {
+        .colorVar(background-color, --primaryTextColor, @primaryTextColor);
         width: 100%;
         height: 4px;
     }
