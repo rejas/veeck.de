@@ -12,7 +12,7 @@ function changeColor (c) {
     root.style.setProperty('--accentColor', color.darken(35));
 
     if (color.getBrightness() < 40) {
-        root.style.setProperty('--primaryTextColor', '#fcfcfc');
+        root.style.setProperty('--secondaryTextColor', '#fcfcfc');
     }
 }
 
