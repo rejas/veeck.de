@@ -72,7 +72,6 @@ import browserUpdate    from 'browser-update';
 import Konami           from 'konami-code.js';
 import objectFitImages  from 'object-fit-images';
 import Smoothscroll     from 'smoothscroll-polyfill';
-import ShareButton      from 'share-button/dist/share-button';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -109,25 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.js-to-top').onclick = () => {
         window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     };
-
-    /**
-     * Share Button Config
-     */
-    new ShareButton({
-        ui: {
-            flyout: 'top left',
-            button_font: false,
-            icon_font: false
-        },
-        networks: {
-            facebook: {
-                app_id: '244426142407482'
-            },
-            email: {
-                enabled: false
-            }
-        }
-    });
 
     /**
      * Fill out the background header images
