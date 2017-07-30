@@ -1,9 +1,10 @@
+/* global Modernizr */
 import tinycolor from 'tinycolor2';
 
 function changeColor (c) {
     const root = document.querySelector(':root'),
-          htmlStyle = window.getComputedStyle(root),
-          color = tinycolor(c);
+        htmlStyle = window.getComputedStyle(root),
+        color = tinycolor(c);
 
     htmlStyle.getPropertyValue('--primaryColor');
     root.style.setProperty('--primaryColor', color.toHexString());
