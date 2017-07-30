@@ -4,7 +4,7 @@
 
 .btn {
     box-sizing: border-box;
-    color: @primaryTextColor;
+    .colorVar(color, --primaryTextColor, @primaryTextColor);
     cursor: pointer;
     font-family: @font-main, arial;
     font-size: @font-size-sm;
@@ -32,13 +32,18 @@
     &--comic {
         border: @border-thickness solid @color-transparent;
         border-radius: @global-border-radius;
-        .colorVar(color, --primaryTextColor, @primaryTextColor);
+        .colorVar(color, --secondaryTextColor, @secondaryTextColor);
         .colorVar(background-color, --primaryColor, @primaryColor);
-        font-size: @font-size-l;
         padding: 0;
 
         &:hover {
             border-color: @color-transparent;
+        }
+
+        > svg {
+            .colorVar(fill, --secondaryTextColor, @secondaryTextColor);
+            height: @btn-size-m;
+            width: @btn-size-m;
         }
     }
 

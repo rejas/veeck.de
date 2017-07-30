@@ -27,27 +27,13 @@
     }
 }
 
-.project-article {
-
-    .content-box {
-        display: flex;
-        margin-bottom: 1rem;
-
-        .content__text {
-            margin: 0 0 0 1rem;
-        }
-
-        &:nth-child(odd) {
-            flex-direction: row-reverse;
-
-            .content__text {
-                margin: 0 1rem 0 0;
-            }
-        }
-    }
-}
-
 .radio_article {
+
+    .h2 {
+        float: left;
+        margin-right: 1rem;
+        padding: 0;
+    }
 
     audio {
         width: 100%;
@@ -104,11 +90,11 @@
         &:before {
             border-radius: 2px;
             .colorVar(background-color, --primaryColor, @primaryColor);
-            content: "";
+            content: '';
             float: left;
-            width: .5rem;
-            height: .5rem;
-            margin: .5rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            margin: 0.5rem;
         }
     }
 }

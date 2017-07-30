@@ -3,7 +3,7 @@
         <img class="object-fit-img" src="img/backgrounds/{{img}}" alt="Background Image"/>
     </div>
     <div class="header--wrapper title {{titlestyle}}">
-        <h1 class="header--title headline" data-heading="{{heading}}">{{heading}}</h1>
+        <h1 class="h1 header--title headline" data-heading="{{heading}}">{{heading}}</h1>
         {{#if lead}}<p class="subline">{{lead}}</p>{{/if}}
         {{#if when}}<p>when <strong>{{when}}</strong></p>{{/if}}
         {{#if where}}<p>where <strong>{{where}}</strong></p>{{/if}}
@@ -14,11 +14,11 @@
 
     <div class="trigger js-trigger">
         <button class="btn btn--l btn--comic" type="button" title="Show content">
-            <i class="icon icon--xs icon-arrow-down"></i>
+            {{> arrows-down }}
         </button>
     </div>
     <share-button class="btn btn--l btn--comic share-btn"></share-button>
     <button class="btn btn--l btn--comic to-top-btn js-to-top" href="#" type="button" title="Back to top">
-        <i class="icon icon--xs icon-arrow-up"></i>
+        {{> arrows-up }}
     </button>
 </header>

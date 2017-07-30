@@ -58,7 +58,7 @@ addLoadEvent(function() {
 import styles_webpack from '../css/main.less';
 
 import 'cookieconsent/src/cookieconsent';
-import 'imagelightbox/src/imagelightbox';
+import 'imagelightbox';
 import 'responsivemultilevelmenu/js/jquery.dlmenu';
 
 import * as Colors from './modules/colors';
@@ -73,7 +73,7 @@ import objectFitImages  from 'object-fit-images';
 import Smoothscroll     from 'smoothscroll-polyfill';
 import ShareButton      from 'share-button/dist/share-button';
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Check browser version
