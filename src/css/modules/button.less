@@ -79,7 +79,7 @@
     }
 }
 
-.share-button {
+.share-btns {
     list-style: none;
     padding: 0;
 
@@ -106,5 +106,36 @@
         height: 1px;
         width: 1px;
         overflow: hidden;
+    }
+}
+
+
+.share-btn {
+    color: transparent;
+    width: @btn-size-l;
+
+    &::before {
+        transform: scale(0.75);
+        width: 2rem;
+        height: 2rem;
+        left: 0.125rem;
+        top: 0.125rem;
+    }
+
+    .sb-social {
+
+        &.sb-left.active.sb-top {
+            //left: 0.5rem;
+            //top: -0.5rem;
+            transform: translate(calc(-92%), -100%);
+        }
+
+        > ul > li:extend(.btn) {
+            height: @btn-size-l;
+            width: @btn-size-l;
+            margin: 0 0.5rem;
+            padding: 0;
+            overflow: hidden;
+        }
     }
 }
