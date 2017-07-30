@@ -72,7 +72,7 @@
             }
 
             a {
-                .colorVar(color, --primaryTextColor, @primaryTextColor);
+                .colorVar(color, --secondayTextColor, @secondaryTextColor);
                 display: block;
                 outline: none;
                 position: relative;
@@ -131,20 +131,17 @@
 
     li.dl-back::after,
     li > a:not(:only-child)::after {
-        .colorVar(color, --primaryTextColor, @primaryTextColor);
+        .colorVar(color, --secondayTextColor, @secondaryTextColor);
+        content: '❯';
         display: block;
         position: absolute;
-        top: 9px;
-        content: '❯';
-    }
-
-    li > a:not(:only-child)::after {
-        right: 9px;
+        top: 8px;
+        height: @btn-size-m;
+        width: @btn-size-m;
     }
 
     li.dl-back::after  {
         transform: rotate(180deg);
-        left: 9px;
     }
 
     /*
