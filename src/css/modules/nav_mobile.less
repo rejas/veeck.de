@@ -35,6 +35,24 @@
         }
     }
 
+    .hamburger-box {
+        height: @icon-size-m;
+        width: @icon-size-m;
+        top: 4px;
+
+        .hamburger-inner {
+            .colorVar(background-color, --secondaryTextColor, @secondaryTextColor);
+        }
+
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            .colorVar(background-color, --secondaryTextColor, @secondaryTextColor);
+            width: 100%;
+            height: 4px;
+        }
+    }
+
     ul {
         padding: 0;
         margin: 0;
@@ -261,23 +279,3 @@
         opacity: 0;
     }
 }
-
-
-.hamburger-box {
-    height: @icon-size-m;
-    width: @icon-size-m;
-
-    .hamburger-inner {
-        .colorVar(background-color, --secondaryTextColor, @secondaryTextColor);
-        top: 3px;
-    }
-
-    .hamburger-inner,
-    .hamburger-inner::before,
-    .hamburger-inner::after {
-        .colorVar(background-color, --secondaryTextColor, @secondaryTextColor);
-        width: 100%;
-        height: 4px;
-    }
-}
-
