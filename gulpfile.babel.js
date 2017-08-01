@@ -249,6 +249,7 @@ gulp.task('assemble', ['load'], () => {
     app.helper('md', require('helper-md'));
 
     return app.toStream('pages')
+        .pipe(plugins.flatten())
         .pipe(app.renderFile())
         .pipe(plugins.extname())
         .pipe(app.dest(dirs.dist))
