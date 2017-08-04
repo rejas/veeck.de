@@ -303,6 +303,6 @@ gulp.task('deploy',     ['upload']);
 
 gulp.task('scale',      ['scale:medium', 'scale:small', 'scale:placeholder']);
 
-gulp.task('prepare',    ['prepare:images', 'prepare:modernizr', 'prepare:sitemap', 'scale']);
+gulp.task('prepare',    ['prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
 
 grelease(gulp);
