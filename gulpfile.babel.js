@@ -16,6 +16,7 @@ import gutil        from    'gulp-util';
 import gplugins     from    'gulp-load-plugins';
 import grelease     from    'gulp-release-it';
 import assemble     from    'assemble';
+import assemblevars from    'assemble-middleware-page-variable';
 
 /**
  * OTHER PLUGINS
@@ -226,6 +227,8 @@ gulp.task('webpack', () => {
         .pipe(gulp.dest(dirs.dist))
         .pipe(plugins.connect.reload());
 });
+
+app.onLoad(/\.(md|hbs)$/, assemblevars(app));
 
 gulp.task('load', (cb) => {
     app.partials(`${dirs.assemble}/partials/**/*.hbs`);
