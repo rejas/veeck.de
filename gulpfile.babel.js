@@ -22,11 +22,12 @@ import assemblevars from    'assemble-middleware-page-variable';
  * OTHER PLUGINS
  */
 
-import del          from    'del';
-import eslintformat from    'eslint-friendly-formatter';
-import ftp          from    'vinyl-ftp';
-import runSequence  from    'run-sequence';
-import webpack      from    'webpack-stream';
+import del              from    'del';
+import eslintformat     from    'eslint-friendly-formatter';
+import ftp              from    'vinyl-ftp';
+import imageminMozjpeg  from    'imagemin-mozjpeg';
+import runSequence      from    'run-sequence';
+import webpack          from    'webpack-stream';
 
 /**
  * CONSTANTS
@@ -159,8 +160,10 @@ gulp.task('upload:files', () => {
  */
 
 gulp.task('prepare:images', () => {
-    return gulp.src(`${dirs.src}/img/**/*`)
-        .pipe(plugins.imagemin(config.imagemin))
+    return gulp.src(`${dirs.src}/img/**/*.jpg`)
+        .pipe(plugins.imagemin({
+            use: [imageminMozjpeg()]
+        }))
         .pipe(gulp.dest(`${dirs.src}/img`));
 });
 

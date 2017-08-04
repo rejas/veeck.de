@@ -22,9 +22,6 @@ const config = {
         preserveLineBreaks: true,
         removeComments: true
     },
-    imagemin: {
-        progressive: true
-    },
     modernizr: [
         "prefixes",
         "prefixed",
