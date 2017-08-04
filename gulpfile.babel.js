@@ -111,7 +111,7 @@ gulp.task('upload', () => {
                 `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/components`], {
                 base: 'dist', buffer: false })
                 .pipe(conn.newer('/')) // only upload newer files
-                .pipe(conn.dest('/'));
+                .pipe(conn.dest('/veeck'));
         }));
 });
 
@@ -131,7 +131,7 @@ gulp.task('upload:images', () => {
 
             gulp.src([`${dirs.dist}/img/**/*`], { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
-                .pipe(conn.dest('/'));
+                .pipe(conn.dest('/veeck'));
         }));
 });
 
@@ -151,7 +151,7 @@ gulp.task('upload:files', () => {
 
             gulp.src([`${dirs.dist}/files/**/*`], { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
-                .pipe(conn.dest('/'));
+                .pipe(conn.dest('/veeck'));
         }));
 });
 
