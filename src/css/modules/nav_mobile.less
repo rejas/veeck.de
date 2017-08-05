@@ -36,9 +36,8 @@
     }
 
     .hamburger-box {
-        height: @icon-size-m;
-        width: @icon-size-m;
-        top: 4px;
+        display: flex;
+        width: 100%;
 
         .hamburger-inner {
             .colorVar(background-color, --secondaryTextColor, @secondaryTextColor);
@@ -76,10 +75,6 @@
                 padding: 0.5rem;
                 text-transform: uppercase;
                 text-decoration: none;
-            }
-
-            > a::after {
-                right: 10px;
             }
 
             /* Hide the inner submenus */
@@ -127,7 +122,7 @@
     }
 
     li.dl-back > a {
-        padding-left: 2.5rem;
+        padding-left: 2rem;
     }
 
     li.dl-back::after,
@@ -135,14 +130,17 @@
         .colorVar(color, --secondayTextColor, @secondaryTextColor);
         content: '❯';
         display: block;
-        font-size: @font-size-m;
+        font-size: @base-font-size;
         position: absolute;
         top: 8px;
-        height: @btn-size-m;
+        right: 0;
+        padding: 0 0.5rem;
         width: @btn-size-m;
     }
 
-    li.dl-back::after {
+    li.dl-back::after  {
+        left: 0;
+        right: auto;
         transform: rotate(180deg);
     }
 

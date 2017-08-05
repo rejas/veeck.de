@@ -1,6 +1,6 @@
 @btn-size-m:  1.75rem;
 @btn-size-l:  2.5rem;
-@btn-size-xl: 3.0rem;
+@btn-size-xl: 2.75rem;
 
 .btn {
     box-sizing: border-box;
@@ -48,11 +48,14 @@
         width: @btn-size-l;
     }
 
+    &--hamburger {
+        padding: 0.25rem;
+    }
+
     &--normal {
         background: none;
         border: @border-thickness solid @darkAccentColor;
         border-radius: 0;
-        font-size: @font-size-m;
         font-weight: @font-weight-bold;
         position: relative;
         .transform(all);

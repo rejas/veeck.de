@@ -22,11 +22,12 @@ import assemblevars from    'assemble-middleware-page-variable';
  * OTHER PLUGINS
  */
 
-import del          from    'del';
-import eslintformat from    'eslint-friendly-formatter';
-import ftp          from    'vinyl-ftp';
-import runSequence  from    'run-sequence';
-import webpack      from    'webpack-stream';
+import del              from    'del';
+import eslintformat     from    'eslint-friendly-formatter';
+import ftp              from    'vinyl-ftp';
+import imageminMozjpeg  from    'imagemin-mozjpeg';
+import runSequence      from    'run-sequence';
+import webpack          from    'webpack-stream';
 
 /**
  * CONSTANTS
@@ -110,7 +111,7 @@ gulp.task('upload', () => {
                 `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/components`], {
                 base: 'dist', buffer: false })
                 .pipe(conn.newer('/')) // only upload newer files
-                .pipe(conn.dest('/'));
+                .pipe(conn.dest('/veeck'));
         }));
 });
 
@@ -130,7 +131,7 @@ gulp.task('upload:images', () => {
 
             gulp.src([`${dirs.dist}/img/**/*`], { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
-                .pipe(conn.dest('/'));
+                .pipe(conn.dest('/veeck'));
         }));
 });
 
@@ -150,7 +151,7 @@ gulp.task('upload:files', () => {
 
             gulp.src([`${dirs.dist}/files/**/*`], { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
-                .pipe(conn.dest('/'));
+                .pipe(conn.dest('/veeck'));
         }));
 });
 
@@ -159,8 +160,10 @@ gulp.task('upload:files', () => {
  */
 
 gulp.task('prepare:images', () => {
-    return gulp.src(`${dirs.src}/img/**/*`)
-        .pipe(plugins.imagemin(config.imagemin))
+    return gulp.src(`${dirs.src}/img/**/*.jpg`)
+        .pipe(plugins.imagemin({
+            use: [imageminMozjpeg()]
+        }))
         .pipe(gulp.dest(`${dirs.src}/img`));
 });
 
@@ -303,6 +306,6 @@ gulp.task('deploy',     ['upload']);
 
 gulp.task('scale',      ['scale:medium', 'scale:small', 'scale:placeholder']);
 
-gulp.task('prepare',    ['prepare:images', 'prepare:modernizr', 'prepare:sitemap', 'scale']);
+gulp.task('prepare',    ['prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
 
 grelease(gulp);
