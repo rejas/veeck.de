@@ -16,12 +16,12 @@ export function init() {
     // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
     var keys = [32, 37, 38, 39, 40],
         //wheelIter = 0,
-        docElem = window.document.documentElement,
+        docElem = document.documentElement,
         scrollVal,
         isRevealed,
         noscroll,
         isAnimating,
-        container = document.getElementById('container'),
+        container = document.querySelector('.js-intro-effect-side'),
         trigger = container.querySelector('.js-trigger');
 
     // detect if IE : from http://stackoverflow.com/a/16657946
@@ -132,8 +132,6 @@ export function init() {
         } else if (scrollVal > 0 && !isRevealed) {
             toggle(1);
         }
-
-        return;
     }
 
     // refreshing the page...

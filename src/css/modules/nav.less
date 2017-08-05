@@ -10,7 +10,7 @@
 
     a {
         border-bottom: @border-thickness solid transparent;
-        .colorVar(color, --primaryTextColor, @primaryTextColor);
+        .colorVar(color, --secondaryTextColor, @secondaryTextColor);
         display: block;
         font-weight: @font-weight-bold;
         font-size: @font-size-sm;
@@ -46,7 +46,7 @@
             > a {
                 width: 100%;
                 .transform(background);
-                padding: 0 1rem;
+                padding: @border-thickness 1.5rem 0;
             }
 
             &:hover > .dl-submenu {

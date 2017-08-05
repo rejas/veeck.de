@@ -1,33 +1,35 @@
 import * as mqe from 'mediaquery-event/dist/mqe';
 
 function cssButton() {
-    const $trigger = $('.js-dl-trigger');
+    const trigger = document.querySelector('.js-dl-trigger');
 
-    $trigger.on('click', function() {
-        $trigger.toggleClass('is-active');
+    trigger.onclick = () => {
+        trigger.classList.toggle('is-active');
 
-        if ($trigger.hasClass('is-active')) {
+        if (trigger.classList.contains('is-active')) {
             $('body').off('click').children().on('click', function() {
-                $trigger.removeClass('is-active');
+                trigger.classList.remove('is-active');
             });
         }
-    });
+    };
 }
 
 export function init() {
     const $myNav = $('nav').clone();
 
     document.addEventListener('mediaquery', function (event) {
+        const nav = document.querySelector('nav');
+
         if (!event.detail.active) {
             return;
         }
         if (event.detail.media === 'desktop') {
-            $('nav').remove();
+            nav.parentNode.removeChild(nav);
             $myNav.clone().prependTo('header').removeClass('mobile-nav').addClass('desktop-nav');
             return;
         }
         if (event.detail.media === 'mobile') {
-            $('nav').remove();
+            nav.parentNode.removeChild(nav);
             $myNav.clone().prependTo('header').addClass('mobile-nav').removeClass('desktop-nav').dlmenu();
             cssButton();
         }

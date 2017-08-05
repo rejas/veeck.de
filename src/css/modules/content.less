@@ -1,34 +1,92 @@
-
 /**
  * Content
  */
 
-article {
+.article--capped {
 
-    &.capped-article {
-
-        p:first-of-type:first-letter {
-            float: left;
-            font-size: @font-size-xl;
-            font-weight: @font-weight-bold;
-            line-height: @line-height-xl;
-            margin: 0 0.5rem 0 0;
-            padding: 0;
-        }
-
-        time {
-            font-size: @font-size-xs;
-            position: relative;
-            text-align: right;
-            display: block;
-        }
+    p:first-of-type:first-letter {
+        float: left;
+        font-size: @font-size-xl;
+        font-weight: @font-weight-bold;
+        line-height: @line-height-xl;
+        margin: 0 0.5rem 0 0;
+        padding: 0;
     }
 
-    .article_intro {
-        margin-bottom: 2rem;
+    time {
+        font-size: @font-size-xs;
+        position: relative;
+        text-align: right;
+        display: block;
     }
 }
 
+.article--intro {
+    margin-bottom: 2rem;
+}
+
+.content__box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    @media @phone {
+        display: block;
+    }
+
+    @media @tablet, @desktop {
+        flex-wrap: nowrap;
+    }
+
+    &:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+}
+
+.content__image {
+    margin: 0 auto;
+
+    @media @phone {
+        width: 100%;
+    }
+}
+
+.content__list {
+    list-style: none;
+
+    li {
+        color: black;
+        font-weight: @font-weight-bold;
+        padding: 0 0 0.5rem;
+
+        a {
+            margin-right: 0.5rem;
+        }
+
+        span {
+            font-weight: @font-weight-normal;
+        }
+
+        &:before {
+            border-radius: 2px;
+            .colorVar(background-color, --primaryColor, @primaryColor);
+            content: '';
+            float: left;
+            width: 0.5rem;
+            height: 0.5rem;
+            margin: 0.75rem 0.75rem 0 0;
+        }
+    }
+}
+
+.content__text {
+    padding: 0 0 0.5rem;
+
+    @media @tablet, @desktop {
+        padding: 0 0.5rem;
+    }
+}
 
 .extendee {
     display: none;

@@ -22,7 +22,7 @@
 body {
     background-color: @bgColor;
     box-sizing: border-box;
-    color: @primaryTextColor;
+    .colorVar(color, --primaryTextColor, @primaryTextColor);
     height: 100%;
     margin: 0;
     padding: 0;
@@ -50,25 +50,7 @@ article {
 
 section {
     .clearfix();
-    margin-bottom: 2rem;
-
-    h2 {
-        border-bottom: @border-thickness solid @primaryTextColor;
-        padding: 0 0.5rem 0.25rem;
-        text-align: center;
-        word-break: break-word;
-    }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-    font-family: @font-header, serif;
-    font-weight: @font-weight-bold;
-    text-transform: lowercase;
-    margin: 0 0 0.5rem 0;
+    margin-bottom: 3rem;
 }
 
 p {
@@ -103,11 +85,22 @@ a:visited {
     cursor: pointer;
     .transform(all);
     background-color: transparent;
+
+    &:hover,
+    &:focus {
+        .colorVar(background-color, --primaryColor, @primaryColor);
+    }
 }
 
-a:hover,
-a:focus {
-    .colorVar(background-color, --primaryColor, @primaryColor);
+pre {
+    display: inline-block;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: @accentColor;
+    border: @border-thickness solid @darkAccentColor;
+    border-radius: @figure-border-radius;
+    margin-bottom: 0.5rem;
+    white-space: pre-wrap;
 }
 
 time {

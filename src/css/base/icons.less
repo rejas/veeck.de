@@ -1,6 +1,7 @@
 @icon-size-m:  1.5rem;
 
 .icon {
+    background: no-repeat 0 0;
     display: block;
     margin: 0 auto;
 
@@ -18,39 +19,64 @@
         width: 200px;
         height: 200px;
     }
-}
 
-.icon-canoo {       background: url(/src/css/icons/links/canoo.png) no-repeat 0 0; }
-.icon-chefkoch {    background: url(/src/css/icons/links/chefkoch.png) no-repeat 0 0; }
-.icon-duckduckgo {  background: url(/src/css/icons/links/duckduckgo.png) no-repeat 0 0; }
-.icon-google {      background: url(/src/css/icons/links/google.png) no-repeat 0 0; }
-.icon-imdb {        background: url(/src/css/icons/links/imdb.png) no-repeat 0 0; }
-.icon-leo {         background: url(/src/css/icons/links/leo.png) no-repeat 0 0; }
-.icon-wikipedia {   background: url(/src/css/icons/links/wikipedia.png) no-repeat 0 0; }
-.icon-woxikon {     background: url(/src/css/icons/links/woxikon.png) no-repeat 0 0; }
-.icon-wowhead {     background: url(/src/css/icons/links/wowhead.png) no-repeat 0 0; }
-.icon-youtube {     background: url(/src/css/icons/links/youtube.png) no-repeat 0 0; }
+    &-canoo {
+        background-image: url('/src/css/assets/icons/links/canoo.png');
+    }
 
-.icon-iros {        background: url(/src/css/icons/research/res_iros2004.png) no-repeat 0 0; }
-.icon-nsis {        background: url(/src/css/icons/research/res_nsis.png) no-repeat 0 0; }
-.icon-rasterbator { background: url(/src/css/icons/research/res_rasterbator.png) no-repeat 0 0; }
-.icon-uni {         background: url(/src/css/icons/research/res_unilogo.png) no-repeat 0 0; }
-.icon-wow {         background: url(/src/css/icons/research/res_wow.png) no-repeat 0 0; }
+    &-chefkoch {
+        background-image: url('/src/css/assets/icons/links/chefkoch.png');
+    }
 
-.icon-arrow-left {  background: url(/src/css/icons/arrows/left.png) no-repeat 0 0; }
-.icon-arrow-up {    background: url(/src/css/icons/arrows/up.png) no-repeat 0 0; }
-.icon-arrow-right { background: url(/src/css/icons/arrows/right.png) no-repeat 0 0; }
-.icon-arrow-down {  background: url(/src/css/icons/arrows/down.png) no-repeat 0 0; }
+    &-duckduckgo {
+        background-image: url('/src/css/assets/icons/links/duckduckgo.png');
+    }
 
-// Other Icons
+    &-google {
+        background-image: url('/src/css/assets/icons/links/google.png');
+    }
 
-.mobile-nav {
+    &-imdb {
+        background-image: url('/src/css/assets/icons/links/imdb.png');
+    }
 
-    li.dl-back::after,
-    li > a:not(:only-child)::after {
-        content: '❯';
-        display: none;
-        height: @btn-size-m;
-        width: @btn-size-m;
+    &-leo {
+        background-image: url('/src/css/assets/icons/links/leo.png');
+    }
+
+    &-wikipedia {
+        background-image: url('/src/css/assets/icons/links/wikipedia.png');
+    }
+
+    &-woxikon {
+        background-image: url('/src/css/assets/icons/links/woxikon.png');
+    }
+
+    &-wowhead {
+        background-image: url('/src/css/assets/icons/links/wowhead.png');
+    }
+
+    &-youtube {
+        background-image: url('/src/css/assets/icons/links/youtube.png');
+    }
+
+    &-iros {
+        background-image: url('/src/css/assets/icons/research/res_iros2004.png');
+    }
+
+    &-nsis {
+        background-image: url('/src/css/assets/icons/research/res_nsis.png');
+    }
+
+    &-rasterbator {
+        background-image: url('/src/css/assets/icons/research/res_rasterbator.png');
+    }
+
+    &-uni {
+        background-image: url('/src/css/assets/icons/research/res_unilogo.png');
+    }
+
+    &-wow {
+        background-image: url('/src/css/assets/icons/research/res_wow.png');
     }
 }

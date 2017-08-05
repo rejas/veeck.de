@@ -1,34 +1,43 @@
-//
-
-@import '~normalize-opentype.css/normalize-opentype.css';
-
-@import '~cookieconsent/build/cookieconsent.min.css';
-
-@import '~hamburgers/dist/hamburgers.css';
-
-@import '~imagelightbox/src/imagelightbox.css';
-
-@import '~share-button/dist/share-button.css';
-
-@import '../bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.css';
+/*
+ * https://stackoverflow.com/a/14676665/2244646
+ *
+ * NOTE: The @import line of code should be the very first line in your CSS file.
+ */
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 
 //
 
-@import 'modules/lint';
+@import (less) '~tinyreset/tinyreset.css';
+
+@import (less) '~normalize-opentype.css/normalize-opentype.css';
+
+@import (less) '~cookieconsent/build/cookieconsent.min.css';
+
+@import (less) '~hamburgers/dist/hamburgers.css';
+
+@import (less) '~imagelightbox/src/imagelightbox.css';
+
+//
+
+@import 'base/lint';
 
 @import 'base/colors';
+
+@import 'base/fonts';
 
 @import 'base/variables';
 
 @import 'base/mixins';
 
-@import 'base/fonts';
-
 @import 'base/icons';
 
 @import 'base/global';
 
-@import 'modules/ads';
+@import 'base/typo';
+
+//
 
 @import 'modules/button';
 
@@ -46,9 +55,9 @@
 
 @import 'modules/figures';
 
-@import 'modules/slider';
-
 @import 'modules/header_effect';
+
+//
 
 @import 'pages/links';
 
