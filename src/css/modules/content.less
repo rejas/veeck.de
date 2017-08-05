@@ -31,6 +31,10 @@
     justify-content: space-between;
     margin-bottom: 1rem;
 
+    @media @phone {
+        display: block;
+    }
+
     @media @tablet, @desktop {
         flex-wrap: nowrap;
     }
@@ -42,9 +46,14 @@
 
 .content__image {
     margin: 0 auto;
+
+    @media @phone {
+        width: 100%;
+    }
 }
 
 .content__text {
+    padding: 0 0 0.5rem;
 
     @media @tablet, @desktop {
         padding: 0 0.5rem;
