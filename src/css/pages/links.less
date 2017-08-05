@@ -5,34 +5,26 @@
 
 .search_article {
 
-    ul {
-        list-style-type: none;
-        padding-left: 0;
-
-        li {
-            margin-bottom: 0.5rem;
-
-            a {
-                margin-right: 0.5rem;
-            }
-        }
-    }
-
     form {
-        display: table;
+        display: flex;
+        margin-bottom: 1rem; 
+
+        @media @phone {
+            flex-wrap: wrap;
+        }
 
         label {
-            display: table-cell;
+            flex-grow: 0;
         }
 
         .input {
-            display: table-cell;
+            flex-grow: 1;
             border-bottom: @border-thickness solid @accentColor;
+            margin-right: 1rem;
         }
 
         button[type='submit'] {
-            display: table-cell;
-            margin-left: 1rem;
+            flex-grow: 0;
         }
     }
 }

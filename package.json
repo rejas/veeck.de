@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "5.0.0",
+  "version": "5.0.2",
   "private": true,
   "homepage": "https://github.com/rejas/homepage",
   "author": {
@@ -31,13 +31,13 @@
     "normalize-opentype.css": "^0.2.4",
     "object-fit-images": "^3.2.3",
     "responsivemultilevelmenu": "^1.0.3",
-    "share-button": "^1.0.3",
-    "smoothscroll-polyfill": "^0.3.5",
+    "smoothscroll-polyfill": "^0.3.6",
     "tinycolor2": "^1.4.1",
     "tinyreset": "^1.0.1"
   },
   "devDependencies": {
     "assemble": "^0.24.3",
+    "assemble-middleware-page-variable": "^0.1.0",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
