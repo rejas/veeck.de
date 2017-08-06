@@ -264,10 +264,13 @@ gulp.task('assemble', ['load'], () => {
 
 gulp.task('html', ['assemble'], () => {
     return gulp.src(`${dirs.dist}/*.html`)
+        .pipe(plugins.inject(gulp.src([`js/*.js`, `css/*.css`], {
+            read: false,
+            cwd: __dirname + '/dist'
+        })))
         .pipe(plugins.htmlmin(config.htmlmin))
         .pipe(gulp.dest(dirs.dist));
 });
-
 
 /**
  * SERVE TASKS

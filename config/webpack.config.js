@@ -1,8 +1,6 @@
-const config = require('./gulp.config.js'),
-    path = require('path'),
+const path = require('path'),
     webpack = require('webpack'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    HtmlWebpackPlugin = require('html-webpack-plugin');
+    ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const webpackconfig = {
     entry: {
@@ -74,10 +72,6 @@ const webpackconfig = {
     plugins: [
         new ExtractTextPlugin({
             filename: 'css/[name].css'
-        }),
-        new HtmlWebpackPlugin({
-            filename: path.resolve(__dirname, '../src/assemble/layouts/default.hbs'),
-            template: path.resolve(__dirname, '../src/assemble/layouts/default_template.hbs')
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
