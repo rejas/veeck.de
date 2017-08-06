@@ -69,7 +69,6 @@ import * as Nav    from './modules/nav';
 import Blazy            from 'blazy';
 import browserUpdate    from 'browser-update';
 import Konami           from 'konami-code.js';
-import objectFitImages  from 'object-fit-images';
 import Smoothscroll     from 'smoothscroll-polyfill';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -107,13 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.js-to-top').onclick = () => {
         window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     };
-
-    /**
-     * Fill out the background header images
-     */
-    if (!Modernizr.objectfit) {
-        objectFitImages();
-    }
 
     /**
      * Lazyload images via blazy

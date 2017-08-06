@@ -10,8 +10,8 @@
   "browserslist": [
     "last 2 versions",
     "ie >= 10",
-    "iOS >= 8",
-    "Android >= 4.1"
+    "iOS >= 9",
+    "Android >= 4.2"
   ],
   "scripts": {
     "bld": "webpack",
@@ -23,14 +23,12 @@
     "browser-update": "^2.1.4",
     "classie": "^1.0.0",
     "cookieconsent": "^3.0.4",
-    "gulp-flatten": "^0.3.1",
     "hamburgers": "^0.9.1",
     "imagelightbox": "^0.7.7",
     "jquery": "^3.2.1",
     "konami-code.js": "git+https://github.com/rejas/konami-js.git",
     "mediaquery-event": "^0.4.0",
     "normalize-opentype.css": "^0.2.4",
-    "object-fit-images": "^3.2.3",
     "responsivemultilevelmenu": "^1.0.3",
     "smoothscroll-polyfill": "^0.3.6",
     "tinycolor2": "^1.4.1",
@@ -57,6 +55,7 @@
     "gulp-connect": "^5.0.0",
     "gulp-eslint": "^4.0.0",
     "gulp-extname": "^0.2.2",
+    "gulp-flatten": "^0.3.1",
     "gulp-htmlhint": "^0.3.1",
     "gulp-htmlmin": "^3.0.0",
     "gulp-imagemin": "^3.3.0",
