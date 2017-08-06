@@ -5,7 +5,7 @@ function onInputFocus (ev) {
 }
 
 function onInputBlur (ev) {
-    if( ev.target.value.trim() === '' ) {
+    if (ev.target.value.trim() === '') {
         classie.remove(ev.target.parentNode, 'input--filled');
     }
 }
