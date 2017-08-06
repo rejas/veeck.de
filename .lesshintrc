@@ -3,5 +3,8 @@
     "propertyOrdering":         false,
     "spaceAfterPropertyColon":  false,
     "universalSelector":        false,
-    "zeroUnit":                 false
+    "zeroUnit":                 false,
+    "maxCharPerLine":           {
+        "limit": 120
+    }
 }
