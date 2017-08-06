@@ -15,6 +15,7 @@ import gulp         from    'gulp';
 import gutil        from    'gulp-util';
 import gplugins     from    'gulp-load-plugins';
 import grelease     from    'gulp-release-it';
+import gcachebust   from    'gulp-cache-bust';
 import assemble     from    'assemble';
 import assemblevars from    'assemble-middleware-page-variable';
 
@@ -268,6 +269,9 @@ gulp.task('html', ['assemble'], () => {
             read: false,
             cwd: __dirname + '/dist'
         })))
+        .pipe(gcachebust({
+            type: 'timestamp'
+        }))
         .pipe(plugins.htmlmin(config.htmlmin))
         .pipe(gulp.dest(dirs.dist));
 });
