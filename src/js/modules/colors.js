@@ -8,11 +8,11 @@ function changeColor (c) {
 
     htmlStyle.getPropertyValue('--primaryColor');
     root.style.setProperty('--primaryColor', color.toHexString());
-    root.style.setProperty('--lightPrimaryColor', color.darken(15));
-    root.style.setProperty('--darkPrimaryColor', color.darken(-15));
-    root.style.setProperty('--accentColor', color.darken(35));
+    root.style.setProperty('--darkPrimaryColor', color.darken(15));
+    root.style.setProperty('--lightPrimaryColor', color.lighten(30));
+    root.style.setProperty('--accentColor', color.lighten(15));
 
-    if (color.getBrightness() < 40) {
+    if (color.getBrightness() < 200) {
         root.style.setProperty('--secondaryTextColor', '#fcfcfc');
     }
 }
