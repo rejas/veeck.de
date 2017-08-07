@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * ImageLightBox
      */
-    $('a.gallery, .gallery_article figure a').imageLightbox({
+    $('.gallery__image > a, .js-travel_figure > a').imageLightbox({
         activity:       true,
         caption:        true,
         fullscreen:     true,
