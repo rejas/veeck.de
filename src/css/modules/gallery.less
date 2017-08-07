@@ -6,14 +6,6 @@
     column-gap: 1rem;
     column-fill: balance;
 
-    .h2 {
-        column-span: all;
-    }
-
-    .gallery__image {
-        margin-bottom: 1rem;
-    }
-
     @media @desktop {
 
         &-single-lg {
@@ -61,5 +53,17 @@
         &-half-sm {
             columns: 2;
         }
+    }
+
+    &__image {
+        margin-bottom: 1rem;
+
+        > a {
+            display: block;
+        }
+    }
+
+    .h2 {
+        column-span: all;
     }
 }
