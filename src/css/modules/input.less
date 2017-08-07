@@ -3,8 +3,15 @@
 .input {
     border-color: @input-border-color;
 
-    > input {
+    > input,
+    > select {
         border: 0;
+        color: @primaryTextColor;
+        font-family: @font-main, arial;
+        font-size: @font-size-m;
+        font-weight: @font-weight-bold;
+        height: 100%;
+        width: 100%;
 
         &:focus {
             outline: none;
@@ -12,8 +19,35 @@
     }
 }
 
-.select {
-    border-color: @input-border-color;
+/* Select */
+.input-select {
+    cursor: pointer;
+    position: relative;
+    padding: 0.5rem 0;
+    border-bottom: @border-thickness solid @input-border-color;
+    border-radius: 0;
+    margin: 0 0 1.5rem 0;
+    overflow: hidden;
+
+    &::after:extend(.icon, .icon-arrow--down, .icon--xs) {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 1rem;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    > select {
+        appearance: none;
+        background-color: transparent;
+        box-shadow: none;
+        cursor: pointer;
+
+        &::-ms-expand {
+            display: none;
+        }
+    }
 }
 
 /* Manami */
@@ -27,7 +61,7 @@
 .input__field--manami {
     width: 100%;
     background: transparent;
-    padding: 0.75rem;
+    padding: 0.5rem;
     margin-bottom: 1.5rem;
     color: @primaryTextColor;
     z-index: @z-index-5;
@@ -101,42 +135,4 @@
 .input--filled .input__label--manami .input__label-content--manami {
     color: @darkPrimaryColor;
     transform: translate3d(0, 2em, 0) scale3d(0.75, 0.75, 1);
-}
-
-.input-select {
-    position: relative;
-    padding: 0.5rem 0;
-    border-bottom: @border-thickness solid @input-border-color;
-    border-radius: 0;
-    margin: 0 0 1.5rem 0;
-    overflow: hidden;
-
-    &::after:extend(.icon, .icon-arrow--down, .icon--xs) {
-        content: '';
-        position: absolute;
-        right: 0;
-        top: 1rem;
-        width: 2rem;
-        height: 2rem;
-    }
-
-    select {
-        appearance: none;
-        background-color: transparent;
-        border: 0;
-        box-shadow: none;
-        color: @primaryTextColor;
-        font-family: @font-main, arial;
-        font-size: @font-size-m;
-        font-weight: @font-weight-bold;
-        width: 100%;
-
-        &:focus {
-            outline: none;
-        }
-
-        &::-ms-expand {
-            display: none;
-        }
-    }
 }
