@@ -8,8 +8,8 @@
 }
 
 ::selection {
-    background-color: @primaryTextColor;
-    color: @bgColor;
+    .colorVar(background-color, --primaryTextColor, @primaryTextColor);
+    .colorVar(color, --primaryColor, @primaryColor);
     text-shadow: none;
 }
 
@@ -26,9 +26,9 @@ html {
 }
 
 body {
-    background-color: @bgColor;
+    background-color: @backgroundColor;
     box-sizing: border-box;
-    .colorVar(color, --primaryTextColor, @primaryTextColor);
+    color: @primaryTextColor;
     height: 100%;
     margin: 0;
     padding: 0;
