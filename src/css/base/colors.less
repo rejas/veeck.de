@@ -1,25 +1,29 @@
 // lesshint spaceAroundComma: false
 
-@primaryColor:      #c3c3c3;
-@primaryTextColor:  #212121;
-@secondaryTextColor: @primaryTextColor;
-@accentColor:       #c3c3c3;
-@bgColor:           #fcfcfc;
-@lightAccentColor:  lighten(@accentColor,   36.5%);
-@darkAccentColor:   darken(@accentColor,    16.5%);
-@lightPrimaryColor: lighten(@primaryColor,  36.5%);
-@darkPrimaryColor:  darken(@primaryColor,   16.5%);
+@colorWhite:            #FCFCFC;
+@colorDark:             #030303;
 
-@color-transparent: rgba(0, 0, 0, 0.125);
+@primaryColor:          #335577;
+@accentColor:           spin(@primaryColor,     180); //TODO calculate as in js code
+
+@backgroundColor:       @colorWhite;
+@primaryTextColor:      @colorDark;
+@secondaryTextColor:    #ffffff - @primaryTextColor;
+
+@lightAccentColor:      lighten(@accentColor,   15%);
+@darkAccentColor:       darken(@accentColor,    15%);
+@lightPrimaryColor:     lighten(@primaryColor,  15%);
+@darkPrimaryColor:      darken(@primaryColor,   15%);
+
+@color-transparent:     rgba(0, 0, 0, 0.125);
 
 :root {
-    --primaryColor: @primaryColor;
-    --primaryTextColor: @primaryTextColor;
-    --secondaryTextColor: @secondaryTextColor;
-    --accentColor: @accentColor;
-    --bgColor: @bgColor;
-    --lightAccentColor: lighten(@accentColor,   36.5%);
-    --darkAccentColor: darken(@accentColor,     16.5%);
-    --lightPrimaryColor: lighten(@primaryColor, 36.5%);
-    --darkPrimaryColor: darken(@primaryColor,   16.5%);
+    --primaryColor:         @primaryColor;
+    --primaryTextColor:     @primaryTextColor;
+    --secondaryTextColor:   @secondaryTextColor;
+    --accentColor:          @accentColor;
+    --lightAccentColor:     @lightAccentColor;
+    --darkAccentColor:      @darkAccentColor;
+    --lightPrimaryColor:    @lightPrimaryColor;
+    --darkPrimaryColor:     @darkPrimaryColor;
 }
