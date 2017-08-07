@@ -1,4 +1,3 @@
-/* global Modernizr */
 'use strict';
 
 // Avoid `console` errors in browsers that lack a console.
