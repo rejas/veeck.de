@@ -169,9 +169,9 @@ gulp.task('prepare:images', () => {
 });
 
 gulp.task('prepare:sitemap', ['assemble'], () => {
-    return gulp.src([`${dirs.src}/*.html`, `!${dirs.src}/google*.html`], { read: false })
+    return gulp.src([`${dirs.dist}/*.html`, `!${dirs.dist}/google*.html`], { read: false })
         .pipe(plugins.sitemap(config.sitemap))
-        .pipe(gulp.dest(dirs.src));
+        .pipe(gulp.dest(`${dirs.src}/page`));
 });
 
 gulp.task('prepare:modernizr', () => {
