@@ -94,7 +94,7 @@ gulp.task('check:less', () => {
  * DEPLOY TASKS
  */
 
-gulp.task('upload', () => {
+gulp.task('upload:page', ['default'], () => {
     return gulp.src('.')
         .pipe(plugins.prompt.prompt({
             type: 'password',
@@ -309,7 +309,7 @@ gulp.task('copy',       ['copy:files', 'copy:images', 'copy:vendorscripts']);
 
 gulp.task('default',    (cb) => { runSequence('clean', 'copy',  'webpack', 'html', cb) });
 
-gulp.task('deploy',     ['upload']);
+gulp.task('upload',     ['upload:page']);
 
 gulp.task('scale',      ['scale:medium', 'scale:small', 'scale:placeholder']);
 
