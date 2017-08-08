@@ -307,7 +307,7 @@ gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
 gulp.task('copy',       ['copy:files', 'copy:images', 'copy:vendorscripts']);
 
-gulp.task('default',    (cb) => { runSequence('clean', 'copy',  'webpack', 'html', cb) });
+gulp.task('default',    (cb) => { runSequence('clean', 'copy', 'webpack', 'html', cb) });
 
 gulp.task('upload',     ['upload:page']);
 
