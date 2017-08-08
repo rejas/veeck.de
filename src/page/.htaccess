@@ -454,7 +454,7 @@ AddDefaultCharset utf-8
 </IfModule>
 
 # ----------------------------------------------------------------------
-# | Content Security Policy (CSP)                                      |
+# | Content Security Policy (CSP) TODO enable with google analytics    |
 # ----------------------------------------------------------------------
 
 # Mitigate the risk of cross-site scripting and other content-injection
@@ -474,9 +474,9 @@ AddDefaultCharset utf-8
 # http://www.html5rocks.com/en/tutorials/security/content-security-policy/
 # https://w3c.github.io/webappsec-csp/
 
-<IfModule mod_headers.c>
+# <IfModule mod_headers.c>
 
-    Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
+#     Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
 
 #     # `mod_headers` cannot match based on the content-type, however,
 #     # the `Content-Security-Policy` response header should be send
@@ -486,7 +486,7 @@ AddDefaultCharset utf-8
 #         Header unset Content-Security-Policy
 #     </FilesMatch>
 
-</IfModule>
+# </IfModule>
 
 # ----------------------------------------------------------------------
 # | File access                                                        |
