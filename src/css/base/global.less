@@ -82,10 +82,10 @@ ul {
 a,
 a:visited {
     color: @primaryTextColor;
+    border-bottom: @border-thickness solid;
     .colorVar(border-bottom-color, --primaryColor, @primaryColor);
     outline: none;
     text-decoration: none;
-    border-bottom: @border-thickness solid var(--primaryColor);
     cursor: pointer;
     .transform(all);
     background-color: transparent;
@@ -100,8 +100,8 @@ pre {
     display: inline-block;
     width: 100%;
     padding: 0.5rem;
-    background-color: @accentColor;
-    border: @border-thickness solid @secondaryAccentColor;
+    .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+    border: @border-thickness solid @color-transparent;
     border-radius: @figure-border-radius;
     margin-bottom: 0.5rem;
     white-space: pre-wrap;
