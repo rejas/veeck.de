@@ -1,6 +1,8 @@
 /**
  * Travel page
  */
+@colorFigure:   #ede1c9;
+@colorFigure2:  lighten(@colorFigure, 10);
 
 .travel-article {
 
@@ -24,8 +26,8 @@
         @media @desktop, @tablet {
             overflow: visible;
             padding: 0.5rem 0.5rem 0;
-            box-shadow: 4px 4px 8px -4px rgba(0, 0, 0, 0.75);
-            background: linear-gradient(to bottom, #ede1c9, #fef8e2 20%, #f2ebde 60%);
+            box-shadow: 4px 4px 8px -4px @color-transparentDark;
+            background: linear-gradient(to bottom, @colorFigure, @colorFigure2 60%);
             transform: rotate(var(--figure-angle-seed));
 
             &:before {
@@ -35,7 +37,8 @@
                 top: -15px;
                 width: 75px;
                 height: 25px;
-                background-color: rgba(222, 220, 198, 0.7);
+                background-color: @colorFigure;
+                opacity: 0.5;
             }
         }
     }

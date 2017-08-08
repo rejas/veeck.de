@@ -49,20 +49,20 @@
 }
 
 .intro-effect-side .bg-img::after {
+    background-color: @color-transparentLight;
     border: 80px solid @backgroundColor;
     top: -80px;
     right: -80px;
     bottom: -80px;
     left: -80px;
-    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .intro-effect-side.modify .bg-img::after {
+    background: transparent;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, 0);
 }
 
 .intro-effect-side .title {
@@ -140,10 +140,10 @@
         border-right-width: 0;
         right: 0;
         left: 0;
-        background: rgba(255, 255, 255, 0.1);
+        background: transparent;
     }
 
     .intro-effect-side.modify .bg-img::after {
-        background: rgba(255, 255, 255, 0.8);
+        background: @color-transparentLight;
     }
 }
