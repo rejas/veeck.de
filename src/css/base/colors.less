@@ -3,27 +3,25 @@
 @colorWhite:            #FCFCFC;
 @colorDark:             #030303;
 
-@primaryColor:          #335577;
-@accentColor:           spin(@primaryColor,     180); //TODO calculate as in js code
+@primaryColor:          #f0054c;
+@accentColor:           #f0d805;
+@secondaryAccentColor:  #05aaf0;
 
 @backgroundColor:       @colorWhite;
 @primaryTextColor:      @colorDark;
-@secondaryTextColor:    #ffffff - @primaryTextColor; //TODO calculate as in js code
+@secondaryTextColor:    #ffffff - @primaryTextColor;    //TODO calculate as in js code
 
-@lightAccentColor:      lighten(@accentColor,   15%);
-@darkAccentColor:       darken(@accentColor,    15%);
 @lightPrimaryColor:     lighten(@primaryColor,  15%);
-@darkPrimaryColor:      darken(@primaryColor,   15%);
+@darkPrimaryColor:      darken(@primaryColor,   30%);
 
-@color-transparent:     rgba(0, 0, 0, 0.125);  //TODO cleanup transparent colors
+@color-transparent:     rgba(0, 0, 0, 0.125);           //TODO cleanup transparent colors
 
 :root {
     --primaryColor:         @primaryColor;
+    --lightPrimaryColor:    @lightPrimaryColor;
+    --darkPrimaryColor:     @darkPrimaryColor;
     --primaryTextColor:     @primaryTextColor;
     --secondaryTextColor:   @secondaryTextColor;
     --accentColor:          @accentColor;
-    --lightAccentColor:     @lightAccentColor;
-    --darkAccentColor:      @darkAccentColor;
-    --lightPrimaryColor:    @lightPrimaryColor;
-    --darkPrimaryColor:     @darkPrimaryColor;
+    --secondaryAccentColor: @secondaryAccentColor;
 }

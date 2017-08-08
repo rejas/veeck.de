@@ -15,10 +15,8 @@ function changeColor (c) {
     root.style.setProperty('--primaryColor', color.toHexString());
     root.style.setProperty('--darkPrimaryColor', color.darken(30).toHexString());
     root.style.setProperty('--lightPrimaryColor', color.lighten(45).toHexString());
-    //TODO make accent color calculation same as in less code
-    root.style.setProperty('--accentColor', color.darken(15).complement().toHexString());
-    root.style.setProperty('--darkAccentColor', color.darken(30).toHexString());
-    root.style.setProperty('--lightAccentColor', color.lighten(45).toHexString());
+    root.style.setProperty('--accentColor', color.darken(15).splitcomplement()[1].toHexString());
+    root.style.setProperty('--secondaryAccentColor', color.splitcomplement()[2].toHexString());
 }
 
 export function init() {
