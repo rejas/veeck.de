@@ -110,7 +110,7 @@ gulp.task('upload', () => {
 
             gulp.src([`${dirs.dist}/**/*`,
                 `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/components`], {
-                base: 'dist', buffer: false })
+                base: 'dist', buffer: false, dot: true})
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/veeck'));
         }));
