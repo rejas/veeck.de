@@ -31,8 +31,10 @@
     &--comic {
         border: @border-thickness solid @color-transparent;
         border-radius: @global-border-radius;
-        .colorVar(color, --secondaryTextColor, @secondaryTextColor);
+        .colorVar(color, --primaryTextColor, @primaryTextColor);
         .colorVar(background-color, --primaryColor, @primaryColor);
+        height: @btn-size-l;
+        width: @btn-size-l;
         padding: 0;
 
         &:hover {
@@ -40,11 +42,8 @@
         }
 
         > svg {
-            .colorVar(fill, --secondaryTextColor, @secondaryTextColor);
+            .colorVar(fill, --primaryTextColor, @primaryTextColor);
         }
-
-        height: @btn-size-l;
-        width: @btn-size-l;
     }
 
     &--hamburger {
