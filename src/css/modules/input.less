@@ -1,7 +1,5 @@
-@input-border-color: @secondaryAccentColor;
-
 .input {
-    border-color: @input-border-color;
+    .colorVar(border-color, --accentColor, @accentColor);
 
     > input,
     > select {
@@ -24,7 +22,8 @@
     cursor: pointer;
     position: relative;
     padding: 0.5rem 0;
-    border-bottom: @border-thickness solid @input-border-color;
+    border-bottom: @border-thickness solid;
+    .colorVar(border-color, --accentColor, @accentColor);
     border-radius: 0;
     margin: 0 0 1.5rem 0;
     overflow: hidden;
@@ -94,7 +93,7 @@
 
     &::before {
         height: 100%;
-        background: @accentColor;
+        .colorVar(background, --accentColor, @accentColor);
         top: 0;
         transform: translate3d(0, -100%, 0);
         .transform(transform);
@@ -102,7 +101,7 @@
 
     &::after {
         height: @border-thickness;
-        background: @input-border-color;
+        .colorVar(background, --accentColor, @accentColor);
         top: 100%;
         .transform(opacity);
     }

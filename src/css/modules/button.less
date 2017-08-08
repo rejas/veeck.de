@@ -4,7 +4,6 @@
 
 .btn {
     box-sizing: border-box;
-    .colorVar(color, --primaryTextColor, @primaryTextColor);
     cursor: pointer;
     font-family: @font-main, arial;
     font-size: @font-size-sm;
@@ -54,8 +53,9 @@
 
     &--normal {
         background: none;
-        border: @border-thickness solid @secondaryAccentColor;
+        border: @border-thickness solid;
         border-radius: 0;
+        .colorVar(border-color, --accentColor, @accentColor);
         font-weight: @font-weight-bold;
         position: relative;
         .transform(all);
@@ -77,7 +77,7 @@
             height: 100%;
             top: 50%;
             left: 50%;
-            background: @secondaryAccentColor;
+            .colorVar(background, --accentColor, @accentColor);
             transform: translateX(-50%) translateY(-50%);
         }
     }
