@@ -183,15 +183,26 @@ gulp.task('prepare:modernizr', () => {
         .pipe(gulp.dest(`${dirs.src}/js/vendor/`));
 });
 
+gulp.task('scale:max', () => {
+    return gulp.src(`${dirs.org}/img/backgrounds/**/*`)
+        .pipe(plugins.jimp({
+            '': {
+                scaleToFit: { width: 1920, height: 1920 },
+                quality: 60
+            }
+        }))
+        .pipe(gulp.dest(`${dirs.src}/img/backgrounds`));
+});
+
 gulp.task('scale:medium', () => {
-    return gulp.src(`${dirs.org}/img/travel/**/*`)
+    return gulp.src(`${dirs.org}/img/**/*`)
         .pipe(plugins.jimp({
             '.medium': {
                 scaleToFit: { width: 1920, height: 1920 },
                 quality: 60
             }
         }))
-        .pipe(gulp.dest(`${dirs.src}/img/travel`));
+        .pipe(gulp.dest(`${dirs.src}/img`));
 });
 
 gulp.task('scale:small', () => {
