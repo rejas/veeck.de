@@ -29,7 +29,8 @@
     }
 
     &--comic {
-        border: @border-thickness solid @color-transparent;
+        border: @border-thickness solid;
+        .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
         border-radius: @global-border-radius;
         .colorVar(color, --primaryTextColor, @primaryTextColor);
         .colorVar(background-color, --primaryColor, @primaryColor);
@@ -38,7 +39,7 @@
         padding: 0;
 
         &:hover {
-            border-color: @color-transparent;
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
         }
 
         > svg {
@@ -54,7 +55,7 @@
         background: none;
         border: @border-thickness solid;
         border-radius: 0;
-        .colorVar(border-color, --accentColor, @accentColor);
+        .colorVar(border-color, --primaryColor, @primaryColor);
         font-weight: @font-weight-bold;
         position: relative;
         .transform(all);
@@ -76,7 +77,7 @@
             height: 100%;
             top: 50%;
             left: 50%;
-            .colorVar(background, --accentColor, @accentColor);
+            .colorVar(background-color, --primaryColor, @primaryColor);
             transform: translateX(-50%) translateY(-50%);
         }
     }

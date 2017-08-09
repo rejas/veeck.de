@@ -1,5 +1,5 @@
 .input {
-    .colorVar(border-color, --accentColor, @accentColor);
+    .colorVar(border-color, --primaryColor, @primaryColor);
 
     > input,
     > select {
@@ -23,7 +23,7 @@
     position: relative;
     padding: 0.5rem 0;
     border-bottom: @border-thickness solid;
-    .colorVar(border-color, --accentColor, @accentColor);
+    .colorVar(border-color, --primaryColor, @primaryColor);
     border-radius: 0;
     margin: 0 0 1.5rem 0;
     overflow: hidden;
@@ -93,7 +93,7 @@
 
     &::before {
         height: 100%;
-        .colorVar(background, --accentColor, @accentColor);
+        .colorVar(background-color, --primaryColor, @primaryColor);
         top: 0;
         transform: translate3d(0, -100%, 0);
         .transform(transform);
@@ -101,7 +101,7 @@
 
     &::after {
         height: @border-thickness;
-        .colorVar(background, --accentColor, @accentColor);
+        .colorVar(background-color, --primaryColor, @primaryColor);
         top: 100%;
         .transform(opacity);
     }
@@ -132,6 +132,6 @@
 
 .input__field--manami:focus + .input__label--manami .input__label-content--manami,
 .input--filled .input__label--manami .input__label-content--manami {
-    color: @darkPrimaryColor;
+    .colorVar(color, --primaryColor, @primaryColor);
     transform: translate3d(0, 2em, 0) scale3d(0.75, 0.75, 1);
 }

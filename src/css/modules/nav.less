@@ -40,13 +40,13 @@
             }
 
             &:hover > a {
-                .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+                .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
             }
 
             > a {
                 width: 100%;
                 .transform(background);
-                padding: @border-thickness 1.5rem 0;
+                padding: @border-thickness 1.5rem;
             }
 
             &:hover > .dl-submenu {
@@ -54,7 +54,7 @@
                 margin-top: 0;
 
                 > li > a {
-                    .colorVar(background-color, --primaryColor, @primaryColor);
+                    .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
                 }
             }
 
