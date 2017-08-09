@@ -10,6 +10,7 @@ const webpackconfig = {
         path: path.resolve(__dirname, '../dist/'),
         filename: 'js/[name].js'
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -74,9 +75,8 @@ const webpackconfig = {
             filename: 'css/[name].css'
         }),
         new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
+            sourceMap: true,
+            warnings: false
         }),
         new webpack.ProvidePlugin({
             $: 'jquery',
