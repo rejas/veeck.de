@@ -1,5 +1,5 @@
 .mobile-nav {
-    .colorVar(color, --secondaryTextColor, @secondaryTextColor);
+    .colorVar(color, --primaryTextColor, @primaryTextColor);
     float: right;
     position: absolute;
     right: 0;
@@ -43,13 +43,13 @@
         width: 100%;
 
         .hamburger-inner {
-            .colorVar(background-color, --secondaryTextColor, @secondaryTextColor);
+            .colorVar(background-color, --primaryTextColor, @primaryTextColor);
         }
 
         .hamburger-inner,
         .hamburger-inner::before,
         .hamburger-inner::after {
-            .colorVar(background-color, --secondaryTextColor, @secondaryTextColor);
+            .colorVar(background-color, --primaryTextColor, @primaryTextColor);
             width: 100%;
             height: 4px;
         }
