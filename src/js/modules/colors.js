@@ -25,8 +25,8 @@ export function init() {
     //TODO add random use of header or random color
     if (!newColor) {
         newColor = tinycolor.random().toHsl();
-        if (newColor.l < 0.25) newColor.l = 0.25;
-        if (newColor.l > 0.75) newColor.l = 0.75;
+        if (newColor.l < 0.33) newColor.l = 0.33;
+        if (newColor.l > 0.66) newColor.l = 0.66;
     }
 
     if (Modernizr.supports && window.CSS.supports('--primaryColor', 0)) {
