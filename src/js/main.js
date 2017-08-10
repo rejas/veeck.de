@@ -63,9 +63,9 @@ import 'responsivemultilevelmenu/js/jquery.dlmenu';
 import * as Colors      from './modules/colors';
 import * as Input       from './modules/input';
 import * as Intro       from './modules/intro';
+import * as Lazy        from './modules/lazy';
 import * as Nav         from './modules/nav';
 
-import Blazy            from 'blazy';
 import BrowserUpdate    from 'browser-update';
 import Konami           from 'konami-code.js';
 import Smoothscroll     from 'smoothscroll-polyfill';
@@ -93,6 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
     Input.init();
 
     /**
+     * Lazyload images
+     */
+    Lazy.init();
+
+    /**
      * Navigation
      */
     Nav.init();
@@ -105,19 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.js-to-top').onclick = () => {
         window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     };
-
-    /**
-     * Lazyload images via blazy
-     */
-    new Blazy({
-        selector: '.js-lazyload',
-        src: 'data-original',
-        error: function(element, message) {
-            if (message === 'missing' || message === 'invalid') {
-                element.setAttribute('src', '');
-            }
-        }
-    });
 
     /**
      * ImageLightBox
