@@ -61,13 +61,13 @@ import 'imagelightbox';
 import 'responsivemultilevelmenu/js/jquery.dlmenu';
 import 'slick-carousel/slick/slick';
 
-import * as Colors from './modules/colors';
-import * as Input  from './modules/input';
-import * as Intro  from './modules/intro';
-import * as Nav    from './modules/nav';
+import * as Colors      from './modules/colors';
+import * as Input       from './modules/input';
+import * as Intro       from './modules/intro';
+import * as Nav         from './modules/nav';
 
 import Blazy            from 'blazy';
-import browserUpdate    from 'browser-update';
+import BrowserUpdate    from 'browser-update';
 import Konami           from 'konami-code.js';
 import Smoothscroll     from 'smoothscroll-polyfill';
 
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Check browser version
      */
-    browserUpdate();
+    BrowserUpdate();
 
     /**
      * ArticleIntroEffect
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Travel picture angle randomization
      */
-    Array.prototype.forEach.call(document.getElementsByClassName('js-travel_figure'), function(figure) {
+    Array.prototype.forEach.call(document.getElementsByClassName('js-travel_figure'), (figure) => {
         figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 
