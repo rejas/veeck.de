@@ -4777,9 +4777,9 @@ gulp-prompt@0.2.0, gulp-prompt@^0.2.0:
     event-stream "~3.0.20"
     inquirer "~0.10"
 
-gulp-release-it@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/gulp-release-it/-/gulp-release-it-1.1.5.tgz#32c24a69e3187f6f5e858a67ce22d760b7e32420"
+gulp-release-it@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/gulp-release-it/-/gulp-release-it-1.1.6.tgz#a06fe513d7257af5414b074bda45d747d9def546"
   dependencies:
     gulp-bump "2.7.0"
     gulp-git "2.4.1"
