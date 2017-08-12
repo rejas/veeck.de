@@ -21,7 +21,7 @@ function fetchImage(url) {
     });
 }
 
-/**promise ie11
+/**
  * Preloads the image
  * @param {object} image
  */
