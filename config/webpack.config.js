@@ -1,5 +1,6 @@
 const path = require('path'),
     webpack = require('webpack'),
+    BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const webpackconfig = {
@@ -19,7 +20,7 @@ const webpackconfig = {
                 use: [{
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env']
+                        presets: ['es2015']
                     }
                 }]
             },
@@ -71,6 +72,10 @@ const webpackconfig = {
         ]
     },
     plugins: [
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: false
+        }),
         new ExtractTextPlugin({
             filename: 'css/[name].css'
         }),

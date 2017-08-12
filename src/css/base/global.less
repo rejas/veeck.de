@@ -76,8 +76,7 @@ ul {
     list-style-position: inside;
 }
 
-a,
-a:visited {
+a {
     color: @primaryTextColor;
     border-bottom: @border-thickness solid;
     .colorVar(border-bottom-color, --primaryColor, @primaryColor);
@@ -90,6 +89,10 @@ a:visited {
     &:hover,
     &:focus {
         .colorVar(background-color, --primaryColor, @primaryColor);
+    }
+
+    &:visited {
+        color: @primaryTextColor;
     }
 }
 
