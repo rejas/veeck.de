@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Travel picture angle randomization
      */
-    document.getElementsByClassName('js-travel_figure').forEach(figure => {
+    Array.prototype.forEach.call(document.getElementsByClassName('js-travel_figure'), figure => {
         figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 

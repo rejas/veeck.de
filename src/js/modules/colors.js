@@ -29,7 +29,8 @@ export function init() {
         if (newColor.l > 0.66) newColor.l = 0.66;
     }
 
-    if (Modernizr.supports && window.CSS.supports('--primaryColor', 0)) {
+    //TODO Replace with Modernizr-test when it comes out
+    if (window.CSS && CSS.supports('color', 'var(--primary)')) {
         changeColor(tinycolor(newColor));
     }
 }
