@@ -1,4 +1,3 @@
-/* global Modernizr */
 import tinycolor from 'tinycolor2';
 
 function changeColor (color) {
