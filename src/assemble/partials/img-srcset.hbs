@@ -1,3 +1,14 @@
 <img class="object-fit-img"
+     alt="Background Image"
      src="img/backgrounds/{{img}}"
-     alt="Background Image"/>
+     sizes="100vw"
+     srcset="img/backgrounds/friends.jpg 1920w,
+             img/friends/albi_medium.jpg 450w,
+             img/friends/albi_small.jpg 200w"/>
+
+<picture class="object-fit-img">
+    <source srcset="img/backgrounds/friends.jpg" media="(min-width: 768px)" />
+    <source srcset="img/friends/albi_small.jpg" media="(min-width: 320px)" />
+    <img src="img/backgrounds/{{img}}"
+         alt="Background Image"/>
+</picture>
