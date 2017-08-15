@@ -9,9 +9,9 @@
   },
   "browserslist": [
     "last 2 versions",
-    "ie >= 10",
+    "ie >= 11",
     "iOS >= 9",
-    "Android >= 4.2"
+    "Android >= 4.4"
   ],
   "scripts": {
     "bld": "webpack",
