@@ -74,7 +74,8 @@ const webpackconfig = {
     plugins: [
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
-            openAnalyzer: false
+            openAnalyzer: false,
+            reportFilename: '../report.html'
         }),
         new ExtractTextPlugin({
             filename: 'css/[name].css'
