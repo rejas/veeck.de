@@ -87,10 +87,6 @@ const webpackconfig = {
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             warnings: false
-        }),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery'
         })
     ],
     resolve: {
