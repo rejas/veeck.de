@@ -56,7 +56,6 @@ addLoadEvent(function() {
 
 import styles_webpack from '../css/main.less';
 
-import "babel-polyfill";
 import 'cookieconsent/src/cookieconsent';
 import 'imagelightbox';
 import 'responsivemultilevelmenu/js/jquery.dlmenu';
