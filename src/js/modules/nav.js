@@ -1,3 +1,4 @@
+import 'core-js/es6/symbol';
 import * as mqe from 'mediaquery-event/dist/mqe';
 
 function cssButton() {
