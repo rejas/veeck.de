@@ -94,7 +94,8 @@ export function init() {
     } else {
         // It is supported, load the images
         observer = new IntersectionObserver(onIntersection, config);
-        images.forEach(image => {
+
+        Array.prototype.forEach.call(images, (image) => {
             if (image.classList.contains('js-lazyload--handled')) {
                 return;
             }
