@@ -1,14 +1,15 @@
+/* global Promise */
 import 'core-js/es6/promise';
 
 const config = {
-    // If the image gets within 50px in the Y axis, start the download.
-    rootMargin: '50px 0px',
-    threshold: 0.01
-};
+        // If the image gets within 50px in the Y axis, start the download.
+        rootMargin: '50px 0px',
+        threshold: 0.01
+    },
+    images = document.querySelectorAll('.js-lazyload');
 
-const images = document.querySelectorAll('.js-lazyload');
-let imageCount = images.length;
-let observer;
+let imageCount = images.length,
+    observer;
 
 /**
  * Fetchs the image for the given URL
@@ -33,7 +34,7 @@ function preloadImage(image) {
         return;
     }
 
-    return fetchImage(src).then(() => { applyImage(image, src) });
+    return fetchImage(src).then(() => { applyImage(image, src); });
 }
 
 /**
@@ -41,7 +42,7 @@ function preloadImage(image) {
  * @param {array} images
  */
 function loadImagesImmediately(images) {
-    Array.from(images).forEach(image => preloadImage(image));
+    Array.prototype.forEach.call(images, (image) => preloadImage(image));
 }
 
 /**
@@ -62,7 +63,7 @@ function disconnect() {
 function onIntersection(entries) {
     // Disconnect if we've already loaded all of the images
     if (imageCount === 0) {
-        observer.disconnect();
+        disconnect();
     }
 
     // Loop through the entries
@@ -92,7 +93,7 @@ function applyImage(img, src) {
 export function init() {
     // If we don't have support for intersection observer, loads the images immediately
     if (!('IntersectionObserver' in window)) {
-        Array.prototype.forEach.call(images, (image) => preloadImage(image));
+        loadImagesImmediately(images);
     } else {
         // It is supported, load the images
         observer = new IntersectionObserver(onIntersection, config);
