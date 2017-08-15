@@ -20,7 +20,11 @@ const webpackconfig = {
                 use: [{
                     loader: 'babel-loader',
                     options: {
-                        presets: ['es2015']
+                        presets: [
+                            ["env", {
+                                "useBuiltIns": true
+                            }]
+                        ]
                     }
                 }]
             },
@@ -74,7 +78,8 @@ const webpackconfig = {
     plugins: [
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
-            openAnalyzer: false
+            openAnalyzer: false,
+            reportFilename: '../report.html'
         }),
         new ExtractTextPlugin({
             filename: 'css/[name].css'
