@@ -1,12 +1,10 @@
-@btn-size-m:  1.75rem;
-@btn-size-l:  2.5rem;
-@btn-size-xl: 2.75rem;
+@btn-size-m: 2.5rem;
 
 .btn {
     box-sizing: border-box;
     cursor: pointer;
     font-family: @font-main, arial;
-    font-size: @font-size-sm;
+    font-size: @font-size-m;
     margin: 0 auto;
     padding: 0 1rem;
     text-align: center;
@@ -18,24 +16,14 @@
         min-width: @btn-size-m;
     }
 
-    &--l {
-        min-height: @btn-size-l;
-        min-width: @btn-size-l;
-    }
-
-    &--xl {
-        min-height: @btn-size-xl;
-        min-width: @btn-size-xl;
-    }
-
     &--comic {
         border: @border-thickness solid;
         .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
         border-radius: @global-border-radius;
         .colorVar(color, --primaryTextColor, @primaryTextColor);
         .colorVar(background-color, --primaryColor, @primaryColor);
-        height: @btn-size-l;
-        width: @btn-size-l;
+        height: @btn-size-m;
+        width: @btn-size-m;
         padding: 0;
 
         &:hover {
