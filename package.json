@@ -1,6 +1,5 @@
 {
   "name": "homepage",
-  "version": "5.1.4",
   "private": true,
   "homepage": "https://github.com/rejas/homepage",
   "author": {
@@ -84,5 +83,6 @@
     "webpack": "^3.5.5",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-stream": "^4.0.0"
-  }
+  },
+  "version": null
 }
