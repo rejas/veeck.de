@@ -53,6 +53,37 @@
     margin-bottom: 2rem;
 }
 
+.article__link {
+    position: relative;
+    .transform(all);
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: @z-index-neg;
+        .transform(all);
+        width: 0;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        .colorVar(background-color, --primaryColor, @primaryColor);
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    &:hover,
+    &:focus {
+
+        &::after {
+            width: 100%;
+            opacity: 1;
+        }
+    }
+
+    &:visited {
+        color: @primaryTextColor;
+    }
+}
+
 .article__list {
     list-style: none;
 
@@ -93,40 +124,5 @@
 
     &:target {
         display: block;
-    }
-}
-
-//TODO refactor into BEM
-article {
-
-    a {
-        position: relative;
-        .transform(all);
-
-        &::after {
-            content: '';
-            position: absolute;
-            z-index: @z-index-neg;
-            .transform(all);
-            width: 0;
-            height: 100%;
-            top: 50%;
-            left: 50%;
-            .colorVar(background-color, --primaryColor, @primaryColor);
-            transform: translateX(-50%) translateY(-50%);
-        }
-
-        &:hover,
-        &:focus {
-
-            &::after {
-                width: 100%;
-                opacity: 1;
-            }
-        }
-
-        &:visited {
-            color: @primaryTextColor;
-        }
     }
 }
