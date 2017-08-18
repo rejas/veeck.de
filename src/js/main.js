@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * ImageLightBox
      */
-    $('.gallery__image > a, .js-travel_figure > a').imageLightbox({
+    $('.gallery__image > a, .js-travel_figure > a, .js-gallery__image').imageLightbox({
         activity:       true,
         caption:        true,
         fullscreen:     true,
