@@ -131,7 +131,7 @@ gulp.task('upload:images', () => {
             });
 
             gulp.src([`${dirs.dist}/img/**/*`], { base: 'dist', buffer: false } )
-                .pipe(conn.newer('/')) // only upload newer files
+                .pipe(conn.differentSize('/')) // filter for different file size
                 .pipe(conn.dest('/veeck'));
         }));
 });
