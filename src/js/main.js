@@ -32,12 +32,7 @@ addLoadEvent(function() {
     });
 });
 
-import styles_webpack from '../css/main.less';
-
-import 'cookieconsent/src/cookieconsent';
-import 'imagelightbox';
-import 'responsivemultilevelmenu/js/jquery.dlmenu';
-import 'slick-carousel/slick/slick';
+import styles_webpack   from '../css/main.less';
 
 import * as Colors      from './modules/colors';
 import * as Input       from './modules/input';
@@ -49,6 +44,10 @@ import BrowserUpdate    from 'browser-update';
 import Konami           from 'konami-code.js';
 import objectFitImages  from 'object-fit-images';
 import Smoothscroll     from 'smoothscroll-polyfill';
+
+import 'cookieconsent/src/cookieconsent';
+import 'imagelightbox';
+import 'responsivemultilevelmenu/js/jquery.dlmenu';
 
 document.addEventListener('DOMContentLoaded', () => {
 
