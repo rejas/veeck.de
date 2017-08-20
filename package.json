@@ -10,6 +10,7 @@
   "browserslist": [
     "last 2 versions",
     "ie >= 11",
+    "safari >= 7",
     "iOS >= 9",
     "Android >= 4.4"
   ],
