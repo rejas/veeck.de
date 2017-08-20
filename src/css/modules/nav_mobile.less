@@ -79,11 +79,11 @@
 
             /* Hide the inner submenus */
             .dl-submenu {
-                border-radius: 0 @figure-border-radius @figure-border-radius @figure-border-radius;
+                border-radius: 0 @border-radius-md @border-radius-md @border-radius-md;
                 display: none;
 
                 @media @tablet {
-                    border-radius: @figure-border-radius 0 @figure-border-radius @figure-border-radius;
+                    border-radius: @border-radius-md 0 @border-radius-md @border-radius-md;
                 }
             }
         }
@@ -101,14 +101,14 @@
         backface-visibility: hidden;
 
         &.dl-menuopen {
-            border-radius: 0 @figure-border-radius @figure-border-radius @figure-border-radius;
+            border-radius: 0 @border-radius-md @border-radius-md @border-radius-md;
             opacity: 1;
             pointer-events: auto;
             transform: translateY(0px);
             .boxshadow(5);
 
             @media @tablet {
-                border-radius: @figure-border-radius 0 @figure-border-radius @figure-border-radius;
+                border-radius: @border-radius-md 0 @border-radius-md @border-radius-md;
             }
         }
     }
@@ -168,10 +168,10 @@
 
     .dl-menu.dl-subview li.dl-subview,
     .dl-menu.dl-subview li.dl-subviewopen {
-        border-radius: 0 @figure-border-radius @figure-border-radius @figure-border-radius;
+        border-radius: 0 @border-radius-md @border-radius-md @border-radius-md;
 
         @media @tablet {
-            border-radius: @figure-border-radius 0 @figure-border-radius @figure-border-radius;
+            border-radius: @border-radius-md 0 @border-radius-md @border-radius-md;
         }
     }
 

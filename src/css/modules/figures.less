@@ -1,7 +1,7 @@
 figure {
     .boxshadow(1);
     .colorVar(background-color, --primaryColor, @primaryColor);
-    border-radius: @figure-border-radius;
+    border-radius: @border-radius-md;
     overflow: hidden;
     text-decoration: none;
     position: relative;
@@ -17,7 +17,7 @@ figure {
     }
 
     > .overlay {
-        border-radius: @figure-border-radius;
+        border-radius: @border-radius-md;
         position: absolute;
         top: 0;
         width: 100%;
@@ -157,12 +157,12 @@ figcaption {
 .imagelightbox-wrapper {
 
     .imagelightbox-loading {
-        border-radius: @figure-border-radius;
+        border-radius: @border-radius-md;
         .colorVar(background-color, --accentColor, @accentColor);
     }
 
     .imagelightbox-nav {
-        border-radius: @figure-border-radius;
+        border-radius: @border-radius-md;
         .colorVar(background-color, --accentColor, @accentColor);
 
         @media @phone {
