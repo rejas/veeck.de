@@ -7,7 +7,6 @@
  * Copyright 2014, Codrops
  * http://www.codrops.com
  */
-import classie from 'classie/lib/classie';
 
 export function init() {
 
@@ -86,11 +85,11 @@ export function init() {
         isAnimating = true;
 
         if (reveal) {
-            classie.add(container, 'modify');
+            container.classList.add('modify');
         } else {
             noscroll = true;
             disableScroll();
-            classie.remove(container, 'modify');
+            container.classList.remove('modify');
         }
 
         // simulating the end of the transition:
@@ -123,8 +122,8 @@ export function init() {
             window.scrollTo(0, 0);
         }
 
-        if (classie.has(container, 'notrans')) {
-            classie.remove(container, 'notrans');
+        if (container.classList.has('notrans')) {
+            container.classList.remove('notrans');
             return false;
         }
 
@@ -144,8 +143,8 @@ export function init() {
 
     if (pageScroll) {
         isRevealed = true;
-        classie.add(container, 'notrans');
-        classie.add(container, 'modify');
+        container.classList.add('notrans');
+        container.classList.add('modify');
     }
 
     window.addEventListener('scroll', scrollPage);

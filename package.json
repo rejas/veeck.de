@@ -20,10 +20,7 @@
     "fix": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js --fix"
   },
   "dependencies": {
-    "MultiLevelMenu": "https://github.com/codrops/MultiLevelMenu.git",
-    "blazy": "^1.8.2",
     "browser-update": "^2.1.4",
-    "classie": "^1.0.0",
     "cookieconsent": "^3.0.4",
     "core-js": "^2.5.0",
     "hamburgers": "^0.9.1",
@@ -31,10 +28,9 @@
     "jquery": "^3.2.1",
     "konami-code.js": "git+https://github.com/rejas/konami-js.git",
     "mediaquery-event": "^0.4.0",
+    "multilevelmenu": "https://github.com/rejas/MultiLevelMenu.git",
     "normalize-opentype.css": "^0.2.4",
     "object-fit-images": "^3.2.3",
-    "responsivemultilevelmenu": "^1.0.3",
-    "share-button": "^1.0.3",
     "smoothscroll-polyfill": "^0.3.6",
     "tinycolor2": "^1.4.1",
     "tinyreset": "^1.0.1"
