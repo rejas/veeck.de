@@ -47,7 +47,6 @@ import Smoothscroll     from 'smoothscroll-polyfill';
 
 import 'cookieconsent/src/cookieconsent';
 import 'imagelightbox';
-//import 'responsivemultilevelmenu/js/jquery.dlmenu';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -131,3 +130,4 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
     };
 });
+

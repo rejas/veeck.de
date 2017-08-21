@@ -2,10 +2,6 @@
 # yarn lockfile v1
 
 
-"MultiLevelMenu@https://github.com/codrops/MultiLevelMenu.git":
-  version "0.0.0"
-  resolved "https://github.com/codrops/MultiLevelMenu.git#e9508983c033fd61cf25ce45f1b722d1aa2ed212"
-
 abbrev@1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.0.tgz#d0554c2256636e2f56e7c2e5ad183f859428d81f"
@@ -2059,10 +2055,6 @@ class-utils@^0.3.4:
     isobject "^3.0.0"
     lazy-cache "^2.0.2"
     static-extend "^0.1.1"
-
-classie@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/classie/-/classie-1.0.0.tgz#fc9b29b47e64e374a2062fb624d05a61cd703ab2"
 
 clean-css@4.1.x:
   version "4.1.7"
@@ -7035,6 +7027,10 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
+"multilevelmenu@https://github.com/rejas/MultiLevelMenu.git":
+  version "1.0.0"
+  resolved "https://github.com/rejas/MultiLevelMenu.git#27a11aac7dcf72d9767b7767755c4a51f8462642"
+
 multimatch@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/multimatch/-/multimatch-2.1.0.tgz#9c7906a22fb4c02919e2f5f75161b4cdbd4b2a2b"
@@ -8865,10 +8861,6 @@ response-time@~2.3.1:
   dependencies:
     depd "~1.1.0"
     on-headers "~1.0.1"
-
-responsivemultilevelmenu@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/responsivemultilevelmenu/-/responsivemultilevelmenu-1.0.3.tgz#8acfe453c4a097971abc799f4d92db4464fe3051"
 
 restore-cursor@^1.0.1:
   version "1.0.1"
