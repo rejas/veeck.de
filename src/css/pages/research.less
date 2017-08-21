@@ -24,6 +24,24 @@
             padding-left: 200px;
         }
     }
+
+    &::shadow .user {
+        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+        border: @border-thickness solid @color-transparent;
+        border-radius: @border-radius-lg;
+        .colorVar(color, --primaryTextColor, @primaryTextColor);
+
+        .user-account,
+        .user-following,
+        .user-followers,
+        .user-repos {
+            .colorVar(color, --primaryTextColor, @primaryTextColor);
+
+            &::after {
+                .colorVar(color, --primaryTextColor, @primaryTextColor);
+            }
+        }
+    }
 }
 
 .radio_article {

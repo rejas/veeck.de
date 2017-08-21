@@ -1,27 +1,5 @@
+/* global Modernizr */
 'use strict';
-
-// Avoid `console` errors in browsers that lack a console.
-(function() {
-    var method;
-    var noop = function() {};
-    var methods = [
-        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
-        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
-        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
-        'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
-    ];
-    var length = methods.length;
-    var console = (window.console = window.console || {});
-
-    while (length--) {
-        method = methods[length];
-
-        // Only stub undefined methods.
-        if (!console[method]) {
-            console[method] = noop;
-        }
-    }
-}());
 
 // Event listener: DOM ready
 function addLoadEvent(func) {
@@ -54,21 +32,22 @@ addLoadEvent(function() {
     });
 });
 
-import styles_webpack from '../css/main.less';
-
-import 'cookieconsent/src/cookieconsent';
-import 'imagelightbox';
-import 'responsivemultilevelmenu/js/jquery.dlmenu';
+import styles_webpack   from '../css/main.less';
 
 import * as Colors      from './modules/colors';
 import * as Input       from './modules/input';
 import * as Intro       from './modules/intro';
+import * as Lazy        from './modules/lazy';
 import * as Nav         from './modules/nav';
 
-import Blazy            from 'blazy';
 import BrowserUpdate    from 'browser-update';
 import Konami           from 'konami-code.js';
+import objectFitImages  from 'object-fit-images';
 import Smoothscroll     from 'smoothscroll-polyfill';
+
+import 'cookieconsent/src/cookieconsent';
+import 'imagelightbox';
+import 'responsivemultilevelmenu/js/jquery.dlmenu';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -93,9 +72,21 @@ document.addEventListener('DOMContentLoaded', () => {
     Input.init();
 
     /**
+     * Lazyload images
+     */
+    Lazy.init();
+
+    /**
      * Navigation
      */
     Nav.init();
+
+    /**
+     * Fill out the background header images
+     */
+    if (!Modernizr.objectfit) {
+        objectFitImages();
+    }
 
     /**
      * Back to top
@@ -107,22 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /**
-     * Lazyload images via blazy
-     */
-    new Blazy({
-        selector: '.js-lazyload',
-        src: 'data-original',
-        error: function(element, message) {
-            if (message === 'missing' || message === 'invalid') {
-                element.setAttribute('src', '');
-            }
-        }
-    });
-
-    /**
      * ImageLightBox
      */
-    $('.gallery__image > a, .js-travel_figure > a').imageLightbox({
+    $('.gallery__image > a, .js-travel_figure > a, .js-gallery__image').imageLightbox({
         activity:       true,
         caption:        true,
         fullscreen:     true,

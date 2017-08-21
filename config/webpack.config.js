@@ -20,7 +20,11 @@ const webpackconfig = {
                 use: [{
                     loader: 'babel-loader',
                     options: {
-                        presets: ['es2015']
+                        presets: [
+                            ["env", {
+                                "useBuiltIns": true
+                            }]
+                        ]
                     }
                 }]
             },
@@ -37,17 +41,15 @@ const webpackconfig = {
                     }, {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: function () {
-                                return [
-                                    require('autoprefixer')(),
-                                    require('css-mqpacker')(),
-                                    require('postcss-normalize')(),
-                                    require('postcss-object-fit-images')(),
-                                    require('postcss-sprites')({
-                                        spritePath: 'tmp/'
-                                    })
-                                ]
-                            },
+                            plugins: (loader) => [
+                                require('autoprefixer')(),
+                                require('css-mqpacker')(),
+                                require('postcss-normalize')(),
+                                require('postcss-object-fit-images')(),
+                                require('postcss-sprites')({
+                                    spritePath: 'tmp/'
+                                })
+                            ],
                             sourceMap: true
                         }
                     }, {
@@ -74,7 +76,8 @@ const webpackconfig = {
     plugins: [
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
-            openAnalyzer: false
+            openAnalyzer: false,
+            reportFilename: '../report.html'
         }),
         new ExtractTextPlugin({
             filename: 'css/[name].css'
@@ -82,10 +85,6 @@ const webpackconfig = {
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             warnings: false
-        }),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery'
         })
     ],
     resolve: {

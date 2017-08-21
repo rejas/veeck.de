@@ -1,7 +1,7 @@
 figure {
     .boxshadow(1);
     .colorVar(background-color, --primaryColor, @primaryColor);
-    border-radius: @figure-border-radius;
+    border-radius: @border-radius-md;
     overflow: hidden;
     text-decoration: none;
     position: relative;
@@ -17,7 +17,7 @@ figure {
     }
 
     > .overlay {
-        border-radius: @figure-border-radius;
+        border-radius: @border-radius-md;
         position: absolute;
         top: 0;
         width: 100%;
@@ -90,24 +90,6 @@ figure {
             width: 50%;
         }
     }
-
-    @media @phone {
-
-        .travel-article & {
-            margin: 0 -1rem 1rem;
-            border-radius: 0;
-            box-shadow: none;
-            background-color: transparent;
-            float: none;
-            width: 100vw;
-
-            > .gallery {
-                display: block;
-                max-height: 50vh;
-                overflow: hidden;
-            }
-        }
-    }
 }
 
 figcaption {
@@ -175,12 +157,12 @@ figcaption {
 .imagelightbox-wrapper {
 
     .imagelightbox-loading {
-        border-radius: @figure-border-radius;
+        border-radius: @border-radius-md;
         .colorVar(background-color, --accentColor, @accentColor);
     }
 
     .imagelightbox-nav {
-        border-radius: @figure-border-radius;
+        border-radius: @border-radius-md;
         .colorVar(background-color, --accentColor, @accentColor);
 
         @media @phone {

@@ -20,6 +20,7 @@
 }
 
 html {
+    box-sizing: border-box;
     font-family: @font-main, arial;
     font-size: @base-font-size;
     line-height: @base-line-height;
@@ -27,7 +28,6 @@ html {
 
 body {
     background-color: @backgroundColor;
-    box-sizing: border-box;
     color: @primaryTextColor;
     height: 100%;
     margin: 0;
@@ -83,17 +83,7 @@ a {
     outline: none;
     text-decoration: none;
     cursor: pointer;
-    .transform(all);
     background-color: transparent;
-
-    &:hover,
-    &:focus {
-        .colorVar(background-color, --primaryColor, @primaryColor);
-    }
-
-    &:visited {
-        color: @primaryTextColor;
-    }
 }
 
 pre {
@@ -102,7 +92,7 @@ pre {
     padding: 0.5rem;
     .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
     border: @border-thickness solid @color-transparent;
-    border-radius: @figure-border-radius;
+    border-radius: @border-radius-md;
     margin-bottom: 0.5rem;
     white-space: pre-wrap;
 }
