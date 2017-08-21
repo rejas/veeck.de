@@ -7,7 +7,7 @@ export function init() {
             // initialBreadcrumb : 'all', // initial breadcrumb text
             backCtrl : false, // show back button
             // itemsDelayInterval : 60, // delay between each menu item sliding animation
-            onItemClick: loadDummyData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+            // onItemClick: loadDummyData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
         });
 
     // mobile menu toggle
@@ -23,20 +23,5 @@ export function init() {
 
     function closeMenu() {
         menuEl.classList.remove('menu--open');
-    }
-
-    // simulate grid content loading
-    var gridWrapper = document.querySelector('.content');
-
-    function loadDummyData(ev, itemName) {
-        ev.preventDefault();
-
-        closeMenu();
-        gridWrapper.innerHTML = '';
-        gridWrapper.classList.add('content--loading');
-        setTimeout(function() {
-            gridWrapper.classList.remove('content--loading');
-            gridWrapper.innerHTML = '<ul class="products">' + dummyData[itemName] + '<ul>';
-        }, 700);
     }
 }
