@@ -20,6 +20,8 @@
     "fix": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js --fix"
   },
   "dependencies": {
+    "MultiLevelMenu": "https://github.com/codrops/MultiLevelMenu.git",
+    "blazy": "^1.8.2",
     "browser-update": "^2.1.4",
     "classie": "^1.0.0",
     "cookieconsent": "^3.0.4",
