@@ -45,8 +45,13 @@ import Konami           from 'konami-code.js';
 import objectFitImages  from 'object-fit-images';
 import Smoothscroll     from 'smoothscroll-polyfill';
 
-import 'cookieconsent/src/cookieconsent';
-import 'imagelightbox';
+import { sayHello } from './treeshake';
+
+const element = document.createElement('h1');
+
+element.innerHTML = sayHello('World');
+
+document.body.appendChild(element);
 
 document.addEventListener('DOMContentLoaded', () => {
 

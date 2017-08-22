@@ -22,7 +22,8 @@ const webpackconfig = {
                     options: {
                         presets: [
                             ["env", {
-                                "useBuiltIns": true
+                                modules: false,
+                                useBuiltIns: true
                             }]
                         ]
                     }
