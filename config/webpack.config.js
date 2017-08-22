@@ -20,9 +20,11 @@ const webpackconfig = {
                 use: [{
                     loader: 'babel-loader',
                     options: {
+                        babelrc: false,
                         presets: [
-                            ["env", {
-                                "useBuiltIns": true
+                            ['env', {
+                                modules: false,
+                                useBuiltIns: true
                             }]
                         ]
                     }
