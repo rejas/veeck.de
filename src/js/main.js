@@ -49,14 +49,6 @@ import 'cookieconsent/src/cookieconsent';
 import 'imagelightbox';
 import 'responsivemultilevelmenu/js/jquery.dlmenu';
 
-import { sayHello } from './treeshake';
-
-const element = document.createElement('h1');
-
-element.innerHTML = sayHello('World');
-
-document.body.appendChild(element);
-
 document.addEventListener('DOMContentLoaded', () => {
 
     /**
