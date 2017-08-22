@@ -71,6 +71,14 @@ import BrowserUpdate    from 'browser-update';
 import Konami           from 'konami-code.js';
 import Smoothscroll     from 'smoothscroll-polyfill';
 
+import { sayHello } from './treeshake';
+
+const element = document.createElement('h1');
+
+element.innerHTML = sayHello('World');
+
+document.body.appendChild(element);
+
 document.addEventListener('DOMContentLoaded', () => {
 
     /**
