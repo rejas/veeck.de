@@ -79,11 +79,11 @@
 
             /* Hide the inner submenus */
             .dl-submenu {
-                border-radius: 0 @figure-border-radius @figure-border-radius @figure-border-radius;
+                border-radius: 0 @border-radius-md @border-radius-md @border-radius-md;
                 display: none;
 
                 @media @tablet {
-                    border-radius: @figure-border-radius 0 @figure-border-radius @figure-border-radius;
+                    border-radius: @border-radius-md 0 @border-radius-md @border-radius-md;
                 }
             }
         }
@@ -101,14 +101,14 @@
         backface-visibility: hidden;
 
         &.dl-menuopen {
-            border-radius: 0 @figure-border-radius @figure-border-radius @figure-border-radius;
+            border-radius: 0 @border-radius-md @border-radius-md @border-radius-md;
             opacity: 1;
             pointer-events: auto;
             transform: translateY(0px);
             .boxshadow(5);
 
             @media @tablet {
-                border-radius: @figure-border-radius 0 @figure-border-radius @figure-border-radius;
+                border-radius: @border-radius-md 0 @border-radius-md @border-radius-md;
             }
         }
     }
@@ -122,7 +122,7 @@
     }
 
     li.dl-back > a {
-        padding-left: 2rem;
+        padding-left: 1.5rem;
     }
 
     li.dl-back::after,
@@ -135,12 +135,13 @@
         top: 8px;
         right: 0;
         padding: 0 0.5rem;
-        width: @btn-size-m;
+        width: @btn-size-sm;
     }
 
     li.dl-back::after {
         left: 0;
         right: auto;
+        top: 6px;
         transform: rotate(180deg);
     }
 
@@ -167,10 +168,10 @@
 
     .dl-menu.dl-subview li.dl-subview,
     .dl-menu.dl-subview li.dl-subviewopen {
-        border-radius: 0 @figure-border-radius @figure-border-radius @figure-border-radius;
+        border-radius: 0 @border-radius-md @border-radius-md @border-radius-md;
 
         @media @tablet {
-            border-radius: @figure-border-radius 0 @figure-border-radius @figure-border-radius;
+            border-radius: @border-radius-md 0 @border-radius-md @border-radius-md;
         }
     }
 

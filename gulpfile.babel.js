@@ -11,13 +11,13 @@ import webpackConfig    from    './config/webpack.config.js';
  * GULP PLUGINS
  */
 
-import gulp         from    'gulp';
-import gutil        from    'gulp-util';
-import gplugins     from    'gulp-load-plugins';
-import grelease     from    'gulp-release-it';
-import gcachebust   from    'gulp-cache-bust';
-import assemble     from    'assemble';
-import assemblevars from    'assemble-middleware-page-variable';
+import gulp             from    'gulp';
+import gutil            from    'gulp-util';
+import gplugins         from    'gulp-load-plugins';
+import grelease         from    'gulp-release-it';
+import gcachebust       from    'gulp-cache-bust';
+import assemble         from    'assemble';
+import assemblevars     from    'assemble-middleware-page-variable';
 
 /**
  * OTHER PLUGINS
@@ -131,7 +131,7 @@ gulp.task('upload:images', () => {
             });
 
             gulp.src([`${dirs.dist}/img/**/*`], { base: 'dist', buffer: false } )
-                .pipe(conn.newer('/')) // only upload newer files
+                .pipe(conn.differentSize('/')) // filter for different file size
                 .pipe(conn.dest('/veeck'));
         }));
 });

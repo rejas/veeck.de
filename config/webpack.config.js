@@ -43,17 +43,15 @@ const webpackconfig = {
                     }, {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: function () {
-                                return [
-                                    require('autoprefixer')(),
-                                    require('css-mqpacker')(),
-                                    require('postcss-normalize')(),
-                                    require('postcss-object-fit-images')(),
-                                    require('postcss-sprites')({
-                                        spritePath: 'tmp/'
-                                    })
-                                ]
-                            },
+                            plugins: (loader) => [
+                                require('autoprefixer')(),
+                                require('css-mqpacker')(),
+                                require('postcss-normalize')(),
+                                require('postcss-object-fit-images')(),
+                                require('postcss-sprites')({
+                                    spritePath: 'tmp/'
+                                })
+                            ],
                             sourceMap: true
                         }
                     }, {
@@ -89,10 +87,6 @@ const webpackconfig = {
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             warnings: false
-        }),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery'
         })
     ],
     resolve: {

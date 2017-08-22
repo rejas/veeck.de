@@ -1,9 +1,4 @@
 const config = {
-    connect: {
-        hostname: "localhost",
-        livereload: true,
-        port: 9000
-    },
     directories: {
         assemble: "./src/assemble",
         node: "./node_modules",
