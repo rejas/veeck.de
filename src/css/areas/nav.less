@@ -1,14 +1,11 @@
-.nav {
+nav.menu {
+    background-color: @color-transparentDark;
+    top: 0;
+    height: 100vh;
+    width: 250px;
 
     @media @print {
         display: none;
-    }
-
-    .menu {
-        background-color: @color-transparentDark;
-        top: 0;
-        height: 100vh;
-        width: 250px;
     }
 
     .menu__breadcrumbs a,
@@ -19,6 +16,27 @@
 
         &:hover {
             .colorVar(color, --lightPrimaryColor, @lightPrimaryColor);
+        }
+    }
+
+    .menu__breadcrumbs a:not(:last-child):after {
+        .colorVar(color, --primaryColor, @primaryColor);
+
+        &:hover {
+            .colorVar(color, --lightPrimaryColor, @lightPrimaryColor);
+        }
+    }
+
+    .action--open {
+        display: block;
+    }
+
+    .menu--open {
+        .action--open {
+            display: none;
+        }
+        .action--close {
+            display: block;
         }
     }
 }
