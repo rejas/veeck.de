@@ -122,7 +122,7 @@ export function init() {
             window.scrollTo(0, 0);
         }
 
-        if (container.classList.has('notrans')) {
+        if (container.classList.contains('notrans')) {
             container.classList.remove('notrans');
             return false;
         }
