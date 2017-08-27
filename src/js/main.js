@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Share to facebook
      */
-    document.querySelector('.js-btn-share').onclick = () => {
+    document.querySelector('.js-share-facebook').onclick = () => {
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL));
         return false;
     };
