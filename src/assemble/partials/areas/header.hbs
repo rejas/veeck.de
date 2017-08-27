@@ -2,7 +2,7 @@
     <div class="bg-img">
         {{> img-srcset }}
     </div>
-    
+
     <div class="header--wrapper title {{titlestyle}}">
         <h1 class="h1 header--title headline" data-heading="{{heading}}">{{heading}}</h1>
         {{#if lead}}<p class="subline">{{lead}}</p>{{/if}}
@@ -18,4 +18,8 @@
             {{> arrows-down }}
         </button>
     </div>
+
+    <button class="btn btn--comic btn--up js-to-top" href="#" type="button" title="Back to top">
+        {{> arrows-up }}
+    </button>
 </header>
