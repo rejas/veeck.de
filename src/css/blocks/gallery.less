@@ -55,15 +55,16 @@
         }
     }
 
+    &__headline {
+        &:extend(.h2);
+        column-span: all;
+    }
+
     &__image {
         margin-bottom: 1rem;
 
         > a {
             display: block;
         }
-    }
-
-    .h2 {
-        column-span: all;
     }
 }
