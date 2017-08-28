@@ -246,7 +246,7 @@ gulp.task('webpack', () => {
 app.onLoad(/\.(md|hbs)$/, assemblevars(app));
 
 gulp.task('load', (cb) => {
-    app.partials(`${dirs.assemble}/partials/**/*.hbs`);
+    app.partials([`${dirs.assemble}/partials/**/*.hbs`, `${dirs.node}/feather-icons/dist/icons/*.svg`]);
     app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
     app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
