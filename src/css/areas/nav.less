@@ -4,15 +4,49 @@ nav.menu {
     height: 100vh;
     width: 250px;
 
-    @media @print {
-        display: none;
+    a {
+        border-bottom: @border-thickness solid transparent;
+        .colorVar(color, --primaryTextColor, @primaryTextColor);
+        display: block;
+        font-weight: @font-weight-bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
     }
 
-    .menu__breadcrumbs a,
-    .menu__link,
-    .menu__link[data-submenu]:after {
-        border-bottom: none;
-        .colorVar(color, --primaryColor, @primaryColor);
+    .dl-menu {
+        border-radius: @border-radius-md;
+        .colorVar(background-color, --primaryColor, @primaryColor);
+        height: 1.75rem;
+
+        .category {
+            text-align: center;
+            list-style: none;
+            float: left;
+            margin: 0 0.5rem;
+
+            &:hover,
+            &.active-nav {
+                opacity: 1;
+
+                > a {
+                    border-bottom: @border-thickness solid;
+                    .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
+                }
+            }
+
+            &:hover > a {
+                .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+            }
+
+            > a {
+                width: 100%;
+                .transform(background);
+                padding: @border-thickness 1.5rem;
+            }
+
+            &:hover > .dl-submenu {
+                display: block;
+                margin-top: 0;
 
         &:hover {
             .colorVar(color, --lightPrimaryColor, @lightPrimaryColor);
