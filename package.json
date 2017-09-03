@@ -56,6 +56,7 @@
     "gulp-connect": "^5.0.0",
     "gulp-eslint": "^4.0.0",
     "gulp-extname": "^0.2.2",
+    "gulp-favicons": "^2.2.7",
     "gulp-flatten": "^0.3.1",
     "gulp-htmlhint": "^0.3.1",
     "gulp-htmlmin": "^3.0.0",
