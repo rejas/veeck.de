@@ -11,6 +11,26 @@ const config = {
 let imageCount = images.length,
     observer;
 
+export function init() {
+    // If we don't have support for intersection observer, loads the images immediately
+    if (!('IntersectionObserver' in window)) {
+        loadImagesImmediately(images);
+    } else {
+        // It is supported, load the images
+        observer = new IntersectionObserver(onIntersection, config);
+
+        // foreach() is not supported in IE
+        for (let i = 0; i < images.length; i++) {
+            let image = images[i];
+            if (image.classList.contains('js-lazy-image--handled')) {
+                continue;
+            }
+
+            observer.observe(image);
+        }
+    }
+}
+
 /**
  * Fetchs the image for the given URL
  * @param {string} url
@@ -39,10 +59,14 @@ function preloadImage(image) {
 
 /**
  * Load all of the images immediately
- * @param {array} images
+ * @param {NodeListOf<Element>} images
  */
 function loadImagesImmediately(images) {
-    Array.prototype.forEach.call(images, (image) => preloadImage(image));
+    // foreach() is not supported in IE
+    for (let i = 0; i < images.length; i++) {
+        let image = images[i];
+        preloadImage(image);
+    }
 }
 
 /**
@@ -67,7 +91,8 @@ function onIntersection(entries) {
     }
 
     // Loop through the entries
-    entries.forEach(entry => {
+    for (let i = 0; i < entries.length; i++) {
+        let entry = entries[i];
         // Are we in viewport?
         if (entry.intersectionRatio > 0) {
             imageCount--;
@@ -76,7 +101,7 @@ function onIntersection(entries) {
             observer.unobserve(entry.target);
             preloadImage(entry.target);
         }
-    });
+    }
 }
 
 /**
@@ -88,21 +113,4 @@ function applyImage(img, src) {
     // Prevent this from being lazy loaded a second time.
     img.classList.add('js-lazyload--handled');
     img.src = src;
-}
-
-export function init() {
-    // If we don't have support for intersection observer, loads the images immediately
-    if (!('IntersectionObserver' in window)) {
-        loadImagesImmediately(images);
-    } else {
-        // It is supported, load the images
-        observer = new IntersectionObserver(onIntersection, config);
-
-        Array.prototype.forEach.call(images, (image) => {
-            if (image.classList.contains('js-lazyload--handled')) {
-                return;
-            }
-            observer.observe(image);
-        });
-    }
 }
