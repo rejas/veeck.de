@@ -7,15 +7,15 @@ function changeColor (color) {
         stc = htmlStyle.getPropertyValue('--secondaryTextColor'),
         splitColor = color.splitcomplement();
 
-    root.style.setProperty('--primaryColor', color.toHexString());
-    root.style.setProperty('--primaryTextColor', tinycolor.mostReadable(color, [ptc, stc]).toHexString());
+    root.style.setProperty('--primaryColor', color.toRgbString());
+    root.style.setProperty('--primaryTextColor', tinycolor.mostReadable(color, [ptc, stc]).toRgbString());
 
-    root.style.setProperty('--darkPrimaryColor', color.clone().darken(10).toHexString());
-    root.style.setProperty('--lightPrimaryColor', color.clone().lighten(20).toHexString());
+    root.style.setProperty('--darkPrimaryColor', color.clone().darken(10).toRgbString());
+    root.style.setProperty('--lightPrimaryColor', color.clone().lighten(20).toRgbString());
 
-    root.style.setProperty('--accentColor', splitColor[1].toHexString());
-    root.style.setProperty('--secondaryAccentColor', splitColor[2].toHexString());
-    root.style.setProperty('--secondaryTextColor', tinycolor.mostReadable(splitColor[1], [ptc, stc]).toHexString());
+    root.style.setProperty('--accentColor', splitColor[1].toRgbString());
+    root.style.setProperty('--secondaryAccentColor', splitColor[2].toRgbString());
+    root.style.setProperty('--secondaryTextColor', tinycolor.mostReadable(splitColor[1], [ptc, stc]).toRgbString());
 }
 
 export function init() {
