@@ -5,7 +5,10 @@ function changeColor (color) {
         htmlStyle = window.getComputedStyle(root),
         ptc = htmlStyle.getPropertyValue('--primaryTextColor'),
         stc = htmlStyle.getPropertyValue('--secondaryTextColor'),
-        splitColor = color.splitcomplement();
+        accentColor = tinycolor(htmlStyle.getPropertyValue('--accentColor'));
+
+    console.log(color);
+    console.log(accentColor);
 
     root.style.setProperty('--primaryColor', color.toHexString());
     root.style.setProperty('--primaryTextColor', tinycolor.mostReadable(color, [ptc, stc]).toHexString());
@@ -13,9 +16,11 @@ function changeColor (color) {
     root.style.setProperty('--darkPrimaryColor', color.clone().darken(10).toHexString());
     root.style.setProperty('--lightPrimaryColor', color.clone().lighten(20).toHexString());
 
-    root.style.setProperty('--accentColor', splitColor[1].toHexString());
-    root.style.setProperty('--secondaryAccentColor', splitColor[2].toHexString());
-    root.style.setProperty('--secondaryTextColor', tinycolor.mostReadable(splitColor[1], [ptc, stc]).toHexString());
+    console.log(ptc);
+    console.log(stc);
+
+    root.style.setProperty('--accentColor', accentColor.toRgbString());
+    root.style.setProperty('--secondaryTextColor', tinycolor.mostReadable(accentColor, [ptc, stc]).toRgbString());
 }
 
 export function init() {
