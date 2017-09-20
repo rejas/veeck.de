@@ -10,11 +10,11 @@ function changeColor (color) {
     console.log(color);
     console.log(accentColor);
 
-    root.style.setProperty('--primaryColor', color.toHexString());
-    root.style.setProperty('--primaryTextColor', tinycolor.mostReadable(color, [ptc, stc]).toHexString());
+    root.style.setProperty('--primaryColor', color.toRgbString());
+    root.style.setProperty('--primaryTextColor', tinycolor.mostReadable(color, [ptc, stc]).toRgbString());
 
-    root.style.setProperty('--darkPrimaryColor', color.clone().darken(10).toHexString());
-    root.style.setProperty('--lightPrimaryColor', color.clone().lighten(20).toHexString());
+    root.style.setProperty('--darkPrimaryColor', color.clone().darken(10).toRgbString());
+    root.style.setProperty('--lightPrimaryColor', color.clone().lighten(20).toRgbString());
 
     console.log(ptc);
     console.log(stc);
