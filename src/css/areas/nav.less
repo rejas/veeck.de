@@ -1,8 +1,9 @@
-nav.menu {
+.menu {
     background-color: @color-transparentDark;
     top: 0;
     height: 100vh;
     width: 250px;
+    z-index: @z-index-4;
 
     a {
         border-bottom: @border-thickness solid transparent;
@@ -60,16 +61,33 @@ nav.menu {
             .colorVar(color, --lightPrimaryColor, @lightPrimaryColor);
         }
     }
+}
+
+.navigation {
 
     .action--open {
         display: block;
     }
 
-    .menu--open {
+    .action--close {
+        display: none;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    &.menu--open {
+
         .action--open {
             display: none;
         }
+
         .action--close {
+            display: block;
+        }
+
+        .menu {
             display: block;
         }
     }
