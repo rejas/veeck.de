@@ -7,17 +7,11 @@ function changeColor (color) {
         stc = htmlStyle.getPropertyValue('--secondaryTextColor'),
         accentColor = tinycolor(htmlStyle.getPropertyValue('--accentColor'));
 
-    console.log(color);
-    console.log(accentColor);
-
     root.style.setProperty('--primaryColor', color.toRgbString());
     root.style.setProperty('--primaryTextColor', tinycolor.mostReadable(color, [ptc, stc]).toRgbString());
 
     root.style.setProperty('--darkPrimaryColor', color.clone().darken(10).toRgbString());
     root.style.setProperty('--lightPrimaryColor', color.clone().lighten(20).toRgbString());
-
-    console.log(ptc);
-    console.log(stc);
 
     root.style.setProperty('--accentColor', accentColor.toRgbString());
     root.style.setProperty('--secondaryTextColor', tinycolor.mostReadable(accentColor, [ptc, stc]).toRgbString());
