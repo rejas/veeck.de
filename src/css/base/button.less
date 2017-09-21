@@ -2,15 +2,42 @@
 @btn-size-m: 2.5rem;
 
 .btn {
+    border: @border-thickness solid;
+    .colorVar(border-color, --primaryColor, @primaryColor);
+    border-radius: @border-radius-lg;
     cursor: pointer;
     display: block;
     font-family: @font-main, arial;
     font-size: @font-size-m;
+    font-weight: @font-weight-bold;
     margin: 0 auto;
     padding: 0 1rem;
     text-align: center;
     text-transform: uppercase;
     user-select: none;
+    position: relative;
+    .transform(all);
+
+    &:hover {
+
+        &::after {
+            width: 90%;
+            opacity: 1;
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: @z-index-neg;
+        .transform(all);
+        width: 0;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        .colorVar(background-color, --primaryColor, @primaryColor);
+        transform: translateX(-50%) translateY(-50%);
+    }
 
     &--m {
         min-height: @btn-size-m;
@@ -18,19 +45,11 @@
     }
 
     &--comic {
-        border: @border-thickness solid;
         .colorVar(background-color, --accentColor, @accentColor);
-        .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
-        border-radius: @border-radius-lg;
-        .colorVar(color, --primaryColor, @primaryColor);
-
+        .colorVar(color, --secondaryTextColor, @secondaryTextColor);
         height: @btn-size-m;
         width: @btn-size-m;
         padding: 0;
-
-        &:hover {
-            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-        }
 
         > svg {
             .colorVar(fill, --primaryColor, @primaryColor);
@@ -43,32 +62,10 @@
 
     &--normal {
         background: none;
-        border: @border-thickness solid;
-        border-radius: 0;
-        .colorVar(border-color, --primaryColor, @primaryColor);
-        font-weight: @font-weight-bold;
-        position: relative;
-        .transform(all);
+        color: @primaryTextColor;
 
         &:hover {
-
-            &::after {
-                width: 90%;
-                opacity: 1;
-            }
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            z-index: @z-index-neg;
-            .transform(all);
-            width: 0;
-            height: 100%;
-            top: 50%;
-            left: 50%;
-            .colorVar(background-color, --primaryColor, @primaryColor);
-            transform: translateX(-50%) translateY(-50%);
+            .colorVar(color, --secondaryTextColor, @secondaryTextColor);
         }
     }
 }

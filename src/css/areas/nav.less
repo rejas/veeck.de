@@ -3,7 +3,6 @@
     top: 0;
     height: 100vh;
     width: 250px;
-    z-index: @z-index-4;
 
     .menu__breadcrumbs a,
     .menu__link,
@@ -26,6 +25,10 @@
 }
 
 .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: @z-index-4;
 
     .action--open {
         display: block;
