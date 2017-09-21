@@ -23,7 +23,7 @@
     "browser-update": "^2.1.4",
     "cookieconsent": "^3.0.4",
     "core-js": "^2.5.1",
-    "hamburgers": "^0.9.1",
+    "feather-icons": "^3.2.2",
     "imagelightbox": "^0.7.9",
     "jquery": "^3.2.1",
     "konami-code.js": "git+https://github.com/rejas/konami-js.git",

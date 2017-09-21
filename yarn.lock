@@ -5134,10 +5134,6 @@ gzip-size@^3.0.0:
   dependencies:
     duplexer "^0.1.1"
 
-hamburgers@^0.9.1:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/hamburgers/-/hamburgers-0.9.1.tgz#49bc3bca667a693a8458388c9ef265ae611348d5"
-
 handlebars@^4.0.6:
   version "4.0.10"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.0.10.tgz#3d30c718b09a3d96f23ea4cc1f403c4d3ba9ff4f"
