@@ -50,10 +50,15 @@
 
     .header & {
         .colorVar(background-color, --accentColor, @accentColor);
-        .colorVar(color, --secondaryTextColor, @secondaryTextColor);
+        .colorVar(color, --primaryColor, @primaryColor);
         height: @btn-size-m;
         width: @btn-size-m;
         padding: 0;
+        z-index: @z-index-5;
+
+        &:hover {
+            .colorVar(color, --accentColor, @accentColor);
+        }
 
         > svg {
             .colorVar(fill, --primaryColor, @primaryColor);
