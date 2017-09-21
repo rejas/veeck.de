@@ -11,7 +11,7 @@ function changeColor (color) {
     root.style.setProperty('--primaryTextColor', tinycolor.mostReadable(color, [ptc, stc]).toRgbString());
 
     root.style.setProperty('--darkPrimaryColor', color.clone().darken(10).toRgbString());
-    root.style.setProperty('--lightPrimaryColor', color.clone().lighten(20).toRgbString());
+    root.style.setProperty('--lightPrimaryColor', color.clone().lighten(20).setAlpha(0.66).toRgbString());
 
     root.style.setProperty('--accentColor', accentColor.toRgbString());
     root.style.setProperty('--secondaryTextColor', tinycolor.mostReadable(accentColor, [ptc, stc]).toRgbString());
