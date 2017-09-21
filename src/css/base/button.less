@@ -54,10 +54,14 @@
 
         &:hover {
             .colorVar(color, --accentColor, @accentColor);
+
+            > svg {
+                .colorVar(stroke, --accentColor, @accentColor);
+            }
         }
 
         > svg {
-            .colorVar(fill, --primaryColor, @primaryColor);
+            .colorVar(stroke, --primaryColor, @primaryColor);
         }
     }
 
