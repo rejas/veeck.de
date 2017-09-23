@@ -18,14 +18,6 @@
         height: calc(100vh + 16px);
         width: 266px;
 
-        .action--open {
-            display: none;
-        }
-
-        .action--close {
-            display: block;
-        }
-
         .menu {
             display: block;
             position: relative;
@@ -35,19 +27,19 @@
         }
     }
 
-    .action--open {
+    .btn--hamburger {
         display: block;
-        top: -3px;
-        left: -3px;
-    }
-
-    .action--close {
-        .colorVar(color, --primaryColor, @primaryColor);
-        display: none;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
     }
 
     .menu {
         display: none;
+
+        .menu__breadcrumbs {
+            padding-left: 4.5rem;
+        }
 
         .menu__breadcrumbs a,
         .menu__link,

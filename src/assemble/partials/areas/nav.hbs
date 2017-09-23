@@ -1,15 +1,14 @@
 <!-- Menu -->
 <nav class="navigation">
-    <!-- Menu toggle for mobile version -->
-    <button class="action action--open btn" aria-label="Open Menu">
-        <span class="icon icon--menu"></span>
+
+    <!-- Menu toggle -->
+    <button class="action action--open hamburger hamburger--elastic btn--hamburger js-btn--hamburger">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
     </button>
 
     <div id="ml-menu" class="menu u-hidden--print">
-        <!-- Close button for mobile version -->
-        <button class="action action--close" aria-label="Close Menu">
-            <span class="icon icon--cross"></span>
-        </button>
         <div class="menu__wrap">
             <!-- you can exclude pages using \{{#isnt}} helper: \{{#isnt data.title 'Blog'}} -->
             <ul data-menu="main" class="menu__level">
@@ -65,14 +64,4 @@
 <div class="content">
     <p class="info">Please choose a category</p>
 </div>
--->
-
-<!--
-<nav class="u-hidden--print">
-    <button class="btn btn--hamburger hamburger hamburger--elastic u-hidden--lg js-dl-trigger dl-trigger" type="button">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
-    </button>
-</nav>
 -->
