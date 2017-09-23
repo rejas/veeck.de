@@ -4,8 +4,7 @@ import 'multilevelmenu/js/main.js';
 export function init() {
     let navEl = document.querySelector('.navigation'),
         menuEl = document.getElementById('ml-menu'),
-        openMenuCtrl = document.querySelector('.action--open'),
-        closeMenuCtrl = document.querySelector('.action--close');
+        btnEl = document.querySelector('.js-btn--hamburger');
 
     new MLMenu(menuEl, {
         breadcrumbsCtrl: true,          // show breadcrumbs
@@ -15,14 +14,10 @@ export function init() {
         backCtrl: false                 // show back button
     });
 
-    openMenuCtrl.addEventListener('click', openMenu);
-    closeMenuCtrl.addEventListener('click', closeMenu);
+    btnEl.addEventListener('click', openMenu);
 
     function openMenu() {
-        navEl.classList.add('menu--open');
-    }
-
-    function closeMenu() {
-        navEl.classList.remove('menu--open');
+        btnEl.classList.toggle('is-active');
+        navEl.classList.toggle('menu--open');
     }
 }

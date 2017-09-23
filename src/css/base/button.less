@@ -45,7 +45,13 @@
     }
 
     &--hamburger {
-        padding: 0.25rem;
+        padding: 0;
+
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            .colorVar(background-color, --primaryColor, @primaryColor);
+        }
     }
 
     .header & {
