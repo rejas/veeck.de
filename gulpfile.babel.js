@@ -160,6 +160,26 @@ gulp.task('upload:files', () => {
  * PREPARE TASKS
  */
 
+gulp.task('prepare:favicons', function () {
+    return gulp.src('org/favicon.png').pipe(plugins.favicons({
+        appName: 'My Homepage',
+        appDescription: 'This is my homepage',
+        developerName: 'Veeck',
+        developerURL: 'https://www.veeck.de/',
+        background: '#ffffff',
+        path: '/',
+        url: 'https://www.veeck.de/',
+        display: 'standalone',
+        orientation: 'portrait',
+        logging: false,
+        online: false,
+        html: 'icons.hbs',
+        pipeHTML: true,
+        replace: true
+    }))
+        .pipe(gulp.dest('./src/page/favicons'));
+});
+
 gulp.task('prepare:images', () => {
     return gulp.src(`${dirs.src}/img/**/*.jpg`)
         .pipe(plugins.imagemin({
