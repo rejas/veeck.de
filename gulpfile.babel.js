@@ -167,13 +167,13 @@ gulp.task('prepare:favicons', function () {
         developerName: 'Veeck',
         developerURL: 'https://www.veeck.de/',
         background: '#ffffff',
-        path: '/',
+        path: '/favicons',
         url: 'https://www.veeck.de/',
         display: 'standalone',
         orientation: 'portrait',
         logging: false,
         online: false,
-        html: 'icons.hbs',
+        html: '../../../src/assemble/partials/icons.html',
         pipeHTML: true,
         replace: true
     }))
@@ -266,7 +266,7 @@ gulp.task('webpack', () => {
 app.onLoad(/\.(md|hbs)$/, assemblevars(app));
 
 gulp.task('load', (cb) => {
-    app.partials([`${dirs.assemble}/partials/**/*.hbs`, `${dirs.node}/feather-icons/dist/icons/*.svg`]);
+    app.partials([`${dirs.assemble}/partials/**/*.hbs`, `${dirs.assemble}/partials/**/*.html`]);
     app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
     app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
