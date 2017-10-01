@@ -173,7 +173,7 @@ gulp.task('prepare:favicons', function () {
         orientation: 'portrait',
         logging: false,
         online: false,
-        html: '../../../src/assemble/partials/icons.html',
+        html: '../../../src/assemble/partials/html/icons.html',
         pipeHTML: true,
         replace: true
     }))
@@ -266,7 +266,7 @@ gulp.task('webpack', () => {
 app.onLoad(/\.(md|hbs)$/, assemblevars(app));
 
 gulp.task('load', (cb) => {
-    app.partials([`${dirs.assemble}/partials/**/*.hbs`, `${dirs.assemble}/partials/**/*.html`]);
+    app.partials([`${dirs.assemble}/partials/**/*.hbs`, `${dirs.assemble}/partials/**/html/*.html`]);
     app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
     app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
