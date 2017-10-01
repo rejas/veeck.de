@@ -344,6 +344,6 @@ gulp.task('upload',     ['upload:page']);
 
 gulp.task('scale',      ['scale:medium', 'scale:small', 'scale:placeholder']);
 
-gulp.task('prepare',    ['prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
+gulp.task('prepare',    ['prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
 
 grelease(gulp);
