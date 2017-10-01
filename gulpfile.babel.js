@@ -160,6 +160,26 @@ gulp.task('upload:files', () => {
  * PREPARE TASKS
  */
 
+gulp.task('prepare:favicons', function () {
+    return gulp.src('org/favicon.png').pipe(plugins.favicons({
+        appName: 'My Homepage',
+        appDescription: 'This is my homepage',
+        developerName: 'Veeck',
+        developerURL: 'https://www.veeck.de/',
+        background: '#ffffff',
+        path: '/favicons',
+        url: 'https://www.veeck.de/',
+        display: 'standalone',
+        orientation: 'portrait',
+        logging: false,
+        online: false,
+        html: '../../../src/assemble/partials/html/icons.html',
+        pipeHTML: true,
+        replace: true
+    }))
+        .pipe(gulp.dest('./src/page/favicons'));
+});
+
 gulp.task('prepare:images', () => {
     return gulp.src(`${dirs.src}/img/**/*.jpg`)
         .pipe(plugins.imagemin({
@@ -246,7 +266,7 @@ gulp.task('webpack', () => {
 app.onLoad(/\.(md|hbs)$/, assemblevars(app));
 
 gulp.task('load', (cb) => {
-    app.partials(`${dirs.assemble}/partials/**/*.hbs`);
+    app.partials([`${dirs.assemble}/partials/**/*.hbs`, `${dirs.assemble}/partials/**/html/*.html`]);
     app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
     app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
@@ -324,6 +344,6 @@ gulp.task('upload',     ['upload:page']);
 
 gulp.task('scale',      ['scale:medium', 'scale:small', 'scale:placeholder']);
 
-gulp.task('prepare',    ['prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
+gulp.task('prepare',    ['prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
 
 grelease(gulp);
