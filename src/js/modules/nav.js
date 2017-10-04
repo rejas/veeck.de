@@ -38,8 +38,8 @@ export function init() {
 
     mqe.init({
         mediaqueries: [
-            {name: 'mobile', media: 'screen and (max-width: 1023px)'},
-            {name: 'desktop', media: 'screen and (min-width: 1024px)'}
+            {name: 'mobile', media: 'screen and (max-width: 959px)'},
+            {name: 'desktop', media: 'screen and (min-width: 960px)'}
         ]
     });
 }
