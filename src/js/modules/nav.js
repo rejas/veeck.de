@@ -14,10 +14,10 @@ export function init() {
         backCtrl: false                 // show back button
     });
 
-    btnEl.addEventListener('click', openMenu);
-
-    function openMenu() {
-        btnEl.classList.toggle('is-active');
-        navEl.classList.toggle('menu--open');
-    }
+    mqe.init({
+        mediaqueries: [
+            {name: 'mobile', media: 'screen and (max-width: 959px)'},
+            {name: 'desktop', media: 'screen and (min-width: 960px)'}
+        ]
+    });
 }
