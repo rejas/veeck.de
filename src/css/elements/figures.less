@@ -1,4 +1,7 @@
-figure {
+@colorFigure:   #ede1c9;
+@colorFigure2:  lighten(@colorFigure, 10);
+
+.figure {
     .boxshadow(1);
     .colorVar(background-color, --primaryColor, @primaryColor);
     border-radius: @border-radius-md;
@@ -16,25 +19,18 @@ figure {
         max-width: 100%;
     }
 
-    > .overlay {
-        border-radius: @border-radius-md;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
+    @media @phone {
+        margin: 0 -1rem 1rem;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
+        float: none;
+        width: 100vw;
 
-        &:hover {
-            opacity: 0;
-        }
-
-        > span {
-            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+        > .gallery__image {
             display: block;
-            font-weight: @font-weight-bold;
-            text-align: center;
-            padding: 0.5rem 0;
-            position: relative;
-            .vertical-align();
+            max-height: 50vh;
+            overflow: hidden;
         }
     }
 
@@ -76,12 +72,6 @@ figure {
             width: 50%;
         }
     }
-}
-
-@colorFigure:   #ede1c9;
-@colorFigure2:  lighten(@colorFigure, 10);
-
-.figure {
 
     &__caption {
         font-family: @font-header, serif;
@@ -92,6 +82,28 @@ figure {
         @media @phone {
             font-size: @font-size-sm;
             padding-top: 0;
+        }
+    }
+
+    &__overlay {
+        border-radius: @border-radius-md;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        &:hover {
+            opacity: 0;
+        }
+
+        > span {
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+            display: block;
+            font-weight: @font-weight-bold;
+            text-align: center;
+            padding: 0.5rem 0;
+            position: relative;
+            .vertical-align();
         }
     }
 
@@ -200,22 +212,6 @@ figure {
     }
 
     &--popup {
-
-        //TODO maybe use for all images?
-        @media @phone {
-            margin: 0 -1rem 1rem;
-            border-radius: 0;
-            box-shadow: none;
-            background-color: transparent;
-            float: none;
-            width: 100vw;
-
-            > .gallery__image {
-                display: block;
-                max-height: 50vh;
-                overflow: hidden;
-            }
-        }
 
         @media @desktop, @tablet {
             overflow: visible;
