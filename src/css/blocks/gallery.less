@@ -60,11 +60,18 @@
         column-span: all;
     }
 
-    &__image {
-        margin-bottom: 1rem;
+    &__figure {
+        &:extend(.figure);
+        display: block;
+        max-height: 50vh;
+        overflow: hidden;
 
-        > a {
+        a {
             display: block;
+        }
+
+        img {
+            width: 100%;
         }
     }
 }
