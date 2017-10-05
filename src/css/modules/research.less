@@ -2,48 +2,6 @@
  * Research
  */
 
-.github-card {
-    float: left;
-    margin: 0 1rem 1rem 0;
-
-    @media @phone {
-        width: 100%;
-
-        &::shadow .user {
-            width: 100%;
-        }
-    }
-
-    @media @tablet, @desktop {
-
-        &::shadow .user {
-            width: 200px;
-        }
-
-        + h2 {
-            padding-left: 200px;
-        }
-    }
-
-    &::shadow .user {
-        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-        border: @border-thickness solid @color-transparent;
-        border-radius: @border-radius-lg;
-        .colorVar(color, --primaryTextColor, @primaryTextColor);
-
-        .user-account,
-        .user-following,
-        .user-followers,
-        .user-repos {
-            .colorVar(color, --primaryTextColor, @primaryTextColor);
-
-            &::after {
-                .colorVar(color, --primaryTextColor, @primaryTextColor);
-            }
-        }
-    }
-}
-
 .research_article {
 
     form {
