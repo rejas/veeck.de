@@ -2,6 +2,13 @@
  * Content
  */
 
+article {
+    .clearfix();
+    margin: 1rem auto 0;
+    padding: 0 1rem 1rem;
+    max-width: @lg;
+}
+
 .article--capped {
 
     p:first-of-type:first-letter {
@@ -37,6 +44,18 @@
 
     &:nth-child(odd) {
         flex-direction: row-reverse;
+    }
+}
+
+.article__extend {
+    display: none;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: @border-thickness solid;
+    .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
+
+    &:target {
+        display: block;
     }
 }
 
@@ -112,17 +131,5 @@
 
     @media @tablet, @desktop {
         padding: 0 0.5rem;
-    }
-}
-
-.extendee {
-    display: none;
-    padding: 0.5rem;
-    margin: 0.5rem 0;
-    border: @border-thickness solid;
-    .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
-
-    &:target {
-        display: block;
     }
 }
