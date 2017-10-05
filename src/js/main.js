@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * ImageLightBox
      */
-    $('.gallery__image > a, .js-travel_figure > a, .js-gallery__image').imageLightbox({
+    $('.js-gallery__image').imageLightbox({
         activity:       true,
         caption:        true,
         fullscreen:     true,
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Travel picture angle randomization
      */
-    Array.prototype.forEach.call(document.getElementsByClassName('js-travel_figure'), figure => {
+    Array.prototype.forEach.call(document.querySelectorAll('.travel-article .figure--popup'), figure => {
         figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 

@@ -2,13 +2,9 @@
 @colorFigure2:  lighten(@colorFigure, 10);
 
 .figure {
-    .boxshadow(1);
-    .colorVar(background-color, --primaryColor, @primaryColor);
     border-radius: @border-radius-md;
-    overflow: hidden;
-    text-decoration: none;
+    margin: 0 0 1rem;
     position: relative;
-    margin: 0;
 
     img {
         width: 100%;
@@ -17,21 +13,6 @@
     &.fig_center {
         margin: 0 auto;
         max-width: 100%;
-    }
-
-    @media @phone {
-        margin: 0 -1rem 1rem;
-        border-radius: 0;
-        box-shadow: none;
-        background-color: transparent;
-        float: none;
-        width: 100vw;
-
-        > .gallery__image {
-            display: block;
-            max-height: 50vh;
-            overflow: hidden;
-        }
     }
 
     @media @desktop, @tablet {
@@ -154,6 +135,23 @@
                 border-bottom: 3px solid transparent;
                 border-top: 3px solid darken(@accentColor, 15%);
             }
+        }
+    }
+
+    &--basic {
+        .boxshadow(1);
+        .colorVar(background-color, --primaryColor, @primaryColor);
+        overflow: hidden;
+        text-decoration: none;
+        position: relative;
+
+        @media @phone {
+            margin: 0 -1rem 1rem;
+            border-radius: 0;
+            box-shadow: none;
+            background-color: transparent;
+            float: none;
+            width: 100vw;
         }
     }
 
