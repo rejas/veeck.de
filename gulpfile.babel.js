@@ -215,29 +215,29 @@ gulp.task('scale:max', () => {
 });
 
 gulp.task('scale:medium', () => {
-    return gulp.src(`${dirs.org}/img/backgrounds/**/*`)
+    return gulp.src(`${dirs.org}/img/travel/europe/**/*`)
         .pipe(plugins.jimp({
             '.medium': {
                 scaleToFit: { width: 1920, height: 1920 },
                 quality: 60
             }
         }))
-        .pipe(gulp.dest(`${dirs.src}/img/backgrounds`));
+        .pipe(gulp.dest(`${dirs.src}/img/travel/europe`));
 });
 
 gulp.task('scale:small', () => {
-    return gulp.src(`${dirs.org}/img/backgrounds/**/*`)
+    return gulp.src(`${dirs.org}/img/travel/europe/**/*`)
         .pipe(plugins.jimp({
             '.small': {
                 scaleToFit: { width: 448, height: 387 },
                 quality: 60
             }
         }))
-        .pipe(gulp.dest(`${dirs.src}/img/backgrounds`));
+        .pipe(gulp.dest(`${dirs.src}/img/travel/europe`));
 });
 
 gulp.task('scale:placeholder', ['scale:small'], () => {
-    return gulp.src(`${dirs.src}/img/travel/**/*.small.jpg`)
+    return gulp.src(`${dirs.src}/img/travel/europe/**/*.small.jpg`)
         .pipe(plugins.jimp({
             '.placeholder': {
                 scaleToFit: { width: 448, height: 387 },
@@ -245,7 +245,7 @@ gulp.task('scale:placeholder', ['scale:small'], () => {
                 quality: 30
             }
         }))
-        .pipe(gulp.dest(`${dirs.src}/img/travel`));
+        .pipe(gulp.dest(`${dirs.src}/img/travel/europe`));
 });
 
 /**
