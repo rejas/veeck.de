@@ -215,25 +215,25 @@ gulp.task('scale:max', () => {
 });
 
 gulp.task('scale:medium', () => {
-    return gulp.src(`${dirs.org}/img/**/*`)
+    return gulp.src(`${dirs.org}/img/backgrounds/**/*`)
         .pipe(plugins.jimp({
             '.medium': {
                 scaleToFit: { width: 1920, height: 1920 },
                 quality: 60
             }
         }))
-        .pipe(gulp.dest(`${dirs.src}/img`));
+        .pipe(gulp.dest(`${dirs.src}/img/backgrounds`));
 });
 
 gulp.task('scale:small', () => {
-    return gulp.src(`${dirs.org}/img/travel/**/*`)
+    return gulp.src(`${dirs.org}/img/backgrounds/**/*`)
         .pipe(plugins.jimp({
             '.small': {
                 scaleToFit: { width: 448, height: 387 },
                 quality: 60
             }
         }))
-        .pipe(gulp.dest(`${dirs.src}/img/travel`));
+        .pipe(gulp.dest(`${dirs.src}/img/backgrounds`));
 });
 
 gulp.task('scale:placeholder', ['scale:small'], () => {
