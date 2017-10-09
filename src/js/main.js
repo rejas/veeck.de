@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Travel picture angle randomization
      */
-    Array.prototype.forEach.call(document.querySelectorAll('.travel-article .figure--popup'), figure => {
+    Array.prototype.forEach.call(document.querySelectorAll('.travel__article .figure--popup'), figure => {
         figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 
