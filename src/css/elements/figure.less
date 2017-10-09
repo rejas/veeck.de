@@ -1,6 +1,4 @@
 @colorFigure:   #ede1c9;
-@colorFigure2:  lighten(@colorFigure, 10);
-
 .figure {
     border-radius: @border-radius-md;
     margin: 0 0 1rem;
@@ -200,6 +198,7 @@
     &--icon {
         .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
         border: @border-thickness solid @color-transparent;
+        border-radius: @border-radius-lg;
         float: left;
         margin: 0.25rem 1rem 1rem 0;
         width: auto;
@@ -215,7 +214,7 @@
             overflow: visible;
             padding: 0.5rem 0.5rem 0;
             box-shadow: 4px 4px 8px -4px @color-transparentDark;
-            background: linear-gradient(to bottom, @colorFigure, @colorFigure2 60%);
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
             transform: rotate(var(--figure-angle-seed));
 
             &:before {
