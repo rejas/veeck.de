@@ -6189,9 +6189,9 @@ less-loader@^4.0.5:
     loader-utils "^1.1.0"
     pify "^2.3.0"
 
-less@^2.7.2:
-  version "2.7.2"
-  resolved "https://registry.yarnpkg.com/less/-/less-2.7.2.tgz#368d6cc73e1fb03981183280918743c5dcf9b3df"
+less@^3.0.0-alpha.3:
+  version "3.0.0-pre.4"
+  resolved "https://registry.yarnpkg.com/less/-/less-3.0.0-pre.4.tgz#67507b12e6dc93746f73d231ae38e3c043f1e380"
   optionalDependencies:
     errno "^0.1.1"
     graceful-fs "^4.1.2"
@@ -6199,7 +6199,6 @@ less@^2.7.2:
     mime "^1.2.11"
     mkdirp "^0.5.0"
     promise "^7.1.1"
-    request "^2.72.0"
     source-map "^0.5.3"
 
 lesshint-reporter-stylish@^2.0.0:
@@ -9002,7 +9001,7 @@ request@2.81.0, request@~2.81.0:
     tunnel-agent "^0.6.0"
     uuid "^3.0.0"
 
-request@^2.44.0, request@^2.65.0, request@^2.72.0:
+request@^2.44.0, request@^2.65.0:
   version "2.83.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.83.0.tgz#ca0b65da02ed62935887808e6f510381034e3356"
   dependencies:
