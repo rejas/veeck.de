@@ -23,6 +23,8 @@ export function init() {
     //TODO add random use of header or random color
     if (!newColor) {
         newColor = tinycolor.random().toHsl();
+    } else {
+        newColor = tinycolor('#'+newColor);
     }
     newColor.l = 0.5;
 
