@@ -1,22 +1,22 @@
 .navigation {
     position: fixed;
-    top: 1rem;
-    left: 1rem;
+    left: -263px;
     z-index: @z-index-4;
     background-color: @color-transparentDark;
-    height: @btn-size-m;
-    width: @btn-size-m;
-    border: @border-thickness solid;
+    height: 100vh;
+    width: 266px;
+    border-right: @border-thickness solid;
     .colorVar(border-color, --primaryColor, @primaryColor);
-    border-radius: @border-radius-lg;
     .transform(all);
     transition-property: top, left, width, height;
 
     &.menu--open {
-        top: -8px;
-        left: -8px;
+        left: 0;
         height: calc(100vh + 16px);
-        width: 266px;
+
+        .btn--hamburger {
+            left: 11rem;
+        }
 
         .menu {
             display: block;
@@ -27,11 +27,22 @@
         }
     }
 
+    &:not(.menu--open) {
+
+        .btn--hamburger {
+            border-left: 0;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+        }
+    }
+
     .btn--hamburger {
         display: block;
         position: fixed;
         top: 1rem;
-        left: 1rem;
+        left: 0;
+        height: 3rem;
+        width: 3rem;
         z-index: @z-index-5;
     }
 
@@ -39,7 +50,6 @@
         display: none;
 
         .menu__breadcrumbs {
-            padding-left: 4.5rem;
             padding-top: 2rem;
         }
 
