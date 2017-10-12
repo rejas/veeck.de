@@ -4863,12 +4863,20 @@ gulp-modernizr@^1.0.0-alpha:
     gulp-util "~2.2.10"
     through2 "~0.4.0"
 
-gulp-prompt@0.2.0, gulp-prompt@^0.2.0:
+gulp-prompt@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/gulp-prompt/-/gulp-prompt-0.2.0.tgz#9760c90bbd87e800228330ebac74d659cc2ddb78"
   dependencies:
     event-stream "~3.0.20"
     inquirer "~0.10"
+
+gulp-prompt@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/gulp-prompt/-/gulp-prompt-0.4.1.tgz#d2b300d7cf733d2528b706a7fa86571bef35153e"
+  dependencies:
+    event-stream "~3.0.20"
+    inquirer "^3.3.0"
+    lodash.template "^4.4.0"
 
 gulp-release-it@^1.1.8:
   version "1.1.8"
@@ -5479,7 +5487,7 @@ inquirer2@^0.1.1:
     strip-color "^0.1.0"
     through2 "^2.0.0"
 
-inquirer@^3.0.6:
+inquirer@^3.0.6, inquirer@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-3.3.0.tgz#9dd2f2ad765dcab1ff0443b491442a20ba227dc9"
   dependencies:
@@ -6445,7 +6453,7 @@ lodash._reinterpolate@^2.4.1, lodash._reinterpolate@~2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-2.4.1.tgz#4f1227aa5a8711fc632f5b07a1f4607aab8b3222"
 
-lodash._reinterpolate@^3.0.0:
+lodash._reinterpolate@^3.0.0, lodash._reinterpolate@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
 
@@ -6666,12 +6674,25 @@ lodash.template@^3.0.0:
     lodash.restparam "^3.0.0"
     lodash.templatesettings "^3.0.0"
 
+lodash.template@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.4.0.tgz#e73a0385c8355591746e020b99679c690e68fba0"
+  dependencies:
+    lodash._reinterpolate "~3.0.0"
+    lodash.templatesettings "^4.0.0"
+
 lodash.templatesettings@^3.0.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/lodash.templatesettings/-/lodash.templatesettings-3.1.1.tgz#fb307844753b66b9f1afa54e262c745307dba8e5"
   dependencies:
     lodash._reinterpolate "^3.0.0"
     lodash.escape "^3.0.0"
+
+lodash.templatesettings@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/lodash.templatesettings/-/lodash.templatesettings-4.1.0.tgz#2b4d4e95ba440d915ff08bc899e4553666713316"
+  dependencies:
+    lodash._reinterpolate "~3.0.0"
 
 lodash.templatesettings@~2.4.1:
   version "2.4.1"
