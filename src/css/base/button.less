@@ -2,9 +2,11 @@
 @btn-size-m: 2.5rem;
 
 .btn {
+    background: none;
     border: @border-thickness solid;
     .colorVar(border-color, --primaryColor, @primaryColor);
     border-radius: @border-radius-lg;
+    color: @primaryTextColor;
     cursor: pointer;
     display: block;
     font-family: @font-main, arial;
@@ -18,30 +20,34 @@
     position: relative;
     .transform(all);
 
-    &:hover {
-
-        &::after {
-            width: 90%;
-            opacity: 1;
-        }
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        z-index: @z-index-neg;
-        .transform(all);
-        width: 0;
-        height: 100%;
-        top: 50%;
-        left: 50%;
-        .colorVar(background-color, --primaryColor, @primaryColor);
-        transform: translateX(-50%) translateY(-50%);
-    }
-
     &--m {
         min-height: @btn-size-m;
         min-width: @btn-size-m;
+    }
+
+    &--animated {
+
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: @z-index-neg;
+            .transform(all);
+            width: 0;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            .colorVar(background-color, --primaryColor, @primaryColor);
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        &:hover {
+            .colorVar(color, --secondaryTextColor, @secondaryTextColor);
+
+            &::after {
+                width: 90%;
+                opacity: 1;
+            }
+        }
     }
 
     &--hamburger {
@@ -51,10 +57,13 @@
             outline: 0;
         }
 
+        &:hover {
+            opacity: 1;
+        }
+
         .hamburger-box {
             width: 2rem;
-            top: 0.5rem;
-            left: 0.25rem;
+            top: 0.125rem;
         }
 
         .hamburger-inner,
@@ -83,15 +92,6 @@
 
         > svg {
             .colorVar(stroke, --primaryColor, @primaryColor);
-        }
-    }
-
-    .content & {
-        background: none;
-        color: @primaryTextColor;
-
-        &:hover {
-            .colorVar(color, --secondaryTextColor, @secondaryTextColor);
         }
     }
 }
