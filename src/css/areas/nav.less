@@ -15,7 +15,9 @@
         height: calc(100vh + 16px);
 
         .btn--hamburger {
-            left: 11rem;
+            position: absolute;
+            left: auto;
+            right: 1rem;
         }
 
         .menu {
@@ -44,6 +46,27 @@
         height: 3rem;
         width: 3rem;
         z-index: @z-index-5;
+        padding: 0;
+
+        &:focus {
+            outline: 0;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+
+        .hamburger-box {
+            width: 2rem;
+            top: 0.125rem;
+        }
+
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            .colorVar(background-color, --primaryColor, @primaryColor);
+            width: 2rem;
+        }
     }
 
             &:hover > a {
