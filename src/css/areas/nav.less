@@ -14,12 +14,6 @@
         left: 0;
         height: calc(100vh + 16px);
 
-        .btn--hamburger {
-            position: absolute;
-            left: auto;
-            right: 1rem;
-        }
-
         .menu {
             display: block;
             position: relative;
@@ -31,8 +25,8 @@
 
     &:not(.menu--open) {
 
-        .btn--hamburger {
-            border-left: 3px solid @colorDark;
+        .btn--hamburger-front {
+            border-left: 3px solid transparent;
             border-bottom-left-radius: 0;
             border-top-left-radius: 0;
         }
@@ -40,13 +34,14 @@
 
     .btn--hamburger {
         display: block;
-        position: fixed;
-        top: 1rem;
-        left: 0;
         height: 3rem;
         width: 3rem;
         z-index: @z-index-5;
         padding: 0;
+        backface-visibility: hidden;
+        transform-origin: 0 0;
+        position: absolute;
+        top: 0;
 
         &:focus {
             outline: 0;
@@ -66,6 +61,20 @@
         .hamburger-inner::after {
             .colorVar(background-color, --primaryColor, @primaryColor);
             width: 2rem;
+        }
+
+        &-back {
+            background-color: transparent;
+            border-right: 3px solid @colorDark;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+            transform: rotateY(180deg);
+            right: calc(-3rem + 2.5px);
+        }
+
+        &-front {
+            transform: rotateY(0deg);
+            right: 0;
         }
     }
 
@@ -119,4 +128,25 @@
     left: 1rem;
     bottom: 1rem;
     z-index: @z-index-5;
+}
+
+.flip-container {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: -3rem;
+    height: 3rem;
+    width: 6rem;
+    perspective: 1000px;
+    z-index: 1;
+}
+
+.flipper {
+    transition: @animation-duration;
+    transform-style: preserve-3d;
+    position: relative;
+
+    .menu--open & {
+        transform: rotateY(180deg);
+    }
 }
