@@ -53,7 +53,7 @@
             .hamburger-inner,
             .hamburger-inner::before,
             .hamburger-inner::after {
-                .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+                .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
             }
         }
 
@@ -76,6 +76,10 @@
             border-top-right-radius: 0;
             transform: rotateY(180deg);
             right: calc(-3rem + 2.5px);
+
+            &:hover {
+                border-right-color: @color-transparentDark;
+            }
         }
 
         &-front {
@@ -112,13 +116,6 @@
             }
         }
     }
-}
-
-.shareList {
-    position: absolute;
-    left: 1rem;
-    bottom: 1rem;
-    z-index: @z-index-5;
 }
 
 .flip-container {
