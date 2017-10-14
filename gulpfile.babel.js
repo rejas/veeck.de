@@ -195,7 +195,7 @@ gulp.task('prepare:sitemap', ['assemble'], () => {
 });
 
 gulp.task('prepare:modernizr', () => {
-    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/responsivemultilevelmenu/js/jquery.dlmenu.js`,
+    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/multilevelmenu/js/main.js`,
                     `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.modernizr('modernizr.min.js', {
             "options": config.modernizr
