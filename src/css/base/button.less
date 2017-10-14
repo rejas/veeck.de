@@ -57,12 +57,15 @@
         width: @btn-size-m;
         padding: 0;
         z-index: @z-index-5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         &:hover {
-            .colorVar(color, --accentColor, @accentColor);
+            .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
 
             > svg {
-                .colorVar(stroke, --accentColor, @accentColor);
+                .colorVar(stroke, --darkPrimaryColor, @darkPrimaryColor);
             }
         }
 
