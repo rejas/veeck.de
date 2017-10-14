@@ -195,7 +195,7 @@ gulp.task('prepare:sitemap', ['assemble'], () => {
 });
 
 gulp.task('prepare:modernizr', () => {
-    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/responsivemultilevelmenu/js/jquery.dlmenu.js`,
+    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/multilevelmenu/js/main.js`,
                     `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.modernizr('modernizr.min.js', {
             "options": config.modernizr
@@ -266,7 +266,8 @@ gulp.task('webpack', () => {
 app.onLoad(/\.(md|hbs)$/, assemblevars(app));
 
 gulp.task('load', (cb) => {
-    app.partials([`${dirs.assemble}/partials/**/*.hbs`, `${dirs.assemble}/partials/**/html/*.html`]);
+    app.partials([`${dirs.assemble}/partials/**/*.hbs`, `${dirs.node}/feather-icons/dist/icons/*.svg`,
+        `${dirs.assemble}/partials/**/html/*.html`]);
     app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
     app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);

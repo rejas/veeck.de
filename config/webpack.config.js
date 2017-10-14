@@ -57,7 +57,8 @@ const webpackconfig = {
                     }, {
                         loader: 'less-loader',
                         options: {
-                            sourceMap: true
+                            sourceMap: true,
+                            strictMath: true
                         }
                     }]
                 })

@@ -1,12 +1,14 @@
-import classie from 'classie/lib/classie';
+/**
+ *
+ */
 
 function onInputFocus (ev) {
-    classie.add(ev.target.parentNode, 'input--filled');
+    ev.target.parentNode.classList.add('input--filled');
 }
 
 function onInputBlur (ev) {
     if (ev.target.value.trim() === '') {
-        classie.remove(ev.target.parentNode, 'input--filled');
+        ev.target.parentNode.classList.remove('input--filled');
     }
 }
 
@@ -14,7 +16,7 @@ export function init() {
     [].slice.call(document.getElementsByClassName('js-input__field--manami')).forEach(function (inputEl) {
         // in case the input is already filled..
         if (inputEl.value.trim() !== '') {
-            classie.add(inputEl.parentNode, 'input--filled');
+            inputEl.parentNode.classList.add('input--filled');
         }
         // events:
         inputEl.addEventListener('focus', onInputFocus);

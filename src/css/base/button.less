@@ -2,59 +2,30 @@
 @btn-size-m: 2.5rem;
 
 .btn {
+    background: none;
+    border: @border-thickness solid;
+    .colorVar(border-color, --primaryColor, @primaryColor);
+    border-radius: @border-radius-lg;
+    color: @primaryTextColor;
     cursor: pointer;
+    display: block;
     font-family: @font-main, arial;
     font-size: @font-size-m;
+    font-weight: @font-weight-bold;
     margin: 0 auto;
     padding: 0 1rem;
     text-align: center;
     text-transform: uppercase;
     user-select: none;
+    position: relative;
+    .transform(all);
 
     &--m {
         min-height: @btn-size-m;
         min-width: @btn-size-m;
     }
 
-    &--comic {
-        border: @border-thickness solid;
-        .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
-        border-radius: @border-radius-lg;
-        .colorVar(color, --primaryTextColor, @primaryTextColor);
-        .colorVar(background-color, --primaryColor, @primaryColor);
-        height: @btn-size-m;
-        width: @btn-size-m;
-        padding: 0;
-
-        &:hover {
-            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-        }
-
-        > svg {
-            .colorVar(fill, --primaryTextColor, @primaryTextColor);
-        }
-    }
-
-    &--hamburger {
-        padding: 0.25rem;
-    }
-
-    &--normal {
-        background: none;
-        border: @border-thickness solid;
-        border-radius: 0;
-        .colorVar(border-color, --primaryColor, @primaryColor);
-        font-weight: @font-weight-bold;
-        position: relative;
-        .transform(all);
-
-        &:hover {
-
-            &::after {
-                width: 90%;
-                opacity: 1;
-            }
-        }
+    &--animated {
 
         &::after {
             content: '';
@@ -67,6 +38,39 @@
             left: 50%;
             .colorVar(background-color, --primaryColor, @primaryColor);
             transform: translateX(-50%) translateY(-50%);
+        }
+
+        &:hover {
+            .colorVar(color, --secondaryTextColor, @secondaryTextColor);
+
+            &::after {
+                width: 90%;
+                opacity: 1;
+            }
+        }
+    }
+
+    .header & {
+        .colorVar(background-color, --accentColor, @accentColor);
+        .colorVar(color, --primaryColor, @primaryColor);
+        height: @btn-size-m;
+        width: @btn-size-m;
+        padding: 0;
+        z-index: @z-index-5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
+
+            > svg {
+                .colorVar(stroke, --darkPrimaryColor, @darkPrimaryColor);
+            }
+        }
+
+        > svg {
+            .colorVar(stroke, --primaryColor, @primaryColor);
         }
     }
 }
