@@ -2,13 +2,16 @@
     position: fixed;
     left: -263px;
     z-index: @z-index-4;
-    background-color: @color-transparentDark;
     height: 100vh;
     width: 266px;
     border-right: @border-thickness solid;
     .colorVar(border-color, --primaryColor, @primaryColor);
     .transform(all);
     transition-property: top, left, width, height;
+
+    &:not(.menu--open):hover {
+        .colorVar(border-right-color, --lightPrimaryColor, @lightPrimaryColor);
+    }
 
     &.menu--open {
         left: 0;
@@ -20,15 +23,6 @@
             top: 0;
             height: 100vh;
             width: 100%;
-        }
-    }
-
-    &:not(.menu--open) {
-
-        .btn--hamburger-front {
-            border-left: 3px solid @color-transparentDark;
-            border-bottom-left-radius: 0;
-            border-top-left-radius: 0;
         }
     }
 
@@ -70,7 +64,7 @@
         }
 
         &-back {
-            background-color: @color-transparentDark;
+            background-color: transparent;
             border-right: 3px solid @color-transparentDark;
             border-bottom-right-radius: 0;
             border-top-right-radius: 0;
@@ -79,19 +73,51 @@
 
             &:hover {
                 border-right-color: @color-transparentDark;
+
+                &::after,
+                &::before {
+                    .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+                }
+            }
+
+            &::after {
+                content: '';
+                height: 100vw;
+                width: 3px;
+                background-color: transparent;
+                position: absolute;
+                bottom: -100vw;
+                right: -3px;
+            }
+
+            &::before {
+                content: '';
+                height: 2rem;
+                width: 3px;
+                background-color: transparent;
+                position: absolute;
+                top: -2rem;
+                right: -3px;
             }
         }
 
         &-front {
+            background-color: @color-transparentDark;
+            border-left: 3px solid @color-transparentDark;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
             transform: rotateY(0deg);
             right: 0;
+
+            &:hover {
+                border-left-color: @color-transparentDark;
+            }
         }
     }
 
-            &:hover > a {
-                .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-                cursor: default;
-            }
+    .menu {
+        background-color: transparent;
+        display: none;
 
         @media @phone, @tablet {
             transform: none;
@@ -99,7 +125,14 @@
         }
 
         .menu__breadcrumbs {
+            background-color: @color-transparentDark;
+            height: 4rem;
             padding-top: 2rem;
+        }
+
+        .menu__wrap {
+            background-color: @color-transparentDark;
+            top: 4rem;
         }
 
         .menu__breadcrumbs a:hover,
