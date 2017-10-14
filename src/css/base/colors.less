@@ -10,8 +10,10 @@
 @primaryTextColor:          @colorDark;
 @secondaryTextColor:        @colorWhite;
 
-@lightPrimaryColor:         lighten(@primaryColor,  37.5%);
 @darkPrimaryColor:          darken(@primaryColor,   17.75%);
+
+@lightPrimaryColor:             lighten(@primaryColor,  37.5%);
+@lightPrimaryColorTransparent:  fade(@lightPrimaryColor, 0.66);
 
 @color-transparent:         rgba(255, 255, 255, 0.125);
 @color-transparentDark:     rgba(0, 0, 0, 0.775);
@@ -22,8 +24,10 @@
     --primaryColor:         @primaryColor;
     --accentColor:          @accentColor;
 
-    --lightPrimaryColor:    @lightPrimaryColor;
     --darkPrimaryColor:     @darkPrimaryColor;
+
+    --lightPrimaryColor:                @lightPrimaryColor;
+    --lightPrimaryColorTransparent:     @lightPrimaryColorTransparent;
 
     --primaryTextColor:     @primaryTextColor;
     --secondaryTextColor:   @secondaryTextColor;
