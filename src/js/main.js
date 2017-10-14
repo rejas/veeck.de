@@ -93,9 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     Smoothscroll.polyfill();
 
-    document.querySelector('.js-to-top').onclick = () => {
+    document.querySelector('.js-to-top').addEventListener('click', () => {
         window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-    };
+    });
 
     /**
      * ImageLightBox
@@ -126,9 +126,11 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Share to facebook
      */
-    document.querySelector('.js-share-facebook').onclick = () => {
-        window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL));
+    document.querySelector('.js-share-facebook').addEventListener('click', () => {
+        window.open('https://www.facebook.com/sharer/sharer.php?u='
+            + encodeURIComponent(document.URL) + '&t='
+            + encodeURIComponent(document.URL));
         return false;
-    };
+    });
 });
 
