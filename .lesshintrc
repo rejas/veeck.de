@@ -3,6 +3,9 @@
     "qualifyingElement":        false,
     "propertyOrdering":         false,
     "spaceAfterPropertyColon":  false,
+    "spaceAroundComma": {
+        "allowNewline": true
+    },
     "universalSelector":        false,
     "zeroUnit":                 false
 }
