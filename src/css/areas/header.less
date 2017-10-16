@@ -62,27 +62,10 @@
     }
 
     .btn {
-        .colorVar(background-color, --accentColor, @accentColor);
-        .colorVar(color, --primaryColor, @primaryColor);
         height: @btn-size-m;
         width: @btn-size-m;
         padding: 0;
         z-index: @z-index-5;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &:hover {
-            .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
-
-            > svg {
-                .colorVar(stroke, --darkPrimaryColor, @darkPrimaryColor);
-            }
-        }
-
-        > svg {
-            .colorVar(stroke, --primaryColor, @primaryColor);
-        }
     }
 }
 

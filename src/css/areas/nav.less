@@ -1,17 +1,11 @@
 .navigation {
     position: fixed;
-    left: -263px;
+    left: -15rem;
     z-index: @z-index-4;
     height: 100vh;
-    width: 266px;
-    border-right: @border-thickness solid;
-    .colorVar(border-color, --primaryColor, @primaryColor);
+    width: 15rem;
     .transform(all);
     transition-property: top, left, width, height;
-
-    &:not(.menu--open):hover {
-        .colorVar(border-right-color, --lightPrimaryColor, @lightPrimaryColor);
-    }
 
     &.menu--open {
         left: 0;
@@ -27,93 +21,10 @@
     }
 
     .btn--hamburger {
-        display: block;
-        height: 3rem;
-        width: 3rem;
-        z-index: @z-index-5;
-        padding: 0;
-        backface-visibility: hidden;
-        transform-origin: 0 0;
         position: absolute;
         top: 0;
-
-        &:focus {
-            outline: 0;
-        }
-
-        &:hover {
-            opacity: 1;
-
-            .hamburger-inner,
-            .hamburger-inner::before,
-            .hamburger-inner::after {
-                .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-            }
-        }
-
-        .hamburger-box {
-            width: 2rem;
-            top: 0.125rem;
-        }
-
-        .hamburger-inner,
-        .hamburger-inner::before,
-        .hamburger-inner::after {
-            background-color: @colorDark;
-            width: 2rem;
-        }
-
-        &-back {
-            background-color: transparent;
-            border-right: 3px solid @color-transparentDark;
-            border-bottom-right-radius: 0;
-            border-top-right-radius: 0;
-            transform: rotateY(180deg);
-            right: calc(-3rem + 2.5px);
-
-            &:hover {
-                border-right-color: @color-transparentDark;
-
-                &::after,
-                &::before {
-                    .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
-                }
-            }
-
-            &::after {
-                content: '';
-                height: 100vw;
-                width: 3px;
-                background-color: transparent;
-                position: absolute;
-                bottom: -100vw;
-                right: -3px;
-            }
-
-            &::before {
-                content: '';
-                height: 2rem;
-                width: 3px;
-                background-color: transparent;
-                position: absolute;
-                top: -2rem;
-                right: -3px;
-            }
-        }
-
-        &-front {
-            .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
-            .colorVar(border-left-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
-            border-left: 3px solid;
-            border-bottom-left-radius: 0;
-            border-top-left-radius: 0;
-            transform: rotateY(0deg);
-            right: 0;
-
-            &:hover {
-                border-left-color: @color-transparentDark;
-            }
-        }
+        height: 3rem;
+        width: 3rem;
     }
 
     .menu {
@@ -139,7 +50,7 @@
         .menu__breadcrumbs a:hover,
         .menu__link:hover,
         .menu__link[data-submenu]:hover::after {
-            color: @colorDark;
+            .colorVar(color, --darkPrimaryColor, @darkPrimaryColor);
         }
 
         .menu__breadcrumbs a,
