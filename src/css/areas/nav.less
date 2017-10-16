@@ -59,7 +59,7 @@
         .hamburger-inner,
         .hamburger-inner::before,
         .hamburger-inner::after {
-            .colorVar(background-color, --primaryColor, @primaryColor);
+            background-color: @colorDark;
             width: 2rem;
         }
 
@@ -76,7 +76,7 @@
 
                 &::after,
                 &::before {
-                    .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+                    .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
                 }
             }
 
@@ -102,8 +102,9 @@
         }
 
         &-front {
-            background-color: @color-transparentDark;
-            border-left: 3px solid @color-transparentDark;
+            .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
+            .colorVar(border-left-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
+            border-left: 3px solid;
             border-bottom-left-radius: 0;
             border-top-left-radius: 0;
             transform: rotateY(0deg);
@@ -125,49 +126,34 @@
         }
 
         .menu__breadcrumbs {
-            background-color: @color-transparentDark;
+            .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
             height: 4rem;
             padding-top: 2rem;
         }
 
         .menu__wrap {
-            background-color: @color-transparentDark;
+            .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
             top: 4rem;
         }
 
         .menu__breadcrumbs a:hover,
         .menu__link:hover,
         .menu__link[data-submenu]:hover::after {
-            .colorVar(color, --lightPrimaryColor, @lightPrimaryColor);
+            color: @colorDark;
         }
 
         .menu__breadcrumbs a,
         .menu__link,
         .menu__link[data-submenu]::after {
             border-bottom: 0;
-            .colorVar(color, --primaryColor, @primaryColor);
+            color: @colorDark;
         }
 
-            .dl-submenu {
-                display: none;
-                position: relative;
-                left: 0;
-                padding: 0;
-
-                > li {
-                    list-style: none;
-                    text-align: left;
-                    float: none;
-                    margin: 0;
-                    display: block;
-
-                    > a {
-                        width: 100%;
-                        padding: 0 0.5rem;
-                        margin: 0;
+        .menu__breadcrumbs a:not(:last-child):after {
+            color: @colorDark;
 
             &:hover {
-                .colorVar(color, --lightPrimaryColor, @lightPrimaryColor);
+                .colorVar(color, --lightPrimaryColor, @lightPrimaryColorTransparent);
             }
         }
     }
