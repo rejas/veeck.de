@@ -77,11 +77,11 @@
 
         &::after {
             content: '';
-            height: 100vw;
+            height: 100vh;
             width: 3px;
             .colorVar(background-color, --primaryColor, @primaryColor);
             position: absolute;
-            bottom: -100vw;
+            top: calc(3rem - 6px);
         }
 
         &::before {
@@ -130,16 +130,13 @@
             border-bottom-right-radius: 0;
             border-top-right-radius: 0;
             transform: rotateY(180deg);
-            right: calc(-3rem + 2.5px);
+            right: -3rem;
 
             &:hover {
                 border-right-color: transparent;
             }
 
-            &::after {
-                right: -3px;
-            }
-
+            &::after,
             &::before {
                 right: -3px;
             }
@@ -157,10 +154,7 @@
                 border-left-color: transparent;
             }
 
-            &::after {
-                left: -3px;
-            }
-
+            &::after,
             &::before {
                 left: -3px;
             }
