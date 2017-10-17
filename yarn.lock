@@ -4973,9 +4973,9 @@ gulp-prompt@^0.4.1:
     inquirer "^3.3.0"
     lodash.template "^4.4.0"
 
-gulp-release-it@^1.1.8:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/gulp-release-it/-/gulp-release-it-1.1.8.tgz#f03e7ea4da8a4acb7b493ab7efd40a76b663b689"
+gulp-release-it@^1.1.11:
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/gulp-release-it/-/gulp-release-it-1.1.11.tgz#bf0bef9116b9c5b1ee595711d03fd0333847e6eb"
   dependencies:
     gulp-git "2.4.1"
     gulp-json-editor "2.2.1"
