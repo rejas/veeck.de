@@ -68,9 +68,11 @@ gulp.task('copy:vendorscripts', () => {
  */
 
 // Detect errors and potential problems in your html code
-gulp.task('check:html', () => {
-    return gulp.src([`${dirs.src}/*.html`])
-        .pipe(plugins.htmlhint())
+gulp.task('check:html', ['assemble'], () => {
+    return gulp.src([`${dirs.dist}/*.html`])
+        .pipe(plugins.htmlhint({
+            htmlhintrc: '.htmlhintrc.json'
+        }))
         .pipe(plugins.htmlhint.reporter());
 });
 
