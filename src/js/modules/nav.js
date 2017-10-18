@@ -20,6 +20,7 @@ export function init() {
     });
 
     function openMenu() {
+        document.body.classList.toggle('body--locked');
         navEl.classList.toggle('menu--open');
 
         btnEles.forEach(function(element) {
