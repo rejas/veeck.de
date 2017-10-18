@@ -123,10 +123,10 @@
                 left: 0;
                 top: 100%;
                 z-index: -1;
-                border-left: 3px solid darken(@accentColor, 15%);
-                border-right: 3px solid transparent;
-                border-bottom: 3px solid transparent;
-                border-top: 3px solid darken(@accentColor, 15%);
+                border-left: @border-thickness solid darken(@accentColor, 15%);
+                border-right: @border-thickness solid transparent;
+                border-bottom: @border-thickness solid transparent;
+                border-top: @border-thickness solid darken(@accentColor, 15%);
             }
 
             &::after {
@@ -135,10 +135,10 @@
                 right: 0;
                 top: 100%;
                 z-index: -1;
-                border-left: 3px solid transparent;
-                border-right: 3px solid darken(@accentColor, 15%);
-                border-bottom: 3px solid transparent;
-                border-top: 3px solid darken(@accentColor, 15%);
+                border-left: @border-thickness solid transparent;
+                border-right: @border-thickness solid darken(@accentColor, 15%);
+                border-bottom: @border-thickness solid transparent;
+                border-top: @border-thickness solid darken(@accentColor, 15%);
             }
         }
     }
