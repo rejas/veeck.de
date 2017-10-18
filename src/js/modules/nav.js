@@ -14,7 +14,6 @@ export function init() {
         backCtrl: false                 // show back button
     });
 
-
     btnEles.forEach(function(element) {
         element.addEventListener('click', openMenu);
     });
@@ -27,4 +26,15 @@ export function init() {
             element.classList.toggle('is-active');
         });
     }
+
+    document.addEventListener('click', function(event) {
+        if (!navEl.contains(event.target)) {
+            document.body.classList.remove('body--locked');
+            navEl.classList.remove('menu--open');
+
+            btnEles.forEach(function(element) {
+                element.classList.remove('is-active');
+            });
+        }
+    });
 }
