@@ -78,14 +78,18 @@ gulp.task('check:html', () => {
 // You can enable or disable default eslint options in the .eslintrc file
 gulp.task('check:js', () => {
     return gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
-        .pipe(plugins.eslint())
+        .pipe(plugins.eslint({
+            configFile: '.eslintrc.json'
+        }))
         .pipe(plugins.eslint.format(eslintformat))
 });
 
 // Detect errors and potential problems in your css code
 gulp.task('check:less', () => {
     return gulp.src([`${dirs.src}/css/**/*.less`])
-        .pipe(plugins.lesshint())
+        .pipe(plugins.lesshint({
+                configPath: '.lesshintrc.json'
+        }))
         .pipe(plugins.lesshint.reporter())
         .pipe(plugins.lesshint.failOnError());
 });
