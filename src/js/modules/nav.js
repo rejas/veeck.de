@@ -15,19 +15,17 @@ export function init() {
     });
 
     btnEles.forEach(function(element) {
-        element.addEventListener('click', openMenu);
+        element.addEventListener('click', () => {
+            document.body.classList.toggle('body--locked');
+            navEl.classList.toggle('menu--open');
+
+            btnEles.forEach(function(element) {
+                element.classList.toggle('is-active');
+            });
+        });
     });
 
-    function openMenu() {
-        document.body.classList.toggle('body--locked');
-        navEl.classList.toggle('menu--open');
-
-        btnEles.forEach(function(element) {
-            element.classList.toggle('is-active');
-        });
-    }
-
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', () => {
         if (!navEl.contains(event.target)) {
             document.body.classList.remove('body--locked');
             navEl.classList.remove('menu--open');
