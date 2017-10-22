@@ -1,5 +1,5 @@
-@btn-size-sm: 1.5rem;
-@btn-size-m: 2.5rem;
+@btn-size-md: 2.5rem;
+@btn-size-lg: 3rem;
 
 .btn {
     .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
@@ -38,9 +38,14 @@
         .colorVar(stroke, --primaryColor, @primaryColor);
     }
 
-    &--m {
-        min-height: @btn-size-m;
-        min-width: @btn-size-m;
+    &--md {
+        min-height: @btn-size-md;
+        min-width: @btn-size-md;
+    }
+
+    &--lg {
+        min-height: @btn-size-lg;
+        min-width: @btn-size-lg;
     }
 
     &--animated {
@@ -74,11 +79,12 @@
         padding: 0;
         backface-visibility: hidden;
         transform-origin: 0 0;
+        border-radius: 0;
 
         &::after {
             content: '';
             height: 100vh;
-            width: 3px;
+            width: @border-thickness;
             .colorVar(background-color, --primaryColor, @primaryColor);
             position: absolute;
             top: calc(3rem - 6px);
@@ -87,7 +93,7 @@
         &::before {
             content: '';
             height: 2rem;
-            width: 3px;
+            width: @border-thickness;
             .colorVar(background-color, --primaryColor, @primaryColor);
             position: absolute;
             top: -2rem;
@@ -126,7 +132,7 @@
 
         &-back {
             background-color: transparent;
-            border-right: 3px solid transparent;
+            border-right: @border-thickness solid transparent;
             border-bottom-right-radius: 0;
             border-top-right-radius: 0;
             transform: rotateY(180deg);
@@ -138,15 +144,15 @@
 
             &::after,
             &::before {
-                right: -3px;
+                right: -@border-thickness;
             }
         }
 
         &-front {
             .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
-            border-left: 3px solid transparent;
-            border-bottom-left-radius: 0;
-            border-top-left-radius: 0;
+            border-left: @border-thickness solid transparent;
+            border-bottom-right-radius: @border-radius-lg;
+            border-top-right-radius: @border-radius-lg;
             transform: rotateY(0deg);
             right: 0;
 
@@ -156,8 +162,12 @@
 
             &::after,
             &::before {
-                left: -3px;
+                left: -@border-thickness;
             }
         }
+    }
+
+    &--icon {
+        padding: 0;
     }
 }

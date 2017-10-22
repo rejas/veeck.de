@@ -68,9 +68,11 @@ gulp.task('copy:vendorscripts', () => {
  */
 
 // Detect errors and potential problems in your html code
-gulp.task('check:html', () => {
-    return gulp.src([`${dirs.src}/*.html`])
-        .pipe(plugins.htmlhint())
+gulp.task('check:html', ['assemble'], () => {
+    return gulp.src([`${dirs.dist}/*.html`])
+        .pipe(plugins.htmlhint({
+            htmlhintrc: '.htmlhintrc.json'
+        }))
         .pipe(plugins.htmlhint.reporter());
 });
 
@@ -78,14 +80,18 @@ gulp.task('check:html', () => {
 // You can enable or disable default eslint options in the .eslintrc file
 gulp.task('check:js', () => {
     return gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
-        .pipe(plugins.eslint())
+        .pipe(plugins.eslint({
+            configFile: '.eslintrc.json'
+        }))
         .pipe(plugins.eslint.format(eslintformat))
 });
 
 // Detect errors and potential problems in your css code
 gulp.task('check:less', () => {
     return gulp.src([`${dirs.src}/css/**/*.less`])
-        .pipe(plugins.lesshint())
+        .pipe(plugins.lesshint({
+                configPath: '.lesshintrc.json'
+        }))
         .pipe(plugins.lesshint.reporter())
         .pipe(plugins.lesshint.failOnError());
 });
@@ -166,12 +172,13 @@ gulp.task('prepare:favicons', function () {
         appDescription: 'This is my homepage',
         developerName: 'Veeck',
         developerURL: 'https://www.veeck.de/',
-        background: '#ffffff',
+        background: '#FFFFFF',
         path: '/favicons',
         url: 'https://www.veeck.de/',
         display: 'standalone',
         orientation: 'portrait',
         logging: false,
+        theme_color: "#E6E6E6",
         online: false,
         html: '../../../src/assemble/partials/html/icons.html',
         pipeHTML: true,

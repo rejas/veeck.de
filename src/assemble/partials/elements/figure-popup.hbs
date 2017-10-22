@@ -1,7 +1,6 @@
 <figure class="{{class}} figure figure--basic figure--popup">
     <a href="{{img}}.medium.jpg" data-ilb2-caption="{{caption}}" class="js-gallery__image">
-        <img class="js-lazyload"
-             src="{{img}}.small.placeholder.jpg"
+        <img class="js-lazyload" src="{{img}}.small.placeholder.jpg" {{#if caption}}alt="{{caption}}"{{/if}}
              data-original="{{img}}.small.jpg"/>
     </a>
     <figcaption class="figure__caption">{{caption}}</figcaption>

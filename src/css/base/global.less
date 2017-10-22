@@ -40,11 +40,16 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
+
+    &.body--locked {
+        overflow-y: hidden;
+        padding-right: 17px;
+    }
 }
 
 section {
     .clearfix();
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 p {
@@ -96,4 +101,17 @@ strong {
 
 time {
     font-family: monospace;
+}
+
+a,
+area,
+button,
+[role="button"],
+input:not([type=range]),
+label,
+select,
+summary,
+textarea {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
 }

@@ -14,16 +14,25 @@ export function init() {
         backCtrl: false                 // show back button
     });
 
-
     btnEles.forEach(function(element) {
-        element.addEventListener('click', openMenu);
+        element.addEventListener('click', () => {
+            document.body.classList.toggle('body--locked');
+            navEl.classList.toggle('menu--open');
+
+            btnEles.forEach(function(element) {
+                element.classList.toggle('is-active');
+            });
+        });
     });
 
-    function openMenu() {
-        navEl.classList.toggle('menu--open');
+    document.addEventListener('click', (event) => {
+        if (!navEl.contains(event.target)) {
+            document.body.classList.remove('body--locked');
+            navEl.classList.remove('menu--open');
 
-        btnEles.forEach(function(element) {
-            element.classList.toggle('is-active');
-        });
-    }
+            btnEles.forEach(function(element) {
+                element.classList.remove('is-active');
+            });
+        }
+    });
 }

@@ -1,9 +1,11 @@
+@nav-width: 15rem;
+
 .navigation {
     position: fixed;
-    left: -15rem;
+    left: -@nav-width;
     z-index: @z-index-4;
     height: 100vh;
-    width: 15rem;
+    width: @nav-width;
     .transform(all);
     transition-property: top, left, width, height;
 
@@ -22,8 +24,6 @@
     .btn--hamburger {
         position: absolute;
         top: 0;
-        height: 3rem;
-        width: 3rem;
     }
 
     .menu {
@@ -37,8 +37,21 @@
 
         .menu__breadcrumbs {
             .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
-            height: 4rem;
-            padding-top: 2rem;
+            height: @btn-size-lg;
+            padding-top: 1rem;
+            margin-right: @btn-size-lg;
+            top: 1rem;
+
+            &:before {
+                .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
+                content: '';
+                height: 1rem;
+                width: @nav-width;
+                display: block;
+                position: absolute;
+                top: -1rem;
+                left: 0;
+            }
         }
 
         .menu__wrap {
@@ -73,9 +86,9 @@
     display: block;
     position: absolute;
     top: 1rem;
-    right: -3rem;
-    height: 3rem;
-    width: 6rem;
+    right: -@btn-size-lg;
+    height: @btn-size-lg;
+    width: calc(2 * @btn-size-lg);
     perspective: 1000px;
     z-index: @z-index-1;
 }
