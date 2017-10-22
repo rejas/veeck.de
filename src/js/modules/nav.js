@@ -25,7 +25,7 @@ export function init() {
         });
     });
 
-    document.addEventListener('click', () => {
+    document.addEventListener('click', (event) => {
         if (!navEl.contains(event.target)) {
             document.body.classList.remove('body--locked');
             navEl.classList.remove('menu--open');
