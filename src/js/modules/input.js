@@ -21,5 +21,5 @@ export function init() {
         // events:
         inputEl.addEventListener('focus', onInputFocus);
         inputEl.addEventListener('blur', onInputBlur);
-    } );
+    });
 }
