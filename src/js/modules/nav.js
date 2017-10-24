@@ -19,7 +19,7 @@ export function init() {
             document.body.classList.toggle('body--locked');
             navEl.classList.toggle('menu--open');
 
-            btnEles.forEach(function(element) {
+            btnEles.forEach((element) => {
                 element.classList.toggle('is-active');
             });
         });
