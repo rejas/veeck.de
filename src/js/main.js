@@ -32,7 +32,16 @@ addLoadEvent(function() {
     });
 });
 
-import styles_webpack   from '../css/main.less';
+
+import './modules/polyfill';
+
+import 'cookieconsent/src/cookieconsent';
+import 'imagelightbox';
+
+import BrowserUpdate    from 'browser-update';
+import Konami           from 'konami-code.js';
+import objectFitImages  from 'object-fit-images';
+import Smoothscroll     from 'smoothscroll-polyfill';
 
 import * as Colors      from './modules/colors';
 import * as Input       from './modules/input';
@@ -40,13 +49,7 @@ import * as Intro       from './modules/intro';
 import * as Lazy        from './modules/lazy';
 import * as Nav         from './modules/nav';
 
-import BrowserUpdate    from 'browser-update';
-import Konami           from 'konami-code.js';
-import objectFitImages  from 'object-fit-images';
-import Smoothscroll     from 'smoothscroll-polyfill';
-
-import 'cookieconsent/src/cookieconsent';
-import 'imagelightbox';
+import styles_webpack   from '../css/main.less';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -111,14 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Travel picture angle randomization
      */
-    Array.prototype.forEach.call(document.querySelectorAll('.travel__article .figure--popup'), figure => {
+    document.querySelectorAll('.travel__article .figure--popup').forEach((figure) => {
         figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 
     /**
      * Use konami code for css linting
      */
-    new Konami(function() {
+    new Konami(() => {
         document.body.className += ' debug';
     });
 

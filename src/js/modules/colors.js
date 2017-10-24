@@ -10,7 +10,7 @@ function changeColor (color) {
     root.style.setProperty('--primaryColor', color.toRgbString());
     root.style.setProperty('--primaryTextColor', tinycolor.mostReadable(color, [ptc]).toRgbString());
 
-    root.style.setProperty('--darkPrimaryColor', color.clone().darken(17.75).toRgbString());
+    root.style.setProperty('--darkPrimaryColor', color.clone().darken(17.5).toRgbString());
     root.style.setProperty('--lightPrimaryColor', color.clone().lighten(37.5).toRgbString());
     root.style.setProperty('--lightPrimaryColorTransparent', color.clone().lighten(37.5).setAlpha(0.66).toRgbString());
 
