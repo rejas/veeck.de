@@ -13,7 +13,7 @@ function onInputBlur (ev) {
 }
 
 export function init() {
-    [].slice.call(document.getElementsByClassName('js-input__field--manami')).forEach(function (inputEl) {
+    document.querySelectorAll('.js-input__field--manami').forEach((inputEl) => {
         // in case the input is already filled..
         if (inputEl.value.trim() !== '') {
             inputEl.parentNode.classList.add('input--filled');

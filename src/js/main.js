@@ -111,14 +111,14 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Travel picture angle randomization
      */
-    Array.prototype.forEach.call(document.querySelectorAll('.travel__article .figure--popup'), figure => {
+    document.querySelectorAll('.travel__article .figure--popup').forEach((figure) => {
         figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 
     /**
      * Use konami code for css linting
      */
-    new Konami(function() {
+    new Konami(() => {
         document.body.className += ' debug';
     });
 
