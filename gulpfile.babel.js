@@ -73,7 +73,8 @@ gulp.task('check:html', ['assemble'], () => {
         .pipe(plugins.htmlhint({
             htmlhintrc: '.htmlhintrc.json'
         }))
-        .pipe(plugins.htmlhint.reporter());
+        .pipe(plugins.htmlhint.reporter())
+        .pipe(plugins.htmlhint.failOnError());
 });
 
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
@@ -84,6 +85,7 @@ gulp.task('check:js', () => {
             configFile: '.eslintrc.json'
         }))
         .pipe(plugins.eslint.format(eslintformat))
+        .pipe(plugins.eslint.failOnError());
 });
 
 // Detect errors and potential problems in your css code
