@@ -4809,9 +4809,9 @@ gulp-git@2.4.1:
     through2 "^2.0.3"
     vinyl "^2.0.1"
 
-gulp-htmlhint@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/gulp-htmlhint/-/gulp-htmlhint-0.3.1.tgz#68604533da2b3f8c5972b43b516606255218dd1e"
+gulp-htmlhint@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-htmlhint/-/gulp-htmlhint-1.0.0.tgz#519fd1487dc6b039b7f501e97eefd9cafcf5aeba"
   dependencies:
     gulp-util "^3.0.0"
     htmlhint "^0.9.5"
