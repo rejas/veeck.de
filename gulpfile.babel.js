@@ -71,7 +71,7 @@ gulp.task('copy:vendorscripts', () => {
 gulp.task('check:html', ['assemble'], () => {
     return gulp.src([`${dirs.dist}/*.html`])
         .pipe(plugins.htmlhint({
-            htmlhintrc: '.htmlhintrc.json'
+            htmlhintrc: `${dirs.config}/.htmlhintrc.json`
         }))
         .pipe(plugins.htmlhint.reporter())
         .pipe(plugins.htmlhint.failOnError());
@@ -82,7 +82,7 @@ gulp.task('check:html', ['assemble'], () => {
 gulp.task('check:js', () => {
     return gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.eslint({
-            configFile: '.eslintrc.json'
+            configFile: `${dirs.config}/.eslintrc.json`
         }))
         .pipe(plugins.eslint.format(eslintformat))
         .pipe(plugins.eslint.failOnError());
@@ -92,7 +92,7 @@ gulp.task('check:js', () => {
 gulp.task('check:less', () => {
     return gulp.src([`${dirs.src}/css/**/*.less`])
         .pipe(plugins.lesshint({
-                configPath: '.lesshintrc.json'
+                configPath: `${dirs.config}/.lesshintrc.json`
         }))
         .pipe(plugins.lesshint.reporter())
         .pipe(plugins.lesshint.failOnError());
