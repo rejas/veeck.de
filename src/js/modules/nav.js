@@ -14,12 +14,12 @@ export function init() {
         backCtrl: false                 // show back button
     });
 
-    btnEles.forEach(function(element) {
+    btnEles.forEach((element) => {
         element.addEventListener('click', () => {
             document.body.classList.toggle('body--locked');
             navEl.classList.toggle('menu--open');
 
-            btnEles.forEach(function(element) {
+            btnEles.forEach((element) => {
                 element.classList.toggle('is-active');
             });
         });
@@ -30,7 +30,7 @@ export function init() {
             document.body.classList.remove('body--locked');
             navEl.classList.remove('menu--open');
 
-            btnEles.forEach(function(element) {
+            btnEles.forEach((element) => {
                 element.classList.remove('is-active');
             });
         }
