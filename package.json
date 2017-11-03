@@ -25,7 +25,7 @@
     "core-js": "^2.5.1",
     "feather-icons": "^3.3.0",
     "hamburgers": "^0.9.1",
-    "imagelightbox": "^0.8.0",
+    "imagelightbox": "^0.8.1",
     "jquery": "^3.2.1",
     "konami-code.js": "git+https://github.com/rejas/konami-js.git",
     "multilevelmenu": "https://github.com/rejas/MultiLevelMenu.git",
