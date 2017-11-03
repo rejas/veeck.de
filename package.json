@@ -20,8 +20,7 @@
     "fix": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js --fix"
   },
   "dependencies": {
-    "browser-update": "^2.1.6",
-    "classie": "^1.0.0",
+    "browser-update": "^2.1.7",
     "cookieconsent": "^3.0.4",
     "core-js": "^2.5.1",
     "feather-icons": "^3.3.0",
