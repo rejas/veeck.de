@@ -18,19 +18,24 @@ function changeColor (color) {
     root.style.setProperty('--secondaryTextColor', tinycolor.mostReadable(accentColor, [stc]).toRgbString());
 }
 
-export function init() {
-    let newColor = document.querySelector('header').getAttribute('data-color');
+let Colors = {
 
-    //TODO add random use of header or random color
-    if (!newColor) {
-        newColor = tinycolor.random().toHsl();
-    } else {
-        newColor = tinycolor('#'+newColor);
-    }
-    newColor.l = 0.5;
+    init: function() {
+        let newColor = document.querySelector('header').getAttribute('data-color');
 
-    //TODO Replace with Modernizr-test when it comes out
-    if (window.CSS && CSS.supports('color', 'var(--primary)')) {
-        changeColor(tinycolor(newColor));
+        //TODO add random use of header or random color
+        if (!newColor) {
+            newColor = tinycolor.random().toHsl();
+        } else {
+            newColor = tinycolor('#' + newColor);
+        }
+        newColor.l = 0.5;
+
+        //TODO Replace with Modernizr-test when it comes out
+        if (window.CSS && CSS.supports('color', 'var(--primary)')) {
+            changeColor(tinycolor(newColor));
+        }
     }
-}
+};
+
+export default Colors;

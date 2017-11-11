@@ -43,11 +43,11 @@ import Konami           from 'konami-code.js';
 import objectFitImages  from 'object-fit-images';
 import Smoothscroll     from 'smoothscroll-polyfill';
 
-import * as Colors      from './modules/colors';
-import * as Input       from './modules/input';
-import * as Intro       from './modules/intro';
-import * as Lazy        from './modules/lazy';
-import * as Nav         from './modules/nav';
+import Colors           from './modules/colors';
+import Input            from './modules/input';
+import Intro            from './modules/intro';
+import Lazy             from './modules/lazy';
+import Nav              from './modules/nav';
 
 import styles_webpack   from '../css/main.less';
 
