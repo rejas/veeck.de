@@ -4944,9 +4944,9 @@ gulp-prompt@0.2.0:
     event-stream "~3.0.20"
     inquirer "~0.10"
 
-gulp-prompt@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/gulp-prompt/-/gulp-prompt-0.4.1.tgz#d2b300d7cf733d2528b706a7fa86571bef35153e"
+gulp-prompt@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/gulp-prompt/-/gulp-prompt-0.6.0.tgz#d43e286f7a00abafdb6f73ca0b1aca5e44b1ea09"
   dependencies:
     event-stream "~3.0.20"
     inquirer "^3.3.0"

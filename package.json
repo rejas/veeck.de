@@ -65,7 +65,7 @@
     "gulp-lesshint": "^4.0.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-modernizr": "^1.0.0-alpha",
-    "gulp-prompt": "^0.4.1",
+    "gulp-prompt": "^0.6.0",
     "gulp-release-it": "^1.1.13",
     "gulp-sitemap": "^4.2.0",
     "gulp-uglify": "^3.0.0",
