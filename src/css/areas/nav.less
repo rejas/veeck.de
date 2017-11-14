@@ -82,23 +82,8 @@
     }
 }
 
-.flip-container {
-    display: block;
+.btn--menu-open  {
     position: absolute;
+    right: 1rem;
     top: 1rem;
-    right: -@btn-size-lg;
-    height: @btn-size-lg;
-    width: calc(2 * @btn-size-lg);
-    perspective: 1000px;
-    z-index: @z-index-1;
-}
-
-.flipper {
-    transition: @animation-duration;
-    transform-style: preserve-3d;
-    position: relative;
-
-    .menu--open & {
-        transform: rotateY(180deg);
-    }
 }
