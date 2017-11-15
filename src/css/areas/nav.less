@@ -11,24 +11,13 @@
 
     &.menu--open {
         left: 0;
-
-        .menu {
-            display: block;
-            position: relative;
-            top: 0;
-            height: 100vh;
-            width: 100%;
-        }
-    }
-
-    .btn--hamburger {
-        position: absolute;
-        top: 0;
     }
 
     .menu {
-        background-color: transparent;
-        display: none;
+        position: relative;
+        top: 0;
+        height: 100vh;
+        width: @nav-width;
 
         @media @phone, @tablet {
             transform: none;
@@ -82,23 +71,46 @@
     }
 }
 
-.flip-container {
-    display: block;
-    position: absolute;
+.btn--openMenu {
+    position: fixed;
+    right: 1rem;
     top: 1rem;
-    right: -@btn-size-lg;
-    height: @btn-size-lg;
-    width: calc(2 * @btn-size-lg);
-    perspective: 1000px;
-    z-index: @z-index-1;
+    .transform(all);
+
+    &.is-active {
+        right: -5rem;
+    }
 }
 
-.flipper {
-    transition: @animation-duration;
-    transform-style: preserve-3d;
-    position: relative;
+.btn--closeMenu {
+    position: absolute;
+    right: 0;
+    top: 1rem;
+    background-color: transparent;
+    border-right: @border-thickness solid transparent;
+    border-radius: 0;
 
-    .menu--open & {
-        transform: rotateY(180deg);
+    &:hover {
+        border-right-color: transparent;
+    }
+
+    &::after {
+        content: '';
+        height: 100vh;
+        width: @border-thickness;
+        .colorVar(background-color, --primaryColor, @primaryColor);
+        position: absolute;
+        top: calc(3rem - 6px);
+        right: -@border-thickness;
+    }
+
+    &::before {
+        content: '';
+        height: 2rem;
+        width: @border-thickness;
+        .colorVar(background-color, --primaryColor, @primaryColor);
+        position: absolute;
+        top: -2rem;
+        right: -@border-thickness;
     }
 }
