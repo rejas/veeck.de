@@ -85,9 +85,8 @@
         &:hover {
             opacity: 1;
 
-            &::after,
-            &::before {
-                .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+            &::after {
+                .colorVar(color, --darkPrimaryColor, @darkPrimaryColor);
             }
 
             .hamburger-inner,
