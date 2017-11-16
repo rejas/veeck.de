@@ -88,12 +88,8 @@
 }
 
 .colorVar (@property, @cssvar, @color) {
-
-    @supports ( @{property}: var(@cssvar)) {
-        @{property}: var(@cssvar); // lesshint duplicateProperty: false
-    }
-
     @{property}: @color;
+    @{property}: var(@cssvar); // lesshint duplicateProperty: false
 }
 
 .font-face (@family, @file-base, @weight: normal, @style: normal) {
