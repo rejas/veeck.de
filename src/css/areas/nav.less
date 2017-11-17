@@ -73,14 +73,9 @@
 }
 
 .btn--openMenu {
-    position: fixed;
-    right: 1rem;
+    position: absolute;
+    right: calc(2rem - 100vw);
     top: 1rem;
-    .transform(all);
-
-    &.is-active {
-        right: -@nav-width;
-    }
 
     &::after {
         content: 'MENU';
