@@ -1,4 +1,9 @@
 .input {
+    width: 49%;
+
+    @media @phone {
+        width: 100%;
+    }
 
     > input,
     > select {
@@ -7,7 +12,6 @@
         font-family: @font-main, arial;
         font-size: @font-size-m;
         font-weight: @font-weight-bold;
-        height: 100%;
         width: 100%;
 
         &:focus {
@@ -45,6 +49,20 @@
         &::-ms-expand {
             display: none;
         }
+    }
+}
+
+/* Text */
+.input-text {
+    border-bottom: @border-thickness solid;
+    .colorVar(border-color, --primaryColor, @primaryColor);
+    display: flex;
+    flex-grow: 1;
+    margin-right: 1rem;
+
+    @media @phone {
+        margin-bottom: 1rem;
+        margin-right: 0;
     }
 }
 
