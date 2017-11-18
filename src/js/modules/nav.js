@@ -18,7 +18,6 @@ let Nav = {
 
         btnEles.forEach((element) => {
             element.addEventListener('click', () => {
-                document.body.classList.toggle('body--locked');
                 navEl.classList.toggle('menu--open');
 
                 btnEles.forEach((element) => {
@@ -29,7 +28,6 @@ let Nav = {
 
         document.addEventListener('click', (event) => {
             if (!navEl.contains(event.target)) {
-                document.body.classList.remove('body--locked');
                 navEl.classList.remove('menu--open');
 
                 btnEles.forEach((element) => {
