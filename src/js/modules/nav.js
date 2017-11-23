@@ -1,5 +1,5 @@
 /* global MLMenu */
-import 'multilevelmenu/js/main.js';
+import 'multilevelmenu';
 
 let Nav = {
 
