@@ -74,7 +74,7 @@
     "imagemin-mozjpeg": "6.0.0",
     "less": "^3.0.0-alpha.3",
     "less-loader": "^4.0.5",
-    "postcss-loader": "^2.0.8",
+    "postcss-loader": "^2.0.9",
     "postcss-normalize": "^4.0.0",
     "postcss-object-fit-images": "^1.1.2",
     "postcss-sprites": "^4.2.1",
