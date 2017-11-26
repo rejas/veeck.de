@@ -7517,13 +7517,9 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
-"multilevelmenu@git+https://github.com/rejas/MultiLevelMenu.git":
-  version "1.0.0"
-  resolved "git+https://github.com/rejas/MultiLevelMenu.git#c7315a40ac840f30665231b916b81e77572dbd81"
-
-"multilevelmenu@https://github.com/rejas/MultiLevelMenu.git":
-  version "1.0.0"
-  resolved "https://github.com/rejas/MultiLevelMenu.git#6a8fcb4b7f288a053bd3b04112e792320a7dcd53"
+multilevelmenu@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/multilevelmenu/-/multilevelmenu-1.1.0.tgz#47c8a88108da9e3decef71b458e29812713abf0d"
 
 multimatch@^2.0.0:
   version "2.1.0"
