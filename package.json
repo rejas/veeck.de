@@ -28,7 +28,7 @@
     "imagelightbox": "^0.8.1",
     "jquery": "^3.2.1",
     "konami-code.js": "git+https://github.com/rejas/konami-js.git",
-    "multilevelmenu": "^1.0.0",
+    "multilevelmenu": "^1.1.1",
     "normalize-opentype.css": "^0.2.4",
     "object-fit-images": "^3.2.3",
     "responsivemultilevelmenu": "^1.0.3",
