@@ -7517,9 +7517,9 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
-multilevelmenu@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/multilevelmenu/-/multilevelmenu-1.1.0.tgz#47c8a88108da9e3decef71b458e29812713abf0d"
+multilevelmenu@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/multilevelmenu/-/multilevelmenu-1.1.1.tgz#ce196d6488c78577e4f5afbdbd3c59722666a969"
 
 multimatch@^2.0.0:
   version "2.1.0"
