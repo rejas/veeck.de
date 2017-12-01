@@ -5081,9 +5081,9 @@ gulp-prompt@0.2.0:
     event-stream "~3.0.20"
     inquirer "~0.10"
 
-gulp-prompt@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/gulp-prompt/-/gulp-prompt-0.6.0.tgz#d43e286f7a00abafdb6f73ca0b1aca5e44b1ea09"
+gulp-prompt@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-prompt/-/gulp-prompt-1.0.0.tgz#2ff1d360024aaf0023b9c5b1918ad249ee71d20c"
   dependencies:
     event-stream "~3.0.20"
     inquirer "^3.3.0"
@@ -11646,8 +11646,8 @@ webpack-stream@^4.0.0:
     webpack "^3.4.1"
 
 webpack@^3.4.1:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.6.0.tgz#a89a929fbee205d35a4fa2cc487be9cbec8898bc"
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.8.1.tgz#b16968a81100abe61608b0153c9159ef8bb2bd83"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^2.0.0"
@@ -11672,9 +11672,9 @@ webpack@^3.4.1:
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
 
-webpack@^3.8.1:
-  version "3.8.1"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.8.1.tgz#b16968a81100abe61608b0153c9159ef8bb2bd83"
+webpack@^3.9.1:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.9.1.tgz#9a60aa544ed5d4d454c069e3f521aa007e02643c"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^2.0.0"
