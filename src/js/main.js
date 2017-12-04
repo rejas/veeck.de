@@ -1,25 +1,28 @@
 /* global Modernizr */
 'use strict';
 
-import './modules/polyfill';
-
 import 'cookieconsent/src/cookieconsent';
 import 'imagelightbox';
 
 import BrowserUpdate    from 'browser-update';
 import Konami           from 'konami-code.js';
 import objectFitImages  from 'object-fit-images';
-import Smoothscroll     from 'smoothscroll-polyfill';
 
 import Colors           from './modules/colors';
 import Input            from './modules/input';
 import Intro            from './modules/intro';
 import Lazy             from './modules/lazy';
 import Nav              from './modules/nav';
+import Polyfill         from './modules/polyfill';
 
 import styles_webpack   from '../css/main.less';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    /**
+     * Init all polyfills
+     */
+    Polyfill.init();
 
     /**
      * Cookie Consent
@@ -76,8 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Back to top
      */
-    Smoothscroll.polyfill();
-
     document.querySelector('.js-to-top').addEventListener('click', () => {
         window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     });
