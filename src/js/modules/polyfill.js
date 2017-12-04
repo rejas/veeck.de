@@ -1,4 +1,5 @@
-import Smoothscroll from 'smoothscroll-polyfill';
+import objectFitImages  from 'object-fit-images';
+import Smoothscroll     from 'smoothscroll-polyfill';
 
 let Polyfill = {
 
@@ -9,6 +10,11 @@ let Polyfill = {
 
         //
         NodeList.prototype.forEach = Array.prototype.forEach;
+
+        //
+        if (!Modernizr.objectfit) {
+            objectFitImages();
+        }
 
         // Production steps of ECMA-262, Edition 6, 22.1.2.1
         if (!Array.from) {

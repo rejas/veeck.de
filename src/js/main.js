@@ -6,7 +6,6 @@ import 'imagelightbox';
 
 import BrowserUpdate    from 'browser-update';
 import Konami           from 'konami-code.js';
-import objectFitImages  from 'object-fit-images';
 
 import Colors           from './modules/colors';
 import Input            from './modules/input';
@@ -18,6 +17,11 @@ import Polyfill         from './modules/polyfill';
 import styles_webpack   from '../css/main.less';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    /**
+     * Check browser version
+     */
+    BrowserUpdate();
 
     /**
      * Init all polyfills
@@ -38,11 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'theme': 'classic'
     });
-
-    /**
-     * Check browser version
-     */
-    BrowserUpdate();
 
     /**
      * ArticleIntroEffect
@@ -68,13 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
      * Navigation
      */
     Nav.init();
-
-    /**
-     * Fill out the background header images
-     */
-    if (!Modernizr.objectfit) {
-        objectFitImages();
-    }
 
     /**
      * Back to top
