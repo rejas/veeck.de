@@ -1,38 +1,6 @@
 /* global Modernizr */
 'use strict';
 
-// Event listener: DOM ready
-function addLoadEvent(func) {
-    var oldonload = window.onload;
-
-    if (typeof window.onload !== 'function') {
-        window.onload = func;
-    } else {
-        window.onload = function() {
-            if (oldonload) {
-                oldonload();
-            }
-            func();
-        };
-    }
-}
-
-// Call plugin function after DOM ready
-addLoadEvent(function() {
-    window.cookieconsent.initialise({
-        'palette': {
-            'popup': {
-                'background': '#252e39'
-            },
-            'button': {
-                'background': '#14a7d0'
-            }
-        },
-        'theme': 'classic'
-    });
-});
-
-
 import './modules/polyfill';
 
 import 'cookieconsent/src/cookieconsent';
@@ -52,6 +20,21 @@ import Nav              from './modules/nav';
 import styles_webpack   from '../css/main.less';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    /**
+     * Cookie Consent
+     */
+    window.cookieconsent.initialise({
+        'palette': {
+            'popup': {
+                'background': '#252e39'
+            },
+            'button': {
+                'background': '#14a7d0'
+            }
+        },
+        'theme': 'classic'
+    });
 
     /**
      * Check browser version
