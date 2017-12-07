@@ -4,8 +4,9 @@
  * CONFIGS
  */
 
-import config           from    './config/gulp.config.js';
-import webpackConfig    from    './config/webpack.config.js';
+import config               from './config/gulp.config.js';
+import webpackDevConfig     from './config/webpack.dev.config.js';
+import webpackProdConfig    from './config/webpack.prod.config.js';
 
 /**
  * GULP PLUGINS
@@ -261,14 +262,20 @@ gulp.task('scale:placeholder', ['scale:small'], () => {
  */
 
 gulp.task('clean', (cb) => {
-    del([dirs.dist]).then(function () { cb(); });
+    del([dirs.dist, dirs.tmp]).then(function () { cb(); });
 });
 
-gulp.task('webpack', () => {
+gulp.task('webpack:dev', () => {
     return gulp.src(`${dirs.src}/src/js/main.js`)
-        .pipe(webpack( webpackConfig, require('webpack')))
+        .pipe(webpack(webpackDevConfig, require('webpack')))
         .pipe(gulp.dest(dirs.dist))
         .pipe(plugins.connect.reload());
+});
+
+gulp.task('webpack:prod', () => {
+    return gulp.src(`${dirs.src}/src/js/main.js`)
+        .pipe(webpack(webpackProdConfig, require('webpack')))
+        .pipe(gulp.dest(dirs.dist));
 });
 
 app.onLoad(/\.(md|hbs)$/, assemblevars(app));
@@ -328,9 +335,9 @@ gulp.task('connect', () => {
     });
 });
 
-gulp.task('watch', () => {
+gulp.task('watch', ['connect', 'html'], () => {
     gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.less`], [
-        'webpack'
+        'webpack:dev'
     ]);
     gulp.watch([`${dirs.assemble}/**/*.hbs`], [
         'assemble'
@@ -341,13 +348,13 @@ gulp.task('watch', () => {
  * MAIN TASKS
  */
 
-gulp.task('dev',        ['default', 'connect', 'watch']);
-
 gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
 gulp.task('copy',       ['copy:files', 'copy:images', 'copy:vendorscripts']);
 
-gulp.task('default',    (cb) => { runSequence('clean', 'copy', 'webpack', 'html', cb); });
+gulp.task('default',    (cb) => { runSequence('clean', 'copy', 'webpack:prod', 'html', cb); });
+
+gulp.task('dev',        (cb) => { runSequence('clean', 'copy', 'webpack:dev', 'watch', cb); });
 
 gulp.task('upload',     ['upload:page']);
 

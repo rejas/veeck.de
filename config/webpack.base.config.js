@@ -1,6 +1,4 @@
 const path = require('path'),
-    webpack = require('webpack'),
-    BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const webpackconfig = {
@@ -8,10 +6,8 @@ const webpackconfig = {
         bundle: path.resolve(__dirname, '../src/js/main.js')
     },
     output: {
-        path: path.resolve(__dirname, '../dist/'),
         filename: 'js/[name].js'
     },
-    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -77,17 +73,8 @@ const webpackconfig = {
         ]
     },
     plugins: [
-        new BundleAnalyzerPlugin({
-            analyzerMode: 'static',
-            openAnalyzer: false,
-            reportFilename: '../report.html'
-        }),
         new ExtractTextPlugin({
             filename: 'css/[name].css'
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            warnings: false
         })
     ],
     resolve: {
