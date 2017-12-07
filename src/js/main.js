@@ -1,4 +1,3 @@
-/* global Modernizr */
 'use strict';
 
 import 'cookieconsent/src/cookieconsent';
