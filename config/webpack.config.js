@@ -43,7 +43,7 @@ const webpackconfig = {
                     }, {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: (loader) => [
+                            plugins: () => [
                                 require('autoprefixer')(),
                                 require('css-mqpacker')(),
                                 require('postcss-normalize')(),
