@@ -54,7 +54,7 @@ let Intro = {
         }
 
         function keydown(e) {
-            for (var i = keys.length; i--;) {
+            for (let i = keys.length; i--;) {
                 if (e.keyCode === keys[i]) {
                     preventDefault(e);
                     return;

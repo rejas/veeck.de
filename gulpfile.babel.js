@@ -34,9 +34,9 @@ import webpack          from    'webpack-stream';
  * CONSTANTS
  */
 
-const   dirs        = config.directories,
-        plugins     = gplugins(),
-        app         = assemble();
+const dirs        = config.directories,
+    plugins     = gplugins(),
+    app         = assemble();
 
 /**
  * COPY TASKS
@@ -92,7 +92,7 @@ gulp.task('check:js', () => {
 gulp.task('check:less', () => {
     return gulp.src([`${dirs.src}/css/**/*.less`])
         .pipe(plugins.lesshint({
-                configPath: `${dirs.config}/.lesshintrc.json`
+            configPath: `${dirs.config}/.lesshintrc.json`
         }))
         .pipe(plugins.lesshint.reporter())
         .pipe(plugins.lesshint.failOnError());
@@ -180,7 +180,7 @@ gulp.task('prepare:favicons', function () {
         display: 'standalone',
         orientation: 'portrait',
         logging: false,
-        theme_color: "#E6E6E6",
+        theme_color: '#E6E6E6',
         online: false,
         html: '../../../src/assemble/partials/html/icons.html',
         pipeHTML: true,
@@ -204,10 +204,9 @@ gulp.task('prepare:sitemap', ['assemble'], () => {
 });
 
 gulp.task('prepare:modernizr', () => {
-    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/multilevelmenu/js/main.js`,
-                    `!${dirs.src}/js/vendor/**/*.js`])
+    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/multilevelmenu/js/main.js`, `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.modernizr('modernizr.min.js', {
-            "options": config.modernizr
+            'options': config.modernizr
         }))
         .pipe(gulp.dest(`${dirs.src}/js/vendor/`));
 });
@@ -347,7 +346,7 @@ gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
 gulp.task('copy',       ['copy:files', 'copy:images', 'copy:vendorscripts']);
 
-gulp.task('default',    (cb) => { runSequence('clean', 'copy', 'webpack', 'html', cb) });
+gulp.task('default',    (cb) => { runSequence('clean', 'copy', 'webpack', 'html', cb); });
 
 gulp.task('upload',     ['upload:page']);
 
