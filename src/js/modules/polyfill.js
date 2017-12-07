@@ -1,3 +1,5 @@
+/* global Modernizr */
+
 import objectFitImages  from 'object-fit-images';
 import Smoothscroll     from 'smoothscroll-polyfill';
 
