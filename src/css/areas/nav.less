@@ -32,7 +32,7 @@
             margin-right: @btn-size-lg;
             top: 1rem;
 
-            &:before {
+            &::before {
                 .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
                 content: '';
                 height: 1rem;
@@ -45,10 +45,34 @@
         }
 
         .menu__item {
+            position: relative;
             width: calc(100% - 35px);
 
+            &::after,
+            &::before {
+                .transform(all);
+                content: '';
+                height: @border-thickness;
+                .colorVar(background-color, --primaryColor, @primaryColor);
+                width: 100%;
+                position: absolute;
+                left: -100%;
+            }
+
+            &::after {
+                top: calc(100% - 2 * @border-thickness);
+            }
+
+            &::before {
+                top: (2 * @border-thickness);
+            }
+
             &:hover {
-                background: linear-gradient(to bottom, transparent 0%, @color-transparentDark 5%, @color-transparentDark 95%, transparent 100%);
+
+                &::after,
+                &::before {
+                    left: 0;
+                }
             }
         }
 
@@ -74,7 +98,7 @@
             padding-right: 1rem;
         }
 
-        .menu__breadcrumbs a:not(:last-child):after {
+        .menu__breadcrumbs a:not(:last-child)::after {
             color: @colorDark;
 
             &:hover {
@@ -115,7 +139,6 @@
         &::after,
         &::before {
             background-color: transparent;
-
         }
     }
 
