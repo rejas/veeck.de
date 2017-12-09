@@ -48,7 +48,7 @@
             width: calc(100% - 35px);
 
             &:hover {
-                background: linear-gradient(to bottom, rgba(0,0,0, 0) 0%, rgba(0,0,0, 0.2) 20%, rgba(0,0,0, 0.2) 80%, rgba(0,0,0, 0) 100%);
+                background: linear-gradient(to bottom, transparent 0%, @color-transparentDark 5%, @color-transparentDark 95%, transparent 100%);
             }
         }
 
@@ -60,7 +60,7 @@
         .menu__breadcrumbs a:hover,
         .menu__link:hover,
         .menu__link[data-submenu]:hover::after {
-            .colorVar(color, --darkPrimaryColor, @darkPrimaryColor);
+            .colorVar(color, --lightPrimaryColor, @lightPrimaryColor);
         }
 
         .menu__breadcrumbs a,
