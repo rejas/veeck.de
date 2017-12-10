@@ -3,7 +3,7 @@ import 'multilevelmenu';
 
 let Nav = {
 
-    init: function() {
+    init: () => {
         let navEl = document.querySelector('.navigation'),
             menuEl = document.getElementById('ml-menu'),
             btnEles = document.querySelectorAll('.js-btn--hamburger');
