@@ -20,7 +20,7 @@ function changeColor (color) {
 
 let Colors = {
 
-    init: function() {
+    init: () => {
         let newColor = document.querySelector('header').getAttribute('data-color');
 
         //TODO add random use of header or random color
