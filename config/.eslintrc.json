@@ -13,7 +13,6 @@
     },
     "extends": "eslint:recommended",
     "rules": {
-        "no-console": 0,
         "indent": [
             "error",
             4
@@ -29,6 +28,12 @@
         "semi": [
             "error",
             "always"
+        ],
+        "no-console": [
+            "error"
+        ],
+        "no-var": [
+            "error"
         ],
         "no-unused-vars": [
             "error",
