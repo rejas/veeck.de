@@ -53,10 +53,10 @@
                 .transform(all);
                 content: '';
                 height: @border-thickness;
-                .colorVar(background-color, --primaryColor, @primaryColor);
+                .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
                 width: 100%;
                 position: absolute;
-                left: -100%;
+                right: -100%;
             }
 
             &::after {
@@ -71,7 +71,7 @@
 
                 &::after,
                 &::before {
-                    left: 0;
+                    right: 0;
                 }
             }
         }
@@ -84,7 +84,7 @@
         .menu__breadcrumbs a:hover,
         .menu__link:hover,
         .menu__link[data-submenu]:hover::after {
-            .colorVar(color, --lightPrimaryColor, @lightPrimaryColor);
+            .colorVar(color, --darkPrimaryColor, @darkPrimaryColor);
         }
 
         .menu__breadcrumbs a,
@@ -130,23 +130,19 @@
     right: 0;
     top: 1rem;
     background-color: transparent;
+    .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
     border-right: @border-thickness solid transparent;
     border-radius: 0;
 
     &:hover {
         border-right-color: transparent;
-
-        &::after,
-        &::before {
-            background-color: transparent;
-        }
     }
 
     &::after {
         content: '';
         height: 100vh;
         width: @border-thickness;
-        .colorVar(background-color, --primaryColor, @primaryColor);
+        .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
         position: absolute;
         top: calc(3rem - (2 * @border-thickness));
         right: -@border-thickness;
@@ -156,7 +152,7 @@
         content: '';
         height: 2rem;
         width: @border-thickness;
-        .colorVar(background-color, --primaryColor, @primaryColor);
+        .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
         position: absolute;
         top: -2rem;
         right: -@border-thickness;
