@@ -24,7 +24,7 @@ SetCompressor lzma
 !insertmacro MUI_PAGE_WELCOME
 ; License page
 !define MUI_LICENSEPAGE_CHECKBOX
-!insertmacro MUI_PAGE_LICENSE "openhardwaremonitor\License.html"
+!insertmacro MUI_PAGE_LICENSE "OpenHardwareMonitor\License.html"
 ; Components page
 !insertmacro MUI_PAGE_COMPONENTS
 ; Directory page
@@ -65,16 +65,11 @@ Section "Main program" SEC01
   SetOutPath "$INSTDIR"
   SetOverwrite ifnewer
   SectionIn 1 2   RO
-  File "openhardwaremonitor\OpenHardwareMonitor.exe"
-  File "openhardwaremonitor\OpenHardwareMonitor.exe.config"
-  File "openhardwaremonitor\License.html"
-  File "openhardwaremonitor\Aga.Controls.dll"
-  File "openhardwaremonitor\OpenHardwareMonitorLib.dll"
-  File "openhardwaremonitor\OxyPlot.dll"
-  File "openhardwaremonitor\OxyPlot.WindowsForms.dll"
 
-; Shortcuts
-  SetShellVarContext all  
+  File /r ".\OpenHardwareMonitor\"
+
+  ; Shortcuts
+  SetShellVarContext all
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
   CreateDirectory "$SMPROGRAMS\$ICONS_GROUP"
   CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\OpenHardwareMonitor.lnk" "$INSTDIR\OpenHardwareMonitor.exe"
@@ -120,23 +115,12 @@ FunctionEnd
 Section Uninstall
   SetShellVarContext all
   !insertmacro MUI_STARTMENU_GETFOLDER "Application" $ICONS_GROUP
-  Delete "$INSTDIR\${PRODUCT_NAME}.url"
-  Delete "$INSTDIR\OpenHardwareMonitor.exe"
-  Delete "$INSTDIR\OpenHardwareMonitor.exe.config"
-  Delete "$INSTDIR\Aga.Controls.dll"
-  Delete "$INSTDIR\OpenHardwareMonitorLib.dll"
-  Delete "$INSTDIR\OxyPlot.dll"
-  Delete "$INSTDIR\OxyPlot.WindowsForms.dll"
-  Delete "$INSTDIR\License.html"
-  Delete "$INSTDIR\uninst.exe"
 
-  Delete "$SMPROGRAMS\$ICONS_GROUP\Uninstall.lnk"
-  Delete "$SMPROGRAMS\$ICONS_GROUP\Website.lnk"
-  Delete "$SMPROGRAMS\$ICONS_GROUP\OpenHardwareMonitor.lnk"
-  Delete "$DESKTOP\OpenHardwareMonitor.lnk"
-
+  ; Remove directories used
   RMDir "$SMPROGRAMS\$ICONS_GROUP"
   RMDir /r /REBOOTOK "$INSTDIR"
+
+  Delete "$DESKTOP\OpenHardwareMonitor.lnk"
 
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
   DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
