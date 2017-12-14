@@ -50,7 +50,8 @@
     &--title {
         border: @border-thickness solid @color-transparent;
         border-radius: @border-radius-md;
-        .boxshadow(1);
+        .blur();
+        .boxshadow(0);
         .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
         .colorVar(color, --primaryTextColor, @primaryTextColor);
         padding: 1rem;
