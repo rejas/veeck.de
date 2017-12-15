@@ -4122,9 +4122,9 @@ fd-slicer@~1.0.1:
   dependencies:
     pend "~1.2.0"
 
-feather-icons@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/feather-icons/-/feather-icons-4.2.0.tgz#125737fb7a7b3419e424e70c95b3139377eb5ca3"
+feather-icons@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/feather-icons/-/feather-icons-4.4.0.tgz#ccc56ee807aab00f0a78368875378fb972d1ba34"
   dependencies:
     classnames "^2.2.5"
 
