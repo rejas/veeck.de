@@ -24,7 +24,7 @@ SetCompressor lzma
 !insertmacro MUI_PAGE_WELCOME
 ; License page
 !define MUI_LICENSEPAGE_CHECKBOX
-!insertmacro MUI_PAGE_LICENSE "autostich64\LICENSE.TXT"
+!insertmacro MUI_PAGE_LICENSE "autostitch64\LICENSE.TXT"
 ; Components page
 !insertmacro MUI_PAGE_COMPONENTS
 ; Directory page
@@ -32,7 +32,7 @@ SetCompressor lzma
 ; Start menu page
 var ICONS_GROUP
 !define MUI_STARTMENUPAGE_NODISABLE
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER "Autostich"
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER "Autostitch"
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT "${PRODUCT_UNINST_ROOT_KEY}"
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "${PRODUCT_UNINST_KEY}"
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "${PRODUCT_STARTMENU_REGVAL}"
@@ -56,7 +56,7 @@ var ICONS_GROUP
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "${PRODUCT_NAME} ${PRODUCT_VERSION} setup.exe"
-InstallDir "$PROGRAMFILES\Autostich"
+InstallDir "$PROGRAMFILES\Autostitch"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 ShowUnInstDetails show
@@ -68,14 +68,14 @@ Section "Main program" SEC01
   SetOverwrite ifnewer
   SectionIn RO
 
-  File /r ".\autostich64\"
+  File /r ".\autostitch64\"
 
   ; Shortcuts
   SetShellVarContext all
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
   CreateDirectory "$SMPROGRAMS\$ICONS_GROUP"
   CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\AutoStitch.lnk" "$INSTDIR\AutoStitch.exe"
-  CreateShortCut "$DESKTOP\Autostich.lnk" "$INSTDIR\AutoStitch.exe"
+  CreateShortCut "$DESKTOP\Autostitch.lnk" "$INSTDIR\AutoStitch.exe"
   !insertmacro MUI_STARTMENU_WRITE_END
 SectionEnd
 
