@@ -335,7 +335,7 @@ gulp.task('connect', () => {
     });
 });
 
-gulp.task('watch', ['connect', 'html'], () => {
+gulp.task('watch', ['connect'], () => {
     gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.less`], [
         'webpack:dev'
     ]);
@@ -354,7 +354,7 @@ gulp.task('copy',       ['copy:files', 'copy:images', 'copy:vendorscripts']);
 
 gulp.task('default',    (cb) => { runSequence('clean', 'copy', 'webpack:prod', 'html', cb); });
 
-gulp.task('dev',        (cb) => { runSequence('clean', 'copy', 'webpack:dev', 'watch', cb); });
+gulp.task('dev',        (cb) => { runSequence('clean', 'copy', 'webpack:dev', 'html', 'watch', cb); });
 
 gulp.task('upload',     ['upload:page']);
 

@@ -6,7 +6,8 @@ const webpackconfig = {
         bundle: path.resolve(__dirname, '../src/js/main.js')
     },
     output: {
-        filename: 'js/[name].js'
+        filename: 'js/[name].js',
+        path: path.resolve(__dirname, '../dist/')
     },
     module: {
         rules: [

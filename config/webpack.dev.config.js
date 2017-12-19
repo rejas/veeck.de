@@ -1,13 +1,8 @@
 const baseConfig = require('./webpack.base.config.js'),
-    merge = require('webpack-merge'),
-    path = require('path');
+    merge = require('webpack-merge');
 
 const webpackconfig = merge(baseConfig, {
-    devtool: 'eval',
-
-    output: {
-        path: path.resolve(__dirname, '../dist/'),
-    }
+    devtool: 'eval'
 });
 
 module.exports = webpackconfig;
