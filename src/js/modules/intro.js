@@ -10,7 +10,7 @@
 
 let Intro = {
 
-    init: function() {
+    init: () => {
 
         // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
         // left: 37, up: 38, right: 39, down: 40,

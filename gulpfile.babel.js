@@ -352,7 +352,7 @@ gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
 gulp.task('copy',       ['copy:files', 'copy:images', 'copy:vendorscripts']);
 
-gulp.task('default',    (cb) => { runSequence('clean', 'copy', 'webpack:prod', 'html', cb); });
+gulp.task('default',    (cb) => { runSequence('clean', 'check', 'copy', 'webpack:prod', 'html', cb); });
 
 gulp.task('dev',        (cb) => { runSequence('clean', 'copy', 'webpack:dev', 'html', 'watch', cb); });
 
@@ -360,6 +360,6 @@ gulp.task('upload',     ['upload:page']);
 
 gulp.task('scale',      ['scale:medium', 'scale:small', 'scale:placeholder']);
 
-gulp.task('prepare',    ['prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
+gulp.task('prepare',    ['check', 'prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
 
 grelease(gulp);

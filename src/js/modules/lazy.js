@@ -98,7 +98,7 @@ function applyImage(img, src) {
 
 let Lazy = {
 
-    init: function() {
+    init: () => {
         // If we don't have support for intersection observer, loads the images immediately
         if (!('IntersectionObserver' in window)) {
             loadImagesImmediately(images);
