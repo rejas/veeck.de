@@ -35,7 +35,7 @@ import webpack          from    'webpack-stream';
  * CONSTANTS
  */
 
-const dirs        = config.directories,
+const dirs      = config.directories,
     plugins     = gplugins(),
     app         = assemble();
 
@@ -355,10 +355,10 @@ gulp.task('default',    (cb) => { runSequence('clean', 'copy', 'webpack:prod', '
 
 gulp.task('dev',        (cb) => { runSequence('clean', 'copy', 'webpack:dev', 'html', 'watch', cb); });
 
-gulp.task('upload',     ['upload:page']);
+gulp.task('prepare',    ['check', 'prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
 
 gulp.task('scale',      ['scale:medium', 'scale:small', 'scale:placeholder']);
 
-gulp.task('prepare',    ['check', 'prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
+gulp.task('upload',     ['upload:page']);
 
 grelease(gulp);
