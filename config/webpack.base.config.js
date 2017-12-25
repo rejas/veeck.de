@@ -79,9 +79,6 @@ const webpackconfig = {
         })
     ],
     resolve: {
-        alias: {
-            jquery: 'jquery/src/jquery'
-        },
         modules: ['node_modules']
     }
 };
