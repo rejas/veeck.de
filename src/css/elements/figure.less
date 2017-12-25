@@ -234,19 +234,15 @@
     }
 }
 
-.imagelightbox-wrapper {
+.hb-wrapper {
 
-    .imagelightbox-loading {
-        border-radius: @border-radius-md;
-        .colorVar(background-color, --accentColor, @accentColor);
-    }
+    .hb-main-container {
 
-    .imagelightbox-nav {
-        border-radius: @border-radius-md;
-        .colorVar(background-color, --accentColor, @accentColor);
+        button {
 
-        @media @phone {
-            display: none;
+            svg {
+                .colorVar(fill, --darkPrimaryColor, @darkPrimaryColor);
+            }
         }
     }
 }
