@@ -1,9 +1,9 @@
 'use strict';
 
 import 'cookieconsent/src/cookieconsent';
-import 'imagelightbox';
 
 import BrowserUpdate    from 'browser-update';
+import HalkaBox         from 'halkabox';
 import Konami           from 'konami-code.js';
 
 import Colors           from './modules/colors';
@@ -75,16 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /**
-     * ImageLightBox
+     * Halka Image Lightbox
      */
-    $('.js-gallery__image').imageLightbox({
-        activity:       true,
-        caption:        true,
-        fullscreen:     true,
-        lockBody:       true,
-        navigation:     true,
-        overlay:        true
-    });
+    HalkaBox.run('js-gallery__image');
 
     /**
      * Travel picture angle randomization
