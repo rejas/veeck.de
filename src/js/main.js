@@ -1,24 +1,35 @@
-/* global Modernizr */
 'use strict';
 
-// Event listener: DOM ready
-function addLoadEvent(func) {
-    var oldonload = window.onload;
+import 'cookieconsent/src/cookieconsent';
 
-    if (typeof window.onload !== 'function') {
-        window.onload = func;
-    } else {
-        window.onload = function() {
-            if (oldonload) {
-                oldonload();
-            }
-            func();
-        };
-    }
-}
+import BrowserUpdate    from 'browser-update';
+import HalkaBox         from 'halkabox';
+import Konami           from 'konami-code.js';
 
-// Call plugin function after DOM ready
-addLoadEvent(function() {
+import Colors           from './modules/colors';
+import Input            from './modules/input';
+import Intro            from './modules/intro';
+import Lazy             from './modules/lazy';
+import Nav              from './modules/nav';
+import Polyfill         from './modules/polyfill';
+
+import styles_webpack   from '../css/main.less';
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    /**
+     * Check browser version
+     */
+    BrowserUpdate();
+
+    /**
+     * Init all polyfills
+     */
+    Polyfill.init();
+
+    /**
+     * Cookie Consent
+     */
     window.cookieconsent.initialise({
         'palette': {
             'popup': {
@@ -30,31 +41,6 @@ addLoadEvent(function() {
         },
         'theme': 'classic'
     });
-});
-
-import styles_webpack   from '../css/main.less';
-
-import * as Colors      from './modules/colors';
-import * as Input       from './modules/input';
-import * as Intro       from './modules/intro';
-import * as Lazy        from './modules/lazy';
-import * as Nav         from './modules/nav';
-
-import BrowserUpdate    from 'browser-update';
-import Konami           from 'konami-code.js';
-import objectFitImages  from 'object-fit-images';
-import Smoothscroll     from 'smoothscroll-polyfill';
-
-import 'cookieconsent/src/cookieconsent';
-import 'imagelightbox';
-import 'responsivemultilevelmenu/js/jquery.dlmenu';
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    /**
-     * Check browser version
-     */
-    BrowserUpdate();
 
     /**
      * ArticleIntroEffect
@@ -82,52 +68,38 @@ document.addEventListener('DOMContentLoaded', () => {
     Nav.init();
 
     /**
-     * Fill out the background header images
-     */
-    if (!Modernizr.objectfit) {
-        objectFitImages();
-    }
-
-    /**
      * Back to top
      */
-    Smoothscroll.polyfill();
-
-    document.querySelector('.js-to-top').onclick = () => {
+    document.querySelector('.js-to-top').addEventListener('click', () => {
         window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-    };
+    });
 
     /**
-     * ImageLightBox
+     * Halka Image Lightbox
      */
-    $('.gallery__image > a, .js-travel_figure > a, .js-gallery__image').imageLightbox({
-        activity:       true,
-        caption:        true,
-        fullscreen:     true,
-        lockBody:       true,
-        navigation:     true,
-        overlay:        true
-    });
+    HalkaBox.run('js-gallery__image');
 
     /**
      * Travel picture angle randomization
      */
-    Array.prototype.forEach.call(document.getElementsByClassName('js-travel_figure'), figure => {
+    document.querySelectorAll('.travel__article .figure--popup').forEach((figure) => {
         figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 
     /**
      * Use konami code for css linting
      */
-    new Konami(function() {
+    new Konami(() => {
         document.body.className += ' debug';
     });
 
     /**
      * Share to facebook
      */
-    document.querySelector('.js-btn-share').onclick = () => {
-        window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL));
+    document.querySelector('.js-share-facebook').addEventListener('click', () => {
+        window.open('https://www.facebook.com/sharer/sharer.php?u='
+            + encodeURIComponent(document.URL) + '&t='
+            + encodeURIComponent(document.URL));
         return false;
-    };
+    });
 });

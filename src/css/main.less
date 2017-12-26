@@ -3,8 +3,8 @@
  *
  * NOTE: The @import line of code should be the very first line in your CSS file.
  */
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 //
@@ -17,7 +17,9 @@
 
 @import (less) '~hamburgers/dist/hamburgers.css';
 
-@import (less) '~imagelightbox/src/imagelightbox.css';
+@import (less) '~halkabox/dist/halkaBox.min.css';
+
+@import (less) '~multilevelmenu/src/multilevelmenu.css';
 
 //
 
@@ -47,9 +49,11 @@
 
 @import 'areas/header';
 
-@import 'areas/nav';
+@import 'areas/header_effect';
 
-@import 'areas/nav_mobile';
+@import 'areas/header_title';
+
+@import 'areas/nav';
 
 @import 'areas/footer';
 
@@ -61,14 +65,8 @@
 
 @import 'blocks/radio';
 
-//
+// elements
 
-@import 'modules/figures';
+@import 'elements/figure';
 
-@import 'modules/header_effect';
-
-@import 'modules/links';
-
-@import 'modules/research';
-
-@import 'modules/travel';
+@import 'elements/form';

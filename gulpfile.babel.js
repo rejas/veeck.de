@@ -4,8 +4,9 @@
  * CONFIGS
  */
 
-import config           from    './config/gulp.config.js';
-import webpackConfig    from    './config/webpack.config.js';
+import config               from './config/gulp.config.js';
+import webpackDevConfig     from './config/webpack.dev.config.js';
+import webpackProdConfig    from './config/webpack.prod.config.js';
 
 /**
  * GULP PLUGINS
@@ -34,9 +35,9 @@ import webpack          from    'webpack-stream';
  * CONSTANTS
  */
 
-const   dirs        = config.directories,
-        plugins     = gplugins(),
-        app         = assemble();
+const dirs      = config.directories,
+    plugins     = gplugins(),
+    app         = assemble();
 
 /**
  * COPY TASKS
@@ -68,24 +69,32 @@ gulp.task('copy:vendorscripts', () => {
  */
 
 // Detect errors and potential problems in your html code
-gulp.task('check:html', () => {
-    return gulp.src([`${dirs.src}/*.html`])
-        .pipe(plugins.htmlhint())
-        .pipe(plugins.htmlhint.reporter());
+gulp.task('check:html', ['assemble'], () => {
+    return gulp.src([`${dirs.dist}/*.html`])
+        .pipe(plugins.htmlhint({
+            htmlhintrc: `${dirs.config}/.htmlhintrc.json`
+        }))
+        .pipe(plugins.htmlhint.reporter())
+        .pipe(plugins.htmlhint.failOnError());
 });
 
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
 // You can enable or disable default eslint options in the .eslintrc file
 gulp.task('check:js', () => {
     return gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
-        .pipe(plugins.eslint())
+        .pipe(plugins.eslint({
+            configFile: `${dirs.config}/.eslintrc.json`
+        }))
         .pipe(plugins.eslint.format(eslintformat))
+        .pipe(plugins.eslint.failOnError());
 });
 
 // Detect errors and potential problems in your css code
 gulp.task('check:less', () => {
     return gulp.src([`${dirs.src}/css/**/*.less`])
-        .pipe(plugins.lesshint())
+        .pipe(plugins.lesshint({
+            configPath: `${dirs.config}/.lesshintrc.json`
+        }))
         .pipe(plugins.lesshint.reporter())
         .pipe(plugins.lesshint.failOnError());
 });
@@ -109,7 +118,7 @@ gulp.task('upload:page', ['default'], () => {
             });
 
             gulp.src([`${dirs.dist}/**/*`,
-                `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/components`], {
+                `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`], {
                 base: 'dist', buffer: false, dot: true})
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/veeck'));
@@ -160,6 +169,27 @@ gulp.task('upload:files', () => {
  * PREPARE TASKS
  */
 
+gulp.task('prepare:favicons', function () {
+    return gulp.src('org/favicon.png').pipe(plugins.favicons({
+        appName: 'My Homepage',
+        appDescription: 'This is my homepage',
+        developerName: 'Veeck',
+        developerURL: 'https://www.veeck.de/',
+        background: '#FFFFFF',
+        path: '/favicons',
+        url: 'https://www.veeck.de/',
+        display: 'standalone',
+        orientation: 'portrait',
+        logging: false,
+        theme_color: '#E6E6E6',
+        online: false,
+        html: '../../../src/assemble/partials/html/icons.html',
+        pipeHTML: true,
+        replace: true
+    }))
+        .pipe(gulp.dest('./src/page/favicons'));
+});
+
 gulp.task('prepare:images', () => {
     return gulp.src(`${dirs.src}/img/**/*.jpg`)
         .pipe(plugins.imagemin({
@@ -175,10 +205,9 @@ gulp.task('prepare:sitemap', ['assemble'], () => {
 });
 
 gulp.task('prepare:modernizr', () => {
-    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/responsivemultilevelmenu/js/jquery.dlmenu.js`,
-                    `!${dirs.src}/js/vendor/**/*.js`])
+    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/multilevelmenu/js/main.js`, `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.modernizr('modernizr.min.js', {
-            "options": config.modernizr
+            'options': config.modernizr
         }))
         .pipe(gulp.dest(`${dirs.src}/js/vendor/`));
 });
@@ -195,29 +224,29 @@ gulp.task('scale:max', () => {
 });
 
 gulp.task('scale:medium', () => {
-    return gulp.src(`${dirs.org}/img/**/*`)
+    return gulp.src(`${dirs.org}/img/travel/europe/**/*`)
         .pipe(plugins.jimp({
             '.medium': {
                 scaleToFit: { width: 1920, height: 1920 },
                 quality: 60
             }
         }))
-        .pipe(gulp.dest(`${dirs.src}/img`));
+        .pipe(gulp.dest(`${dirs.src}/img/travel/europe`));
 });
 
 gulp.task('scale:small', () => {
-    return gulp.src(`${dirs.org}/img/travel/**/*`)
+    return gulp.src(`${dirs.org}/img/travel/europe/**/*`)
         .pipe(plugins.jimp({
             '.small': {
                 scaleToFit: { width: 448, height: 387 },
                 quality: 60
             }
         }))
-        .pipe(gulp.dest(`${dirs.src}/img/travel`));
+        .pipe(gulp.dest(`${dirs.src}/img/travel/europe`));
 });
 
 gulp.task('scale:placeholder', ['scale:small'], () => {
-    return gulp.src(`${dirs.src}/img/travel/**/*.small.jpg`)
+    return gulp.src(`${dirs.src}/img/travel/europe/**/*.small.jpg`)
         .pipe(plugins.jimp({
             '.placeholder': {
                 scaleToFit: { width: 448, height: 387 },
@@ -225,7 +254,7 @@ gulp.task('scale:placeholder', ['scale:small'], () => {
                 quality: 30
             }
         }))
-        .pipe(gulp.dest(`${dirs.src}/img/travel`));
+        .pipe(gulp.dest(`${dirs.src}/img/travel/europe`));
 });
 
 /**
@@ -233,20 +262,27 @@ gulp.task('scale:placeholder', ['scale:small'], () => {
  */
 
 gulp.task('clean', (cb) => {
-    del([dirs.dist]).then(function () { cb(); });
+    del([dirs.dist, dirs.tmp]).then(function () { cb(); });
 });
 
-gulp.task('webpack', () => {
+gulp.task('webpack:dev', () => {
     return gulp.src(`${dirs.src}/src/js/main.js`)
-        .pipe(webpack( webpackConfig, require('webpack')))
+        .pipe(webpack(webpackDevConfig, require('webpack')))
         .pipe(gulp.dest(dirs.dist))
         .pipe(plugins.connect.reload());
+});
+
+gulp.task('webpack:prod', () => {
+    return gulp.src(`${dirs.src}/src/js/main.js`)
+        .pipe(webpack(webpackProdConfig, require('webpack')))
+        .pipe(gulp.dest(dirs.dist));
 });
 
 app.onLoad(/\.(md|hbs)$/, assemblevars(app));
 
 gulp.task('load', (cb) => {
-    app.partials(`${dirs.assemble}/partials/**/*.hbs`);
+    app.partials([`${dirs.assemble}/partials/**/*.hbs`, `${dirs.node}/feather-icons/dist/icons/*.svg`,
+        `${dirs.assemble}/partials/**/html/*.html`]);
     app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
     app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
@@ -299,9 +335,9 @@ gulp.task('connect', () => {
     });
 });
 
-gulp.task('watch', () => {
+gulp.task('watch', ['connect'], () => {
     gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.less`], [
-        'webpack'
+        'webpack:dev'
     ]);
     gulp.watch([`${dirs.assemble}/**/*.hbs`], [
         'assemble'
@@ -312,18 +348,18 @@ gulp.task('watch', () => {
  * MAIN TASKS
  */
 
-gulp.task('dev',        ['default', 'connect', 'watch']);
-
 gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
 gulp.task('copy',       ['copy:files', 'copy:images', 'copy:vendorscripts']);
 
-gulp.task('default',    (cb) => { runSequence('clean', 'copy', 'webpack', 'html', cb) });
+gulp.task('default',    (cb) => { runSequence('clean', 'check', 'copy', 'webpack:prod', 'html', cb); });
 
-gulp.task('upload',     ['upload:page']);
+gulp.task('dev',        (cb) => { runSequence('clean', 'copy', 'webpack:dev', 'html', 'watch', cb); });
+
+gulp.task('prepare',    ['check', 'prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
 
 gulp.task('scale',      ['scale:medium', 'scale:small', 'scale:placeholder']);
 
-gulp.task('prepare',    ['prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
+gulp.task('upload',     ['upload:page']);
 
 grelease(gulp);

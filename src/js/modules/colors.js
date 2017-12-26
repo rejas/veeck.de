@@ -5,31 +5,37 @@ function changeColor (color) {
         htmlStyle = window.getComputedStyle(root),
         ptc = htmlStyle.getPropertyValue('--primaryTextColor'),
         stc = htmlStyle.getPropertyValue('--secondaryTextColor'),
-        splitColor = color.splitcomplement();
+        accentColor = tinycolor(htmlStyle.getPropertyValue('--accentColor'));
 
     root.style.setProperty('--primaryColor', color.toRgbString());
-    root.style.setProperty('--primaryTextColor', tinycolor.mostReadable(color, [ptc, stc]).toRgbString());
+    root.style.setProperty('--primaryTextColor', tinycolor.mostReadable(color, [ptc]).toRgbString());
 
-    root.style.setProperty('--darkPrimaryColor', color.clone().darken(10).toRgbString());
-    root.style.setProperty('--lightPrimaryColor', color.clone().lighten(20).toRgbString());
+    root.style.setProperty('--darkPrimaryColor', color.clone().darken(17.5).toRgbString());
+    root.style.setProperty('--lightPrimaryColor', color.clone().lighten(37.5).toRgbString());
+    root.style.setProperty('--lightPrimaryColorTransparent', color.clone().lighten(37.5).setAlpha(0.66).toRgbString());
 
-    root.style.setProperty('--accentColor', splitColor[1].toRgbString());
-    root.style.setProperty('--secondaryAccentColor', splitColor[2].toRgbString());
-    root.style.setProperty('--secondaryTextColor', tinycolor.mostReadable(splitColor[1], [ptc, stc]).toRgbString());
+    root.style.setProperty('--accentColor', accentColor.toRgbString());
+    root.style.setProperty('--secondaryTextColor', tinycolor.mostReadable(accentColor, [stc]).toRgbString());
 }
 
-export function init() {
-    let newColor = document.querySelector('header').getAttribute('data-color');
+let Colors = {
 
-    //TODO add random use of header or random color
-    if (!newColor) {
-        newColor = tinycolor.random().toHsl();
-        if (newColor.l < 0.33) newColor.l = 0.33;
-        if (newColor.l > 0.66) newColor.l = 0.66;
-    }
+    init: () => {
+        //TODO Replace with Modernizr-test when it comes out
+        if (window.CSS && CSS.supports('color', 'var(--primary)')) {
+            let newColor = document.querySelector('header').getAttribute('data-color');
 
-    //TODO Replace with Modernizr-test when it comes out
-    if (window.CSS && CSS.supports('color', 'var(--primary)')) {
-        changeColor(tinycolor(newColor));
+            //TODO add random use of header or random color
+            if (!newColor) {
+                newColor = tinycolor.random().toHsl();
+            } else {
+                newColor = tinycolor('#' + newColor);
+            }
+            newColor.l = 0.5;
+
+            changeColor(tinycolor(newColor));
+        }
     }
-}
+};
+
+export default Colors;

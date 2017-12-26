@@ -2,8 +2,7 @@
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 .idea/
 .DS_Store
-/dist/
+dist/
 node_modules/
 npm-debug.log
 tmp/
-

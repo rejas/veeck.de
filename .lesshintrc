@@ -1,8 +1,0 @@
-{
-    "maxCharPerLine":           false,
-    "qualifyingElement":        false,
-    "propertyOrdering":         false,
-    "spaceAfterPropertyColon":  false,
-    "universalSelector":        false,
-    "zeroUnit":                 false
-}

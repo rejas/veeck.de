@@ -2,25 +2,27 @@
 
 .font-face('BungeeColor-Regular', '../assets/fonts/BungeeColor-Regular_svg', 'normal');
 
-@font-header:           'Lobster';
+@font-header:           'Permanent Marker';
+@font-main:             'Nunito';
 @font-color:            'BungeeColor-Regular';
-@font-main:             'Raleway';
 
 @min-font-size:         16px;
 @max-font-size:         19px;
-@font-line-ratio:       1.5;
+@font-line-ratio:       1.618;
 
-@base-font-size:        calc(@min-font-size ~' + ' unit(@max-font-size - @min-font-size) ~' * ((100vw - ' @xs ~') /' unit(@xl - @xs) ~')');
-@base-line-height:      calc(@min-font-size * @font-line-ratio ~' + ' unit((@max-font-size - @min-font-size) * @font-line-ratio) ~' * ((100vw - ' @xs ~') /' unit(@xl - @xs) ~')');
+@base-font-size:        (calc(@min-font-size ~' + ' unit(@max-font-size - @min-font-size) ~' * ((100vw - ' @xs ~') /' unit(@xl - @xs) ~')'));
+@base-line-height:      (calc(@min-font-size * @font-line-ratio ~' + ' unit((@max-font-size - @min-font-size) * @font-line-ratio) ~' * ((100vw - ' @xs ~') /' unit(@xl - @xs) ~')'));
 
-@font-size-xs:          0.50rem;
-@font-size-sm:          0.75rem;
-@font-size-m:           1.00rem;
-@font-size-l:           1.75rem;
-@font-size-xl:          3.00rem;
+@font-size-sm:          0.618rem;
+@font-size-m:           1.000rem;
+@font-size-l:           1.618rem;
+@font-size-xl:          2.618rem;
+@font-size-xxl:         4.236rem;
 
 @line-height-m:         @base-line-height;
 @line-height-xl:        3.00rem;
 
+@font-weight-light:     300;
 @font-weight-normal:    400;
+@font-weight-medium:    500;
 @font-weight-bold:      700;

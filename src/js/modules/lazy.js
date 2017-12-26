@@ -11,26 +11,6 @@ const config = {
 let imageCount = images.length,
     observer;
 
-export function init() {
-    // If we don't have support for intersection observer, loads the images immediately
-    if (!('IntersectionObserver' in window)) {
-        loadImagesImmediately(images);
-    } else {
-        // It is supported, load the images
-        observer = new IntersectionObserver(onIntersection, config);
-
-        // foreach() is not supported in IE
-        for (let i = 0; i < images.length; i++) {
-            let image = images[i];
-            if (image.classList.contains('js-lazy-image--handled')) {
-                continue;
-            }
-
-            observer.observe(image);
-        }
-    }
-}
-
 /**
  * Fetchs the image for the given URL
  * @param {string} url
@@ -114,3 +94,29 @@ function applyImage(img, src) {
     img.classList.add('js-lazyload--handled');
     img.src = src;
 }
+
+
+let Lazy = {
+
+    init: () => {
+        // If we don't have support for intersection observer, loads the images immediately
+        if (!('IntersectionObserver' in window)) {
+            loadImagesImmediately(images);
+        } else {
+            // It is supported, load the images
+            observer = new IntersectionObserver(onIntersection, config);
+
+            // foreach() is not supported in IE
+            for (let i = 0; i < images.length; i++) {
+                let image = images[i];
+                if (image.classList.contains('js-lazy-image--handled')) {
+                    continue;
+                }
+
+                observer.observe(image);
+            }
+        }
+    }
+};
+
+export default Lazy;

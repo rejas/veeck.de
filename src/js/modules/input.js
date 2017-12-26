@@ -1,23 +1,26 @@
-import classie from 'classie/lib/classie';
+/**
+ *
+ */
 
-function onInputFocus (ev) {
-    classie.add(ev.target.parentNode, 'input--filled');
-}
+let Input = {
 
-function onInputBlur (ev) {
-    if (ev.target.value.trim() === '') {
-        classie.remove(ev.target.parentNode, 'input--filled');
+    init: () => {
+        document.querySelectorAll('.js-input__field--manami').forEach((inputEl) => {
+            // in case the input is already filled..
+            if (inputEl.value.trim() !== '') {
+                inputEl.parentNode.classList.add('input--filled');
+            }
+            // events:
+            inputEl.addEventListener('focus', (event) => {
+                event.target.parentNode.classList.add('input--filled');
+            });
+            inputEl.addEventListener('blur', (event) => {
+                if (event.target.value.trim() === '') {
+                    event.target.parentNode.classList.remove('input--filled');
+                }
+            });
+        });
     }
-}
+};
 
-export function init() {
-    [].slice.call(document.getElementsByClassName('js-input__field--manami')).forEach(function (inputEl) {
-        // in case the input is already filled..
-        if (inputEl.value.trim() !== '') {
-            classie.add(inputEl.parentNode, 'input--filled');
-        }
-        // events:
-        inputEl.addEventListener('focus', onInputFocus);
-        inputEl.addEventListener('blur', onInputBlur);
-    } );
-}
+export default Input;

@@ -1,16 +1,17 @@
 const config = {
     directories: {
-        assemble: "./src/assemble",
-        node: "./node_modules",
-        org: "./org",
-        src: "./src",
-        tmp: "./tmp",
-        dist: "./dist"
+        assemble: './src/assemble',
+        config: './config',
+        node: './node_modules',
+        org: './org',
+        src: './src',
+        tmp: './tmp',
+        dist: './dist'
     },
     ftp: {
-        host: "www.veeck.de",
-        user: "www.veeck.de",
-        remotePath: "."
+        host: 'www.veeck.de',
+        user: 'www.veeck.de',
+        remotePath: '.'
     },
     htmlmin: {
         collapseWhitespace: true,
@@ -18,17 +19,17 @@ const config = {
         removeComments: true
     },
     modernizr: [
-        "prefixes",
-        "prefixed",
-        "setClasses"
+        'prefixes',
+        'prefixed',
+        'setClasses'
     ],
     sitemap: {
-        fileName: "sitemap.xml",
-        newLine: "\n",
-        changefreq: "daily",
-        priority: "0.5",
-        siteUrl: "http://veeck.de",
-        spacing: "    "
+        fileName: 'sitemap.xml',
+        newLine: '\n',
+        changefreq: 'daily',
+        priority: '0.5',
+        siteUrl: 'https://veeck.de',
+        spacing: '    '
     }
 };
 
