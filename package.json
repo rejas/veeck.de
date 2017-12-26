@@ -32,7 +32,8 @@
     "object-fit-images": "^3.2.3",
     "smoothscroll-polyfill": "^0.4.0",
     "tinycolor2": "^1.4.1",
-    "tinyreset": "^1.0.1"
+    "tinyreset": "^1.0.1",
+    "vanilla-tilt": "^1.4.1"
   },
   "devDependencies": {
     "assemble": "^0.24.3",

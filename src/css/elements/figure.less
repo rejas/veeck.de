@@ -205,6 +205,7 @@
             box-shadow: 4px 4px 8px -4px @color-transparentDark;
             .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
             transform: rotate(var(--figure-angle-seed));
+            transform-style: preserve-3d;
 
             &::before {
                 content: '';
@@ -216,19 +217,9 @@
                 background-color: @colorFigure;
                 opacity: 0.5;
             }
-        }
 
-        @media @desktop {
-            .transform(all);
-            transform: translateY(0) scale(1, 1);
-            transform-origin: center;
-            transform-style: preserve-3D;
-
-            &:hover {
-                .boxshadow(3);
-                transform: translateY(0px) scale(1.05, 1.05);
-                transform-origin: center;
-                transform-style: preserve-3D;
+            figcaption {
+                transform: translateZ(30px);
             }
         }
     }
