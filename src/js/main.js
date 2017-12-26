@@ -5,6 +5,7 @@ import 'cookieconsent/src/cookieconsent';
 import BrowserUpdate    from 'browser-update';
 import HalkaBox         from 'halkabox';
 import Konami           from 'konami-code.js';
+import VanillaTilt      from 'vanilla-tilt';
 
 import Colors           from './modules/colors';
 import Input            from './modules/input';
@@ -84,6 +85,11 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     document.querySelectorAll('.travel__article .figure--popup').forEach((figure) => {
         figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
+    });
+
+    VanillaTilt.init(document.querySelectorAll('.travel__article .figure--popup'), {
+        max: 25,
+        speed: 400
     });
 
     /**
