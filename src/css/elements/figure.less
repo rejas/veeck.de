@@ -205,6 +205,7 @@
             box-shadow: 4px 4px 8px -4px @color-transparentDark;
             .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
             transform: rotate(var(--figure-angle-seed));
+            transform-style: preserve-3d;
 
             &::before {
                 content: '';
@@ -215,6 +216,10 @@
                 height: 25px;
                 background-color: @colorFigure;
                 opacity: 0.5;
+            }
+
+            figcaption {
+                transform: translateZ(30px);
             }
         }
     }

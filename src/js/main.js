@@ -81,15 +81,16 @@ document.addEventListener('DOMContentLoaded', () => {
     HalkaBox.run('js-gallery__image');
 
     /**
-     * Travel picture angle randomization
+     * Travel picture transformations
      */
     document.querySelectorAll('.travel__article .figure--popup').forEach((figure) => {
         figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 
     VanillaTilt.init(document.querySelectorAll('.travel__article .figure--popup'), {
-        max: 25,
-        speed: 400
+        max: 10,
+        scale: 1.1,
+        speed: 250
     });
 
     /**
