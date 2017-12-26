@@ -4,6 +4,69 @@
 
 .intro-effect-side {
 
+    .header__image::before,
+    .header__image::after {
+        content: '';
+        position: absolute;
+        z-index: @z-index-0;
+    }
+
+    .header__image::before {
+        background-color: @backgroundColor;
+        top: 0;
+        left: 0;
+        width: 60%;
+        height: 100%;
+        transform: translateX(0);
+
+        @media @phone, @tablet {
+            transform: translateX(-100%);
+        }
+    }
+
+    .header__image::after {
+        border: 80px solid @backgroundColor;
+        background: transparent;
+        //background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        @media @phone, @tablet {
+            border-left-width: 0;
+            border-right-width: 0;
+            right: 0;
+            left: 0;
+            background: transparent;
+        }
+    }
+
+    .subline {
+        font-weight: @font-weight-medium;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .title {
+        line-height: 1;
+        text-align: right;
+        left: 0;
+        padding: 2rem;
+        width: 60%;
+        transform: translateY(-50%);
+
+        @media @phone, @tablet {
+            width: 100%;
+            padding: 0 1rem;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+/*
+    height: 100%;
+
     &:not(.notrans) .trigger {
         .transform(opacity);
     }
@@ -19,7 +82,7 @@
 
     &.modify {
 
-        .bg-img::before {
+        .header__image::before {
             transform: translateX(0);
 
             @media @phone, @tablet {
@@ -27,7 +90,7 @@
             }
         }
 
-        .bg-img::after {
+        .header__image::after {
             background: transparent;
             top: 0;
             right: 0;
@@ -49,14 +112,14 @@
         }
     }
 
-    .bg-img::before,
-    .bg-img::after {
+    .header__image::before,
+    .header__image::after {
         content: '';
         position: absolute;
         z-index: @z-index-0;
     }
 
-    .bg-img::before {
+    .header__image::before {
         background-color: @backgroundColor;
         top: 0;
         left: 0;
@@ -65,7 +128,7 @@
         transform: translateX(-100%);
     }
 
-    .bg-img::after {
+    .header__image::after {
         background-color: @color-transparent;
         border: 80px solid @backgroundColor;
         top: -80px;
@@ -117,12 +180,12 @@
     }
 }
 
-.intro-effect-side:not(.notrans) .bg-img::before,
+.intro-effect-side:not(.notrans) .header__image::before,
 .intro-effect-side:not(.notrans) .title {
     transition-property: transform;
 }
 
-.intro-effect-side:not(.notrans) .bg-img::after {
+.intro-effect-side:not(.notrans) .header__image::after {
     transition-property: top, left, bottom, right, background-color;
 }
 
@@ -130,25 +193,26 @@
     transition-property: transform, opacity;
 }
 
-.intro-effect-side:not(.notrans) .bg-img::before,
-.intro-effect-side:not(.notrans) .bg-img::after,
+.intro-effect-side:not(.notrans) .header__image::before,
+.intro-effect-side:not(.notrans) .header__image::after,
 .intro-effect-side:not(.notrans) .title,
 .intro-effect-side:not(.notrans) .subline,
 .intro-effect-side:not(.notrans) .content > div {
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
     transition-duration: 0.5s;
 }
+*/
 
-/* Delays */
+/* Delays
 .intro-effect-side:not(.notrans) .title,
-.intro-effect-side:not(.notrans) .bg-img::before,
-.intro-effect-side:not(.notrans) .bg-img::after {
+.intro-effect-side:not(.notrans) .header__image::before,
+.intro-effect-side:not(.notrans) .header__image::after {
     transition-delay: 0.3s;
 }
 
 .intro-effect-side.modify:not(.notrans) .title,
-.intro-effect-side.modify:not(.notrans) .bg-img::before,
-.intro-effect-side.modify:not(.notrans) .bg-img::after {
+.intro-effect-side.modify:not(.notrans) .header__image::before,
+.intro-effect-side.modify:not(.notrans) .header__image::after {
     transition-delay: 0s;
 }
 
@@ -163,3 +227,4 @@
 .intro-effect-side.modify:not(.notrans) .content > div {
     transition-delay: 0.3s;
 }
+*/

@@ -5,7 +5,7 @@
 .header {
     z-index: @z-index-4;
 
-    .bg-img {
+    .header__image {
         position: absolute;
         overflow: hidden;
         top: 0;
@@ -30,16 +30,6 @@
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
-
-        .headline {
-
-            @media @phone {
-
-                .trigger::before {
-                    display: none;
-                }
-            }
-        }
     }
 
     &--title {
@@ -62,19 +52,19 @@
 .shareList {
     position: fixed;
     left: 1rem;
-    bottom: -4rem;
+    bottom: 1rem;
 
     .modify & {
-        bottom: 1rem;
+        bottom: -4rem;
     }
 }
 
 .btn--up {
     position: fixed;
-    bottom: -4rem;
+    bottom: 1rem;
     right: 1rem;
 
     .modify & {
-        bottom: 1rem;
+        bottom: -4rem;
     }
 }
