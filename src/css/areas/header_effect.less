@@ -2,7 +2,7 @@
  * Intro Effect Side
  */
 
-.intro-effect-side {
+.header {
     height: 100%;
 
     &:not(.notrans) .trigger {
@@ -20,7 +20,7 @@
 
     &.modify {
 
-        .bg-img::before {
+        .header__image::before {
             transform: translateX(0);
 
             @media @phone, @tablet {
@@ -28,7 +28,7 @@
             }
         }
 
-        .bg-img::after {
+        .header__image::after {
             background: transparent;
             top: 0;
             right: 0;
@@ -50,14 +50,14 @@
         }
     }
 
-    .bg-img::before,
-    .bg-img::after {
+    .header__image::before,
+    .header__image::after {
         content: '';
         position: absolute;
         z-index: @z-index-0;
     }
 
-    .bg-img::before {
+    .header__image::before {
         background-color: @backgroundColor;
         top: 0;
         left: 0;
@@ -66,7 +66,7 @@
         transform: translateX(-100%);
     }
 
-    .bg-img::after {
+    .header__image::after {
         background-color: @color-transparent;
         border: 80px solid @backgroundColor;
         top: -80px;
@@ -118,49 +118,49 @@
     }
 }
 
-.intro-effect-side:not(.notrans) .bg-img::before,
-.intro-effect-side:not(.notrans) .title {
+.header:not(.notrans) .header__image::before,
+.header:not(.notrans) .title {
     transition-property: transform;
 }
 
-.intro-effect-side:not(.notrans) .bg-img::after {
+.header:not(.notrans) .header__image::after {
     transition-property: top, left, bottom, right, background-color;
 }
 
-.intro-effect-side:not(.notrans) .subline {
+.header:not(.notrans) .subline {
     transition-property: transform, opacity;
 }
 
-.intro-effect-side:not(.notrans) .bg-img::before,
-.intro-effect-side:not(.notrans) .bg-img::after,
-.intro-effect-side:not(.notrans) .title,
-.intro-effect-side:not(.notrans) .subline,
-.intro-effect-side:not(.notrans) .content > div {
+.header:not(.notrans) .header__image::before,
+.header:not(.notrans) .header__image::after,
+.header:not(.notrans) .title,
+.header:not(.notrans) .subline,
+.header:not(.notrans) .content > div {
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
     transition-duration: 0.5s;
 }
 
 /* Delays */
-.intro-effect-side:not(.notrans) .title,
-.intro-effect-side:not(.notrans) .bg-img::before,
-.intro-effect-side:not(.notrans) .bg-img::after {
+.header:not(.notrans) .title,
+.header:not(.notrans) .header__image::before,
+.header:not(.notrans) .header__image::after {
     transition-delay: 0.3s;
 }
 
-.intro-effect-side.modify:not(.notrans) .title,
-.intro-effect-side.modify:not(.notrans) .bg-img::before,
-.intro-effect-side.modify:not(.notrans) .bg-img::after {
+.header.modify:not(.notrans) .title,
+.header.modify:not(.notrans) .header__image::before,
+.header.modify:not(.notrans) .header__image::after {
     transition-delay: 0s;
 }
 
-.intro-effect-side.modify:not(.notrans) .subline:nth-last-child(2) {
+.header.modify:not(.notrans) .subline:nth-last-child(2) {
     transition-delay: 0.15s;
 }
 
-.intro-effect-side.modify:not(.notrans) .subline:last-child {
+.header.modify:not(.notrans) .subline:last-child {
     transition-delay: 0.2s;
 }
 
-.intro-effect-side.modify:not(.notrans) .content > div {
+.header.modify:not(.notrans) .content > div {
     transition-delay: 0.3s;
 }
