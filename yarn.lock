@@ -751,12 +751,12 @@ autoprefixer@^6.3.1:
     postcss "^5.2.16"
     postcss-value-parser "^3.2.3"
 
-autoprefixer@^7.2.2:
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-7.2.2.tgz#082293b964be00602efacc59aa4aa7df5158bb6e"
+autoprefixer@^7.2.3:
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-7.2.3.tgz#c2841e38b7940c2d0a9bbffd72c75f33637854f8"
   dependencies:
     browserslist "^2.10.0"
-    caniuse-lite "^1.0.30000780"
+    caniuse-lite "^1.0.30000783"
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
     postcss "^6.0.14"
@@ -1760,9 +1760,9 @@ brorand@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
 
-browser-update@^2.1.9:
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/browser-update/-/browser-update-2.1.9.tgz#20070597bc3d429f66ac7cccd1c81df1909a9efa"
+browser-update@^2.1.11:
+  version "2.1.11"
+  resolved "https://registry.yarnpkg.com/browser-update/-/browser-update-2.1.11.tgz#8d56e9d7905cbde1026e37d116048b872cfb4a4f"
 
 browserify-aes@^1.0.0, browserify-aes@^1.0.4:
   version "1.1.1"
@@ -2017,6 +2017,10 @@ caniuse-lite@^1.0.30000770:
 caniuse-lite@^1.0.30000780:
   version "1.0.30000780"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000780.tgz#1f9095f2efd4940e0ba6c5992ab7a9b64cc35ba4"
+
+caniuse-lite@^1.0.30000783:
+  version "1.0.30000783"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000783.tgz#9b5499fb1b503d2345d12aa6b8612852f4276ffd"
 
 capture-stack-trace@^1.0.0:
   version "1.0.0"
@@ -2283,6 +2287,10 @@ color-string@^0.3.0:
   resolved "https://registry.yarnpkg.com/color-string/-/color-string-0.3.0.tgz#27d46fb67025c5c2fa25993bfbf579e47841b991"
   dependencies:
     color-name "^1.0.0"
+
+color-support@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/color-support/-/color-support-1.1.3.tgz#93834379a1cc9a0c61f82f52f0d04322251bd5a2"
 
 color@^0.11.0:
   version "0.11.4"
@@ -2967,7 +2975,7 @@ debug@2.6.9, debug@^2.2.0, debug@^2.4.1, debug@^2.6.0, debug@^2.6.2, debug@^2.6.
   dependencies:
     ms "2.0.0"
 
-debug@^3.0.1:
+debug@^3.0.1, debug@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   dependencies:
@@ -3599,6 +3607,10 @@ eslint-scope@^3.7.1:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
+eslint-visitor-keys@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#3f3180fb2e291017716acb4c9d6d5b5c34a6a81d"
+
 eslint@^4.0.0:
   version "4.12.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.12.0.tgz#a7ce78eba8cc8f2443acfbbc870cc31a65135884"
@@ -3641,21 +3653,21 @@ eslint@^4.0.0:
     table "^4.0.1"
     text-table "~0.2.0"
 
-eslint@^4.13.1:
-  version "4.13.1"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.13.1.tgz#0055e0014464c7eb7878caf549ef2941992b444f"
+eslint@^4.14.0:
+  version "4.14.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.14.0.tgz#96609768d1dd23304faba2d94b7fefe5a5447a82"
   dependencies:
     ajv "^5.3.0"
     babel-code-frame "^6.22.0"
     chalk "^2.1.0"
     concat-stream "^1.6.0"
     cross-spawn "^5.1.0"
-    debug "^3.0.1"
+    debug "^3.1.0"
     doctrine "^2.0.2"
     eslint-scope "^3.7.1"
+    eslint-visitor-keys "^1.0.0"
     espree "^3.5.2"
     esquery "^1.0.0"
-    estraverse "^4.2.0"
     esutils "^2.0.2"
     file-entry-cache "^2.0.0"
     functional-red-black-tree "^1.0.1"
@@ -4067,6 +4079,14 @@ fancy-log@^1.1.0, fancy-log@^1.2.0:
     chalk "^1.1.1"
     time-stamp "^1.0.0"
 
+fancy-log@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/fancy-log/-/fancy-log-1.3.2.tgz#f41125e3d84f2e7d89a43d06d958c8f78be16be1"
+  dependencies:
+    ansi-gray "^0.1.1"
+    color-support "^1.1.3"
+    time-stamp "^1.0.0"
+
 fast-deep-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-1.0.0.tgz#96256a3bc975595eb36d82e9929d060d893439ff"
@@ -4118,9 +4138,9 @@ fd-slicer@~1.0.1:
   dependencies:
     pend "~1.2.0"
 
-feather-icons@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/feather-icons/-/feather-icons-4.0.1.tgz#98f06032c08d5d01d4bd7e6188c60578118fbd7d"
+feather-icons@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/feather-icons/-/feather-icons-4.5.0.tgz#5c0a38fe4633e88a14cc8d7aa822e2591828027d"
   dependencies:
     classnames "^2.2.5"
 
@@ -4164,9 +4184,9 @@ file-is-binary@^1.0.0:
     is-binary-buffer "^1.0.0"
     isobject "^3.0.0"
 
-file-loader@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.5.tgz#91c25b6b6fbe56dae99f10a425fd64933b5c9daa"
+file-loader@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.6.tgz#7b9a8f2c58f00a77fddf49e940f7ac978a3ea0e8"
   dependencies:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
@@ -4937,14 +4957,13 @@ gulp-htmlhint@^1.0.0:
     strip-json-comments "^2.0.0"
     through2 "^2.0.0"
 
-gulp-htmlmin@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/gulp-htmlmin/-/gulp-htmlmin-3.0.0.tgz#19ea8002d1231d6b1f18a12d20f2a66a77770fb3"
+gulp-htmlmin@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-htmlmin/-/gulp-htmlmin-4.0.0.tgz#266feaed83588838aedda3666f67d057ec120313"
   dependencies:
     bufferstreams "^1.1.0"
-    gulp-util "^3.0.7"
     html-minifier "^3.0.3"
-    object-assign "^4.0.1"
+    plugin-error "^0.1.2"
     readable-stream "^2.0.2"
     tryit "^1.0.1"
 
@@ -5035,9 +5054,9 @@ gulp-prompt@0.2.0:
     event-stream "~3.0.20"
     inquirer "~0.10"
 
-gulp-prompt@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/gulp-prompt/-/gulp-prompt-1.0.0.tgz#2ff1d360024aaf0023b9c5b1918ad249ee71d20c"
+gulp-prompt@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gulp-prompt/-/gulp-prompt-1.0.1.tgz#58dbbea424e04e7e935deb57654cc23ff7dfc27c"
   dependencies:
     event-stream "~3.0.20"
     inquirer "^3.3.0"
@@ -5062,16 +5081,18 @@ gulp-rename@^1.2.0:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/gulp-rename/-/gulp-rename-1.2.2.tgz#3ad4428763f05e2764dec1c67d868db275687817"
 
-gulp-sitemap@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/gulp-sitemap/-/gulp-sitemap-4.2.0.tgz#eb51c28e4524329b64c2d7567aeb2f58c9931b3e"
+gulp-sitemap@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/gulp-sitemap/-/gulp-sitemap-4.3.0.tgz#28174cdb6c58b37852eeecc04356f4cd56c28799"
   dependencies:
     chalk "^1.1.1"
-    gulp-util "^3.0.7"
+    fancy-log "^1.3.2"
     lodash "^4.6.1"
     multimatch "^2.0.0"
+    plugin-error "^0.1.2"
     slash "^1.0.0"
     through2 "^2.0.0"
+    vinyl "^2.1.0"
 
 gulp-sourcemaps@1.6.0:
   version "1.6.0"
@@ -10280,9 +10301,9 @@ strip-outer@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-style-loader@^0.19.0:
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.19.0.tgz#7258e788f0fee6a42d710eaf7d6c2412a4c50759"
+style-loader@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.19.1.tgz#591ffc80bcefe268b77c5d9ebc0505d772619f85"
   dependencies:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
@@ -11280,6 +11301,12 @@ webpack-bundle-analyzer@^2.9.1:
     mkdirp "^0.5.1"
     opener "^1.4.3"
     ws "^3.3.1"
+
+webpack-merge@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-4.1.1.tgz#f1197a0a973e69c6fbeeb6d658219aa8c0c13555"
+  dependencies:
+    lodash "^4.17.4"
 
 webpack-sources@^1.0.1:
   version "1.1.0"
