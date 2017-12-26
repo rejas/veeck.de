@@ -5,7 +5,7 @@
 .header {
     z-index: @z-index-4;
 
-    .header__image {
+    &__image {
         position: absolute;
         overflow: hidden;
         top: 0;
@@ -21,7 +21,7 @@
         }
     }
 
-    &--wrapper {
+    &__wrapper {
         z-index: @z-index-1;
         margin: 0 auto;
         width: 100%;
@@ -32,7 +32,7 @@
         transform: translateX(-50%) translateY(-50%);
     }
 
-    &--title {
+    &__title {
         border: @border-thickness solid @color-transparent;
         border-radius: @border-radius-md;
         .blur();
