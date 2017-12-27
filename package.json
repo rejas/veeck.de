@@ -72,7 +72,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "helper-md": "^0.2.2",
-    "imagemin-mozjpeg": "6.0.0",
+    "imagemin-mozjpeg": "7.0.0",
     "less": "^3.0.0-alpha.3",
     "less-loader": "^4.0.5",
     "postcss-loader": "^2.0.9",
