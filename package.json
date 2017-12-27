@@ -68,6 +68,7 @@
     "gulp-modernizr": "^1.0.0-alpha",
     "gulp-prompt": "^1.0.1",
     "gulp-release-it": "^1.1.13",
+    "gulp-responsive": "*",
     "gulp-sitemap": "^4.3.0",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
