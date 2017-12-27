@@ -21,7 +21,7 @@
         }
     }
 
-    &__wrapper {
+    &__title {
         z-index: @z-index-1;
         margin: 0 auto;
         width: 100%;
@@ -30,9 +30,19 @@
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
+
+        .header__headline {
+
+            @media @phone {
+
+                .trigger::before {
+                    display: none;
+                }
+            }
+        }
     }
 
-    &__title {
+    &__headline {
         border: @border-thickness solid @color-transparent;
         border-radius: @border-radius-md;
         .blur();
@@ -44,7 +54,7 @@
         word-wrap: break-word;
     }
 
-    &--subtitle {
+    .header__subtitle {
         text-transform: uppercase;
     }
 }
