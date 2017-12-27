@@ -103,11 +103,11 @@
             }
         }
 
-        .title {
+        .header__title {
             transform: translateY(-50%);
         }
 
-        .subline {
+        .header__subtitle {
             opacity: 1;
             transform: translateX(0);
         }
@@ -146,13 +146,13 @@
         }
     }
 
-    .subline {
+    .header__subtitle {
         font-weight: @font-weight-medium;
         opacity: 0;
         transform: translateY(100px);
     }
 
-    .title {
+    .header__title {
         line-height: 1;
         text-align: right;
         left: 0;
@@ -182,7 +182,7 @@
 }
 
 .header:not(.notrans) .header__image::before,
-.header:not(.notrans) .title {
+.header:not(.notrans) .header__title {
     transition-property: transform;
 }
 
@@ -190,14 +190,14 @@
     transition-property: top, left, bottom, right, background-color;
 }
 
-.header:not(.notrans) .subline {
+.header:not(.notrans) .header__subtitle {
     transition-property: transform, opacity;
 }
 
 .header:not(.notrans) .header__image::before,
 .header:not(.notrans) .header__image::after,
-.header:not(.notrans) .title,
-.header:not(.notrans) .subline,
+.header:not(.notrans) .header__title,
+.header:not(.notrans) .header__subtitle,
 .header:not(.notrans) .content > div {
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
     transition-duration: 0.5s;
@@ -205,23 +205,23 @@
 */
 
 /* Delays
-.header:not(.notrans) .title,
+.header:not(.notrans) .header__title,
 .header:not(.notrans) .header__image::before,
 .header:not(.notrans) .header__image::after {
     transition-delay: 0.3s;
 }
 
-.header.modify:not(.notrans) .title,
+.header.modify:not(.notrans) .header__title,
 .header.modify:not(.notrans) .header__image::before,
 .header.modify:not(.notrans) .header__image::after {
     transition-delay: 0s;
 }
 
-.header.modify:not(.notrans) .subline:nth-last-child(2) {
+.header.modify:not(.notrans) .header__subtitle:nth-last-child(2) {
     transition-delay: 0.15s;
 }
 
-.header.modify:not(.notrans) .subline:last-child {
+.header.modify:not(.notrans) .header__subtitle:last-child {
     transition-delay: 0.2s;
 }
 

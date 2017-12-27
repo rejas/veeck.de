@@ -3,12 +3,12 @@
         {{> img-srcset }}
     </div>
 
-    <div class="header__wrapper title {{titlestyle}}">
-        <h1 class="h1 header__title headline" data-heading="{{heading}}">{{heading}}</h1>
-        {{#if lead}}<p class="subline">{{lead}}</p>{{/if}}
-        {{#if when}}<p class="subline">wann <strong>{{when}}</strong></p>{{/if}}
-        {{#if where}}<p class="subline">wo <strong>{{where}}</strong></p>{{/if}}
-        {{#if what}}<p class="subline">was <strong>{{what}}</strong></p>{{/if}}
+    <div class="header__title title--{{titlestyle}}">
+        <h1 class="h1 header__headline" data-heading="{{heading}}">{{heading}}</h1>
+        {{#if lead}}<p class="header__subtitle">{{lead}}</p>{{/if}}
+        {{#if when}}<p class="header__subtitle">wann <strong>{{when}}</strong></p>{{/if}}
+        {{#if where}}<p class="header__subtitle">wo <strong>{{where}}</strong></p>{{/if}}
+        {{#if what}}<p class="header__subtitle">was <strong>{{what}}</strong></p>{{/if}}
     </div>
 
     {{> nav }}
