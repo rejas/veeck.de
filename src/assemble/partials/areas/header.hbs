@@ -1,10 +1,10 @@
-<header class="header intro-effect-side js-intro-effect-side" data-color="{{img-color}}">
+<header class="header js-intro-effect-side" data-color="{{img-color}}">
     <div class="header__image">
         {{> img-srcset }}
     </div>
 
-    <div class="header--wrapper title {{titlestyle}}">
-        <h1 class="h1 header--title headline" data-heading="{{heading}}">{{heading}}</h1>
+    <div class="header__wrapper title {{titlestyle}}">
+        <h1 class="h1 header__title headline" data-heading="{{heading}}">{{heading}}</h1>
         {{#if lead}}<p class="subline">{{lead}}</p>{{/if}}
         {{#if when}}<p class="subline">wann <strong>{{when}}</strong></p>{{/if}}
         {{#if where}}<p class="subline">wo <strong>{{where}}</strong></p>{{/if}}
