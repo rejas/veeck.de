@@ -5109,18 +5109,6 @@ gulp-inject@^4.3.0:
     stream-to-array "^2.3.0"
     through2 "^2.0.1"
 
-gulp-jimp@^1.2.8:
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/gulp-jimp/-/gulp-jimp-1.2.8.tgz#cc97fbc77900020179797d7c546c1e02a368f367"
-  dependencies:
-    async "^1.5.0"
-    colors "^1.1.2"
-    gulp-util "^3.0.7"
-    jimp "^0.2.19"
-    through2 "^2.0.0"
-    tinycolor2 "^1.1.2"
-    underscore "^1.8.3"
-
 gulp-json-editor@2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/gulp-json-editor/-/gulp-json-editor-2.2.1.tgz#7c4dd7477e8d06dc5dc49c0b81e745cdb04f97bb"
@@ -6343,7 +6331,7 @@ isurl@^1.0.0-alpha5:
     has-to-string-tag-x "^1.2.0"
     is-object "^1.0.1"
 
-jimp@^0.2.13, jimp@^0.2.19, jimp@^0.2.21:
+jimp@^0.2.13, jimp@^0.2.21:
   version "0.2.28"
   resolved "https://registry.yarnpkg.com/jimp/-/jimp-0.2.28.tgz#dd529a937190f42957a7937d1acc3a7762996ea2"
   dependencies:
