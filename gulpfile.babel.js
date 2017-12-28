@@ -13,12 +13,12 @@ import webpackProdConfig    from './config/webpack.prod.config.js';
  */
 
 import gulp             from    'gulp';
-import gutil            from    'gulp-util';
 import gplugins         from    'gulp-load-plugins';
 import grelease         from    'gulp-release-it';
 import gcachebust       from    'gulp-cache-bust';
 import assemble         from    'assemble';
 import assemblevars     from    'assemble-middleware-page-variable';
+import log              from    'fancy-log';
 
 /**
  * OTHER PLUGINS
@@ -114,7 +114,7 @@ gulp.task('upload:page', ['default'], () => {
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
-                log:        gutil.log
+                log:        log
             });
 
             gulp.src([`${dirs.dist}/**/*`, `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`],
@@ -135,7 +135,7 @@ gulp.task('upload:images', () => {
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
-                log:        gutil.log
+                log:        log
             });
 
             gulp.src([`${dirs.dist}/img/**/*`],
@@ -156,7 +156,7 @@ gulp.task('upload:files', () => {
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
-                log:        gutil.log
+                log:        log
             });
 
             gulp.src([`${dirs.dist}/files/**/*`],
