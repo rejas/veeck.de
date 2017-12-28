@@ -201,29 +201,35 @@ gulp.task('prepare:modernizr', () => {
 });
 
 gulp.task('scale:images', () => {
-    return gulp.src(`${dirs.org}/img/backgrounds/*.jpg`)
+    return gulp.src(`${dirs.org}/img/**/*.jpg`)
         .pipe(plugins.responsive({
-            '*.jpg': [{
+            '**/*.jpg': [{
                 width: 1920,
                 height: 1920,
                 max: true,
                 withoutEnlargement: false,
-                rename: { suffix: '.medium' },
+                rename: {
+                    suffix: '.medium'
+                },
             }, {
                 width: 448,
                 height: 387,
                 max: true,
-                rename: { suffix: '.small' },
+                rename: {
+                    suffix: '.small'
+                },
             }, {
                 width: 448,
                 height: 387,
                 max: true,
                 blur: 20,
                 quality: 30,
-                rename: { suffix: '.placeholder' },
+                rename: {
+                    suffix: '.placeholder'
+                },
             }]
         }, config.responsive))
-        .pipe(gulp.dest(`${dirs.src}/img/backgrounds`));
+        .pipe(gulp.dest(`${dirs.src}/img`));
 });
 
 /**
