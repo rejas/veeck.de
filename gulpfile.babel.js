@@ -79,9 +79,8 @@ gulp.task('check:html', ['assemble'], () => {
 });
 
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
-// You can enable or disable default eslint options in the .eslintrc file
 gulp.task('check:js', () => {
-    return gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
+    return gulp.src(['./gulpfile.babel.js',`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.eslint({
             configFile: `${dirs.config}/.eslintrc.json`
         }))
@@ -89,7 +88,7 @@ gulp.task('check:js', () => {
         .pipe(plugins.eslint.failOnError());
 });
 
-// Detect errors and potential problems in your css code
+// Detect errors and potential problems in your CSS code
 gulp.task('check:less', () => {
     return gulp.src([`${dirs.src}/css/**/*.less`])
         .pipe(plugins.lesshint({
@@ -109,7 +108,7 @@ gulp.task('upload:page', ['default'], () => {
             type: 'password',
             name: 'pw',
             message: 'enter ftp password'
-        }, function(result) {
+        }, (result) => {
             const conn = ftp.create({
                 host:       config.ftp.host,
                 user:       config.ftp.user,
@@ -169,24 +168,11 @@ gulp.task('upload:files', () => {
  * PREPARE TASKS
  */
 
-gulp.task('prepare:favicons', function () {
-    return gulp.src('org/favicon.png').pipe(plugins.favicons({
-        appName: 'My Homepage',
-        appDescription: 'This is my homepage',
-        developerName: 'Veeck',
-        developerURL: 'https://www.veeck.de/',
-        background: '#FFFFFF',
-        path: '/favicons',
-        url: 'https://www.veeck.de/',
-        display: 'standalone',
-        orientation: 'portrait',
-        logging: false,
-        theme_color: '#E6E6E6',
-        online: false,
-        html: '../../../src/assemble/partials/html/icons.html',
-        pipeHTML: true,
-        replace: true
-    }))
+gulp.task('prepare:favicons', () => {
+    return gulp.src('org/favicon.png')
+        .pipe(plugins.favicons(
+            config.favicons
+        ))
         .pipe(gulp.dest('./src/page/favicons'));
 });
 
@@ -262,7 +248,7 @@ gulp.task('scale:placeholder', ['scale:small'], () => {
  */
 
 gulp.task('clean', (cb) => {
-    del([dirs.dist, dirs.tmp]).then(function () { cb(); });
+    del([dirs.dist, dirs.tmp]).then(() => { cb(); });
 });
 
 gulp.task('webpack:dev', () => {
@@ -287,13 +273,13 @@ gulp.task('load', (cb) => {
     app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
     app.option('layout', 'default');
 
-    app.preLayout( /./, function (view, next) {
+    app.preLayout(/./, (view, next) => {
         // if the layout is not defined, use the default one ...
         if (!view.layout && app.options.layout) {
             view.layout = app.options.layout;
         }
         next();
-    } );
+    });
 
     cb();
 });
