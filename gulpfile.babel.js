@@ -80,7 +80,8 @@ gulp.task('check:html', ['assemble'], () => {
 
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
 gulp.task('check:js', () => {
-    return gulp.src(['./gulpfile.babel.js',`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
+    return gulp.src(['./gulpfile.babel.js', './config/*.config.js',
+        `${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.eslint({
             configFile: `${dirs.config}/.eslintrc.json`
         }))
@@ -116,9 +117,8 @@ gulp.task('upload:page', ['default'], () => {
                 log:        gutil.log
             });
 
-            gulp.src([`${dirs.dist}/**/*`,
-                `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`], {
-                base: 'dist', buffer: false, dot: true})
+            gulp.src([`${dirs.dist}/**/*`, `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`],
+                { base: 'dist', buffer: false, dot: true })
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/veeck'));
         }));
@@ -138,7 +138,8 @@ gulp.task('upload:images', () => {
                 log:        gutil.log
             });
 
-            gulp.src([`${dirs.dist}/img/**/*`], { base: 'dist', buffer: false } )
+            gulp.src([`${dirs.dist}/img/**/*`],
+                { base: 'dist', buffer: false } )
                 .pipe(conn.differentSize('/')) // filter for different file size
                 .pipe(conn.dest('/veeck'));
         }));
@@ -158,7 +159,8 @@ gulp.task('upload:files', () => {
                 log:        gutil.log
             });
 
-            gulp.src([`${dirs.dist}/files/**/*`], { base: 'dist', buffer: false } )
+            gulp.src([`${dirs.dist}/files/**/*`],
+                { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/veeck'));
         }));
