@@ -234,15 +234,7 @@ gulp.task('scale:images', () => {
                 quality: 30,
                 rename: { suffix: '.placeholder' },
             }]
-        }, {
-            // Global configuration for all images
-            // The output quality for JPEG, WebP and TIFF output formats
-            quality: 70,
-            // Use progressive (interlace) scan for JPEG and PNG output
-            progressive: true,
-            // Strip all metadata
-            withMetadata: false,
-        }))
+        }, config.responsive))
         .pipe(gulp.dest(`${dirs.src}/img/backgrounds`));
 });
 

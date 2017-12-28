@@ -23,6 +23,14 @@ const config = {
         'prefixed',
         'setClasses'
     ],
+    responsive: {
+        // The output quality for JPEG, WebP and TIFF output formats
+        quality: 70,
+        // Use progressive (interlace) scan for JPEG and PNG output
+        progressive: true,
+        // Strip all metadata
+        withMetadata: false,
+    },
     sitemap: {
         fileName: 'sitemap.xml',
         newLine: '\n',
