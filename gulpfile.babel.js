@@ -215,6 +215,7 @@ gulp.task('scale:images', () => {
                 width: 448,
                 height: 387,
                 max: true,
+                withoutEnlargement: false,
                 rename: {
                     suffix: '.small'
                 },
@@ -222,6 +223,7 @@ gulp.task('scale:images', () => {
                 width: 448,
                 height: 387,
                 max: true,
+                withoutEnlargement: false,
                 blur: 20,
                 quality: 30,
                 rename: {
