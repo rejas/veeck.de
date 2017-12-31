@@ -200,49 +200,38 @@ gulp.task('prepare:modernizr', () => {
         .pipe(gulp.dest(`${dirs.src}/js/vendor/`));
 });
 
-gulp.task('scale:max', () => {
-    return gulp.src(`${dirs.org}/img/backgrounds/**/*`)
-        .pipe(plugins.jimp({
-            '': {
-                scaleToFit: { width: 1920, height: 1920 },
-                quality: 60
-            }
-        }))
-        .pipe(gulp.dest(`${dirs.src}/img/backgrounds`));
-});
-
-gulp.task('scale:medium', () => {
-    return gulp.src(`${dirs.org}/img/travel/europe/**/*`)
-        .pipe(plugins.jimp({
-            '.medium': {
-                scaleToFit: { width: 1920, height: 1920 },
-                quality: 60
-            }
-        }))
-        .pipe(gulp.dest(`${dirs.src}/img/travel/europe`));
-});
-
-gulp.task('scale:small', () => {
-    return gulp.src(`${dirs.org}/img/travel/europe/**/*`)
-        .pipe(plugins.jimp({
-            '.small': {
-                scaleToFit: { width: 448, height: 387 },
-                quality: 60
-            }
-        }))
-        .pipe(gulp.dest(`${dirs.src}/img/travel/europe`));
-});
-
-gulp.task('scale:placeholder', ['scale:small'], () => {
-    return gulp.src(`${dirs.src}/img/travel/europe/**/*.small.jpg`)
-        .pipe(plugins.jimp({
-            '.placeholder': {
-                scaleToFit: { width: 448, height: 387 },
-                blur: 40,
-                quality: 30
-            }
-        }))
-        .pipe(gulp.dest(`${dirs.src}/img/travel/europe`));
+gulp.task('scale:images', () => {
+    return gulp.src(`${dirs.org}/img/**/*.jpg`)
+        .pipe(plugins.responsive({
+            '**/*.jpg': [{
+                width: 1920,
+                height: 1920,
+                max: true,
+                withoutEnlargement: false,
+                rename: {
+                    suffix: '.medium'
+                },
+            }, {
+                width: 448,
+                height: 387,
+                max: true,
+                withoutEnlargement: false,
+                rename: {
+                    suffix: '.small'
+                },
+            }, {
+                width: 448,
+                height: 387,
+                max: true,
+                withoutEnlargement: false,
+                blur: 20,
+                quality: 30,
+                rename: {
+                    suffix: '.placeholder'
+                },
+            }]
+        }, config.responsive))
+        .pipe(gulp.dest(`${dirs.src}/img`));
 });
 
 /**
@@ -346,7 +335,7 @@ gulp.task('dev',        (cb) => { runSequence('clean', 'copy', 'webpack:dev', 'h
 
 gulp.task('prepare',    ['check', 'prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
 
-gulp.task('scale',      ['scale:medium', 'scale:small', 'scale:placeholder']);
+gulp.task('scale',      ['scale:images']);
 
 gulp.task('upload',     ['upload:page']);
 
