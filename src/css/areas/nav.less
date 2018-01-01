@@ -3,6 +3,7 @@
 .navigation {
     position: fixed;
     left: -@nav-width;
+    top: 0;
     z-index: @z-index-4;
     height: 100vh;
     width: @nav-width;
@@ -121,6 +122,11 @@
         position: absolute;
         left: -3px;
         bottom: -@font-size-l;
+    }
+
+    @media @phone {
+        top: auto;
+        bottom: 1rem;
     }
 }
 

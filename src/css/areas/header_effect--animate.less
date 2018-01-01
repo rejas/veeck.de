@@ -4,40 +4,47 @@
 
 .header {
 
-    &__image::before,
-    &__image::after {
-        content: '';
-        position: absolute;
-        z-index: @z-index-0;
-    }
+    &__image {
 
-    &__image::before {
-        background-color: @backgroundColor;
-        top: 0;
-        left: 0;
-        width: 60%;
-        height: 100%;
-        transform: translateX(0);
-
-        @media @phone, @tablet {
-            transform: translateX(-100%);
+        @media @phone {
+            opacity: 0.5;
         }
-    }
 
-    &__image::after {
-        border: 80px solid @backgroundColor;
-        background: transparent;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: @z-index-0;
+        }
 
-        @media @phone, @tablet {
-            border-left-width: 0;
-            border-right-width: 0;
-            right: 0;
+        &::before {
+            background-color: @backgroundColor;
+            top: 0;
             left: 0;
+            width: 60%;
+            height: 100%;
+            transform: translateX(0);
+
+            @media @phone, @tablet {
+                transform: translateX(-100%);
+            }
+        }
+
+        &::after {
+            border: 80px solid @backgroundColor;
             background: transparent;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            @media @phone, @tablet {
+                border-left-width: 0;
+                border-right-width: 0;
+                right: 0;
+                left: 0;
+                background: transparent;
+            }
         }
     }
 

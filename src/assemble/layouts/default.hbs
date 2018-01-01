@@ -33,7 +33,11 @@
     <body>
         <div class="grid">
 
-            {{> header }}
+        {{> nav }}
+
+        <main class="content">
+            {% body %}
+        </main>
 
             <main class="content">
                 {% body %}
