@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * ArticleIntroEffect
      */
-    Intro.init();
+    //Intro.init();
 
     /**
      * Colors
