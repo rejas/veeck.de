@@ -126,6 +126,11 @@
     }
 
     &:hover {
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            .colorVar(background-color, --secondaryTextColor, @secondaryTextColor);
+        }
 
         &::after {
             .colorVar(color, --primaryColor, @primaryColor);
@@ -148,11 +153,22 @@
     top: 1rem;
     background-color: transparent;
     .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
+    border: @border-thickness solid;
     border-right: @border-thickness solid transparent;
     border-radius: 0;
+    .boxshadow(0);
 
     &:hover {
+        .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
         border-right-color: transparent;
+        .boxshadow(0);
+        transform: none;
+
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+        }
     }
 
     &::after {
