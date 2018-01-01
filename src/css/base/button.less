@@ -2,9 +2,9 @@
 @btn-size-lg: 3rem;
 
 .btn {
+    .boxshadow(1);
     .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-    border: @border-thickness solid;
-    .colorVar(border-color, --primaryColor, @primaryColor);
+    border: 0;
     border-radius: @border-radius-lg;
     .colorVar(color, --primaryColor, @primaryColor);
     cursor: pointer;
@@ -27,10 +27,13 @@
     }
 
     &:hover {
-        .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
+        transform: translateY(-1px);
+        .boxshadow(2);
+        .colorVar(color, --secondaryTextColor, @secondaryTextColor);
 
         > svg {
-            .colorVar(stroke, --darkPrimaryColor, @darkPrimaryColor);
+            .colorVar(stroke, --secondaryTextColor, @secondaryTextColor);
+
         }
     }
 
@@ -48,31 +51,6 @@
         min-width: @btn-size-lg;
     }
 
-    &--animated {
-
-        &::after {
-            content: '';
-            position: absolute;
-            z-index: @z-index-neg;
-            .transform(all);
-            width: 0;
-            height: 100%;
-            top: 50%;
-            left: 50%;
-            .colorVar(background-color, --primaryColor, @primaryColor);
-            transform: translateX(-50%) translateY(-50%);
-        }
-
-        &:hover {
-            .colorVar(color, --secondaryTextColor, @secondaryTextColor);
-
-            &::after {
-                width: 90%;
-                opacity: 1;
-            }
-        }
-    }
-
     &--hamburger {
         display: block;
         z-index: @z-index-5;
@@ -86,13 +64,13 @@
             opacity: 1;
 
             &::after {
-                .colorVar(color, --darkPrimaryColor, @darkPrimaryColor);
+                .colorVar(color, --secondaryTextColor, @secondaryTextColor);
             }
 
             .hamburger-inner,
             .hamburger-inner::before,
             .hamburger-inner::after {
-                .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+                .colorVar(background-color, --secondaryTextColor, @secondaryTextColor);
             }
         }
 

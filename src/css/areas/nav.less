@@ -125,6 +125,13 @@
         bottom: -@font-size-l;
     }
 
+    &:hover {
+
+        &::after {
+            .colorVar(color, --primaryColor, @primaryColor);
+        }
+    }
+
     @media @phone {
         top: auto;
         bottom: 1rem;
