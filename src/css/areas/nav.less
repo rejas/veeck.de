@@ -120,13 +120,17 @@
     &::after {
         content: 'MENU';
         position: absolute;
-        left: -3px;
+        left: -5px;
         bottom: -@font-size-l;
     }
 
     @media @phone {
         top: auto;
         bottom: 1rem;
+
+        &::after {
+            content: '';
+        }
     }
 }
 
