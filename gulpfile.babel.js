@@ -17,16 +17,16 @@ import gcachebust       from    'gulp-cache-bust';
 import gconnect         from    'gulp-connect';
 import gplugins         from    'gulp-load-plugins';
 //import grelease         from    'gulp-release-it';
-import assemble         from    'assemble';
-import assemblevars     from    'assemble-middleware-page-variable';
-import log              from    'fancy-log';
 
 /**
  * OTHER PLUGINS
  */
 
+import assemble         from    'assemble';
+import assemblevars     from    'assemble-middleware-page-variable';
 import del              from    'del';
 import eslintformat     from    'eslint-friendly-formatter';
+import flog             from    'fancy-log';
 import ftp              from    'vinyl-ftp';
 import imageminMozjpeg  from    'imagemin-mozjpeg';
 import webpack          from    'webpack-stream';
@@ -150,7 +150,7 @@ gulp.task('upload:page', () => {
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
-                log:        log
+                log:        flog
             });
 
             gulp.src([`${dirs.dist}/**/*`, `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`],
@@ -171,7 +171,7 @@ gulp.task('upload:images', () => {
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
-                log:        log
+                log:        flog
             });
 
             gulp.src([`${dirs.dist}/img/**/*`],
@@ -192,7 +192,7 @@ gulp.task('upload:files', () => {
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
-                log:        log
+                log:        flog
             });
 
             gulp.src([`${dirs.dist}/files/**/*`],
@@ -223,7 +223,7 @@ gulp.task('prepare:images', () => {
 });
 
 gulp.task('prepare:modernizr', () => {
-    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/multilevelmenu/js/main.js`, `!${dirs.src}/js/vendor/**/*.js`])
+    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/multilevelmenu/src/multilevelmenu.js`, `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.modernizr('modernizr.min.js', {
             'options': config.modernizr
         }))
