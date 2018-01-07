@@ -5,7 +5,7 @@
 .header {
     z-index: @z-index-4;
 
-    .bg-img {
+    &__image {
         position: absolute;
         overflow: hidden;
         top: 0;
@@ -21,7 +21,23 @@
         }
     }
 
-    &--wrapper {
+    &__headline {
+        border: @border-thickness solid @color-transparent;
+        border-radius: @border-radius-md;
+        .blur();
+        .boxshadow(0);
+        .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
+        .colorVar(color, --primaryTextColor, @primaryTextColor);
+        padding: 1rem;
+        text-align: center;
+        word-wrap: break-word;
+    }
+
+    &__subtitle {
+        text-transform: uppercase;
+    }
+
+    &__title {
         z-index: @z-index-1;
         margin: 0 auto;
         width: 100%;
@@ -30,50 +46,5 @@
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
-
-        .headline {
-
-            @media @phone {
-
-                .trigger::before {
-                    display: none;
-                }
-            }
-        }
-    }
-
-    &--title {
-        border: @border-thickness solid @color-transparent;
-        border-radius: @border-radius-md;
-        .boxshadow(1);
-        .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
-        .colorVar(color, --primaryTextColor, @primaryTextColor);
-        padding: 1rem;
-        text-align: center;
-        word-wrap: break-word;
-    }
-
-    &--subtitle {
-        text-transform: uppercase;
-    }
-}
-
-.shareList {
-    position: fixed;
-    left: 1rem;
-    bottom: -4rem;
-
-    .modify & {
-        bottom: 1rem;
-    }
-}
-
-.btn--up {
-    position: fixed;
-    bottom: -4rem;
-    right: 1rem;
-
-    .modify & {
-        bottom: 1rem;
     }
 }

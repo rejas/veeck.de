@@ -1,19 +1,23 @@
 'use strict';
 
-import 'cookieconsent/src/cookieconsent';
-import 'imagelightbox';
+// Libraries
+import 'cookieconsent';
 
 import BrowserUpdate    from 'browser-update';
+import HalkaBox         from 'halkabox';
 import Konami           from 'konami-code.js';
+import VanillaTilt      from 'vanilla-tilt';
 
+// Modules
 import Colors           from './modules/colors';
 import Input            from './modules/input';
-import Intro            from './modules/intro';
+//import Intro            from './modules/intro';
 import Lazy             from './modules/lazy';
 import Nav              from './modules/nav';
 import Polyfill         from './modules/polyfill';
 
-import styles_webpack   from '../css/main.less';
+// Styles
+import '../css/main.less';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -45,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * ArticleIntroEffect
      */
-    Intro.init();
+    //Intro.init();
 
     /**
      * Colors
@@ -75,22 +79,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /**
-     * ImageLightBox
+     * Halka Image Lightbox
      */
-    $('.js-gallery__image').imageLightbox({
-        activity:       true,
-        caption:        true,
-        fullscreen:     true,
-        lockBody:       true,
-        navigation:     true,
-        overlay:        true
-    });
+    HalkaBox.run('js-gallery__image');
 
     /**
-     * Travel picture angle randomization
+     * Travel picture transformations
      */
     document.querySelectorAll('.travel__article .figure--popup').forEach((figure) => {
         figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
+    });
+
+    VanillaTilt.init(document.querySelectorAll('.travel__article .figure--popup'), {
+        max: 10,
+        scale: 1.1,
+        speed: 250
     });
 
     /**
@@ -110,4 +113,3 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
     });
 });
-

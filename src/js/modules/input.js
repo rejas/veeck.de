@@ -2,27 +2,23 @@
  *
  */
 
-function onInputFocus (ev) {
-    ev.target.parentNode.classList.add('input--filled');
-}
-
-function onInputBlur (ev) {
-    if (ev.target.value.trim() === '') {
-        ev.target.parentNode.classList.remove('input--filled');
-    }
-}
-
 let Input = {
 
-    init: function () {
+    init: () => {
         document.querySelectorAll('.js-input__field--manami').forEach((inputEl) => {
             // in case the input is already filled..
             if (inputEl.value.trim() !== '') {
                 inputEl.parentNode.classList.add('input--filled');
             }
             // events:
-            inputEl.addEventListener('focus', onInputFocus);
-            inputEl.addEventListener('blur', onInputBlur);
+            inputEl.addEventListener('focus', (event) => {
+                event.target.parentNode.classList.add('input--filled');
+            });
+            inputEl.addEventListener('blur', (event) => {
+                if (event.target.value.trim() === '') {
+                    event.target.parentNode.classList.remove('input--filled');
+                }
+            });
         });
     }
 };

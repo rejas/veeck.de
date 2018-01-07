@@ -12,3 +12,27 @@ footer {
         text-align: center;
     }
 }
+
+.shareList {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+
+    .modify & {
+        bottom: -4rem;
+    }
+}
+
+.btn--up {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+
+    .modify & {
+        bottom: -4rem;
+    }
+
+    @media @phone {
+        right: calc(50vw - 2rem);
+    }
+}

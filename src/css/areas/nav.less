@@ -3,6 +3,7 @@
 .navigation {
     position: fixed;
     left: -@nav-width;
+    top: 0;
     z-index: @z-index-4;
     height: 100vh;
     width: @nav-width;
@@ -26,14 +27,14 @@
         }
 
         .menu__breadcrumbs {
-            .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
             height: @btn-size-lg;
             padding-top: 1rem;
             margin-right: @btn-size-lg;
             top: 1rem;
 
-            &:before {
-                .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
+            &::before {
+                .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
                 content: '';
                 height: 1rem;
                 width: @nav-width;
@@ -45,15 +46,39 @@
         }
 
         .menu__item {
+            position: relative;
             width: calc(100% - 35px);
 
+            &::after,
+            &::before {
+                .transform(all);
+                content: '';
+                height: @border-thickness;
+                .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+                width: 100%;
+                position: absolute;
+                right: -100%;
+            }
+
+            &::after {
+                top: calc(100% - 2 * @border-thickness);
+            }
+
+            &::before {
+                top: (2 * @border-thickness);
+            }
+
             &:hover {
-                background: linear-gradient(to bottom, rgba(0,0,0, 0) 0%, rgba(0,0,0, 0.2) 20%, rgba(0,0,0, 0.2) 80%, rgba(0,0,0, 0) 100%);
+
+                &::after,
+                &::before {
+                    right: 0;
+                }
             }
         }
 
         .menu__wrap {
-            .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
             top: 4rem;
         }
 
@@ -67,14 +92,14 @@
         .menu__link,
         .menu__link[data-submenu]::after {
             border-bottom: 0;
-            color: @colorDark;
+            .colorVar(color, --primaryColor, @primaryColor);
         }
 
         .menu__link[data-submenu]::after {
             padding-right: 1rem;
         }
 
-        .menu__breadcrumbs a:not(:last-child):after {
+        .menu__breadcrumbs a:not(:last-child)::after {
             color: @colorDark;
 
             &:hover {
@@ -89,15 +114,36 @@
 }
 
 .btn--openMenu {
-    position: absolute;
-    right: calc(2rem - 100vw);
+    position: fixed;
+    right: 1rem;
     top: 1rem;
 
     &::after {
         content: 'MENU';
         position: absolute;
-        left: -3px;
+        left: -5px;
         bottom: -@font-size-l;
+    }
+
+    &:hover {
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            .colorVar(background-color, --secondaryTextColor, @secondaryTextColor);
+        }
+
+        &::after {
+            .colorVar(color, --primaryColor, @primaryColor);
+        }
+    }
+
+    @media @phone {
+        top: auto;
+        bottom: 1rem;
+
+        &::after {
+            content: '';
+        }
     }
 }
 
@@ -106,16 +152,22 @@
     right: 0;
     top: 1rem;
     background-color: transparent;
+    .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
+    border: @border-thickness solid;
     border-right: @border-thickness solid transparent;
     border-radius: 0;
+    .boxshadow(0);
 
     &:hover {
+        .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
         border-right-color: transparent;
+        .boxshadow(0);
+        transform: none;
 
-        &::after,
-        &::before {
-            background-color: transparent;
-
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
         }
     }
 
@@ -123,7 +175,7 @@
         content: '';
         height: 100vh;
         width: @border-thickness;
-        .colorVar(background-color, --primaryColor, @primaryColor);
+        .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
         position: absolute;
         top: calc(3rem - (2 * @border-thickness));
         right: -@border-thickness;
@@ -133,7 +185,7 @@
         content: '';
         height: 2rem;
         width: @border-thickness;
-        .colorVar(background-color, --primaryColor, @primaryColor);
+        .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
         position: absolute;
         top: -2rem;
         right: -@border-thickness;

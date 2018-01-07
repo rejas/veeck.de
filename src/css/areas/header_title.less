@@ -2,9 +2,9 @@
  * Title
  */
 
-.title-animated {
+.title--animated {
 
-    .header--title {
+    .header__headline {
         background-color: @lightPrimaryColor;
         font-size: 4rem;
         line-height: 3rem;
@@ -46,16 +46,16 @@
     }
 }
 
-.title-colorfont {
+.title--colorfont {
 
-    .header--title {
+    .header__headline {
         font-family: @font-color;
     }
 }
 
-.title-cake {
+.title--cake {
 
-    .header--title {
+    .header__headline {
         font-family: 'Poppins', sans-serif;
         text-transform: uppercase;
         font-size: 8vw;
@@ -79,7 +79,7 @@
             left: 0;
             width: 100%;
             top: 0;
-            z-index: 5;
+            z-index: @z-index-5;
         }
 
         &::before {

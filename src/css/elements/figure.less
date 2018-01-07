@@ -13,23 +13,23 @@
         width: 100%;
     }
 
-    &.fig_center {
+    &--center {
         margin: 0 auto;
         max-width: 100%;
     }
 
     @media @desktop, @tablet {
 
-        &.fig_full {
+        &--full {
             margin: 0.5rem 0 1rem;
         }
 
-        &.fig_left {
+        &--left {
             float: left;
             margin: 0.5em 1rem 1rem 0;
         }
 
-        &.fig_right {
+        &--right {
             float: right;
             margin: 0.5rem 0 1rem 1rem;
         }
@@ -37,22 +37,22 @@
 
     @media @desktop {
 
-        &.portrait {
+        &--portrait {
             width: 33%;
         }
 
-        &.landscape {
+        &--landscape {
             width: 50%;
         }
     }
 
     @media @tablet {
 
-        &.portrait {
+        &--portrait {
             width: 33%;
         }
 
-        &.landscape {
+        &--landscape {
             width: 50%;
         }
     }
@@ -205,8 +205,9 @@
             box-shadow: 4px 4px 8px -4px @color-transparentDark;
             .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
             transform: rotate(var(--figure-angle-seed));
+            transform-style: preserve-3d;
 
-            &:before {
+            &::before {
                 content: '';
                 display: block;
                 position: absolute;
@@ -216,37 +217,23 @@
                 background-color: @colorFigure;
                 opacity: 0.5;
             }
-        }
 
-        @media @desktop {
-            .transform(all);
-            transform: translateY(0) scale(1, 1);
-            transform-origin: center;
-            transform-style: preserve-3D;
-
-            &:hover {
-                .boxshadow(3);
-                transform: translateY(0px) scale(1.05, 1.05);
-                transform-origin: center;
-                transform-style: preserve-3D;
+            figcaption {
+                transform: translateZ(30px);
             }
         }
     }
 }
 
-.imagelightbox-wrapper {
+.hb-wrapper {
 
-    .imagelightbox-loading {
-        border-radius: @border-radius-md;
-        .colorVar(background-color, --accentColor, @accentColor);
-    }
+    .hb-main-container {
 
-    .imagelightbox-nav {
-        border-radius: @border-radius-md;
-        .colorVar(background-color, --accentColor, @accentColor);
+        button {
 
-        @media @phone {
-            display: none;
+            svg {
+                .colorVar(fill, --darkPrimaryColor, @darkPrimaryColor);
+            }
         }
     }
 }

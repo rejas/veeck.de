@@ -4,20 +4,21 @@
  * CONFIGS
  */
 
-import config           from    './config/gulp.config.js';
-import webpackConfig    from    './config/webpack.config.js';
+import config               from './config/gulp.config.js';
+import webpackDevConfig     from './config/webpack.dev.config.js';
+import webpackProdConfig    from './config/webpack.prod.config.js';
 
 /**
  * GULP PLUGINS
  */
 
 import gulp             from    'gulp';
-import gutil            from    'gulp-util';
 import gplugins         from    'gulp-load-plugins';
 import grelease         from    'gulp-release-it';
 import gcachebust       from    'gulp-cache-bust';
 import assemble         from    'assemble';
 import assemblevars     from    'assemble-middleware-page-variable';
+import log              from    'fancy-log';
 
 /**
  * OTHER PLUGINS
@@ -34,7 +35,7 @@ import webpack          from    'webpack-stream';
  * CONSTANTS
  */
 
-const dirs        = config.directories,
+const dirs      = config.directories,
     plugins     = gplugins(),
     app         = assemble();
 
@@ -78,9 +79,9 @@ gulp.task('check:html', ['assemble'], () => {
 });
 
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
-// You can enable or disable default eslint options in the .eslintrc file
 gulp.task('check:js', () => {
-    return gulp.src([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
+    return gulp.src(['./gulpfile.babel.js', './config/*.config.js',
+        `${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.eslint({
             configFile: `${dirs.config}/.eslintrc.json`
         }))
@@ -88,7 +89,7 @@ gulp.task('check:js', () => {
         .pipe(plugins.eslint.failOnError());
 });
 
-// Detect errors and potential problems in your css code
+// Detect errors and potential problems in your CSS code
 gulp.task('check:less', () => {
     return gulp.src([`${dirs.src}/css/**/*.less`])
         .pipe(plugins.lesshint({
@@ -108,17 +109,16 @@ gulp.task('upload:page', ['default'], () => {
             type: 'password',
             name: 'pw',
             message: 'enter ftp password'
-        }, function(result) {
+        }, (result) => {
             const conn = ftp.create({
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
-                log:        gutil.log
+                log:        log
             });
 
-            gulp.src([`${dirs.dist}/**/*`,
-                `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`], {
-                base: 'dist', buffer: false, dot: true})
+            gulp.src([`${dirs.dist}/**/*`, `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`],
+                { base: 'dist', buffer: false, dot: true })
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/veeck'));
         }));
@@ -135,10 +135,11 @@ gulp.task('upload:images', () => {
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
-                log:        gutil.log
+                log:        log
             });
 
-            gulp.src([`${dirs.dist}/img/**/*`], { base: 'dist', buffer: false } )
+            gulp.src([`${dirs.dist}/img/**/*`],
+                { base: 'dist', buffer: false } )
                 .pipe(conn.differentSize('/')) // filter for different file size
                 .pipe(conn.dest('/veeck'));
         }));
@@ -155,10 +156,11 @@ gulp.task('upload:files', () => {
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
-                log:        gutil.log
+                log:        log
             });
 
-            gulp.src([`${dirs.dist}/files/**/*`], { base: 'dist', buffer: false } )
+            gulp.src([`${dirs.dist}/files/**/*`],
+                { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/veeck'));
         }));
@@ -168,24 +170,11 @@ gulp.task('upload:files', () => {
  * PREPARE TASKS
  */
 
-gulp.task('prepare:favicons', function () {
-    return gulp.src('org/favicon.png').pipe(plugins.favicons({
-        appName: 'My Homepage',
-        appDescription: 'This is my homepage',
-        developerName: 'Veeck',
-        developerURL: 'https://www.veeck.de/',
-        background: '#FFFFFF',
-        path: '/favicons',
-        url: 'https://www.veeck.de/',
-        display: 'standalone',
-        orientation: 'portrait',
-        logging: false,
-        theme_color: '#E6E6E6',
-        online: false,
-        html: '../../../src/assemble/partials/html/icons.html',
-        pipeHTML: true,
-        replace: true
-    }))
+gulp.task('prepare:favicons', () => {
+    return gulp.src('org/favicon.png')
+        .pipe(plugins.favicons(
+            config.favicons
+        ))
         .pipe(gulp.dest('./src/page/favicons'));
 });
 
@@ -211,49 +200,38 @@ gulp.task('prepare:modernizr', () => {
         .pipe(gulp.dest(`${dirs.src}/js/vendor/`));
 });
 
-gulp.task('scale:max', () => {
-    return gulp.src(`${dirs.org}/img/backgrounds/**/*`)
-        .pipe(plugins.jimp({
-            '': {
-                scaleToFit: { width: 1920, height: 1920 },
-                quality: 60
-            }
-        }))
-        .pipe(gulp.dest(`${dirs.src}/img/backgrounds`));
-});
-
-gulp.task('scale:medium', () => {
-    return gulp.src(`${dirs.org}/img/travel/europe/**/*`)
-        .pipe(plugins.jimp({
-            '.medium': {
-                scaleToFit: { width: 1920, height: 1920 },
-                quality: 60
-            }
-        }))
-        .pipe(gulp.dest(`${dirs.src}/img/travel/europe`));
-});
-
-gulp.task('scale:small', () => {
-    return gulp.src(`${dirs.org}/img/travel/europe/**/*`)
-        .pipe(plugins.jimp({
-            '.small': {
-                scaleToFit: { width: 448, height: 387 },
-                quality: 60
-            }
-        }))
-        .pipe(gulp.dest(`${dirs.src}/img/travel/europe`));
-});
-
-gulp.task('scale:placeholder', ['scale:small'], () => {
-    return gulp.src(`${dirs.src}/img/travel/europe/**/*.small.jpg`)
-        .pipe(plugins.jimp({
-            '.placeholder': {
-                scaleToFit: { width: 448, height: 387 },
-                blur: 40,
-                quality: 30
-            }
-        }))
-        .pipe(gulp.dest(`${dirs.src}/img/travel/europe`));
+gulp.task('scale:images', () => {
+    return gulp.src(`${dirs.org}/img/**/*.jpg`)
+        .pipe(plugins.responsive({
+            '**/*.jpg': [{
+                width: 1920,
+                height: 1920,
+                max: true,
+                withoutEnlargement: false,
+                rename: {
+                    suffix: '.medium'
+                },
+            }, {
+                width: 448,
+                height: 387,
+                max: true,
+                withoutEnlargement: false,
+                rename: {
+                    suffix: '.small'
+                },
+            }, {
+                width: 448,
+                height: 387,
+                max: true,
+                withoutEnlargement: false,
+                blur: 20,
+                quality: 30,
+                rename: {
+                    suffix: '.placeholder'
+                },
+            }]
+        }, config.responsive))
+        .pipe(gulp.dest(`${dirs.src}/img`));
 });
 
 /**
@@ -261,14 +239,20 @@ gulp.task('scale:placeholder', ['scale:small'], () => {
  */
 
 gulp.task('clean', (cb) => {
-    del([dirs.dist]).then(function () { cb(); });
+    del([dirs.dist, dirs.tmp]).then(() => { cb(); });
 });
 
-gulp.task('webpack', () => {
+gulp.task('webpack:dev', () => {
     return gulp.src(`${dirs.src}/src/js/main.js`)
-        .pipe(webpack( webpackConfig, require('webpack')))
+        .pipe(webpack(webpackDevConfig, require('webpack')))
         .pipe(gulp.dest(dirs.dist))
         .pipe(plugins.connect.reload());
+});
+
+gulp.task('webpack:prod', () => {
+    return gulp.src(`${dirs.src}/src/js/main.js`)
+        .pipe(webpack(webpackProdConfig, require('webpack')))
+        .pipe(gulp.dest(dirs.dist));
 });
 
 app.onLoad(/\.(md|hbs)$/, assemblevars(app));
@@ -281,13 +265,13 @@ gulp.task('load', (cb) => {
     app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
     app.option('layout', 'default');
 
-    app.preLayout( /./, function (view, next) {
+    app.preLayout(/./, (view, next) => {
         // if the layout is not defined, use the default one ...
         if (!view.layout && app.options.layout) {
             view.layout = app.options.layout;
         }
         next();
-    } );
+    });
 
     cb();
 });
@@ -328,9 +312,9 @@ gulp.task('connect', () => {
     });
 });
 
-gulp.task('watch', () => {
+gulp.task('watch', ['connect'], () => {
     gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.less`], [
-        'webpack'
+        'webpack:dev'
     ]);
     gulp.watch([`${dirs.assemble}/**/*.hbs`], [
         'assemble'
@@ -341,18 +325,18 @@ gulp.task('watch', () => {
  * MAIN TASKS
  */
 
-gulp.task('dev',        ['default', 'connect', 'watch']);
-
 gulp.task('check',      ['check:html', 'check:js', 'check:less']);
 
 gulp.task('copy',       ['copy:files', 'copy:images', 'copy:vendorscripts']);
 
-gulp.task('default',    (cb) => { runSequence('clean', 'copy', 'webpack', 'html', cb); });
+gulp.task('default',    (cb) => { runSequence('clean', 'check', 'copy', 'webpack:prod', 'html', cb); });
+
+gulp.task('dev',        (cb) => { runSequence('clean', 'copy', 'webpack:dev', 'html', 'watch', cb); });
+
+gulp.task('prepare',    ['check', 'prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
+
+gulp.task('scale',      ['scale:images']);
 
 gulp.task('upload',     ['upload:page']);
-
-gulp.task('scale',      ['scale:medium', 'scale:small', 'scale:placeholder']);
-
-gulp.task('prepare',    ['prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
 
 grelease(gulp);
