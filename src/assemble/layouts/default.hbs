@@ -31,19 +31,15 @@
         </script>
     </head>
     <body>
-        <div class="grid">
+        {{> header }}
 
-            {{> header }}
+        {{> nav }}
 
-            {{> nav }}
+        <main class="content">
+            {% body %}
+        </main>
 
-            <main class="content">
-                {% body %}
-            </main>
-
-            {{> footer }}
-
-        </div>
+        {{> footer }}
 
         <script src="js/vendor.min.js"></script>
         <!-- inject:js -->
