@@ -7,8 +7,9 @@ img: index
 img-color: 5a8106
 last-modified: 2017-03-06
 ---
-<article class="article">
-    <section>
+<article class="article article--grid">
+
+    <section class="article__box">
         <h2 class="h2">what is this</h2>
         <p>Welcome to my private homepage. you can take the title as a strong hint on what you can find here:</p>
         <ul class="article__list">
@@ -18,7 +19,25 @@ last-modified: 2017-03-06
         </ul>
     </section>
 
-    <section>
+    <section class="article__box">
+        <h2 class="h2">what i do</h2>
+
+        <p>Lorem Ipsum etc pp</p>
+    </section>
+
+    <section class="article__box">
+        <h2 class="h2">where have I been</h2>
+        <figure class="figure figure--basic figure--center figure--landscape">
+            <!-- http://www.world66.com/community/mymaps/worldmap/CRBEFRHRDEJPLUHUBRSGTZPTIDNZPATHROPLVACHITCZAUATNLIECVESMCMYUSUKUAMA.gif -->
+            <img src="/img/travel/worldmap.png"
+                 alt="a map of the countries i have visited so far" class="worldmap"/>
+            <figcaption class="figure__caption figure__caption--highlighted">visited: 34 (14%)</figcaption>
+        </figure>
+
+        <a>link to a random travel pages</a>
+    </section>
+
+    <section class="article__box">
         <h2 class="h2">what has changed</h2>
         <ul class="article__list">
             <li><time datetime="2017-12-07">2017/12/07: </time>Added infos about my small React project: <a class="article__link" href="personal_software.html#hulai">How unlucky am I?</a></li>
@@ -53,15 +72,5 @@ last-modified: 2017-03-06
             <li><span>2008/06/12:</span> Fourth show is online. And we’re on <a href="http://www.myspace.com/diedaveundveeckshow" class="article__link">MySpace</a> now.</li>
             -->
         </ul>
-    </section>
-
-    <section>
-        <h2 class="h2">where have I been</h2>
-        <figure class="figure figure--basic figure--center figure--landscape">
-            <!-- http://www.world66.com/community/mymaps/worldmap/CRBEFRHRDEJPLUHUBRSGTZPTIDNZPATHROPLVACHITCZAUATNLIECVESMCMYUSUKUAMA.gif -->
-            <img src="/img/travel/worldmap.png"
-                 alt="a map of the countries i have visited so far" class="worldmap"/>
-            <figcaption class="figure__caption figure__caption--highlighted">visited: 34 (14%)</figcaption>
-        </figure>
     </section>
 </article>
