@@ -86,11 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Travel picture transformations
      */
-    document.querySelectorAll('.travel__article .figure--popup').forEach((figure) => {
+    document.querySelectorAll('.js-travel__picture').forEach((figure) => {
         figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 
-    VanillaTilt.init(document.querySelectorAll('.travel__article .figure--popup'), {
+    VanillaTilt.init(document.querySelectorAll('.js-travel__picture'), {
         max: 10,
         scale: 1.1,
         speed: 250
