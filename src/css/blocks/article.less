@@ -27,6 +27,21 @@
         }
     }
 
+    &--gridded {
+        display: grid;
+        grid-template-columns: 1fr @lg 1fr;
+
+        > * {
+            grid-column: 2;
+        }
+
+        > .figure--fullwidth {
+            grid-column: 1 / -1;
+            margin: 20px 0;
+        }
+    }
+
+
     &__box {
         display: flex;
         flex-wrap: wrap;
@@ -138,3 +153,4 @@
         width: 100%;
     }
 }
+
