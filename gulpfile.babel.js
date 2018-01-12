@@ -211,7 +211,7 @@ gulp.task('prepare:favicons', () => {
         .pipe(plugins.favicons(
             config.favicons
         ))
-        .pipe(gulp.dest('./src/page/favicons'));
+        .pipe(gulp.dest(`${dirs.src}/page/favicons`));
 });
 
 gulp.task('prepare:images', () => {
@@ -227,7 +227,7 @@ gulp.task('prepare:modernizr', () => {
         .pipe(plugins.modernizr('modernizr.min.js', {
             'options': config.modernizr
         }))
-        .pipe(gulp.dest(`${dirs.src}/js/vendor/`));
+        .pipe(gulp.dest(`${dirs.src}/js/vendor`));
 });
 
 gulp.task('prepare:sitemap', gulp.series('assemble', () => {
