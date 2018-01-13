@@ -107,12 +107,11 @@ gulp.task('copy:vendorscripts', () => {
 // Detect errors and potential problems in your html code
 gulp.task('check:html', gulp.series('assemble', () => {
     return gulp.src([`${dirs.dist}/*.html`])
-        .pipe(plugins.htmlhint({
-            htmlhintrc: `${dirs.config}/.htmlhintrc.json`
-        }))
-        .pipe(plugins.htmlhint.reporter())
-        .pipe(plugins.htmlhint.failOnError());
-}));
+        .pipe(plugins.htmllint({
+            failOnError: true,
+            config: `${dirs.config}/.htmllintrc.json`
+        }));
+});
 
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
 gulp.task('check:js', () => {
