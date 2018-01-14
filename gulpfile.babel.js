@@ -327,17 +327,17 @@ gulp.task('watch', gulp.series('connect', () => {
 /**
  * MAIN TASKS
  */
-gulp.task('check',      gulp.series('check:html', 'check:js', 'check:less'));
+gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:less'));
 
-gulp.task('copy',       gulp.series('copy:files', 'copy:images', 'copy:vendorscripts'));
+gulp.task('copy',       gulp.parallel('copy:files', 'copy:images', 'copy:vendorscripts'));
 
 gulp.task('default',    gulp.series('clean', 'check', 'copy', 'webpack:prod', 'html'));
 
 gulp.task('dev',        gulp.series('clean', 'copy', 'webpack:dev', 'html', 'watch'));
 
-gulp.task('prepare',    gulp.series('check', 'prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap'));
+gulp.task('prepare',    gulp.parallel('check', 'prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap'));
 
-gulp.task('scale',      gulp.series('scale:images'));
+gulp.task('scale',      gulp.parallel('scale:images'));
 
 gulp.task('upload',     gulp.series('default', 'upload:page'));
 
