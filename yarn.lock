@@ -5158,9 +5158,9 @@ gulp-json-editor@^2.2.1:
     js-beautify "~1.5.4"
     through2 "~0.5.0"
 
-gulp-lesshint@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/gulp-lesshint/-/gulp-lesshint-4.0.0.tgz#55576bf69beeda2b14b1b2572b3a56233363cceb"
+gulp-lesshint@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/gulp-lesshint/-/gulp-lesshint-4.1.0.tgz#b7f56208e2b8c9fe89585868f8c3d8ac219aef6c"
   dependencies:
     lesshint "^4.0.0"
     lesshint-reporter-stylish "^2.0.0"
