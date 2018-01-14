@@ -5196,9 +5196,9 @@ gulp-prompt@^1.0.1:
     inquirer "^3.3.0"
     lodash.template "^4.4.0"
 
-gulp-release-it@^1.1.14:
+"gulp-release-it@https://github.com/rejas/gulp-release.git#gulp4":
   version "1.1.14"
-  resolved "https://registry.yarnpkg.com/gulp-release-it/-/gulp-release-it-1.1.14.tgz#db3268113df84c93e2d04537b2c99e306f3fd0cb"
+  resolved "https://github.com/rejas/gulp-release.git#4c1b537ff5571063faf0f962653d3a6c2592696e"
   dependencies:
     ansi-colors "^1.0.1"
     fancy-log "^1.3.2"
@@ -5207,7 +5207,6 @@ gulp-release-it@^1.1.14:
     gulp-prompt "^1.0.1"
     lodash "^4.17.4"
     map-stream "^0.0.7"
-    run-sequence "^2.2.1"
     semver "^5.4.1"
     string "^3.3.3"
     yargs "^10.1.1"
@@ -9971,14 +9970,6 @@ run-async@^2.2.0:
   resolved "https://registry.yarnpkg.com/run-async/-/run-async-2.3.0.tgz#0371ab4ae0bdd720d4166d7dfda64ff7a445a6c0"
   dependencies:
     is-promise "^2.1.0"
-
-run-sequence@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/run-sequence/-/run-sequence-2.2.1.tgz#1ce643da36fd8c7ea7e1a9329da33fc2b8898495"
-  dependencies:
-    chalk "^1.1.3"
-    fancy-log "^1.3.2"
-    plugin-error "^0.1.2"
 
 rx-lite-aggregates@^4.0.8:
   version "4.0.8"
