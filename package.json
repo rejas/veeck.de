@@ -38,7 +38,7 @@
   "devDependencies": {
     "assemble": "^0.24.3",
     "assemble-middleware-page-variable": "^0.1.0",
-    "autoprefixer": "^7.2.4",
+    "autoprefixer": "^7.2.5",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
@@ -58,7 +58,7 @@
     "gulp-extname": "^0.2.2",
     "gulp-favicons": "^2.2.7",
     "gulp-flatten": "^0.4.0",
-    "gulp-htmlhint": "git+https://github.com/rejas/gulp-htmlhint.git#gutil",
+    "gulp-htmllint": "^0.0.15",
     "gulp-htmlmin": "^4.0.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-inject": "^4.3.0",
@@ -82,7 +82,7 @@
     "url-loader": "^0.6.2",
     "vinyl-ftp": "^0.6.0",
     "webpack": "^3.10.0",
-    "webpack-bundle-analyzer": "^2.9.1",
+    "webpack-bundle-analyzer": "^2.9.2",
     "webpack-merge": "^4.1.1",
     "webpack-stream": "^4.0.0"
   }

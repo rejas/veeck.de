@@ -23,7 +23,13 @@ let Colors = {
     init: () => {
         //TODO Replace with Modernizr-test when it comes out
         if (window.CSS && CSS.supports('color', 'var(--primary)')) {
-            let newColor = document.querySelector('header').getAttribute('data-color');
+            const header = document.querySelector('header');
+
+            if (!header) {
+                return;
+            }
+
+            let newColor = header.getAttribute('data-color');
 
             //TODO add random use of header or random color
             if (!newColor) {
