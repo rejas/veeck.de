@@ -1,0 +1,11 @@
+{
+    "attr-bans": ["align", "background", "bgcolor", "border", "longdesc", "marginwidth", "marginheight", "scrolling", "style"],
+    "attr-name-style": false,
+    "attr-req-value": false,
+    "class-style": "none",
+    "id-class-style": false,
+    "indent-style": false,
+    "indent-width": false,
+    "line-end-style": false,
+    "tag-self-close": false
+}

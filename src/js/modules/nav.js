@@ -8,6 +8,10 @@ let Nav = {
             menuEl = document.getElementById('ml-menu'),
             btnEles = document.querySelectorAll('.js-btn--hamburger');
 
+        if (!menuEl) {
+            return;
+        }
+
         new MLMenu(menuEl, {
             breadcrumbsCtrl: true,          // show breadcrumbs
             initialBreadcrumb: 'menu',      // initial breadcrumb text

@@ -50,7 +50,7 @@ last-modified: 2017-07-09
                 But that isn't a crisis but merely an opportunity to buy a brandnew Model 3. So a few days later I have
                 a package in the mailbox and the installation process works flawlessly. In the meantime I started to
                 assemble...</p>
-            <img class="article__image" src="/img/projects/magicmirror/projMM_03_install.small.jpg"/>
+            <img class="article__image" src="/img/projects/magicmirror/projMM_03_install.small.jpg" alt="Installing the OS">
         </div>
 
         <h3 class="h3">Day 101 - A trip to the hardware store</h3>
@@ -65,14 +65,14 @@ last-modified: 2017-07-09
                     <li>Screws and cables</li>
                 </ul>
             </div>
-            <img class="article__image" src="/img/projects/magicmirror/projMM_01_fitting.small.jpg"/>
+            <img class="article__image" src="/img/projects/magicmirror/projMM_01_fitting.small.jpg" alt="Fitting the display">
         </div>
         <div class="article__box">
             <p class="article__text">A quick trip to the local hardware store yields a nearly perfectly fitting frame.
                 The sheet is ordered on the internet. While I wait for it to arrive, I already start to assemble the
                 display into the frame.
             </p>
-            <img class="article__image" src="/img/projects/magicmirror/projMM_02_assembled.small.jpg"/>
+            <img class="article__image" src="/img/projects/magicmirror/projMM_02_assembled.small.jpg" alt="Added a PI">
         </div>
 
         <h3 class="h3">Day 102 - Do it yourself</h3>
@@ -111,7 +111,7 @@ last-modified: 2017-07-09
         <h3 class="h3">Day 104 - Hanging around</h3>
         <div class="article__box">
             <p class="article__text">So this is how it currently looks like:</p>
-            <img class="article__image" src="/img/projects/magicmirror/projMM_04_wall.small.jpg"/>
+            <img class="article__image" src="/img/projects/magicmirror/projMM_04_wall.small.jpg" alt="Hanging on the wall">
         </div>
 
         <h3 class="h3">Days to come - Listen to me!</h3>
@@ -125,7 +125,7 @@ last-modified: 2017-07-09
             1 [CameraB409241]: USB-Audio - USB Camera-B4.09.24.1
                 OmniVision Technologies, Inc. USB Camera-B4.09.24.1 at usb-3f980000.usb-1.3, hi</pre>
         <p>but how do I find out if it actually records?
-            <a class="article__link" href="https://www.raspberrypi.org/forums/viewtopic.php?f=38&t=15851#p180474">NielsMayer</a> has some good
+            <a class="article__link" href="https://www.raspberrypi.org/forums/viewtopic.php?f=38&amp;t=15851#p180474">NielsMayer</a> has some good
             tips on how to get your mic configured and also wrote this command:</p>
         <pre>arecord -vv /dev/null -r 16000 -f S16_LE -c 4 -D iec958:CARD=CameraB409241,DEV=0 /dev/null &lt; /dev/null
             Aufnahme: WAVE '/dev/null' : Signed 16 bit Little Endian, Rate: 16000 Hz, 4 Kanäle
