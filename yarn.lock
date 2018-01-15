@@ -5315,9 +5315,9 @@ halkabox@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/halkabox/-/halkabox-1.2.0.tgz#d10b28bd72ce9caad57228fb3118d3f011257696"
 
-hamburgers@^0.9.1:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/hamburgers/-/hamburgers-0.9.1.tgz#49bc3bca667a693a8458388c9ef265ae611348d5"
+hamburgers@^0.9.3:
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/hamburgers/-/hamburgers-0.9.3.tgz#73b3d299652a028647ca68b2957df172c76cc636"
 
 handlebars@^4.0.6:
   version "4.0.11"
