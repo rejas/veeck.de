@@ -82,6 +82,21 @@
     }
 
     &__link {
+        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+
+        &:hover {
+            transform: translateY(-1px);
+            .boxshadow(2);
+            //.colorVar(color, --secondaryTextColor, @secondaryTextColor);
+
+            > svg {
+                .colorVar(stroke, --secondaryTextColor, @secondaryTextColor);
+            }
+        }
+    }
+
+    /*
+    &__link {
         position: relative;
         .transform(all);
 
@@ -111,6 +126,7 @@
             color: @primaryTextColor;
         }
     }
+    */
 
     &__list {
         list-style: none;
