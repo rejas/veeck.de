@@ -331,12 +331,12 @@ gulp.task('copy',       gulp.parallel('copy:files', 'copy:images', 'copy:vendors
 
 gulp.task('default',    gulp.series('clean', 'check', 'copy', 'webpack:prod', 'html'));
 
+gulp.task('deploy',     gulp.series('prepare', 'default', 'upload:page'));
+
 gulp.task('dev',        gulp.series('clean', 'connect', 'copy', 'webpack:dev', 'html', 'watch'));
 
 gulp.task('prepare',    gulp.parallel('prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap'));
 
 gulp.task('scale',      gulp.parallel('scale:images'));
-
-gulp.task('upload',     gulp.series('prepare', 'default', 'upload:page'));
 
 grelease(gulp);
