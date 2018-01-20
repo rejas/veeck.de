@@ -1,0 +1,34 @@
+.content {
+
+    > .article {
+        display: grid;
+        grid-template-columns: 1fr @lg 1fr;
+
+        @media @phone, @tablet {
+            grid-template-columns: 1rem 1fr 1rem;
+        }
+
+        > * {
+            grid-column: 2;
+        }
+
+        > .figure--fullwidth {
+            grid-column: 1 / -1;
+            margin: 20px 0;
+        }
+    }
+
+    .section--boxed {
+        border: 1px solid;
+        .colorVar(border-color, --lightPrimaryColor, @lightPrimaryColor);
+        border-radius: @border-radius-md;
+        padding: 0.5rem;
+        position: relative;
+
+        .h2 {
+            border-bottom: 0;
+            position: absolute;
+            top: -1rem;
+        }
+    }
+}
