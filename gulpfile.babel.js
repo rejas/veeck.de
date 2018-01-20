@@ -307,38 +307,41 @@ gulp.task('html', gulp.series('assemble', () => {
  * SERVE TASKS
  */
 
-gulp.task('connect', () => {
+gulp.task('connect', (cb) => {
     gconnect.server({
-        root: 'dist',
+        root: `${dirs.dist}`,
         livereload: true,
         port: 9000
     });
+    cb();
 });
 
-gulp.task('watch', gulp.series('connect', () => {
-    gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.less`], [
-        'webpack:dev'
-    ]);
-    gulp.watch([`${dirs.assemble}/**/*.hbs`], [
-        'assemble'
-    ]);
-}));
+gulp.task('watch', (cb) => {
+    gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.less`], gulp.task('webpack:dev'));
+    gulp.watch([`${dirs.assemble}/**/*.hbs`], gulp.task('assemble'));
+    cb();
+});
 
 /**
- * MAIN TASKS
+ * PARALLEL TASKS
  */
 gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:less'));
 
 gulp.task('copy',       gulp.parallel('copy:files', 'copy:images', 'copy:vendorscripts'));
 
-gulp.task('default',    gulp.series('clean', 'check', 'copy', 'webpack:prod', 'html'));
-
-gulp.task('dev',        gulp.series('clean', 'copy', 'webpack:dev', 'html', 'watch'));
-
-gulp.task('prepare',    gulp.parallel('check', 'prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap'));
+gulp.task('prepare',    gulp.parallel('prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap'));
 
 gulp.task('scale',      gulp.parallel('scale:images'));
 
-gulp.task('upload',     gulp.series('default', 'upload:page'));
+/**
+ * MAIN TASKS
+ */
+
+gulp.task('default',    gulp.series('clean', 'check', 'copy', 'webpack:prod', 'html'));
+
+gulp.task('deploy',     gulp.series('prepare', 'default', 'upload:page'));
+
+gulp.task('dev',        gulp.series('clean', 'connect', 'copy', 'webpack:dev', 'html', 'watch'));
+
 
 grelease(gulp);
