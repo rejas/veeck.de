@@ -3,21 +3,6 @@
  */
 
 .article {
-    display: grid;
-    grid-template-columns: 1fr @lg 1fr;
-
-    @media @phone, @tablet {
-        grid-template-columns: 1rem 1fr 1rem;
-    }
-
-    > * {
-        grid-column: 2;
-    }
-
-    > .figure--fullwidth {
-        grid-column: 1 / -1;
-        margin: 20px 0;
-    }
 
     &--capped {
 
@@ -57,18 +42,6 @@
         }
     }
 
-    &--gridded {
-        grid-template-columns: 1fr 1fr;
-
-        @media @phone, @tablet {
-            grid-template-columns: 1fr;
-        }
-
-        > * {
-            grid-column: 1;
-        }
-    }
-
     &__extend {
         display: none;
         padding: 0.5rem;
@@ -78,6 +51,20 @@
 
         &:target {
             display: block;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        @media @phone {
+            grid-template-columns: 1fr;
+        }
+
+        @media @tablet {
+            grid-template-columns: 1fr 1fr;
         }
     }
 
