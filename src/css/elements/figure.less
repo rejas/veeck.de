@@ -197,6 +197,20 @@
         }
     }
 
+    &--image {
+        border-radius: @border-radius-lg;
+        .boxshadow(1);
+        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+        .colorVar(color, --primaryColor, @primaryColor);
+        margin: 0;
+        overflow: hidden;
+
+        &:hover {
+            transform: translateY(-1px);
+            .boxshadow(2);
+        }
+    }
+
     &--travel {
 
         @media @desktop, @tablet {
