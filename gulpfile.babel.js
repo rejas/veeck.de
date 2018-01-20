@@ -13,22 +13,22 @@ import webpackProdConfig    from './config/webpack.prod.config.js';
  */
 
 import gulp             from    'gulp';
+import gcachebust       from    'gulp-cache-bust';
+import gconnect         from    'gulp-connect';
 import gplugins         from    'gulp-load-plugins';
 import grelease         from    'gulp-release-it';
-import gcachebust       from    'gulp-cache-bust';
-import assemble         from    'assemble';
-import assemblevars     from    'assemble-middleware-page-variable';
-import log              from    'fancy-log';
 
 /**
  * OTHER PLUGINS
  */
 
+import assemble         from    'assemble';
+import assemblevars     from    'assemble-middleware-page-variable';
 import del              from    'del';
 import eslintformat     from    'eslint-friendly-formatter';
+import flog             from    'fancy-log';
 import ftp              from    'vinyl-ftp';
 import imageminMozjpeg  from    'imagemin-mozjpeg';
-import runSequence      from    'run-sequence';
 import webpack          from    'webpack-stream';
 
 /**
@@ -38,6 +38,42 @@ import webpack          from    'webpack-stream';
 const dirs      = config.directories,
     plugins     = gplugins(),
     app         = assemble();
+
+/**
+ * ASSEMBLE TASKS
+ */
+
+app.onLoad(/\.(md|hbs)$/, assemblevars(app));
+
+gulp.task('load', (cb) => {
+    app.partials([`${dirs.assemble}/partials/**/*.hbs`, `${dirs.node}/feather-icons/dist/icons/*.svg`,
+        `${dirs.assemble}/partials/**/html/*.html`]);
+    app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
+    app.pages(`${dirs.assemble}/pages/**/*.hbs`);
+    app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
+    app.option('layout', 'default');
+
+    app.preLayout(/./, (view, next) => {
+        // if the layout is not defined, use the default one ...
+        if (!view.layout && app.options.layout) {
+            view.layout = app.options.layout;
+        }
+        next();
+    });
+
+    cb();
+});
+
+gulp.task('assemble', gulp.series('load', () => {
+    app.helper('md', require('helper-md'));
+
+    return app.toStream('pages')
+        .pipe(plugins.flatten())
+        .pipe(app.renderFile())
+        .pipe(plugins.extname())
+        .pipe(app.dest(dirs.dist))
+        .pipe(gconnect.reload());
+}));
 
 /**
  * COPY TASKS
@@ -69,14 +105,13 @@ gulp.task('copy:vendorscripts', () => {
  */
 
 // Detect errors and potential problems in your html code
-gulp.task('check:html', ['assemble'], () => {
+gulp.task('check:html', gulp.series('assemble', () => {
     return gulp.src([`${dirs.dist}/*.html`])
-        .pipe(plugins.htmlhint({
-            htmlhintrc: `${dirs.config}/.htmlhintrc.json`
-        }))
-        .pipe(plugins.htmlhint.reporter())
-        .pipe(plugins.htmlhint.failOnError());
-});
+        .pipe(plugins.htmllint({
+            failOnError: true,
+            config: `${dirs.config}/.htmllintrc.json`
+        }));
+}));
 
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
 gulp.task('check:js', () => {
@@ -103,7 +138,7 @@ gulp.task('check:less', () => {
  * DEPLOY TASKS
  */
 
-gulp.task('upload:page', ['default'], () => {
+gulp.task('upload:page', () => {
     return gulp.src('.')
         .pipe(plugins.prompt.prompt({
             type: 'password',
@@ -114,7 +149,7 @@ gulp.task('upload:page', ['default'], () => {
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
-                log:        log
+                log:        flog
             });
 
             gulp.src([`${dirs.dist}/**/*`, `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`],
@@ -135,7 +170,7 @@ gulp.task('upload:images', () => {
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
-                log:        log
+                log:        flog
             });
 
             gulp.src([`${dirs.dist}/img/**/*`],
@@ -156,7 +191,7 @@ gulp.task('upload:files', () => {
                 host:       config.ftp.host,
                 user:       config.ftp.user,
                 password:   result.pw,
-                log:        log
+                log:        flog
             });
 
             gulp.src([`${dirs.dist}/files/**/*`],
@@ -175,7 +210,7 @@ gulp.task('prepare:favicons', () => {
         .pipe(plugins.favicons(
             config.favicons
         ))
-        .pipe(gulp.dest('./src/page/favicons'));
+        .pipe(gulp.dest(`${dirs.src}/page/favicons`));
 });
 
 gulp.task('prepare:images', () => {
@@ -186,19 +221,19 @@ gulp.task('prepare:images', () => {
         .pipe(gulp.dest(`${dirs.src}/img`));
 });
 
-gulp.task('prepare:sitemap', ['assemble'], () => {
-    return gulp.src([`${dirs.dist}/*.html`, `!${dirs.dist}/google*.html`], { read: false })
-        .pipe(plugins.sitemap(config.sitemap))
-        .pipe(gulp.dest(`${dirs.src}/page`));
-});
-
 gulp.task('prepare:modernizr', () => {
-    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/multilevelmenu/js/main.js`, `!${dirs.src}/js/vendor/**/*.js`])
+    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/multilevelmenu/src/multilevelmenu.js`, `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.modernizr('modernizr.min.js', {
             'options': config.modernizr
         }))
-        .pipe(gulp.dest(`${dirs.src}/js/vendor/`));
+        .pipe(gulp.dest(`${dirs.src}/js/vendor`));
 });
+
+gulp.task('prepare:sitemap', gulp.series('assemble', () => {
+    return gulp.src([`${dirs.dist}/*.html`, `!${dirs.dist}/google*.html`], { read: false })
+        .pipe(plugins.sitemap(config.sitemap))
+        .pipe(gulp.dest(`${dirs.src}/page`));
+}));
 
 gulp.task('scale:images', () => {
     return gulp.src(`${dirs.org}/img/**/*.jpg`)
@@ -238,56 +273,24 @@ gulp.task('scale:images', () => {
  * HTML TASKS
  */
 
-gulp.task('clean', (cb) => {
-    del([dirs.dist, dirs.tmp]).then(() => { cb(); });
+gulp.task('clean', () => {
+    return del([dirs.dist, dirs.tmp]);
 });
 
 gulp.task('webpack:dev', () => {
-    return gulp.src(`${dirs.src}/src/js/main.js`)
+    return gulp.src(`${dirs.src}/src/js/main.js`, { allowEmpty: true })
         .pipe(webpack(webpackDevConfig, require('webpack')))
         .pipe(gulp.dest(dirs.dist))
-        .pipe(plugins.connect.reload());
+        .pipe(gconnect.reload());
 });
 
 gulp.task('webpack:prod', () => {
-    return gulp.src(`${dirs.src}/src/js/main.js`)
+    return gulp.src(`${dirs.src}/src/js/main.js`, { allowEmpty: true })
         .pipe(webpack(webpackProdConfig, require('webpack')))
         .pipe(gulp.dest(dirs.dist));
 });
 
-app.onLoad(/\.(md|hbs)$/, assemblevars(app));
-
-gulp.task('load', (cb) => {
-    app.partials([`${dirs.assemble}/partials/**/*.hbs`, `${dirs.node}/feather-icons/dist/icons/*.svg`,
-        `${dirs.assemble}/partials/**/html/*.html`]);
-    app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
-    app.pages(`${dirs.assemble}/pages/**/*.hbs`);
-    app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
-    app.option('layout', 'default');
-
-    app.preLayout(/./, (view, next) => {
-        // if the layout is not defined, use the default one ...
-        if (!view.layout && app.options.layout) {
-            view.layout = app.options.layout;
-        }
-        next();
-    });
-
-    cb();
-});
-
-gulp.task('assemble', ['load'], () => {
-    app.helper('md', require('helper-md'));
-
-    return app.toStream('pages')
-        .pipe(plugins.flatten())
-        .pipe(app.renderFile())
-        .pipe(plugins.extname())
-        .pipe(app.dest(dirs.dist))
-        .pipe(plugins.connect.reload());
-});
-
-gulp.task('html', ['assemble'], () => {
+gulp.task('html', gulp.series('assemble', () => {
     return gulp.src(`${dirs.dist}/*.html`)
         .pipe(plugins.inject(gulp.src([`${dirs.dist}/js/bundle.js`, `${dirs.dist}/css/*.css`], {read: false}), {
             quiet: true,
@@ -298,45 +301,44 @@ gulp.task('html', ['assemble'], () => {
         }))
         .pipe(plugins.htmlmin(config.htmlmin))
         .pipe(gulp.dest(dirs.dist));
-});
+}));
 
 /**
  * SERVE TASKS
  */
 
 gulp.task('connect', () => {
-    plugins.connect.server({
+    gconnect.server({
         root: 'dist',
         livereload: true,
         port: 9000
     });
 });
 
-gulp.task('watch', ['connect'], () => {
+gulp.task('watch', gulp.series('connect', () => {
     gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.less`], [
         'webpack:dev'
     ]);
     gulp.watch([`${dirs.assemble}/**/*.hbs`], [
         'assemble'
     ]);
-});
+}));
 
 /**
  * MAIN TASKS
  */
+gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:less'));
 
-gulp.task('check',      ['check:html', 'check:js', 'check:less']);
+gulp.task('copy',       gulp.parallel('copy:files', 'copy:images', 'copy:vendorscripts'));
 
-gulp.task('copy',       ['copy:files', 'copy:images', 'copy:vendorscripts']);
+gulp.task('default',    gulp.series('clean', 'check', 'copy', 'webpack:prod', 'html'));
 
-gulp.task('default',    (cb) => { runSequence('clean', 'check', 'copy', 'webpack:prod', 'html', cb); });
+gulp.task('dev',        gulp.series('clean', 'copy', 'webpack:dev', 'html', 'watch'));
 
-gulp.task('dev',        (cb) => { runSequence('clean', 'copy', 'webpack:dev', 'html', 'watch', cb); });
+gulp.task('prepare',    gulp.parallel('check', 'prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap'));
 
-gulp.task('prepare',    ['check', 'prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap']);
+gulp.task('scale',      gulp.parallel('scale:images'));
 
-gulp.task('scale',      ['scale:images']);
-
-gulp.task('upload',     ['upload:page']);
+gulp.task('upload',     gulp.series('default', 'upload:page'));
 
 grelease(gulp);

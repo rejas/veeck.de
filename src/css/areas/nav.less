@@ -12,6 +12,10 @@
 
     &.menu--open {
         left: 0;
+
+        .navigation__btn--openMenu {
+            right: -4rem;
+        }
     }
 
     .menu {
@@ -111,83 +115,83 @@
             content: '';
         }
     }
-}
 
-.btn--openMenu {
-    position: fixed;
-    right: 1rem;
-    top: 1rem;
-
-    &::after {
-        content: 'MENU';
-        position: absolute;
-        left: -5px;
-        bottom: -@font-size-l;
-    }
-
-    &:hover {
-        .hamburger-inner,
-        .hamburger-inner::before,
-        .hamburger-inner::after {
-            .colorVar(background-color, --secondaryTextColor, @secondaryTextColor);
-        }
+    &__btn--openMenu {
+        position: fixed;
+        right: 1rem;
+        top: 1rem;
 
         &::after {
-            .colorVar(color, --primaryColor, @primaryColor);
+            content: 'MENU';
+            position: absolute;
+            left: -5px;
+            bottom: -@font-size-l;
+        }
+
+        &:hover {
+            .hamburger-inner,
+            .hamburger-inner::before,
+            .hamburger-inner::after {
+                .colorVar(background-color, --secondaryTextColor, @secondaryTextColor);
+            }
+
+            &::after {
+                .colorVar(color, --primaryColor, @primaryColor);
+            }
+        }
+
+        @media @phone {
+            top: auto;
+            bottom: 1rem;
+
+            &::after {
+                content: '';
+            }
         }
     }
 
-    @media @phone {
-        top: auto;
-        bottom: 1rem;
+    &__btn--closeMenu {
+        position: absolute;
+        right: 0;
+        top: 1rem;
+        background-color: transparent;
+        .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
+        border: @border-thickness solid;
+        border-right: @border-thickness solid transparent;
+        border-radius: 0;
+        .boxshadow(0);
+
+        &:hover {
+            .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
+            border-right-color: transparent;
+            .boxshadow(0);
+            transform: none;
+
+            .hamburger-inner,
+            .hamburger-inner::before,
+            .hamburger-inner::after {
+                .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+            }
+        }
 
         &::after {
             content: '';
-        }
-    }
-}
-
-.btn--closeMenu {
-    position: absolute;
-    right: 0;
-    top: 1rem;
-    background-color: transparent;
-    .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
-    border: @border-thickness solid;
-    border-right: @border-thickness solid transparent;
-    border-radius: 0;
-    .boxshadow(0);
-
-    &:hover {
-        .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
-        border-right-color: transparent;
-        .boxshadow(0);
-        transform: none;
-
-        .hamburger-inner,
-        .hamburger-inner::before,
-        .hamburger-inner::after {
+            height: 100vh;
+            width: @border-thickness;
             .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+            position: absolute;
+            top: calc(3rem - (2 * @border-thickness));
+            right: -@border-thickness;
         }
-    }
 
-    &::after {
-        content: '';
-        height: 100vh;
-        width: @border-thickness;
-        .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
-        position: absolute;
-        top: calc(3rem - (2 * @border-thickness));
-        right: -@border-thickness;
-    }
-
-    &::before {
-        content: '';
-        height: 2rem;
-        width: @border-thickness;
-        .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
-        position: absolute;
-        top: -2rem;
-        right: -@border-thickness;
+        &::before {
+            content: '';
+            height: 2rem;
+            width: @border-thickness;
+            .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+            position: absolute;
+            top: -2rem;
+            right: -@border-thickness;
+        }
     }
 }

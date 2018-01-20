@@ -74,9 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Back to top
      */
-    document.querySelector('.js-to-top').addEventListener('click', () => {
-        window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-    });
+    let toTop = document.querySelector('.js-to-top');
+    if (toTop) {
+        toTop.addEventListener('click', () => {
+            window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+        });
+    }
 
     /**
      * Halka Image Lightbox
@@ -86,11 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Travel picture transformations
      */
-    document.querySelectorAll('.travel__article .figure--popup').forEach((figure) => {
+    document.querySelectorAll('.js-travel__picture').forEach((figure) => {
         figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 
-    VanillaTilt.init(document.querySelectorAll('.travel__article .figure--popup'), {
+    VanillaTilt.init(document.querySelectorAll('.js-travel__picture'), {
         max: 10,
         scale: 1.1,
         speed: 250
@@ -106,10 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Share to facebook
      */
-    document.querySelector('.js-share-facebook').addEventListener('click', () => {
-        window.open('https://www.facebook.com/sharer/sharer.php?u='
-            + encodeURIComponent(document.URL) + '&t='
-            + encodeURIComponent(document.URL));
-        return false;
-    });
+    let facebook = document.querySelector('.js-share-facebook');
+    if (facebook) {
+        facebook.addEventListener('click', () => {
+            window.open('https://www.facebook.com/sharer/sharer.php?u='
+                + encodeURIComponent(document.URL) + '&t='
+                + encodeURIComponent(document.URL));
+            return false;
+        });
+    }
 });
