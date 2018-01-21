@@ -83,6 +83,15 @@
     }
 
     &__link {
+        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+
+        &:hover {
+            transform: translateY(-1px);
+            .boxshadow(2);
+        }
+    }
+
+    &__link--medium {
         position: relative;
         .transform(all);
 
