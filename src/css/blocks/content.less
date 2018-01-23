@@ -39,6 +39,41 @@
     .section__grid {
         display: grid;
         grid-gap: 0.5rem;
-        grid-template-columns: 1fr 1fr 1fr;
+
+        &--two {
+            grid-template-columns: 1fr 1fr;
+
+            @media @tablet {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media @phone {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &--three {
+            grid-template-columns: 1fr 1fr 1fr;
+
+            @media @tablet {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media @phone {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &--four {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+
+            @media @tablet {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            @media @phone {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
     }
 }
