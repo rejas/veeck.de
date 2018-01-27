@@ -152,6 +152,12 @@ ansi-bold@^0.1.1:
   dependencies:
     ansi-wrap "0.1.0"
 
+ansi-colors@1.0.1, ansi-colors@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-1.0.1.tgz#e94c6c306005af8b482240241e2f3dea4b855ff3"
+  dependencies:
+    ansi-wrap "^0.1.0"
+
 ansi-colors@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-0.1.0.tgz#334ac36cd3ead708de5c69e19a98d1864226b43f"
@@ -215,12 +221,6 @@ ansi-colors@^0.2.0:
     ansi-white "^0.1.1"
     ansi-yellow "^0.1.1"
     lazy-cache "^2.0.1"
-
-ansi-colors@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-1.0.1.tgz#e94c6c306005af8b482240241e2f3dea4b855ff3"
-  dependencies:
-    ansi-wrap "^0.1.0"
 
 ansi-cyan@^0.1.1:
   version "0.1.1"
@@ -2047,7 +2047,7 @@ center-align@^0.1.1:
     align-text "^0.1.3"
     lazy-cache "^1.0.3"
 
-chalk@^1.0.0, chalk@^1.1.1, chalk@^1.1.3:
+chalk@^1.0.0, chalk@^1.1.1, chalk@^1.1.3, chalk@~1.1.1:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
   dependencies:
@@ -4214,7 +4214,7 @@ falafel@^1.0.0:
   dependencies:
     kind-of "^3.0.2"
 
-fancy-log@^1.1.0, fancy-log@^1.2.0, fancy-log@^1.3.2:
+fancy-log@1.3.2, fancy-log@^1.1.0, fancy-log@^1.2.0, fancy-log@^1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/fancy-log/-/fancy-log-1.3.2.tgz#f41125e3d84f2e7d89a43d06d958c8f78be16be1"
   dependencies:
@@ -5040,6 +5040,23 @@ grunt-legacy-log-utils@~0.1.1:
     lodash "~2.4.1"
     underscore.string "~2.3.3"
 
+grunt-legacy-log-utils@~1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/grunt-legacy-log-utils/-/grunt-legacy-log-utils-1.0.0.tgz#a7b8e2d0fb35b5a50f4af986fc112749ebc96f3d"
+  dependencies:
+    chalk "~1.1.1"
+    lodash "~4.3.0"
+
+grunt-legacy-log@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/grunt-legacy-log/-/grunt-legacy-log-1.0.0.tgz#fb86f1809847bc07dc47843f9ecd6cacb62df2d5"
+  dependencies:
+    colors "~1.1.2"
+    grunt-legacy-log-utils "~1.0.0"
+    hooker "~0.2.3"
+    lodash "~3.10.1"
+    underscore.string "~3.2.3"
+
 grunt-legacy-log@~0.1.1:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/grunt-legacy-log/-/grunt-legacy-log-0.1.3.tgz#ec29426e803021af59029f87d2f9cd7335a05531"
@@ -5121,9 +5138,9 @@ gulp-flatten@^0.4.0:
     plugin-error "^0.1.2"
     through2 "^2.0.0"
 
-gulp-git@^2.5.0:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/gulp-git/-/gulp-git-2.5.1.tgz#f7f156538df3f093698e8266d197edb2903e5944"
+gulp-git@2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/gulp-git/-/gulp-git-2.5.0.tgz#3a04369321ecb51c0acf08c944f6e853b14ec5ef"
   dependencies:
     any-shell-escape "^0.1.1"
     fancy-log "^1.3.2"
@@ -5183,7 +5200,7 @@ gulp-inject@^4.3.0:
     stream-to-array "^2.3.0"
     through2 "^2.0.1"
 
-gulp-json-editor@^2.2.1:
+gulp-json-editor@2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/gulp-json-editor/-/gulp-json-editor-2.2.1.tgz#7c4dd7477e8d06dc5dc49c0b81e745cdb04f97bb"
   dependencies:
@@ -5214,16 +5231,17 @@ gulp-load-plugins@^1.5.0:
     micromatch "^2.3.8"
     resolve "^1.1.7"
 
-"gulp-modernizr@https://github.com/rejas/gulp-modernizr.git#develop":
-  version "1.0.0-alpha"
-  resolved "https://github.com/rejas/gulp-modernizr.git#03aeea3c08682d1c13b1686196bba45ad45cd871"
+gulp-modernizr@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-modernizr/-/gulp-modernizr-2.0.0.tgz#1c898855d00ae08a9af60ba6f454d49cb4c2d712"
   dependencies:
     customizr "^1.0.0-alpha"
+    grunt-legacy-log "^1.0.0"
     plugin-error "^1.0.0"
     through2 "^2.0.3"
     vinyl "^2.1.0"
 
-gulp-prompt@^1.0.1:
+gulp-prompt@1.0.1, gulp-prompt@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/gulp-prompt/-/gulp-prompt-1.0.1.tgz#58dbbea424e04e7e935deb57654cc23ff7dfc27c"
   dependencies:
@@ -5231,20 +5249,20 @@ gulp-prompt@^1.0.1:
     inquirer "^3.3.0"
     lodash.template "^4.4.0"
 
-"gulp-release-it@https://github.com/rejas/gulp-release.git#gulp4":
-  version "1.1.14"
-  resolved "https://github.com/rejas/gulp-release.git#62afba99e1bc6efa875ab2d2947f9eea403ee4ac"
+gulp-release-it@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/gulp-release-it/-/gulp-release-it-2.0.6.tgz#a0e18e6d296ff33c5f41125c32473ac8f3117a9b"
   dependencies:
-    ansi-colors "^1.0.1"
-    fancy-log "^1.3.2"
-    gulp-git "^2.5.0"
-    gulp-json-editor "^2.2.1"
-    gulp-prompt "^1.0.1"
-    lodash "^4.17.4"
-    map-stream "^0.0.7"
-    semver "^5.4.1"
-    string "^3.3.3"
-    yargs "^10.1.1"
+    ansi-colors "1.0.1"
+    fancy-log "1.3.2"
+    gulp-git "2.5.0"
+    gulp-json-editor "2.2.1"
+    gulp-prompt "1.0.1"
+    lodash "4.17.4"
+    map-stream "0.0.7"
+    semver "5.4.1"
+    string "3.3.3"
+    yargs "10.1.1"
 
 gulp-rename@^1.2.0:
   version "1.2.2"
@@ -7121,13 +7139,17 @@ lodash@4.17.4, lodash@^4.0.0, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.17.4, lo
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
-lodash@^3.2.0:
+lodash@^3.2.0, lodash@~3.10.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
 lodash@~2.4.1:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
+
+lodash@~4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.3.0.tgz#efd9c4a6ec53f3b05412429915c3e4824e4d25a4"
 
 log-ok@^0.1.1:
   version "0.1.1"
@@ -7285,7 +7307,7 @@ map-schema@^0.2.3, map-schema@^0.2.4:
     sort-object-arrays "^0.1.1"
     union-value "^0.2.3"
 
-map-stream@^0.0.7, map-stream@~0.0.3:
+map-stream@0.0.7, map-stream@~0.0.3:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/map-stream/-/map-stream-0.0.7.tgz#8a1f07896d82b10926bd3744a2420009f88974a8"
 
@@ -10051,6 +10073,13 @@ schema-utils@^0.3.0:
   dependencies:
     ajv "^5.0.0"
 
+schema-utils@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-0.4.3.tgz#e2a594d3395834d5e15da22b48be13517859458e"
+  dependencies:
+    ajv "^5.0.0"
+    ajv-keywords "^2.1.0"
+
 seek-bzip@^1.0.3:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/seek-bzip/-/seek-bzip-1.0.5.tgz#cfe917cb3d274bcffac792758af53173eb1fabdc"
@@ -10073,11 +10102,15 @@ semver-truncate@^1.0.0:
   dependencies:
     semver "^5.3.0"
 
-"semver@2 || 3 || 4 || 5", semver@^5.3.0, semver@^5.4.1:
+"semver@2 || 3 || 4 || 5", semver@^5.3.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
 
-semver@^4.0.3, semver@^4.1.0:
+semver@5.4.1:
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
+
+semver@^4.0.3:
   version "4.3.6"
   resolved "https://registry.yarnpkg.com/semver/-/semver-4.3.6.tgz#300bc6e0e86374f7ba61068b5b1ecd57fc6532da"
 
@@ -10613,7 +10646,7 @@ string-width@^2.0.0:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^3.0.0"
 
-string@^3.3.3:
+string@3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/string/-/string-3.3.3.tgz#5ea211cd92d228e184294990a6cc97b366a77cb0"
 
@@ -10721,12 +10754,12 @@ strip-outer@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-style-loader@^0.19.1:
-  version "0.19.1"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.19.1.tgz#591ffc80bcefe268b77c5d9ebc0505d772619f85"
+style-loader@^0.20.1:
+  version "0.20.1"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.20.1.tgz#33ac2bf4d5c65a8906bc586ad253334c246998d0"
   dependencies:
-    loader-utils "^1.0.2"
-    schema-utils "^0.3.0"
+    loader-utils "^1.1.0"
+    schema-utils "^0.4.3"
 
 success-symbol@^0.1.0:
   version "0.1.0"
@@ -11380,6 +11413,10 @@ underscore.string@~2.3.3:
 underscore.string@~2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-2.4.0.tgz#8cdd8fbac4e2d2ea1e7e2e8097c42f442280f85b"
+
+underscore.string@~3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-3.2.3.tgz#806992633665d5e5fcb4db1fb3a862eb68e9e6da"
 
 underscore@^1.8.3:
   version "1.8.3"
@@ -12068,6 +12105,23 @@ yargs-parser@^8.1.0:
   dependencies:
     camelcase "^4.1.0"
 
+yargs@10.1.1:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-10.1.1.tgz#5fe1ea306985a099b33492001fa19a1e61efe285"
+  dependencies:
+    cliui "^4.0.0"
+    decamelize "^1.1.1"
+    find-up "^2.1.0"
+    get-caller-file "^1.0.1"
+    os-locale "^2.0.0"
+    require-directory "^2.1.1"
+    require-main-filename "^1.0.1"
+    set-blocking "^2.0.0"
+    string-width "^2.0.0"
+    which-module "^2.0.0"
+    y18n "^3.2.1"
+    yargs-parser "^8.1.0"
+
 yargs@7.0.2:
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-7.0.2.tgz#115b97df1321823e8b8648e8968c782521221f67"
@@ -12085,23 +12139,6 @@ yargs@7.0.2:
     which-module "^1.0.0"
     y18n "^3.2.1"
     yargs-parser "^5.0.0"
-
-yargs@^10.1.1:
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-10.1.1.tgz#5fe1ea306985a099b33492001fa19a1e61efe285"
-  dependencies:
-    cliui "^4.0.0"
-    decamelize "^1.1.1"
-    find-up "^2.1.0"
-    get-caller-file "^1.0.1"
-    os-locale "^2.0.0"
-    require-directory "^2.1.1"
-    require-main-filename "^1.0.1"
-    set-blocking "^2.0.0"
-    string-width "^2.0.0"
-    which-module "^2.0.0"
-    y18n "^3.2.1"
-    yargs-parser "^8.1.0"
 
 yargs@^3.31.0:
   version "3.32.0"
