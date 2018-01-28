@@ -11521,9 +11521,9 @@ vinyl-fs@^3.0.0:
     vinyl "^2.0.0"
     vinyl-sourcemap "^1.1.0"
 
-vinyl-ftp@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/vinyl-ftp/-/vinyl-ftp-0.6.0.tgz#2fb43ec4d58a2e4c06b406e569cee9b3aa5df8ca"
+vinyl-ftp@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/vinyl-ftp/-/vinyl-ftp-0.6.1.tgz#65d72678579f25f695a3d0c7c4f6bb72f68b4c4b"
   dependencies:
     ftp "^0.3.8"
     minimatch "^3.0.2"
