@@ -36,8 +36,9 @@ let Input = {
                     query = document.querySelector('#search__input').value;
 
                 if (query && query !== '') {
-                    iform.action=inputEl.dataset.search;
                     input.value = query;
+
+                    iform.action = inputEl.dataset.search;
                     iform.submit();
                 }
 
