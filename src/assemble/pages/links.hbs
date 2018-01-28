@@ -8,16 +8,24 @@ last-modified: 2017-01-12
 ---
 <article class="article">
     <section>
-        <div class="input input-text">
-            <input id="dsearch" type="search" name="q" placeholder="What are you searching for?">
-        </div>
+        <form  method="get" class="form links__form js-links__form">
+            {{> input-text
+                name='q'
+                id='search__input'
+                label='What are you searching for?'}}
 
-        <div class="section__grid section__grid--three">
+            <input type="hidden" name="q" value="" class="js-links__input">
 
-            {{> icon-button
-                icon='duckduckgo'}}
+            <div class="section__grid section__grid--three">
+                {{> icon-button
+                    name='duckduckgo'
+                    url='https://duckduckgo.com/'}}
 
-        </div>
+                {{> icon-button
+                    name='google'
+                    url='https://google.com/search'}}
+            </div>
+        </form>
     </section>
 
     <section>
