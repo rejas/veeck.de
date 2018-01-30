@@ -25,7 +25,7 @@ let Input = {
         });
 
         /**
-         * Links
+         * Search handling on links page
          */
         document.querySelectorAll('.js-search__icon').forEach((inputEl) => {
             inputEl.addEventListener('click', (event) => {
@@ -37,7 +37,6 @@ let Input = {
 
                 if (query && query !== '') {
                     input.value = query;
-
                     iform.action = inputEl.dataset.search;
                     iform.submit();
                 }
