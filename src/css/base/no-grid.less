@@ -1,11 +1,70 @@
+.no-supports {
 
-.article {
-
-    .no-supports & {
+    .article {
         .clearfix();
         display: block;
         margin: 0 auto 0;
         padding: 0 1rem 1rem;
         max-width: @lg;
+
+        &__grid {
+            .clearfix();
+            display: block;
+        }
+    }
+
+    .section__grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        > * {
+            margin-bottom: 0.5rem;
+        }
+
+        &--single {
+            width: 100%;
+        }
+
+        &--two {
+            @media @desktop, @tablet {
+                width: 50%;
+            }
+
+            @media @phone {
+                width: 100%;
+            }
+        }
+
+        &--three {
+
+            > * {
+                @media @desktop {
+                    width: 33%;
+                }
+
+                @media @tablet {
+                    width: 50%;
+                }
+
+                @media @phone {
+                    width: 100%;
+                }
+            }
+        }
+
+        &--four {
+            @media @desktop {
+                width: 25%;
+            }
+
+            @media @tablet {
+                width: 33%;
+            }
+
+            @media @phone {
+                width: 50%;
+            }
+        }
     }
 }
