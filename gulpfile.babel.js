@@ -317,7 +317,7 @@ gulp.task('connect', (cb) => {
 });
 
 gulp.task('watch', (cb) => {
-    gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.less`], gulp.task('webpack:dev'));
+    gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.less`, `${dirs.src}/css/assets/**/*`], gulp.task('webpack:dev'));
     gulp.watch([`${dirs.assemble}/**/*.hbs`], gulp.task('assemble'));
     cb();
 });

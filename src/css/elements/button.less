@@ -49,43 +49,58 @@
         min-width: @btn-size-lg;
     }
 
-    &--hamburger {
-        display: block;
-        z-index: @z-index-5;
+    &--icon {
         padding: 0;
+    }
+}
 
-        &:focus {
-            outline: 0;
+.flexBtn {
+
+    &__icon {
+        margin: 0 0.5rem 0 0;
+    }
+
+    &__label {
+        text-transform: uppercase;
+
+        @media @phone {
+            display: none;
         }
+    }
+}
 
-        &:hover {
-            opacity: 1;
+.hamburgerBtn {
+    display: block;
+    z-index: @z-index-5;
+    padding: 0;
 
-            &::after {
-                color: inherit;
-            }
+    &:focus {
+        outline: 0;
+    }
 
-            .hamburger-inner,
-            .hamburger-inner::before,
-            .hamburger-inner::after {
-                color: inherit;
-            }
-        }
+    &:hover {
+        opacity: 1;
 
-        .hamburger-box {
-            width: 1.5rem;
-            top: 0.15rem;
+        &::after {
+            color: inherit;
         }
 
         .hamburger-inner,
         .hamburger-inner::before,
         .hamburger-inner::after {
-            .colorVar(background-color, --primaryColor, @primaryColor);
-            width: 100%;
+            color: inherit;
         }
     }
 
-    &--icon {
-        padding: 0;
+    .hamburger-box {
+        width: 1.5rem;
+        top: 0.15rem;
+    }
+
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        .colorVar(background-color, --primaryColor, @primaryColor);
+        width: 100%;
     }
 }

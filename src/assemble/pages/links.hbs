@@ -9,87 +9,65 @@ last-modified: 2017-01-12
 <article class="article">
     <section>
         <h2 class="h2">Search</h2>
-        <ul class="links">
-            <li>
-                <form action="https://duckduckgo.com/" method="get" class="form links__form">
-                    <label for="dsearch"><span class="icon icon--s icon-duckduckgo"></span></label>
-                    <div class="input input-text"><input id="dsearch" type="search" name="q"></div>
-                    <button class="btn btn--md" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="https://www.google.com/search" method="get" class="form links__form">
-                    <label for="gsearch"><span class="icon icon--s icon-google"></span></label>
-                    <div class="input input-text"><input id="gsearch" type="search" name="q"></div>
-                    <button class="btn btn--md" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="https://www.youtube.com/results" method="get" class="form links__form">
-                    <label for="ysearch"><span class="icon icon--s icon-youtube"></span></label>
-                    <div class="input input-text"><input id="ysearch" type="search" name="search_query"></div>
-                    <button class="btn btn--md" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="http://www.canoo.net/services/Controller?service=canooNet" method="get" class="form links__form">
-                    <label for="csearch"><span class="icon icon--s icon-canoo"></span></label>
-                    <div class="input input-text"><input id="csearch" type="search" name="input"></div>
-                    <button class="btn btn--md" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="https://dict.leo.org/" method="get" class="form links__form">
-                    <label for="lsearch"><span class="icon icon--s icon-leo"></span></label>
-                    <div class="input input-text"><input id="lsearch" type="search" name="search"></div>
-                    <button class="btn btn--md" type="submit">Translate</button>
-                </form>
-            </li>
-            <li>
-                <form action="http://www.woxikon.de" method="get" class="form links__form">
-                    <label for="wsearch"><span class="icon icon--s icon-woxikon"></span></label>
-                    <div class="input input-text"><input id="wsearch" type="search" name="q"></div>
-                    <button class="btn btn--md" type="submit">Translate</button>
-                </form>
-            </li>
-            <li>
-                <form action="https://en.wikipedia.org/w/index.php" method="get" class="form links__form">
-                    <label for="wisearch"><span class="icon icon--s icon-wikipedia"></span></label>
-                    <div class="input input-text"><input id="wisearch" type="search" name="search"></div>
-                    <button class="btn btn--md" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="https://www.chefkoch.de/suche.php" method="get" class="form links__form">
-                    <label for="chefsearch"><span class="icon icon--s icon-chefkoch"></span></label>
-                    <div class="input input-text"><input id="chefsearch" type="search" name="suche"></div>
-                    <button class="btn btn--md" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="http://www.imdb.com/find" method="get" class="form links__form">
-                    <label for="imdbsearch"><span class="icon icon--s icon-imdb"></span></label>
-                    <div class="input input-text"><input id="imdbsearch" type="search" name="q"></div>
-                    <button class="btn btn--md" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="https://www.wowhead.com/" method="get" class="form links__form">
-                    <label for="wowsearch"><span class="icon icon--s icon-wowhead"></span></label>
-                    <div class="input input-text"><input id="wowsearch" type="search" name="search"></div>
-                    <button class="btn btn--md" type="submit">Search</button>
-                </form>
-            </li>
-        </ul>
+
+        <form class="form links__form js-links__form" method="get" target="_blank">
+            {{> input-text
+                id='search__input'
+                label='What are you searching for?'}}
+            <input type="hidden" name="q" value="" class="js-links__input">
+        </form>
+
+        <div class="section__flex">
+            {{> icon-button
+                label='DuckDuckGo'
+                name='duckduckgo'
+                url='https://duckduckgo.com/'}}
+            {{> icon-button
+                label='Google'
+                name='google'
+                url='https://google.com/search'}}
+            {{> icon-button
+                label='Canoo'
+                name='canoo'
+                url='http://www.canoo.net/services/Controller?service=canooNet'}}
+            {{> icon-button
+                label='YouTube'
+                name='youtube'
+                url='https://www.youtube.com/results'}}
+            {{> icon-button
+                label='Leo'
+                name='leo'
+                url='https://dict.leo.org/'}}
+            {{> icon-button
+                label='Woxikon'
+                name='woxikon'
+                url='http://www.woxikon.de'}}
+            {{> icon-button
+                label='Wikipedia'
+                name='wikipedia'
+                url='https://en.wikipedia.org/w/index.php'}}
+            {{> icon-button
+                label='Chefkoch'
+                name='chefkoch'
+                url='https://www.chefkoch.de/suche.php'}}
+            {{> icon-button
+                label='IMDB'
+                name='imdb'
+                url='http://www.imdb.com/find'}}
+            {{> icon-button
+                label='Wowhead'
+                name='wowhead'
+                url='https://www.wowhead.com'}}
+        </div>
     </section>
 
     <section>
         <h2 class="h2">Tech Stuff Used Here</h2>
         <ul class="article__list">
-            <li><a class="article__link" target="_blank" rel="noopener" href="https://www.html5boilerplate.com/">HTML5boilerplate</a> the web’s most popular front-end template</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="https:assemble.io/">Assemble</a> static site generator used here</li>
             <li><a class="article__link" target="_blank" rel="noopener" href="https://www.tympanus.net/codrops/">Codrops</a> web design and development blog with great tutorials</li>
             <li><a class="article__link" target="_blank" rel="noopener" href="http://www.gulpjs.com/">gulp.js</a> the streaming build system to build this site</li>
-            <li><a class="article__link" target="_blank" rel="noopener" href="http://www.slcentral.com/articles/01/8/g4pc/">another G4PC mod</a> where I got most of my questions answered</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="https://www.html5boilerplate.com/">HTML5boilerplate</a> the web’s most popular front-end template</li>
         </ul>
     </section>
 
