@@ -27,7 +27,7 @@ let Input = {
         /**
          * Search handling on links page
          */
-        document.querySelectorAll('.js-search__icon').forEach((inputEl) => {
+        document.querySelectorAll('.js-search__button').forEach((inputEl) => {
             inputEl.addEventListener('click', (event) => {
                 event.preventDefault();
 
