@@ -46,7 +46,8 @@ const webpackconfig = {
                                 require('postcss-normalize')(),
                                 require('postcss-object-fit-images')(),
                                 require('postcss-sprites')({
-                                    spritePath: 'tmp/'
+                                    spritePath: 'tmp/',
+                                    retina: true
                                 })
                             ],
                             sourceMap: true
