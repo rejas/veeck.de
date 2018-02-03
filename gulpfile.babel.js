@@ -28,8 +28,10 @@ import del              from    'del';
 import eslintformat     from    'eslint-friendly-formatter';
 import flog             from    'fancy-log';
 import ftp              from    'vinyl-ftp';
+import helper_md        from    'helper-md';
 import imageminMozjpeg  from    'imagemin-mozjpeg';
-import webpack          from    'webpack-stream';
+import webpack          from    'webpack';
+import webpackStream    from    'webpack-stream';
 
 /**
  * CONSTANTS
@@ -65,7 +67,7 @@ gulp.task('load', (cb) => {
 });
 
 gulp.task('assemble', gulp.series('load', () => {
-    app.helper('md', require('helper-md'));
+    app.helper('md', helper_md);
 
     return app.toStream('pages')
         .pipe(plugins.flatten())
@@ -279,14 +281,14 @@ gulp.task('clean', () => {
 
 gulp.task('webpack:dev', () => {
     return gulp.src(`${dirs.src}/src/js/main.js`, { allowEmpty: true })
-        .pipe(webpack(webpackDevConfig, require('webpack')))
+        .pipe(webpackStream(webpackDevConfig, webpack))
         .pipe(gulp.dest(dirs.dist))
         .pipe(gconnect.reload());
 });
 
 gulp.task('webpack:prod', () => {
     return gulp.src(`${dirs.src}/src/js/main.js`, { allowEmpty: true })
-        .pipe(webpack(webpackProdConfig, require('webpack')))
+        .pipe(webpackStream(webpackProdConfig, webpack))
         .pipe(gulp.dest(dirs.dist));
 });
 
