@@ -35,11 +35,10 @@ const config = {
         preserveLineBreaks: true,
         removeComments: true
     },
-    modernizr: [
-        'prefixes',
-        'prefixed',
-        'setClasses'
-    ],
+    modernizr: {
+        'options': ['setClasses'],
+        'tests': [['cssgrid', 'cssgridlegacy']]
+    },
     responsive: {
         // The output quality for JPEG, WebP and TIFF output formats
         quality: 70,
