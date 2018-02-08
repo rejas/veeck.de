@@ -4,6 +4,7 @@
 import 'cookieconsent';
 
 import BrowserUpdate    from 'browser-update';
+import galite           from 'ga-lite'
 import HalkaBox         from 'halkabox';
 import Konami           from 'konami-code.js';
 import VanillaTilt      from 'vanilla-tilt';
@@ -18,6 +19,7 @@ import Polyfill         from './modules/polyfill';
 
 // Styles
 import '../css/main.less';
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -118,4 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return false;
         });
     }
+
+    /**
+     * Google Analytics Lite
+     */
+    galite('create', 'UA-431999-1', 'auto');
+    galite('send', 'pageview');
 });
