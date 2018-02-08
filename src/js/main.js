@@ -4,7 +4,7 @@
 import 'cookieconsent';
 
 import BrowserUpdate    from 'browser-update';
-import galite           from 'ga-lite'
+import galite           from 'ga-lite';
 import HalkaBox         from 'halkabox';
 import Konami           from 'konami-code.js';
 import VanillaTilt      from 'vanilla-tilt';
