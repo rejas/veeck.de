@@ -1,4 +1,5 @@
 .content {
+    padding-top: 1rem;
 
     > .article {
         display: grid;
@@ -15,80 +16,6 @@
         > .figure--fullwidth {
             grid-column: 1 / -1;
             margin: 20px 0;
-        }
-    }
-
-    .section--boxed {
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(194, 247, 79, 0.24);
-        border-radius: @border-radius-md;
-        padding: 1rem;
-        position: relative;
-
-        @media @phone {
-            box-shadow: none;
-            padding: 1rem 0;
-        }
-
-        .h3 {
-            position: absolute;
-            top: -1rem;
-            background-color: @backgroundColor;
-            padding: 0 0.5rem;
-
-            @media @phone {
-                padding: 0;
-            }
-        }
-    }
-
-    .section__grid {
-        display: grid;
-        grid-gap: 0.5rem;
-
-        &--two {
-            grid-template-columns: 1fr 1fr;
-
-            @media @tablet {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            @media @phone {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        &--three {
-            grid-template-columns: 1fr 1fr 1fr;
-
-            @media @tablet {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            @media @phone {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        &--four {
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-
-            @media @tablet {
-                grid-template-columns: 1fr 1fr 1fr;
-            }
-
-            @media @phone {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-    }
-
-    .section__flex {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-        > button {
-            margin: 0 0 0.5rem;
         }
     }
 }
