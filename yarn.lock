@@ -7676,6 +7676,10 @@ mkdirp@~0.3.5:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.3.5.tgz#de3e5f8961c88c787ee1368df849ac4413eca8d7"
 
+modern-normalize@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/modern-normalize/-/modern-normalize-0.3.0.tgz#83ecf0522d5242f25641dcff4c4d7b3dc79910fe"
+
 modernizr@^3.0.0-alpha:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/modernizr/-/modernizr-3.5.0.tgz#396a02231bdc54628bbde2c0813a8e884c7e8060"
@@ -11114,13 +11118,9 @@ tinycolor2@^1.1.2, tinycolor2@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
 
-tinyreset@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/tinyreset/-/tinyreset-1.0.1.tgz#8fb9281b0756c453c6140e7e6c6d2365088936f7"
-
-tmp@^0.0.31:
-  version "0.0.31"
-  resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.31.tgz#8f38ab9438e17315e5dbd8b3657e8bfb277ae4a7"
+tmp@^0.0.33:
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
   dependencies:
     os-tmpdir "~1.0.1"
 
