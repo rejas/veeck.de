@@ -10,11 +10,12 @@ last-modified: 2017-01-12
     <section>
         <h2 class="h2">Search</h2>
 
+        {{> input-text
+            id='search__input'
+            name='search__input'
+            label='What are you searching for?'}}
+
         <form class="form links__form js-links__form" method="get" target="_blank">
-            {{> input-text
-                id='search__input'
-                name='search__input'
-                label='What are you searching for?'}}
             <input type="hidden" name="q" value="" class="js-links__input">
         </form>
 
