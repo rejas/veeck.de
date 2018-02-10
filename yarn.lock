@@ -9873,6 +9873,10 @@ schema-utils@^0.4.0, schema-utils@^0.4.3:
     ajv "^5.0.0"
     ajv-keywords "^2.1.0"
 
+scrollmagic@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/scrollmagic/-/scrollmagic-2.0.5.tgz#ad7597341c76fb1f4a5bec12968a09223bd08dd9"
+
 seek-bzip@^1.0.3:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/seek-bzip/-/seek-bzip-1.0.5.tgz#cfe917cb3d274bcffac792758af53173eb1fabdc"
