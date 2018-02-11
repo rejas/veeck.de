@@ -20,6 +20,7 @@
     "fix": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js --fix"
   },
   "dependencies": {
+    "aos": "^2.2.0",
     "browser-update": "^2.1.11",
     "cookieconsent": "^3.0.6",
     "core-js": "^2.5.3",
@@ -32,7 +33,6 @@
     "multilevelmenu": "^1.1.1",
     "normalize-opentype.css": "^0.2.4",
     "object-fit-images": "^3.2.3",
-    "scrollmagic": "^2.0.5",
     "smoothscroll-polyfill": "^0.4.0",
     "tinycolor2": "^1.4.1",
     "vanilla-tilt": "^1.4.1"
