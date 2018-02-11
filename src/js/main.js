@@ -3,6 +3,7 @@
 // Libraries
 import 'cookieconsent';
 
+import AOS              from 'aos';
 import BrowserUpdate    from 'browser-update';
 import galite           from 'ga-lite';
 import HalkaBox         from 'halkabox';
@@ -47,6 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'theme': 'classic'
     });
+
+    /**
+     * AOS
+     */
+    AOS.init();
 
     /**
      * ArticleIntroEffect
