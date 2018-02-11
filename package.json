@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "5.2.7",
+  "version": "5.2.8",
   "private": true,
   "homepage": "https://github.com/rejas/homepage",
   "author": {
@@ -22,25 +22,25 @@
   "dependencies": {
     "aos": "^2.2.0",
     "browser-update": "^2.1.11",
-    "cookieconsent": "^3.0.4",
+    "cookieconsent": "^3.0.6",
     "core-js": "^2.5.3",
     "feather-icons": "^4.5.0",
     "ga-lite": "^2.0.1",
     "halkabox": "^1.2.0",
     "hamburgers": "^0.9.3",
     "konami-code.js": "git+https://github.com/rejas/konami-js.git",
+    "modern-normalize": "^0.3.0",
     "multilevelmenu": "^1.1.1",
     "normalize-opentype.css": "^0.2.4",
     "object-fit-images": "^3.2.3",
     "smoothscroll-polyfill": "^0.4.0",
     "tinycolor2": "^1.4.1",
-    "tinyreset": "^1.0.1",
     "vanilla-tilt": "^1.4.1"
   },
   "devDependencies": {
     "assemble": "^0.24.3",
     "assemble-middleware-page-variable": "^0.1.0",
-    "autoprefixer": "^7.2.5",
+    "autoprefixer": "^7.2.6",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
@@ -74,7 +74,7 @@
     "gulp-uglify": "^3.0.0",
     "helper-md": "^0.2.2",
     "imagemin-mozjpeg": "7.0.0",
-    "less": "^3.0.0-alpha.3",
+    "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "postcss-loader": "^2.1.0",
     "postcss-normalize": "^4.0.0",
@@ -83,9 +83,9 @@
     "style-loader": "^0.20.1",
     "url-loader": "^0.6.2",
     "vinyl-ftp": "^0.6.1",
-    "webpack": "^3.10.0",
+    "webpack": "^3.11.0",
     "webpack-bundle-analyzer": "^2.10.0",
     "webpack-merge": "^4.1.1",
-    "webpack-stream": "^4.0.0"
+    "webpack-stream": "^4.0.1"
   }
 }

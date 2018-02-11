@@ -10,11 +10,12 @@ last-modified: 2017-01-12
     <section>
         <h2 class="h2">Search</h2>
 
+        {{> input-text
+            id='search__input'
+            name='search__input'
+            label='What are you searching for?'}}
+
         <form class="form links__form js-links__form" method="get" target="_blank">
-            {{> input-text
-                id='search__input'
-                name='search__input'
-                label='What are you searching for?'}}
             <input type="hidden" name="q" value="" class="js-links__input">
         </form>
 
@@ -24,13 +25,9 @@ last-modified: 2017-01-12
                 name='duckduckgo'
                 url='https://duckduckgo.com/'}}
             {{> icon-button
-                label='Google'
-                name='google'
-                url='https://google.com/search'}}
-            {{> icon-button
-                label='Canoo'
-                name='canoo'
-                url='http://www.canoo.net/services/Controller?service=canooNet'}}
+                label='WerStreamtEs'
+                name='stream'
+                url='https://www.werstreamt.es/filme-serien'}}
             {{> icon-button
                 label='YouTube'
                 name='youtube'
@@ -40,10 +37,6 @@ last-modified: 2017-01-12
                 name='leo'
                 url='https://dict.leo.org/'}}
             {{> icon-button
-                label='Woxikon'
-                name='woxikon'
-                url='http://www.woxikon.de'}}
-            {{> icon-button
                 label='Wikipedia'
                 name='wikipedia'
                 url='https://en.wikipedia.org/w/index.php'}}
@@ -52,13 +45,30 @@ last-modified: 2017-01-12
                 name='chefkoch'
                 url='https://www.chefkoch.de/suche.php'}}
             {{> icon-button
+                label='Google'
+                name='google'
+                url='https://google.com/search'}}
+            {{> icon-button
                 label='IMDB'
                 name='imdb'
-                url='http://www.imdb.com/find'}}
+                url='https://www.imdb.com/find'}}
+            {{> icon-button
+                label='Hearthpwn'
+                name='hearthpwn'
+                query='search'
+                url='https://www.hearthpwn.com/search'}}
             {{> icon-button
                 label='Wowhead'
                 name='wowhead'
                 url='https://www.wowhead.com'}}
+            {{> icon-button
+                label='Canoo'
+                name='canoo'
+                url='http://www.canoo.net/services/Controller?service=canooNet'}}
+            {{> icon-button
+                label='Woxikon'
+                name='woxikon'
+                url='http://www.woxikon.de'}}
         </div>
     </section>
 

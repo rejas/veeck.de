@@ -33,7 +33,14 @@ let Input = {
 
                 let iform = document.querySelector('.js-links__form'),
                     input = document.querySelector('.js-links__input'),
-                    query = document.querySelector('#search__input').value;
+                    query = document.querySelector('#search__input').value,
+                    queryName = inputEl.dataset.query;
+
+                if (queryName && queryName !== '') {
+                    input.name = queryName;
+                } else {
+                    input.name = 'q';
+                }
 
                 if (query && query !== '') {
                     input.value = query;
