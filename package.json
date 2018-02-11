@@ -20,6 +20,7 @@
     "fix": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js --fix"
   },
   "dependencies": {
+    "aos": "^2.2.0",
     "browser-update": "^2.1.11",
     "cookieconsent": "^3.0.6",
     "core-js": "^2.5.3",

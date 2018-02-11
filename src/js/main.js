@@ -3,6 +3,7 @@
 // Libraries
 import 'cookieconsent';
 
+import AOS              from 'aos';
 import BrowserUpdate    from 'browser-update';
 import galite           from 'ga-lite';
 import HalkaBox         from 'halkabox';
@@ -12,7 +13,6 @@ import VanillaTilt      from 'vanilla-tilt';
 // Modules
 import Colors           from './modules/colors';
 import Input            from './modules/input';
-//import Intro            from './modules/intro';
 import Lazy             from './modules/lazy';
 import Nav              from './modules/nav';
 import Polyfill         from './modules/polyfill';
@@ -49,9 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /**
-     * ArticleIntroEffect
+     * AOS
      */
-    //Intro.init();
+    AOS.init();
 
     /**
      * Colors
