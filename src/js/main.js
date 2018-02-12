@@ -64,6 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
     Input.init();
 
     /**
+     * Intro
+     */
+    Intro.init();
+
+    /**
      * Lazyload images
      */
     Lazy.init();
@@ -126,12 +131,4 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     galite('create', 'UA-431999-1', 'auto');
     galite('send', 'pageview');
-
-
-    let imgH = document.querySelector('.header__image');
-    if (imgH) {
-        imgH.addEventListener('click', (e) => {
-            console.log(e);
-        });
-    }
 });

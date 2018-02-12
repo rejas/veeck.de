@@ -1,17 +1,18 @@
-/**
- * ArticleIntroEffects
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2014, Codrops
- * http://www.codrops.com
- */
-
 let Intro = {
 
     init: () => {
 
+        /**
+         *
+         */
+        let imgH = document.querySelector('.header__image');
+        if (imgH) {
+            imgH.addEventListener('click', (e) => {
+                //console.log(e);
+            });
+        }
+
+        /*
         // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
         // left: 37, up: 38, right: 39, down: 40,
         // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
@@ -153,6 +154,7 @@ let Intro = {
         trigger.addEventListener('click', () => {
             toggle('reveal');
         });
+        */
     }
 };
 
