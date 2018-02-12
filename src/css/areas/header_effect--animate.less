@@ -56,6 +56,26 @@
             padding: 0 1rem;
         }
     }
+
+
+    &.modify {
+
+        .header__image::before {
+            transform: translateX(-100%);
+        }
+
+        .header__image::after {
+            top: -80px;
+            right: -80px;
+            bottom: -80px;
+            left: -80px;
+            border-color: transparent;
+        }
+
+        .header__title {
+            transform: translateX(-100%);
+        }
+    }
 }
 
 /*
