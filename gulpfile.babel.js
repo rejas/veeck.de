@@ -337,7 +337,7 @@ gulp.task('scale',      gulp.parallel('scale:images'));
  * MAIN TASKS
  */
 
-grelease(gulp);
+grelease.release(gulp);
 
 gulp.task('default',    gulp.series('clean', 'check', 'copy', 'webpack:prod', 'html'));
 
