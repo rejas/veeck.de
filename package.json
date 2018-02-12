@@ -29,7 +29,7 @@
     "halkabox": "^1.2.0",
     "hamburgers": "^0.9.3",
     "konami-code.js": "git+https://github.com/rejas/konami-js.git",
-    "modern-normalize": "^0.3.0",
+    "modern-normalize": "^0.4.0",
     "multilevelmenu": "^1.1.1",
     "normalize-opentype.css": "^0.2.4",
     "object-fit-images": "^3.2.3",
@@ -40,7 +40,7 @@
   "devDependencies": {
     "assemble": "^0.24.3",
     "assemble-middleware-page-variable": "^0.1.0",
-    "autoprefixer": "^7.2.6",
+    "autoprefixer": "^8.0.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
