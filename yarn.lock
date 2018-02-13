@@ -5268,9 +5268,9 @@ gulp-prompt@1.0.1, gulp-prompt@^1.0.1:
     inquirer "^3.3.0"
     lodash.template "^4.4.0"
 
-gulp-release-it@^2.0.10:
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/gulp-release-it/-/gulp-release-it-2.0.10.tgz#94d68672b60913944cffdb2fe51943c8e4ee5dc0"
+gulp-release-it@^2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/gulp-release-it/-/gulp-release-it-2.0.13.tgz#aa78a5cebabcb3714f09cdebac5cc4f17e3e2b9a"
   dependencies:
     ansi-colors "1.0.1"
     fancy-log "1.3.2"
