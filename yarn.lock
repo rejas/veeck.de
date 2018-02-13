@@ -5054,6 +5054,15 @@ grunt-legacy-log@~0.1.1:
     lodash "~2.4.1"
     underscore.string "~2.3.3"
 
+gulp-babel@7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/gulp-babel/-/gulp-babel-7.0.1.tgz#b9c8e29fa376b36c57989db820fc1c1715bb47cb"
+  dependencies:
+    plugin-error "^1.0.1"
+    replace-ext "0.0.1"
+    through2 "^2.0.0"
+    vinyl-sourcemaps-apply "^0.2.0"
+
 gulp-cache-bust@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/gulp-cache-bust/-/gulp-cache-bust-1.3.0.tgz#3104d1318cca7d03e9a2e7e4fb8892c711d83845"
@@ -5148,9 +5157,9 @@ gulp-flatten@^0.4.0:
     plugin-error "^0.1.2"
     through2 "^2.0.0"
 
-gulp-git@2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/gulp-git/-/gulp-git-2.5.0.tgz#3a04369321ecb51c0acf08c944f6e853b14ec5ef"
+gulp-git@2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/gulp-git/-/gulp-git-2.5.1.tgz#f7f156538df3f093698e8266d197edb2903e5944"
   dependencies:
     any-shell-escape "^0.1.1"
     fancy-log "^1.3.2"
@@ -5259,20 +5268,21 @@ gulp-prompt@1.0.1, gulp-prompt@^1.0.1:
     inquirer "^3.3.0"
     lodash.template "^4.4.0"
 
-gulp-release-it@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/gulp-release-it/-/gulp-release-it-2.0.8.tgz#4dcbb34fbec1dcec4d4a526a793f827ec1e4d05c"
+gulp-release-it@^2.0.10:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/gulp-release-it/-/gulp-release-it-2.0.10.tgz#94d68672b60913944cffdb2fe51943c8e4ee5dc0"
   dependencies:
     ansi-colors "1.0.1"
     fancy-log "1.3.2"
-    gulp-git "2.5.0"
+    gulp-babel "7.0.1"
+    gulp-git "2.5.1"
     gulp-json-editor "2.2.1"
     gulp-prompt "1.0.1"
-    lodash "4.17.4"
     map-stream "0.0.7"
-    semver "5.4.1"
+    semver "5.5.0"
     string "3.3.3"
-    yargs "10.1.1"
+    undertaker-registry "^1.0.1"
+    yargs "11.0.0"
 
 gulp-rename@^1.2.0:
   version "1.2.2"
@@ -9939,13 +9949,9 @@ semver-truncate@^1.0.0:
   dependencies:
     semver "^5.3.0"
 
-"semver@2 || 3 || 4 || 5", semver@^5.3.0:
+"semver@2 || 3 || 4 || 5", semver@5.5.0, semver@^5.3.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
-
-semver@5.4.1:
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
 
 semver@^4.0.3:
   version "4.3.6"
@@ -11266,7 +11272,7 @@ underscore@~1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.7.0.tgz#6bbaf0877500d36be34ecaa584e0db9fef035209"
 
-undertaker-registry@^1.0.0:
+undertaker-registry@^1.0.0, undertaker-registry@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/undertaker-registry/-/undertaker-registry-1.0.1.tgz#5e4bda308e4a8a2ae584f9b9a4359a499825cc50"
 
@@ -11937,15 +11943,15 @@ yargs-parser@^7.0.0:
   dependencies:
     camelcase "^4.1.0"
 
-yargs-parser@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-8.1.0.tgz#f1376a33b6629a5d063782944da732631e966950"
+yargs-parser@^9.0.2:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-9.0.2.tgz#9ccf6a43460fe4ed40a9bb68f48d43b8a68cc077"
   dependencies:
     camelcase "^4.1.0"
 
-yargs@10.1.1:
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-10.1.1.tgz#5fe1ea306985a099b33492001fa19a1e61efe285"
+yargs@11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-11.0.0.tgz#c052931006c5eee74610e5fc0354bedfd08a201b"
   dependencies:
     cliui "^4.0.0"
     decamelize "^1.1.1"
@@ -11958,7 +11964,7 @@ yargs@10.1.1:
     string-width "^2.0.0"
     which-module "^2.0.0"
     y18n "^3.2.1"
-    yargs-parser "^8.1.0"
+    yargs-parser "^9.0.2"
 
 yargs@7.0.2:
   version "7.0.2"
