@@ -16,7 +16,7 @@ import gulp             from    'gulp';
 import gcachebust       from    'gulp-cache-bust';
 import gconnect         from    'gulp-connect';
 import gplugins         from    'gulp-load-plugins';
-import grelease         from    'gulp-release-it';
+import {release}        from    'gulp-release-it';
 
 /**
  * OTHER PLUGINS
@@ -337,7 +337,8 @@ gulp.task('scale',      gulp.parallel('scale:images'));
  * MAIN TASKS
  */
 
-grelease(gulp);
+
+release(gulp);
 
 gulp.task('default',    gulp.series('clean', 'check', 'copy', 'webpack:prod', 'html'));
 
