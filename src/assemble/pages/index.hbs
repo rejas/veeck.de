@@ -19,85 +19,8 @@ last-modified: 2017-03-06
         </ul>
     </section>
 
-    <div class="article__grid">
-        <section class="section__box">
-            <h3 class="h3">what do I do</h3>
-            <div class="galleryBox">
-                {{> img-button
-                    caption='G4PC'
-                    class='galleryBox__item'
-                    img='/img/backgrounds/g4pc'
-                    href='personal_g4pc'}}
-                {{> img-button
-                    caption='MagicMirror'
-                    class='galleryBox__item'
-                    img='/img/backgrounds/magicmirror'
-                    href='personal_magicmirror'}}
-                {{> img-button
-                    caption='Radio show'
-                    class='galleryBox__item'
-                    img='/img/backgrounds/radio'
-                    href='personal_radio'}}
-                {{> img-button
-                    caption='University research'
-                    class='galleryBox__item'
-                    img='/img/backgrounds/research'
-                    href='personal_research'}}
-                {{> img-button
-                    caption='Software project'
-                    class='galleryBox__item'
-                    img='/img/backgrounds/software'
-                    href='personal_software'}}
-            </div>
-        </section>
-
-        <section class="section__box">
-            <h3 class="h3">what do I see</h3>
-            <div class="galleryBox">
-                {{> img-button
-                    caption='360 degrees'
-                    class='galleryBox__item'
-                    img='/img/backgrounds/360'
-                    href='panorama_360'}}
-                {{> img-button
-                    caption='Big pictures'
-                    class='galleryBox__item'
-                    img='/img/backgrounds/big'
-                    href='panorama_big'}}
-                {{> img-button
-                    caption='Cities'
-                    class='galleryBox__item'
-                    img='/img/backgrounds/city'
-                    href='panorama_cities'}}
-                {{> img-button
-                    caption='Friends'
-                    class='galleryBox__item'
-                    img='/img/backgrounds/friends'
-                    href='panorama_friends'}}
-                {{> img-button
-                    caption='Perspective'
-                    class='galleryBox__item'
-                    img='/img/backgrounds/perspective'
-                    href='panorama_perspective'}}
-                {{> img-button
-                    caption='Skyscraper'
-                    class='galleryBox__item'
-                    img='/img/backgrounds/sky'
-                    href='panorama_skyscraper'}}
-                {{> img-button
-                    caption='World'
-                    class='galleryBox__item'
-                    img='/img/backgrounds/world'
-                    href='panorama_world'}}
-                {{> img-button
-                    caption='More friends'
-                    class='galleryBox__item'
-                    img='/img/backgrounds/people'
-                    href='personal_friends'}}
-            </div>
-        </section>
-
-        <section class="section__box">
+    <div class="grid grid--12">
+        <section class="section__box grid__section--2x1">
             <h3 class="h3">what you can read</h3>
             <div class="galleryBox">
                 {{> img-button
@@ -178,7 +101,84 @@ last-modified: 2017-03-06
             </div>
         </section>
 
-        <section class="section__box">
+        <section class="section__box grid__section--1x2">
+            <h3 class="h3">what do I do</h3>
+            <div class="galleryBox">
+                {{> img-button
+                    caption='G4PC'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/g4pc'
+                    href='personal_g4pc'}}
+                {{> img-button
+                    caption='MagicMirror'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/magicmirror'
+                    href='personal_magicmirror'}}
+                {{> img-button
+                    caption='Radio show'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/radio'
+                    href='personal_radio'}}
+                {{> img-button
+                    caption='University research'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/research'
+                    href='personal_research'}}
+                {{> img-button
+                    caption='Software project'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/software'
+                    href='personal_software'}}
+            </div>
+        </section>
+
+        <section class="section__box grid__section--1x2">
+            <h3 class="h3">what do I see</h3>
+            <div class="galleryBox">
+                {{> img-button
+                    caption='360 degrees'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/360'
+                    href='panorama_360'}}
+                {{> img-button
+                    caption='Big pictures'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/big'
+                    href='panorama_big'}}
+                {{> img-button
+                    caption='Cities'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/city'
+                    href='panorama_cities'}}
+                {{> img-button
+                    caption='Friends'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/friends'
+                    href='panorama_friends'}}
+                {{> img-button
+                    caption='Perspective'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/perspective'
+                    href='panorama_perspective'}}
+                {{> img-button
+                    caption='Skyscraper'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/sky'
+                    href='panorama_skyscraper'}}
+                {{> img-button
+                    caption='World'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/world'
+                    href='panorama_world'}}
+                {{> img-button
+                    caption='More friends'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/people'
+                    href='personal_friends'}}
+            </div>
+        </section>
+
+        <section class="section__box grid__section--1x1">
             <h3 class="h3">where have I been</h3>
             <figure class="figure">
                 <!-- http://www.world66.com/community/mymaps/worldmap/CRBEFRHRDEJPLUHUBRSGTZPTIDNZPATHROPLVACHITCZAUATNLIECVESMCMYUSUKUAMA.gif -->
@@ -187,7 +187,7 @@ last-modified: 2017-03-06
             </figure>
         </section>
 
-        <section class="section__box">
+        <section class="section__box grid__section--2x1">
             <div id="adframe" class="adframe">
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <!-- Homepage -->
