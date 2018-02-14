@@ -3,16 +3,15 @@
     grid-gap: 1rem;
     grid-template-columns: repeat(12, 1fr);
 
-    .grid__section--1x1 {
-        grid-column: span 4;
+    .grid__section--12x1 {
+        grid-column: span 12;
     }
 
-    .grid__section--2x1 {
-        grid-column: span 8;
-    }
+    .grid__section--6x1 {
+        grid-column: span 6;
 
-    .grid__section--1x2 {
-        grid-column: span 4;
-        grid-row: span 2;
+        @media @phone, @tablet {
+            grid-column: span 12;
+        }
     }
 }
