@@ -13,13 +13,13 @@ import VanillaTilt      from 'vanilla-tilt';
 // Modules
 import Colors           from './modules/colors';
 import Input            from './modules/input';
+import Intro            from './modules/intro';
 import Lazy             from './modules/lazy';
 import Nav              from './modules/nav';
 import Polyfill         from './modules/polyfill';
 
 // Styles
 import '../css/main.less';
-
 
 document.addEventListener('DOMContentLoaded', () => {
 
