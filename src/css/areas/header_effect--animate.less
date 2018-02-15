@@ -6,10 +6,6 @@
 
     &__image {
 
-        @media @phone,@tablet {
-            opacity: 0.5;
-        }
-
         @media @desktop {
 
             &::before,
@@ -40,23 +36,17 @@
     }
 
     &__subtitle {
-        font-weight: @font-weight-medium;
     }
 
     &__title {
-        line-height: 1;
-        text-align: right;
         left: 0;
-        padding: 2rem;
         width: 60%;
-        transform: translateY(-50%);
 
         @media @phone, @tablet {
             width: 100%;
             padding: 0 1rem;
         }
     }
-
 
     &.modify {
 
