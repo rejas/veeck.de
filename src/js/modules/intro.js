@@ -7,7 +7,7 @@ let Intro = {
          */
         let imgH = document.querySelector('.header__image');
         if (imgH) {
-            imgH.addEventListener('click', (e) => {
+            imgH.addEventListener('click', () => {
                 //console.log(e);
             });
         }
