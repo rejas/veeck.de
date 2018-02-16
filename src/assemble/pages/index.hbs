@@ -205,7 +205,11 @@ last-modified: 2017-03-06
     <section>
         <h2 class="h2">what has changed</h2>
         <ul class="article__list">
-            <li><time datetime="2017-12-07">2017/12/07: </time>Added infos about my small React project: <a class="article__link" href="personal_software.html#hulai">How unlucky am I?</a></li>
+            {{> item-change
+                link='personal_software.html#hulai'
+                time='2017-12-07'
+                text='Added React project: How unlucky am I?'}}
+
             <li><time datetime="2017-12-05">2017/12/05: </time>Added the video of our time in <a class="article__link" href="travel_07_tansania.html">Tanzania</a></li>
             <li><time datetime="2017-11-10">2017/11/10: </time>All parts online of our trip to <a class="article__link" href="travel_17_greece.html">Greece</a></li>
             <li><time datetime="2017-10-22">2017/10/22: </time>New navigation!</li>
@@ -236,6 +240,10 @@ last-modified: 2017-03-06
             <li><span>2008/07/22:</span> Finally the fifth show is online. Took a while because it was the first one to be broadcast live.</li>
             <li><span>2008/06/12:</span> Fourth show is online. And we’re on <a href="http://www.myspace.com/diedaveundveeckshow" class="article__link">MySpace</a> now.</li>
             -->
+
+            {{> item-change
+                time=''
+                text=''}}
         </ul>
     </section>
 </article>
