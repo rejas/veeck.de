@@ -2,9 +2,10 @@
 
 My personal homepage.
 
-## TODO
+## todo
 
  * Optimize all images (incl icons and favicons) during prepare
+ * Dont inline googleads js code, cleanup csp
  
 
 ## Release History
