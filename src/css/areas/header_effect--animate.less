@@ -6,10 +6,6 @@
 
     &__image {
 
-        @media @phone,@tablet {
-            opacity: 0.5;
-        }
-
         @media @desktop {
 
             &::before,
@@ -40,20 +36,34 @@
     }
 
     &__subtitle {
-        font-weight: @font-weight-medium;
     }
 
     &__title {
-        line-height: 1;
-        text-align: right;
         left: 0;
-        padding: 2rem;
         width: 60%;
-        transform: translateY(-50%);
 
         @media @phone, @tablet {
             width: 100%;
             padding: 0 1rem;
+        }
+    }
+
+    &.modify {
+
+        .header__image::before {
+            transform: translateX(-100%);
+        }
+
+        .header__image::after {
+            top: -80px;
+            right: -80px;
+            bottom: -80px;
+            left: -80px;
+            border-color: transparent;
+        }
+
+        .header__title {
+            transform: translateX(-100%);
         }
     }
 }
