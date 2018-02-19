@@ -3,10 +3,6 @@
         "browser": true,
         "node": true
     },
-    "globals": {
-        "jQuery": true,
-        "$": true
-    },
     "parserOptions": {
         "ecmaVersion": 6,
         "sourceType": "module"
