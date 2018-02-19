@@ -1,0 +1,110 @@
+@btn-size-md: 2.5rem;
+@btn-size-lg: 3rem;
+
+.btn {
+    border: 0;
+    .boxshadow(1);
+    .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+    border-radius: @border-radius-lg;
+    .colorVar(color, --primaryColor, @primaryColor);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: @font-main, arial;
+    font-size: @font-size-md;
+    font-weight: @font-weight-bold;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    user-select: none;
+    .transform(all);
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        transform: translateY(-1px);
+        .boxshadow(2);
+        .colorVar(color, --secondaryTextColor, @secondaryTextColor);
+
+        > svg {
+            .colorVar(stroke, --secondaryTextColor, @secondaryTextColor);
+        }
+    }
+
+    > svg {
+        .colorVar(stroke, --primaryColor, @primaryColor);
+    }
+
+    &--md {
+        height: @btn-size-md;
+        min-width: @btn-size-md;
+    }
+
+    &--lg {
+        height: @btn-size-lg;
+        min-width: @btn-size-lg;
+    }
+
+    &--icon {
+        padding: 0;
+    }
+}
+
+.flexBtn {
+
+    &__icon {
+        margin: 0 0.5rem 0 0;
+
+        @media @phone {
+            margin: 0;
+        }
+    }
+
+    &__label {
+        text-transform: uppercase;
+
+        @media @phone {
+            display: none;
+        }
+    }
+}
+
+.hamburgerBtn {
+    display: block;
+    z-index: @z-index-5;
+    padding: 0;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &:hover {
+        opacity: 1;
+
+        &::after {
+            color: inherit;
+        }
+
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            color: inherit;
+        }
+    }
+
+    .hamburger-box {
+        width: 1.5rem;
+        top: 0.15rem;
+    }
+
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        .colorVar(background-color, --primaryColor, @primaryColor);
+        width: 100%;
+    }
+}

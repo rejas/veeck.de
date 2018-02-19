@@ -1,9 +1,0 @@
-{
-    "hexNotation":              false,
-    "importantRule":            false,
-    "propertyOrdering":         false,
-    "qualifyingElement":        false,
-    "spaceAroundComma":         false,
-    "spaceAroundOperator":      false, // due to css variable false positives
-    "zeroUnit":                 false
-}

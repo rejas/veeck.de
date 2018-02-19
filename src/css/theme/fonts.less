@@ -1,0 +1,30 @@
+// lesshint maxCharPerLine: false
+
+.font-face('BungeeColor-Regular', '../assets/fonts/BungeeColor-Regular_svg', 'normal');
+
+@font-header:           'Permanent Marker';
+@font-main:             'Nunito';
+@font-color:            'BungeeColor-Regular';
+
+@min-font-size:         16px;
+@max-font-size:         19px;
+@font-line-ratio:       1.618;
+
+@base-font-size:        (calc(@min-font-size ~' + ' unit(@max-font-size - @min-font-size) ~' * ((100vw - ' @xs ~') /' unit(@xl - @xs) ~')'));
+@base-line-height:      (calc(@min-font-size * @font-line-ratio ~' + ' unit((@max-font-size - @min-font-size) * @font-line-ratio) ~' * ((100vw - ' @xs ~') /' unit(@xl - @xs) ~')'));
+
+@font-size-sm:          0.618rem;
+@font-size-md:          1.000rem;
+@font-size-lg:          1.618rem;
+@font-size-xl:          2.618rem;
+//@font-size-xxl:         4.236rem;
+
+@line-height-md:        @base-line-height;
+@line-height-lg:        1.618rem;
+@line-height-xl:        2.618rem;
+//@line-height-xxl:       4.236rem;
+
+@font-weight-light:     300;
+@font-weight-normal:    400;
+@font-weight-medium:    500;
+@font-weight-bold:      700;

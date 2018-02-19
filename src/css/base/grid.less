@@ -1,0 +1,17 @@
+.grid {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(12, 1fr);
+
+    .grid__section--12x1 {
+        grid-column: span 12;
+    }
+
+    .grid__section--6x1 {
+        grid-column: span 6;
+
+        @media @phone, @tablet {
+            grid-column: span 12;
+        }
+    }
+}

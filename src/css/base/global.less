@@ -1,134 +1,74 @@
-* {
-    box-sizing: border-box;
+:root {
+    --figure-angle-seed: 0deg;
+    height: 100%;
 
     &:focus {
         outline: 0;
     }
 }
 
-/* set the default transition time */
-:root {
-    --figure-angle-seed: 0deg;
-}
-
 ::selection {
-    .colorVar(color, --bgColor, @bgColor);
     .colorVar(background-color, --primaryTextColor, @primaryTextColor);
+    .colorVar(color, --primaryColor, @primaryColor);
     text-shadow: none;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
 html {
-    background: none;
-    height: 100%;
+    box-sizing: border-box;
+    font-family: @font-main, arial;
     font-size: @base-font-size;
     line-height: @base-line-height;
-    font-family: 'mobile';
-
-    @media @desktop {
-        font-family: 'desktop';
-    }
 }
 
 body {
-    .colorVar(color, --primaryTextColor, @primaryTextColor);
-    .colorVar(background-color, --bgColor, @bgColor);
+    background-color: @backgroundColor;
+    color: @primaryTextColor;
     height: 100%;
     margin: 0;
     padding: 0;
+    font-size: @base-font-size;
+    line-height: @base-line-height;
     overflow-x: hidden;
-    -ms-touch-action: auto;
-    font-family: @font-main, arial;
-    font-weight: @font-weight-normal;
     text-rendering: optimizeLegibility;
+    -ms-touch-action: auto;
+    -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
-
-    &::after {
-        display: none;
-
-        @media @desktop {
-            content: 'desktop';
-        }
-    }
 }
 
-article {
-    .clearfix();
-    margin: 1rem auto 0;
-    padding: 0 1rem 1rem;
-
-    @media @desktop {
-        max-width: 960px;
-    }
+.body--centered {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
 }
 
 section {
     .clearfix();
     margin-bottom: 2rem;
-
-    h2 {
-        border-bottom: 2px solid;
-        .colorVar(border-color, --primaryTextColor, @primaryTextColor);
-        padding: 0 1em 0.25em;
-        text-align: center;
-        word-break: break-word;
-    }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-    font-family: @font-header, serif;
-    font-weight: @font-weight-normal;
-    margin: 0 0 0.5em 0;
-}
-
-h1,
-h2,
-h3 {
-    text-transform: uppercase;
-}
-
-h1 {
-    font-style: italic;
 }
 
 p {
     hyphens: auto;
-    margin: 0 0 0.6em 0;
+    margin: 0 0 0.5rem 0;
 
     + p {
-        text-indent: 1em;
+        text-indent: 1rem;
     }
 }
 
 img,
 picture {
+    image-rendering: -webkit-optimize-contrast;
     max-width: 100vw;
     max-height: 100vh;
-}
-
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
     vertical-align: middle;
-}
-
-/*
- * Allow only vertical resizing of textareas.
- */
-textarea {
-    resize: vertical;
 }
 
 ul {
@@ -138,46 +78,47 @@ ul {
 }
 
 a,
-a:visited {
-    .colorVar(color, --accentColor, @accentColor);
+a.cc-link {
+    color: @primaryTextColor;
+    border-bottom: @border-thickness solid;
+    .colorVar(border-bottom-color, --primaryColor, @primaryColor);
     outline: none;
     text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
 }
 
-a:hover,
-a:focus {
-    color: @lightPrimaryColor;
+pre {
+    display: inline-block;
+    width: 100%;
+    padding: 0.5rem;
+    .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+    border: @border-thickness solid @color-transparent;
+    border-radius: @border-radius-md;
+    margin-bottom: 0.5rem;
+    white-space: pre-wrap;
+}
+
+strong {
+    font-weight: @font-weight-bold;
 }
 
 time {
     font-family: monospace;
 }
 
-input {
-    padding: 4px 8px;
-    border: 1px solid rgba(0,0,0,0.125);
-    border-radius: @figure-radius;
-    .colorVar(border-color, --accentColor, @accentColor);
-    height: 1.75rem;
-}
-
+a,
+area,
+button,
+[role='button'],
+input:not([type='range']),
+label,
+select,
+summary,
 textarea {
-    border: 1px solid rgba(0,0,0,0.125);
-    border-radius: @figure-radius;
-    .colorVar(border-color, --accentColor, @accentColor);
-    min-height: 1.75rem;
+    touch-action: manipulation;
 }
 
-select {
-    border: 1px solid rgba(0,0,0,0.125);
-    border-radius: @figure-radius;
-    .colorVar(border-color, --accentColor, @accentColor);
-    height: 1.75rem;
-}
-
-.hidden-lg {
-
-    @media @desktop {
-        display: none;
-    }
+.adsbygoogle {
+    display: block;
 }

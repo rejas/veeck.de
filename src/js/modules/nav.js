@@ -1,42 +1,45 @@
-import * as mqe from '../../bower_components/mediaquery-event/src/mqe';
+/* global MLMenu */
+import 'multilevelmenu';
 
-function cssButton() {
-    const $trigger = $('.js-dl-trigger');
+let Nav = {
 
-    $trigger.on('click', function() {
-        $trigger.toggleClass('is-active');
+    init: () => {
+        let navEl = document.querySelector('.navigation'),
+            menuEl = document.getElementById('ml-menu'),
+            btnEles = document.querySelectorAll('.js-btn--hamburger');
 
-        if ($trigger.hasClass('is-active')) {
-            $('body').off('click').children().on('click', function() {
-                $trigger.removeClass('is-active');
+        if (!menuEl) {
+            return;
+        }
+
+        new MLMenu(menuEl, {
+            breadcrumbsCtrl: true,          // show breadcrumbs
+            initialBreadcrumb: 'menu',      // initial breadcrumb text
+            // itemsDelayInterval: 60,      // delay between each menu item sliding animation
+            // onItemClick: loadDummyData,  // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+            backCtrl: false                 // show back button
+        });
+
+        btnEles.forEach((element) => {
+            element.addEventListener('click', () => {
+                navEl.classList.toggle('menu--open');
+
+                btnEles.forEach((element) => {
+                    element.classList.toggle('is-active');
+                });
             });
-        }
-    });
-}
+        });
 
-export function init() {
-    const $myNav = $('nav').clone();
+        document.addEventListener('click', (event) => {
+            if (!navEl.contains(event.target)) {
+                navEl.classList.remove('menu--open');
 
-    document.addEventListener('mediaquery', function (event) {
-        if (!event.detail.active) {
-            return;
-        }
-        if (event.detail.media === 'desktop') {
-            $('nav').remove();
-            $myNav.clone().prependTo('header').removeClass('mobile-nav').addClass('desktop-nav');
-            return;
-        }
-        if (event.detail.media === 'mobile') {
-            $('nav').remove();
-            $myNav.clone().prependTo('header').addClass('mobile-nav').removeClass('desktop-nav').dlmenu();
-            cssButton();
-        }
-    });
+                btnEles.forEach((element) => {
+                    element.classList.remove('is-active');
+                });
+            }
+        });
+    }
+};
 
-    mqe.init({
-        mediaqueries: [
-            {name: 'mobile', media: 'screen and (max-width: 1023px)'},
-            {name: 'desktop', media: 'screen and (min-width: 1024px)'}
-        ]
-    });
-}
+export default Nav;

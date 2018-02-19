@@ -1,0 +1,93 @@
+.no-cssgrid,
+.no-supports {
+
+    .article {
+        .clearfix();
+        display: block;
+        margin: 0 auto 0;
+        padding: 0 1rem 1rem;
+        max-width: @lg;
+
+        &__grid {
+            .clearfix();
+            display: block;
+        }
+    }
+
+    .section__grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        > * {
+            margin-bottom: 0.5rem;
+        }
+
+        &--single {
+            flex: 0 0 100%;
+        }
+
+        &--two {
+            @media @desktop, @tablet {
+                flex: 0 0 50%;
+            }
+
+            @media @phone {
+                flex: 0 0 100%;
+            }
+        }
+
+        &--three {
+
+            > * {
+                @media @desktop {
+                    flex: 0 0 33%;
+                }
+
+                @media @tablet {
+                    flex: 0 0 50%;
+                }
+
+                @media @phone {
+                    flex: 0 0 100%;
+                }
+            }
+        }
+
+        &--four {
+            @media @desktop {
+                flex: 0 0 25%;
+            }
+
+            @media @tablet {
+                flex: 0 0 33%;
+            }
+
+            @media @phone {
+                flex: 0 0 50%;
+            }
+        }
+    }
+
+    .galleryBox {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        &__item {
+            margin-bottom: 0.5rem;
+
+            @media @desktop {
+                // Would love to use calculated values like this:
+                // flex: 0 0 calc(1 / 3 * 100% - (1 - 1 / 3) * 0.5rem);
+                // but according to caniuse:
+                // IE & Edge are reported to not support calc inside a 'flex'. (Not tested on older versions)
+                flex: 0 0 33%;
+            }
+
+            @media @tablet, @phone {
+                flex: 0 0 50%;
+            }
+        }
+    }
+}

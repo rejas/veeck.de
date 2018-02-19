@@ -3,119 +3,107 @@ title: links
 heading: links
 lang: en
 lead: a collection of useful links and searches
-img: links.jpg
-img-color: 00CC55
+img: links
 last-modified: 2017-01-12
 ---
-<article class="content">
-    <section class="search_article">
-        <h2>Search</h2>
-        <ul class="table_list">
-            <li>
-                <form action="https://duckduckgo.com/" method="get">
-                    <label for="dsearch"><i class="icon icon--s icon-duckduckgo"></i></label>
-                    <div><input id="dsearch" type="search" name="q"></div>
-                    <button class="btn btn--m" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="https://www.google.com/search" method="get">
-                    <label for="gsearch"><i class="icon icon--s icon-google"></i></label>
-                    <div><input id="gsearch" type="search" name="q"></div>
-                    <button class="btn btn--m" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="https://www.youtube.com/results" method="get">
-                    <label for="ysearch"><i class="icon icon--s icon-youtube"></i></label>
-                    <div><input id="ysearch" type="search" name="search_query"></div>
-                    <button class="btn btn--m" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="http://www.canoo.net/services/Controller?service=canooNet" method="get">
-                    <label for="csearch"><i class="icon icon--s icon-canoo"></i></label>
-                    <div><input id="csearch" type="search" name="input"></div>
-                    <button class="btn btn--m" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="https://dict.leo.org/" method="get">
-                    <label for="lsearch"><i class="icon icon--s icon-leo"></i></label>
-                    <div><input id="lsearch" type="search" name="search"></div>
-                    <button class="btn btn--m" type="submit">Translate</button>
-                </form>
-            </li>
-            <li>
-                <form action="http://www.woxikon.de" method="get">
-                    <label for="wsearch"><i class="icon icon--s icon-woxikon"></i></label>
-                    <div><input id="wsearch" type="search" name="q"></div>
-                    <button class="btn btn--m" type="submit">Translate</button>
-                </form>
-            </li>
-            <li>
-                <form action="https://en.wikipedia.org/w/index.php" method="get">
-                    <label for="wisearch"><i class="icon icon--s icon-wikipedia"></i></label>
-                    <div><input id="wisearch" type="search" name="search"></div>
-                    <button class="btn btn--m" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="https://www.chefkoch.de/suche.php" method="get">
-                    <label for="chefsearch"><i class="icon icon--s icon-chefkoch"></i></label>
-                    <div><input id="chefsearch" type="search" name="suche"></div>
-                    <button class="btn btn--m" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="http://www.imdb.com/find" method="get">
-                    <label for="imdbsearch"><i class="icon icon--s icon-imdb"></i></label>
-                    <div><input id="imdbsearch" type="search" name="q"></div>
-                    <button class="btn btn--m" type="submit">Search</button>
-                </form>
-            </li>
-            <li>
-                <form action="https://www.wowhead.com/" method="get">
-                    <label for="wowsearch"><i class="icon icon--s icon-wowhead"></i></label>
-                    <div><input id="wowsearch" type="search" name="search"/></div>
-                    <button class="btn btn--m" type="submit">Search</button>
-                </form>
-            </li>
+<article class="article">
+    <section>
+        <h2 class="h2">Search</h2>
+
+        {{> input-text
+            id='search__input'
+            name='search__input'
+            label='What are you searching for?'}}
+
+        <form class="form links__form js-links__form" method="get" target="_blank">
+            <input type="hidden" name="q" value="" class="js-links__input">
+        </form>
+
+        <div class="section__flex">
+            {{> icon-button
+                label='DuckDuckGo'
+                name='duckduckgo'
+                url='https://duckduckgo.com/'}}
+            {{> icon-button
+                label='WerStreamtEs'
+                name='stream'
+                url='https://www.werstreamt.es/filme-serien'}}
+            {{> icon-button
+                label='YouTube'
+                name='youtube'
+                url='https://www.youtube.com/results'}}
+            {{> icon-button
+                label='Leo'
+                name='leo'
+                url='https://dict.leo.org/'}}
+            {{> icon-button
+                label='Wikipedia'
+                name='wikipedia'
+                url='https://en.wikipedia.org/w/index.php'}}
+            {{> icon-button
+                label='Chefkoch'
+                name='chefkoch'
+                url='https://www.chefkoch.de/suche.php'}}
+            {{> icon-button
+                label='Google'
+                name='google'
+                url='https://google.com/search'}}
+            {{> icon-button
+                label='IMDB'
+                name='imdb'
+                url='https://www.imdb.com/find'}}
+            {{> icon-button
+                label='Hearthpwn'
+                name='hearthpwn'
+                query='search'
+                url='https://www.hearthpwn.com/search'}}
+            {{> icon-button
+                label='Wowhead'
+                name='wowhead'
+                url='https://www.wowhead.com'}}
+            {{> icon-button
+                label='Canoo'
+                name='canoo'
+                url='http://www.canoo.net/services/Controller?service=canooNet'}}
+            {{> icon-button
+                label='Woxikon'
+                name='woxikon'
+                url='http://www.woxikon.de'}}
+        </div>
+    </section>
+
+    <section>
+        <h2 class="h2">Tech Stuff Used Here</h2>
+        <ul class="article__list">
+            <li><a class="article__link" target="_blank" rel="noopener" href="http://assemble.io/">Assemble</a> static site generator used here</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="https://www.tympanus.net/codrops/">Codrops</a> web design and development blog with great tutorials</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="http://www.gulpjs.com/">gulp.js</a> the streaming build system to build this site</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="https://www.html5boilerplate.com/">HTML5boilerplate</a> the web’s most popular front-end template</li>
         </ul>
     </section>
 
-    <section class="search_article">
-        <h2>Tech Stuff Used Here</h2>
-        <ul>
-            <li><a target="_blank" href="https://www.html5boilerplate.com/">HTML5boilerplate</a>the web’s most popular front-end template</li>
-            <li><a target="_blank" href="https://www.tympanus.net/codrops/">Codrops</a>web design and development blog with great tutorials</li>
-            <li><a target="_blank" href="http://www.gulpjs.com/">gulp.js</a>the streaming build system to build this site</li>
-            <li><a target="_blank" href="http://www.slcentral.com/articles/01/8/g4pc/">another G4PC mod</a>where I got most of my questions answered</li>
+    <section>
+        <h2 class="h2">Comics On The Web</h2>
+        <ul class="article__list">
+            <li><a class="article__link" target="_blank" rel="noopener" href="https://www.dieselsweeties.com/">Diesel Sweeties</a> nothing is any good if other people like it</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="http://www.dorktower.com/">Dork Tower</a> geek as geek can</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="http://www.nichtlustig.de/">Nicht Lustig</a> who said germans can’t be funny?</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="http://www.penny-arcade.com/comic">Penny Arcade</a> you wouldn’t get it</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="http://www.dilbert.com/">Dilbert</a> the tragic side of corporate business</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="http://www.sinfest.net">Sinfest</a> the Webcomic To End all Webcomics</li>
         </ul>
     </section>
 
-    <section class="search_article">
-        <h2>Comics On The Web</h2>
-        <ul>
-            <li><a target="_blank" href="https://www.dieselsweeties.com/">Diesel Sweeties</a>nothing is any good if other people like it</li>
-            <li><a target="_blank" href="http://www.dorktower.com/">Dork Tower</a>geek as geek can</li>
-            <li><a target="_blank" href="http://www.nichtlustig.de/">Nicht Lustig</a>who said germans can't be funny?</li>
-            <li><a target="_blank" href="http://www.penny-arcade.com/comic">Penny Arcade</a>you wouldn't get it</li>
-            <li><a target="_blank" href="http://www.dilbert.com/">Dilbert</a>the tragic side of corporate business</li>
-            <li><a target="_blank" href="http://www.sinfest.net">Sinfest</a>the Webcomic To End all Webcomics</li>
-        </ul>
-    </section>
-
-    <section class="search_article">
-        <h2>People And Such</h2>
-        <ul>
-            <li><a target="_blank" href="http://www.scientific-data-mining.org/">Albrecht Zimmermann</a>awesome data miner exploring lyon soon</li>
-            <li><a target="_blank" href="http://www.macnicolae.de/">Mac Nicolae</a>Urban Photography, Nerf Enthusiast, Stand-Up Project Manager</li>
-            <li><a target="_blank" href="http://www.informatik.uni-freiburg.de/%7Estachnis/">Cyrill Stachniss</a>great researcher doing great things in mobile robotics</li>
-            <li><a target="_blank" href="https://www.ft1844-freiburg.de/americanfootball/">Freiburg Sacristans</a>the best American Football team in Freiburg</li>
-            <li><a target="_blank" href="http://www.like-a-stuntman.de/">Like A Stuntman</a>good people who also happen to make independent rock music</li>
-            <li><a target="_blank" href="https://ais.informatik.uni-freiburg.de/">Autonomous Intelligent Systems</a>the place for robots and path finding algorithms</li>
-            <li><a target="_blank" href="https://www.rdl.de/">Radio Dreyeckland</a>only independent radio station in Freiburg, crazy enough to host the Dave-And-Veeck-Show</li>
+    <section>
+        <h2 class="h2">People And Such</h2>
+        <ul class="article__list">
+            <li><a class="article__link" target="_blank" rel="noopener" href="http://www.scientific-data-mining.org/">Albrecht Zimmermann</a> awesome data miner exploring lyon soon</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="http://www.macnicolae.de/">Mac Nicolae</a> Urban Photography, Nerf Enthusiast, Stand-Up Project Manager</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="http://www.informatik.uni-freiburg.de/%7Estachnis/">Cyrill Stachniss</a> great researcher doing great things in mobile robotics</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="https://www.ft1844-freiburg.de/americanfootball/">Freiburg Sacristans</a> the best American Football team in Freiburg</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="http://www.like-a-stuntman.de/">Like A Stuntman</a> good people who also happen to make independent rock music</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="https://ais.informatik.uni-freiburg.de/">Autonomous Intelligent Systems</a> the place for robots and path finding algorithms</li>
+            <li><a class="article__link" target="_blank" rel="noopener" href="https://www.rdl.de/">Radio Dreyeckland</a> only independent radio station in Freiburg, crazy enough to host the Dave-And-Veeck-Show</li>
         </ul>
     </section>
 </article>

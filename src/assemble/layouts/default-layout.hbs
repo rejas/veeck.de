@@ -1,12 +1,21 @@
 ---
 layout: parent-layout.hbs
 ---
-<div id="container" class="intro-effect-side">
-    {{> header }}
+
+{{> header }}
+
+{{> nav }}
+
+<div class="buttonBar" data-aos="fade-up">
+    {{> share-list }}
+
+    <button class="btn btn--md btn--icon btn--up u-hidden--print js-to-top" type="button" title="Back to top">
+        {{> arrow-up }}
+    </button>
 </div>
 
-{{> body }}
+<main class="content">
+    {% body %}
+</main>
 
-<footer>
-    <time datetime="{{last-modified}}">page last modified {{last-modified}}</time>
-</footer>
+{{> footer }}

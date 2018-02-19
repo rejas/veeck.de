@@ -1,0 +1,201 @@
+@nav-width: 15rem;
+
+.navigation {
+    position: fixed;
+    left: -@nav-width;
+    top: 0;
+    z-index: @z-index-4;
+    height: 100vh;
+    width: @nav-width;
+    .transform(all);
+    transition-property: top, left, width, height;
+
+    @media @phone {
+        transform: none;
+    }
+
+    &.menu--open {
+        left: 0;
+
+        .navigation__btn--openMenu {
+            right: -4rem;
+        }
+    }
+
+    .menu {
+        background-color: transparent;
+        position: relative;
+        top: 0;
+        height: 100vh;
+        width: @nav-width;
+
+        @media @phone, @tablet {
+            transform: none;
+            z-index: @z-index-0;
+        }
+
+        .menu__breadcrumbs {
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+            height: @btn-size-lg;
+            padding-top: 1rem;
+            margin-right: @btn-size-lg;
+            top: 1rem;
+
+            &::before {
+                .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+                content: '';
+                height: 1rem;
+                width: @nav-width;
+                display: block;
+                position: absolute;
+                top: -1rem;
+                left: 0;
+            }
+        }
+
+        .menu__item {
+            position: relative;
+            width: calc(100% - 35px);
+
+            &::after,
+            &::before {
+                .transform(all);
+                content: '';
+                height: @border-thickness;
+                .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+                width: 100%;
+                position: absolute;
+                right: -100%;
+            }
+
+            &::after {
+                top: calc(100% - 2 * @border-thickness);
+            }
+
+            &::before {
+                top: (2 * @border-thickness);
+            }
+
+            &:hover {
+
+                &::after,
+                &::before {
+                    right: 0;
+                }
+            }
+        }
+
+        .menu__wrap {
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+            top: 4rem;
+        }
+
+        .menu__breadcrumbs a:hover,
+        .menu__link:hover,
+        .menu__link[data-submenu]:hover::after {
+            .colorVar(color, --darkPrimaryColor, @darkPrimaryColor);
+        }
+
+        .menu__breadcrumbs a,
+        .menu__link,
+        .menu__link[data-submenu]::after {
+            border-bottom: 0;
+            .colorVar(color, --primaryColor, @primaryColor);
+        }
+
+        .menu__link[data-submenu]::after {
+            padding-right: 1rem;
+        }
+
+        .menu__breadcrumbs a:not(:last-child)::after {
+            color: @colorDark;
+
+            &:hover {
+                .colorVar(color, --lightPrimaryColor, @lightPrimaryColorTransparent);
+            }
+        }
+
+        .menu__link--current::before {
+            content: '';
+        }
+    }
+
+    &__btn--openMenu {
+        position: fixed;
+        right: 1rem;
+        top: 1rem;
+
+        &::after {
+            content: 'MENU';
+            position: absolute;
+            left: -5px;
+            bottom: -@font-size-lg;
+        }
+
+        &:hover {
+            .hamburger-inner,
+            .hamburger-inner::before,
+            .hamburger-inner::after {
+                .colorVar(background-color, --secondaryTextColor, @secondaryTextColor);
+            }
+
+            &::after {
+                .colorVar(color, --primaryColor, @primaryColor);
+            }
+        }
+
+        @media @phone {
+            top: auto;
+            bottom: 1rem;
+
+            &::after {
+                content: '';
+            }
+        }
+    }
+
+    &__btn--closeMenu {
+        position: absolute;
+        right: 0;
+        top: 1rem;
+        background-color: transparent;
+        .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
+        border: @border-thickness solid;
+        border-right: @border-thickness solid transparent;
+        border-radius: 0;
+        .boxshadow(0);
+
+        &:hover {
+            .colorVar(border-color, --darkPrimaryColor, @darkPrimaryColor);
+            border-right-color: transparent;
+            .boxshadow(0);
+            transform: none;
+
+            .hamburger-inner,
+            .hamburger-inner::before,
+            .hamburger-inner::after {
+                .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+            }
+        }
+
+        &::after {
+            content: '';
+            height: 100vh;
+            width: @border-thickness;
+            .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+            position: absolute;
+            top: calc(3rem - (2 * @border-thickness));
+            right: -@border-thickness;
+        }
+
+        &::before {
+            content: '';
+            height: 2rem;
+            width: @border-thickness;
+            .colorVar(background-color, --darkPrimaryColor, @darkPrimaryColor);
+            position: absolute;
+            top: -2rem;
+            right: -@border-thickness;
+        }
+    }
+}

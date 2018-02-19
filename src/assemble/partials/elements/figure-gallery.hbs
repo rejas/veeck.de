@@ -1,0 +1,6 @@
+<figure class="figure {{class}}">
+    {{#if isNew}}<div class="figure__ribbon"><span>NEU</span></div>{{/if}}
+    <a href="{{img}}.medium.jpg" class="js-gallery__image">
+        <img src="{{#if thumb}}{{thumb}}.jpg{{else}}{{img}}.small.jpg{{/if}}" alt="{{caption}}">
+    </a>
+</figure>

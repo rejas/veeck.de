@@ -1,0 +1,278 @@
+@colorFigure:   #ede1c9;
+
+.figure {
+    border-radius: @border-radius-md;
+    //margin: 0 0 1rem;
+    position: relative;
+
+    a {
+        display: block;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    &--center {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    @media @desktop, @tablet {
+
+        &--full {
+            margin: 0.5rem 0 1rem;
+        }
+
+        &--left {
+            float: left;
+            margin: 0.5em 1rem 1rem 0;
+        }
+
+        &--right {
+            float: right;
+            margin: 0.5rem 0 1rem 1rem;
+        }
+    }
+
+    @media @desktop {
+
+        &--portrait {
+            width: 33%;
+        }
+
+        &--landscape {
+            width: 50%;
+        }
+    }
+
+    @media @tablet {
+
+        &--portrait {
+            width: 33%;
+        }
+
+        &--landscape {
+            width: 50%;
+        }
+    }
+
+    &__caption {
+        font-family: @font-header, serif;
+        font-weight: @font-weight-bold;
+        min-height: 2.5rem;
+        text-align: center;
+        padding: 0.5rem;
+
+        @media @phone {
+            font-size: @font-size-sm;
+            min-height: 0;
+            padding-top: 0;
+        }
+
+        &--highlighted {
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+        }
+    }
+
+    &__ribbon {
+        cursor: default;
+        position: absolute;
+        right: -5px;
+        top: -5px;
+        overflow: hidden;
+        width: 75px;
+        height: 75px;
+
+        span {
+            position: absolute;
+            top: 19px;
+            right: -21px;
+            font-size: @font-size-sm;
+            line-height: 1rem;
+            font-weight: @font-weight-bold;
+            text-transform: uppercase;
+            text-align: center;
+            transform: rotate(45deg);
+            width: 100px;
+            display: block;
+            .boxshadow(2);
+            .colorVar(color, --secondaryTextColor, @secondaryTextColor);
+            .colorVar(background-color, --accentColor, @accentColor);
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 100%;
+                z-index: -1;
+                border-left: @border-thickness solid darken(@accentColor, 15%);
+                border-right: @border-thickness solid transparent;
+                border-bottom: @border-thickness solid transparent;
+                border-top: @border-thickness solid darken(@accentColor, 15%);
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 100%;
+                z-index: -1;
+                border-left: @border-thickness solid transparent;
+                border-right: @border-thickness solid darken(@accentColor, 15%);
+                border-bottom: @border-thickness solid transparent;
+                border-top: @border-thickness solid darken(@accentColor, 15%);
+            }
+        }
+    }
+
+    &--basic {
+        .boxshadow(1);
+        .colorVar(background-color, --primaryColor, @primaryColor);
+        overflow: hidden;
+        text-decoration: none;
+        position: relative;
+
+        @media @phone {
+            margin: 0 -1rem 1rem;
+            border-radius: 0;
+            box-shadow: none;
+            background-color: transparent;
+            float: none;
+            width: 100vw;
+        }
+    }
+
+    &--github {
+        float: left;
+        margin: 0 1rem 1rem 0;
+
+        @media @phone {
+            width: 100%;
+
+            &::shadow .user {
+                width: 100%;
+            }
+        }
+
+        @media @tablet, @desktop {
+
+            &::shadow .user {
+                width: 200px;
+            }
+
+            + h2 {
+                padding-left: 200px;
+            }
+        }
+
+        &::shadow .user {
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+            border: @border-thickness solid @color-transparent;
+            border-radius: @border-radius-lg;
+            .colorVar(color, --primaryTextColor, @primaryTextColor);
+
+            .user-account,
+            .user-following,
+            .user-followers,
+            .user-repos {
+                .colorVar(color, --primaryTextColor, @primaryTextColor);
+
+                &::after {
+                    .colorVar(color, --primaryTextColor, @primaryTextColor);
+                }
+            }
+        }
+    }
+
+    &--icon {
+        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+        border: @border-thickness solid @color-transparent;
+        border-radius: @border-radius-lg;
+        float: left;
+        margin: 0.25rem 1rem 1rem 0;
+        width: auto;
+
+        @media @phone {
+            width: 100%;
+        }
+    }
+
+    &--image {
+        border-radius: @border-radius-lg;
+        .boxshadow(1);
+        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+        .colorVar(color, --primaryColor, @primaryColor);
+        overflow: hidden;
+
+        &:hover {
+            transform: translateY(-1px);
+            .boxshadow(2);
+        }
+    }
+
+    &--travel {
+
+        @media @desktop, @tablet {
+            overflow: visible;
+            padding: 0.5rem 0.5rem 0;
+            box-shadow: 4px 4px 8px -4px @color-transparentDark;
+            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+            transform: rotate(var(--figure-angle-seed));
+            transform-style: preserve-3d;
+
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: -15px;
+                width: 75px;
+                height: 25px;
+                background-color: @colorFigure;
+                opacity: 0.5;
+            }
+
+            figcaption {
+                transform: translateZ(30px);
+            }
+        }
+    }
+}
+
+.hb-wrapper {
+
+    .hb-main-container {
+
+        button {
+
+            svg {
+                .colorVar(fill, --darkPrimaryColor, @darkPrimaryColor);
+            }
+        }
+    }
+}
+
+img.b-error {
+    min-height: 50px;
+
+    &::before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        height: calc(100% + 10px);
+        width: 100%;
+        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+    }
+
+    &::after {
+        content: 'I am sorry, this image got eaten by the bug monster :(';
+        display: block;
+        color: @accentColor;
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,44 +1,231 @@
 ---
-title: home
+title: Veeck
 heading: veeck
 lang: en
 lead: computerschlampe / hoffotograf / terrorpoet
-img: index.jpg
-img-color:
+img: index
+img-color: 5a8106
 last-modified: 2017-03-06
 ---
-<article class="content">
+<article class="article">
+
     <section>
-        <h2>what is this</h2>
+        <h2 class="h2">what is this</h2>
         <p>Welcome to my private homepage. you can take the title as a strong hint on what you can find here:</p>
-        <ul>
+        <ul class="article__list">
             <li>as a geek I use this page as a playground for trying out programming stuff, mostly html5/css3/js</li>
             <li>the photographer wants to show of his pictures from around the world</li>
             <li>and the terrorpoet writes his travel diraries down and posts them here</li>
         </ul>
-        <p>one day the terrorpoet will blog here, when the geek finally decides on wether using
-            <a href="http://wordpress.org/">wordpress</a> or <a href="http://jekyllrb.com/">jekyll</a> :-)</p>
     </section>
 
+    <div class="grid grid--12">
+        <section class="section__box grid__section--12x1">
+            <h3 class="h3">what you can read</h3>
+            <div class="galleryBox">
+                {{> img-button
+                    caption='Greece 2017'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/gr_17'
+                    href='travel_17_greece'}}
+                {{> img-button
+                    caption='Costa Rica 2015'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/cr_15'
+                    href='travel_15_costarica'}}
+                {{> img-button
+                    caption='Marokko 2015'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/ma_15'
+                    href='travel_15_marokko'}}
+                {{> img-button
+                    caption='Tansania 2007 again'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/tz_07b'
+                    href='travel_07_tansania2'}}
+                {{> img-button
+                    caption='Tansania 2007'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/tz_07'
+                    href='travel_07_tansania'}}
+                {{> img-button
+                    caption='Ukraine 2006'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/ua_06'
+                    href='travel_06_ukraine'}}
+                {{> img-button
+                    caption='Panama 2005'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/pa_05'
+                    href='travel_05_panama'}}
+                {{> img-button
+                    caption='USA 2005'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/us_05'
+                    href='travel_05_usa'}}
+                {{> img-button
+                    caption='Japan 2004'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/jp_04'
+                    href='travel_04_japan'}}
+                {{> img-button
+                    caption='Thailand 2003'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/th_03'
+                    href='travel_03_asia'}}
+                {{> img-button
+                    caption='Indonesia 2003'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/in_03'
+                    href='travel_03_ind'}}
+                {{> img-button
+                    caption='New Zealand 2003'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/oz_03'
+                    href='travel_03_nz'}}
+                {{> img-button
+                    caption='USA 2003'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/us_03'
+                    href='travel_03_usa'}}
+                {{> img-button
+                    caption='Australia 2001'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/oz_01'
+                    href='travel_01_as'}}
+                {{> img-button
+                    caption='Thailand 2001'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/th_01'
+                    href='travel_01_thai'}}
+            </div>
+        </section>
+
+        <section class="section__box grid__section--6x1">
+            <h3 class="h3">what do I do</h3>
+            <div class="galleryBox">
+                {{> img-button
+                    caption='G4PC'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/g4pc'
+                    href='personal_g4pc'}}
+                {{> img-button
+                    caption='MagicMirror'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/magicmirror'
+                    href='personal_magicmirror'}}
+                {{> img-button
+                    caption='Radio show'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/radio'
+                    href='personal_radio'}}
+                {{> img-button
+                    caption='University research'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/research'
+                    href='personal_research'}}
+                {{> img-button
+                    caption='Software project'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/software'
+                    href='personal_software'}}
+            </div>
+        </section>
+
+        <section class="section__box grid__section--6x1">
+            <h3 class="h3">what do I see</h3>
+            <div class="galleryBox">
+                {{> img-button
+                    caption='360 degrees'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/360'
+                    href='panorama_360'}}
+                {{> img-button
+                    caption='Big pictures'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/big'
+                    href='panorama_big'}}
+                {{> img-button
+                    caption='Cities'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/city'
+                    href='panorama_cities'}}
+                {{> img-button
+                    caption='Friends'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/friends'
+                    href='panorama_friends'}}
+                {{> img-button
+                    caption='Perspective'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/perspective'
+                    href='panorama_perspective'}}
+                {{> img-button
+                    caption='Skyscraper'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/sky'
+                    href='panorama_skyscraper'}}
+                {{> img-button
+                    caption='World'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/world'
+                    href='panorama_world'}}
+                {{> img-button
+                    caption='More friends'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/people'
+                    href='personal_friends'}}
+            </div>
+        </section>
+
+        <section class="section__box grid__section--6x1">
+            <h3 class="h3">where have I been</h3>
+            <figure class="figure">
+                <!-- http://www.world66.com/community/mymaps/worldmap/CRBEFRHRDEJPLUHUBRSGTZPTIDNZPATHROPLVACHITCZAUATNLIECVESMCMYUSUKUAMA.gif -->
+                <img src="/img/travel/worldmap.png" alt="A map of the countries I have visited so far" class="worldmap">
+                <figcaption class="figure__caption figure__caption--highlighted">visited: 34 (14%)</figcaption>
+            </figure>
+        </section>
+
+        <section class="section__box grid__section--6x1">
+            <div id="adframe" class="adframe">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Homepage -->
+                <ins class="adsbygoogle"
+                     data-ad-client="ca-pub-8245757393003756"
+                     data-ad-slot="1139417350"
+                     data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </section>
+    </div>
+
     <section>
-        <h2>what has changed</h2>
-        <ul class="changelog">
-            <li><time datetime="2017-03-06">2017/03/06: </time>First part of my trip to <a href="travel_15_marokko.html">Marokko</a> is here</li>
+        <h2 class="h2">what has changed</h2>
+        <ul class="article__list">
+            <li><time datetime="2017-12-07">2017/12/07: </time>Added infos about my small React project: <a class="article__link" href="personal_software.html#hulai">How unlucky am I?</a></li>
+            <li><time datetime="2017-12-05">2017/12/05: </time>Added the video of our time in <a class="article__link" href="travel_07_tansania.html">Tanzania</a></li>
+            <li><time datetime="2017-11-10">2017/11/10: </time>All parts online of our trip to <a class="article__link" href="travel_17_greece.html">Greece</a></li>
+            <li><time datetime="2017-10-22">2017/10/22: </time>New navigation!</li>
+            <li><time datetime="2017-07-09">2017/07/09: </time>Added some info about my <a class="article__link" href="personal_magicmirror.html">magic mirror</a></li>
+            <li><time datetime="2017-03-06">2017/03/06: </time>First part of my trip to <a class="article__link" href="travel_15_marokko.html">Marokko</a> is here</li>
             <li><time datetime="2017-01-12">2017/01/12: </time>Added specs and images of my 2k16 g4pc.</li>
-            <li><time datetime="2016-01-31">2016/01/31: </time>Moved my blog entries about my seond time in tanzania back <a href="travel_07_tansania2.html">here</a></li>
-            <li><time datetime="2015-10-19">2015/10/19: </time>Finally all parts of my <a href="travel_15_costarica.html">Costa Rica travel diary</a> are now online</li>
+            <li><time datetime="2016-01-31">2016/01/31: </time>Added my blog entries about my second time in <a class="article__link" href="travel_07_tansania2.html">Tanzania</a></li>
+            <li><time datetime="2015-10-19">2015/10/19: </time>Finally all parts of my <a class="article__link" href="travel_15_costarica.html">Costa Rica travel diary</a> are now online</li>
             <li><time datetime="2015-05-12">2015/05/12: </time>Added opengraph stuff for cooler facebook / twitter posts</li>
             <li><time datetime="2015-05-11">2015/05/11: </time>New fresh design, hope you like it</li>
-            <li><time datetime="2015-04-20">2015/04/20: </time>Added a link to my github profile on the <a href="personal_research.html#github">research page</a> using a webcomponent from <a href="http://pazguille.github.io/github-card/">Guille Paz</a></li>
-            <li><time datetime="2014-04-19">2014/04/19: </time>Changed gallery lib to <a href="http://osvaldas.info/image-lightbox-responsive-touch-friendly">Image Lightbox</a> and social widgets to <a href="https://github.com/carrot/share-button">ShareButton</a></li>
-            <li><time datetime="2014-04-10">2014/04/10: </time>Added new <a href="personal_research.html#ohmNSIS">NSIS installer</a> for <a href="http://openhardwaremonitor.org/">OpenHardwareMonitor</a></li>
+            <li><time datetime="2015-04-20">2015/04/20: </time>Added a link to my github profile on the <a class="article__link" href="personal_research.html#github">research page</a> using a webcomponent from <a class="article__link" href="http://pazguille.github.io/github-card/">Guille Paz</a></li>
+            <li><time datetime="2014-04-19">2014/04/19: </time>Changed gallery lib to <a class="article__link" href="http://osvaldas.info/image-lightbox-responsive-touch-friendly">Image Lightbox</a> and social widgets to <a class="article__link" href="https://github.com/carrot/share-button">ShareButton</a></li>
+            <li><time datetime="2014-04-10">2014/04/10: </time>Added new <a class="article__link" href="personal_research.html#ohmNSIS">NSIS installer</a> for <a class="article__link" href="http://openhardwaremonitor.org/">OpenHardwareMonitor</a></li>
             <li><time datetime="2014-03-30">2014/03/30: </time>Redesign again, feel free to report any bugs</li>
             <li><time datetime="2014-03-15">2014/03/15: </time>More panoramas and better preview images for the old ones</li>
             <li><time datetime="2014-03-13">2014/03/13: </time>Switched to gulp.js for building this site (and updated the links section)</li>
             <li><time datetime="2014-02-25">2014/02/25: </time>Changed mobile menu to something more elegant.</li>
+            <!--
             <li><time datetime="2014-02-12">2014/02/12: </time>Updated front page layout</li>
             <li><time datetime="2013-11-19">2013/11/19: </time>Updated and cleaned up research page</li>
-            <!--
             <li><time datetime="2012-11-20">2012/11/20: </time>New project: <a href="personal_research.html#wowFeed">wowfeed</a></li>
             <li><time datetime="2012-08-26">2012/08/26: </time>Added more pictures to Panama-Traveldiary</li>
             <li><span>2012/01/06:</span> Total re-design in mostly html5, still lots of stuff to do though</li>
@@ -47,32 +234,8 @@ last-modified: 2017-03-06
             <li><span>2009/04/14:</span> Small updates: new colors, new scripts, new friend.</li>
             <li><span>2008/07/22:</span> The last show is now online. Stay tuned nonetheless.</li>
             <li><span>2008/07/22:</span> Finally the fifth show is online. Took a while because it was the first one to be broadcast live.</li>
-            <li><span>2008/06/12:</span> Fourth show is online. And we're on <a href="http://www.myspace.com/diedaveundveeckshow" class="extern">MySpace</a> now.</li>
+            <li><span>2008/06/12:</span> Fourth show is online. And we’re on <a href="http://www.myspace.com/diedaveundveeckshow" class="article__link">MySpace</a> now.</li>
             -->
         </ul>
-    </section>
-
-    <section>
-        <h2>where have I been</h2>
-        <figure class="fig_left landscape">
-            <!-- http://www.world66.com/community/mymaps/worldmap/CRBEFRHRDEJPLUHUBRSGTZPTIDNZPATHROPLVACHITCZAUATNLIECVESMCMYUSUKUAMA.gif -->
-            <img src="/img/travel/worldmap.png"
-                 alt="a map of the countries i have visited so far" class="worldmap"/>
-            <div class="overlay"><span>visited: 34 (14%)</span></div>
-        </figure>
-
-        <figure class="fig_right adfigure">
-            <div id="adframe" class="adframe">
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- index -->
-                <ins class="adsbygoogle"
-                     style="display:inline-block;width:300px;height:250px"
-                     data-ad-client="ca-pub-8245757393003756"
-                     data-ad-slot="8211593533"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </figure>
     </section>
 </article>

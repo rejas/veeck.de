@@ -1,10 +1,20 @@
+/**
+ *
+ */
+.blur() {
+    @supports (backdrop-filter: blur(10px)) {
+        & {
+            backdrop-filter: blur(10px);
+        }
+    }
+}
 
 /**
  * A mixin which helps you to add depth to elements according to the Google Material Design spec:
  * http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality
  *
- * Please note that the values given in the specification cannot be used as is. To create the same visual experience
- * the blur parameter has to be doubled.
+ * Please note that the values given in the specification cannot be used as is. To create the same
+ * visual experience the blur parameter has to be doubled.
  *
  * Author: Florian Kutschera (@gefangenimnetz), Conceptboard GmbH (@conceptboardapp)
  *
@@ -28,26 +38,35 @@
  *
  */
 
-.boxshadow(@level: 1){
+.boxshadow(@level: 1) {
+    & when (@level = 0) {
+        box-shadow: none;
+    }
+
     & when (@level = 1) {
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     }
+
     & when (@level = 2) {
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     }
+
     & when (@level = 3) {
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     }
+
     & when (@level = 4) {
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     }
+
     & when (@level = 5) {
-        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     }
 }
 
 /*
  * Clearfix: contain floats
+ * Uses "display: flow-root" in browsers that supports it
  *
  * For modern browsers
  * 1. The space content is one way to avoid an Opera bug when the
@@ -61,42 +80,43 @@
  */
 
 .clearfix() {
-    &:before,
-    &:after {
-        content: " "; // 1
+    &::before,
+    &::after {
+        content: ' '; // 1
         display: table; // 2
     }
-    &:after {
+
+    &::after {
         clear: both;
+    }
+
+    @supports (display: flow-root) {
+        & {
+            display: flow-root;
+        }
+
+        &::before,
+        &::after {
+            content: none;
+        }
     }
 }
 
-/**
- * other mixins
- */
-
 .colorVar (@property, @cssvar, @color) {
     @{property}: @color;
-    @{property}: var(@cssvar);
+    @{property}: var(@cssvar); // lesshint duplicateProperty: false
 }
 
 .font-face (@family, @file-base, @weight: normal, @style: normal) {
     @font-face {
+        font-display: swap;
         font-family: @family;
-        src: url("@{file-base}.eot");
-        src: url("@{file-base}.eot?#iefix") format("embedded-opentype"),
-        url("@{file-base}.woff") format("woff"),
-        url("@{file-base}.ttf") format("truetype");
         font-weight: @weight;
         font-style: @style;
+        src: url('@{file-base}.woff') format('woff'), url('@{file-base}.woff2') format('woff2');
     }
 }
 
-.transform (property) {
-    transition: property .125s ease-in-out;
-}
-
-.vertical-align () {
-    top: 50%;
-    transform: translateY(-50%);
+.transform (@property) {
+    transition: @property @animation-duration cubic-bezier(0.19, 1, 0.22, 1);
 }

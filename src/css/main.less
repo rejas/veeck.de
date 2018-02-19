@@ -1,53 +1,86 @@
-//
-
-@import (less) "../bower_components/normalize.css/normalize.css";
-
-@import (less) "../bower_components/normalize-opentype.css/normalize-opentype.css";
-
-@import (less) "../bower_components/cookieconsent2/build/cookieconsent.min.css";
-
-@import (less) "../bower_components/css-hamburgers/dist/hamburgers.min.css";
-
-@import (less) "../bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.css";
-
-@import (less) "../bower_components/imagelightbox2/src/imagelightbox.css";
-
-@import (less) "../bower_components/share-button/share-button.css";
+/*
+ * https://stackoverflow.com/a/14676665/2244646
+ *
+ * NOTE: The @import line of code should be the very first line in your CSS file.
+ */
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 
 //
 
-@import "base/variables.less";
+@import (less) '~tinyreset/tinyreset.css';
 
-@import "base/mixins.less";
+@import (less) '~normalize-opentype.css/normalize-opentype.css';
 
-@import "base/fonts.less";
+@import (less) '~cookieconsent/build/cookieconsent.min.css';
 
-@import "base/icons.less";
+@import (less) '~hamburgers/dist/hamburgers.css';
 
-@import "base/global.less";
+@import (less) '~halkabox/dist/halkaBox.min.css';
 
-@import "modules/ads.less";
+@import (less) '~multilevelmenu/src/multilevelmenu.css';
 
-@import "modules/button.less";
+@import (less) '~aos/dist/aos.css';
 
-@import "modules/header.less";
+//
 
-@import "modules/nav.less";
+@import 'base/lint';
 
-@import "modules/nav_mobile.less";
+@import 'base/mixins';
 
-@import "modules/footer.less";
+@import 'base/global';
 
-@import "modules/content.less";
+@import 'base/util';
 
-@import "modules/figures.less";
+@import 'base/grid';
 
-@import "modules/slider.less";
+@import 'base/no-grid';
 
-@import "modules/header_effect.less";
+// theme
 
-@import "pages/links.less";
+@import 'theme/colors';
 
-@import "pages/panorama.less";
+@import 'theme/fonts';
 
-@import "pages/research.less";
+@import 'theme/variables';
+
+// elements
+
+@import 'elements/button';
+
+@import 'elements/figure';
+
+@import 'elements/form';
+
+@import 'elements/headlines';
+
+@import 'elements/icons';
+
+@import 'elements/input';
+
+// blocks
+
+@import 'blocks/article';
+
+@import 'blocks/content';
+
+@import 'blocks/gallery';
+
+@import 'blocks/radio';
+
+@import 'blocks/section';
+
+// areas
+
+@import 'areas/header';
+
+//@import 'areas/header_effect--animate';
+
+//@import 'areas/header_effect--shade';
+
+@import 'areas/header_title';
+
+@import 'areas/nav';
+
+@import 'areas/footer';
