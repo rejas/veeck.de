@@ -1,9 +1,15 @@
 ---
+layout: blog-layout
 title: Blog
+heading: blog
 posts: ['README.md']
 img: blog
 ---
-<h1 class="h1">Posts</h1>
-{{#each posts}}
-  {{md this}}
-{{/each}}
+<article class="article">
+
+    <h1 class="h1">Posts</h1>
+    {{#each posts}}
+        {{md this}}
+    {{/each}}
+
+</article>
