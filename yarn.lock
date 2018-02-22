@@ -2713,9 +2713,9 @@ css-list-helpers@^1.0.1:
   dependencies:
     tcomb "^2.5.0"
 
-css-loader@^0.28.9:
-  version "0.28.9"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.9.tgz#68064b85f4e271d7ce4c48a58300928e535d1c95"
+css-loader@^0.28.10:
+  version "0.28.10"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.10.tgz#40282e79230f7bcb4e483efa631d670b735ebf42"
   dependencies:
     babel-code-frame "^6.26.0"
     css-selector-tokenizer "^0.7.0"
@@ -4961,9 +4961,9 @@ gulp-concat@^2.6.1:
     through2 "^2.0.0"
     vinyl "^2.0.0"
 
-gulp-connect@^5.4.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/gulp-connect/-/gulp-connect-5.4.0.tgz#e1cdbc35c9ea2622422a4c1cffbffa907c8a1de1"
+gulp-connect@^5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/gulp-connect/-/gulp-connect-5.5.0.tgz#e42314d07adf9b2ffba272974ceff91f7c876130"
   dependencies:
     ansi-colors "^1.0.1"
     connect "^3.6.5"
