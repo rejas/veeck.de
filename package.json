@@ -74,7 +74,7 @@
     "gulp-uglify": "^3.0.0",
     "helper-md": "^0.2.2",
     "imagemin-mozjpeg": "7.0.0",
-    "less": "^2.7.3",
+    "less": "^3.0.1",
     "less-loader": "^4.0.5",
     "postcss-loader": "^2.1.0",
     "postcss-normalize": "^4.0.0",
@@ -85,7 +85,7 @@
     "vinyl-ftp": "^0.6.1",
     "webpack": "^3.11.0",
     "webpack-bundle-analyzer": "^2.10.0",
-    "webpack-merge": "^4.1.1",
+    "webpack-merge": "^4.1.2",
     "webpack-stream": "^4.0.2"
   }
 }
