@@ -16,12 +16,22 @@
 }
 
 .h2 {
-    border-bottom: @border-thickness solid @primaryTextColor;
     font-size: @font-size-lg;
     line-height: @line-height-lg;
-    padding: 0 1rem 0.5rem;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-gap: 1rem;
+    padding: 0 0 0.5rem;
     word-break: break-word;
+}
+
+@supports (display: grid) {
+    .h2:before,
+    .h2:after {
+        content: "";
+        align-self: center;
+        border-top: @border-thickness solid @primaryTextColor;
+    }
 }
 
 .h3 {
