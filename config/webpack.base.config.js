@@ -56,10 +56,7 @@ const webpackconfig = {
                         loader: 'less-loader',
                         options: {
                             sourceMap: true,
-                            strictMath: true,
-                            paths: [
-                                path.resolve(__dirname, 'node_modules')
-                            ]
+                            strictMath: true
                         }
                     }]
                 })
