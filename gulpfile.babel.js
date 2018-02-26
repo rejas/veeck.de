@@ -136,6 +136,18 @@ gulp.task('check:less', () => {
         .pipe(plugins.lesshint.failOnError());
 });
 
+// Check the performance budget
+gulp.task('check:louis', (cb) => {
+    plugins.louis({
+         performanceBudget: {
+             domComplete: 3000,
+             requests: 10
+         }
+    });
+    cb();
+});
+
+
 /**
  * DEPLOY TASKS
  */
