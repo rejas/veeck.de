@@ -26,6 +26,7 @@
     "core-js": "^2.5.3",
     "feather-icons": "^4.6.0",
     "ga-lite": "^2.0.1",
+    "gulp-louis": "^2.4.0",
     "halkabox": "^1.2.0",
     "hamburgers": "^0.9.3",
     "konami-code.js": "git+https://github.com/rejas/konami-js.git",
