@@ -7,6 +7,15 @@
     will-change: transform;
     z-index: @z-index-4;
 
+    &__duotone-filters {
+        height: 0;
+        left: -9999em;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        width: 0;
+    }
+
     &__image {
         position: absolute;
         overflow: hidden;
@@ -15,9 +24,9 @@
         right: 0;
         bottom: 0;
         backface-visibility: hidden;
-        opacity: 0.5;
 
         .object-fit-img {
+            filter: url(#duotone_bluetan);
             min-width: 100%;
             min-height: 100%;
             object-fit: cover;
