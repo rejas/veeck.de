@@ -1,0 +1,144 @@
+<svg class="header__duotone-filters" xmlns="http://www.w3.org/2000/svg">
+    <filter id="duotone_darkblue">
+        <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0
+            0.2126 0.7152 0.0722 0 0
+            0.2126 0.7152 0.0722 0 0
+            0 0 0 1 0" result="gray">
+        </feColorMatrix>
+
+        <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+            <feFuncR type="table" tableValues="0.003921568627 0.007843137255"></feFuncR>
+            <feFuncG type="table" tableValues="0.1568627451 0.3803921569"></feFuncG>
+            <feFuncB type="table" tableValues="0.2352941176 0.5725490196"></feFuncB>
+            <feFuncA type="table" tableValues="0 1"></feFuncA>
+        </feComponentTransfer>
+    </filter>
+
+    <filter id="duotone_redblue">
+        <feColorMatrix type="matrix" result="gray"
+                       values="1 0 0 0 0
+                    1 0 0 0 0
+                    1 0 0 0 0
+                    0 0 0 1 0" >
+        </feColorMatrix>
+
+        <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+            <feFuncR type="table" tableValues="0.00294117647058825 0.9372549019607843"></feFuncR>
+            <feFuncG type="table" tableValues="0.11372549019607843 0.19215686274509805"></feFuncG>
+            <feFuncB type="table" tableValues="0.403921568627451 0.1411764705882353"></feFuncB>
+            <feFuncA type="table" tableValues="0 1"></feFuncA>
+        </feComponentTransfer>
+    </filter>
+
+    <filter id="duotone_lightblue">
+        <feColorMatrix type="matrix" result="gray"
+                       values="1 0 0 0 0
+                    1 0 0 0 0
+                    1 0 0 0 0
+                    0 0 0 1 0" >
+        </feColorMatrix>
+
+        <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+            <feFuncR type="table" tableValues="0.1960784314 0.5764705882"></feFuncR>
+            <feFuncG type="table" tableValues="0.03921568627 0.8431372549"></feFuncG>
+            <feFuncB type="table" tableValues="0.2549019608 0.9803921569"></feFuncB>
+            <feFuncA type="table" tableValues="0 1"></feFuncA>
+        </feComponentTransfer>
+    </filter>
+
+    <filter id="duotone_bluedarkorange">
+        <feColorMatrix type="matrix" result="gray"
+                       values="1 0 0 0 0
+                    1 0 0 0 0
+                    1 0 0 0 0
+                    0 0 0 1 0" >
+        </feColorMatrix>
+
+        <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+            <feFuncR type="table" tableValues="0 0.9882352941"></feFuncR>
+            <feFuncG type="table" tableValues="0.1411764706 0.4862745098"></feFuncG>
+            <feFuncB type="table" tableValues="0.2117647059 0.3176470588"></feFuncB>
+            <feFuncA type="table" tableValues="0 1"></feFuncA>
+        </feComponentTransfer>
+    </filter>
+
+    <filter id="duotone_blueorange">
+        <feColorMatrix type="matrix" result="gray"
+                       values="1 0 0 0 0
+                    1 0 0 0 0
+                    1 0 0 0 0
+                    0 0 0 1 0" >
+        </feColorMatrix>
+
+        <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+            <feFuncR type="table" tableValues="0 0.9568627451"></feFuncR>
+            <feFuncG type="table" tableValues="0.1411764706 0.5921568627"></feFuncG>
+            <feFuncB type="table" tableValues="0.2117647059 0.1333333333"></feFuncB>
+            <feFuncA type="table" tableValues="0 1"></feFuncA>
+        </feComponentTransfer>
+    </filter>
+
+    <filter id="duotone_seafoam">
+        <feColorMatrix type="matrix" result="gray"
+                       values="1 0 0 0 0
+                    1 0 0 0 0
+                    1 0 0 0 0
+                    0 0 0 1 0" >
+        </feColorMatrix>
+
+        <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+            <feFuncR type="table" tableValues="0 0.1647058824"></feFuncR>
+            <feFuncG type="table" tableValues="0.1411764706 0.6588235294"></feFuncG>
+            <feFuncB type="table" tableValues="0.2117647059 0.5490196078"></feFuncB>
+            <feFuncA type="table" tableValues="0 1"></feFuncA>
+        </feComponentTransfer>
+    </filter>
+
+    <filter id="duotone_bluetan">
+        <feColorMatrix type="matrix" result="gray"
+                       values="1 0 0 0 0
+                    1 0 0 0 0
+                    1 0 0 0 0
+                    0 0 0 1 0" >
+        </feColorMatrix>
+
+        <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+            <feFuncR type="table" tableValues="0 0.9411764706"></feFuncR>
+            <feFuncG type="table" tableValues="0.1411764706 0.937254902"></feFuncG>
+            <feFuncB type="table" tableValues="0.2117647059 0.8823529412"></feFuncB>
+            <feFuncA type="table" tableValues="0 1"></feFuncA>
+        </feComponentTransfer>
+    </filter>
+
+    <filter id="duotone_spotify_blue">
+        <feColorMatrix type="matrix" result="gray"
+                       values="1 0 0 0 0
+                    1 0 0 0 0
+                    1 0 0 0 0
+                    0 0 0 1 0" >
+        </feColorMatrix>
+
+        <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+            <feFuncR type="table" tableValues="0.2588235294 0.61960784317"></feFuncR>
+            <feFuncG type="table" tableValues="0.1333333333 0.937254902"></feFuncG>
+            <feFuncB type="table" tableValues="0.9450980392 0.8823529412"></feFuncB>
+            <feFuncA type="table" tableValues="0 1"></feFuncA>
+        </feComponentTransfer>
+    </filter>
+
+    <filter id="duotone_spotify_peachy">
+        <feColorMatrix type="matrix" result="gray"
+                       values="1 0 0 0 0
+                    1 0 0 0 0
+                    1 0 0 0 0
+                    0 0 0 1 0" >
+        </feColorMatrix>
+
+        <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+            <feFuncR type="table" tableValues="0.9294117647 0.9960784314"></feFuncR>
+            <feFuncG type="table" tableValues="0.2431372549 0.7803921569"></feFuncG>
+            <feFuncB type="table" tableValues="0.6431372549 0.4235294118"></feFuncB>
+            <feFuncA type="table" tableValues="0 1"></feFuncA>
+        </feComponentTransfer>
+    </filter>
+</svg> <!-- /.duotone-filters -->
