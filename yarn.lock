@@ -5250,9 +5250,9 @@ gulp-load-plugins@^1.5.0:
     micromatch "^2.3.8"
     resolve "^1.1.7"
 
-"gulp-louis@git+https://github.com/rejas/gulp-louis.git#gulp-util":
-  version "2.3.0"
-  resolved "git+https://github.com/rejas/gulp-louis.git#967548a68a75270a8dd7a4f6748bf3962d7a127f"
+gulp-louis@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/gulp-louis/-/gulp-louis-2.3.1.tgz#6b6476ccb34243a61c1c0b78a0cb78d1db6da2ab"
   dependencies:
     cli-color "^1.2.0"
     gulp-connect "^5.5.0"
