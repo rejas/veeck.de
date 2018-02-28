@@ -2249,7 +2249,7 @@ clean-css@4.1.x:
   dependencies:
     source-map "0.5.x"
 
-cli-color@^1.1.0:
+cli-color@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/cli-color/-/cli-color-1.2.0.tgz#3a5ae74fd76b6267af666e69e2afbbd01def34d1"
   dependencies:
@@ -5085,7 +5085,7 @@ gulp-concat@^2.6.1:
     through2 "^2.0.0"
     vinyl "^2.0.0"
 
-gulp-connect@^5.0.0, gulp-connect@^5.5.0:
+gulp-connect@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/gulp-connect/-/gulp-connect-5.5.0.tgz#e42314d07adf9b2ffba272974ceff91f7c876130"
   dependencies:
@@ -5231,15 +5231,15 @@ gulp-load-plugins@^1.5.0:
     micromatch "^2.3.8"
     resolve "^1.1.7"
 
-gulp-louis@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/gulp-louis/-/gulp-louis-2.4.0.tgz#d6e81cd4fde9272cb66cc7dc9b7d5cd1bb92a361"
+"gulp-louis@git+https://github.com/rejas/gulp-louis.git#gulp-util":
+  version "2.3.0"
+  resolved "git+https://github.com/rejas/gulp-louis.git#967548a68a75270a8dd7a4f6748bf3962d7a127f"
   dependencies:
-    cli-color "^1.1.0"
-    gulp-connect "^5.0.0"
-    gulp-util "^3.0.7"
-    joi "^9.0.4"
-    phantomas "^1.17.0"
+    cli-color "^1.2.0"
+    gulp-connect "^5.5.0"
+    joi "^13.1.2"
+    phantomas "^1.20.0"
+    plugin-error "^1.0.1"
 
 gulp-modernizr@^2.0.0:
   version "2.0.0"
@@ -5330,7 +5330,7 @@ gulp-uglify@^3.0.0:
     uglify-js "^3.0.5"
     vinyl-sourcemaps-apply "^0.2.0"
 
-gulp-util@^3.0.1, gulp-util@^3.0.7, gulp-util@~3.0.0:
+gulp-util@^3.0.1, gulp-util@~3.0.0:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
   dependencies:
@@ -5608,6 +5608,10 @@ hoek@2.x.x:
 hoek@4.x.x:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
+
+hoek@5.x.x:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/hoek/-/hoek-5.0.3.tgz#b71d40d943d0a95da01956b547f83c4a5b4a34ac"
 
 home-or-tmp@^2.0.0:
   version "2.0.0"
@@ -6469,9 +6473,11 @@ isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
 
-isemail@2.x.x:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/isemail/-/isemail-2.2.1.tgz#0353d3d9a62951080c262c2aa0a42b8ea8e9e2a6"
+isemail@3.x.x:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/isemail/-/isemail-3.1.1.tgz#e8450fe78ff1b48347db599122adcd0668bd92b5"
+  dependencies:
+    punycode "2.x.x"
 
 isexe@^2.0.0:
   version "2.0.0"
@@ -6502,10 +6508,6 @@ isurl@^1.0.0-alpha5:
     has-to-string-tag-x "^1.2.0"
     is-object "^1.0.1"
 
-items@2.x.x:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/items/-/items-2.1.1.tgz#8bd16d9c83b19529de5aea321acaada78364a198"
-
 jimp@^0.2.13, jimp@^0.2.21:
   version "0.2.28"
   resolved "https://registry.yarnpkg.com/jimp/-/jimp-0.2.28.tgz#dd529a937190f42957a7937d1acc3a7762996ea2"
@@ -6527,15 +6529,13 @@ jimp@^0.2.13, jimp@^0.2.21:
     tinycolor2 "^1.1.2"
     url-regex "^3.0.0"
 
-joi@^9.0.4:
-  version "9.2.0"
-  resolved "https://registry.yarnpkg.com/joi/-/joi-9.2.0.tgz#3385ac790192130cbe230e802ec02c9215bbfeda"
+joi@^13.1.2:
+  version "13.1.2"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-13.1.2.tgz#b2db260323cc7f919fafa51e09e2275bd089a97e"
   dependencies:
-    hoek "4.x.x"
-    isemail "2.x.x"
-    items "2.x.x"
-    moment "2.x.x"
-    topo "2.x.x"
+    hoek "5.x.x"
+    isemail "3.x.x"
+    topo "3.x.x"
 
 jpeg-js@0.0.4:
   version "0.0.4"
@@ -7736,10 +7736,6 @@ modernizr@^3.0.0-alpha:
     requirejs "2.1.22"
     yargs "7.0.2"
 
-moment@2.x.x:
-  version "2.20.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.20.1.tgz#d6eb1a46cbcc14a2b2f9434112c1ff8907f313fd"
-
 mozjpeg@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/mozjpeg/-/mozjpeg-5.0.0.tgz#b8671c4924568a363de003ff2fd397ab83f752c5"
@@ -8651,7 +8647,7 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
 
-phantomas@^1.17.0:
+phantomas@^1.20.0:
   version "1.20.0"
   resolved "https://registry.yarnpkg.com/phantomas/-/phantomas-1.20.0.tgz#e0acdd376614830f27a5cb63b623d38222303731"
   dependencies:
@@ -9270,6 +9266,10 @@ pumpify@^1.3.5:
 punycode@1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.3.2.tgz#9653a036fb7c1ee42342f2325cceefea3926c48d"
+
+punycode@2.x.x:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.0.tgz#5f863edc89b96db09074bad7947bf09056ca4e7d"
 
 punycode@^1.2.4, punycode@^1.4.1:
   version "1.4.1"
@@ -11269,11 +11269,11 @@ to-through@^2.0.0:
   dependencies:
     through2 "^2.0.3"
 
-topo@2.x.x:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/topo/-/topo-2.0.2.tgz#cd5615752539057c0dc0491a621c3bc6fbe1d182"
+topo@3.x.x:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/topo/-/topo-3.0.0.tgz#37e48c330efeac784538e0acd3e62ca5e231fe7a"
   dependencies:
-    hoek "4.x.x"
+    hoek "5.x.x"
 
 tough-cookie@~2.3.0, tough-cookie@~2.3.3:
   version "2.3.3"
