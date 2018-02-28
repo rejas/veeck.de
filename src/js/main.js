@@ -131,4 +131,18 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     galite('create', 'UA-431999-1', 'auto');
     galite('send', 'pageview');
+
+    /**
+     * Header Parallax Scroll
+     */
+    const header = document.querySelector('header');
+    const speed = 0.2;
+    header.style.transform = 'translateY( calc( var(--scrollparallax) * 1px ) )';
+
+    function setScrollParallax() {
+        header.style.setProperty('--scrollparallax', (document.body.scrollTop || document.documentElement.scrollTop) * speed);
+        window.requestAnimationFrame( setScrollParallax );
+    }
+
+    window.requestAnimationFrame( setScrollParallax );
 });
