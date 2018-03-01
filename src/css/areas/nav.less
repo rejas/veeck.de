@@ -120,17 +120,11 @@
         }
     }
 
-    &__btn--openMenu {
+    &__menu {
+        cursor: pointer;
         position: fixed;
         right: 1rem;
         top: 1rem;
-
-        &::after {
-            content: 'MENU';
-            position: absolute;
-            left: -5px;
-            bottom: -@font-size-lg;
-        }
 
         &:hover {
             .hamburger-inner,
@@ -152,6 +146,14 @@
                 content: '';
             }
         }
+    }
+
+    &__label {
+        .colorVar(background-color, --primaryTextColor, @primaryTextColor);
+        .colorVar(color, --primaryColor, @primaryColor);
+        margin-bottom: 0.25rem;
+        padding: 0 0.25rem;
+        text-transform: uppercase;
     }
 
     &__btn--closeMenu {
