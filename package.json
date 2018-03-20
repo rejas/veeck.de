@@ -75,7 +75,7 @@
     "helper-md": "^0.2.2",
     "imagemin-mozjpeg": "7.0.0",
     "less": "^2.7.3",
-    "less-loader": "^4.0.6",
+    "less-loader": "^4.1.0",
     "postcss-loader": "^2.1.2",
     "postcss-normalize": "^4.0.0",
     "postcss-object-fit-images": "^1.1.2",
