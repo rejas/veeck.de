@@ -7,5 +7,6 @@
     "indent-style": false,
     "indent-width": false,
     "line-end-style": false,
-    "tag-self-close": false
+    "tag-self-close": false,
+    "tag-name-lowercase": false
 }

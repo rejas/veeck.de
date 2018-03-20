@@ -48,7 +48,9 @@ const dirs      = config.directories,
 app.onLoad(/\.(md|hbs)$/, assemblevars(app));
 
 gulp.task('load', (cb) => {
-    app.partials([`${dirs.assemble}/partials/**/*.hbs`, `${dirs.node}/feather-icons/dist/icons/*.svg`,
+    app.partials([`${dirs.assemble}/partials/**/*.hbs`,
+        `${dirs.node}/feather-icons/dist/icons/*.svg`,
+        `${dirs.src}/css/assets/svg/*.svg`,
         `${dirs.assemble}/partials/**/html/*.html`]);
     app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
