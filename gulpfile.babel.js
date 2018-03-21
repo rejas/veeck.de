@@ -139,8 +139,8 @@ gulp.task('check:less', () => {
 });
 
 // Check the performance budget
-gulp.task('check:louis', (cb) => {
-    return plugins.louis({
+gulp.task('check:louis', () => {
+    plugins.louis({
         performanceBudget: {
             domComplete: 3000,
             requests: 10
@@ -338,7 +338,7 @@ gulp.task('watch', (cb) => {
 /**
  * PARALLEL TASKS
  */
-gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:less'));
+gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:less', 'check:louis'));
 
 gulp.task('copy',       gulp.parallel('copy:files', 'copy:images', 'copy:vendorscripts'));
 
