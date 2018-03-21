@@ -26,7 +26,7 @@
         backface-visibility: hidden;
 
         .object-fit-img {
-            filter: url(#duotone_bluetan); // eslint-disable-line
+            filter: url(#duotone_bluetan); // lesshint-disable
             min-width: 100%;
             min-height: 100%;
             object-fit: cover;
@@ -34,8 +34,8 @@
     }
 
     &__headline {
+        align-self: normal;
         border: @border-thickness solid @color-transparent;
-        border-radius: @border-radius-md;
         .blur();
         .boxshadow(0);
         .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
@@ -47,7 +47,10 @@
     }
 
     &__subtitle {
+        .colorVar(background-color, --primaryTextColor, @primaryTextColor);
+        .colorVar(color, --primaryColor, @primaryColor);
         font-weight: @font-weight-bold;
+        padding: 0 1rem;
         text-transform: uppercase;
         z-index: @z-index-1;
     }
@@ -55,6 +58,7 @@
     &__title {
         display: flex;
         flex-flow: column;
+        align-items: flex-start;
         justify-content: center;
         width: 100%;
         height: 100vh;
