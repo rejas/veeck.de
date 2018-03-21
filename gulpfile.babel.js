@@ -344,12 +344,11 @@ gulp.task('copy',       gulp.parallel('copy:files', 'copy:images', 'copy:vendors
 
 gulp.task('prepare',    gulp.parallel('prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap'));
 
-gulp.task('scale',      gulp.parallel('scale:images'));
+gulp.task('images',     gulp.series('scale:images', 'prepare:images'));
 
 /**
  * MAIN TASKS
  */
-
 
 release(gulp);
 
