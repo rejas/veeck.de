@@ -5284,6 +5284,16 @@ gulp-load-plugins@^1.5.0:
     micromatch "^2.3.8"
     resolve "^1.1.7"
 
+gulp-louis@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/gulp-louis/-/gulp-louis-2.3.2.tgz#08487265394f9ad4cd8a1e48feb94f35b2250c64"
+  dependencies:
+    cli-color "^1.2.0"
+    gulp-connect "^5.5.0"
+    joi "^13.1.2"
+    phantomas "^1.20.0"
+    plugin-error "^1.0.1"
+
 gulp-modernizr@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/gulp-modernizr/-/gulp-modernizr-2.0.1.tgz#51da3e412f8149c486dca56a3349630ec56bccbd"
