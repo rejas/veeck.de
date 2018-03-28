@@ -6683,9 +6683,9 @@ klaw@^1.0.0:
   optionalDependencies:
     graceful-fs "^4.1.9"
 
-"konami-code.js@git+https://github.com/rejas/konami-js.git":
-  version "1.4.7"
-  resolved "git+https://github.com/rejas/konami-js.git#72aa22ed1c553e3a8c4b889352a76377834e5de0"
+konami@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/konami/-/konami-1.6.0.tgz#1fea890f9bb1e07da13e6086d6971dfb5095be11"
 
 last-run@^1.1.0:
   version "1.1.1"
