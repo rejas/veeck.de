@@ -7,7 +7,7 @@ import AOS              from 'aos';
 import BrowserUpdate    from 'browser-update';
 import galite           from 'ga-lite';
 import HalkaBox         from 'halkabox';
-import Konami           from 'konami-code.js';
+import Konami           from 'konami';
 import VanillaTilt      from 'vanilla-tilt';
 
 // Modules
