@@ -6,7 +6,8 @@ let Nav = {
     init: () => {
         let navEl = document.querySelector('.navigation'),
             menuEl = document.getElementById('ml-menu'),
-            btnEles = document.querySelectorAll('.js-btn--hamburger');
+            btnClose = document.querySelector('.js-close-menu'),
+            btnOpen = document.querySelector('.js-open-menu');
 
         if (!menuEl) {
             return;
@@ -20,23 +21,22 @@ let Nav = {
             backCtrl: false                 // show back button
         });
 
-        btnEles.forEach((element) => {
-            element.addEventListener('click', () => {
-                navEl.classList.toggle('menu--open');
+        btnClose.addEventListener('click', () => {
+            navEl.classList.remove('menu--open');
+            btnOpen.classList.toggle('is-active');
+        });
 
-                btnEles.forEach((element) => {
-                    element.classList.toggle('is-active');
-                });
-            });
+        btnOpen.addEventListener('click', (event) => {
+            event.stopImmediatePropagation();
+
+            navEl.classList.toggle('menu--open');
+            btnOpen.classList.toggle('is-active');
         });
 
         document.addEventListener('click', (event) => {
-            if (!navEl.contains(event.target)) {
+            if (navEl.classList.contains('menu--open') && !navEl.contains(event.target)) {
                 navEl.classList.remove('menu--open');
-
-                btnEles.forEach((element) => {
-                    element.classList.remove('is-active');
-                });
+                btnOpen.classList.toggle('is-active');
             }
         });
     }
