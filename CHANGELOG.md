@@ -1,3 +1,5 @@
+2018/03/25: Added first entry for  <a class="article__link" href="travel_18_cuba.html">Cuba</a>
+
 2017/12/05: Added the video of our time in <a class="article__link" href="travel_07_tansania.html">Tanzania</a>
 
 2017/11/10: All parts online of our trip to <a class="article__link" href="travel_17_greece.html">Greece</a>
@@ -12,13 +14,13 @@
 
 2016/01/31: Added my blog entries about my second time in <a class="article__link" href="travel_07_tansania2.html">Tanzania</a>
 
-2015/10/19: </time>Finally all parts of my <a class="article__link" href="travel_15_costarica.html">Costa Rica travel diary</a> are now online
+2015/10/19: Finally all parts of my <a class="article__link" href="travel_15_costarica.html">Costa Rica travel diary</a> are now online
 
-2015/05/12: </time>Added opengraph stuff for cooler facebook / twitter posts
+2015/05/12: Added opengraph stuff for cooler facebook / twitter posts
 
-2015/05/11: </time>New fresh design, hope you like it
+2015/05/11: New fresh design, hope you like it
 
-2015/04/20: </time>Added a link to my github profile on the <a class="article__link" href="personal_research.html#github">research page</a> using a webcomponent from <a class="article__link" href="http://pazguille.github.io/github-card/">Guille Paz</a>
+2015/04/20: Added a link to my github profile on the <a class="article__link" href="personal_research.html#github">research page</a> using a webcomponent from <a class="article__link" href="http://pazguille.github.io/github-card/">Guille Paz</a>
 
 2014/04/19: Changed gallery lib to <a class="article__link" href="http://osvaldas.info/image-lightbox-responsive-touch-friendly">Image Lightbox</a> and social widgets to <a class="article__link" href="https://github.com/carrot/share-button">ShareButton</a>
 
