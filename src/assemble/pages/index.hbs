@@ -24,6 +24,11 @@ last-modified: 2017-03-06
             <h3 class="h3">what you can read</h3>
             <div class="galleryBox">
                 {{> img-button
+                    caption='Cuba 2018'
+                    class='galleryBox__item'
+                    img='/img/backgrounds/cu_18'
+                    href='travel_18_cuba'}}
+                {{> img-button
                     caption='Greece 2017'
                     class='galleryBox__item'
                     img='/img/backgrounds/gr_17'
@@ -195,58 +200,56 @@ last-modified: 2017-03-06
         <section class="section__box grid__section--6x1">
             <h3 class="h3">where have I been</h3>
             <figure class="figure">
-                <!-- http://www.world66.com/community/mymaps/worldmap/CRBEFRHRDEJPLUHUBRSGTZPTIDNZPATHROPLVACHITCZAUATNLIECVESMCMYUSUKUAMA.gif -->
+                <!-- http://www.world66.com/community/mymaps/worldmap/CUGRCRBEFRHRDEJPLUHUBRSGTZPTIDNZPATHROPLVACHITCZAUATNLIECVESMCMYUSUKUAMA.gif -->
                 <img src="/img/travel/worldmap.png" alt="A map of the countries I have visited so far" class="worldmap">
-                <figcaption class="figure__caption figure__caption--highlighted">visited: 34 (14%)</figcaption>
+                <figcaption class="figure__caption figure__caption--highlighted">visited: 36 / 195 (18%)</figcaption>
             </figure>
         </section>
 
         <section class="section__box grid__section--6x1">
             <h3 class="h3">what has changed</h3>
-            <ul class="article__list">
-                {{> item-change
+            <ul class="article__list changelog">
+                {{> changelog-item
+                    label='Added first entry for'
+                    link='travel_18_cuba.html'
+                    linkText='Cuba'
+                    time='2018-03-25'}}
+                {{> changelog-item
                     label='Added React project'
                     link='personal_software.html#hulai'
                     linkText='How unlucky am I?'
                     time='2017-12-07'}}
-                <!--
-                    item-change
-                    label='Added video to'
-                    link='travel_07_tansania.html'
-                    linkText='Tanzania'
-                    time='2017-12-05'
-                -->
-                {{> item-change
+                {{> changelog-item
                     label='Added diary of'
                     link='travel_17_greece.html'
                     linkText='Greece'
                     time='2017-11-10'}}
-                {{> item-change
+                {{> changelog-item
                     label='Added Hardware project'
                     link='personal_magicmirror.html'
                     linkText='Magic Mirror'
                     time='2017-07-09'}}
-                {{> item-change
+                {{> changelog-item
                     label='Added first entry for'
                     link='travel_15_marokko.html'
                     linkText='Marokko'
                     time='2017-03-06'}}
-                {{> item-change
+                {{> changelog-item
                     label='Updated Hardware project'
                     link='personal_g4pc.html#2k16'
                     linkText='G4PC'
                     time='2017-01-12'}}
-                {{> item-change
+                {{> changelog-item
                     label='Added diary of second trip to '
                     link='travel_07_tansania2.html'
                     linkText='Tanzania'
                     time='2016-01-31'}}
-                {{> item-change
+                {{> changelog-item
                     label='Added diary of'
                     link='travel_15_costarica.html'
                     linkText='Costa Rica'
                     time='2015-10-19'}}
-                {{> item-change
+                {{> changelog-item
                     label='Added link to'
                     link='personal_software.html#github'
                     linkText='Github'
