@@ -1,20 +1,25 @@
 const baseConfig = require('./webpack.base.config.js'),
     merge = require('webpack-merge'),
-    webpack = require('webpack'),
-    BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+    BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
+    OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'),
+    UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const webpackconfig = merge(baseConfig, {
-    devtool: 'source-map',
-
+    mode: 'production',
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true
+            }),
+            new OptimizeCSSAssetsPlugin({})
+        ]
+    },
     plugins: [
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
             openAnalyzer: false,
             reportFilename: '../report.html'
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            warnings: false
         })
     ]
 });
