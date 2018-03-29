@@ -16,10 +16,6 @@
 
     &.menu--open {
         left: 0;
-
-        .navigation__btn--openMenu {
-            right: -4rem;
-        }
     }
 
     .menu {
@@ -198,6 +194,13 @@
             position: absolute;
             top: -2rem;
             right: -@border-thickness;
+        }
+    }
+
+    &__btn--openMenu {
+
+        &.is-active {
+            right: -4rem;
         }
     }
 }
