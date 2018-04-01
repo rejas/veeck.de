@@ -49,6 +49,46 @@
         min-width: @btn-size-lg;
     }
 
+    &--hamburger {
+        padding: 0;
+
+        &:focus {
+            outline: 0;
+        }
+
+        &:hover {
+            opacity: 1;
+
+            &::after {
+                color: inherit;
+            }
+
+            .hamburger-inner,
+            .hamburger-inner::before,
+            .hamburger-inner::after {
+                color: inherit;
+            }
+        }
+
+        .hamburger {
+            display: block;
+            z-index: @z-index-5;
+            padding: 0;
+        }
+
+        .hamburger-box {
+            width: 1.5rem;
+            top: 0.15rem;
+        }
+
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            .colorVar(background-color, --primaryColor, @primaryColor);
+            width: 100%;
+        }
+    }
+
     &--icon {
         padding: 0;
     }
@@ -70,41 +110,5 @@
         @media @phone {
             display: none;
         }
-    }
-}
-
-.hamburgerBtn {
-    display: block;
-    z-index: @z-index-5;
-    padding: 0;
-
-    &:focus {
-        outline: 0;
-    }
-
-    &:hover {
-        opacity: 1;
-
-        &::after {
-            color: inherit;
-        }
-
-        .hamburger-inner,
-        .hamburger-inner::before,
-        .hamburger-inner::after {
-            color: inherit;
-        }
-    }
-
-    .hamburger-box {
-        width: 1.5rem;
-        top: 0.15rem;
-    }
-
-    .hamburger-inner,
-    .hamburger-inner::before,
-    .hamburger-inner::after {
-        .colorVar(background-color, --primaryColor, @primaryColor);
-        width: 100%;
     }
 }
