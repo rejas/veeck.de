@@ -16,8 +16,8 @@
   ],
   "scripts": {
     "bld": "webpack",
-    "chk": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js ",
-    "fix": "node ./node_modules/eslint/bin/eslint.js src/js/**/*.js --fix"
+    "chk": "eslint src/js/**/*.js ",
+    "fix": "eslint src/js/**/*.js --fix"
   },
   "dependencies": {
     "aos": "^2.2.0",
