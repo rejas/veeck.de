@@ -15,9 +15,10 @@
     "Android >= 4.4"
   ],
   "scripts": {
-    "bld": "webpack",
-    "chk": "eslint src/js/**/*.js ",
-    "fix": "eslint src/js/**/*.js --fix"
+    "build": "gulp",
+    "check": "eslint src/js/**/*.js ",
+    "fix": "eslint src/js/**/*.js --fix",
+    "start": "gulp dev"
   },
   "dependencies": {
     "aos": "^2.2.0",
