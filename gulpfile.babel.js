@@ -167,7 +167,7 @@ gulp.task('upload:page', () => {
                 log:        flog
             });
 
-            gulp.src([`${dirs.dist}/**/*`, `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`],
+            return gulp.src([`${dirs.dist}/**/*`, `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`],
                 { base: 'dist', buffer: false, dot: true })
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/veeck'));
@@ -188,7 +188,7 @@ gulp.task('upload:images', () => {
                 log:        flog
             });
 
-            gulp.src([`${dirs.dist}/img/**/*`],
+            return gulp.src([`${dirs.dist}/img/**/*`],
                 { base: 'dist', buffer: false } )
                 .pipe(conn.differentSize('/')) // filter for different file size
                 .pipe(conn.dest('/veeck'));
@@ -209,7 +209,7 @@ gulp.task('upload:files', () => {
                 log:        flog
             });
 
-            gulp.src([`${dirs.dist}/files/**/*`],
+            return gulp.src([`${dirs.dist}/files/**/*`],
                 { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/veeck'));
