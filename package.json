@@ -16,9 +16,8 @@
   ],
   "scripts": {
     "build": "gulp",
-    "check": "eslint src/js/**/*.js ",
-    "fix": "eslint src/js/**/*.js --fix",
-    "start": "gulp dev"
+    "start": "gulp dev",
+    "test": "echo \"Warning: no test specified\" && exit 0"
   },
   "dependencies": {
     "aos": "^2.2.0",
