@@ -1809,9 +1809,9 @@ brorand@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
 
-browser-update@^2.1.11:
-  version "2.1.11"
-  resolved "https://registry.yarnpkg.com/browser-update/-/browser-update-2.1.11.tgz#8d56e9d7905cbde1026e37d116048b872cfb4a4f"
+browser-update@^2.3.3:
+  version "2.3.3"
+  resolved "https://nexus.corp.mobile.de/nexus/repository/npm-all/browser-update/-/browser-update-2.3.3.tgz#389543af967f315aeebbb97f6a7078f0e00fa5f6"
 
 browserify-aes@^1.0.0, browserify-aes@^1.0.4:
   version "1.2.0"
@@ -10803,9 +10803,9 @@ strip-outer@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-style-loader@^0.20.3:
-  version "0.20.3"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.20.3.tgz#ebef06b89dec491bcb1fdb3452e913a6fd1c10c4"
+style-loader@^0.21.0:
+  version "0.21.0"
+  resolved "https://nexus.corp.mobile.de/nexus/repository/npm-all/style-loader/-/style-loader-0.21.0.tgz#68c52e5eb2afc9ca92b6274be277ee59aea3a852"
   dependencies:
     loader-utils "^1.1.0"
     schema-utils "^0.4.5"
@@ -11385,6 +11385,19 @@ uglifyjs-webpack-plugin@^0.4.6:
 uglifyjs-webpack-plugin@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-1.2.4.tgz#5eec941b2e9b8538be0a20fc6eda25b14c7c1043"
+  dependencies:
+    cacache "^10.0.4"
+    find-cache-dir "^1.0.0"
+    schema-utils "^0.4.5"
+    serialize-javascript "^1.4.0"
+    source-map "^0.6.1"
+    uglify-es "^3.3.4"
+    webpack-sources "^1.1.0"
+    worker-farm "^1.5.2"
+
+uglifyjs-webpack-plugin@^1.2.5:
+  version "1.2.5"
+  resolved "https://nexus.corp.mobile.de/nexus/repository/npm-all/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-1.2.5.tgz#2ef8387c8f1a903ec5e44fa36f9f3cbdcea67641"
   dependencies:
     cacache "^10.0.4"
     find-cache-dir "^1.0.0"
