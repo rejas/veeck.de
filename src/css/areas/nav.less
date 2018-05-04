@@ -13,6 +13,8 @@
     right: 0;
     height: 100%;
     width: @nav-width;
+    z-index: @z-index-4;
+    mix-blend-mode: difference;
 
     @media @phone {
         .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
@@ -24,8 +26,22 @@
         width: 100%;
     }
 
-    > svg {
-        stroke: white;
+    &__item {
+        border: 0;
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+
+        > svg {
+            .colorVar(stroke, --lightPrimaryColor, @lightPrimaryColor);
+        }
+    }
+
+    &__label {
+        font-size: @font-size-sm;
+        font-weight: @font-weight-bold;
+        line-height: @line-height-sm;
+        .colorVar(color, --lightPrimaryColor, @lightPrimaryColor);
     }
 }
 /*
