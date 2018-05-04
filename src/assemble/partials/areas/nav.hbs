@@ -1,13 +1,33 @@
+<div class="navigation__menu navigation__btn--openMenu js-open-menu">
+    <p class="navigation__label">Menu</p>
+    <button class="btn btn--md btn--hamburger">
+        <div class="hamburger">
+                <span aria-hidden="true" class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+        </div>
+        <span class="u-visually--hidden">Open Menu</span>
+    </button>
+</div>
+
 <nav class="navigation u-hidden--print">
+    <a class="" href="index.html">
+        {{> home }}
+    </a>
 
-    {{> home }}
+    <a class="" href="projects.html">
+        {{> github }}
+    </a>
 
-    {{> github }}
+    <a class="" href="travel.html">
+        {{> map }}
+    </a>
 
-    {{> map }}
+    <a class="" href="pictures.html">
+        {{> camera }}
+    </a>
 
-    {{> camera }}
-
-    {{> link }}
-
+    <a class="" href="links.html">
+        {{> link }}
+    </a>
 </nav>
