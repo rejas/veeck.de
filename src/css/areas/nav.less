@@ -1,6 +1,21 @@
 @nav-width: 15rem;
 
 .navigation {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 3rem;
+
+    > svg {
+        stroke: white;
+    }
+}
+/*
+.navigation {
     position: fixed;
     left: -@nav-width;
     top: 0;
@@ -204,3 +219,4 @@
         }
     }
 }
+*/
