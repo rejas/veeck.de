@@ -1,5 +1,33 @@
-@nav-width: 15rem;
+@nav-height: 3rem;
 
+.navigation {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: space-evenly;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: auto;
+    right: 0;
+    height: 100%;
+    width: @nav-height;
+
+    @media @phone {
+        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+        flex-flow: row;
+        bottom: 0;
+        left: 0;
+        top: auto;
+        height: @nav-height;
+        width: 100%;
+    }
+
+    > svg {
+        stroke: white;
+    }
+}
+/*
 .navigation {
     position: fixed;
     left: -@nav-width;
@@ -204,3 +232,4 @@
         }
     }
 }
+*/
