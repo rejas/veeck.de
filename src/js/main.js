@@ -7,7 +7,7 @@ import AOS              from 'aos';
 import BrowserUpdate    from 'browser-update';
 import galite           from 'ga-lite';
 import HalkaBox         from 'halkabox';
-import Konami           from 'konami-code.js';
+import Konami           from 'konami';
 import VanillaTilt      from 'vanilla-tilt';
 
 // Modules
@@ -131,4 +131,18 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     galite('create', 'UA-431999-1', 'auto');
     galite('send', 'pageview');
+
+    /**
+     * Header Parallax Scroll
+     */
+    const header = document.querySelector('header');
+    const speed = 0.2;
+    header.style.transform = 'translateY( calc( var(--scrollparallax) * 1px ) )';
+
+    function setScrollParallax() {
+        header.style.setProperty('--scrollparallax', (document.body.scrollTop || document.documentElement.scrollTop) * speed);
+        window.requestAnimationFrame( setScrollParallax );
+    }
+
+    window.requestAnimationFrame( setScrollParallax );
 });

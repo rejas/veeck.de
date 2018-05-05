@@ -1,5 +1,7 @@
 .content {
+    background-color: @colorWhite;
     padding-top: 1rem;
+    position: relative;
 
     > .article {
         display: grid;
@@ -17,5 +19,9 @@
             grid-column: 1 / -1;
             margin: 20px 0;
         }
+    }
+
+    p + p {
+        text-indent: 1rem;
     }
 }

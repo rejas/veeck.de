@@ -48,7 +48,9 @@ const dirs      = config.directories,
 app.onLoad(/\.(md|hbs)$/, assemblevars(app));
 
 gulp.task('load', (cb) => {
-    app.partials([`${dirs.assemble}/partials/**/*.hbs`, `${dirs.node}/feather-icons/dist/icons/*.svg`,
+    app.partials([`${dirs.assemble}/partials/**/*.hbs`,
+        `${dirs.node}/feather-icons/dist/icons/*.svg`,
+        `${dirs.src}/css/assets/svg/*.svg`,
         `${dirs.assemble}/partials/**/html/*.html`]);
     app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
@@ -154,7 +156,7 @@ gulp.task('upload:page', () => {
                 log:        flog
             });
 
-            gulp.src([`${dirs.dist}/**/*`, `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`],
+            return gulp.src([`${dirs.dist}/**/*`, `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`],
                 { base: 'dist', buffer: false, dot: true })
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/veeck'));
@@ -175,7 +177,7 @@ gulp.task('upload:images', () => {
                 log:        flog
             });
 
-            gulp.src([`${dirs.dist}/img/**/*`],
+            return gulp.src([`${dirs.dist}/img/**/*`],
                 { base: 'dist', buffer: false } )
                 .pipe(conn.differentSize('/')) // filter for different file size
                 .pipe(conn.dest('/veeck'));
@@ -196,7 +198,7 @@ gulp.task('upload:files', () => {
                 log:        flog
             });
 
-            gulp.src([`${dirs.dist}/files/**/*`],
+            return gulp.src([`${dirs.dist}/files/**/*`],
                 { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/veeck'));
@@ -331,12 +333,11 @@ gulp.task('copy',       gulp.parallel('copy:files', 'copy:images', 'copy:vendors
 
 gulp.task('prepare',    gulp.parallel('prepare:favicons', 'prepare:images', 'prepare:modernizr', 'prepare:sitemap'));
 
-gulp.task('scale',      gulp.parallel('scale:images'));
+gulp.task('images',     gulp.series('scale:images', 'prepare:images'));
 
 /**
  * MAIN TASKS
  */
-
 
 release(gulp);
 
