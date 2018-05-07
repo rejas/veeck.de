@@ -138,14 +138,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     const speed = 0.2;
 
+    function setScrollParallax() {
+        header.style.setProperty('--scrollparallax', (document.body.scrollTop || document.documentElement.scrollTop) * speed);
+        window.requestAnimationFrame( setScrollParallax );
+    }
+
     if (header) {
         header.style.transform = 'translateY( calc( var(--scrollparallax) * 1px ) )';
-
-        function setScrollParallax() {
-            header.style.setProperty('--scrollparallax', (document.body.scrollTop || document.documentElement.scrollTop) * speed);
-            window.requestAnimationFrame( setScrollParallax );
-        }
-
         window.requestAnimationFrame( setScrollParallax );
     }
 });
