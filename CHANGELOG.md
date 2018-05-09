@@ -1,4 +1,6 @@
-2018/03/25: Added first entry for  <a class="article__link" href="travel_18_cuba.html">Cuba</a>
+2018/04/18: Added second entry for <a class="article__link" href="travel_18_cuba.html">Cuba</a>
+
+2018/03/25: Added first entry for <a class="article__link" href="travel_18_cuba.html">Cuba</a>
 
 2017/12/05: Added the video of our time in <a class="article__link" href="travel_07_tansania.html">Tanzania</a>
 

@@ -4,7 +4,7 @@
 import 'cookieconsent';
 
 import AOS              from 'aos';
-import BrowserUpdate    from 'browser-update';
+import BrowserUpdate    from 'browser-update/update.npm.js';
 import galite           from 'ga-lite';
 import HalkaBox         from 'halkabox';
 import Konami           from 'konami';
@@ -26,7 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Check browser version
      */
-    BrowserUpdate();
+    BrowserUpdate({
+        api: 2018.05,
+        insecure: true,
+        unsupported: true,
+        required: {
+            e:11,f:-2,o:-2,s:-2,c:-2
+        }
+    });
 
     /**
      * Init all polyfills
@@ -137,12 +144,14 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const header = document.querySelector('header');
     const speed = 0.2;
-    header.style.transform = 'translateY( calc( var(--scrollparallax) * 1px ) )';
 
     function setScrollParallax() {
         header.style.setProperty('--scrollparallax', (document.body.scrollTop || document.documentElement.scrollTop) * speed);
         window.requestAnimationFrame( setScrollParallax );
     }
 
-    window.requestAnimationFrame( setScrollParallax );
+    if (header) {
+        header.style.transform = 'translateY( calc( var(--scrollparallax) * 1px ) )';
+        window.requestAnimationFrame( setScrollParallax );
+    }
 });
