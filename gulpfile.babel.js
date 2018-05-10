@@ -227,7 +227,7 @@ gulp.task('prepare:images', () => {
 
 gulp.task('prepare:modernizr', () => {
     return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/multilevelmenu/src/multilevelmenu.js`, `!${dirs.src}/js/vendor/**/*.js`])
-        .pipe(plugins.modernizr('modernizr.min.js', config.modernizr))
+        .pipe(plugins.modernizr('modernizr.js', config.modernizr))
         .pipe(gulp.dest(`${dirs.src}/js/vendor`));
 });
 
