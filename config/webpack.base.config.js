@@ -1,4 +1,8 @@
 const path = require('path'),
+    autoprefixer = require('autoprefixer'),
+    cssmqpacker = require('css-mqpacker'),
+    objectfit = require('postcss-object-fit-images'),
+    sprites = require('postcss-sprites'),
     MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const webpackconfig = {
@@ -40,11 +44,10 @@ const webpackconfig = {
                         loader: 'postcss-loader',
                         options: {
                             plugins: () => [
-                                require('autoprefixer')(),
-                                require('css-mqpacker')(),
-                                require('postcss-normalize')(),
-                                require('postcss-object-fit-images')(),
-                                require('postcss-sprites')({
+                                autoprefixer(),
+                                cssmqpacker(),
+                                objectfit(),
+                                sprites({
                                     spritePath: 'tmp/',
                                     retina: true
                                 })
