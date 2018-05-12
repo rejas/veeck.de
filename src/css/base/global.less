@@ -56,7 +56,6 @@ section {
 
 p {
     hyphens: auto;
-    margin: 0 0 0.5rem 0;
 }
 
 img,
@@ -68,8 +67,6 @@ picture {
 }
 
 ul {
-    margin: 0;
-    padding: 0;
     list-style-position: inside;
 }
 
@@ -79,9 +76,12 @@ a.cc-link {
     border-bottom: @border-thickness solid;
     .colorVar(border-bottom-color, --primaryColor, @primaryColor);
     outline: none;
-    text-decoration: none;
     cursor: pointer;
     background-color: transparent;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 pre {
