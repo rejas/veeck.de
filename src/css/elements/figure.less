@@ -85,10 +85,10 @@
 
         span {
             position: absolute;
-            top: 19px;
-            right: -21px;
+            top: 23px;
+            right: -19px;
             font-size: @font-size-sm;
-            line-height: 1rem;
+            line-height: @line-height-md;
             font-weight: @font-weight-bold;
             text-transform: uppercase;
             text-align: center;
@@ -238,15 +238,33 @@
     }
 }
 
-.hb-wrapper {
+body {
+    .hb-wrapper {
 
-    .hb-main-container {
+        .hb-main-container {
 
-        button {
+            button {
+                .colorVar(background-color, --primaryTextColor, @primaryTextColor);
+                opacity: 1;
 
-            svg {
-                .colorVar(fill, --darkPrimaryColor, @darkPrimaryColor);
+                svg {
+                    .colorVar(fill, --primaryColor, @primaryColor);
+                }
             }
+
+            p {
+                &.hb-counter {
+                    .colorVar(background-color, --primaryTextColor, @primaryTextColor);
+                    .colorVar(color, --primaryColor, @primaryColor);
+                    font-weight: @font-weight-bold;
+                }
+            }
+        }
+
+        .hb-image-container div.hb-image-div p.hb-caption {
+            .colorVar(background-color, --primaryTextColor, @primaryTextColor);
+            .colorVar(color, --primaryColor, @primaryColor);
+            font-weight: @font-weight-bold;
         }
     }
 }
