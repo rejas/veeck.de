@@ -7,6 +7,10 @@
     &--landing {
         background-color: @colorDark;
         color: @colorWhite;
+
+        .galleryBox {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
     }
 
     > .article {
