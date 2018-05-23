@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "aos": "^2.3.0",
-    "browser-update": "^3.1.6",
+    "browser-update": "^3.1.7",
     "cookieconsent": "^3.0.6",
     "core-js": "^2.5.6",
     "feather-icons": "^4.7.3",
