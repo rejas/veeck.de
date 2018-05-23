@@ -1892,9 +1892,9 @@ brorand@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
 
-browser-update@^3.1.7:
-  version "3.1.7"
-  resolved "https://registry.yarnpkg.com/browser-update/-/browser-update-3.1.7.tgz#730499aae367d3b67a73f1ff5b3a68d095917544"
+browser-update@3.1.6:
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/browser-update/-/browser-update-3.1.6.tgz#ffea07a7784ab39d138e82246544ce9b527a83d5"
 
 browserify-aes@^1.0.0, browserify-aes@^1.0.4:
   version "1.2.0"
@@ -9237,8 +9237,8 @@ punycode@^1.2.4, punycode@^1.4.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
 
 punycode@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.0.tgz#5f863edc89b96db09074bad7947bf09056ca4e7d"
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
 
 q@^1.1.2:
   version "1.5.1"
