@@ -26,12 +26,11 @@ let Analytics = {
             'theme': 'classic'
         });
 
-
         /**
          * Google Analytics Lite
          */
-         galite('create', 'UA-431999-1', 'auto');
-         galite('send', 'pageview');
+        galite('create', 'UA-431999-1', 'auto');
+        galite('send', 'pageview');
     }
 };
 
