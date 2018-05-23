@@ -1,11 +1,9 @@
 'use strict';
 
 // Libraries
-import 'cookieconsent';
 
 import AOS              from 'aos';
 import BrowserUpdate    from 'browser-update/update.npm.js';
-import galite           from 'ga-lite';
 import HalkaBox         from 'halkabox';
 import Konami           from 'konami';
 import VanillaTilt      from 'vanilla-tilt';
@@ -23,6 +21,7 @@ import '../css/main.less';
 
 document.addEventListener('DOMContentLoaded', () => {
 
+
     /**
      * Check browser version
      */
@@ -39,21 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
      * Init all polyfills
      */
     Polyfill.init();
-
-    /**
-     * Cookie Consent
-     */
-    window.cookieconsent.initialise({
-        'palette': {
-            'popup': {
-                'background': '#252e39'
-            },
-            'button': {
-                'background': '#14a7d0'
-            }
-        },
-        'theme': 'classic'
-    });
 
     /**
      * AOS
@@ -132,12 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return false;
         });
     }
-
-    /**
-     * Google Analytics Lite
-     */
-    galite('create', 'UA-431999-1', 'auto');
-    galite('send', 'pageview');
 
     /**
      * Header Parallax Scroll
