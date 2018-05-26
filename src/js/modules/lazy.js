@@ -95,7 +95,6 @@ function applyImage(img, src) {
     img.src = src;
 }
 
-
 let Lazy = {
 
     init: () => {

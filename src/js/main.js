@@ -1,11 +1,9 @@
 'use strict';
 
 // Libraries
-import 'cookieconsent';
 
 import AOS              from 'aos';
-import BrowserUpdate    from 'browser-update';
-import galite           from 'ga-lite';
+import BrowserUpdate    from 'browser-update/update.npm.js';
 import HalkaBox         from 'halkabox';
 import Konami           from 'konami';
 import VanillaTilt      from 'vanilla-tilt';
@@ -13,7 +11,6 @@ import VanillaTilt      from 'vanilla-tilt';
 // Modules
 import Colors           from './modules/colors';
 import Input            from './modules/input';
-import Intro            from './modules/intro';
 import Lazy             from './modules/lazy';
 import Nav              from './modules/nav';
 import Polyfill         from './modules/polyfill';
@@ -26,27 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Check browser version
      */
-    BrowserUpdate();
+    BrowserUpdate({
+        api: 2018.05,
+        insecure: true,
+        unsupported: true,
+        required: {
+            e:11,f:-2,o:-2,s:-2,c:-2
+        }
+    });
 
     /**
      * Init all polyfills
      */
     Polyfill.init();
-
-    /**
-     * Cookie Consent
-     */
-    window.cookieconsent.initialise({
-        'palette': {
-            'popup': {
-                'background': '#252e39'
-            },
-            'button': {
-                'background': '#14a7d0'
-            }
-        },
-        'theme': 'classic'
-    });
 
     /**
      * AOS
@@ -62,11 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
      * Input
      */
     Input.init();
-
-    /**
-     * Intro
-     */
-    Intro.init();
 
     /**
      * Lazyload images
@@ -127,22 +111,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Google Analytics Lite
-     */
-    galite('create', 'UA-431999-1', 'auto');
-    galite('send', 'pageview');
-
-    /**
      * Header Parallax Scroll
      */
     const header = document.querySelector('header');
     const speed = 0.2;
-    header.style.transform = 'translateY( calc( var(--scrollparallax) * 1px ) )';
 
     function setScrollParallax() {
         header.style.setProperty('--scrollparallax', (document.body.scrollTop || document.documentElement.scrollTop) * speed);
         window.requestAnimationFrame( setScrollParallax );
     }
 
-    window.requestAnimationFrame( setScrollParallax );
+    if (header) {
+        header.style.transform = 'translateY( calc( var(--scrollparallax) * 1px ) )';
+        window.requestAnimationFrame( setScrollParallax );
+    }
 });

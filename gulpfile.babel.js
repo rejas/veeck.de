@@ -55,7 +55,7 @@ gulp.task('load', (cb) => {
     app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
     app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
-    app.option('layout', 'default');
+    app.option('layout', 'default-layout');
 
     app.preLayout(/./, (view, next) => {
         // if the layout is not defined, use the default one ...
@@ -167,7 +167,7 @@ gulp.task('upload:page', () => {
                 log:        flog
             });
 
-            gulp.src([`${dirs.dist}/**/*`, `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`],
+            return gulp.src([`${dirs.dist}/**/*`, `!${dirs.dist}/files/**/*`, `!${dirs.dist}/img/**/*`, `!${dirs.dist}/**/*.map`],
                 { base: 'dist', buffer: false, dot: true })
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/veeck'));
@@ -188,7 +188,7 @@ gulp.task('upload:images', () => {
                 log:        flog
             });
 
-            gulp.src([`${dirs.dist}/img/**/*`],
+            return gulp.src([`${dirs.dist}/img/**/*`],
                 { base: 'dist', buffer: false } )
                 .pipe(conn.differentSize('/')) // filter for different file size
                 .pipe(conn.dest('/veeck'));
@@ -209,7 +209,7 @@ gulp.task('upload:files', () => {
                 log:        flog
             });
 
-            gulp.src([`${dirs.dist}/files/**/*`],
+            return gulp.src([`${dirs.dist}/files/**/*`],
                 { base: 'dist', buffer: false } )
                 .pipe(conn.newer('/')) // only upload newer files
                 .pipe(conn.dest('/veeck'));
@@ -238,7 +238,7 @@ gulp.task('prepare:images', () => {
 
 gulp.task('prepare:modernizr', () => {
     return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/multilevelmenu/src/multilevelmenu.js`, `!${dirs.src}/js/vendor/**/*.js`])
-        .pipe(plugins.modernizr('modernizr.min.js', config.modernizr))
+        .pipe(plugins.modernizr('modernizr.js', config.modernizr))
         .pipe(gulp.dest(`${dirs.src}/js/vendor`));
 });
 

@@ -1,0 +1,35 @@
+<!doctype html>
+<html class="no-js" lang="{{lang}}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible"  content="ie=edge">
+        <meta name="viewport"               content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>{{title}}</title>
+        <meta name="description"        content="{{lead}}">
+        <meta name="theme-color"        content="#E6E6E6">
+        <meta name="generator"          content="Assemble v0.24.3">
+        <meta name="twitter:card"       content="summary">
+        <meta property="og:site_name"   content="Veeck" />
+        <meta property="og:title"       content="{{title}} - {{lead}}" />
+        <meta property="og:type"        content="website" />
+        <meta property="og:image"       content="https://veeck.de/img/backgrounds/{{img}}.medium.jpg" />
+        <meta property="og:url"         content="https://veeck.de/{{page.stem}}.html" />
+
+        {{> icons }}
+
+        <link rel="canonical"           href="https://veeck.de/{{page.stem}}.html" />
+
+        <!-- inject:css -->
+        <link rel="stylesheet"          href="css/bundle.css" />
+        <!-- endinject -->
+    </head>
+    <body>
+        {% body %}
+
+        <script src="js/vendor.min.js"></script>
+        <!-- inject:js -->
+        <script src="js/bundle.js"></script>
+        <!-- endinject -->
+    </body>
+</html>
