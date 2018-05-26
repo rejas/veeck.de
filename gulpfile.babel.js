@@ -139,13 +139,13 @@ gulp.task('check:less', () => {
 });
 
 // Check the performance budget
-gulp.task('check:louis', () => {
+gulp.task('check:louis', (cb) => {
     plugins.louis({
         performanceBudget: {
             domComplete: 3000,
             requests: 10
         }
-    });
+    }, cb);
 });
 
 
