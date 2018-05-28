@@ -1,11 +1,9 @@
 'use strict';
 
 // Libraries
-import 'cookieconsent';
 
 import AOS              from 'aos';
 import BrowserUpdate    from 'browser-update/update.npm.js';
-import galite           from 'ga-lite';
 import HalkaBox         from 'halkabox';
 import Konami           from 'konami';
 import VanillaTilt      from 'vanilla-tilt';
@@ -13,7 +11,6 @@ import VanillaTilt      from 'vanilla-tilt';
 // Modules
 import Colors           from './modules/colors';
 import Input            from './modules/input';
-import Intro            from './modules/intro';
 import Lazy             from './modules/lazy';
 import Nav              from './modules/nav';
 import Polyfill         from './modules/polyfill';
@@ -41,21 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     Polyfill.init();
 
     /**
-     * Cookie Consent
-     */
-    window.cookieconsent.initialise({
-        'palette': {
-            'popup': {
-                'background': '#252e39'
-            },
-            'button': {
-                'background': '#14a7d0'
-            }
-        },
-        'theme': 'classic'
-    });
-
-    /**
      * AOS
      */
     AOS.init();
@@ -69,11 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
      * Input
      */
     Input.init();
-
-    /**
-     * Intro
-     */
-    Intro.init();
 
     /**
      * Lazyload images
@@ -132,12 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return false;
         });
     }
-
-    /**
-     * Google Analytics Lite
-     */
-    galite('create', 'UA-431999-1', 'auto');
-    galite('send', 'pageview');
 
     /**
      * Header Parallax Scroll
