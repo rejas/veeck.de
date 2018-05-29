@@ -336,7 +336,7 @@ gulp.task('watch', (cb) => {
 });
 
 /**
- * PARALLEL TASKS
+ * SUB TASKS
  */
 gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:less', 'check:louis'));
 
@@ -354,6 +354,6 @@ release(gulp);
 
 gulp.task('default',    gulp.series('clean', 'check', 'copy', 'webpack:prod', 'html'));
 
-gulp.task('deploy',     gulp.series('prepare', 'default', 'upload:page', 'release'));
+gulp.task('deploy',     gulp.series('default', 'release', 'upload:page'));
 
 gulp.task('dev',        gulp.series('clean', 'connect', 'copy', 'webpack:dev', 'html', 'watch'));
