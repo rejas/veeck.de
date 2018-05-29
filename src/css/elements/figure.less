@@ -256,7 +256,13 @@ body {
                 &.hb-counter {
                     .colorVar(background-color, --primaryTextColor, @primaryTextColor);
                     .colorVar(color, --primaryColor, @primaryColor);
+                    font-size: @font-size-md;
                     font-weight: @font-weight-bold;
+
+                    span {
+                        position: relative;
+                        top: -8px;
+                    }
                 }
             }
         }
