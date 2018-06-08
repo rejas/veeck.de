@@ -17,7 +17,7 @@
   "scripts": {
     "build": "gulp",
     "start": "gulp dev",
-    "test": "echo \"Warning: no test specified\" && exit 0"
+    "test": "gulp check"
   },
   "dependencies": {
     "aos": "^2.3.0",
