@@ -138,6 +138,17 @@ gulp.task('check:less', () => {
         .pipe(plugins.lesshint.failOnError());
 });
 
+// Check the performance budget
+gulp.task('check:louis', (cb) => {
+    plugins.louis({
+        performanceBudget: {
+            domComplete: 3000,
+            requests: 10
+        }
+    }, cb);
+});
+
+
 /**
  * DEPLOY TASKS
  */
@@ -226,7 +237,8 @@ gulp.task('prepare:images', () => {
 });
 
 gulp.task('prepare:modernizr', () => {
-    return gulp.src([`${dirs.src}/js/**/*.js`, `${dirs.node}/multilevelmenu/src/multilevelmenu.js`, `!${dirs.src}/js/vendor/**/*.js`])
+    return gulp.src([`${dirs.src}/css/**/*.less`,`${dirs.src}/js/**/*.js`,
+        `${dirs.node}/multilevelmenu/src/multilevelmenu.js`, `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.modernizr('modernizr.js', config.modernizr))
         .pipe(gulp.dest(`${dirs.src}/js/vendor`));
 });
@@ -325,9 +337,9 @@ gulp.task('watch', (cb) => {
 });
 
 /**
- * PARALLEL TASKS
+ * SUB TASKS
  */
-gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:less'));
+gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:less', 'check:louis'));
 
 gulp.task('copy',       gulp.parallel('copy:files', 'copy:images', 'copy:vendorscripts'));
 
@@ -343,6 +355,6 @@ release(gulp);
 
 gulp.task('default',    gulp.series('clean', 'check', 'copy', 'webpack:prod', 'html'));
 
-gulp.task('deploy',     gulp.series('prepare', 'default', 'upload:page', 'release'));
+gulp.task('deploy',     gulp.series('default', 'release', 'upload:page'));
 
 gulp.task('dev',        gulp.series('clean', 'connect', 'copy', 'webpack:dev', 'html', 'watch'));

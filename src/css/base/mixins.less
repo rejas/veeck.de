@@ -27,9 +27,9 @@
  *     -webkit-transition: all 250ms;
  *     -moz-transition: all 250ms;
  *     transition: all 250ms;
- *     .boxshadow(1);
+ *     .boxShadow(1);
  *     &:hover {
- *         .boxshadow(3);
+ *         .boxShadow(3);
  *         -webkit-transform: translateY(-5px);
  *         -moz-transform: translateY(-5px);
  *         transform: translateY(-5px);
@@ -38,7 +38,7 @@
  *
  */
 
-.boxshadow(@level: 1) {
+.boxShadow(@level: 1) {
     & when (@level = 0) {
         box-shadow: none;
     }

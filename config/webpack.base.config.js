@@ -3,6 +3,7 @@ const path = require('path'),
     cssmqpacker = require('css-mqpacker'),
     objectfit = require('postcss-object-fit-images'),
     sprites = require('postcss-sprites'),
+    cssnano = require('cssnano'),
     MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const webpackconfig = {
@@ -46,6 +47,7 @@ const webpackconfig = {
                             plugins: () => [
                                 autoprefixer(),
                                 cssmqpacker(),
+                                cssnano(),
                                 objectfit(),
                                 sprites({
                                     spritePath: 'tmp/',
