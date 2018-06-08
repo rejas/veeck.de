@@ -4,6 +4,7 @@
 .DS_Store
 dist/
 node_modules/
-npm-debug.log
-tmp/
-yarn-error.log
+/npm-debug.log
+/results.json
+/tmp/
+/yarn-error.log
