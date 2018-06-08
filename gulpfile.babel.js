@@ -138,6 +138,17 @@ gulp.task('check:less', () => {
         .pipe(plugins.lesshint.failOnError());
 });
 
+// Check the performance budget
+gulp.task('check:louis', (cb) => {
+    plugins.louis({
+        performanceBudget: {
+            domComplete: 3000,
+            requests: 10
+        }
+    }, cb);
+});
+
+
 /**
  * DEPLOY TASKS
  */
@@ -328,7 +339,7 @@ gulp.task('watch', (cb) => {
 /**
  * SUB TASKS
  */
-gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:less'));
+gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:less', 'check:louis'));
 
 gulp.task('copy',       gulp.parallel('copy:files', 'copy:images', 'copy:vendorscripts'));
 
