@@ -17,7 +17,7 @@
   "scripts": {
     "build": "gulp",
     "start": "gulp dev",
-    "test": "gulp check"
+    "test": "gulp check && exit 0"
   },
   "dependencies": {
     "aos": "^2.3.0",
