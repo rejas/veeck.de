@@ -20,8 +20,8 @@
     "test": "gulp check && exit 0"
   },
   "dependencies": {
-    "aos": "^2.3.0",
-    "browser-update": "^3.1.8",
+    "aos": "^2.3.2",
+    "browser-update": "^3.1.13",
     "core-js": "^2.5.7",
     "feather-icons": "^4.7.3",
     "halkabox": "^1.4.0",
@@ -37,7 +37,7 @@
   "devDependencies": {
     "assemble": "^0.24.3",
     "assemble-middleware-page-variable": "^0.1.0",
-    "autoprefixer": "^8.6.2",
+    "autoprefixer": "^8.6.3",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
@@ -78,7 +78,7 @@
     "postcss-object-fit-images": "^1.1.2",
     "postcss-sprites": "^4.2.1",
     "style-loader": "^0.21.0",
-    "uglifyjs-webpack-plugin": "^1.2.5",
+    "uglifyjs-webpack-plugin": "^1.2.6",
     "url-loader": "^1.0.1",
     "vinyl-ftp": "^0.6.1",
     "webpack": "^4.12.0",
