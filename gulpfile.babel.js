@@ -339,7 +339,7 @@ gulp.task('watch', (cb) => {
 /**
  * SUB TASKS
  */
-gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:less', 'check:louis'));
+gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:less'));
 
 gulp.task('copy',       gulp.parallel('copy:files', 'copy:images', 'copy:vendorscripts'));
 
