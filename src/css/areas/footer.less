@@ -2,7 +2,7 @@
  * Footer
  */
 
-footer {
+.footer {
     position: relative;
 
     time {
@@ -10,6 +10,14 @@ footer {
         font-size: @font-size-sm;
         font-weight: @font-weight-light;
         text-align: center;
+    }
+
+    &--fixed {
+        position: fixed;
+        bottom: 0;
+        .colorVar(color, --primaryColor, @primaryColor);
+        display: flex;
+        flex-flow: column;
     }
 }
 

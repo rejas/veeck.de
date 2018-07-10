@@ -1,13 +1,23 @@
 .content {
     background-color: @colorWhite;
+    min-height: 100%;
     padding-top: 1rem;
     position: relative;
 
+    &--landing {
+        background-color: @colorDark;
+        color: @colorWhite;
+
+        .galleryBox {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+    }
+
     > .article {
         display: grid;
-        grid-template-columns: 1fr @lg 1fr;
+        grid-template-columns: @nav-width 1fr @nav-width;
 
-        @media @phone, @tablet {
+        @media @phone {
             grid-template-columns: 1rem 1fr 1rem;
         }
 

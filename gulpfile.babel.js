@@ -55,7 +55,7 @@ gulp.task('load', (cb) => {
     app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
     app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
-    app.option('layout', 'default-layout');
+    app.option('layout', 'layout__default');
 
     app.preLayout(/./, (view, next) => {
         // if the layout is not defined, use the default one ...
