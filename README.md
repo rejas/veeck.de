@@ -1,14 +1,5 @@
-# homepage
+# veeck.de
 
-My personal homepage.
+[![Build Status](https://secure.travis-ci.org/rejas/veeck.de.png?branch=master)](http://travis-ci.org/rejas/veeck.de) [![Greenkeeper badge](https://badges.greenkeeper.io/rejas/veeck.de.svg)](https://greenkeeper.io/)
 
-## todo
-
- * Optimize all images (incl icons and favicons) during prepare
- * Dont inline googleads js code, cleanup csp
- 
-
-## Release History
- * 2018-01-28   v5.2.0
- * 2017-08-13   v5.1.0
- * 2016-07-26   v5.0.0  Moved to [Assemble](http://assemble.io)
+My personal homepage
