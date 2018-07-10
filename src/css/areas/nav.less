@@ -37,7 +37,7 @@
         flex-flow: column;
 
         > svg {
-            .colorVar(stroke, --lightPrimaryColor, @lightPrimaryColor);
+            .colorVar(stroke, --primaryColor, @primaryColor);
 
             @media @phone {
                 .colorVar(stroke, --primaryTextColor, @primaryTextColor);
@@ -49,7 +49,7 @@
         font-size: @font-size-sm;
         font-weight: @font-weight-bold;
         line-height: @line-height-sm;
-        .colorVar(color, --lightPrimaryColor, @lightPrimaryColor);
+        .colorVar(color, --primaryColor, @primaryColor);
         text-transform: uppercase;
 
         @media @phone {

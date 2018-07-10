@@ -15,7 +15,7 @@
     &--fixed {
         position: fixed;
         bottom: 0;
-        color: @colorWhite;
+        .colorVar(color, --primaryColor, @primaryColor);
         display: flex;
         flex-flow: column;
     }

@@ -24,19 +24,18 @@ let Colors = {
         //TODO Replace with Modernizr-test when it comes out
         if (window.CSS && CSS.supports('color', 'var(--primary)')) {
             const header = document.querySelector('header');
+            let newColor;
 
-            if (!header) {
-                return;
+            if (header) {
+                newColor = header.getAttribute('data-color');
             }
 
-            let newColor = header.getAttribute('data-color');
-
-            //TODO add random use of header or random color
             if (!newColor) {
                 newColor = tinycolor.random().toHsl();
             } else {
                 newColor = tinycolor('#' + newColor);
             }
+
             newColor.l = 0.5;
 
             changeColor(tinycolor(newColor));

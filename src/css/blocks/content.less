@@ -15,14 +15,10 @@
 
     > .article {
         display: grid;
-        grid-template-columns: 1fr @lg 1fr;
+        grid-template-columns: @nav-width 1fr @nav-width;
 
         @media @phone {
             grid-template-columns: 1rem 1fr 1rem;
-        }
-
-        @media @tablet {
-            grid-template-columns: @nav-width 1fr @nav-width;
         }
 
         > * {
