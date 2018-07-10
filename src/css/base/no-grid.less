@@ -1,5 +1,4 @@
-.no-cssgrid,
-.no-supports {
+.no-cssgrid {
 
     .article {
         .clearfix();
@@ -7,66 +6,6 @@
         margin: 0 auto 0;
         padding: 0 1rem 1rem;
         max-width: @lg;
-
-        &__grid {
-            .clearfix();
-            display: block;
-        }
-    }
-
-    .section__grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-        > * {
-            margin-bottom: 0.5rem;
-        }
-
-        &--single {
-            flex: 0 0 100%;
-        }
-
-        &--two {
-            @media @desktop, @tablet {
-                flex: 0 0 50%;
-            }
-
-            @media @phone {
-                flex: 0 0 100%;
-            }
-        }
-
-        &--three {
-
-            > * {
-                @media @desktop {
-                    flex: 0 0 33%;
-                }
-
-                @media @tablet {
-                    flex: 0 0 50%;
-                }
-
-                @media @phone {
-                    flex: 0 0 100%;
-                }
-            }
-        }
-
-        &--four {
-            @media @desktop {
-                flex: 0 0 25%;
-            }
-
-            @media @tablet {
-                flex: 0 0 33%;
-            }
-
-            @media @phone {
-                flex: 0 0 50%;
-            }
-        }
     }
 
     .galleryBox {
