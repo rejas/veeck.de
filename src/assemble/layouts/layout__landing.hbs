@@ -2,20 +2,18 @@
 layout: parent-layout.hbs
 ---
 
-{{> header }}
-
 {{> nav }}
 
 <div class="buttonBar" data-aos="fade-up">
-    {{> share-list }}
+    {{> block-share }}
 
     <button class="btn btn--md btn--icon btn--up u-hidden--print js-to-top" type="button" title="Back to top">
         {{> arrow-up }}
     </button>
 </div>
 
-<main class="content">
+<main class="content content--landing">
     {% body %}
 </main>
 
-{{> footer }}
+{{> footer class="footer--fixed" }}

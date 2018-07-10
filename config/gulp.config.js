@@ -37,7 +37,7 @@ const config = {
     },
     modernizr: {
         'options': ['setClasses'],
-        'tests': [['cssgrid', 'cssgridlegacy']]
+        'tests': ['csscustomproperties']
     },
     responsive: {
         // The output quality for JPEG, WebP and TIFF output formats

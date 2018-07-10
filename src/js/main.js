@@ -12,7 +12,7 @@ import VanillaTilt      from 'vanilla-tilt';
 import Colors           from './modules/colors';
 import Input            from './modules/input';
 import Lazy             from './modules/lazy';
-import Nav              from './modules/nav';
+//import Nav              from './modules/nav';
 import Polyfill         from './modules/polyfill';
 
 // Styles
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Navigation
      */
-    Nav.init();
+    //Nav.init();
 
     /**
      * Back to top
