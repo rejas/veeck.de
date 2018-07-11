@@ -5,6 +5,7 @@
     position: relative;
     display: grid;
     grid-template-columns: @nav-width 1fr @nav-width;
+    justify-items: center;
 
     @media @phone {
         display: block;
@@ -24,6 +25,7 @@
         grid-column: 2;
         margin: 0;
         padding: 1rem;
+        max-width: @lg;
 
         > .figure--fullwidth {
             grid-column: 1 / -1;
