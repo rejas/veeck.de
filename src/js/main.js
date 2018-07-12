@@ -16,7 +16,7 @@ import Lazy             from './modules/lazy';
 import Polyfill         from './modules/polyfill';
 
 // Styles
-import '../css/main.less';
+import '../css/main.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
 

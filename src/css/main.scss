@@ -12,21 +12,23 @@
 
 // basic stuff
 
-@import 'base/lint.scss';
+@import 'base/mixins.scss';
 
 // theme
 
 @import 'theme/colors.scss';
 
-/*
 @import 'theme/variables.scss';
 
 @import 'theme/fonts.scss';
 
+// basic stuff
 
-@import 'base/mixins';
+@import 'base/lint.scss';
 
-@import 'base/global';
+@import 'base/global.scss';
+
+/*
 
 @import 'base/util';
 

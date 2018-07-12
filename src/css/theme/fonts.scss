@@ -12,8 +12,8 @@ $min-font-size:         16px;
 $max-font-size:         19px;
 $font-line-ratio:       1.618;
 
-$base-font-size:        (calc($min-font-size ~' + ' unit($max-font-size - $min-font-size) ~' * ((100vw - ' $xs ~') /' unit($xl - $xs) ~')'));
-$base-line-height:      (calc($min-font-size * $font-line-ratio ~' + ' unit(($max-font-size - $min-font-size) * $font-line-ratio) ~' * ((100vw - ' $xs ~') /' unit($xl - $xs) ~')'));
+//$base-font-size:        (calc($min-font-size ' + ' unit($max-font-size - $min-font-size) ~' * ((100vw - ' $xs ~') /' unit($xl - $xs) ~')'));
+//$base-line-height:      (calc($min-font-size * $font-line-ratio ~' + ' unit(($max-font-size - $min-font-size) * $font-line-ratio) ~' * ((100vw - ' $xs ~') /' unit($xl - $xs) ~')'));
 
 $font-size-sm:          0.618rem;
 $font-size-md:          1.000rem;

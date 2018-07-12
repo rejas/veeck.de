@@ -33,7 +33,7 @@ const webpackconfig = {
                 }]
             },
             {
-                test: /\.less$/,
+                test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader, {
                         loader: 'css-loader',

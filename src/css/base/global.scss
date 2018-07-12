@@ -8,8 +8,8 @@
 }
 
 ::selection {
-    .colorVar(background-color, --primaryTextColor, @primaryTextColor);
-    .colorVar(color, --primaryColor, @primaryColor);
+    @include colorVar(background-color, --primaryTextColor, $primaryTextColor);
+    @include colorVar(color, --primaryColor, $primaryColor);
     text-shadow: none;
 }
 
@@ -21,19 +21,20 @@
 
 html {
     box-sizing: border-box;
-    font-family: @font-main, arial;
-    font-size: @base-font-size;
-    line-height: @base-line-height;
+    font-family: $font-main, arial;
+    //font-size: $base-font-size;
+    //line-height: $base-line-height;
+    @include fluid-type(320px, 1200px, 16px, 24px);
 }
 
 body {
-    background-color: @backgroundColor;
-    color: @primaryTextColor;
+    background-color: $backgroundColor;
+    color: $primaryTextColor;
     height: 100%;
     margin: 0;
     padding: 0;
-    font-size: @base-font-size;
-    line-height: @base-line-height;
+    //font-size: $base-font-size;
+    //line-height: $base-line-height;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
     -ms-touch-action: auto;
@@ -50,7 +51,7 @@ body {
 }
 
 section {
-    .clearfix();
+    @include clearfix();
     margin-bottom: 2rem;
 }
 
@@ -72,9 +73,9 @@ ul {
 
 a,
 a.cc-link {
-    color: @primaryTextColor;
-    border-bottom: @border-thickness solid;
-    .colorVar(border-bottom-color, --primaryColor, @primaryColor);
+    color: $primaryTextColor;
+    border-bottom: $border-thickness solid;
+    @include colorVar(border-bottom-color, --primaryColor, $primaryColor);
     outline: none;
     cursor: pointer;
     background-color: transparent;
@@ -88,15 +89,15 @@ pre {
     display: inline-block;
     width: 100%;
     padding: 0.5rem;
-    .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-    border: @border-thickness solid @color-transparent;
-    border-radius: @border-radius-md;
+    @include colorVar(background-color, --lightPrimaryColor, $lightPrimaryColor);
+    border: $border-thickness solid $color-transparent;
+    border-radius: $border-radius-md;
     margin-bottom: 0.5rem;
     white-space: pre-wrap;
 }
 
 strong {
-    font-weight: @font-weight-bold;
+    font-weight: $font-weight-bold;
 }
 
 time {
