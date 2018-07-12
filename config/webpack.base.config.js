@@ -57,10 +57,9 @@ const webpackconfig = {
                             sourceMap: true
                         }
                     }, {
-                        loader: 'less-loader',
+                        loader: 'sass-loader',
                         options: {
-                            sourceMap: true,
-                            strictMath: true
+                            sourceMap: true
                         }
                     }
                 ]

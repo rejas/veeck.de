@@ -1,0 +1,33 @@
+/**
+ * Variables
+ */
+
+$xs:                  320px;
+$sm:                  480px;
+$md:                  768px;
+$lg:                  960px;
+$xl:                 1400px;
+
+$border-radius-sm:      1px;
+$border-radius-md:      2px;
+$border-radius-lg:      4px;
+
+$border-thickness:      2px;
+
+$z-index-neg:          -1;
+$z-index-0:             0;
+$z-index-1:             1;
+$z-index-2:             2;
+$z-index-3:             3;
+$z-index-4:             4;
+$z-index-5:             5;
+
+$phone:                 ~'only screen and (max-width: 479px)';
+$tablet:                ~'only screen and (min-width: 480px) and (max-width: 959px)';
+$desktop:               ~'only screen and (min-width: 960px)';
+$print:                 ~'only print';
+
+$animation-duration:    0.5s;
+
+$margin-sm:             0.5rem;
+$margin-md:             1.0rem;
