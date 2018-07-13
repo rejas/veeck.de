@@ -7,13 +7,13 @@ $icon-size-m:   24px;
     display: block;
 
     &--xs {
-        width: icon-size-m;
-        height: icon-size-m;
+        width: $icon-size-m;
+        height: $icon-size-m;
     }
 
     &--s {
-        width: icon-width-s;
-        height: icon-height-s;
+        width: $icon-width-s;
+        height: $icon-height-s;
     }
 
     &--l {
