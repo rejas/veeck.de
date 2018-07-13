@@ -26,7 +26,7 @@
     "feather-icons": "^4.7.3",
     "halkabox": "^1.4.0",
     "hamburgers": "^0.9.3",
-    "konami": "^1.6.1",
+    "konami": "1.6.0",
     "multilevelmenu": "^1.2.0",
     "normalize-opentype.css": "^0.2.4",
     "object-fit-images": "^3.2.3",
