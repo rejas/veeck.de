@@ -1,21 +1,20 @@
 /**
  * Footer
  */
-
 .footer {
     position: relative;
 
     time {
         display: block;
-        font-size: @font-size-sm;
-        font-weight: @font-weight-light;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-light;
         text-align: center;
     }
 
     &--fixed {
         position: fixed;
         bottom: 0;
-        .colorVar(color, --primaryColor, @primaryColor);
+        color: var(--primaryColor);
         display: flex;
         flex-flow: column;
     }
@@ -24,7 +23,7 @@
 .buttonBar {
     position: fixed;
     bottom: 0;
-    z-index: @z-index-3;
+    z-index: $z-index-3;
     display: flex;
     width: calc(100% - 2.5rem);
     padding: 1rem;

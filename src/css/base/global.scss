@@ -8,8 +8,8 @@
 }
 
 ::selection {
-    @include colorVar(background-color, --primaryTextColor, $primaryTextColor);
-    @include colorVar(color, --primaryColor, $primaryColor);
+    background-color: var(--primaryTextColor);
+    color: var(--primaryColor);
     text-shadow: none;
 }
 
@@ -75,7 +75,7 @@ a,
 a.cc-link {
     color: $primaryTextColor;
     border-bottom: $border-thickness solid;
-    @include colorVar(border-bottom-color, --primaryColor, $primaryColor);
+    border-bottom-color: var(--primaryColor);
     outline: none;
     cursor: pointer;
     background-color: transparent;
@@ -89,7 +89,7 @@ pre {
     display: inline-block;
     width: 100%;
     padding: 0.5rem;
-    @include colorVar(background-color, --lightPrimaryColor, $lightPrimaryColor);
+    background-color: var(--lightPrimaryColor);
     border: $border-thickness solid $color-transparent;
     border-radius: $border-radius-md;
     margin-bottom: 0.5rem;

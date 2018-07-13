@@ -1,6 +1,6 @@
 .gallery {
     display: grid;
-    grid-gap: @margin-md;
+    grid-gap: $margin-md;
 
     &--fluid {
         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -10,7 +10,7 @@
         .gallery__item {
             margin: 0;
 
-            @media @tablet, @desktop {
+            @include aboveBreakpoint(sm) {
 
                 &:first-child {
                     grid-area: 1 / 1 / span 2 /span 2;
@@ -37,7 +37,7 @@
 
 .galleryBox {
     display: grid;
-    grid-gap: @margin-md;
+    grid-gap: $margin-md;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 
     &__item {
@@ -54,7 +54,7 @@
             background-color: transparent;
 
             p {
-                background-color: @colorDark;
+                background-color: $colorDark;
                 display: block;
                 margin: 0;
                 text-align: center;

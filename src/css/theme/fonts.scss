@@ -1,8 +1,11 @@
+/**
+ * Fonts
+ */
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
-//.font-face('BungeeColor-Regular', '../assets/fonts/BungeeColor-Regular_svg', 'normal');
+//@mixin font-face('BungeeColor-Regular', '../assets/fonts/BungeeColor-Regular_svg', 'normal');
 
 $font-header:           'Permanent Marker';
 $font-main:             'Nunito';
@@ -12,8 +15,8 @@ $min-font-size:         16px;
 $max-font-size:         19px;
 $font-line-ratio:       1.618;
 
-//$base-font-size:        (calc($min-font-size ' + ' unit($max-font-size - $min-font-size) ~' * ((100vw - ' $xs ~') /' unit($xl - $xs) ~')'));
-//$base-line-height:      (calc($min-font-size * $font-line-ratio ~' + ' unit(($max-font-size - $min-font-size) * $font-line-ratio) ~' * ((100vw - ' $xs ~') /' unit($xl - $xs) ~')'));
+//$base-font-size:        (calc($min-font-size ' + ' unit($max-font-size - $min-font-size) ~' * ((100vw - ' $min-content-size ~') /' unit($max-content-size - $min-content-size) ~')'));
+//$base-line-height:      (calc($min-font-size * $font-line-ratio ~' + ' unit(($max-font-size - $min-font-size) * $font-line-ratio) ~' * ((100vw - ' $min-content-size ~') /' unit($max-content-size - $min-content-size) ~')'));
 
 $font-size-sm:          0.618rem;
 $font-size-md:          1.000rem;

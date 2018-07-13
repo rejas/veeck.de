@@ -28,54 +28,46 @@
 
 @import 'base/global.scss';
 
-/*
+@import 'base/util.scss';
 
-@import 'base/util';
+@import 'base/grid.scss';
 
-@import 'base/grid';
-
-@import 'base/no-grid';
+@import 'base/no-grid.scss';
 
 // elements
 
-@import 'elements/button';
+@import 'elements/button.scss';
 
-@import 'elements/figure';
+@import 'elements/figure.scss';
 
-@import 'elements/form';
+@import 'elements/form.scss';
 
-@import 'elements/headlines';
+@import 'elements/headlines.scss';
 
-@import 'elements/icons';
+@import 'elements/icons.scss';
 
-@import 'elements/input';
+@import 'elements/input.scss';
 
 // blocks
 
-@import 'blocks/article';
+@import 'blocks/article.scss';
 
-@import 'blocks/changelog';
+@import 'blocks/changelog.scss';
 
-@import 'blocks/content';
+@import 'blocks/content.scss';
 
-@import 'blocks/gallery';
+@import 'blocks/gallery.scss';
 
-@import 'blocks/radio';
+@import 'blocks/radio.scss';
 
-@import 'blocks/section';
+@import 'blocks/section.scss';
 
 // areas
 
-@import 'areas/header';
+@import 'areas/header.scss';
 
-//@import 'areas/header_effect--animate';
+@import 'areas/header_title.scss';
 
-//@import 'areas/header_effect--shade';
+@import 'areas/nav.scss';
 
-@import 'areas/header_title';
-
-@import 'areas/nav';
-
-@import 'areas/footer';
-
-*/
+@import 'areas/footer.scss';

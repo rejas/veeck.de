@@ -1,15 +1,14 @@
 /**
  * Die Dave und Veeck Show
  */
-
 .radio {
 
     &__headline {
-        &:extend(.h2);
+        @extend .h2;
     }
 
     &__link {
-        &:extend(.article__link);
+        @extend .article__link;
     }
 
     &__file {

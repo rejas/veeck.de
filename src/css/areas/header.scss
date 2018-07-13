@@ -1,11 +1,10 @@
 /**
  * Header
  */
-
 .header {
     height: 100vh;
     will-change: transform;
-    z-index: @z-index-4;
+    z-index: $z-index-4;
 
     &__duotone-filters {
         height: 0;
@@ -35,24 +34,24 @@
 
     &__headline {
         align-self: normal;
-        border: @border-thickness solid @color-transparent;
-        .blur();
-        .boxShadow(0);
-        .colorVar(background-color, --lightPrimaryColorTransparent, @lightPrimaryColorTransparent);
-        .colorVar(color, --primaryTextColor, @primaryTextColor);
+        border: $border-thickness solid $color-transparent;
+        //.blur();
+        //.boxShadow(0);
+        background-color: var(--lightPrimaryColorTransparent);
+        color: var(--primaryTextColor);
         padding: 1rem;
         text-align: center;
         word-wrap: break-word;
-        z-index: @z-index-1;
+        z-index: $z-index-1;
     }
 
     &__subtitle {
-        .colorVar(background-color, --primaryTextColor, @primaryTextColor);
-        .colorVar(color, --primaryColor, @primaryColor);
-        font-weight: @font-weight-bold;
+        background-color: var(--primaryTextColor);
+        color: var(--primaryColor);
+        font-weight: $font-weight-bold;
         padding: 0 1rem;
         text-transform: uppercase;
-        z-index: @z-index-1;
+        z-index: $z-index-1;
     }
 
     &__title {
@@ -64,7 +63,7 @@
         height: 100vh;
         padding: 6rem;
 
-        @media @phone {
+        @include belowBreakpoint(xs) {
             padding: 1rem;
         }
     }

@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: @margin-md;
+    margin-bottom: $margin-md;
 
     button[type='submit'] {
         flex-grow: 0;

@@ -1,19 +1,19 @@
-@icon-height-s: 21px;
-@icon-width-s: 130px;
-@icon-size-m:   24px;
+$icon-height-s: 21px;
+$icon-width-s: 130px;
+$icon-size-m:   24px;
 
 .icon {
     background: no-repeat 0 0;
     display: block;
 
     &--xs {
-        width: @icon-size-m;
-        height: @icon-size-m;
+        width: icon-size-m;
+        height: icon-size-m;
     }
 
     &--s {
-        width: @icon-width-s;
-        height: @icon-height-s;
+        width: icon-width-s;
+        height: icon-height-s;
     }
 
     &--l {
