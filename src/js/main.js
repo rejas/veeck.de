@@ -16,7 +16,7 @@ import Lazy             from './modules/lazy';
 import Polyfill         from './modules/polyfill';
 
 // Styles
-import '../css/main.less';
+import '../css/main.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         insecure: true,
         unsupported: true,
         required: {
-            e:11,f:-2,o:-2,s:-2,c:-2
+            e:12,f:-2,o:-2,s:-2,c:-2
         }
     });
 

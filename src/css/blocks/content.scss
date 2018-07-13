@@ -4,16 +4,16 @@
     padding-top: 1rem;
     position: relative;
     display: grid;
-    grid-template-columns: @nav-width 1fr @nav-width;
+    grid-template-columns: $nav-width 1fr $nav-width;
     justify-items: center;
 
-    @media @phone {
+    @include belowBreakpoint(xs) {
         display: block;
     }
 
     &--landing {
-        background-color: @colorDark;
-        color: @colorWhite;
+        background-color: $colorDark;
+        color: $colorWhite;
 
         .galleryBox {
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -21,11 +21,11 @@
     }
 
     > .article {
-        background-color: @colorWhite;
+        background-color: $colorWhite;
         grid-column: 2;
         margin: 0;
         padding: 1rem;
-        max-width: @lg;
+        max-width: $md;
 
         > .figure--fullwidth {
             grid-column: 1 / -1;

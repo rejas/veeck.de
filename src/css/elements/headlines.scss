@@ -1,0 +1,46 @@
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+    font-family: $font-header, serif;
+    font-weight: $font-weight-bold;
+    text-transform: lowercase;
+    margin: 0 0 $margin-md 0;
+}
+
+.h1 {
+    font-size: $font-size-xl;
+    line-height: $line-height-xl;
+}
+
+.h2 {
+    background-color: var(--primaryTextColor);
+    color: var(--primaryColor);
+    font-weight: $font-weight-bold;
+    font-size: $font-size-lg;
+    line-height: $line-height-lg;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-gap: $margin-sm;
+    padding: 0.25rem 0.5rem 0.5rem;
+    word-break: break-word;
+
+    @include belowBreakpoint(xs) {
+        margin: 0 -1rem 1rem;
+    }
+}
+
+@supports (display: grid) {
+    .h2::before,
+    .h2::after {
+        content: '';
+        align-self: center;
+        border-color: inherit;
+        border-top: $border-thickness solid;
+    }
+}
+
+.h3 {
+    text-transform: none;
+}

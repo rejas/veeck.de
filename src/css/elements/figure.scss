@@ -1,7 +1,7 @@
-@colorFigure:   #ede1c9;
+$colorFigure:   #ede1c9;
 
 .figure {
-    border-radius: @border-radius-md;
+    border-radius: $border-radius-md;
     position: relative;
 
     a {
@@ -17,7 +17,7 @@
         max-width: 100%;
     }
 
-    @media @desktop, @tablet {
+    @include aboveBreakpoint(md) {
 
         &--full {
             margin: 0.5rem 0 1rem;
@@ -34,7 +34,7 @@
         }
     }
 
-    @media @desktop {
+    @include aboveBreakpoint(lg) {
 
         &--portrait {
             width: 33%;
@@ -45,7 +45,7 @@
         }
     }
 
-    @media @tablet {
+    @include atBreakpoint(md) {
 
         &--portrait {
             width: 33%;
@@ -57,20 +57,20 @@
     }
 
     &__caption {
-        font-family: @font-header, serif;
-        font-weight: @font-weight-bold;
+        font-family: $font-header, serif;
+        font-weight: $font-weight-bold;
         min-height: 2.5rem;
         text-align: center;
         padding: 0.5rem;
 
-        @media @phone {
-            font-size: @font-size-sm;
+        @include belowBreakpoint(xs) {
+            font-size: $font-size-sm;
             min-height: 0;
             padding-top: 0;
         }
 
         &--highlighted {
-            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+            background-color: var(--lightPrimaryColor);
         }
     }
 
@@ -87,17 +87,17 @@
             position: absolute;
             top: 23px;
             right: -19px;
-            font-size: @font-size-sm;
-            line-height: @line-height-md;
-            font-weight: @font-weight-bold;
+            font-size: $font-size-sm;
+            line-height: $line-height-md;
+            font-weight: $font-weight-bold;
             text-transform: uppercase;
             text-align: center;
             transform: rotate(45deg);
             width: 100px;
             display: block;
-            .boxShadow(2);
-            .colorVar(color, --secondaryTextColor, @secondaryTextColor);
-            .colorVar(background-color, --accentColor, @accentColor);
+            //.boxShadow(2);
+            color: var(--secondaryTextColor);
+            background-color: var(--accentColor);
 
             &::before {
                 content: '';
@@ -105,10 +105,10 @@
                 left: 0;
                 top: 100%;
                 z-index: -1;
-                border-left: @border-thickness solid darken(@accentColor, 15%);
-                border-right: @border-thickness solid transparent;
-                border-bottom: @border-thickness solid transparent;
-                border-top: @border-thickness solid darken(@accentColor, 15%);
+                border-left: $border-thickness solid darken($accentColor, 15%);
+                border-right: $border-thickness solid transparent;
+                border-bottom: $border-thickness solid transparent;
+                border-top: $border-thickness solid darken($accentColor, 15%);
             }
 
             &::after {
@@ -117,22 +117,22 @@
                 right: 0;
                 top: 100%;
                 z-index: -1;
-                border-left: @border-thickness solid transparent;
-                border-right: @border-thickness solid darken(@accentColor, 15%);
-                border-bottom: @border-thickness solid transparent;
-                border-top: @border-thickness solid darken(@accentColor, 15%);
+                border-left: $border-thickness solid transparent;
+                border-right: $border-thickness solid darken($accentColor, 15%);
+                border-bottom: $border-thickness solid transparent;
+                border-top: $border-thickness solid darken($accentColor, 15%);
             }
         }
     }
 
     &--basic {
-        .boxShadow(1);
-        .colorVar(background-color, --primaryColor, @primaryColor);
+        //.boxShadow(1);
+        background-color: var(--primaryColor);
         overflow: hidden;
         text-decoration: none;
         position: relative;
 
-        @media @phone {
+        @include belowBreakpoint(xs) {
             margin: 0 -1rem 1rem;
             border-radius: 0;
             box-shadow: none;
@@ -146,7 +146,7 @@
         float: left;
         margin: 0 1rem 1rem 0;
 
-        @media @phone {
+        @include belowBreakpoint(xs) {
             width: 100%;
 
             &::shadow .user {
@@ -154,7 +154,7 @@
             }
         }
 
-        @media @tablet, @desktop {
+        @include aboveBreakpoint(xs) {
 
             &::shadow .user {
                 width: 200px;
@@ -166,57 +166,57 @@
         }
 
         &::shadow .user {
-            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-            border: @border-thickness solid @color-transparent;
-            border-radius: @border-radius-lg;
-            .colorVar(color, --primaryTextColor, @primaryTextColor);
+            background-color: var(--lightPrimaryColor);
+            border: $border-thickness solid $color-transparent;
+            border-radius: $border-radius-lg;
+            color: var(--primaryTextColor);
 
             .user-account,
             .user-following,
             .user-followers,
             .user-repos {
-                .colorVar(color, --primaryTextColor, @primaryTextColor);
+                color: var(--primaryTextColor);
 
                 &::after {
-                    .colorVar(color, --primaryTextColor, @primaryTextColor);
+                    color: var(--primaryTextColor);
                 }
             }
         }
     }
 
     &--icon {
-        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-        border: @border-thickness solid @color-transparent;
-        border-radius: @border-radius-lg;
+        background-color: var(--lightPrimaryColor);
+        border: $border-thickness solid $color-transparent;
+        border-radius: $border-radius-lg;
         float: left;
         margin: 0.25rem 1rem 1rem 0;
         width: auto;
 
-        @media @phone {
+        @include belowBreakpoint(xs) {
             width: 100%;
         }
     }
 
     &--image {
-        border-radius: @border-radius-lg;
-        .boxShadow(1);
-        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
-        .colorVar(color, --primaryColor, @primaryColor);
+        border-radius: $border-radius-lg;
+        //.boxShadow(1);
+        background-color: var(--lightPrimaryColor);
+        color: var(--primaryColor);
         overflow: hidden;
 
         &:hover {
             transform: translateY(-1px);
-            .boxShadow(2);
+            //.boxShadow(2);
         }
     }
 
     &--travel {
 
-        @media @desktop, @tablet {
+        @include aboveBreakpoint(xs) {
+            background-color: var(--lightPrimaryColor);
+            box-shadow: 4px 4px 8px -4px $color-transparentDark;
             overflow: visible;
             padding: 0.5rem 0.5rem 0;
-            box-shadow: 4px 4px 8px -4px @color-transparentDark;
-            .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
             transform: rotate(var(--figure-angle-seed));
             transform-style: preserve-3d;
 
@@ -227,7 +227,7 @@
                 top: -15px;
                 width: 75px;
                 height: 25px;
-                background-color: @colorFigure;
+                background-color: $colorFigure;
                 opacity: 0.5;
             }
 
@@ -244,20 +244,20 @@ body {
         .hb-main-container {
 
             button {
-                .colorVar(background-color, --primaryTextColor, @primaryTextColor);
+                background-color: var(--primaryTextColor);
                 opacity: 1;
 
                 svg {
-                    .colorVar(fill, --primaryColor, @primaryColor);
+                    fill: var(--primaryColor);
                 }
             }
 
             p {
                 &.hb-counter {
-                    .colorVar(background-color, --primaryTextColor, @primaryTextColor);
-                    .colorVar(color, --primaryColor, @primaryColor);
-                    font-size: @font-size-md;
-                    font-weight: @font-weight-bold;
+                    background-color: var(--primaryTextColor);
+                    color: var(--primaryColor);
+                    font-size: $font-size-md;
+                    font-weight: $font-weight-bold;
 
                     span {
                         position: relative;
@@ -268,9 +268,9 @@ body {
         }
 
         .hb-image-container div.hb-image-div p.hb-caption {
-            .colorVar(background-color, --primaryTextColor, @primaryTextColor);
-            .colorVar(color, --primaryColor, @primaryColor);
-            font-weight: @font-weight-bold;
+            background-color: var(--primaryTextColor);
+            color: var(--primaryColor);
+            font-weight: $font-weight-bold;
         }
     }
 }
@@ -285,13 +285,13 @@ img.b-error {
         left: 0;
         height: calc(100% + 10px);
         width: 100%;
-        .colorVar(background-color, --lightPrimaryColor, @lightPrimaryColor);
+        background-color: var(--lightPrimaryColor);
     }
 
     &::after {
         content: 'I am sorry, this image got eaten by the bug monster :(';
         display: block;
-        color: @accentColor;
+        color: $accentColor;
         position: absolute;
         top: 10px;
         left: 0;
