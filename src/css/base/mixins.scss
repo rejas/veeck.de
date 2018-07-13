@@ -1,0 +1,163 @@
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+        & {
+            font-size: $min-font-size;
+            @media screen and (min-width: $min-vw) {
+                font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+            }
+            @media screen and (min-width: $max-vw) {
+                font-size: $max-font-size;
+            }
+        }
+    }
+}
+
+@mixin transform ($property) {
+    transition: $property $animation-duration cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/*
+ * Clearfix: contain floats
+ * Uses "display: flow-root" in browsers that supports it
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ *
+ * Source: http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+
+@mixin clearfix() {
+    &::before,
+    &::after {
+        content: ' '; // 1
+        display: table; // 2
+    }
+
+    &::after {
+        clear: both;
+    }
+
+    @supports (display: flow-root) {
+        & {
+            display: flow-root;
+        }
+
+        &::before,
+        &::after {
+            content: none;
+        }
+    }
+}
+
+// content is applied if current breakpoint is equal or above given $point
+@mixin aboveBreakpoint($point) {
+    @if $point == xs {
+        @media (min-width: $xs) {
+            @content;
+        }
+    } @else if $point == sm {
+        @media (min-width: $sm) {
+            @content;
+        }
+    } @else if $point == md {
+        @media (min-width: $md) {
+            @content;
+        }
+    } @else if $point == lg {
+        @media (min-width: $lg) {
+            @content;
+        }
+    }
+}
+
+// content is applied if current breakpoint is below given $point
+@mixin belowBreakpoint($point) {
+    @if $point == xs {
+        @media (max-width: $xs - 1px) {
+            @content;
+        }
+    } @else if $point == sm {
+        @media (max-width: $sm - 1px) {
+            @content;
+        }
+    } @else if $point == md {
+        @media (max-width: $md - 1px) {
+            @content;
+        }
+    } @else if $point == lg {
+        @media (max-width: $lg - 1px) {
+            @content;
+        }
+    }
+}
+
+// content is applied if current breakpoint is between $pointMin and $pointMax
+@mixin betweenBreakpoint($pointMin, $pointMax) {
+    $_min: $xs;
+    $_max: $lg;
+
+    @if $pointMin == xs {
+        $_min: $xs;
+    } @else if $pointMin == sm {
+        $_min: $sm;
+    } @else if $pointMin == md {
+        $_min: $md;
+    } @else if $pointMin == lg {
+        $_min: $lg;
+    }
+
+    @if $pointMax == xs {
+        $_max: $xs - 1px;
+    } @else if $pointMax == sm {
+        $_max: $sm - 1px;
+    } @else if $pointMax == md {
+        $_max: $md - 1px;
+    } @else if $pointMax == lg {
+        $_max: $lg - 1px;
+    }
+
+    @media (min-width: $_min) and (max-width: $_max - 1px) {
+        @content;
+    }
+}
+
+// content is applied if current breakpoint is at $point (so between (point below $point) and $point)
+@mixin atBreakpoint($point) {
+    @if $point == xs {
+        @media (max-width: $xs - 1px) {
+            @content;
+        }
+    } @else if $point == sm {
+        @media (min-width: $xs) and (max-width: $sm - 1px) {
+            @content;
+        }
+    } @else if $point == md {
+        @media (min-width: $sm) and (max-width: $md - 1px) {
+            @content;
+        }
+    } @else if $point == lg {
+        @media (min-width: $md) {
+            @content;
+        }
+    }
+}
+
+@mixin print {
+    @media print {
+        @content;
+    }
+}

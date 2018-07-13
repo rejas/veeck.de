@@ -1,12 +1,12 @@
 .content {
-    background-color: @colorWhite;
+    background-color: $colorWhite;
     min-height: 100%;
     padding-top: 1rem;
     position: relative;
 
     &--landing {
-        background-color: @colorDark;
-        color: @colorWhite;
+        background-color: $colorDark;
+        color: $colorWhite;
 
         .galleryBox {
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -15,9 +15,9 @@
 
     > .article {
         display: grid;
-        grid-template-columns: @nav-width 1fr @nav-width;
+        grid-template-columns: $nav-width 1fr $nav-width;
 
-        @media @phone {
+        @include belowBreakpoint(sm) {
             grid-template-columns: 1rem 1fr 1rem;
         }
 
