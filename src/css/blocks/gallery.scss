@@ -13,7 +13,7 @@
             @include aboveBreakpoint(sm) {
 
                 &:first-child {
-                    grid-area: 1 / 1 / span 2 /span 2;
+                    grid-area: 1 / 1 / span 2 / span 2;
                 }
 
                 &:nth-child(5n) {
