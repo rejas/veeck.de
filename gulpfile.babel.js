@@ -129,9 +129,13 @@ gulp.task('check:js', () => {
 });
 
 // Detect errors and potential problems in your CSS code
-gulp.task('check:sass', (cb) => {
-    // TODO
-    cb();
+gulp.task('check:sass', () => {
+    return gulp.src(`${dirs.src}/css/**/*.scss`)
+        .pipe(plugins.sassLint({
+            configFile: `${dirs.config}/.sasslintrc.json`
+        }))
+        .pipe(plugins.sassLint.format())
+        .pipe(plugins.sassLint.failOnError())
 });
 
 // Check the performance budget
