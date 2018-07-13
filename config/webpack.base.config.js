@@ -33,7 +33,7 @@ const webpackconfig = {
                 }]
             },
             {
-                test: /\.less$/,
+                test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader, {
                         loader: 'css-loader',
@@ -57,10 +57,9 @@ const webpackconfig = {
                             sourceMap: true
                         }
                     }, {
-                        loader: 'less-loader',
+                        loader: 'sass-loader',
                         options: {
-                            sourceMap: true,
-                            strictMath: true
+                            sourceMap: true
                         }
                     }
                 ]

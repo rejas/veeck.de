@@ -64,49 +64,6 @@
     }
 }
 
-/*
- * Clearfix: contain floats
- * Uses "display: flow-root" in browsers that supports it
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- *
- * Source: http://nicolasgallagher.com/micro-clearfix-hack/
- */
-
-.clearfix() {
-    &::before,
-    &::after {
-        content: ' '; // 1
-        display: table; // 2
-    }
-
-    &::after {
-        clear: both;
-    }
-
-    @supports (display: flow-root) {
-        & {
-            display: flow-root;
-        }
-
-        &::before,
-        &::after {
-            content: none;
-        }
-    }
-}
-
-.colorVar (@property, @cssvar, @color) {
-    @{property}: @color;
-    @{property}: var(@cssvar); // lesshint duplicateProperty: false
-}
-
 .font-face (@family, @file-base, @weight: normal, @style: normal) {
     @font-face {
         font-display: swap;
@@ -115,8 +72,4 @@
         font-style: @style;
         src: url('@{file-base}.woff') format('woff'), url('@{file-base}.woff2') format('woff2');
     }
-}
-
-.transform (@property) {
-    transition: @property @animation-duration cubic-bezier(0.19, 1, 0.22, 1);
 }

@@ -1,0 +1,35 @@
+/**
+ * Colors
+ */
+
+$colorWhite:                #fcfcfc;
+$colorDark:                 #030303;
+
+$primaryColor:              #c6d851;
+$accentColor:               rgba(0, 0, 0, 0.66);
+
+$backgroundColor:           $colorWhite;
+$primaryTextColor:          $colorDark;
+$secondaryTextColor:        $colorWhite;
+
+$darkPrimaryColor:              darken($primaryColor,       17.5%);
+
+$lightPrimaryColor:             lighten($primaryColor,      37.5%);
+$lightPrimaryColorTransparent:  fade($lightPrimaryColor,    66.6%);
+
+$color-transparent:         rgba(255, 255, 255, 0.125);
+$color-transparentDark:     rgba(0, 0, 0, 0.775);
+$color-transparentWhite:    rgba(255, 255, 255, 0.775);
+
+:root {
+    --primaryTextColor:     $primaryTextColor;
+    --secondaryTextColor:   $secondaryTextColor;
+
+    --primaryColor:         $primaryColor;
+    --accentColor:          $accentColor;
+
+    --darkPrimaryColor:     $darkPrimaryColor;
+
+    --lightPrimaryColor:                $lightPrimaryColor;
+    --lightPrimaryColorTransparent:     $lightPrimaryColorTransparent;
+}

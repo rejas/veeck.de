@@ -129,13 +129,9 @@ gulp.task('check:js', () => {
 });
 
 // Detect errors and potential problems in your CSS code
-gulp.task('check:less', () => {
-    return gulp.src([`${dirs.src}/css/**/*.less`])
-        .pipe(plugins.lesshint({
-            configPath: `${dirs.config}/.lesshintrc.json`
-        }))
-        .pipe(plugins.lesshint.reporter())
-        .pipe(plugins.lesshint.failOnError());
+gulp.task('check:sass', (cb) => {
+    // TODO
+    cb();
 });
 
 // Check the performance budget
@@ -147,7 +143,6 @@ gulp.task('check:louis', (cb) => {
         }
     }, cb);
 });
-
 
 /**
  * DEPLOY TASKS
@@ -237,7 +232,7 @@ gulp.task('prepare:images', () => {
 });
 
 gulp.task('prepare:modernizr', () => {
-    return gulp.src([`${dirs.src}/css/**/*.less`,`${dirs.src}/js/**/*.js`,
+    return gulp.src([`${dirs.src}/css/**/*.scss`,`${dirs.src}/js/**/*.js`,
         `${dirs.node}/multilevelmenu/src/multilevelmenu.js`, `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.modernizr('modernizr.js', config.modernizr))
         .pipe(gulp.dest(`${dirs.src}/js/vendor`));
@@ -331,7 +326,7 @@ gulp.task('connect', (cb) => {
 });
 
 gulp.task('watch', (cb) => {
-    gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.less`, `${dirs.src}/css/assets/**/*`], gulp.task('webpack:dev'));
+    gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.scss`, `${dirs.src}/css/assets/**/*`], gulp.task('webpack:dev'));
     gulp.watch([`${dirs.assemble}/**/*.hbs`], gulp.task('assemble'));
     cb();
 });
@@ -339,7 +334,7 @@ gulp.task('watch', (cb) => {
 /**
  * SUB TASKS
  */
-gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:less'));
+gulp.task('check',      gulp.parallel('check:html', 'check:js', 'check:sass'));
 
 gulp.task('copy',       gulp.parallel('copy:files', 'copy:images', 'copy:vendorscripts'));
 

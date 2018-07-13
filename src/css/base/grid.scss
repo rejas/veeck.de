@@ -1,6 +1,6 @@
 .grid {
     display: grid;
-    grid-gap: @margin-md;
+    grid-gap: $margin-md;
     grid-template-columns: repeat(12, 1fr);
 
     .grid__section--12x1 {
@@ -10,7 +10,7 @@
     .grid__section--6x1 {
         grid-column: span 6;
 
-        @media @phone, @tablet {
+        @include belowBreakpoint(sm) {
             grid-column: span 12;
         }
     }

@@ -1,24 +1,27 @@
+/**
+ * Utilities
+ */
 .u-align--center {
     text-align: center;
 }
 
 .u-hidden--lg {
 
-    @media @desktop {
+    @include aboveBreakpoint(lg) {
         display: none;
     }
 }
 
 .u-hidden--sm {
 
-    @media @phone {
+    @include belowBreakpoint(xs) {
         display: none;
     }
 }
 
 .u-hidden--print {
 
-    @media @print {
+    @include print {
         display: none;
     }
 }
