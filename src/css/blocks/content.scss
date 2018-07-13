@@ -1,8 +1,15 @@
 .content {
-    background-color: $colorWhite;
     min-height: 100%;
+    background-color: transparent;
     padding-top: 1rem;
     position: relative;
+    display: grid;
+    grid-template-columns: $nav-width 1fr $nav-width;
+    justify-items: center;
+
+    @include belowBreakpoint(xs) {
+        display: block;
+    }
 
     &--landing {
         background-color: $colorDark;
@@ -14,16 +21,11 @@
     }
 
     > .article {
-        display: grid;
-        grid-template-columns: $nav-width 1fr $nav-width;
-
-        @include belowBreakpoint(sm) {
-            grid-template-columns: 1rem 1fr 1rem;
-        }
-
-        > * {
-            grid-column: 2;
-        }
+        background-color: $colorWhite;
+        grid-column: 2;
+        margin: 0;
+        padding: 1rem;
+        max-width: $md;
 
         > .figure--fullwidth {
             grid-column: 1 / -1;

@@ -25,6 +25,10 @@
     grid-gap: $margin-sm;
     padding: 0.25rem 0.5rem 0.5rem;
     word-break: break-word;
+
+    @include belowBreakpoint(xs) {
+        margin: 0 -1rem 1rem;
+    }
 }
 
 @supports (display: grid) {
