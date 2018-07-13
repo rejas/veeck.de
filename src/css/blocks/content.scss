@@ -1,19 +1,28 @@
 .content {
     min-height: 100%;
-    background-color: transparent;
+    background-color: white;
     padding-top: 1rem;
     position: relative;
     display: grid;
-    grid-template-columns: $nav-width 1fr $nav-width;
     justify-items: center;
+    grid-template-columns: $nav-width 1fr $nav-width;
 
     @include belowBreakpoint(xs) {
         display: block;
     }
 
+    @include aboveBreakpoint(lg) {
+        background-color: transparent;
+        grid-template-columns: $nav-width 1fr $nav-width;
+    }
+
     &--landing {
         background-color: $colorDark;
         color: $colorWhite;
+
+        > .article {
+            width: 100%;
+        }
 
         .galleryBox {
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
