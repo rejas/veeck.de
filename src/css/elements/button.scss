@@ -3,9 +3,8 @@ $btn-size-lg: 3rem;
 
 .btn {
     border: 0;
-    //.boxShadow(1);
     background-color: var(--lightPrimaryColor);
-    border-radius: $border-radius-lg;
+    border-radius: $border-radius-md;
     color: var(--primaryColor);
     cursor: pointer;
     display: flex;
@@ -27,7 +26,6 @@ $btn-size-lg: 3rem;
 
     &:hover {
         transform: translateY(-1px);
-        //.boxShadow(2);
         color: var(--secondaryTextColor);
 
         > svg {

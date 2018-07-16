@@ -1,22 +1,21 @@
 /**
  * Fonts
  */
+
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
-//@mixin font-face('BungeeColor-Regular', '../assets/fonts/BungeeColor-Regular_svg', 'normal');
-
+$font-color:            'Poppins';
 $font-header:           'Permanent Marker';
 $font-main:             'Nunito';
-$font-color:            'BungeeColor-Regular';
 
 $min-font-size:         16px;
-$max-font-size:         19px;
+$max-font-size:         20px;
 $font-line-ratio:       1.618;
 
-//$base-font-size:        (calc($min-font-size ' + ' unit($max-font-size - $min-font-size) ~' * ((100vw - ' $min-content-size ~') /' unit($max-content-size - $min-content-size) ~')'));
-//$base-line-height:      (calc($min-font-size * $font-line-ratio ~' + ' unit(($max-font-size - $min-font-size) * $font-line-ratio) ~' * ((100vw - ' $min-content-size ~') /' unit($max-content-size - $min-content-size) ~')'));
+$base-font-size:        calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-content-width}) / #{strip-unit($max-content-width - $min-content-width)}));
+$base-line-height:      calc(#{$min-font-size * $font-line-ratio} + #{strip-unit(($max-font-size - $min-font-size) * $font-line-ratio)} * ((100vw - #{$min-content-width}) / #{strip-unit($max-content-width - $min-content-width)}));
 
 $font-size-sm:          0.618rem;
 $font-size-md:          1.000rem;
@@ -34,3 +33,8 @@ $font-weight-light:     300;
 $font-weight-normal:    400;
 $font-weight-medium:    500;
 $font-weight-bold:      700;
+
+/**
+ * TODO fix this mixin
+ */
+//@include font-face('BungeeColor-Regular', '../assets/fonts/BungeeColor-Regular_svg', $font-weight-normal);

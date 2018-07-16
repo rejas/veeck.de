@@ -84,7 +84,6 @@ $colorFigure:   #ede1c9;
             transform: rotate(45deg);
             width: 100px;
             display: block;
-            //.boxShadow(2);
             color: var(--secondaryTextColor);
             background-color: var(--accentColor);
 
@@ -115,7 +114,6 @@ $colorFigure:   #ede1c9;
     }
 
     &--basic {
-        //.boxShadow(1);
         background-color: var(--primaryColor);
         overflow: hidden;
         text-decoration: none;
@@ -188,14 +186,12 @@ $colorFigure:   #ede1c9;
 
     &--image {
         border-radius: $border-radius-lg;
-        //.boxShadow(1);
         background-color: var(--lightPrimaryColor);
         color: var(--primaryColor);
         overflow: hidden;
 
         &:hover {
             transform: translateY(-1px);
-            //.boxShadow(2);
         }
     }
 
