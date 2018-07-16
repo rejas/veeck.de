@@ -135,7 +135,7 @@ gulp.task('check:sass', () => {
             configFile: `${dirs.config}/.sasslintrc.json`
         }))
         .pipe(plugins.sassLint.format())
-        .pipe(plugins.sassLint.failOnError())
+        .pipe(plugins.sassLint.failOnError());
 });
 
 // Check the performance budget
