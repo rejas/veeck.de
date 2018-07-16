@@ -20,21 +20,18 @@
 }
 
 html {
-    box-sizing: border-box;
-    font-family: $font-main, arial;
-    //font-size: $base-font-size;
-    //line-height: $base-line-height;
-    @include fluid-type(320px, 1200px, 16px, 24px);
+    font-size: $base-font-size;
+    line-height: $base-line-height;
 }
 
 body {
     background-color: $backgroundColor;
+    box-sizing: border-box;
     color: $primaryTextColor;
     height: 100%;
     margin: 0;
     padding: 0;
-    //font-size: $base-font-size;
-    //line-height: $base-line-height;
+    font-family: $font-main, arial;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
     -ms-touch-action: auto;

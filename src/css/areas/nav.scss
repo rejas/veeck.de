@@ -4,7 +4,7 @@ $nav-height: 3rem;
     display: flex;
     align-items: center;
     flex-flow: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     position: fixed;
     bottom: 0;
     top: 0;
@@ -13,7 +13,6 @@ $nav-height: 3rem;
     height: 100%;
     width: $nav-width;
     z-index: $z-index-4;
-
     mix-blend-mode: difference;
 
     @include belowBreakpoint(xs) {
@@ -25,7 +24,6 @@ $nav-height: 3rem;
         height: $nav-height;
         width: 100%;
         padding: 0.5rem 0;
-
         mix-blend-mode: normal;
     }
 
@@ -42,6 +40,14 @@ $nav-height: 3rem;
                 stroke: var(--primaryTextColor);
             }
         }
+
+        @include aboveBreakpoint(xs) {
+            background: red;
+            border-radius: $border-radius-md;
+            padding: 10px;
+            -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+            filter: grayscale(100%);
+        }
     }
 
     &__label {
@@ -53,6 +59,10 @@ $nav-height: 3rem;
 
         @include belowBreakpoint(xs) {
             color: var(--primaryTextColor);
+        }
+
+        @include aboveBreakpoint(xs) {
+            display: none;
         }
     }
 }

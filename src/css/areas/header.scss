@@ -33,10 +33,10 @@
     }
 
     &__headline {
+        @include blur();
         align-self: normal;
         border: $border-thickness solid $color-transparent;
-        //.blur();
-        //.boxShadow(0);
+        border-radius: $border-radius-sm;
         background-color: var(--lightPrimaryColorTransparent);
         color: var(--primaryTextColor);
         padding: 1rem;
@@ -47,6 +47,7 @@
 
     &__subtitle {
         background-color: var(--primaryTextColor);
+        border-radius: $border-radius-sm;
         color: var(--primaryColor);
         font-weight: $font-weight-bold;
         padding: 0 1rem;
