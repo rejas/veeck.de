@@ -12,7 +12,6 @@ import VanillaTilt      from 'vanilla-tilt';
 import Colors           from './modules/colors';
 import Input            from './modules/input';
 import Lazy             from './modules/lazy';
-//import Nav              from './modules/nav';
 import Polyfill         from './modules/polyfill';
 
 // Styles
@@ -56,11 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
      * Lazyload images
      */
     Lazy.init();
-
-    /**
-     * Navigation
-     */
-    //Nav.init();
 
     /**
      * Back to top
@@ -108,21 +102,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 + encodeURIComponent(document.URL));
             return false;
         });
-    }
-
-    /**
-     * Header Parallax Scroll
-     */
-    const header = document.querySelector('header');
-    const speed = 0.2;
-
-    function setScrollParallax() {
-        header.style.setProperty('--scrollparallax', (document.body.scrollTop || document.documentElement.scrollTop) * speed);
-        window.requestAnimationFrame( setScrollParallax );
-    }
-
-    if (header) {
-        header.style.transform = 'translateY( calc( var(--scrollparallax) * 1px ) )';
-        window.requestAnimationFrame( setScrollParallax );
     }
 });
