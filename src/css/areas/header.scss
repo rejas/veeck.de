@@ -39,7 +39,7 @@
         border-radius: $border-radius-sm;
         background-color: var(--lightPrimaryColorTransparent);
         color: var(--primaryTextColor);
-        padding: 1rem;
+        padding: $margin-md;
         text-align: center;
         word-wrap: break-word;
         z-index: $z-index-1;
@@ -50,7 +50,7 @@
         border-radius: $border-radius-sm;
         color: var(--primaryColor);
         font-weight: $font-weight-bold;
-        padding: 0 1rem;
+        padding: 0 $margin-md;
         text-transform: uppercase;
         z-index: $z-index-1;
     }

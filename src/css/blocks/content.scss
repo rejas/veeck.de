@@ -1,11 +1,11 @@
 .content {
-    min-height: 100%;
-    background-color: white;
-    padding-top: 1rem;
-    position: relative;
+    background-color: $colorWhite;
     display: grid;
-    justify-items: center;
     grid-template-columns: $nav-width 1fr $nav-width;
+    justify-items: center;
+    min-height: 100%;
+    padding-top: $margin-md;
+    position: relative;
 
     @include belowBreakpoint(xs) {
         display: block;
@@ -33,7 +33,7 @@
         background-color: $colorWhite;
         grid-column: 2;
         margin: 0;
-        padding: 1rem;
+        padding: $margin-md;
         max-width: $md;
 
         > .figure--fullwidth {
@@ -43,6 +43,6 @@
     }
 
     p + p {
-        text-indent: 1rem;
+        text-indent: $margin-md;
     }
 }
