@@ -195,6 +195,9 @@ $colorFigure:   #ede1c9;
         }
     }
 
+    /**
+     * Theme Variation
+     */
     &--travel {
 
         @include aboveBreakpoint(xs) {

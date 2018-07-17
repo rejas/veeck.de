@@ -15,29 +15,56 @@
 }
 
 .h2 {
-    background-color: var(--primaryTextColor);
-    color: var(--primaryColor);
     font-weight: $font-weight-bold;
     font-size: $font-size-lg;
     line-height: $line-height-lg;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    grid-gap: $margin-sm;
-    padding: 0.25rem 0.5rem 0.5rem;
     word-break: break-word;
+    text-align: center;
 
     @include belowBreakpoint(xs) {
-        margin: 0 -1rem 1rem;
+        margin: 0 -$margin-md $margin-md;
     }
-}
 
-@supports (display: grid) {
-    .h2::before,
-    .h2::after {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &::before,
+    &::after {
         content: '';
-        align-self: center;
-        border-color: inherit;
-        border-top: $border-thickness solid;
+        flex: 1;
+        height: $margin-sm;
+        color: var(--primaryColor);
+    }
+
+    &::after {
+        background: repeating-linear-gradient(-45deg, var(--primaryColor), var(--primaryColor) 6px, transparent 6px, transparent 12px);
+        margin-left: $margin-md;
+    }
+
+    &::before {
+        background: repeating-linear-gradient(45deg, var(--primaryColor), var(--primaryColor) 6px, transparent 6px, transparent 12px);
+        margin-right: $margin-md;
+    }
+
+    /**
+     * Theme Variation
+     */
+    &--brutal {
+        background-color: var(--primaryTextColor);
+        color: var(--primaryColor);
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        grid-gap: $margin-sm;
+        padding: 0.25rem 0.5rem 0.5rem;
+
+        &::before,
+        &::after {
+            content: '';
+            align-self: center;
+            border-color: inherit;
+            border-top: $border-thickness solid;
+        }
     }
 }
 
