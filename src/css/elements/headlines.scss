@@ -22,7 +22,7 @@
     text-align: center;
 
     @include belowBreakpoint(xs) {
-        margin: 0 -1rem 1rem;
+        margin: 0 -$margin-md $margin-md;
     }
 
     display: flex;
@@ -33,24 +33,24 @@
     &::after {
         content: '';
         flex: 1;
-        height: 12px;
+        height: $margin-sm;
         color: var(--primaryColor);
     }
 
     &::after {
         background: repeating-linear-gradient(-45deg, var(--primaryColor), var(--primaryColor) 6px, transparent 6px, transparent 12px);
-        margin-left: 1rem;
+        margin-left: $margin-md;
     }
 
     &::before {
         background: repeating-linear-gradient(45deg, var(--primaryColor), var(--primaryColor) 6px, transparent 6px, transparent 12px);
-        margin-right: 1rem;
+        margin-right: $margin-md;
     }
-}
 
-/*
-@supports (display: grid) {
-    .h2 {
+    /**
+     * Theme Variation
+     */
+    &--brutal {
         background-color: var(--primaryTextColor);
         color: var(--primaryColor);
         display: grid;
@@ -67,7 +67,6 @@
         }
     }
 }
-*/
 
 .h3 {
     text-transform: none;
