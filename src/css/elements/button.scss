@@ -26,10 +26,10 @@ $btn-size-lg: 3rem;
 
     &:hover {
         transform: translateY(-1px);
-        color: var(--secondaryTextColor);
+        color: var(--darkPrimaryColor);
 
         > svg {
-            stroke: var(--secondaryTextColor);
+            stroke: var(--darkPrimaryColor);
         }
     }
 
