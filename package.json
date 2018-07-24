@@ -68,7 +68,7 @@
     "gulp-responsive": "2.11.0",
     "gulp-sass-lint": "1.4.0",
     "gulp-sitemap": "5.1.0",
-    "gulp-uglify": "3.0.0",
+    "gulp-uglify": "3.0.1",
     "helper-md": "0.2.2",
     "imagemin-mozjpeg": "7.0.0",
     "mini-css-extract-plugin": "0.4.1",
