@@ -22,7 +22,7 @@
     text-align: center;
 
     @include belowBreakpoint(xs) {
-        margin: 0 -$margin-md $margin-md;
+        margin: 0 (-$margin-md) $margin-md;
     }
 
     display: flex;

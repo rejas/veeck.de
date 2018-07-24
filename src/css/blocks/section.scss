@@ -14,7 +14,7 @@
         .h3 {
             position: absolute;
             top: -1rem;
-            background-color: $backgroundColor;
+            background-color: var(--backgroundColor);
             padding: 0 0.5rem;
 
             @include belowBreakpoint(sm) {

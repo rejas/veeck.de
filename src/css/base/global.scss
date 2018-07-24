@@ -25,9 +25,9 @@ html {
 }
 
 body {
-    background-color: $backgroundColor;
+    background-color: var(--backgroundColor);
     box-sizing: border-box;
-    color: $primaryTextColor;
+    color: var(--primaryTextColor);
     height: 100%;
     margin: 0;
     padding: 0;
@@ -71,7 +71,7 @@ ul {
 
 a,
 a.cc-link {
-    color: $primaryTextColor;
+    color: var(--primaryTextColor);
     border-bottom: $border-thickness solid;
     border-bottom-color: var(--primaryColor);
     outline: none;

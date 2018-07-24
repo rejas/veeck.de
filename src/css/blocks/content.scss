@@ -1,5 +1,5 @@
 .content {
-    background-color: $colorWhite;
+    background-color: var(--backgroundColor);
     display: grid;
     grid-template-columns: $nav-width 1fr $nav-width;
     justify-items: center;
@@ -17,8 +17,8 @@
     }
 
     &--landing {
-        background-color: $colorDark;
-        color: $colorWhite;
+        background-color: var(--backgroundColor);
+        color: var(--primaryTextColor);
 
         > .article {
             width: 100%;
@@ -30,7 +30,7 @@
     }
 
     > .article {
-        background-color: $colorWhite;
+        background-color:var(--backgroundColor);
         grid-column: 2;
         margin: 0;
         padding: $margin-md;

@@ -100,7 +100,7 @@
         }
 
         &:visited {
-            color: $primaryTextColor;
+            color: var(--primaryTextColor);
         }
     }
 

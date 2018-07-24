@@ -3,7 +3,7 @@
  */
 .footer {
     position: relative;
-    background-color: $colorWhite;
+    background-color: var(--backgroundColor);
 
     time {
         display: block;
@@ -28,4 +28,9 @@
     display: flex;
     width: calc(100% - 2.5rem);
     padding: 1rem;
+
+    @include belowBreakpoint(xs) {
+        bottom: 3rem;
+        width: calc(100% - 2rem);
+    }
 }
