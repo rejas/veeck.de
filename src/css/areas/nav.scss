@@ -34,19 +34,14 @@ $nav-height: 3rem;
         flex-flow: column;
 
         > svg {
-            stroke: var(--primaryColor);
-
-            @include belowBreakpoint(xs) {
-                stroke: var(--primaryTextColor);
-            }
+            stroke: var(--primaryTextColor);
         }
 
         @include aboveBreakpoint(xs) {
-            background: red;
+            background: var(--darkPrimaryColor);
             border-radius: $border-radius-md;
             padding: 10px;
-            -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
-            filter: grayscale(100%);
+           //filter: grayscale(100%);
         }
     }
 
