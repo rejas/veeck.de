@@ -54,7 +54,8 @@
             background-color: transparent;
 
             p {
-                background-color: $colorDark;
+                background-color: var(--lightPrimaryColor);
+                color: var(--darkPrimaryColor);
                 display: block;
                 margin: 0;
                 text-align: center;

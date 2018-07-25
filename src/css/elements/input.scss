@@ -8,7 +8,7 @@
     > input,
     > select {
         border: 0;
-        color: $primaryTextColor;
+        color: var(--primaryTextColor);
         font-family: $font-main, arial;
         font-size: $font-size-md;
         font-weight: $font-weight-bold;
@@ -65,7 +65,7 @@
     background: transparent;
     padding: 0.5rem;
     margin-bottom: 1.5rem;
-    color: $primaryTextColor;
+    color: var(--primaryTextColor);
     z-index: $z-index-5;
     opacity: 0;
     position: relative;

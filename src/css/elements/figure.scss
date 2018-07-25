@@ -73,6 +73,9 @@ $colorFigure:   #ede1c9;
         height: 75px;
 
         span {
+            background-color: var(--primaryColor);
+            color: var(--primaryTextColor);
+            display: block;
             position: absolute;
             top: 23px;
             right: -19px;
@@ -83,9 +86,6 @@ $colorFigure:   #ede1c9;
             text-align: center;
             transform: rotate(45deg);
             width: 100px;
-            display: block;
-            color: var(--secondaryTextColor);
-            background-color: var(--accentColor);
 
             &::before {
                 content: '';
@@ -93,10 +93,10 @@ $colorFigure:   #ede1c9;
                 left: 0;
                 top: 100%;
                 z-index: -1;
-                border-left: $border-thickness solid darken($accentColor, 15%);
+                border-left: $border-thickness solid var(--accentColor);
                 border-right: $border-thickness solid transparent;
                 border-bottom: $border-thickness solid transparent;
-                border-top: $border-thickness solid darken($accentColor, 15%);
+                border-top: $border-thickness solid var(--accentColor);
             }
 
             &::after {
@@ -106,9 +106,9 @@ $colorFigure:   #ede1c9;
                 top: 100%;
                 z-index: -1;
                 border-left: $border-thickness solid transparent;
-                border-right: $border-thickness solid darken($accentColor, 15%);
+                border-right: $border-thickness solid var(--accentColor);
                 border-bottom: $border-thickness solid transparent;
-                border-top: $border-thickness solid darken($accentColor, 15%);
+                border-top: $border-thickness solid var(--accentColor);
             }
         }
     }
@@ -234,6 +234,7 @@ body {
             button {
                 background-color: var(--primaryTextColor);
                 opacity: 1;
+                font-weight: $font-weight-bold;
 
                 svg {
                     fill: var(--primaryColor);
@@ -244,8 +245,11 @@ body {
                 &.hb-counter {
                     background-color: var(--primaryTextColor);
                     color: var(--primaryColor);
-                    font-size: $font-size-md;
-                    font-weight: $font-weight-bold;
+
+
+                    @include belowBreakpoint(xs) {
+                        font-size: $font-size-lg;
+                    }
 
                     span {
                         position: relative;
@@ -255,10 +259,15 @@ body {
             }
         }
 
-        .hb-image-container div.hb-image-div p.hb-caption {
-            background-color: var(--primaryTextColor);
-            color: var(--primaryColor);
-            font-weight: $font-weight-bold;
+        .hb-image-container {
+
+            p {
+                &.hb-caption {
+                    background-color: var(--primaryTextColor);
+                    color: var(--primaryColor);
+                    font-weight: $font-weight-bold;
+                }
+            }
         }
     }
 }
@@ -279,7 +288,6 @@ img.b-error {
     &::after {
         content: 'I am sorry, this image got eaten by the bug monster :(';
         display: block;
-        color: $accentColor;
         position: absolute;
         top: 10px;
         left: 0;
