@@ -4,18 +4,18 @@ function changeColor (color) {
     const root = document.querySelector(':root'),
         htmlStyle = window.getComputedStyle(root),
         ptc = htmlStyle.getPropertyValue('--primaryTextColor'),
-        stc = htmlStyle.getPropertyValue('--secondaryTextColor'),
-        accentColor = tinycolor(htmlStyle.getPropertyValue('--accentColor'));
+        stc = htmlStyle.getPropertyValue('--secondaryTextColor');
 
     root.style.setProperty('--primaryColor', color.toRgbString());
     root.style.setProperty('--primaryTextColor', tinycolor.mostReadable(color, [ptc]).toRgbString());
 
-    root.style.setProperty('--darkPrimaryColor', color.clone().darken(17.5).toRgbString());
-    root.style.setProperty('--lightPrimaryColor', color.clone().lighten(37.5).toRgbString());
-    root.style.setProperty('--lightPrimaryColorTransparent', color.clone().lighten(37.5).setAlpha(0.66).toRgbString());
+    root.style.setProperty('--darkPrimaryColor', color.clone().darken(33.3).toRgbString());
+    root.style.setProperty('--lightPrimaryColor', color.clone().lighten(33.3).toRgbString());
+    root.style.setProperty('--lightPrimaryColorTransparent', color.clone().lighten(33.3).setAlpha(0.66).toRgbString());
 
-    root.style.setProperty('--accentColor', accentColor.toRgbString());
-    root.style.setProperty('--secondaryTextColor', tinycolor.mostReadable(accentColor, [stc]).toRgbString());
+    const acc = color.clone().darken(33.3).complement();
+    root.style.setProperty('--accentColor', acc.toRgbString());
+    root.style.setProperty('--secondaryTextColor', tinycolor.mostReadable(acc, [stc]).toRgbString());
 }
 
 let Colors = {

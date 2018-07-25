@@ -3,7 +3,6 @@
  */
 $color-transparent:         rgba(255, 255, 255, 0.125);
 $color-transparentDark:     rgba(0, 0, 0, 0.775);
-//$color-transparentWhite:    rgba(255, 255, 255, 0.775);
 
 :root {
     --backgroundColor:      #fcfcfc;
@@ -12,11 +11,4 @@ $color-transparentDark:     rgba(0, 0, 0, 0.775);
     --secondaryTextColor:   #fcfcfc;
 
     --primaryColor:         #c6d851;
-
-    --darkPrimaryColor:                 darken(var(--primaryColor),       17.5%);
-    --lightPrimaryColor:                lighten(var(--lightPrimaryColor), 37.5%);
-    --lightPrimaryColorTransparent:     fade(var(--lightPrimaryColor),    66.6%);
-
-    --accentColor:          rgba(0, 0, 0, 0.66);
-
 }
