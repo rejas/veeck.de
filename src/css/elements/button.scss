@@ -25,7 +25,8 @@ $btn-size-lg: 3rem;
     }
 
     &:hover {
-        transform: translateY(-1px);
+        border: 1px solid var(--lightPrimaryColor);
+        transform: scaleX(1.1) scaleY(1.1);
         color: var(--darkPrimaryColor);
 
         > svg {
@@ -45,46 +46,6 @@ $btn-size-lg: 3rem;
     &--lg {
         height: $btn-size-lg;
         min-width: $btn-size-lg;
-    }
-
-    &--hamburger {
-        padding: 0;
-
-        &:focus {
-            outline: 0;
-        }
-
-        &:hover {
-            opacity: 1;
-
-            &::after {
-                color: inherit;
-            }
-
-            .hamburger-inner,
-            .hamburger-inner::before,
-            .hamburger-inner::after {
-                color: inherit;
-            }
-        }
-
-        .hamburger {
-            display: block;
-            z-index: $z-index-5;
-            padding: 0;
-        }
-
-        .hamburger-box {
-            width: 1.5rem;
-            top: 0.15rem;
-        }
-
-        .hamburger-inner,
-        .hamburger-inner::before,
-        .hamburger-inner::after {
-            background-color: var(--primaryColor);
-            width: 100%;
-        }
     }
 
     &--icon {
