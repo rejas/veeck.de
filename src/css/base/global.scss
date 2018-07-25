@@ -87,7 +87,8 @@ pre {
     display: inline-block;
     width: 100%;
     padding: 0.5rem;
-    background-color: var(--lightPrimaryColor);
+    background-color: var(--accentColor);
+    color: var(--secondaryTextColor);
     border: $border-thickness solid $color-transparent;
     border-radius: $border-radius-md;
     margin-bottom: 0.5rem;

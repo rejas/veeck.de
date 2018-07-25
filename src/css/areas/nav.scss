@@ -29,19 +29,25 @@ $nav-height: 3rem;
 
     &__item {
         border: 0;
-        display: flex;
-        align-items: center;
-        flex-flow: column;
 
-        > svg {
-            stroke: var(--primaryTextColor);
+        @include belowBreakpoint(xs) {
+            color: var(--primaryColor);
+            display: flex;
+            align-items: center;
+            flex-flow: column;
         }
 
         @include aboveBreakpoint(xs) {
-            background: var(--darkPrimaryColor);
-            border-radius: $border-radius-md;
-            padding: 10px;
-           //filter: grayscale(100%);
+            background: var(--accentColor);
+            //filter: grayscale(100%);
+        }
+
+        > svg {
+            stroke: var(--secondaryTextColor);
+
+            @include belowBreakpoint(xs) {
+                stroke: var(--primaryTextColor);
+            }
         }
     }
 
