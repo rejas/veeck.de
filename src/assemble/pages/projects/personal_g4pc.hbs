@@ -13,13 +13,12 @@ last-modified: 2017-01-14
         <h2 class="h2">my g4pc</h2>
 
         <div class="article__box">
-            <p>Tired of the same old boring computer cases everywhere I decided in 2006 to build my own pc case. Inspired by
-                lots of mods around the web like
-                <a class="article__link" target="_blank" href="http://www.hardocp.com/article/2002/09/13/rotten_apple">this modification on HardOCP</a>
-                I knew that I also wanted an Apple G4 case fitted to accommodate standard x86 PC components. Some expensive
-                auctioning at eBay and a lot of drilling later I had such a special PC myself. Groovy, baby!
-                Another good source for information was
-                <a class="article__link" target="_blank" rel="noopener" href="http://www.slcentral.com/articles/01/8/g4pc/">this modification</a>.
+            <p>Tired of the same old boring computer cases everywhere I decided in 2006 to build my own pc case.
+                Inspired by lots of mods around the web like {{> link-extern text='this modification on HardOCP'
+                url='https://www.hardocp.com/article/2002/09/13/rotten_apple'}} I knew that I also wanted an Apple G4
+                case fitted to accommodate standard x86 PC components. Another good source for information was
+                {{> link-extern url='https://www.slcentral.com/articles/01/8/g4pc/' text='this modification'}}. Some
+                expensive auctioning at eBay and a lot of drilling later I had such a special PC myself. Groovy, baby!
             </p>
             <img class="article__image" src="/img/projects/g4pc/thumbnail_2k06_final.jpg" alt="Looks innocent?">
         </div>
@@ -77,30 +76,39 @@ last-modified: 2017-01-14
         <div class="article__box">
             <ul class="article__list">
                 <li>CPU: AMD AthlonXP 2600+</li>
-                <li>Cooler: <a class="article__link" target="_blank" href="http://www.silentpcreview.com/article130-page1.html">Swiftech MCX 462-V</a></li>
+                <li>Cooler: {{> link-extern
+                    url='https://www.silentpcreview.com/article130-page1.html' text='Swiftech MCX 462-V'}}
+                </li>
                 <li>RAM: 1 GB MTD PC400</li>
-                <li>Mainboard: <a class="article__link" target="_blank" rel="noopener"
-                                  href="http://www.ecs.com.tw/ECSWebSite/Product/Product_Detail.aspx?DetailID=357">ECS Elitegroup KM400-M</a>
+                <li>Mainboard: {{> link-extern
+                    url='http://www.ecs.com.tw/ECSWebSite/Product/Product_Detail.aspx?DetailID=357'
+                    text='ECS Elitegroup KM400-M'}}
                 </li>
-                <li>Graphics: <a class="article__link" target="_blank" rel="noopener"
-                                 href="http://www.gigabyte.com/products/product-page.aspx?pid=1198#ov">Gigabyte GV-N68128DH Geforce 6800</a>
+                <li>Graphics: {{> link-extern
+                    url='http://www.gigabyte.com/products/product-page.aspx?pid=1198#ov'
+                    text='Gigabyte GV-N68128DH Geforce 6800'}}
                 </li>
-                <li>Harddrive: <a class="article__link" target="_blank" rel="noopener"
-                                  href="http://www.seagate.com/support/internal-hard-drives/desktop-hard-drives/desktop-hdd/?sku=ST3120026A-RK&amp;q=Seagate%20120GB%20ST3120026A">Seagate 120GB ST3120026A</a>
+                <li>Harddrive: {{> link-extern
+                    url='http://www.seagate.com/support/internal-hard-drives/desktop-hard-drives/desktop-hdd/?sku=ST3120026A-RK&amp;q=Seagate%20120GB%20ST3120026A'
+                    text='Seagate 120GB ST3120026A'}}
                 </li>
-                <li>Sound: <a class="article__link" target="_blank" rel="noopener"
-                              href="http://support.creative.com/Products/ProductDetails.aspx?catID=1&amp;CatName=Sound+Blaster&amp;prodID=14103&amp;prodName=Audigy+4">CreativeLabs Soundblaster Audigy 4</a>
+                <li>Sound: {{> link-extern
+                    url='http://support.creative.com/Products/ProductDetails.aspx?catID=1&amp;CatName=Sound+Blaster&amp;prodID=14103&amp;prodName=Audigy+4'
+                    text='CreativeLabs Soundblaster Audigy 4'}}
                 </li>
-                <li>Optical Drive: <a class="article__link" target="_blank" rel="noopener"
-                                      href="http://www.lg.com/de/service-produkt/lg-GSA-4167B">LG GSA-4167B DVD-Writer</a>
+                <li>Optical Drive: {{> link-extern
+                    url='http://www.lg.com/de/service-produkt/lg-GSA-4167B'
+                    text='LG GSA-4167B DVD-Writer'}}
                 </li>
                 <li>PSU: TSP 420 P4 Ultra Silent TripleFan</li>
-                <li>Monitor: <a class="article__link" target="_blank" rel="noopener"
-                                href="http://www.iiyama.com/pages/startseite.asp?0|1|0|0|0|0|0|2|0|1464">Iiyama ProLite E431S-B</a> 17'' TFT
+                <li>Monitor: {{> link-extern
+                    url='http://www.iiyama.com/pages/startseite.asp?0|1|0|0|0|0|0|2|0|1464'
+                    text='Iiyama ProLite E431S-B 17\'\' TFT'}}
                 </li>
                 <li>Cardreader: Cooltek 7-in-1 with 2 Front-USB-ports</li>
-                <li>OS: <a class="article__link" target="_blank" rel="noopener"
-                           href="http://www.gentoo.org">Gentoo Linux</a>
+                <li>OS: {{> link-extern
+                    url='http://www.gentoo.org'
+                    text='Gentoo Linux'}}
                 </li>
             </ul>
             {{> figure-gallery
@@ -119,17 +127,20 @@ last-modified: 2017-01-14
                 <li>CPU: AMD FX-6300 Six-Core Processor</li>
                 <li>Cooler / Fans: Noctua NF-A9x14PWM and NF-S12A PWM</li>
                 <li>RAM: 8GB Kingston HyperX Genesis DDR3</li>
-                <li>Mainboard: <a class="article__link" target="_blank" rel="noopener"
-                                  href="http://www.asrock.com/mb/AMD/960GM-VGS3%20FX/">Asrock 960GM-VGS3 FX</a>
+                <li>Mainboard: {{> link-extern
+                    url='http://www.asrock.com/mb/AMD/960GM-VGS3%20FX/'
+                    text='Asrock 960GM-VGS3 FX'}}
                 </li>
-                <li>Graphics: <a class="article__link" target="_blank" rel="noopener"
-                                 href="https://www.zotac.com/de/product/graphics_card/zotac-geforce-gtx-1060-amp-edition">ZOTAC GeForce GTX 1060 AMP! Edition 6GB</a>
+                <li>Graphics: {{> link-extern
+                    url='https://www.zotac.com/de/product/graphics_card/zotac-geforce-gtx-1060-amp-edition'
+                    text='ZOTAC GeForce GTX 1060 AMP! Edition 6GB'}}
                 </li>
                 <li>Harddrive: Samsung 850 EVO 250GB SSD, Samsung HD503HI 500GB HDD</li>
                 <li>Optical Drive: LG BH16NS40</li>
                 <li>PSU: be quiet! Straight Power E9 580W</li>
-                <li>Monitor: <a class="article__link" target="_blank" rel="noopener"
-                                href="http://www.samsung.com/de/consumer/displays/displays/tv-monitor/LT27A550EW/EN/">Samsung TV+Monitor T27A550</a>
+                <li>Monitor: {{> link-extern
+                    url='http://www.samsung.com/de/consumer/displays/displays/tv-monitor/LT27A550EW/EN/'
+                    text='Samsung TV+Monitor T27A550'}}
                 </li>
                 <li>OS: Windows 10 (64bit)</li>
             </ul>
