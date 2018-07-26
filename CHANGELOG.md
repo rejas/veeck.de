@@ -22,9 +22,9 @@
 
 2015/05/11: New fresh design, hope you like it
 
-2015/04/20: Added a link to my github profile on the <a class="article__link" href="personal_research.html#github">research page</a> using a webcomponent from <a class="article__link" href="http://pazguille.github.io/github-card/">Guille Paz</a>
+2015/04/20: Added a link to my github profile on the <a class="article__link" href="personal_research.html#github">research page</a> using a webcomponent from <a class="article__link" href="https://pazguille.github.io/github-card/">Guille Paz</a>
 
-2014/04/19: Changed gallery lib to <a class="article__link" href="http://osvaldas.info/image-lightbox-responsive-touch-friendly">Image Lightbox</a> and social widgets to <a class="article__link" href="https://github.com/carrot/share-button">ShareButton</a>
+2014/04/19: Changed gallery lib to <a class="article__link" href="https://osvaldas.info/image-lightbox-responsive-touch-friendly">Image Lightbox</a> and social widgets to <a class="article__link" href="https://github.com/carrot/share-button">ShareButton</a>
 
 2014/04/10: Added new <a class="article__link" href="personal_research.html#ohmNSIS">NSIS installer</a> for <a class="article__link" href="http://openhardwaremonitor.org/">OpenHardwareMonitor</a>
 
@@ -56,7 +56,7 @@
 
 2008/07/22: Finally the fifth show is online. Took a while because it was the first one to be broadcast live.
 
-2008/06/12: Fourth show is online. And we’re on <a href="http://www.myspace.com/diedaveundveeckshow" class="article__link">MySpace</a> now.
+2008/06/12: Fourth show is online. And we’re on <a href="https://myspace.com/diedaveundveeckshow" class="article__link">MySpace</a> now.
 
 ## Release History
  * 2018-01-28   v5.2.0

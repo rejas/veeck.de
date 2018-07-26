@@ -9,8 +9,8 @@ img: radio
 last-modified: 2012-02-15
 ---
 <article class="article">
-    <p class="article__intro">Nur hier, auf <a class="article__link" href="http://myspace.com/diedaveundveeckshow">MySpace</a>
-        und im <a class="article__link" href="http://www.rdl.de/">Radio Dreyeckland</a>:</p>
+    <p class="article__intro">Nur hier, auf {{> link-extern url='https://myspace.com/diedaveundveeckshow'
+        text='MySpace'}} und im {{> link-extern url='https://rdl.de/' text='Radio Dreyeckland'}}:</p>
 
     {{> block-audio name='Episode1' title='Folge 1: Der Papst und Pirmasens'}}
 
@@ -23,5 +23,4 @@ last-modified: 2012-02-15
     {{> block-audio name='Episode5' title='Folge 5: Hitler und Ronny Live'}}
 
     {{> block-audio name='Episode6' title='Folge 6: Ein Radioshow-Todesfall und eine Hochzeit'}}
-
 </article>
