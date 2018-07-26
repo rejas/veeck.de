@@ -56,7 +56,7 @@
 
 2008/07/22: Finally the fifth show is online. Took a while because it was the first one to be broadcast live.
 
-2008/06/12: Fourth show is online. And we’re on <a href="http://www.myspace.com/diedaveundveeckshow" class="article__link">MySpace</a> now.
+2008/06/12: Fourth show is online. And we’re on <a href="https://myspace.com/diedaveundveeckshow" class="article__link">MySpace</a> now.
 
 ## Release History
  * 2018-01-28   v5.2.0
