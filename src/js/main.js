@@ -13,6 +13,7 @@ import Colors           from './modules/colors';
 import Input            from './modules/input';
 import Lazy             from './modules/lazy';
 import Polyfill         from './modules/polyfill';
+import Share         from './inactive/share';
 
 // Styles
 import '../css/main.scss';
@@ -35,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
      * Init all polyfills
      */
     Polyfill.init();
+
+    Share.init();
 
     /**
      * Colors
@@ -97,17 +100,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new Konami(() => {
         document.body.className += ' debug';
     });
-
-    /**
-     * Share to facebook
-     */
-    let facebook = document.querySelector('.js-share-facebook');
-    if (facebook) {
-        facebook.addEventListener('click', () => {
-            window.open('https://www.facebook.com/sharer/sharer.php?u='
-                + encodeURIComponent(document.URL) + '&t='
-                + encodeURIComponent(document.URL));
-            return false;
-        });
-    }
 });
