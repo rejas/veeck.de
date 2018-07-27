@@ -30,6 +30,8 @@ import flog             from    'fancy-log';
 import ftp              from    'vinyl-ftp';
 import helper_md        from    'helper-md';
 import imageminMozjpeg  from    'imagemin-mozjpeg';
+import imageminPngquant from    'imagemin-pngquant';
+import imageminWebp     from    'imagemin-webp';
 import webpack          from    'webpack';
 import webpackStream    from    'webpack-stream';
 
@@ -91,7 +93,7 @@ gulp.task('copy:files', () => {
 
 // Copy all image into the `dist` folder
 gulp.task('copy:images', () => {
-    return gulp.src([`${dirs.src}/img/**/*.jpg`,`${dirs.src}/img/**/*.png`])
+    return gulp.src([`${dirs.src}/img/**/*.jpg`,`${dirs.src}/img/**/*.png`,`${dirs.src}/img/**/*.webp`])
         .pipe(gulp.dest(`${dirs.dist}/img`));
 });
 
@@ -228,9 +230,9 @@ gulp.task('prepare:favicons', () => {
 });
 
 gulp.task('prepare:images', () => {
-    return gulp.src(`${dirs.src}/img/**/*.jpg`)
+    return gulp.src([`${dirs.src}/img/**/*.jpg`,`${dirs.src}/img/**/*.png`,`${dirs.src}/img/**/*.webp`])
         .pipe(plugins.imagemin({
-            use: [imageminMozjpeg()]
+            use: [imageminMozjpeg(), imageminPngquant(), imageminWebp()]
         }))
         .pipe(gulp.dest(`${dirs.src}/img`));
 });
@@ -280,6 +282,30 @@ gulp.task('scale:images', () => {
             }]
         }, config.responsive))
         .pipe(gulp.dest(`${dirs.src}/img`));
+});
+
+gulp.task('scale:thumbs', () => {
+    return gulp.src(`${dirs.org}/thumbnails/**/*.jpg`)
+        .pipe(plugins.responsive({
+            '**/*.jpg': [{
+                width: 448,
+                height: 387,
+                max: true,
+                withoutEnlargement: false,
+                rename: {
+                    extname: '.jpg'
+                },
+            }, {
+                width: 448,
+                height: 387,
+                max: true,
+                withoutEnlargement: false,
+                rename: {
+                    extname: '.webp'
+                },
+            }]
+        }, config.responsive))
+        .pipe(gulp.dest(`${dirs.src}/img/`));
 });
 
 /**
