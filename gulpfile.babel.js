@@ -282,6 +282,30 @@ gulp.task('scale:images', () => {
         .pipe(gulp.dest(`${dirs.src}/img`));
 });
 
+gulp.task('scale:thumbs', () => {
+    return gulp.src(`${dirs.org}/thumbnails/**/*.jpg`)
+        .pipe(plugins.responsive({
+            '**/*.jpg': [{
+                width: 448,
+                height: 387,
+                max: true,
+                withoutEnlargement: false,
+                rename: {
+                    extname: '.jpg'
+                },
+            }, {
+                width: 448,
+                height: 387,
+                max: true,
+                withoutEnlargement: false,
+                rename: {
+                    extname: '.webp'
+                },
+            }]
+        }, config.responsive))
+        .pipe(gulp.dest(`${dirs.src}/img/`));
+});
+
 /**
  * HTML TASKS
  */
