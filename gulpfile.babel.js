@@ -30,6 +30,8 @@ import flog             from    'fancy-log';
 import ftp              from    'vinyl-ftp';
 import helper_md        from    'helper-md';
 import imageminMozjpeg  from    'imagemin-mozjpeg';
+import imageminPngquant from    'imagemin-pngquant';
+import imageminWebp     from    'imagemin-webp';
 import webpack          from    'webpack';
 import webpackStream    from    'webpack-stream';
 
@@ -228,9 +230,9 @@ gulp.task('prepare:favicons', () => {
 });
 
 gulp.task('prepare:images', () => {
-    return gulp.src(`${dirs.src}/img/**/*.jpg`)
+    return gulp.src([`${dirs.src}/img/**/*.jpg`,`${dirs.src}/img/**/*.png`,`${dirs.src}/img/**/*.webp`])
         .pipe(plugins.imagemin({
-            use: [imageminMozjpeg()]
+            use: [imageminMozjpeg(), imageminPngquant(), imageminWebp()]
         }))
         .pipe(gulp.dest(`${dirs.src}/img`));
 });
