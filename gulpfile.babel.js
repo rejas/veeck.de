@@ -91,7 +91,7 @@ gulp.task('copy:files', () => {
 
 // Copy all image into the `dist` folder
 gulp.task('copy:images', () => {
-    return gulp.src([`${dirs.src}/img/**/*.jpg`,`${dirs.src}/img/**/*.png`])
+    return gulp.src([`${dirs.src}/img/**/*.jpg`,`${dirs.src}/img/**/*.png`,`${dirs.src}/img/**/*.webp`])
         .pipe(gulp.dest(`${dirs.dist}/img`));
 });
 
