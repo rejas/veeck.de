@@ -16,6 +16,9 @@ function changeColor (color) {
     const acc = color.clone().darken(33.3).complement();
     root.style.setProperty('--accentColor', acc.toRgbString());
     root.style.setProperty('--secondaryTextColor', tinycolor.mostReadable(acc, [stc]).toRgbString());
+
+    const metaThemeColor = document.querySelector('meta[name=theme-color]');
+    metaThemeColor.setAttribute('content', color.toHexString());
 }
 
 let Colors = {
