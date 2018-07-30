@@ -1,7 +1,5 @@
 <figure class="figure {{class}}">
-    <picture>
-        <source srcset="{{img}}.webp" type="image/webp">
-        <source srcset="{{img}}.jpg" type="image/jpeg">
-        <img src="{{img}}.jpg" alt="{{caption}}">
-    </picture>
+    {{> picture-basic
+        caption=caption
+        img=img}}
 </figure>
