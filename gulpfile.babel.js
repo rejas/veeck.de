@@ -50,14 +50,14 @@ const dirs      = config.directories,
 app.onLoad(/\.(md|hbs)$/, assemblevars(app));
 
 gulp.task('load', (cb) => {
+    app.data([`${dirs.assemble}/data/*.json`, `${dirs.assemble}/data/**/*.yml`]);
+    app.option('layout', 'layout__default');
+    app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.partials([`${dirs.assemble}/partials/**/*.hbs`,
         `${dirs.node}/feather-icons/dist/icons/*.svg`,
         `${dirs.src}/css/assets/svg/*.svg`,
         `${dirs.assemble}/partials/**/html/*.html`]);
-    app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
-    app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
-    app.option('layout', 'layout__default');
 
     app.preLayout(/./, (view, next) => {
         // if the layout is not defined, use the default one ...
