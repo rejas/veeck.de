@@ -101,58 +101,43 @@ last-modified: 2017-12-11
         </form>
     </section>
 
-    <section id="rasterbator">
-        <h2 class="h2">The Rasterbator</h2>
-        <figure class="figure--icon">
-            {{> link-logo url='https://arje.net/rasterbator' icon='rasterbator'}}
-        </figure>
-        <p>I took the liberty to update the {{> link-extern url='http://arje.net/rasterbator' text='Rasterbator'}} to
-            run on my MacBook Pro. On MacOS it requires the {{> link-extern url='http://go-mono.com/'
-            text='Mono-Framework'}} to work, under Windows you will need an installed .NET-framework. If you find a bug
-            or have a comment, please write me an email.</p>
-        <p>What it does? The Rasterbator creates huge, rasterized, multi-page images from any picture. The rasterized
-            images can be printed and assembled into extremely cool posters.</p>
-        <ul class="article__list">
-            <li>{{> link-intern url='files/nsis/The%20Rasterbator%20v1.3.dmg' text='MacOS DiskImage'}} v1.3 (dmg, 709 KB, 12.03.2010)</li>
-            <li>{{> link-intern url='files/nsis/The%20Rasterbator%20v1.3%20setup.exe' text='Windows Installer'}} v1.3 (exe, 467 KB, 12.03.2010)</li>
-            <li>{{> link-extern url='https://github.com/rejas/rasterbator' text='Source code'}} (v1.4.2)</li>
-        </ul>
-    </section>
-
     <section>
         <h2 class="h2">NSIS Installer Scripts</h2>
         <figure class="figure--icon">
             {{> link-logo url='http://nsis.sourceforge.net/' icon='nsis'}}
         </figure>
         <p>Some programs I use don't come bundled with an installer. For those I created {{> link-extern
-            url='http://nsis.sourceforge.net/' text='NSIS-Installer'}} scripts to build my own installation binaries.</p>
-        <h3>Currently in use: </h3>
+            url='http://nsis.sourceforge.net/' text='NSIS-Installer'}} scripts to build my own installation binaries.
+            I only keep the installer here, the scripts can be found in my {{> link-extern text='github repository'
+            url='https://github.com/rejas/nsis'}}:</p>
         <ul class="article__list">
             <li>{{> link-extern text='Slic3r Prusa Edition' url='https://www.prusa3d.de/slic3r-prusa-edition/'}} v1.40.1, a g-code generator for 3D printers:
-                {{> link-intern url='files/nsis/slic3r1401.nsi' text='script'}} (nsi, 5 KB) |
-                {{> link-intern url='files/nsis/Slic3rP%20v1.40.1%20setup.exe' text='setup.exe'}} (exe, 8 MB) | updated 25.07.2018
+                {{> link-extern url='https://www.dropbox.com/s/si00wcx3qkjsvjd/Slic3rPE%20v1.40.1%20setup.exe?dl=0' text='setup.exe'}} (exe, 8 MB)
             </li>
             <li>{{> link-extern text='Open Hardware Monitor' url='http://openhardwaremonitor.org/'}} v0.8.0 beta, a free pc-hardware sensor monitor:
-                {{> link-intern url='files/nsis/ohm080.nsi' text='script'}} (nsi, 5 KB) |
-                {{> link-intern url='files/nsis/Open%20Hardware%20Monitor%20v0.8.0%20beta%20setup.exe' text='setup.exe'}} (exe, 481 KB) | updated 11.12.2017
+                {{> link-extern url='https://www.dropbox.com/s/wipwpubl1iq79n2/Open%20Hardware%20Monitor%20v0.8.0%20beta%20setup.exe?dl=0' text='setup.exe'}} (exe, 500 KB)
+            </li>
+            <li>{{> link-extern text='StaxRip' url='https://staxrip.readthedocs.io'}} v1.7.0.0, a video encoding app:
+                {{> link-extern url='https://www.dropbox.com/s/4tafvq6ritya0gv/StaxRip%20v1.7.0.0%20setup.exe?dl=0' text='setup.exe'}} (exe, 137 MB) | updated  30.07.2018
             </li>
         </ul>
-        <h3>Outdated / Abandoned software</h3>
-        <p>I only keep the installer here, the scripts can still be found on my {{> link-extern url='https://github.com/rejas/nsis'
-            text='github repository'}}:</p>
+    </section>
+
+    <section id="rasterbator">
+        <h2 class="h2">The Rasterbator</h2>
+        <figure class="figure--icon">
+            {{> link-logo url='https://arje.net/rasterbator' icon='rasterbator'}}
+        </figure>
+        <p>I took the liberty to update the {{> link-extern url='https://arje.net/rasterbator' text='Rasterbator'}} to
+            run on my MacBook Pro. On MacOS it requires the {{> link-extern url='http://go-mono.com/'
+            text='Mono-Framework'}} to work, under Windows you will need an installed .NET-framework. If you find a bug
+            or have a comment, please write me an email.</p>
+        <p>What it does? The Rasterbator creates huge, rasterized, multi-page images from any picture. The rasterized
+            images can be printed and assembled into extremely cool posters.</p>
         <ul class="article__list">
-            <li>{{> link-extern text='Autostich' url='http://matthewalunbrown.com/autostitch/autostitch.html'}} v3.0, a fully automatic 2D image stitcher:
-                {{> link-intern url='files/nsis/autostich30.nsi' text='script'}} (nsi, 5 KB) |
-                {{> link-intern url='files/nsis/Autostich%20v3.0%20setup.exe' text='setup.exe'}} (exe, 6 MB) | updated  11.12.2017
-            </li>
-            <li>{{> link-extern text='VirtualDub' url='http://www.virtualdub.org/'}} v1.10.4, a video capture/processing utility:
-                {{> link-intern url='files/nsis/vdub1104.nsi' text='script'}} (nsi, 5 KB) |
-                {{> link-intern url='files/nsis/VirtualDub%20v1.10.4%20setup.exe' text='setup.exe'}} (exe, 1.5 MB) | updated  19.11.2013
-            </li>
-            <li>{{> link-extern text='GSpot' url='http://gspot.headbands.com/'}} v2.70a, a codec information appliance:
-                {{> link-intern url='files/nsis/gspot270a.nsi' text='script'}} (nsi, 5 KB) |
-                {{> link-intern url='files/nsis/GSpot%20v2.70a%20setup.exe' text='setup.exe'}} (exe, 402 KB) | updated 22.05.2007
-            </li>
+            <li>{{> link-extern url='https://www.dropbox.com/s/3afekztizu6nfjv/The%20Rasterbator%20v1.3.dmg?dl=0' text='MacOS DiskImage'}} v1.3 (dmg, 700 KB, 12.03.2010)</li>
+            <li>{{> link-extern url='https://www.dropbox.com/s/q79xtkt7g1h9b13/The%20Rasterbator%20v1.3%20setup.exe?dl=0' text='Windows Installer'}} v1.3 (exe, 450 KB, 12.03.2010)</li>
+            <li>{{> link-extern url='https://github.com/rejas/rasterbator' text='Source code'}} (v1.4.2)</li>
         </ul>
     </section>
 </article>
