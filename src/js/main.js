@@ -55,11 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     let controller = new ScrollMagic.Controller();
     new ScrollMagic.Scene({
-        triggerElement: '.buttonBar',
+        triggerElement: '.js-button-bar',
         triggerHook: 'onEnter',
         offset: '150'
     })
-        .setPin('.buttonBar', { pushFollowers: false })
+        .setPin('.js-button-bar', { pushFollowers: false })
         .addTo(controller);
 
     /**
