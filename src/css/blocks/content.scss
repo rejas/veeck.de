@@ -1,7 +1,7 @@
 .content {
     background-color: var(--backgroundColor);
     display: grid;
-    grid-template-columns: $nav-width 1fr $nav-width;
+    grid-template-columns: 1rem 1fr 1rem;
     justify-items: center;
     min-height: 100%;
     padding-top: $margin-md;

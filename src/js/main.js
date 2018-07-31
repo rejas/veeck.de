@@ -13,8 +13,6 @@ import Colors           from './modules/colors';
 import Input            from './modules/input';
 import Lazy             from './modules/lazy';
 import Polyfill         from './modules/polyfill';
-import Share         from './inactive/share';
-
 // Styles
 import '../css/main.scss';
 
@@ -36,8 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
      * Init all polyfills
      */
     Polyfill.init();
-
-    Share.init();
 
     /**
      * Colors
@@ -61,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new ScrollMagic.Scene({
         triggerElement: '.buttonBar',
         triggerHook: 'onEnter',
-        offset: 100
+        offset: '150'
     })
         .setPin('.buttonBar', { pushFollowers: false })
         .addTo(controller);
