@@ -22,15 +22,11 @@
 }
 
 .buttonBar {
-    position: fixed;
-    bottom: 0;
     z-index: $z-index-3;
     display: flex;
-    width: calc(100% - 2.5rem);
+    width: 100%;
     padding: 1rem;
 
     @include belowBreakpoint(xs) {
-        bottom: 3rem;
-        width: calc(100% - 2rem);
     }
 }

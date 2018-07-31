@@ -20,16 +20,15 @@
     "test": "gulp check && exit 0"
   },
   "dependencies": {
-    "aos": "2.3.3",
     "browser-update": "3.1.13",
     "core-js": "2.5.7",
     "feather-icons": "4.7.3",
     "halkabox": "1.4.0",
-    "hamburgers": "0.9.3",
     "konami": "1.6.2",
     "multilevelmenu": "1.2.0",
     "normalize-opentype.css": "0.2.4",
     "object-fit-images": "3.2.3",
+    "scrollmagic": "^2.0.5",
     "smoothscroll-polyfill": "0.4.3",
     "tinycolor2": "1.4.1",
     "vanilla-tilt": "1.4.1"

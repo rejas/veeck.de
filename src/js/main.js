@@ -2,10 +2,10 @@
 
 // Libraries
 
-import AOS              from 'aos';
 import BrowserUpdate    from 'browser-update/update.npm.js';
 import HalkaBox         from 'halkabox';
 import Konami           from 'konami';
+import ScrollMagic      from 'scrollmagic';
 import VanillaTilt      from 'vanilla-tilt';
 
 // Modules
@@ -37,11 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     Polyfill.init();
 
     /**
-     * AOS
-     */
-    AOS.init();
-
-    /**
      * Colors
      */
     Colors.init();
@@ -55,6 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
      * Lazyload images
      */
     Lazy.init();
+
+    /**
+     * ScrollMagic
+     */
+    let controller = new ScrollMagic.Controller();
+    new ScrollMagic.Scene({
+        triggerElement: '.buttonBar',
+        triggerHook: 'onEnter',
+        offset: 100
+    })
+        .setPin('.buttonBar')
+        .addTo(controller);
 
     /**
      * Back to top
