@@ -28,7 +28,7 @@
     "multilevelmenu": "1.2.0",
     "normalize-opentype.css": "0.2.4",
     "object-fit-images": "3.2.3",
-    "scrollmagic": "^2.0.5",
+    "scrollmagic": "2.0.5",
     "smoothscroll-polyfill": "0.4.3",
     "tinycolor2": "1.4.1",
     "vanilla-tilt": "1.4.1"
