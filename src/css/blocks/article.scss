@@ -67,6 +67,7 @@
 
     &__link {
         background-color: var(--lightPrimaryColor);
+        padding: 0 2px;
 
         &:hover {
             transform: translateY(-1px);
@@ -126,6 +127,7 @@
 
     &__text {
         padding: 0 0 0.5rem;
+        width: 100%;
 
         @include aboveBreakpoint(sm) {
             padding: 0 0.5rem;

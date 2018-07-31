@@ -17,13 +17,15 @@ $nav-height: 3rem;
 
     @include belowBreakpoint(lg) {
         flex-flow: row;
-        bottom: 1rem;
         left: 0;
         top: auto;
         height: $nav-height;
         width: 100%;
-        padding: 0.5rem 0;
         mix-blend-mode: normal;
+    }
+
+    @include betweenBreakpoint(xs, lg) {
+        bottom: 1rem;
     }
 
     @include belowBreakpoint(xs) {
@@ -33,6 +35,7 @@ $nav-height: 3rem;
 
     &__item {
         border: 0;
+        margin: 0;
 
         @include belowBreakpoint(xs) {
             color: var(--primaryColor);

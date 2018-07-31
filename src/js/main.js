@@ -49,8 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
      * Lazyload images
      */
     Lazy.init();
-    
-    ButtonBar.init();
 
     /**
      * Halka Image Lightbox

@@ -5,6 +5,11 @@
     position: relative;
     background-color: var(--backgroundColor);
 
+    @include aboveBreakpoint(lg) {
+        margin: 0 auto;
+        max-width: $md;
+    }
+
     time {
         display: block;
         font-size: $font-size-sm;
@@ -18,5 +23,8 @@
         color: var(--primaryColor);
         display: flex;
         flex-flow: column;
+        width: 100%;
+        max-width: none;
+        margin: initial;
     }
 }
