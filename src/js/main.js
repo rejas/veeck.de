@@ -5,7 +5,6 @@
 import BrowserUpdate    from 'browser-update/update.npm.js';
 import HalkaBox         from 'halkabox';
 import Konami           from 'konami';
-import ScrollMagic      from 'scrollmagic';
 import VanillaTilt      from 'vanilla-tilt';
 
 // Modules
@@ -13,6 +12,7 @@ import Colors           from './modules/colors';
 import Input            from './modules/input';
 import Lazy             from './modules/lazy';
 import Polyfill         from './modules/polyfill';
+
 // Styles
 import '../css/main.scss';
 
@@ -49,28 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
      * Lazyload images
      */
     Lazy.init();
-
-    /**
-     * ScrollMagic
-     */
-    let controller = new ScrollMagic.Controller();
-    new ScrollMagic.Scene({
-        triggerElement: '.js-button-bar',
-        triggerHook: 'onEnter',
-        offset: '150'
-    })
-        .setPin('.js-button-bar', { pushFollowers: false })
-        .addTo(controller);
-
-    /**
-     * Back to top
-     */
-    let toTop = document.querySelector('.js-to-top');
-    if (toTop) {
-        toTop.addEventListener('click', () => {
-            window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-        });
-    }
+    
+    ButtonBar.init();
 
     /**
      * Halka Image Lightbox

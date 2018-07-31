@@ -19,6 +19,7 @@
     &--landing {
         background-color: var(--backgroundColor);
         color: var(--primaryTextColor);
+        padding-top: 0;
 
         > .article {
             width: 100%;
