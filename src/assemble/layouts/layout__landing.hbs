@@ -2,10 +2,13 @@
 layout: parent-layout.hbs
 ---
 
+<div class="header__image">
+    {{> filters }}
+    {{> img-srcset }}
+</div>
+
 {{> nav }}
 
 <main class="content content--landing">
     {% body %}
 </main>
-
-{{> footer class="footer--fixed" }}
