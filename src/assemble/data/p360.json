@@ -1,0 +1,77 @@
+{
+    "images": [
+        {
+            "img": "/img/panoramas/360/dublin_cemetary",
+            "caption": "Cemetary in Dublin",
+            "isNew": true
+        },
+        {
+            "img": "/img/panoramas/360/marocco_beach",
+            "caption": "Beach at Tagazout, Marocco"
+        },
+        {
+            "img": "/img/panoramas/360/ukraine_cemetary",
+            "caption": "Soldier cemetary near Lviv, Ukraine"
+        },
+        {
+            "img": "/img/panoramas/360/teneriffe_casahamilton",
+            "caption": "Casa Hamilton, abandonend pump station on Tenerife"
+        },
+        {
+            "img": "/img/panoramas/360/teneriffe_teide",
+            "caption": "On top of Tenerifes highest mountain, the Teide"
+        },
+        {
+            "img": "/img/panoramas/360/curacao_willemstad",
+            "caption": "Port in Willemstad on Curacao"
+        },
+        {
+            "img": "/img/panoramas/360/brussels_atomium",
+            "caption": "View from the top of the Atomium in Brussels"
+        },
+        {
+            "img": "/img/panoramas/360/freiburg_gras",
+            "caption": "Friends on a green hill in the black forest"
+        },
+        {
+            "img": "/img/panoramas/360/freiburg_sunset",
+            "caption": "Sunset in Freiburg"
+        },
+        {
+            "img": "/img/panoramas/360/freiburg_snow",
+            "caption": "View from Mount Schauinsland"
+        },
+        {
+            "img": "/img/panoramas/360/freiburg_autumn",
+            "caption": "Autumn in Freiburg"
+        },
+        {
+            "img": "/img/panoramas/360/freiburg_winter",
+            "caption": "Winter in Freiburg"
+        },
+        {
+            "img": "/img/panoramas/360/paris_night",
+            "caption": "View from the Eifel Tower in Paris"
+        },
+        {
+            "img": "/img/panoramas/360/budapest_bath",
+            "caption": "Classic Spa in Budapest"
+        },
+        {
+            "img": "/img/panoramas/360/budapest_friends",
+            "caption": "Esther, Tassi, Tobi and Sonja in Hungary"
+        },
+        {
+            "img": "/img/panoramas/360/dubai_airport",
+            "caption": "Inside Dubai Airport"
+        },
+        {
+            "img": "/img/panoramas/360/tanzania_beach",
+            "caption": "Beach near Daressalam"
+        },
+        {
+            "img": "/img/panoramas/360/tanzania_school",
+            "caption": "ELU Children Care School"
+        }
+    ]
+}
