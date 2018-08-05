@@ -49,14 +49,14 @@ const dirs      = config.directories,
 app.onLoad(/\.(md|hbs)$/, assemblevars(app));
 
 gulp.task('load', (cb) => {
+    app.data([`${dirs.assemble}/data/*.json`, `${dirs.assemble}/data/**/*.yml`]);
+    app.option('layout', 'layout__default');
+    app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.partials([`${dirs.assemble}/partials/**/*.hbs`,
         `${dirs.node}/feather-icons/dist/icons/*.svg`,
         `${dirs.src}/css/assets/svg/*.svg`,
         `${dirs.assemble}/partials/**/html/*.html`]);
-    app.layouts(`${dirs.assemble}/layouts/**/*.hbs`);
     app.pages(`${dirs.assemble}/pages/**/*.hbs`);
-    app.data([`${dirs.assemble}/data/*.json`, `!${dirs.assemble}/data/*.yml`]);
-    app.option('layout', 'layout__default');
 
     app.preLayout(/./, (view, next) => {
         // if the layout is not defined, use the default one ...
@@ -347,8 +347,10 @@ gulp.task('connect', (cb) => {
 });
 
 gulp.task('watch', (cb) => {
-    gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.scss`, `${dirs.src}/css/assets/**/*`], gulp.task('webpack:dev'));
-    gulp.watch([`${dirs.assemble}/**/*.hbs`], gulp.task('assemble'));
+    gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.scss`, `${dirs.src}/css/assets/**/*`],
+        gulp.task('webpack:dev'));
+    gulp.watch([`${dirs.assemble}/**/*.hbs`, `${dirs.assemble}/data/*.json`, `${dirs.assemble}/data/**/*.yml`],
+        gulp.task('assemble'));
     cb();
 });
 

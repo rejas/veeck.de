@@ -1,33 +1,20 @@
 <!doctype html>
 <html class="no-js" lang="{{lang}}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{title}} | {{site.title}}</title>
-    <meta name="description"        content="{{lead}}">
-    <meta name="viewport"           content="width=device-width, initial-scale=1">
-    <meta name="theme-color"        content="#E6E6E6">
-    <meta property="og:title"       content="{{title}} - {{lead}}" />
-    <meta property="og:type"        content="website" />
-    <meta property="og:url"         content="https://www.veeck.de/{{filename}}" />
-    <meta property="og:image"       content="https://www.veeck.de/img/backgrounds/{{img}}" />
-    <meta property="og:site_name"   content="Veeck" />
-    <meta name="twitter:card"       content="summary">
-    <link rel="apple-touch-icon"    href="apple-touch-icon.png">
-    <link rel="stylesheet"          href="assets/main.css" />
-    <script>
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-        ga('create', 'UA-431999-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script async src="https://www.google-analytics.com/analytics.js"></script>
-</head>
-<body>
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible"  content="ie=edge">
+        <meta name="viewport"               content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>{{title}}</title>
+        <meta name="description"        content="{{lead}}">
+        <meta name="theme-color"        content="#E6E6E6">
+        <meta name="generator"          content="Assemble v0.24.3">
+        <meta name="twitter:card"       content="summary">
+        <meta property="og:site_name"   content="{{site.title}}" />
+        <meta property="og:title"       content="{{title}} - {{lead}}" />
+        <meta property="og:type"        content="website" />
+        <meta property="og:image"       content="https://veeck.de/img/backgrounds/{{img}}.medium.jpg" />
+        <meta property="og:url"         content="https://veeck.de/{{page.stem}}.html" />
 
 {{> body }}
 
