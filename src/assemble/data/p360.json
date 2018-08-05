@@ -1,0 +1,13 @@
+{
+    "images": [
+        {
+            "img": "/img/panoramas/360/dublin_cemetary",
+            "caption": "Cemetary in Dublin",
+            "isNew": true
+        },
+        {
+            "img": "/img/panoramas/360/marocco_beach",
+            "caption": "Beach at Tagazout, Marocco"
+        }
+    ]
+}

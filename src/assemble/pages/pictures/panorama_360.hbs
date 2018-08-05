@@ -9,25 +9,13 @@ last-modified: 2014-04-21
 <article class="article">
     <section class="gallery gallery--fluid">
 
-        <h1>{{grub.son}}</h1>
-
-        <hr/>
-        {{#each picture360}}
-            <li><a href="{{img}}">{{caption}}</a></li>
+        {{#each pi360.images}}
+            {{> figure-gallery
+                class='gallery__item'
+                img=img
+                caption=caption
+                isNew=isNew}}
         {{/each}}
-        <hr/>
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/360/dublin_cemetary'
-            caption='Cemetary in Dublin'
-            isNew='true'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/360/marocco_beach'
-            caption='Beach at Tagazout, Marocco'
-            isNew='true'}}
 
         {{> figure-gallery
             class='gallery__item'
