@@ -16,15 +16,4 @@
         font-weight: $font-weight-light;
         text-align: center;
     }
-
-    &--fixed {
-        position: fixed;
-        bottom: 0;
-        color: var(--primaryColor);
-        display: flex;
-        flex-flow: column;
-        width: 100%;
-        max-width: none;
-        margin: initial;
-    }
 }
