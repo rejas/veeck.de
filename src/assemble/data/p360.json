@@ -8,6 +8,14 @@
         {
             "img": "/img/panoramas/360/marocco_beach",
             "caption": "Beach at Tagazout, Marocco"
+        },
+        {
+            "img": "/img/panoramas/360/ukraine_cemetary",
+            "caption": "Soldier cemetary near Lviv, Ukraine"
+        },
+        {
+            "img": "/img/panoramas/360/teneriffe_casahamilton",
+            "caption": "Casa Hamilton, abandonend pump station on Tenerife"
         }
     ]
 }

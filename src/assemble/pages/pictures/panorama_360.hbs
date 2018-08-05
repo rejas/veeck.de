@@ -9,23 +9,13 @@ last-modified: 2014-04-21
 <article class="article">
     <section class="gallery gallery--fluid">
 
-        {{#each pi360.images}}
+        {{#each p360.images}}
             {{> figure-gallery
                 class='gallery__item'
                 img=img
                 caption=caption
                 isNew=isNew}}
         {{/each}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/360/ukraine_cemetary'
-            caption='Soldier cemetary near Lviv, Ukraine'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/360/teneriffe_casahamilton'
-            caption='Casa Hamilton, abandonend pump station on Tenerife'}}
 
         {{> figure-gallery
             class='gallery__item'

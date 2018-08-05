@@ -356,8 +356,10 @@ gulp.task('connect', (cb) => {
 });
 
 gulp.task('watch', (cb) => {
-    gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.scss`, `${dirs.src}/css/assets/**/*`], gulp.task('webpack:dev'));
-    gulp.watch([`${dirs.assemble}/**/*.hbs`], gulp.task('assemble'));
+    gulp.watch([`${dirs.src}/js/**/*.js`, `${dirs.src}/css/**/*.scss`, `${dirs.src}/css/assets/**/*`],
+        gulp.task('webpack:dev'));
+    gulp.watch([`${dirs.assemble}/**/*.hbs`, `${dirs.assemble}/data/*.json`, `${dirs.assemble}/data/**/*.yml`],
+        gulp.task('assemble'));
     cb();
 });
 
