@@ -6,21 +6,18 @@
 }
 
 .u-hidden--lg {
-
     @include aboveBreakpoint(lg) {
         display: none;
     }
 }
 
 .u-hidden--sm {
-
     @include belowBreakpoint(xs) {
         display: none;
     }
 }
 
 .u-hidden--print {
-
     @include print {
         display: none;
     }

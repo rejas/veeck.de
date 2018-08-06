@@ -5,7 +5,7 @@
 
     &--capped {
 
-        p:first-of-type:first-letter {
+        p:first-of-type::first-letter {
             float: left;
             font-size: $font-size-xl;
             font-weight: $font-weight-bold;
@@ -75,19 +75,21 @@
 
     &__link--medium {
         position: relative;
+
         @include transform(all);
 
         &::after {
             content: '';
             position: absolute;
             z-index: $z-index-neg;
-            @include transform(all);
             width: 0;
             height: 100%;
             top: 50%;
             left: 50%;
             background-color: var(--primaryColor);
             transform: translateX(-50%) translateY(-50%);
+
+            @include transform(all);
         }
 
         &:hover,

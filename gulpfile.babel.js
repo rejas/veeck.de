@@ -114,7 +114,7 @@ gulp.task('check:html', gulp.series('assemble', () => {
     return gulp.src([`${dirs.dist}/*.html`])
         .pipe(plugins.htmllint({
             failOnError: true,
-            config: `${dirs.config}/.htmllintrc.json`
+            config: '.htmllintrc'
         }));
 });
 
@@ -123,7 +123,7 @@ gulp.task('check:js', () => {
     return gulp.src(['./gulpfile.babel.js', './config/*.config.js',
         `${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.eslint({
-            configFile: `${dirs.config}/.eslintrc.json`
+            configFile: '.eslintrc'
         }))
         .pipe(plugins.eslint.format(eslintformat))
         .pipe(plugins.eslint.failOnError());
@@ -132,11 +132,12 @@ gulp.task('check:js', () => {
 // Detect errors and potential problems in your CSS code
 gulp.task('check:sass', () => {
     return gulp.src(`${dirs.src}/css/**/*.scss`)
-        .pipe(plugins.sassLint({
-            configFile: `${dirs.config}/.sasslintrc.json`
-        }))
-        .pipe(plugins.sassLint.format())
-        .pipe(plugins.sassLint.failOnError());
+        .pipe(plugins.stylelint({
+            failOnError: true,
+            reporters: [
+                {formatter: 'string', console: true}
+            ]
+        }));
 });
 
 // Check the performance budget

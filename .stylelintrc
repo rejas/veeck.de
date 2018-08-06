@@ -1,0 +1,12 @@
+{
+    "extends": "stylelint-config-standard",
+    "plugins": [
+        "stylelint-scss"
+    ],
+    "rules": {
+        "at-rule-no-unknown": null,
+        "indentation": 4,
+        "number-no-trailing-zeros": null,
+        "rule-empty-line-before": ["always-multi-line", {"ignore": ["after-comment"]}]
+    }
+}

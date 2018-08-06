@@ -1,10 +1,10 @@
-
 @function strip-unit($value) {
     @return $value / ($value * 0 + 1);
 }
 
 @mixin blur() {
     @supports (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px)) {
+
         & {
             -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(5px);
@@ -27,6 +27,7 @@
  * Source: http://nicolasgallagher.com/micro-clearfix-hack/
  */
 @mixin clearfix() {
+
     &::before,
     &::after {
         content: ' '; // 1
@@ -38,6 +39,7 @@
     }
 
     @supports (display: flow-root) {
+
         & {
             display: flow-root;
         }
