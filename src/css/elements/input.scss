@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 .input__block {
     width: 100%;
 
@@ -9,7 +11,7 @@
     > select {
         border: 0;
         color: var(--primaryTextColor);
-        font-family: $font-main, arial;
+        font-family: $font-main, sans-serif;
         font-size: $font-size-md;
         font-weight: $font-weight-bold;
         width: 100%;
@@ -95,33 +97,37 @@
     }
 
     &::before {
+        @include transform(transform);
+
         height: 100%;
         background-color: var(--primaryColor);
         top: 0;
         transform: translate3d(0, -100%, 0);
-        @include transform(transform);
     }
 
     &::after {
+        @include transform(opacity);
+
         height: $border-thickness;
         background-color: var(--primaryColor);
         top: 100%;
-        @include transform(opacity);
     }
 }
 
 .input__label-content--manami {
+    @include transform(transform);
+    @include transform(color);
+
     display: block;
     padding: 0;
     transform-origin: 0 0;
-    @include transform(transform);
-    @include transform(color);
 }
 
 .input__field--manami:focus,
 .input--filled .input__field--manami {
-    opacity: 1;
     @include transform(opacity);
+
+    opacity: 1;
 }
 
 .input__field--manami:focus + .input__label--manami::before,

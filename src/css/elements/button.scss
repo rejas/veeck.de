@@ -10,7 +10,7 @@ $btn-size-lg: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: $font-main, arial;
+    font-family: $font-main, sans-serif;
     font-size: $font-size-md;
     font-weight: $font-weight-bold;
     margin: 0 auto;
@@ -18,10 +18,15 @@ $btn-size-lg: 3rem;
     text-align: center;
     text-transform: uppercase;
     user-select: none;
+
     @include transform(all);
 
     &:focus {
         outline: none;
+    }
+
+    > svg {
+        stroke: var(--primaryTextColor);
     }
 
     &:hover {
@@ -32,10 +37,6 @@ $btn-size-lg: 3rem;
         > svg {
             stroke: var(--darkPrimaryColor);
         }
-    }
-
-    > svg {
-        stroke: var(--primaryTextColor);
     }
 
     &--md {

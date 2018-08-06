@@ -1,5 +1,6 @@
 :root {
     --figure-angle-seed: 0deg;
+
     height: 100%;
 
     &:focus {
@@ -31,7 +32,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: $font-main, arial;
+    font-family: $font-main, sans-serif;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
     -ms-touch-action: auto;
@@ -40,33 +41,16 @@ body {
     scroll-behavior: smooth;
 }
 
-.body--centered {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-}
-
-section {
-    @include clearfix();
-    margin-bottom: 2rem;
-}
-
-p {
-    hyphens: auto;
-}
-
-img,
-picture {
-    image-rendering: -webkit-optimize-contrast;
-    max-width: 100vw;
-    max-height: 100vh;
-    vertical-align: middle;
-}
-
-ul {
-    list-style-position: inside;
-    -webkit-padding-start: 0;
+a,
+area,
+button,
+[role='button'],
+input:not([type='range']),
+label,
+select,
+summary,
+textarea {
+    touch-action: manipulation;
 }
 
 a,
@@ -83,6 +67,18 @@ a.cc-link {
     }
 }
 
+img,
+picture {
+    image-rendering: -webkit-optimize-contrast;
+    max-width: 100vw;
+    max-height: 100vh;
+    vertical-align: middle;
+}
+
+p {
+    hyphens: auto;
+}
+
 pre {
     display: inline-block;
     width: 100%;
@@ -95,6 +91,12 @@ pre {
     white-space: pre-wrap;
 }
 
+section {
+    @include clearfix();
+
+    margin-bottom: 2rem;
+}
+
 strong {
     font-weight: $font-weight-bold;
 }
@@ -103,16 +105,9 @@ time {
     font-family: monospace;
 }
 
-a,
-area,
-button,
-[role='button'],
-input:not([type='range']),
-label,
-select,
-summary,
-textarea {
-    touch-action: manipulation;
+ul {
+    list-style-position: inside;
+    -webkit-padding-start: 0;
 }
 
 .adframe {
