@@ -2,6 +2,7 @@
 
     .article {
         @include clearfix();
+
         display: block;
         margin: 0 auto 0;
         padding: 0 1rem 1rem;

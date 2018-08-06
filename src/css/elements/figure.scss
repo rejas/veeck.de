@@ -199,7 +199,6 @@ $colorFigure:   #ede1c9;
      * Theme Variation
      */
     &--travel {
-
         @include aboveBreakpoint(xs) {
             background-color: var(--lightPrimaryColor);
             box-shadow: 4px 4px 8px -4px $color-transparentDark;
@@ -227,6 +226,7 @@ $colorFigure:   #ede1c9;
 }
 
 body {
+
     .hb-wrapper {
 
         .hb-main-container {
@@ -242,10 +242,10 @@ body {
             }
 
             p {
+
                 &.hb-counter {
                     background-color: var(--primaryTextColor);
                     color: var(--primaryColor);
-
 
                     @include belowBreakpoint(xs) {
                         font-size: $font-size-lg;
@@ -262,6 +262,7 @@ body {
         .hb-image-container {
 
             p {
+
                 &.hb-caption {
                     background-color: var(--primaryTextColor);
                     color: var(--primaryColor);

@@ -5,10 +5,8 @@ $color-transparent:         rgba(255, 255, 255, 0.125);
 $color-transparentDark:     rgba(0, 0, 0, 0.775);
 
 :root {
-    --backgroundColor:      #fcfcfc;
-
-    --primaryTextColor:     #030303;
-    --secondaryTextColor:   #fcfcfc;
-
-    --primaryColor:         #c6d851;
+    --primaryColor: #c6d851;
+    --backgroundColor: #fcfcfc;
+    --primaryTextColor: #030303;
+    --secondaryTextColor: #fcfcfc;
 }
