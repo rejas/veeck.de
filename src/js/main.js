@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         triggerHook: 'onEnter',
         offset: 100
     })
-        .setPin('.buttonBar')
+        .setPin('.buttonBar', { pushFollowers: false })
         .addTo(controller);
 
     /**
