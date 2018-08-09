@@ -74,7 +74,7 @@
     "imagemin-mozjpeg": "7.0.0",
     "imagemin-webp": "4.1.0",
     "mini-css-extract-plugin": "0.4.1",
-    "node-sass": "4.9.2",
+    "node-sass": "4.9.3",
     "postcss-loader": "3.0.0",
     "postcss-object-fit-images": "1.1.2",
     "postcss-sprites": "4.2.1",
