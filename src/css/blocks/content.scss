@@ -1,7 +1,6 @@
 .content {
-    background-color: var(--backgroundColor);
     display: grid;
-    grid-template-columns: $nav-width 1fr $nav-width;
+    grid-template-columns: 1rem 1fr 1rem;
     justify-items: center;
     min-height: 100%;
     padding-top: $margin-md;
@@ -16,11 +15,22 @@
         grid-template-columns: $nav-width 1fr $nav-width;
     }
 
-    &--landing {
+    &--default {
         background-color: var(--backgroundColor);
-        color: var(--primaryTextColor);
 
         > .article {
+            background-color: var(--backgroundColor);
+            max-width: $md;
+        }
+    }
+
+    &--landing {
+        background-color: transparent;
+        color: var(--primaryTextColor);
+        padding: 0 0 2rem;
+
+        > .article {
+            background-color: transparent;
             width: 100%;
         }
 
@@ -30,11 +40,9 @@
     }
 
     > .article {
-        background-color: var(--backgroundColor);
         grid-column: 2;
         margin: 0;
         padding: $margin-md;
-        max-width: $md;
 
         > .figure--fullwidth {
             grid-column: 1 / -1;
