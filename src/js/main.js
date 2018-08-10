@@ -5,7 +5,6 @@
 import BrowserUpdate    from 'browser-update/update.npm.js';
 import HalkaBox         from 'halkabox';
 import Konami           from 'konami';
-import ScrollMagic      from 'scrollmagic';
 import VanillaTilt      from 'vanilla-tilt';
 
 // Modules
@@ -52,28 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     Lazy.init();
 
     /**
-     * ScrollMagic
-     */
-    let controller = new ScrollMagic.Controller();
-    new ScrollMagic.Scene({
-        triggerElement: '.buttonBar',
-        triggerHook: 'onEnter',
-        offset: 100
-    })
-        .setPin('.buttonBar', { pushFollowers: false })
-        .addTo(controller);
-
-    /**
-     * Back to top
-     */
-    let toTop = document.querySelector('.js-to-top');
-    if (toTop) {
-        toTop.addEventListener('click', () => {
-            window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-        });
-    }
-
-    /**
      * Halka Image Lightbox
      */
     HalkaBox.run('js-gallery__image');
@@ -97,17 +74,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new Konami(() => {
         document.body.className += ' debug';
     });
-
-    /**
-     * Share to facebook
-     */
-    let facebook = document.querySelector('.js-share-facebook');
-    if (facebook) {
-        facebook.addEventListener('click', () => {
-            window.open('https://www.facebook.com/sharer/sharer.php?u='
-                + encodeURIComponent(document.URL) + '&t='
-                + encodeURIComponent(document.URL));
-            return false;
-        });
-    }
 });

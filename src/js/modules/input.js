@@ -46,6 +46,8 @@ let Input = {
                     input.value = query;
                     iform.action = inputEl.dataset.search;
                     iform.submit();
+                } else {
+                    document.querySelector('#search__input').focus();
                 }
 
                 return false;

@@ -5,25 +5,15 @@
     position: relative;
     background-color: var(--backgroundColor);
 
+    @include aboveBreakpoint(lg) {
+        margin: 0 auto;
+        max-width: $md;
+    }
+
     time {
         display: block;
         font-size: $font-size-sm;
         font-weight: $font-weight-light;
         text-align: center;
     }
-
-    &--fixed {
-        position: fixed;
-        bottom: 0;
-        color: var(--primaryColor);
-        display: flex;
-        flex-flow: column;
-    }
-}
-
-.buttonBar {
-    z-index: $z-index-3;
-    display: flex;
-    width: 100%;
-    padding: 1rem;
 }
