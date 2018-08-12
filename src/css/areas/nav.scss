@@ -33,21 +33,11 @@ $nav-height: 3rem;
         bottom: 0;
     }
 
-    &:target {
-
-        .navigation__item {
-            opacity: 1;
-        }
-    }
-
     &__menu {
         order: 0;
 
         @include belowBreakpoint(xs) {
             display: none;
-        }
-
-        @include aboveBreakpoint(xs) {
         }
     }
 
@@ -89,6 +79,13 @@ $nav-height: 3rem;
 
         @include aboveBreakpoint(xs) {
             display: none;
+        }
+    }
+
+    &:target {
+
+        .navigation__item {
+            opacity: 1;
         }
     }
 }
