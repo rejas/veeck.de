@@ -25,7 +25,7 @@ html {
     line-height: $base-line-height;
 }
 
-body {
+.body {
     background-color: var(--backgroundColor);
     box-sizing: border-box;
     color: var(--primaryTextColor);
@@ -39,6 +39,23 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
+
+    &__background {
+        position: fixed;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        backface-visibility: hidden;
+
+        .object-fit-img {
+            filter: url(#duotone_bluetan);
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+        }
+    }
 }
 
 a,
