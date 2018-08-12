@@ -25,7 +25,7 @@ $nav-height: 3rem;
     }
 
     @include betweenBreakpoint(xs, lg) {
-        bottom: 1rem;
+        top: 1rem;
     }
 
     @include belowBreakpoint(xs) {
@@ -33,9 +33,27 @@ $nav-height: 3rem;
         bottom: 0;
     }
 
+    &:target {
+
+        .navigation__item {
+            opacity: 1;
+        }
+    }
+
+    &__menu {
+        order: 0;
+
+        @include belowBreakpoint(xs) {
+            display: none;
+        }
+
+        @include aboveBreakpoint(xs) {
+        }
+    }
+
     &__item {
-        border: 0;
-        margin: 0;
+        opacity: 0;
+        order: 1;
 
         @include belowBreakpoint(xs) {
             color: var(--primaryColor);
