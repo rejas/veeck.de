@@ -57,7 +57,7 @@
     "gulp-extname": "0.2.2",
     "gulp-favicons": "2.2.7",
     "gulp-flatten": "0.4.0",
-    "gulp-htmllint": "0.0.15",
+    "gulp-htmllint": "0.0.16",
     "gulp-htmlmin": "4.0.0",
     "gulp-imagemin": "4.1.0",
     "gulp-inject": "4.3.2",
