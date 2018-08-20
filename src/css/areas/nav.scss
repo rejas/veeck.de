@@ -69,36 +69,41 @@ $nav-height: 3rem;
         width: 100%;
         mix-blend-mode: normal;
     }
-    */
 
     @include betweenBreakpoint(xs, lg) {
-       // top: 1rem;
+       top: 1rem;
     }
+    */
 
     &__menu {
         order: 0;
 
+        /*
         @include landscape-phone() {
-            //display: none;
+            display: none;
         }
+        */
     }
 
     &__item {
         opacity: 0;
         order: 1;
 
-
+        /*
         @include aboveBreakpoint(xs) {
             //background: var(--accentColor);
             //filter: grayscale(100%);
         }
+        */
 
         > svg {
             stroke: var(--secondaryTextColor);
 
+            /*
             @include belowBreakpoint(xs) {
                 stroke: var(--primaryTextColor);
             }
+            */
         }
     }
 
