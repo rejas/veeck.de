@@ -7,7 +7,7 @@ $nav-height: 3rem;
     justify-content: space-around;
     position: fixed;
     bottom: 0;
-    top: 0;
+    //top: 0;
     left: auto;
     right: 0;
     height: 100%;
@@ -15,6 +15,52 @@ $nav-height: 3rem;
     z-index: $z-index-4;
     mix-blend-mode: difference;
 
+    @include landscape-phone() {
+        background-color: var(--lightPrimaryColor);
+        mix-blend-mode: normal;
+        width: 4rem;
+
+        &__menu {
+            display: none;
+        }
+
+        &__item {
+            opacity: 1;
+            color: var(--primaryColor);
+            display: flex;
+            align-items: center;
+            flex-flow: column;
+
+            > svg {
+                stroke: var(--primaryTextColor);
+            }
+        }
+
+        &__label {
+            color: var(--primaryTextColor);
+        }
+    }
+
+    @include portrait-phone() {
+        background-color: var(--lightPrimaryColor);
+        mix-blend-mode: normal;
+        height: 3rem;
+        width: 100%;
+        flex-flow: row;
+        bottom: 0;
+
+        &__menu {
+            display: none;
+        }
+
+        &__item {
+            opacity: 1;
+            display: flex;
+            flex-flow: column;
+        }
+    }
+
+    /*
     @include belowBreakpoint(lg) {
         flex-flow: row;
         left: 0;
@@ -23,21 +69,17 @@ $nav-height: 3rem;
         width: 100%;
         mix-blend-mode: normal;
     }
+    */
 
     @include betweenBreakpoint(xs, lg) {
-        top: 1rem;
-    }
-
-    @include belowBreakpoint(xs) {
-        background-color: var(--lightPrimaryColor);
-        bottom: 0;
+       // top: 1rem;
     }
 
     &__menu {
         order: 0;
 
-        @include belowBreakpoint(xs) {
-            display: none;
+        @include landscape-phone() {
+            //display: none;
         }
     }
 
@@ -45,15 +87,9 @@ $nav-height: 3rem;
         opacity: 0;
         order: 1;
 
-        @include belowBreakpoint(xs) {
-            color: var(--primaryColor);
-            display: flex;
-            align-items: center;
-            flex-flow: column;
-        }
 
         @include aboveBreakpoint(xs) {
-            background: var(--accentColor);
+            //background: var(--accentColor);
             //filter: grayscale(100%);
         }
 
@@ -73,11 +109,7 @@ $nav-height: 3rem;
         color: var(--primaryColor);
         text-transform: uppercase;
 
-        @include belowBreakpoint(xs) {
-            color: var(--primaryTextColor);
-        }
-
-        @include aboveBreakpoint(xs) {
+        @include aboveBreakpoint(lg) {
             display: none;
         }
     }

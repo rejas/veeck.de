@@ -108,6 +108,29 @@
     }
 }
 
+@mixin landscape-phone {
+    @media (orientation: landscape) {
+        @include belowBreakpoint(lg) {
+            @content;
+        }
+    }
+}
+
+@mixin portrait-phone {
+    @media (orientation: portrait) {
+        @include belowBreakpoint(lg) {
+            @content;
+        }
+    }
+}
+
+@mixin tablet {
+    @include aboveBreakpoint(lg) {
+        @content;
+    }
+}
+
+
 @mixin print {
     @media print {
         @content;
