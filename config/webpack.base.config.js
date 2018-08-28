@@ -20,16 +20,7 @@ const webpackconfig = {
                 test: /\.js$/,
                 exclude: /(node_modules)/,
                 use: [{
-                    loader: 'babel-loader',
-                    options: {
-                        babelrc: false,
-                        presets: [
-                            ['env', {
-                                modules: false,
-                                useBuiltIns: true
-                            }]
-                        ]
-                    }
+                    loader: 'babel-loader'
                 }]
             },
             {
