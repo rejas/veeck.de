@@ -53,7 +53,7 @@
     "gulp": "4.0.0",
     "gulp-cache-bust": "1.4.0",
     "gulp-concat": "2.6.1",
-    "gulp-connect": "5.5.0",
+    "gulp-connect": "5.6.1",
     "gulp-eslint": "5.0.0",
     "gulp-extname": "0.2.2",
     "gulp-favicons": "2.2.7",
