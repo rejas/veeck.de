@@ -7,7 +7,6 @@ $nav-height: 3rem;
     justify-content: space-around;
     position: fixed;
     bottom: 0;
-    top: 0;
     left: auto;
     right: 0;
     height: 100%;
@@ -15,44 +14,51 @@ $nav-height: 3rem;
     z-index: $z-index-4;
     mix-blend-mode: difference;
 
-    @include belowBreakpoint(lg) {
-        flex-flow: row;
-        left: 0;
-        top: auto;
-        height: $nav-height;
-        width: 100%;
-        mix-blend-mode: normal;
-    }
-
-    @include betweenBreakpoint(xs, lg) {
-        bottom: 1rem;
-    }
-
-    @include belowBreakpoint(xs) {
+    @include landscape-phone() {
         background-color: var(--lightPrimaryColor);
-        bottom: 0;
-    }
+        mix-blend-mode: normal;
+        width: 4rem;
 
-    &__item {
-        border: 0;
-        margin: 0;
-
-        @include belowBreakpoint(xs) {
+        &__item {
+            opacity: 1;
             color: var(--primaryColor);
             display: flex;
             align-items: center;
             flex-flow: column;
         }
+    }
 
-        @include aboveBreakpoint(xs) {
-            background: var(--accentColor);
-            //filter: grayscale(100%);
+    @include portrait-phone() {
+        background-color: var(--lightPrimaryColor);
+        mix-blend-mode: normal;
+        height: 3rem;
+        width: 100%;
+        flex-flow: row;
+        bottom: 0;
+    }
+
+    &__menu {
+        order: 0;
+
+        @include phone() {
+            display: none;
+        }
+    }
+
+    &__item {
+        opacity: 0;
+        order: 1;
+
+        @include phone() {
+            opacity: 1;
+            display: flex;
+            flex-flow: column;
         }
 
         > svg {
             stroke: var(--secondaryTextColor);
 
-            @include belowBreakpoint(xs) {
+            @include phone() {
                 stroke: var(--primaryTextColor);
             }
         }
@@ -65,12 +71,19 @@ $nav-height: 3rem;
         color: var(--primaryColor);
         text-transform: uppercase;
 
-        @include belowBreakpoint(xs) {
+        @include phone() {
             color: var(--primaryTextColor);
         }
 
-        @include aboveBreakpoint(xs) {
+        @include aboveBreakpoint(lg) {
             display: none;
+        }
+    }
+
+    &:target {
+
+        .navigation__item {
+            opacity: 1;
         }
     }
 }
