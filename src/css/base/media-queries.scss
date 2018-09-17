@@ -108,6 +108,12 @@
     }
 }
 
+@mixin phone {
+    @include belowBreakpoint(lg) {
+        @content;
+    }
+}
+
 @mixin landscape-phone {
     @media (orientation: landscape) {
         @include belowBreakpoint(lg) {
