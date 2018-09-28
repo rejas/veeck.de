@@ -2,6 +2,12 @@
     background-color: var(--backgroundColor);
     box-sizing: border-box;
     color: var(--primaryTextColor);
+    display: grid;
+    grid-template-columns: 1fr 960px 1fr;
+    grid-template-rows: 100vh 1fr;
+    grid-template-areas:
+        "header header header"
+        ". content .";
     height: 100%;
     margin: 0;
     padding: 0;
@@ -14,7 +20,8 @@
     scroll-behavior: smooth;
 
     &__background {
-        position: fixed;
+        grid-area: header;
+      //  position: fixed;
         overflow: hidden;
         top: 0;
         left: 0;
