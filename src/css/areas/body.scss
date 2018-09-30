@@ -36,6 +36,7 @@
         right: 0;
         bottom: 0;
         backface-visibility: hidden;
+        z-index: $z-index-neg;
 
         .object-fit-img {
             filter: url(#duotone_bluetan);
