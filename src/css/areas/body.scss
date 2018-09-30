@@ -28,6 +28,18 @@
         grid-template-columns: 1fr;
     }
 
+    &--landing {
+        grid-template-areas:
+            ". content ."
+            ". footer .";
+
+        @include phone() {
+            grid-template-areas:
+                "content"
+                "footer";
+        }
+    }
+
     &__background {
         position: fixed;
         overflow: hidden;
