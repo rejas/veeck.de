@@ -3,11 +3,12 @@
     box-sizing: border-box;
     color: var(--primaryTextColor);
     display: grid;
-    grid-template-columns: 1fr 960px 1fr;
-    grid-template-rows: 100vh 1fr;
     grid-template-areas:
         "header header header"
-        ". content .";
+        ". content ."
+        ". footer .";
+    grid-template-columns: 1fr 960px 1fr;
+    grid-template-rows: 100vh 1fr;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -19,9 +20,16 @@
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
 
+    @include phone() {
+        grid-template-areas:
+            "header"
+            "content"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+
     &__background {
-        grid-area: header;
-      //  position: fixed;
+        position: fixed;
         overflow: hidden;
         top: 0;
         left: 0;

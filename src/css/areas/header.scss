@@ -2,7 +2,7 @@
  * Header
  */
 .header {
-    height: 100vh;
+    grid-area: header;
     will-change: transform;
     z-index: $z-index-4;
 
