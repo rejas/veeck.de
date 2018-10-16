@@ -1,20 +1,22 @@
 ---
 layout: parent-layout.hbs
 ---
+<body class="body body--default">
 
-<div class="body__background">
-    {{> filters }}
-    {{> img-srcset }}
-</div>
+    <div class="body__background">
+        {{> filters }}
+        {{> img-srcset }}
+    </div>
 
-{{> header }}
+    {{> header }}
 
-{{> nav }}
+    {{> nav }}
 
-<main class="content content--default">
-    {% body %}
-</main>
+    <main class="content content--default">
+        {% body %}
+    </main>
 
-<footer>
-    <time datetime="{{last-modified}}">page last modified {{last-modified}}</time>
-</footer>
+    {{> footer }}
+
+    {{> scripts }}
+</body>
