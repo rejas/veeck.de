@@ -1,14 +1,10 @@
+@import '../theme/fonts';
+@import '../theme/variables';
+
 .body {
     background-color: var(--backgroundColor);
     box-sizing: border-box;
     color: var(--primaryTextColor);
-    display: grid;
-    grid-template-areas:
-        "header header header"
-        ". content ."
-        ". footer .";
-    grid-template-columns: 1fr 960px 1fr;
-    grid-template-rows: 100vh 1fr;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -20,12 +16,28 @@
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
 
-    @include phone() {
+    display: grid;
+    grid-template-columns: 1fr 960px 1fr;
+    grid-template-rows: 100vh 1fr;
+    grid-template-areas:
+        "header header header"
+        ". content ."
+        ". footer .";
+
+    @include portrait-phone() {
         grid-template-areas:
             "header"
             "content"
             "footer";
         grid-template-columns: 1fr;
+    }
+
+    @include landscape-phone() {
+        grid-template-areas:
+            "header ."
+            "content ."
+            "footer .";
+        grid-template-columns: 1fr $nav-width;
     }
 
     &--landing {
@@ -35,8 +47,8 @@
 
         @include phone() {
             grid-template-areas:
-                "content"
-                "footer";
+                "content ."
+                "footer .";
         }
     }
 
