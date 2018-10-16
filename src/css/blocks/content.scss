@@ -1,10 +1,6 @@
 .content {
-    display: grid;
-    grid-template-columns: 1rem 1fr 1rem;
-    justify-items: center;
-    min-height: 100%;
+    grid-area: content;
     padding-top: $margin-md;
-    position: relative;
 
     @include belowBreakpoint(xs) {
         display: block;
@@ -12,7 +8,6 @@
 
     @include aboveBreakpoint(lg) {
         background-color: transparent;
-        grid-template-columns: $nav-width 1fr $nav-width;
     }
 
     &--default {
@@ -40,7 +35,6 @@
     }
 
     > .article {
-        grid-column: 2;
         margin: 0;
         padding: $margin-md;
 
