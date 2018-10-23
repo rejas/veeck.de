@@ -53,11 +53,9 @@
     }
 
     &__image {
-        margin: 0 auto;
 
-        @include belowBreakpoint(xs) {
-            margin: 0 -1rem;
-            width: 100vw;
+        @include betweenBreakpoint(xs, md) {
+            margin: 0 auto;
         }
     }
 
