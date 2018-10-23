@@ -13,14 +13,17 @@ last-modified: 2017-01-14
         <h2 class="h2">my g4pc</h2>
 
         <div class="article__box">
-            <p>Tired of the same old boring computer cases everywhere I decided in 2006 to build my own pc case.
+            <p class="article__text">Tired of the same old boring computer cases everywhere I decided in 2006 to build my own pc case.
                 Inspired by lots of mods around the web like {{> link-extern text='this modification on HardOCP'
                 url='https://www.hardocp.com/article/2002/09/13/rotten_apple'}} I knew that I also wanted an Apple G4
                 case fitted to accommodate standard x86 PC components. Another good source for information was
                 {{> link-extern url='https://www.slcentral.com/articles/01/8/g4pc/' text='this modification'}}. Some
                 expensive auctioning at eBay and a lot of drilling later I had such a special PC myself. Groovy, baby!
             </p>
-            <img class="article__image" src="/img/projects/g4pc/thumbnail_2k06_final.jpg" alt="Looks innocent?">
+            {{> figure-basic
+                class='article__image'
+                img='/img/projects/g4pc/thumbnail_2k06_final'
+                caption='Looks innocent?'}}
         </div>
 
         <div class="article__box">
@@ -28,7 +31,10 @@ last-modified: 2017-01-14
                 without keeping the old layout. Those are of course not able to open the PC while running, which is the
                 coolest effect of the G4 case.
             </p>
-            <img class="article__image" src="/img/projects/g4pc/thumbnail_2k06_open.jpg" alt="Opened case">
+            {{> figure-basic
+                class='article__image'
+                img='/img/projects/g4pc/thumbnail_2k06_open'
+                caption='LOpened case'}}
         </div>
 
         <div class="article__box">
@@ -36,7 +42,10 @@ last-modified: 2017-01-14
                 the side-door won’t close due to the large optical drive taking much space. I was lucky to find this
                 board where only one of the RAM-holders had to go, leaving me with 'only' 1 GigaByte of RAM.
             </p>
-            <img class="article__image" src="/img/projects/g4pc/thumbnail_2k06_ram.jpg" alt="Memory slot modification">
+            {{> figure-basic
+                class='article__image'
+                img='/img/projects/g4pc/thumbnail_2k06_ram'
+                caption='Memory slot modification'}}
         </div>
 
         <div class="article__box">
@@ -44,7 +53,10 @@ last-modified: 2017-01-14
                 beneath the fan outlet, one of them would suck the air from the wrong side of the case. So I
                 had to do some more cutting to make room for the fan outlet and install the PSU upside-down.
             </p>
-            <img class="article__image" src="/img/projects/g4pc/thumbnail_2k06_psu.jpg" alt="Power supply modification">
+            {{> figure-basic
+                class='article__image'
+                img='/img/projects/g4pc/thumbnail_2k06_psu'
+                caption='Power supply modification'}}
         </div>
 
         <div class="article__box">
@@ -52,7 +64,10 @@ last-modified: 2017-01-14
                 companion, the dremel, to cut out a good piece of the backplate. Later I used some spare plastic piece
                 to model a new back-plate for my PC. If I find the time, I will color it to match the rest of the case.
             </p>
-            <img class="article__image" src="/img/projects/g4pc/thumbnail_2k06_atx.jpg" alt="ATX shield modification">
+            {{> figure-basic
+                class='article__image'
+                img='/img/projects/g4pc/thumbnail_2k06_atx'
+                caption='ATX shield modification'}}
         </div>
 
         <div class="article__box">
@@ -60,9 +75,11 @@ last-modified: 2017-01-14
                 which shine from behind the apple logo to show who really makes the most stylish computer cases. Move
                 the cursor over the picture to see how it shines in the dark.
             </p>
-            <img id="g4_light" class="article__image" src="/img/projects/g4pc/thumbnail_2k06_lightON.jpg" alt="Lights on"
+            <figure class="figure article__image">
+                <img id="g4_light" class="article__image" src="/img/projects/g4pc/thumbnail_2k06_lightON.jpg" alt="Lights on"
                  onmouseover="document.getElementById('g4_light').src='/img/projects/g4pc/thumbnail_2k06_lightON.jpg'"
                  onmouseout="document.getElementById('g4_light').src='/img/projects/g4pc/thumbnail_2k06_lightOFF.jpg'">
+            </figure>
         </div>
 
         <p>Later the project was disassembled and I moved on to a normal laptop. But in 2014 I came across a second g4
