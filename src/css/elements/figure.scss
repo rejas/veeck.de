@@ -17,6 +17,19 @@ $colorFigure:   #ede1c9;
         max-width: 100%;
     }
 
+    @include belowBreakpoint(xs) {
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
+        float: none;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+
     @include aboveBreakpoint(sm) {
 
         &--full {
@@ -118,15 +131,6 @@ $colorFigure:   #ede1c9;
         overflow: hidden;
         text-decoration: none;
         position: relative;
-
-        @include belowBreakpoint(xs) {
-            margin: 0 -1rem 1rem;
-            border-radius: 0;
-            box-shadow: none;
-            background-color: transparent;
-            float: none;
-            width: 100vw;
-        }
     }
 
     &--github {

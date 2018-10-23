@@ -4,6 +4,7 @@
 
     @include belowBreakpoint(xs) {
         display: block;
+        max-width: 100vw;
     }
 
     @include aboveBreakpoint(lg) {
@@ -35,7 +36,7 @@
     }
 
     > .article {
-        margin: 0;
+        margin: 0 auto;
         padding: $margin-md;
 
         > .figure--fullwidth {

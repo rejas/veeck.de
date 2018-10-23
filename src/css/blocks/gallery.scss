@@ -8,7 +8,6 @@
         grid-auto-flow: dense;
 
         .gallery__item {
-            margin: 0;
 
             @include aboveBreakpoint(sm) {
 
