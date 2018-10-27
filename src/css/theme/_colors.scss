@@ -10,3 +10,10 @@ $color-transparentDark:     rgba(0, 0, 0, 0.775);
     --primaryTextColor: #030303;
     --secondaryTextColor: #fcfcfc;
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --backgroundColor: #030303;
+        --primaryTextColor: #fcfcfc;
+    }
+}
