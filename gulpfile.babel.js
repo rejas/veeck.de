@@ -260,6 +260,7 @@ gulp.task('scale:images', () => {
                 height: 1920,
                 max: true,
                 withoutEnlargement: false,
+                format: ['jpg','webp'],
                 rename: {
                     suffix: '.medium'
                 },
@@ -268,6 +269,7 @@ gulp.task('scale:images', () => {
                 height: 387,
                 max: true,
                 withoutEnlargement: false,
+                format: ['jpg','webp'],
                 rename: {
                     suffix: '.small'
                 },
@@ -278,6 +280,7 @@ gulp.task('scale:images', () => {
                 withoutEnlargement: false,
                 blur: 20,
                 quality: 30,
+                format: ['jpg','webp'],
                 rename: {
                     suffix: '.placeholder'
                 },
