@@ -8,7 +8,6 @@
         grid-auto-flow: dense;
 
         .gallery__item {
-
             @include aboveBreakpoint(sm) {
 
                 &:first-child {
