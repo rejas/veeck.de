@@ -14,7 +14,6 @@ import webpackProdConfig    from './config/webpack.prod.config.js';
 
 import gulp             from    'gulp';
 import gcachebust       from    'gulp-cache-bust';
-import gconnect         from    'gulp-connect';
 import gplugins         from    'gulp-load-plugins';
 import {release}        from    'gulp-release-it';
 
@@ -22,8 +21,10 @@ import {release}        from    'gulp-release-it';
  * OTHER PLUGINS
  */
 
+
 import assemble         from    'assemble';
 import assemblevars     from    'assemble-middleware-page-variable';
+import bs               from    'browser-sync';
 import del              from    'del';
 import eslintformat     from    'eslint-friendly-formatter';
 import flog             from    'fancy-log';
@@ -40,7 +41,8 @@ import webpackStream    from    'webpack-stream';
 
 const dirs      = config.directories,
     plugins     = gplugins(),
-    app         = assemble();
+    app         = assemble(),
+    browserSync = bs.create();
 
 /**
  * ASSEMBLE TASKS
@@ -77,7 +79,7 @@ gulp.task('assemble', gulp.series('load', () => {
         .pipe(app.renderFile())
         .pipe(plugins.extname())
         .pipe(app.dest(dirs.dist))
-        .pipe(gconnect.reload());
+        .pipe(browserSync.stream());
 }));
 
 /**
@@ -102,7 +104,8 @@ gulp.task('copy:vendorscripts', () => {
     return gulp.src([`${dirs.src}/js/vendor/**/*.js`])
         .pipe(plugins.concat('vendor.min.js'))
         .pipe(plugins.uglify())
-        .pipe(gulp.dest(`${dirs.dist}/js`));
+        .pipe(gulp.dest(`${dirs.dist}/js`))
+        .pipe(browserSync.stream());
 });
 
 /**
@@ -311,7 +314,7 @@ gulp.task('webpack:dev', () => {
     return gulp.src(`${dirs.src}/src/js/main.js`, { allowEmpty: true })
         .pipe(webpackStream(webpackDevConfig, webpack))
         .pipe(gulp.dest(dirs.dist))
-        .pipe(gconnect.reload());
+        .pipe(browserSync.stream());
 });
 
 gulp.task('webpack:prod', () => {
@@ -337,23 +340,17 @@ gulp.task('html', gulp.series('assemble', () => {
  * SERVE TASKS
  */
 
-gulp.task('connect', (cb) => {
-    gconnect.server({
-        root: `${dirs.dist}`,
-        livereload: true,
-        port: 9000
+gulp.task('connect', () => {
+    browserSync.init({
+        server: dirs.dist
     });
-    cb();
-});
 
-gulp.task('watch', (cb) => {
     gulp.watch([`${dirs.src}/js/**/*.js`, `!${dirs.src}/js/vendor/**/*.js`, `${dirs.src}/css/**/*.scss`, `${dirs.src}/css/assets/**/*`],
-        gulp.task('webpack:dev'));
+        gulp.series('webpack:dev'));
     gulp.watch([`${dirs.src}/js/vendor/**/*.js`],
-        gulp.task('copy:vendorscripts'));
+        gulp.series('copy:vendorscripts'));
     gulp.watch([`${dirs.assemble}/**/*.hbs`, `${dirs.assemble}/data/*.json`, `${dirs.assemble}/data/**/*.yml`],
-        gulp.task('assemble'));
-    cb();
+        gulp.series('assemble'));
 });
 
 /**
@@ -377,4 +374,4 @@ gulp.task('default',    gulp.series('clean', 'check', 'copy', 'webpack:prod', 'h
 
 gulp.task('deploy',     gulp.series('default', 'release', 'upload:page'));
 
-gulp.task('dev',        gulp.series('clean', 'connect', 'copy', 'webpack:dev', 'html', 'watch'));
+gulp.task('dev',        gulp.series('clean', 'copy', 'webpack:dev', 'html', 'connect'));
