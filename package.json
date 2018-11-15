@@ -36,8 +36,8 @@
     "vanilla-tilt": "1.5.0"
   },
   "devDependencies": {
-    "@babel/core": "7.1.5",
-    "@babel/preset-env": "7.1.5",
+    "@babel/core": "7.1.6",
+    "@babel/preset-env": "7.1.6",
     "@babel/register": "7.0.0",
     "assemble": "0.24.3",
     "assemble-middleware-page-variable": "0.1.0",
@@ -61,7 +61,7 @@
     "gulp-htmllint": "0.0.16",
     "gulp-htmlmin": "5.0.1",
     "gulp-imagemin": "5.0.3",
-    "gulp-inject": "4.3.2",
+    "gulp-inject": "4.3.3",
     "gulp-load-plugins": "1.5.0",
     "gulp-louis": "2.4.1",
     "gulp-modernizr": "3.0.0",
