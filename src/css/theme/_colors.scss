@@ -11,7 +11,7 @@ $color-transparentDark:     rgba(0, 0, 0, 0.775);
     --secondaryTextColor: #fcfcfc;
 }
 
-// eslint-disable-next-line
+// stylelint-disable-next-line
 @media (prefers-color-scheme: dark) {
 
     :root {
