@@ -10,3 +10,12 @@ $color-transparentDark:     rgba(0, 0, 0, 0.775);
     --primaryTextColor: #030303;
     --secondaryTextColor: #fcfcfc;
 }
+
+// stylelint-disable-next-line
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --backgroundColor: #38444b;
+        --primaryTextColor: #fcfcfc;
+    }
+}
