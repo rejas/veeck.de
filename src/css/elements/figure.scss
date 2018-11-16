@@ -133,6 +133,20 @@ $colorFigure:   #ede1c9;
         position: relative;
     }
 
+
+    &--button {
+        margin-bottom: 0;
+
+        figcaption {
+            background-color: var(--lightPrimaryColor);
+            position: absolute;
+            top: 10px;
+            left: -5px;
+            padding: 0 0.5rem;
+            white-space: nowrap;
+        }
+    }
+
     &--github {
         float: left;
         margin: 0 1rem 1rem 0;

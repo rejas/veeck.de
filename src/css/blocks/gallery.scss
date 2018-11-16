@@ -39,11 +39,7 @@
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 
     &__item {
-        margin-bottom: 0.5rem;
-
-        p {
-            display: none;
-        }
+        border-bottom: none;
     }
 
     &--extended {
