@@ -62,6 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
         figure.style.setProperty('--figure-angle-seed', (Math.random() * 8 - 4) + 'deg');
     });
 
+    document.querySelectorAll('.js-image__picture').forEach((figure) => {
+        figure.style.setProperty('--figure-caption-seed', (Math.random() * 10) + 'px');
+    });
+
     VanillaTilt.init(document.querySelectorAll('.js-travel__picture'), {
         max: 10,
         scale: 1.1,

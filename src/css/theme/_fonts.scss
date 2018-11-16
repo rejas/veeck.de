@@ -18,6 +18,7 @@ $base-font-size:        calc(#{$min-font-size} + #{strip-unit($max-font-size - $
 $base-line-height:      calc(#{$min-font-size * $font-line-ratio} + #{strip-unit(($max-font-size - $min-font-size) * $font-line-ratio)} * ((100vw - #{$min-content-width}) / #{strip-unit($max-content-width - $min-content-width)}));
 
 $font-size-sm:          0.618rem;
+$font-size-ms:          0.791rem;
 $font-size-md:          1.000rem;
 $font-size-lg:          1.618rem;
 $font-size-xl:          2.618rem;
