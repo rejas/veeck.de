@@ -13,9 +13,10 @@
 
         .h3 {
             position: absolute;
-            top: -1rem;
+            top: -$font-size-lg;
             background-color: var(--backgroundColor);
             padding: 0 0.5rem;
+            font-size: $font-size-lg;
 
             @include belowBreakpoint(sm) {
                 padding: 0;
