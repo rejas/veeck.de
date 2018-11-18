@@ -9,9 +9,9 @@ const config = {
         dist: './dist'
     },
     favicons: {
-        appName: 'My Homepage',
-        appDescription: 'This is my homepage',
-        developerName: 'Veeck',
+        appName: 'veeck.de',
+        appDescription: 'my homepage',
+        developerName: 'veeck',
         developerURL: 'https://veeck.de/',
         background: '#FFFFFF',
         path: '/favicons',

@@ -1,7 +1,7 @@
 {
-  "name": "My Homepage",
-  "short_name": "My Homepage",
-  "description": "This is my homepage",
+  "name": "veeck.de",
+  "short_name": "veeck.de",
+  "description": "my homepage",
   "dir": "auto",
   "lang": "en-US",
   "display": "standalone",

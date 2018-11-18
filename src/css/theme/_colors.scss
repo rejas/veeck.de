@@ -6,9 +6,9 @@ $color-transparentDark:     rgba(0, 0, 0, 0.775);
 
 :root {
     --primaryColor: #c6d851;
-    --backgroundColor: #fcfcfc;
+    --backgroundColor: #E6E6E6;
     --primaryTextColor: #030303;
-    --secondaryTextColor: #fcfcfc;
+    --secondaryTextColor: #E6E6E6;
 }
 
 // stylelint-disable-next-line
@@ -16,6 +16,6 @@ $color-transparentDark:     rgba(0, 0, 0, 0.775);
 
     :root {
         --backgroundColor: #38444b;
-        --primaryTextColor: #fcfcfc;
+        --primaryTextColor: #E6E6E6;
     }
 }

@@ -1,13 +1,15 @@
-let cacheName = 'hello-world-page';
+let cacheName = 'veeck-v1';
 let filesToCache = [
     '/',
-    '/index.html'
+    '/*.html',
+    '/js/*.js',
+    '/css/*.css'
 ];
 
-self.addEventListener('install', function (e) {
+self.addEventListener('install', event => {
     console.log('[ServiceWorker] Install');
-    e.waitUntil(
-        caches.open(cacheName).then(function (cache) {
+    event.waitUntil(
+        caches.open(cacheName).then(cache => {
             console.log('[ServiceWorker] Caching app shell');
             return cache.addAll(filesToCache);
         })
