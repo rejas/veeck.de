@@ -9,9 +9,9 @@ const config = {
         dist: './dist'
     },
     favicons: {
-        appName: 'My Homepage',
-        appDescription: 'This is my homepage',
-        developerName: 'Veeck',
+        appName: 'veeck.de',
+        appDescription: 'my homepage',
+        developerName: 'veeck',
         developerURL: 'https://veeck.de/',
         background: '#FFFFFF',
         path: '/favicons',
@@ -19,7 +19,7 @@ const config = {
         display: 'standalone',
         orientation: 'portrait',
         logging: false,
-        theme_color: '#E6E6E6',
+        theme_color: '#e6e6e6',
         online: false,
         html: '../../../src/assemble/partials/html/icons.html',
         pipeHTML: true,
