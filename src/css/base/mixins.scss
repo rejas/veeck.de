@@ -60,7 +60,7 @@
         font-family: $family;
         font-weight: $weight;
         font-style: $style;
-        src: url('#{$file-base}.woff') format('woff'), url('#{$file-base}.woff2') format('woff2');
+        src: url('#{$file-base}.woff2') format('woff2');
     }
 }
 

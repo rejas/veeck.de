@@ -4,11 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
-@import url('https://fonts.googleapis.com/css?family=Poppins');
-
-$font-color:            'Poppins';
-$font-header:           'Permanent Marker';
-$font-main:             'Nunito';
 
 $min-font-size:         16px;
 $max-font-size:         20px;
@@ -35,7 +30,8 @@ $font-weight-normal:    400;
 $font-weight-medium:    500;
 $font-weight-bold:      700;
 
-/**
- * TODO fix this mixin
- */
-//@include font-face('BungeeColor-Regular', '../assets/fonts/BungeeColor-Regular_svg', $font-weight-normal);
+@include font-face('BungeeColor', './assets/fonts/BungeeColor', $font-weight-normal);
+
+$font-color:            'BungeeColor';
+$font-header:           'Permanent Marker';
+$font-main:             'Nunito';
