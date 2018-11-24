@@ -35,11 +35,28 @@
 
 .galleryBox {
     display: grid;
-    grid-gap: $margin-md;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-row-gap: $margin-md;
+    grid-template-columns: 1fr;
+
+    @include aboveBreakpoint(xs) {
+        grid-column-gap: $margin-md;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
 
     &__item {
         border-bottom: none;
+
+        @include belowBreakpoint(xs) {
+            height: 8rem;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        @include aboveBreakpoint(xs) {
+        }
     }
 
     &--extended {
