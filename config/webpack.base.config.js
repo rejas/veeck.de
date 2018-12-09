@@ -29,7 +29,6 @@ const webpackconfig = {
                     MiniCssExtractPlugin.loader, {
                         loader: 'css-loader',
                         options: {
-                            minimize: true,
                             sourceMap: true
                         }
                     }, {
