@@ -498,7 +498,7 @@ AddDefaultCharset utf-8
 
 # <IfModule mod_headers.c>
 
-#     Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
+    Header set Content-Security-Policy "script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://adservice.google.com https://adservice.google.de; object-src 'self'"
 
 #     # `mod_headers` cannot match based on the content-type, however,
 #     # the `Content-Security-Policy` response header should be send
