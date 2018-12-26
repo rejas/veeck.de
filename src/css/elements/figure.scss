@@ -1,7 +1,6 @@
 $colorFigure:   #ede1c9;
 
 .figure {
-    border-radius: $border-radius-md;
     position: relative;
     height: 100%;
 
@@ -217,35 +216,6 @@ $colorFigure:   #ede1c9;
 
         &:hover {
             transform: translateY(-1px);
-        }
-    }
-
-    /**
-     * Theme Variation
-     */
-    &--travel {
-        @include aboveBreakpoint(xs) {
-            background-color: var(--lightPrimaryColor);
-            box-shadow: 4px 4px 8px -4px $color-transparentDark;
-            overflow: visible;
-            padding: 0.5rem 0.5rem 0;
-            transform: rotate(var(--figure-angle-seed));
-            transform-style: preserve-3d;
-
-            &::before {
-                content: '';
-                display: block;
-                position: absolute;
-                top: -15px;
-                width: 75px;
-                height: 25px;
-                background-color: $colorFigure;
-                opacity: 0.5;
-            }
-
-            figcaption {
-                transform: translateZ(30px);
-            }
         }
     }
 }
