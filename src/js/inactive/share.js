@@ -1,4 +1,5 @@
 let Share = {
+
     init: () => {
         /**
          * Share to facebook

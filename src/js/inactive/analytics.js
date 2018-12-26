@@ -3,7 +3,6 @@
  *
  * import '~cookieconsent/build/cookieconsent.min.css';
  */
-
 import 'cookieconsent';
 import galite from 'ga-lite';
 
