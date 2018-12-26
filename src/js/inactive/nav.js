@@ -1,8 +1,7 @@
 /* global MLMenu */
-//import 'multilevelmenu';
+import 'multilevelmenu';
 
 let Nav = {
-
     init: () => {
         let navEl = document.querySelector('.navigation'),
             menuEl = document.getElementById('ml-menu'),

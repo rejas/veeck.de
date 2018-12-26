@@ -1,6 +1,7 @@
 import ScrollMagic from 'scrollmagic';
 
 let ButtonBar = {
+
     init: () => {
         /**
          * ScrollMagic
