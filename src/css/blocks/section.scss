@@ -1,8 +1,8 @@
 .section {
 
     &__box {
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(194, 247, 79, 0.24);
-        border-radius: $border-radius-md;
+        //box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(194, 247, 79, 0.24);
+        //border-radius: $border-radius-md;
         padding: 1rem;
         position: relative;
 
@@ -12,11 +12,13 @@
         }
 
         .h3 {
+            background-color: var(--primaryTextColor);
+            color: var(--primaryColor);
             position: absolute;
             top: -$font-size-lg;
-            background-color: var(--backgroundColor);
             padding: 0 0.5rem;
             font-size: $font-size-lg;
+            transform: translateX(var(--transform-translate-seed));
 
             @include belowBreakpoint(sm) {
                 padding: 0;
