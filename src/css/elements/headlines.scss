@@ -18,9 +18,6 @@
     background-color: var(--primaryTextColor);
     color: var(--primaryColor);
     padding: 0 $margin-md;
-    //border-radius: $border-radius-sm;
-    //text-transform: uppercase;
-    //z-index: $z-index-1;
 
     @include aboveBreakpoint(lg) {
         float: none;
