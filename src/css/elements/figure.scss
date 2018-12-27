@@ -17,21 +17,6 @@ $colorFigure:   #ede1c9;
         max-width: 100%;
     }
 
-    /*
-    @include belowBreakpoint(xs) {
-        border-radius: 0;
-        box-shadow: none;
-        background-color: transparent;
-        float: none;
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-    }
-    */
-
     @include aboveBreakpoint(sm) {
 
         &--full {
@@ -61,20 +46,20 @@ $colorFigure:   #ede1c9;
     }
 
     &__caption {
-        font-family: $font-header, serif;
+        //font-family: $font-header, serif;
         font-weight: $font-weight-bold;
         min-height: 2.5rem;
         text-align: center;
         padding: 0.5rem;
+        background-color: var(--primaryTextColor);
+        color: var(--primaryColor);
+        position: relative;
+        transform: translateX(var(--figure-caption-seed));
 
         @include belowBreakpoint(xs) {
             font-size: $font-size-sm;
             min-height: 0;
             padding-top: 0;
-        }
-
-        &--highlighted {
-            background-color: var(--lightPrimaryColor);
         }
     }
 
@@ -129,8 +114,8 @@ $colorFigure:   #ede1c9;
     }
 
     &--basic {
-        background-color: var(--primaryColor);
-        overflow: hidden;
+        //background-color: var(--primaryColor);
+        //overflow: hidden;
         text-decoration: none;
         position: relative;
     }

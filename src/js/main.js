@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Randomize caption positions
      */
-    document.querySelectorAll('.js-image__picture').forEach((figure) => {
-        figure.style.setProperty('--figure-caption-seed', (Math.random() * 10) + 'px');
+    document.querySelectorAll('.js-figure__caption').forEach((figure) => {
+        figure.style.setProperty('--figure-caption-seed', ((Math.random() - 0.5) * 10) + 'px');
     });
 
     /**
