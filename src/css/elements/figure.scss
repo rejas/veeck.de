@@ -54,7 +54,7 @@ $colorFigure:   #ede1c9;
         background-color: var(--primaryTextColor);
         color: var(--primaryColor);
         position: relative;
-        transform: translateX(var(--figure-caption-seed));
+        transform: translateX(var(--transform-translate-seed));
 
         @include belowBreakpoint(xs) {
             font-size: $font-size-sm;
@@ -125,7 +125,7 @@ $colorFigure:   #ede1c9;
         overflow: hidden;
 
         figcaption {
-            transform: translateY(var(--figure-caption-seed));
+            transform: translateY(var(--transform-translate-seed));
             background-color: var(--lightPrimaryColor);
             position: absolute;
             top: 10px;
