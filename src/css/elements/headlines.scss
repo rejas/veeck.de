@@ -3,48 +3,34 @@
 .h3,
 .h4,
 .h5 {
-    font-family: $font-header, serif;
     font-weight: $font-weight-bold;
     text-transform: lowercase;
     margin: 0 0 $margin-md 0;
 }
 
 .h1 {
+    font-family: $font-header, serif;
     font-size: $font-size-xl;
     line-height: $line-height-xl;
 }
 
 .h2 {
+    background-color: var(--primaryTextColor);
+    border-radius: $border-radius-sm;
+    color: var(--primaryColor);
     font-weight: $font-weight-bold;
-    font-size: $font-size-lg;
-    line-height: $line-height-lg;
-    word-break: break-word;
-    text-align: center;
+    padding: 0 $margin-md;
+    //text-transform: uppercase;
+    z-index: $z-index-1;
 
-    @include belowBreakpoint(xs) {
-        margin: 0 (-$margin-md) $margin-md;
-    }
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    &::before,
-    &::after {
-        content: '';
-        flex: 1;
-        height: $margin-sm;
-        color: var(--primaryColor);
-    }
-
-    &::after {
-        background: repeating-linear-gradient(-45deg, var(--primaryColor), var(--primaryColor) 6px, transparent 6px, transparent 12px);
-        margin-left: $margin-md;
-    }
-
-    &::before {
-        background: repeating-linear-gradient(45deg, var(--primaryColor), var(--primaryColor) 6px, transparent 6px, transparent 12px);
-        margin-right: $margin-md;
+    @include aboveBreakpoint(lg) {
+        float: none;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
     }
 
     /**
@@ -64,6 +50,40 @@
             align-self: center;
             border-color: inherit;
             border-top: $border-thickness solid;
+        }
+    }
+
+    &--striped {
+        font-weight: $font-weight-bold;
+        font-size: $font-size-lg;
+        line-height: $line-height-lg;
+        word-break: break-word;
+        text-align: center;
+
+        @include belowBreakpoint(xs) {
+            margin: 0 (-$margin-md) $margin-md;
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &::before,
+        &::after {
+            content: '';
+            flex: 1;
+            height: $margin-sm;
+            color: var(--primaryColor);
+        }
+
+        &::after {
+            background: repeating-linear-gradient(-45deg, var(--primaryColor), var(--primaryColor) 6px, transparent 6px, transparent 12px);
+            margin-left: $margin-md;
+        }
+
+        &::before {
+            background: repeating-linear-gradient(45deg, var(--primaryColor), var(--primaryColor) 6px, transparent 6px, transparent 12px);
+            margin-right: $margin-md;
         }
     }
 }
