@@ -1,8 +1,12 @@
 import ScrollMagic from 'scrollmagic';
+import Smoothscroll from 'smoothscroll-polyfill';
 
 let ButtonBar = {
 
     init: () => {
+        // Used in Back-to-top button
+        Smoothscroll.polyfill();
+
         /**
          * ScrollMagic
          */

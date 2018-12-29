@@ -7,6 +7,7 @@
     "indent-style": false,
     "indent-width": false,
     "line-end-style": false,
+    "line-no-trailing-whitespace": false,
     "tag-self-close": false,
     "tag-name-lowercase": false
 }

@@ -1,13 +1,9 @@
 /* global Modernizr */
 import objectFitImages  from 'object-fit-images';
-import Smoothscroll     from 'smoothscroll-polyfill';
 
 let Polyfill = {
 
     init: () => {
-        // Used in Back-to-top button
-        Smoothscroll.polyfill();
-
         //
         NodeList.prototype.forEach = Array.prototype.forEach;
 
