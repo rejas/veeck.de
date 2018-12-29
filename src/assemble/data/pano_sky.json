@@ -1,8 +1,14 @@
 {
     "images": [
         {
+            "img": "/img/panoramas/skyscraper/athen_alley",
+            "caption": "Alley in Athens, Greece",
+            "isNew": true
+        },
+        {
             "img": "/img/panoramas/skyscraper/dublin_greenhouse",
-            "caption": "Greenhouse in Dublins National Botanic Gardens of Ireland"
+            "caption": "Greenhouse in Dublins National Botanic Gardens of Ireland",
+            "isNew": true
         },
         {
             "img": "/img/panoramas/skyscraper/prague_municipalcorner",

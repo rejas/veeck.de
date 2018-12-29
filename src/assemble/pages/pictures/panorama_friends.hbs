@@ -8,69 +8,12 @@ last-modified: 2014-04-18
 ---
 <article class="article">
     <section class="galleryBox galleryBox--fluid">
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/friends/stef_industrial'
-            caption='Somewhere in Lichtenberg, Berlin'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/friends/stef_rummelsburg'
-            caption='Rummelsburger Bucht, Berlin'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/friends/stef_koeln'
-            caption='Cologne, Germany'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/friends/freiburg_football'
-            caption='Resting after an American Football match'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/friends/freiburg_all'
-            caption='Wolfgang, Chloe and Albrecht'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/friends/freiburg_ansa'
-            caption='Sanni und Anna, Blurred and Happy'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/friends/freiburg_sonja'
-            caption='Sonja in my mess'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/friends/sven_jordanien'
-            caption='Wadi Rum, Jordanien (by Sven Fritz)'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/friends/bastian_kohtao'
-            caption='Sunset at KohTao (by Bastian Müller)'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/friends/bastian_baobabbeach'
-            caption='Baobab Beach (by Bastian Müller)'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/friends/bastian_dentdumidi'
-            caption='Dents Du Midi and Mont Blanc (by Bastian Müller)'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/friends/bastian_matterhorn'
-            caption='Matterhorn and Dent Blanche (by Bastian Müller)'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/friends/bastian_verdon'
-            caption='Sunrise at Gorge du Verdon, France (by Bastian Müller'}}
+        {{#each pano_friends.images}}
+            {{> figure-gallery
+                class='gallery__item'
+                img=img
+                caption=caption
+                isNew=isNew}}
+        {{/each}}
     </section>
 </article>
