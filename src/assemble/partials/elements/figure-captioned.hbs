@@ -1,7 +1,8 @@
 <a href="{{img}}.medium.jpg" title="{{caption}}" class="js-gallery__image">
     <figure class="{{class}} figure figure--basic">
-        <img class="js-lazyload" src="{{img}}.placeholder.jpg" {{#if caption}}alt="{{caption}}" {{/if}}
-             data-original="{{img}}.small.jpg">
+        {{#if isNew}}<div class="figure__ribbon"><span>NEU</span></div>{{/if}}
+        <img class="js-lazyload" src="{{img}}.placeholder.jpg" data-original="{{img}}.small.jpg"
+             {{#if caption}}alt="{{caption}}"{{/if}}>
         <figcaption class="figure__caption js-translate-element">{{caption}}</figcaption>
     </figure>
 </a>
