@@ -8,59 +8,12 @@ last-modified: 2014-04-18
 ---
 <article class="article">
     <section class="galleryBox galleryBox--fluid">
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/skyscraper/prague_municipalcorner'
-            caption='Somewhere in Prague`s Municipal House'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/skyscraper/newzealand_kauri'
-            caption='Very old Kauro tree in NewZealand'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/skyscraper/thailand_buddha'
-            caption='Lying Buddha in Bangkok'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/skyscraper/tanzania_tree'
-            caption='Just a tree in Tanzania'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/skyscraper/tanzania_baobab'
-            caption='View from a baobab-tree in Tanzania'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/skyscraper/curacao_beach'
-            caption='Beach on Curacao'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/skyscraper/berlin_teufelsberg'
-            caption='View from old radar station on Teufelsberg Berlin'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/skyscraper/berlin_alley'
-            caption='Alley in Berlin'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/skyscraper/budapest_bath'
-            caption='Bath in Budapest'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/skyscraper/kiew_cinema'
-            caption='Cinema in Kiew'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/skyscraper/london_alley'
-            caption='Alley in London'}}
+        {{#each pano_sky.images}}
+            {{> figure-gallery
+                class='gallery__item'
+                img=img
+                caption=caption
+                isNew=isNew}}
+        {{/each}}
     </section>
 </article>

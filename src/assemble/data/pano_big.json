@@ -1,0 +1,53 @@
+{
+    "images": [
+        {
+            "img": "/img/panoramas/big/greece_milos",
+            "caption": "View of Adamas on Milos, Greece",
+            "isNew": true
+        },
+        {
+            "img": "/img/panoramas/big/curacao_pool",
+            "caption": "Practicing pool jumping on curacao"
+        },
+        {
+            "img": "/img/panoramas/big/teneriffe_opera",
+            "caption": "Auditorio de Tenerife, concert hall in Santa Cruz"
+        },
+        {
+            "img": "/img/panoramas/big/berlin_theater",
+            "caption": "Berliner Ensemble theater playing The Threepenny Opera"
+        },
+        {
+            "img": "/img/panoramas/big/tanzania_station",
+            "caption": "Ranger station in Mikumi National Park"
+        },
+        {
+            "img": "/img/panoramas/big/tanzania_tree",
+            "caption": "Big tree in Mikumi National Park"
+        },
+        {
+            "img": "/img/panoramas/big/brussels_atomium",
+            "caption": "The famous Atomium in Brusseles"
+        },
+        {
+            "img": "/img/panoramas/big/brussels_passage",
+            "caption": "Shopping alley in Brusseles"
+        },
+        {
+            "img": "/img/panoramas/big/paris_eifel",
+            "caption": "The Eifel Tower in Paris"
+        },
+        {
+            "img": "/img/panoramas/big/budapest_basiliska",
+            "caption": "St. Stephan Basilika in Budapest"
+        },
+        {
+            "img": "/img/panoramas/big/lanzarote_sunset",
+            "caption": "A Sunset over Lancarote"
+        },
+        {
+            "img": "/img/panoramas/big/france_sunset",
+            "caption": "A sunset in France"
+        }
+    ]
+}
