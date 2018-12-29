@@ -61,7 +61,7 @@
         z-index: $z-index-neg;
 
         .object-fit-img {
-            filter: url(#duotone_seafoam);
+            filter: url(#custom_filter);
             min-width: 100%;
             min-height: 100%;
             object-fit: cover;
