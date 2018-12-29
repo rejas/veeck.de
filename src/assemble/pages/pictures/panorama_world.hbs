@@ -8,99 +8,12 @@ last-modified: 2014-03-09
 ---
 <article class="article">
     <section class="galleryBox galleryBox--fluid">
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/tanzania_construction'
-            caption='The construction site'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/tanzania_sunset'
-            caption='Sunset in Mikumi National Park'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/panama_dive'
-            caption='Our snorkeling site in Panama'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/panama_bocas'
-            caption='View of Bastimentos'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/newzealand_laketaupo'
-            caption='Sunset on Lake Taupo, NZ'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/newzealand_rainbow'
-            caption='Rainbow on Lake Taupo, NZ'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/newzealand_pahiasunrise'
-            caption='Sunrise in Pahia, NZ'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/newzealand_northside'
-            caption='View near Opononi, NZ'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/romania_sunset'
-            caption='Pantelimon, Asociaia Prietenia in Bukarest'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/nendaz_valley'
-            caption='View of Haute Nendaz, Suisse'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/nendaz_sunset'
-            caption='Another View of Haute Nendaz, Suisse'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/freiburg_schnee'
-            caption='View from Mount Schauinsland'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/hungary_wisteria'
-            caption='A view into the garden'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/florida_dunes'
-            caption='Beach near Tallahassee, Florida'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/florida_trucks'
-            caption='Wrecked Trucks'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/florida_sunset'
-            caption='Sunset near Tallahassee, Florida'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/indonesia_rinjani'
-            caption='Mount Rinjani, Indonesia'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/indonesia_gili'
-            caption='Gili Travangan'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/world/japan_garden'
-            caption='(One of many) Imperial Garden'}}
+        {{#each pano_world.images}}
+            {{> figure-gallery
+                class='gallery__item'
+                img=img
+                caption=caption
+                isNew=isNew}}
+        {{/each}}
     </section>
 </article>

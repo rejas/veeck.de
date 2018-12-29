@@ -8,51 +8,13 @@ last-modified: 2014-07-10
 ---
 <article class="article">
     <section class="galleryBox galleryBox--fluid">
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/cities/marocco_palace'
-            caption='Old palace ruins in Marrakesh'
-            isNew='true'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/cities/dublin_greenhouse'
-            caption='Greenhouse in Dublins botanic garden'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/cities/berlin_stadium'
-            caption='Berlin Olympic Stadium Germany vs Sweden'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/cities/berlin_reichstag'
-            caption='The Reichstag in Berlin'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/cities/berlin_bahnhof'
-            caption='The new central-station in Berlin'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/cities/freiburg_night'
-            caption='Freiburg At Night'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/cities/japan_alley'
-            caption='Alley way in Sendai'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/cities/frankfurt_regio'
-            caption='Frankfurt Regional Train-Station'}}
-
-        {{> figure-gallery
-            class='gallery__item'
-            img='/img/panoramas/cities/hungary_balaton'
-            caption='Abandoned hotel at the Balaton in Hungary'}}
+        {{#each pano_cities.images}}
+            {{> figure-gallery
+                class='gallery__item'
+                img=img
+                caption=caption
+                isNew=isNew}}
+        {{/each}}
     </section>
 </article>
 
