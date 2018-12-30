@@ -1,14 +1,17 @@
 /* global Promise */
 import 'core-js/es6/promise';
 
-const config = {
-        // If the image gets within 50px in the Y axis, start the download.
-        rootMargin: '50px 0px',
-        threshold: 0.01
-    },
-    images = document.querySelectorAll('.js-lazyload');
+const defaults = {
+    imageLoadedClass: 'js-lazy-image--handled',
+    imageSelector: '.js-lazy-image',
+    // If the image gets within 50px in the Y axis, start the download.
+    rootMargin: '50px 0px',
+    threshold: 0.01,
+};
 
-let imageCount = images.length,
+let config,
+    images,
+    imageCount,
     observer;
 
 /**
@@ -91,13 +94,18 @@ function onIntersection(entries) {
  */
 function applyImage(img, src) {
     // Prevent this from being lazy loaded a second time.
-    img.classList.add('js-lazyload--handled');
+    img.classList.add(config.imageLoadedClass);
     img.src = src;
 }
 
 let Lazy = {
 
-    init: () => {
+    init: (options) => {
+        config = {...defaults, ...options};
+
+        images = document.querySelectorAll(config.imageSelector);
+        imageCount = images.length;
+
         // If we don't have support for intersection observer, loads the images immediately
         if (!('IntersectionObserver' in window)) {
             loadImagesImmediately(images);
@@ -108,7 +116,7 @@ let Lazy = {
             // foreach() is not supported in IE
             for (let i = 0; i < images.length; i++) {
                 let image = images[i];
-                if (image.classList.contains('js-lazy-image--handled')) {
+                if (image.classList.contains(config.imageLoadedClass)) {
                     continue;
                 }
 

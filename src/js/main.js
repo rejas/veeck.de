@@ -47,7 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Lazyload images
      */
-    Lazy.init();
+    Lazy.init({
+        imageLoadedClass: '.js-lazyload--handled',
+        imageSelector: '.js-lazyload'
+    });
 
     /**
      * Halka Image Lightbox
