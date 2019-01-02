@@ -1,0 +1,21 @@
+figure {
+    float:left;
+}
+
+figure.fig_right {
+    float:right;
+    margin: 0 0 0.75em 0.75em;
+}
+
+figure.fig_half {
+    width: 50%;
+}
+
+.gallery_article figure {
+    float: left;
+    max-width: 23%;
+}
+
+.research_article {
+    min-height: 250px;
+}

@@ -1,0 +1,18 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    veeck -- chef -- <twitter>
+
+# THANKS
+
+    Matt Kersley http://github.com/mattkersley/Responsive-Menu
+    Marco van Hylckama Vlieg http://www.i-marco.nl/weblog/archive/2010/02/27/yup_yet_another_jquery_accordi
+    Antone Roundy http://design.geckotribe.com/colorwheel/
+    Mika Tuupola http://www.appelsiini.net/projects/lazyload
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Normalize.css, jQuery, Modernizr
