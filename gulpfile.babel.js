@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * CONFIGS
  */
@@ -119,7 +117,7 @@ gulp.task('check:html', gulp.series('assemble', () => {
             failOnError: true,
             config: '.htmllintrc'
         }));
-});
+}));
 
 // Detect errors and potential problems in your JavaScript code (except vendor scripts)
 gulp.task('check:js', () => {
