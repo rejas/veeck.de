@@ -39,7 +39,7 @@
     "assemble": "0.24.3",
     "assemble-middleware-page-variable": "0.1.0",
     "autoprefixer": "9.4.4",
-    "babel-loader": "8.0.4",
+    "babel-loader": "8.0.5",
     "browser-sync": "2.26.3",
     "css-loader": "2.1.0",
     "css-mqpacker": "7.0.0",
