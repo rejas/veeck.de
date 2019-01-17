@@ -65,7 +65,7 @@
     "gulp-modernizr": "3.1.0",
     "gulp-prompt": "1.2.0",
     "gulp-release-it": "2.0.14",
-    "gulp-responsive": "https://github.com/rejas/gulp-responsive#multi_format",
+    "gulp-responsive": "2.13.0",
     "gulp-sitemap": "6.1.0",
     "gulp-stylelint": "8.0.0",
     "gulp-uglify": "3.0.1",

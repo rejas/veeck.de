@@ -293,13 +293,7 @@ gulp.task('scale:thumbs', () => {
     return gulp.src(`${dirs.org}/thumbnails/**/*.jpg`)
         .pipe(plugins.responsive({
             '**/*.jpg': [{
-                rename: {
-                    extname: '.jpg'
-                },
-            }, {
-                rename: {
-                    extname: '.webp'
-                },
+                format: ['jpg','webp']
             }]
         }, config.responsive))
         .pipe(gulp.dest(`${dirs.src}/img/`));
