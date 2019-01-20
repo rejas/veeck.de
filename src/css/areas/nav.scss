@@ -12,11 +12,11 @@
     height: 100%;
     width: $nav-width;
     z-index: $z-index-4;
-    mix-blend-mode: difference;
+    //mix-blend-mode: difference;
 
     @include landscape-phone() {
         background-color: var(--lightPrimaryColor);
-        mix-blend-mode: normal;
+        //mix-blend-mode: normal;
         width: $nav-width;
 
         &__item {
@@ -30,7 +30,7 @@
 
     @include portrait-phone() {
         background-color: var(--lightPrimaryColor);
-        mix-blend-mode: normal;
+        //mix-blend-mode: normal;
         height: $nav-height;
         width: 100%;
         flex-flow: row;
@@ -56,11 +56,7 @@
         }
 
         > svg {
-            stroke: var(--secondaryTextColor);
-
-            @include phone() {
-                stroke: var(--primaryTextColor);
-            }
+            stroke: var(--primaryTextColor);
         }
     }
 
