@@ -9,7 +9,7 @@ import Konami           from 'konami';
 // Modules
 import Colors           from './modules/colors';
 import Input            from './modules/input';
-import Lazy             from './modules/lazy';
+import Lazy             from 'lazy-observer-load';
 import Polyfill         from './modules/polyfill';
 
 // Styles

@@ -1,5 +1,6 @@
 /* global Modernizr */
 import objectFitImages  from 'object-fit-images';
+import 'core-js/es6/promise';
 
 let Polyfill = {
 
