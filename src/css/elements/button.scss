@@ -14,7 +14,7 @@ $btn-size-lg: 3rem;
     font-size: $font-size-md;
     font-weight: $font-weight-bold;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 $margin-md;
     text-align: center;
     text-transform: uppercase;
     user-select: none;
@@ -57,7 +57,7 @@ $btn-size-lg: 3rem;
 .flexBtn {
 
     &__icon {
-        margin: 0 0.5rem 0 0;
+        margin: 0 $margin-sm 0 0;
 
         @include belowBreakpoint(xs) {
             margin: 0;

@@ -35,6 +35,7 @@
         color: var(--primaryColor);
         font-weight: $font-weight-bold;
         padding: 0 $margin-md;
+        margin: 0 0 $margin-sm;
         text-transform: uppercase;
         z-index: $z-index-1;
     }
@@ -49,7 +50,7 @@
         padding: 6rem;
 
         @include belowBreakpoint(xs) {
-            padding: 1rem;
+            padding: $margin-md;
         }
     }
 }

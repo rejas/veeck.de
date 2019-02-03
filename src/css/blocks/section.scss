@@ -1,27 +1,19 @@
 .section {
 
     &__box {
-        padding: 1rem;
+        padding: $margin-md;
         position: relative;
 
         @include belowBreakpoint(sm) {
             box-shadow: none;
-            padding: 1rem 0;
+            padding: $margin-md 0;
         }
+    }
 
-        .h3 {
-            background-color: var(--primaryTextColor);
-            color: var(--primaryColor);
-            position: absolute;
-            top: -$font-size-lg;
-            padding: 0 0.5rem;
-            font-size: $font-size-lg;
-            transform: translateX(var(--transform-translate-seed));
-
-            @include belowBreakpoint(sm) {
-                padding: 0;
-            }
-        }
+    &__headline {
+        position: absolute;
+        top: -$font-size-lg;
+        transform: translateX(var(--transform-translate-seed));
     }
 
     &__flex {
@@ -30,7 +22,7 @@
         justify-content: space-between;
 
         > button {
-            margin: 0 0 0.5rem;
+            margin: 0 0 $margin-sm;
         }
     }
 }

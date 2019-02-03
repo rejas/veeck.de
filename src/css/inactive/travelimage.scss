@@ -6,7 +6,7 @@
         background-color: var(--lightPrimaryColor);
         box-shadow: 4px 4px 8px -4px $color-transparentDark;
         overflow: visible;
-        padding: 0.5rem 0.5rem 0;
+        padding: $margin-sm $margin-sm 0;
         transform: rotate(var(--figure-angle-seed));
         transform-style: preserve-3d;
 

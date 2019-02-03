@@ -3,6 +3,7 @@ $colorFigure:   #ede1c9;
 .figure {
     position: relative;
     height: 100%;
+    margin: 0;
 
     a {
         display: block;
@@ -20,17 +21,17 @@ $colorFigure:   #ede1c9;
     @include aboveBreakpoint(sm) {
 
         &--full {
-            margin: 0.5rem 0 1rem;
+            margin: $margin-sm 0 $margin-md;
         }
 
         &--left {
             float: left;
-            margin: 0.5em 1rem 1rem 0;
+            margin: 0.5em $margin-md $margin-md 0;
         }
 
         &--right {
             float: right;
-            margin: 0.5rem 0 1rem 1rem;
+            margin: $margin-sm 0 $margin-md $margin-md;
         }
     }
 
@@ -46,11 +47,10 @@ $colorFigure:   #ede1c9;
     }
 
     &__caption {
-        //font-family: $font-header, serif;
         font-weight: $font-weight-bold;
         min-height: 2.5rem;
         text-align: center;
-        padding: 0.5rem;
+        padding: $margin-sm;
         background-color: var(--primaryTextColor);
         color: var(--primaryColor);
         position: relative;
@@ -128,7 +128,7 @@ $colorFigure:   #ede1c9;
             position: absolute;
             top: 10px;
             left: -5px;
-            padding: 0 0.5rem;
+            padding: 0 $margin-sm;
             white-space: nowrap;
             text-transform: uppercase;
             font-size: $font-size-ms;
@@ -138,7 +138,7 @@ $colorFigure:   #ede1c9;
 
     &--github {
         float: left;
-        margin: 0 1rem 1rem 0;
+        margin: 0 $margin-md $margin-md 0;
 
         @include belowBreakpoint(xs) {
             width: 100%;
@@ -183,7 +183,7 @@ $colorFigure:   #ede1c9;
         border: $border-thickness solid $color-transparent;
         border-radius: $border-radius-lg;
         float: left;
-        margin: 0.25rem 1rem 1rem 0;
+        margin: $margin-xs $margin-md $margin-md 0;
         width: auto;
 
         @include belowBreakpoint(xs) {

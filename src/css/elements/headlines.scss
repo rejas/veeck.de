@@ -17,7 +17,7 @@
 .h2 {
     background-color: var(--primaryTextColor);
     color: var(--primaryColor);
-    padding: 0 $margin-md;
+    padding: $margin-xs $margin-md;
 
     @include aboveBreakpoint(lg) {
         float: none;
@@ -32,13 +32,12 @@
     /**
      * Theme Variation
      */
-    &--brutal {
+    .theme--brutal & {
         background-color: var(--primaryTextColor);
         color: var(--primaryColor);
         display: grid;
         grid-template-columns: 1fr auto 1fr;
         grid-gap: $margin-sm;
-        padding: 0.25rem 0.5rem 0.5rem;
 
         &::before,
         &::after {
@@ -85,5 +84,6 @@
 }
 
 .h3 {
+    padding: 0 $margin-md;
     text-transform: none;
 }

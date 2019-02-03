@@ -26,7 +26,7 @@
 .input__select {
     cursor: pointer;
     position: relative;
-    padding: 0.5rem 0;
+    padding: $margin-sm 0;
     border-bottom: $border-thickness solid var(--primaryColor);
     border-radius: 0;
     margin: 0 0 1.5rem 0;
@@ -36,7 +36,7 @@
         content: '';
         position: absolute;
         right: 0;
-        top: 1rem;
+        top: $margin-md;
         width: 2rem;
         height: 2rem;
     }
@@ -64,7 +64,7 @@
 .input__field--manami {
     width: 100%;
     background: transparent;
-    padding: 0.5rem;
+    padding: $margin-sm;
     margin-bottom: 1.5rem;
     color: var(--primaryTextColor);
     z-index: $z-index-5;
@@ -83,7 +83,7 @@
     width: 100%;
     position: absolute;
     text-align: left;
-    padding: 0.5rem 0;
+    padding: $margin-sm 0;
     pointer-events: none;
     font-weight: $font-weight-bold;
 
