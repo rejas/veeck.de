@@ -1,6 +1,6 @@
 <svg class="header__duotone-filters" xmlns="http://www.w3.org/2000/svg">
     <filter id="custom_filter">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="5"/>
+        <feGaussianBlur in="SourceGraphic" stdDeviation="5"></feGaussianBlur>
         <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
             <feFuncR id="funcR" type="table" tableValues="0 0"></feFuncR>
             <feFuncG id="funcG" type="table" tableValues="0 0"></feFuncG>
