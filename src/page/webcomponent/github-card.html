@@ -12,7 +12,7 @@
             overflow: hidden;
             border-radius: 6px;
             position: relative;
-            background-color: #2E353C;
+            background-color: #2e353c;
             text-align: center;
             color: #fff;
             font-weight: 100;
@@ -76,16 +76,14 @@
         }
 
         .user-repos,
-        .user-following,
         .user-followers {
             display: inline-block;
             font-size: 22px;
             color: #999;
         }
 
-        .user-repos:after,
-        .user-following:after,
-        .user-followers:after {
+        .user-repos::after,
+        .user-followers::after {
             content: attr(data-stats);
             text-transform: uppercase;
             display: block;
