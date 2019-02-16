@@ -13,7 +13,7 @@ import Lazy             from 'lazy-observer-load';
 import Polyfill         from './modules/polyfill';
 
 // Web components
-import 'github-card';
+import 'github-webcomponents';
 
 // Styles
 import '../css/main.scss';
