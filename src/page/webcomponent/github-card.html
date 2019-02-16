@@ -181,7 +181,8 @@
     XgithubProto.createdCallback = function () {
         var template = doc.querySelector('#github-template'),
             usr = template.content.cloneNode(true);
-        this.shadow = this.createShadowRoot();
+
+        this.shadow = this.attachShadow({ mode: 'open' });
         this.shadow.appendChild(usr);
     };
 
