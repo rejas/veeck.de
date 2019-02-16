@@ -1,10 +1,9 @@
 customElements.define('github-card', class extends HTMLElement {
 
     constructor() {
-        super(); // always call super() first in the ctor.
-        // Create shadow DOM for the component.
-        let shadowRoot = this.attachShadow({mode: 'open'});
-        shadowRoot.innerHTML = `
+        super();
+        this.shadowRoot = this.attachShadow({mode: 'open'});
+        this.shadowRoot.innerHTML = `
             <style>
                 :host {
                     display: inline-block;
@@ -14,7 +13,7 @@ customElements.define('github-card', class extends HTMLElement {
                     font-family: "Helvetica", Arial, sans-serif;
                     display: inline-block;
                     width: 265px;
-                    height: 300px;
+                    height: 320px;
                     overflow: hidden;
                     border-radius: 6px;
                     position: relative;
@@ -100,7 +99,7 @@ customElements.define('github-card', class extends HTMLElement {
                 }
 
                 .spinner {
-                    background: #000 url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzgiIGhlaWdodD0iMzgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxIDEpIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBzdHJva2Utb3BhY2l0eT0iLjUiIGN4PSIxOCIgY3k9IjE4IiByPSIxOCIvPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOCI+PGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIGZyb209IjAgMTggMTgiIHRvPSIzNjAgMTggMTgiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIi8+PC9wYXRoPjwvZz48L3N2Zz4=) no-repeat center center;
+                    background: #2e353c url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzgiIGhlaWdodD0iMzgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlPSIjZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxIDEpIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBzdHJva2Utb3BhY2l0eT0iLjUiIGN4PSIxOCIgY3k9IjE4IiByPSIxOCIvPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOCI+PGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIGZyb209IjAgMTggMTgiIHRvPSIzNjAgMTggMTgiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIi8+PC9wYXRoPjwvZz48L3N2Zz4=) no-repeat center center;
                 }
 
                 a.user-github-url,
@@ -147,7 +146,7 @@ customElements.define('github-card', class extends HTMLElement {
     disconnectedCallback() {
     }
 
-    getUser () {
+    getUser() {
         const url = 'https://api.github.com/users/';
         const xhr = new XMLHttpRequest();
 
@@ -165,7 +164,7 @@ customElements.define('github-card', class extends HTMLElement {
         xhr.send();
     }
 
-    fillUser (user) {
+    fillUser(user) {
         const usr = this.shadowRoot;
 
         usr.querySelector('.user-account').textContent = this.getAttribute('user');
