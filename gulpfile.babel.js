@@ -86,7 +86,7 @@ gulp.task('assemble', gulp.series('load', () => {
  * COPY TASKS
  */
 
-// Copy all page files (including webcomponents) into the `dist` folder
+// Copy all page files into the `dist` folder
 gulp.task('copy:files', () => {
     return gulp.src([`${dirs.src}/page/**/*`, `!${dirs.src}/**/.DS_Store`], { dot: true })
         .pipe(gulp.dest(dirs.dist));

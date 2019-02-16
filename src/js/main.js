@@ -12,6 +12,9 @@ import Input            from './modules/input';
 import Lazy             from 'lazy-observer-load';
 import Polyfill         from './modules/polyfill';
 
+// Web components
+import 'github-card';
+
 // Styles
 import '../css/main.scss';
 
