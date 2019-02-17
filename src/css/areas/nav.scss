@@ -46,7 +46,7 @@
     }
 
     &__item {
-        opacity: 0;
+        padding: 0;
         order: 1;
 
         @include phone() {
@@ -55,8 +55,20 @@
             flex-flow: column;
         }
 
-        > svg {
-            stroke: var(--primaryTextColor);
+        @include desktop() {
+            border: 1px solid var(--primaryColor);
+            background-color: transparent;
+
+            > svg {
+                stroke: var(--primaryColor);
+            }
+
+            &:hover {
+
+                > svg {
+                    stroke: var(--lightPrimaryColor);
+                }
+            }
         }
     }
 
@@ -71,15 +83,8 @@
             color: var(--primaryTextColor);
         }
 
-        @include aboveBreakpoint(lg) {
+        @include aboveBreakpoint(md) {
             display: none;
-        }
-    }
-
-    &:target {
-
-        .navigation__item {
-            opacity: 1;
         }
     }
 }

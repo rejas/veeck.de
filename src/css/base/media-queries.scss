@@ -109,14 +109,14 @@
 }
 
 @mixin phone {
-    @include belowBreakpoint(lg) {
+    @include belowBreakpoint(md) {
         @content;
     }
 }
 
 @mixin landscape-phone {
     @media (orientation: landscape) {
-        @include belowBreakpoint(lg) {
+        @include belowBreakpoint(md) {
             @content;
         }
     }
@@ -124,13 +124,19 @@
 
 @mixin portrait-phone {
     @media (orientation: portrait) {
-        @include belowBreakpoint(lg) {
+        @include belowBreakpoint(md) {
             @content;
         }
     }
 }
 
 @mixin tablet {
+    @include betweenBreakpoint(md, lg) {
+        @content;
+    }
+}
+
+@mixin desktop {
     @include aboveBreakpoint(lg) {
         @content;
     }

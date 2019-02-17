@@ -5,12 +5,16 @@
 
     &--capped {
 
+        p:first-of-type::first-line {
+            font-weight: $font-weight-bold;
+        }
+
         p:first-of-type::first-letter {
             float: left;
             font-size: $font-size-xl;
             font-weight: $font-weight-bold;
             line-height: $line-height-xl;
-            margin: 0 $margin-sm 0 0;
+            margin: $margin-sm $margin-sm 0 0;
             padding: 0;
         }
 

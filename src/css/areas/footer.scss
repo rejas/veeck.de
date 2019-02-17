@@ -6,7 +6,7 @@
     position: relative;
     background-color: var(--backgroundColor);
 
-    @include aboveBreakpoint(lg) {
+    @include aboveBreakpoint(md) {
         margin: 0 auto;
         max-width: $md;
     }
