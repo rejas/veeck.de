@@ -5,15 +5,15 @@
 import BrowserUpdate    from 'browser-update/update.npm.js';
 import HalkaBox         from 'halkabox';
 import Konami           from 'konami';
+import Lazy             from 'lazy-observer-load';
+
+// Web components
+import 'github-webcomponents';
 
 // Modules
 import Colors           from './modules/colors';
 import Input            from './modules/input';
-import Lazy             from 'lazy-observer-load';
 import Polyfill         from './modules/polyfill';
-
-// Web components
-import 'github-webcomponents';
 
 // Styles
 import '../css/main.scss';
@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
      * Check browser version
      */
     BrowserUpdate({
-        api: 2018.05,
+        api: 2019.02,
         insecure: true,
         unsupported: true,
         required: {
-            e:12,f:-2,o:-2,s:-2,c:-2
+            e:-3,f:-3,o:-3,s:-3,c:-3
         }
     });
 

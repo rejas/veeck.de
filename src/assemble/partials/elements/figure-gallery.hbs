@@ -4,7 +4,7 @@
         {{#if thumb}}
             <img src="{{thumb}}.jpg" {{#if caption}}alt="{{caption}}"{{/if}}>
         {{else}}
-            <img class="js-lazyload" src="{{img}}.placeholder.jpg" data-original="{{img}}.small.jpg"
+            <img class="js-lazyload" src="{{img}}.placeholder.jpg" data-src="{{img}}.small.jpg"
                 {{#if caption}}alt="{{caption}}"{{/if}}>
         {{/if}}
     </figure>
