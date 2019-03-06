@@ -7,6 +7,9 @@
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
+    "globals": {
+        "Modernizr": true
+    },
     "extends": "eslint:recommended",
     "rules": {
         "indent": [

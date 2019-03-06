@@ -3,8 +3,7 @@ import tinycolor from 'tinycolor2';
 let Colors = {
 
     init: () => {
-        //TODO Replace with Modernizr-test when it comes out
-        if (window.CSS && CSS.supports('color', 'var(--primary)')) {
+        if (Modernizr.customproperties) {
             const header = document.querySelector('header');
             let newColor;
 
