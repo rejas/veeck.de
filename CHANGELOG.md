@@ -1,3 +1,7 @@
+2019/03/11: Added fourth entry for <a class="article__link" href="travel_18_cuba.html">Cuba</a>
+
+2018/05/20: Added third entry for <a class="article__link" href="travel_18_cuba.html">Cuba</a>
+
 2018/04/18: Added second entry for <a class="article__link" href="travel_18_cuba.html">Cuba</a>
 
 2018/03/25: Added first entry for <a class="article__link" href="travel_18_cuba.html">Cuba</a>
