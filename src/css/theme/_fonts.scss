@@ -2,8 +2,8 @@
  * Fonts
  */
 
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
 
 $min-font-size:         16px;
 $max-font-size:         20px;
@@ -33,5 +33,5 @@ $font-weight-bold:      700;
 @include font-face('BungeeColor', './assets/fonts/BungeeColor', $font-weight-normal);
 
 $font-color:            'BungeeColor';
-$font-header:           'Permanent Marker';
-$font-main:             'Nunito';
+$font-header:           'Fredericka the Great';
+$font-main:             'Source Sans Pro';

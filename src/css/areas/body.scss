@@ -9,6 +9,9 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    font-family: $font-main, sans-serif;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
     text-rendering: optimizeLegibility;
     -ms-touch-action: auto;
     -moz-osx-font-smoothing: grayscale;
