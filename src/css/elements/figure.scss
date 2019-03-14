@@ -137,6 +137,11 @@ $colorFigure:   #ede1c9;
     }
 
     &--github {
+        --ghc-primarycolor: var(--primaryColor);
+        --ghc-secondarycolor: var(--backgroundColor);
+        --ghc-textcolor: var(--primaryTextColor);
+        --ghc-fontsize: 1rem;
+
         float: left;
         margin: 0 $margin-md $margin-md 0;
 

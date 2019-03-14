@@ -26,8 +26,8 @@
   "dependencies": {
     "browser-update": "3.2.5",
     "core-js": "^2.6.5",
-    "feather-icons": "^4.17.0",
-    "github-webcomponents": "^1.0.0",
+    "feather-icons": "^4.19.0",
+    "github-webcomponents": "^1.1.0",
     "halkabox": "^1.5.0",
     "konami": "1.6.2",
     "lazy-observer-load": "^1.0.1",
@@ -36,8 +36,8 @@
     "tinycolor2": "1.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.3",
-    "@babel/preset-env": "^7.3.1",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
     "@babel/register": "7.0.0",
     "assemble": "0.24.3",
     "assemble-middleware-page-variable": "0.1.0",
@@ -84,12 +84,12 @@
     "style-loader": "0.23.1",
     "stylelint": "^9.10.1",
     "stylelint-config-standard": "18.2.0",
-    "stylelint-scss": "^3.5.3",
-    "terser-webpack-plugin": "^1.2.2",
+    "stylelint-scss": "^3.5.4",
+    "terser-webpack-plugin": "^1.2.3",
     "url-loader": "1.1.2",
     "vinyl-ftp": "0.6.1",
-    "webpack": "^4.29.5",
-    "webpack-bundle-analyzer": "^3.0.4",
+    "webpack": "^4.29.6",
+    "webpack-bundle-analyzer": "^3.1.0",
     "webpack-merge": "4.2.1",
     "webpack-stream": "5.2.1"
   }
