@@ -19,7 +19,7 @@ const config = {
         display: 'standalone',
         orientation: 'portrait',
         logging: false,
-        theme_color: '#e6e6e6',
+        theme_color: '#E6E6E6',
         online: false,
         html: '../../../src/assemble/partials/html/icons.html',
         pipeHTML: true,
@@ -36,8 +36,7 @@ const config = {
         removeComments: true
     },
     modernizr: {
-        'options': ['setClasses'],
-        'tests': ['csscustomproperties']
+        'options': ['setClasses']
     },
     responsive: {
         // The output quality for JPEG, WebP and TIFF output formats

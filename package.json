@@ -38,8 +38,8 @@
     "tinycolor2": "1.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.0",
-    "@babel/preset-env": "^7.4.2",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
     "@babel/register": "7.4.0",
     "assemble": "0.24.3",
     "assemble-middleware-page-variable": "0.1.0",
