@@ -28,7 +28,7 @@
     "test:mocha": "mocha --recursive test",
     "update": "npm-check -u",
     "--- NPM SCRIPTS ---": "-------------------------------------------------------------",
-    "version": "auto-changelog --commit-limit false --package && git add CHANGELOG_old.md",
+    "version": "auto-changelog --commit-limit false --package && git add CHANGELOG.md",
     "--- TODO SCRIPTS ---": "------------------------------------------------------------",
     "analyze": "react-scripts build --stats && webpack-bundle-analyzer build/bundle-stats.json -m static -r build/bundle-stats.html -O",
     "cleanup": "prettier --write src/**/*.{jsx,js}",
