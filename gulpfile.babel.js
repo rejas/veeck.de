@@ -15,7 +15,6 @@ import webpackProdConfig    from './config/webpack.prod.config.js';
 import gulp             from    'gulp';
 import gcachebust       from    'gulp-cache-bust';
 import gplugins         from    'gulp-load-plugins';
-import {release}        from    'gulp-release-it';
 
 /**
  * OTHER PLUGINS
@@ -365,10 +364,8 @@ gulp.task('images',     gulp.series('scale:images', 'prepare:images'));
  * MAIN TASKS
  */
 
-release(gulp);
-
 gulp.task('default',    gulp.series('clean', 'check', 'copy', 'webpack:prod', 'html'));
 
-gulp.task('deploy',     gulp.series('default', 'release', 'upload:page'));
+gulp.task('deploy',     gulp.series('default', 'upload:page'));
 
 gulp.task('dev',        gulp.series('clean', 'copy', 'webpack:dev', 'html', 'connect'));
