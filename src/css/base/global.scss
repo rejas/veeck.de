@@ -39,7 +39,7 @@ textarea {
 
 a,
 a.cc-link {
-    color: var(--primaryTextColor);
+    color: var(--contentTextColor);
     border-bottom: $border-thickness solid;
     border-bottom-color: var(--primaryColor);
     outline: none;
@@ -68,8 +68,8 @@ pre {
     display: inline-block;
     width: 100%;
     padding: $margin-sm;
-    background-color: var(--accentColor);
-    color: var(--secondaryTextColor);
+    background-color: var(--primaryColor);
+    color: var(--primaryTextColor);
     border: $border-thickness solid $color-transparent;
     border-radius: $border-radius-md;
     margin-bottom: $margin-sm;

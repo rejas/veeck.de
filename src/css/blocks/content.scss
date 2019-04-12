@@ -12,17 +12,19 @@
     }
 
     &--default {
-        background-color: var(--backgroundColor);
+        background-color: var(--contentBackgroundColor);
+        color: var(--contentTextColor);
 
         > .article {
-            background-color: var(--backgroundColor);
+            background-color: var(--contentBackgroundColor);
+            color: var(--contentTextColor);
             max-width: $md;
         }
     }
 
     &--landing {
         background-color: transparent;
-        color: var(--primaryTextColor);
+        color: var(--contentTextColor);
         padding: 0 0 2rem;
 
         > .article {

@@ -4,7 +4,8 @@
 .footer {
     grid-area: footer;
     position: relative;
-    background-color: var(--backgroundColor);
+    background-color: var(--contentBackgroundColor);
+    color: var(--contentTextColor);
 
     @include aboveBreakpoint(md) {
         margin: 0 auto;

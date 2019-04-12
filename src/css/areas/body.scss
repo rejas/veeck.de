@@ -2,9 +2,9 @@
 @import '../theme/variables';
 
 .body {
-    background-color: var(--backgroundColor);
+    background-color: var(--contentBackgroundColor);
     box-sizing: border-box;
-    color: var(--primaryTextColor);
+    color: var(--contentTextColor);
     height: 100%;
     margin: 0;
     padding: 0;

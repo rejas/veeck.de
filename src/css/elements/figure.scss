@@ -93,10 +93,10 @@ $colorFigure:   #ede1c9;
                 left: 0;
                 top: 100%;
                 z-index: -1;
-                border-left: $border-thickness solid var(--accentColor);
+                border-left: $border-thickness solid var(--primaryColor);
                 border-right: $border-thickness solid transparent;
                 border-bottom: $border-thickness solid transparent;
-                border-top: $border-thickness solid var(--accentColor);
+                border-top: $border-thickness solid var(--primaryColor);
             }
 
             &::after {
@@ -106,9 +106,9 @@ $colorFigure:   #ede1c9;
                 top: 100%;
                 z-index: -1;
                 border-left: $border-thickness solid transparent;
-                border-right: $border-thickness solid var(--accentColor);
+                border-right: $border-thickness solid var(--primaryColor);
                 border-bottom: $border-thickness solid transparent;
-                border-top: $border-thickness solid var(--accentColor);
+                border-top: $border-thickness solid var(--primaryColor);
             }
         }
     }
@@ -138,8 +138,8 @@ $colorFigure:   #ede1c9;
 
     &--github {
         --ghc-primarycolor: var(--primaryColor);
-        --ghc-secondarycolor: var(--backgroundColor);
-        --ghc-textcolor: var(--primaryTextColor);
+        --ghc-secondarycolor: var(--contentBackgroundColor);
+        --ghc-textcolor: var(--contentTextColor);
         --ghc-fontsize: 1rem;
 
         float: left;
