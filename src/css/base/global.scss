@@ -39,13 +39,12 @@ textarea {
 
 a,
 a.cc-link {
-    color: var(--contentTextColor);
     border-bottom: $border-thickness solid;
     border-bottom-color: var(--primaryColor);
+    color: var(--contentTextColor);
+    text-decoration: none;
     outline: none;
     cursor: pointer;
-    background-color: transparent;
-    text-decoration: none;
 
     &:hover {
         text-decoration: none;

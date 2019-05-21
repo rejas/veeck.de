@@ -122,9 +122,8 @@ $colorFigure:   #ede1c9;
         margin-bottom: 0;
         overflow: hidden;
 
-        figcaption {
+        .figure__caption {
             transform: translateY(var(--transform-translate-seed));
-            background-color: var(--lightPrimaryColor);
             position: absolute;
             top: 10px;
             left: -5px;
@@ -132,7 +131,6 @@ $colorFigure:   #ede1c9;
             white-space: nowrap;
             text-transform: uppercase;
             font-size: $font-size-ms;
-            font-weight: bold;
         }
     }
 

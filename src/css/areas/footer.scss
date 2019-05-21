@@ -6,9 +6,9 @@
     position: relative;
     background-color: var(--contentBackgroundColor);
     color: var(--contentTextColor);
+    padding-bottom: $nav-height;
 
     @include aboveBreakpoint(md) {
-        margin: 0 auto;
         max-width: $md;
     }
 
