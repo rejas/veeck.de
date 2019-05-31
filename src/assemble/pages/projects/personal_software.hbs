@@ -7,7 +7,6 @@ lead: my written works
 img: software
 last-modified: 2019-05-21
 ---
-
 <article class="article article__software">
     <section id="github">
         <h2 class="h2">my github profile</h2>
@@ -33,7 +32,7 @@ last-modified: 2019-05-21
             stuff for quite a long time already so why not use a little project to learn it?</p>
         <p>With this little webtool you can get the answer after you input the number of times you already tried. LOTS
             of data missing though, only a few items from {{> link-extern url='https://www.worldofwarcraft.com/'
-            text='World of Warcraft'}} are included.</p>
+                text='World of Warcraft'}} are included.</p>
         <ul class="article__list">
             <li>{{> link-extern url='https://howunluckyami.com/' text='How unlucky am I?'}}</li>
         </ul>
@@ -44,10 +43,11 @@ last-modified: 2019-05-21
         <figure class="figure--icon">
             {{> link-logo url='https://www.worldofwarcraft.com/' icon='wow'}}
         </figure>
-        <p>Since their last redesign Blizzard doesn’t provide an RSS feed on their armory-website anymore. They do however
-        offer an API to access a JSON-encoded activity feed for character and guilds. Since a colleague held a
-        presentation about node.js and how easy it is to deploy a server-app with it, I took the opportunity to
-        enhance my javascript knowledge and wrote this JSON-to-RSS-Feed Converter for World-Of-Warcraft:</p>
+        <p>Since their last redesign Blizzard doesn’t provide an RSS feed on their armory-website anymore. They do
+            however
+            offer an API to access a JSON-encoded activity feed for character and guilds. Since a colleague held a
+            presentation about node.js and how easy it is to deploy a server-app with it, I took the opportunity to
+            enhance my javascript knowledge and wrote this JSON-to-RSS-Feed Converter for World-Of-Warcraft:</p>
 
         <form class="form" action="https://wowfeed.herokuapp.com">
 
@@ -100,7 +100,7 @@ last-modified: 2019-05-21
         </form>
     </section>
 
-    <section>
+    <section id="nsis">
         <h2 class="h2">NSIS Installer Scripts</h2>
         <figure class="figure--icon">
             {{> link-logo url='http://nsis.sourceforge.net/' icon='nsis'}}
@@ -108,16 +108,22 @@ last-modified: 2019-05-21
         <p>Some programs I use don't come bundled with an installer. For those I created {{> link-extern
             url='http://nsis.sourceforge.net/' text='NSIS-Installer'}} scripts to build my own installation binaries.
             I only keep the installer here, the scripts can be found in my {{> link-extern text='github repository'
-            url='https://github.com/rejas/nsis'}}:</p>
+                url='https://github.com/rejas/nsis'}}:</p>
         <ul class="article__list">
-            <li>{{> link-extern text='PrusaSlicer' url='https://github.com/prusa3d/PrusaSlicer'}} v2.0.0, a g-code generator for 3D printers:
-                {{> link-extern url='https://www.dropbox.com/s/zgximy3yz6cizq3/PrusaSlicer%20v2.0.0%20setup.exe?dl=0' text='setup.exe'}} (exe, 13 MB) | updated 21.05.2019
+            <li>{{> link-extern text='PrusaSlicer' url='https://github.com/prusa3d/PrusaSlicer'}} v2.0.0, a g-code
+                generator for 3D printers:
+                {{> link-extern url='https://www.dropbox.com/s/zgximy3yz6cizq3/PrusaSlicer%20v2.0.0%20setup.exe?dl=0' text='setup.exe'}}
+                (exe, 13 MB) | updated 21.05.2019
             </li>
-            <li>{{> link-extern text='Open Hardware Monitor' url='https://openhardwaremonitor.org'}} v0.8.0 beta, a free pc-hardware sensor monitor:
-                {{> link-extern url='https://www.dropbox.com/s/wipwpubl1iq79n2/Open%20Hardware%20Monitor%20v0.8.0%20beta%20setup.exe?dl=0' text='setup.exe'}} (exe, 500 KB)| updated 06.11.2016
+            <li>{{> link-extern text='Open Hardware Monitor' url='https://openhardwaremonitor.org'}} v0.8.0 beta, a free
+                pc-hardware sensor monitor:
+                {{> link-extern url='https://www.dropbox.com/s/wipwpubl1iq79n2/Open%20Hardware%20Monitor%20v0.8.0%20beta%20setup.exe?dl=0' text='setup.exe'}}
+                (exe, 500 KB)| updated 06.11.2016
             </li>
-            <li>{{> link-extern text='StaxRip' url='https://github.com/staxrip/staxrip'}} v2.0.2.0, a video encoding app:
-                {{> link-extern url='https://www.dropbox.com/s/b7qlb8tpwfl22xy/StaxRip%20v2.0.2.0%20setup.exe?dl=0' text='setup.exe'}} (exe, 224 MB) | updated 21.05.2019
+            <li>{{> link-extern text='StaxRip' url='https://github.com/staxrip/staxrip'}} v2.0.2.0, a video encoding
+                app:
+                {{> link-extern url='https://www.dropbox.com/s/b7qlb8tpwfl22xy/StaxRip%20v2.0.2.0%20setup.exe?dl=0' text='setup.exe'}}
+                (exe, 224 MB) | updated 21.05.2019
             </li>
         </ul>
     </section>
@@ -129,13 +135,18 @@ last-modified: 2019-05-21
         </figure>
         <p>I took the liberty to update the {{> link-extern url='https://arje.net/rasterbator' text='Rasterbator'}} to
             run on my MacBook Pro. On MacOS it requires the {{> link-extern url='http://go-mono.com/'
-            text='Mono-Framework'}} to work, under Windows you will need an installed .NET-framework. If you find a bug
+                text='Mono-Framework'}} to work, under Windows you will need an installed .NET-framework. If you find a
+            bug
             or have a comment, please write me an email.</p>
         <p>What it does? The Rasterbator creates huge, rasterized, multi-page images from any picture. The rasterized
             images can be printed and assembled into extremely cool posters.</p>
         <ul class="article__list">
-            <li>{{> link-extern url='https://www.dropbox.com/s/3afekztizu6nfjv/The%20Rasterbator%20v1.3.dmg?dl=0' text='MacOS DiskImage'}} v1.3 (dmg, 700 KB, 12.03.2010)</li>
-            <li>{{> link-extern url='https://www.dropbox.com/s/q79xtkt7g1h9b13/The%20Rasterbator%20v1.3%20setup.exe?dl=0' text='Windows Installer'}} v1.3 (exe, 450 KB, 12.03.2010)</li>
+            <li>{{> link-extern url='https://www.dropbox.com/s/3afekztizu6nfjv/The%20Rasterbator%20v1.3.dmg?dl=0' text='MacOS DiskImage'}}
+                v1.3 (dmg, 700 KB, 12.03.2010)
+            </li>
+            <li>{{> link-extern url='https://www.dropbox.com/s/q79xtkt7g1h9b13/The%20Rasterbator%20v1.3%20setup.exe?dl=0' text='Windows Installer'}}
+                v1.3 (exe, 450 KB, 12.03.2010)
+            </li>
             <li>{{> link-extern url='https://github.com/rejas/rasterbator' text='Source code'}} (v1.4.2)</li>
         </ul>
     </section>

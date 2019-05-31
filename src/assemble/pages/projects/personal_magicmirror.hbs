@@ -39,7 +39,8 @@ last-modified: 2017-07-09
         <p>Neat, I still have a RaspberryPI Model 1 too so lets format the sd card, install the standard OS and follow
             the instruction on the {{> link-extern url='https://magicmirror.builders/' text='projects homepage'}}.
             Another good resource for setting up and installing your raspberry is written by {{> link-extern
-            url='https://thisdavej.com/beginners-guide-to-installing-node-js-on-a-raspberry-pi/' text='Dave Johnson'}}.
+                url='https://thisdavej.com/beginners-guide-to-installing-node-js-on-a-raspberry-pi/' text='Dave Johnson'}}
+            .
         </p>
 
         <div class="article__box">
@@ -92,7 +93,7 @@ last-modified: 2017-07-09
         <p>The semi-transparent sheet arrives but damn, attaching it to the glas is mighty difficult and doesn't yield
             the best results if you are living together with cats :-) Put it on my list of "Things to later improve":
             Buy something finished from the shop. Like the paintwork of my {{> link-intern url='personal_g4pc.html'
-            text='g4pc'}} a craftsman can do it a thousand times better in his shop than me in my home.
+                text='g4pc'}} a craftsman can do it a thousand times better in his shop than me in my home.
         </p>
     </section>
 
@@ -112,15 +113,15 @@ last-modified: 2017-07-09
             was temporarily broken. But with the latest OS and drivers it's not a problem.</p>
         <p>As for the motiondetector, since it is open source, not very well documented and I had the urge to add a
             threshold to the detection, I forked it and made my {{> link-extern text='own module'
-            url='https://github.com/rejas/MMM-MotionDetector'}} using this config:</p>
+                url='https://github.com/rejas/MMM-MotionDetector'}} using this config:</p>
         <pre>config: {
             captureIntervalTime: 1000,
             scoreThreshold: 100,
             timeout: 120000
         }</pre>
         <p>So now the monitor gets suspended if no motion is detected for a minute. That puts the energy consumption
-        down to less than 1W for the display, leaving a total at 5W. Now the costs of running the mirror are at a
-        reasonable level.</p>
+            down to less than 1W for the display, leaving a total at 5W. Now the costs of running the mirror are at a
+            reasonable level.</p>
 
         <h3 class="h3">Day 104 - Hanging around</h3>
         <div class="article__box">
@@ -134,9 +135,9 @@ last-modified: 2017-07-09
 
     <section>
         <h3 class="h3">Days to come - Listen to me!</h3>
-        <p>With the ps3 doing the motion detection, I now turn my eye to voice recognition. How cool would it be if I could
-            tell my magicmirror to turn on the music? So, lets see if the ps3 microphone is also working outofthebox.
-            Plug it in aaaand...</p>
+        <p>With the ps3 doing the motion detection, I now turn my eye to voice recognition. How cool would it be if I
+            could tell my magicmirror to turn on the music? So, lets see if the ps3 microphone is also working
+            outofthebox. Plug it in aaaand...</p>
         <p>Well, it does show up using this command:</p>
         <pre>cat /proc/asound/cards
             0 [ALSA]: bcm2835 - bcm2835 ALSA
