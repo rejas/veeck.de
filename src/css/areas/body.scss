@@ -18,7 +18,7 @@
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
     display: grid;
-    grid-template-columns: 1fr 960px 1fr;
+    grid-template-columns: 1fr $max-content-width 1fr;
     grid-template-rows: 100vh 1fr;
     grid-template-areas:
         "header header header"
