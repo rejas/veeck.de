@@ -1,213 +1,493 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
+        
         <loc>https://veeck.de/blog.html</loc>
-        <lastmod>2019-01-03T23:29:03.568Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/</loc>
-        <lastmod>2019-05-31T21:32:16.361Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/links.html</loc>
-        <lastmod>2019-01-03T23:29:03.569Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/panorama_360.html</loc>
-        <lastmod>2019-01-03T23:29:03.569Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/panorama_big.html</loc>
-        <lastmod>2019-01-03T23:29:03.570Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/panorama_cities.html</loc>
-        <lastmod>2019-01-03T23:29:03.570Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/panorama_friends.html</loc>
-        <lastmod>2019-01-03T23:29:03.570Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/panorama_perspective.html</loc>
-        <lastmod>2019-01-03T23:29:03.570Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/panorama_skyscraper.html</loc>
-        <lastmod>2019-01-03T23:29:03.570Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/panorama_world.html</loc>
-        <lastmod>2019-01-03T23:29:03.571Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/personal_friends.html</loc>
-        <lastmod>2019-01-03T23:29:03.571Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/personal_g4pc.html</loc>
-        <lastmod>2019-05-31T21:30:16.394Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/personal_magicmirror.html</loc>
-        <lastmod>2019-05-31T21:30:16.404Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/personal_radio.html</loc>
-        <lastmod>2019-01-03T23:29:03.572Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/personal_research.html</loc>
-        <lastmod>2019-05-31T21:31:04.724Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.790Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/personal_software.html</loc>
-        <lastmod>2019-05-31T21:31:17.208Z</lastmod>
+    
+        
+        <lastmod>2019-10-30T15:57:06.886Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/pictures.html</loc>
-        <lastmod>2019-01-03T23:29:03.569Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/projects.html</loc>
-        <lastmod>2019-01-03T23:29:03.571Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.786Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel.html</loc>
-        <lastmod>2019-01-03T23:29:03.573Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.790Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_01_aus.html</loc>
-        <lastmod>2019-05-31T21:13:16.823Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.790Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_01_thai.html</loc>
-        <lastmod>2019-05-31T21:28:32.379Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.790Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_03_asia.html</loc>
-        <lastmod>2019-05-31T21:28:32.403Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.790Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_03_ind.html</loc>
-        <lastmod>2019-05-31T21:28:32.410Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.790Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_03_nz.html</loc>
-        <lastmod>2019-05-31T21:28:32.425Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.794Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_03_usa.html</loc>
-        <lastmod>2019-05-31T21:28:32.464Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.790Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_04_japan.html</loc>
-        <lastmod>2019-05-31T21:28:32.397Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.790Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_05_panama.html</loc>
-        <lastmod>2019-05-31T21:28:32.415Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.790Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_05_usa.html</loc>
-        <lastmod>2019-05-31T21:28:32.392Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.790Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_06_ukraine.html</loc>
-        <lastmod>2019-05-31T21:28:32.431Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.790Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_07_tansania.html</loc>
-        <lastmod>2019-05-31T21:28:32.459Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.794Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_07_tansania2.html</loc>
-        <lastmod>2019-05-31T21:28:32.443Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.790Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_15_costarica.html</loc>
-        <lastmod>2019-05-31T21:28:32.452Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.794Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_15_marokko.html</loc>
-        <lastmod>2019-05-31T21:28:32.376Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.794Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_17_greece.html</loc>
-        <lastmod>2019-05-31T21:28:32.386Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.794Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
     <url>
+        
         <loc>https://veeck.de/travel_18_cuba.html</loc>
-        <lastmod>2019-05-31T21:28:32.371Z</lastmod>
+    
+        
+        <lastmod>2019-10-29T10:22:51.794Z</lastmod>
+    
+        
         <changefreq>daily</changefreq>
+    
+        
         <priority>0.5</priority>
+    
     </url>
 </urlset>
