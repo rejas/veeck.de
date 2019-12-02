@@ -5,9 +5,23 @@ module.exports = {
     author: `@rejas`,
   },
   plugins: [
-    'gatsby-plugin-top-layout',
     {
-      resolve: 'gatsby-plugin-material-ui',
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    }, {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve(`./src/components/page/Layout.jsx`),
+        },
+      },
+    },
+    `gatsby-plugin-top-layout`,
+    {
+      resolve: `gatsby-plugin-material-ui`,
       // If you want to use styled components you should change the injection order.
       options: {
         // stylesProvider: {
