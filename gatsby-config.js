@@ -3,6 +3,28 @@ module.exports = {
     title: 'Veeck',
     description: 'My private homepage',
     author: '@rejas',
+    menuLinks: [
+      {
+        name: 'home',
+        url: '/',
+      },
+      {
+        name: 'tech',
+        url: '/tech',
+      },
+      {
+        name: 'travel',
+        url: '/travel',
+      },
+      {
+        name: 'photos',
+        url: '/photos',
+      },
+      {
+        name: 'links',
+        url: '/links',
+      },
+    ],
   },
   plugins: [
     {
@@ -24,12 +46,12 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 1200,
-              linkImagesToOriginal: false
-            }
-          }
+              linkImagesToOriginal: false,
+            },
+          },
         ],
-        plugins: ['gatsby-remark-images']
-      }
+        plugins: ['gatsby-remark-images'],
+      },
     },
     'gatsby-plugin-top-layout',
     {

@@ -1,42 +1,72 @@
-import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
+const useStyles = makeStyles(theme => ({
+  toolbar: {
+    borderBottom: `1px solid ${theme.palette.divider}`,
+  },
+  toolbarTitle: {
+    flex: 1,
+  },
+  toolbarSecondary: {
+    justifyContent: 'space-between',
+    overflowX: 'auto',
+  },
+  toolbarLink: {
+    padding: theme.spacing(1),
+    flexShrink: 0,
+  },
+}));
+
+const Header = ({ menuLinks, siteTitle }) => {
+  const classes = useStyles();
+
+  return (
+    <React.Fragment>
+      <Toolbar className={classes.toolbar}>
+        <Typography
+          component="h2"
+          variant="h5"
+          color="inherit"
+          align="center"
+          noWrap
+          className={classes.toolbarTitle}
         >
           {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-);
+        </Typography>
+      </Toolbar>
+      <Toolbar
+        component="nav"
+        variant="dense"
+        className={classes.toolbarSecondary}
+      >
+        {menuLinks.map(link => (
+          <Link
+            color="inherit"
+            noWrap
+            key={link.name}
+            variant="body2"
+            href={link.url}
+            className={classes.toolbarLink}
+          >
+            {link.name}
+          </Link>
+        ))}
+      </Toolbar>
+    </React.Fragment>
+  );
+};
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
 };
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: '',
 };
 
 export default Header;

@@ -2,13 +2,13 @@ import Typography from '@material-ui/core/Typography';
 import MuiLink from '@material-ui/core/Link';
 import React from 'react';
 
-export default function Copyright() {
+export default function Footer() {
   return (
     <footer>
       <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © '}
         <MuiLink color="inherit" href="https://material-ui.com/">
-          Your Website
+          rejas
         </MuiLink>{' '}
         {new Date().getFullYear()}
         {'. Built with '}
