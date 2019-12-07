@@ -24,11 +24,21 @@ export default function TravelPage() {
     <Layout>
       <SEO title="Travel" />
       <Card className={classes.card}>
+        <CardActionArea href="/travel/2001-09-07__australien/">
+          <CardMedia className={classes.media} />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              Australien 2001
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+      <Card className={classes.card}>
         <CardActionArea href="/travel/2003-05-20__los-angeles/">
           <CardMedia className={classes.media} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              USA
+              USA 2003
             </Typography>
           </CardContent>
         </CardActionArea>
