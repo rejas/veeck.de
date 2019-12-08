@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
 
 import Layout from '../components/page/Layout';
 import ProTip from '../components/ProTip';
