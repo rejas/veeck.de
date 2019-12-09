@@ -19,7 +19,8 @@ const useStyles = makeStyles({
     height: 140,
   },
 });
-const BlogIndex = ({ data }) => {
+
+const TravelIndex = ({ data }) => {
   const { edges: posts } = data.allMdx;
   console.log(posts);
   const classes = useStyles();
@@ -47,7 +48,7 @@ const BlogIndex = ({ data }) => {
 };
 
 export const pageQuery = graphql`
-  query blogIndex {
+  query travelIndex {
     allMdx {
       edges {
         node {
@@ -75,4 +76,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default BlogIndex;
+export default TravelIndex;
