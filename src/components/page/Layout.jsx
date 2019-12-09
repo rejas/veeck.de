@@ -29,16 +29,16 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <>
+    <React.Fragment>
       <Header
         menuLinks={data.site.siteMetadata.menuLinks}
         siteTitle={data.site.siteMetadata.title}
       />
       <main>
-        <Container maxWidth="sm">{children}</Container>
+        <Container maxWidth="md">{children}</Container>
       </main>
       <Footer />
-    </>
+    </React.Fragment>
   );
 };
 

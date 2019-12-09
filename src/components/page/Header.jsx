@@ -28,16 +28,24 @@ const Header = ({ menuLinks, siteTitle }) => {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <Typography
-          component="h2"
-          variant="h5"
-          color="inherit"
-          align="center"
-          noWrap
-          className={classes.toolbarTitle}
+        <Link
+            color="inherit"
+            noWrap
+            key="home"
+            href="/"
+            className={classes.toolbarLink}
         >
-          {siteTitle}
-        </Typography>
+          <Typography
+              component="h2"
+              variant="h5"
+              color="inherit"
+              align="center"
+              noWrap
+              className={classes.toolbarTitle}
+          >
+            {siteTitle}
+          </Typography>
+        </Link>
       </Toolbar>
       <Toolbar
         component="nav"

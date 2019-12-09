@@ -5,10 +5,6 @@ module.exports = {
     author: '@rejas',
     menuLinks: [
       {
-        name: 'home',
-        url: '/',
-      },
-      {
         name: 'tech',
         url: '/tech',
       },
@@ -23,6 +19,10 @@ module.exports = {
       {
         name: 'links',
         url: '/links',
+      },
+      {
+        name: 'blog',
+        url: '/blog',
       },
     ],
   },
