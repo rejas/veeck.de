@@ -6,7 +6,7 @@ module.exports = {
     menuLinks: [
       {
         name: 'tech',
-        url: '/tech',
+        url: '/projects',
       },
       {
         name: 'travel',
@@ -41,6 +41,13 @@ module.exports = {
       options: {
         name: 'pages',
         path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'projects',
+        path: `${__dirname}/content/projects/`,
       },
     },
     {

@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-const TravelsIndex = ({ data }) => {
+const ProjectsIndex = ({ data }) => {
   const { edges: posts } = data.allMdx;
   const classes = useStyles();
 
@@ -28,7 +28,7 @@ const TravelsIndex = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Travel" />
+      <SEO title="Projects" />
       <Grid container spacing={3}>
         {posts.map(({ node: post }) => (
           <Grid key={post.id} item xs={12} md={6} lg={4}>
@@ -50,8 +50,8 @@ const TravelsIndex = ({ data }) => {
 };
 
 export const pageQuery = graphql`
-  query travelsIndex {
-    allMdx(filter: { fileAbsolutePath: { regex: "/travel/" } }) {
+  query projectsIndex {
+    allMdx(filter: { fileAbsolutePath: { regex: "/projects/" } }) {
       edges {
         node {
           id
@@ -78,4 +78,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default TravelsIndex;
+export default ProjectsIndex;
