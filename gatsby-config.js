@@ -76,6 +76,18 @@ module.exports = {
         plugins: ['gatsby-remark-images'],
       },
     },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Girassol"
+            },
+          ],
+        },
+      },
+    },
     'gatsby-plugin-top-layout',
     {
       resolve: 'gatsby-plugin-material-ui',

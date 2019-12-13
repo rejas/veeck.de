@@ -8,6 +8,7 @@ import Link from '@material-ui/core/Link';
 const useStyles = makeStyles(theme => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
+    justifyContent: 'space-around'
   },
   toolbarTitle: {
     flex: 1,
@@ -36,7 +37,7 @@ const Header = ({ menuLinks, siteTitle }) => {
           className={classes.toolbarLink}
         >
           <Typography
-            component="h2"
+            component="h1"
             variant="h5"
             color="inherit"
             align="center"
