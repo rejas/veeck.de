@@ -82,7 +82,7 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: "Girassol"
+              family: 'Girassol',
             },
           ],
         },

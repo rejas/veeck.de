@@ -5,11 +5,8 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
   typography: {
     h5: {
-      fontFamily: [
-        'Girassol',
-        'sans-serif'
-      ].join(','),
-    }
+      fontFamily: ['Girassol', 'sans-serif'].join(','),
+    },
   },
   palette: {
     primary: {

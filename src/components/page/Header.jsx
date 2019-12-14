@@ -8,7 +8,7 @@ import Link from '@material-ui/core/Link';
 const useStyles = makeStyles(theme => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   toolbarTitle: {
     flex: 1,
