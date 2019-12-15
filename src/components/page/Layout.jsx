@@ -11,7 +11,10 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './Header';
 import Container from '@material-ui/core/Container';
+import { MDXProvider } from '@mdx-js/react';
+import { Link, List, ListItem } from '@material-ui/core';
 import Footer from './Footer';
+import { Headline1, Headline2, Paragraph } from '../Typography';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -29,7 +32,19 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <React.Fragment>
+    <MDXProvider
+      components={{
+        h1: Headline1,
+        h2: Headline2,
+        h3: Headline2,
+        h4: Headline2,
+        p: Paragraph,
+        a: Link,
+        ul: List,
+        ol: List,
+        li: ListItem,
+      }}
+    >
       <Header
         menuLinks={data.site.siteMetadata.menuLinks}
         siteTitle={data.site.siteMetadata.title}
@@ -38,7 +53,7 @@ const Layout = ({ children }) => {
         <Container maxWidth="md">{children}</Container>
       </main>
       <Footer />
-    </React.Fragment>
+    </MDXProvider>
   );
 };
 
