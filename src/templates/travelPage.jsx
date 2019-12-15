@@ -8,7 +8,7 @@ import { Headline1 } from '../components/Typography';
 const TravelTemplate = ({ data: { mdx } }) => {
   return (
     <Layout>
-      <SEO title={mdx.frontmatter.title} lang={mdx.frontmatter.lang}/>
+      <SEO title={mdx.frontmatter.title} lang={mdx.frontmatter.lang} />
       <Headline1>{mdx.frontmatter.title}</Headline1>
       <MDXRenderer>{mdx.body}</MDXRenderer>
     </Layout>
@@ -21,8 +21,8 @@ export const pageQuery = graphql`
       id
       body
       frontmatter {
-        title,
-          lang
+        title
+        lang
       }
     }
   }
