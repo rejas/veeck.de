@@ -11,7 +11,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // you only want to operate on `Mdx` nodes. If you had content from a
   // remote CMS you could also check to see if the parent node was a
   // `File` node here
-  console.log(node);
   if (node.internal.type === 'Mdx') {
     const value = createFilePath({ node, getNode });
     createNodeField({
