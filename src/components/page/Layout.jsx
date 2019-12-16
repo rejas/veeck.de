@@ -14,7 +14,15 @@ import Container from '@material-ui/core/Container';
 import { MDXProvider } from '@mdx-js/react';
 import { Link, List, ListItem } from '@material-ui/core';
 import Footer from './Footer';
-import { Headline1, Headline2, Paragraph } from '../Typography';
+import {
+  Headline1,
+  Headline2,
+  Headline3,
+  Headline4,
+  Headline5,
+  Headline6,
+  Paragraph,
+} from '../Typography';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -36,8 +44,10 @@ const Layout = ({ children }) => {
       components={{
         h1: Headline1,
         h2: Headline2,
-        h3: Headline2,
-        h4: Headline2,
+        h3: Headline3,
+        h4: Headline4,
+        h5: Headline5,
+        h6: Headline6,
         p: Paragraph,
         a: Link,
         ul: List,

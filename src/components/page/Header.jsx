@@ -37,8 +37,7 @@ const Header = ({ menuLinks, siteTitle }) => {
           className={classes.toolbarLink}
         >
           <Typography
-            component="h1"
-            variant="h5"
+            variant="body1"
             color="inherit"
             align="center"
             noWrap

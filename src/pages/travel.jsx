@@ -37,7 +37,7 @@ const TravelsIndex = ({ data }) => {
                 <Img fluid={post.frontmatter.img.childImageSharp.fluid} />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
-                    {post.frontmatter.title}
+                    {post.frontmatter.when} - {post.frontmatter.where}
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -57,7 +57,8 @@ export const pageQuery = graphql`
           id
           excerpt
           frontmatter {
-            title
+            when
+            where
             img {
               childImageSharp {
                 resize(width: 1500, height: 1500) {
