@@ -51,7 +51,10 @@ const TravelsIndex = ({ data }) => {
 
 export const pageQuery = graphql`
   query travelsIndex {
-    allMdx(filter: { fileAbsolutePath: { regex: "/travel/" } }) {
+    allMdx(
+      sort: { fields: fields___slug, order: DESC }
+      filter: { fileAbsolutePath: { regex: "/travel/" } }
+    ) {
       edges {
         node {
           id

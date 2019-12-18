@@ -51,7 +51,10 @@ const ProjectsIndex = ({ data }) => {
 
 export const pageQuery = graphql`
   query projectsIndex {
-    allMdx(filter: { fileAbsolutePath: { regex: "/projects/" } }) {
+    allMdx(
+      sort: { fields: fields___slug, order: DESC }
+      filter: { fileAbsolutePath: { regex: "/projects/" } }
+    ) {
       edges {
         node {
           id
