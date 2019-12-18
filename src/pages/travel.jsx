@@ -49,7 +49,7 @@ const TravelsIndex = ({ data }) => {
   );
 };
 
-export const pageQuery = graphql`
+export const query = graphql`
   query travelsIndex {
     allMdx(
       sort: { fields: fields___slug, order: DESC }

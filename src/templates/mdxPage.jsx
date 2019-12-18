@@ -15,7 +15,7 @@ const TravelTemplate = ({ data: { mdx } }) => {
   );
 };
 
-export const pageQuery = graphql`
+export const query = graphql`
   query BlogPostQuery($id: String) {
     mdx(id: { eq: $id }) {
       id

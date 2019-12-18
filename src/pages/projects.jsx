@@ -49,7 +49,7 @@ const ProjectsIndex = ({ data }) => {
   );
 };
 
-export const pageQuery = graphql`
+export const query = graphql`
   query projectsIndex {
     allMdx(
       sort: { fields: fields___slug, order: DESC }

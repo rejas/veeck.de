@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import Box from '@material-ui/core/Box';
+import { Box, Link, Typography } from '@material-ui/core';
 
 import Layout from '../components/page/Layout';
 import ProTip from '../components/ProTip';
@@ -10,8 +9,8 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Box my={4}>
-      <p>Welcome to my new Gatsby site.</p>
-      <Link to="/links/">Go to links page</Link>
+      <Typography>Welcome to my new Gatsby site.</Typography>
+      <Link href="/links/">Go to links page</Link>
       <ProTip />
     </Box>
   </Layout>
