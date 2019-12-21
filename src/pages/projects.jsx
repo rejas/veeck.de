@@ -24,8 +24,6 @@ const ProjectsIndex = ({ data }) => {
   const { edges: posts } = data.allMdx;
   const classes = useStyles();
 
-  console.log(posts);
-
   return (
     <Layout>
       <SEO title="Projects" />

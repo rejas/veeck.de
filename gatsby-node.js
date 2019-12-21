@@ -18,7 +18,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       // Individual MDX node
       node,
       // Keep base path value
-      value
+      value,
     });
   }
 };
@@ -41,9 +41,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (result.errors) {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
-  // Create mdx post pages.
+
   const posts = result.data.allMdx.edges;
-  // you'll call `createPage` for each result
   posts.forEach(({ node }, index) => {
     actions.createPage({
       // This is the slug you created before
@@ -54,6 +53,31 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       // You can use the values in this context in
       // our page layout component
       context: { id: node.id },
+    });
+  });
+
+  const result2 = await graphql(`
+    query {
+      allPhotosYaml {
+        edges {
+          node {
+            id
+            path
+          }
+        }
+      }
+    }
+  `);
+  if (result2.errors) {
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
+  }
+
+  const galleries = result2.data.allPhotosYaml.edges;
+  galleries.forEach(element => {
+    actions.createPage({
+      path: '/photos/' + element.node.path,
+      component: path.resolve(`./src/templates/galleryPage.jsx`),
+      context: { id: element.node.id },
     });
   });
 };

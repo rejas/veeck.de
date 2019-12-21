@@ -31,11 +31,12 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/content/images`,
       },
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    `gatsby-transformer-yaml`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -46,15 +47,24 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'content',
-        path: `${__dirname}/content/`,
+        name: 'mdx',
+        path: `${__dirname}/content/mdx`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'yaml',
+        path: `${__dirname}/content/yaml`,
       },
     },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: {
-          default: require.resolve(`./src/components/page/Layout.jsx`),
+          default: require.resolve(
+            `${__dirname}/src/components/page/Layout.jsx`
+          ),
         },
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
@@ -100,7 +110,7 @@ module.exports = {
         background_color: '#249946',
         theme_color: '#246341',
         display: 'minimal-ui',
-        icon: 'src/images/favicon.png', // This path is relative to the root of the site.
+        icon: `${__dirname}/content/images/favicon.png`,
       },
     },
     'gatsby-plugin-react-helmet',

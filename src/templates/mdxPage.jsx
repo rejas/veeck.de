@@ -5,7 +5,7 @@ import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 import { Headline1 } from '../components/Typography';
 
-const TravelTemplate = ({ data: { mdx } }) => {
+const MdxTemplate = ({ data: { mdx } }) => {
   return (
     <Layout>
       <SEO title={mdx.frontmatter.title} lang={mdx.frontmatter.lang} />
@@ -16,7 +16,7 @@ const TravelTemplate = ({ data: { mdx } }) => {
 };
 
 export const query = graphql`
-  query BlogPostQuery($id: String) {
+  query MdxPostQuery($id: String) {
     mdx(id: { eq: $id }) {
       id
       body
@@ -28,4 +28,4 @@ export const query = graphql`
   }
 `;
 
-export default TravelTemplate;
+export default MdxTemplate;
