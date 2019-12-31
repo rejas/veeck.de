@@ -9,6 +9,8 @@ img: software.jpg
 last-modified: 2019-05-21
 ---
 
+import WowFeed from '../../../../src/components/WowFeed';
+
 ## my github profile
 
 <github-card class="figure--github" user="rejas"></github-card>
@@ -37,57 +39,7 @@ an API to access a JSON-encoded activity feed for character and guilds. Since a 
 node.js and how easy it is to deploy a server-app with it, I took the opportunity to enhance my javascript knowledge
 and wrote this JSON-to-RSS-Feed Converter for World-Of-Warcraft:
 
-```
-<form class="form" action="https://wowfeed.herokuapp.com">
-
-    {{> input-text
-        name='character'
-        id='charname'
-        label='Character'}}
-
-    {{> input-text
-        name='realm'
-        id='charrealm'
-        label='Realm'}}
-
-    <span class="input__block input__select">
-        <select id="char_region" name="region" class="select">
-            <option value="-1" selected>Region</option>
-            <option value="eu">Europe</option>
-            <option value="us">US</option>
-            <option value="tw">Taiwan</option>
-            <option value="kr">Korea</option>
-        </select>
-    </span>
-
-    <button class="btn btn--md" type="submit">Get RSS</button>
-</form>
-
-<form class="form" action="https://wowfeed.herokuapp.com">
-
-    {{> input-text
-        name='guild'
-        id='guildname'
-        label='Guild'}}
-
-    {{> input-text
-        name='realm'
-        id='guildrealm'
-        label='Realm'}}
-
-    <span class="input__block input__select">
-        <select id="guild_region" name="region" class="select">
-            <option value="-1" selected>Region</option>
-            <option value="eu">Europe</option>
-            <option value="us">US</option>
-            <option value="tw">Taiwan</option>
-            <option value="kr">Korea</option>
-        </select>
-    </span>
-
-    <button class="btn btn--md" type="submit">Get RSS</button>
-</form>
-´´´
+<WowFeed />
 
 ## NSIS Installer Scripts
 
@@ -96,9 +48,9 @@ scripts to build my own installation binaries. I only keep the installer here, t
 [github repository](https://github.com/rejas/nsis):
 
 - [Open Hardware Monitor](https://openhardwaremonitor.org) v0.8.0 beta, a free pc-hardware sensor monitor:
-[setup.exe](https://www.dropbox.com/s/wipwpubl1iq79n2/Open%20Hardware%20Monitor%20v0.8.0%20beta%20setup.exe?dl=0) (exe, 500 KB)| updated 06.11.2016
+  [setup.exe](https://www.dropbox.com/s/wipwpubl1iq79n2/Open%20Hardware%20Monitor%20v0.8.0%20beta%20setup.exe?dl=0) (exe, 500 KB)| updated 06.11.2016
 - [StaxRip](https://github.com/staxrip/staxrip) v2.0.2.0, a video encoding app:
-[setup.exe](https://www.dropbox.com/s/b7qlb8tpwfl22xy/StaxRip%20v2.0.2.0%20setup.exe?dl=0) (exe, 224 MB) | updated 21.05.2019
+  [setup.exe](https://www.dropbox.com/s/b7qlb8tpwfl22xy/StaxRip%20v2.0.2.0%20setup.exe?dl=0) (exe, 224 MB) | updated 21.05.2019
 
 ## The Rasterbator
 
@@ -112,4 +64,7 @@ be printed and assembled into extremely cool posters.
 - [MacOS DiskImage](https://www.dropbox.com/s/3afekztizu6nfjv/The%20Rasterbator%20v1.3.dmg?dl=0) v1.3 (dmg, 700 KB, 12.03.2010)
 - [Windows Installer](https://www.dropbox.com/s/q79xtkt7g1h9b13/The%20Rasterbator%20v1.3%20setup.exe?dl=0) v1.3 (exe, 450 KB, 12.03.2010)
 - [Source code](https://github.com/rejas/rasterbator) (v1.4.2)
+
+```
+
 ```
