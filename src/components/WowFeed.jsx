@@ -22,33 +22,69 @@ const useStyles = makeStyles(theme => ({
 export default function WowFeed() {
   const classes = useStyles();
 
+  const [charName, setCharName] = React.useState('');
+  const [charRealm, setCharRealm] = React.useState('');
   const [charRegion, setCharRegion] = React.useState('');
+
   const handleCharRegionChange = event => {
     setCharRegion(event.target.value);
   };
 
+  const openCharFeed = () => {
+    window.open(
+      `https://wowfeed.herokuapp.com/?region=${charRegion}&realm=${charRealm}&character=${charName}`,
+      '_blank'
+    );
+  };
+
+  const [guildName, setGuildName] = React.useState('');
+  const [guildRealm, setGuildRealm] = React.useState('');
   const [guildRegion, setGuildRegion] = React.useState('');
+
   const handleGuildRegionChange = event => {
     setGuildRegion(event.target.value);
+  };
+
+  const openGuildFeed = () => {
+    window.open(
+      `https://wowfeed.herokuapp.com/?region=${guildRegion}&realm=${guildRealm}&guild=${guildName}`,
+      '_blank'
+    );
   };
 
   return (
     <React.Fragment>
       <Grid container spacing={3}>
         <Grid item xs={6} sm={3}>
-          <TextField id="character" label="Character" />
+          <TextField
+            error={charName === ''}
+            id="character"
+            label="Character"
+            required
+            value={charName}
+            onChange={event => setCharName(event.target.value)}
+          />
         </Grid>
         <Grid item xs={6} sm={3}>
-          <TextField id="charrealm" label="Realm" />
+          <TextField
+            error={charRealm === ''}
+            id="charrealm"
+            label="Realm"
+            required
+            value={charRealm}
+            onChange={event => setCharRealm(event.target.value)}
+          />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={6} sm={3}>
           <FormControl className={classes.formControl}>
             <InputLabel id="char_region_label">Region</InputLabel>
             <Select
               className={classes.selectEmpty}
+              error={charRegion === ''}
               labelId="char_region_label"
               id="char_region"
               name="region"
+              required
               value={charRegion}
               onChange={handleCharRegionChange}
             >
@@ -60,46 +96,60 @@ export default function WowFeed() {
           </FormControl>
         </Grid>
         <Grid item xs={3}>
-          <Button variant="contained" type="submit">
+          <Button variant="contained" type="submit" onClick={openCharFeed}>
             Get RSS
           </Button>
         </Grid>
       </Grid>
 
-      <FormControl className={classes.formControl}>
-        <Grid container spacing={3}>
-          <Grid item xs={6} sm={3}>
-            <TextField id="guildname" label="Guild" />
-          </Grid>
-          <Grid item xs={6} sm={3}>
-            <TextField id="guildrealm" label="Realm" />
-          </Grid>
-          <Grid item xs={6}>
-            <FormControl className={classes.formControl}>
-              <InputLabel id="guild_region_label">Region</InputLabel>
-              <Select
-                className={classes.selectEmpty}
-                labelId="guild_region_label"
-                id="guild_region"
-                name="region"
-                value={guildRegion}
-                onChange={handleGuildRegionChange}
-              >
-                <MenuItem value="eu">Europe</MenuItem>
-                <MenuItem value="us">US</MenuItem>
-                <MenuItem value="tw">Taiwan</MenuItem>
-                <MenuItem value="kr">Korea</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-
-          <Grid item xs={3}>
-            <Button variant="contained" type="submit">
-              Get RSS
-            </Button>
-          </Grid>
+      <Grid container spacing={3}>
+        <Grid item xs={6} sm={3}>
+          <TextField
+            error={guildName === ''}
+            id="guildname"
+            label="Guild"
+            required
+            value={guildName}
+            onChange={event => setGuildName(event.target.value)}
+          />
         </Grid>
-      </FormControl>
+        <Grid item xs={6} sm={3}>
+          <TextField
+            error={guildRealm === ''}
+            id="guildrealm"
+            label="Realm"
+            required
+            value={guildRealm}
+            onChange={event => setGuildRealm(event.target.value)}
+          />
+        </Grid>
+        <Grid item xs={6} sm={3}>
+          <FormControl className={classes.formControl}>
+            <InputLabel id="guild_region_label">Region</InputLabel>
+            <Select
+              error={guildRegion === ''}
+              className={classes.selectEmpty}
+              labelId="guild_region_label"
+              id="guild_region"
+              name="region"
+              required
+              value={guildRegion}
+              onChange={handleGuildRegionChange}
+            >
+              <MenuItem value="eu">Europe</MenuItem>
+              <MenuItem value="us">US</MenuItem>
+              <MenuItem value="tw">Taiwan</MenuItem>
+              <MenuItem value="kr">Korea</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+
+        <Grid item xs={3}>
+          <Button variant="contained" type="submit" onClick={openGuildFeed}>
+            Get RSS
+          </Button>
+        </Grid>
+      </Grid>
     </React.Fragment>
   );
 }
