@@ -85,13 +85,21 @@ module.exports = {
         fonts: {
           google: [
             {
+              family: 'Roboto',
+              //variants: ['300', '400', '500'],
+              //subsets: ['latin']
+              //text: 'Hello'
+              fontDisplay: 'swap',
+              //strategy: 'selfHosted' // 'base64' || 'cdn'
+            },
+            {
               family: 'Girassol',
+              fontDisplay: 'swap',
             },
           ],
         },
       },
     },
-    'gatsby-plugin-top-layout',
     {
       resolve: 'gatsby-plugin-material-ui',
       // If you want to use styled components you should change the injection order.

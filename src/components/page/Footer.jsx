@@ -1,20 +1,18 @@
-import Typography from '@material-ui/core/Typography';
-import MuiLink from '@material-ui/core/Link';
 import React from 'react';
+import { Link, Typography } from '@material-ui/core';
 
 const Footer = () => {
   return (
     <footer>
       <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © '}
-        <MuiLink color="inherit" href="https://github.com/rejas">
-          rejas
-        </MuiLink>{' '}
+        <Link  href="https://github.com/rejas">rejas</Link>
+          {' '}
         {new Date().getFullYear()}
         {'. Built with '}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <Link href="https://www.gatsbyjs.org">Gatsby</Link>
         {' and '}
-        <a href="https://material-ui.com/">Material UI</a>
+        <Link href="https://material-ui.com/">Material UI</Link>
       </Typography>
     </footer>
   );
