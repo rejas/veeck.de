@@ -2,7 +2,9 @@
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 .DS_Store
 .idea/
+.cache/
 dist/
+public/
 node_modules/
 /npm-debug.log
 /results.json
