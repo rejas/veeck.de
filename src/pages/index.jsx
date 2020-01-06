@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Link, Typography } from '@material-ui/core';
 
 import Layout from '../components/page/Layout';
-import ProTip from '../components/ProTip';
 import SEO from '../components/page/Seo';
 
 const IndexPage = () => (
@@ -53,8 +52,6 @@ const IndexPage = () => (
 
       <Typography variant="h2">what do I see</Typography>
       <Link href="/photos/">Go to photo page</Link>
-
-      <ProTip />
     </Box>
   </Layout>
 );
