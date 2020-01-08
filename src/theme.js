@@ -16,19 +16,22 @@ const theme = createMuiTheme({
       fontSize: '1.666rem',
       fontFamily: ['Girassol', 'sans-serif'].join(','),
     },
+    button: {
+      fontWeight: 700,
+    },
   },
   palette: {
     primary: {
-      main: '#556cd6',
+      main: '#19857b',
     },
     secondary: {
-      main: '#19857b',
+      main: '#1093e9',
     },
     error: {
       main: red.A400,
     },
     background: {
-      default: '#fff',
+      default: '#efeeee',
     },
   },
 });

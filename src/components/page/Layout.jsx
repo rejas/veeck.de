@@ -17,7 +17,7 @@ import {
   List,
   ListItem,
 } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import theme from '../../theme';
 
 import Header from './Header';
@@ -32,7 +32,15 @@ import {
   Paragraph,
 } from '../Typography';
 
+const useStyles = makeStyles(theme => ({
+  main: {
+    paddingTop: theme.spacing(3),
+  },
+}));
+
 const Layout = ({ children }) => {
+  const classes = useStyles();
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -56,7 +64,7 @@ const Layout = ({ children }) => {
         />
       </Helmet>
       <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        {/* CssBaseline kickstarts an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         {/* MDXProvider allows us to change how mdx blocks are rendered. */}
         <MDXProvider
@@ -78,7 +86,7 @@ const Layout = ({ children }) => {
             menuLinks={data.site.siteMetadata.menuLinks}
             siteTitle={data.site.siteMetadata.title}
           />
-          <main>
+          <main className={classes.main}>
             <Container maxWidth="md">{children}</Container>
           </main>
           <Footer />

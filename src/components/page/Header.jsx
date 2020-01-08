@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Link, Toolbar, Typography } from '@material-ui/core';
+import HideOnScroll from '../utils/HideOnScroll';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -21,49 +22,52 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Header = ({ menuLinks, siteTitle }) => {
+const Header = props => {
+  const { menuLinks, siteTitle } = props;
   const classes = useStyles();
 
   return (
-    <React.Fragment>
-      <Toolbar className={classes.toolbar}>
-        <Link
-          color="inherit"
-          noWrap
-          key="home"
-          href="/"
-          className={classes.toolbarLink}
-        >
-          <Typography
-            variant="body1"
-            color="inherit"
-            align="center"
-            noWrap
-            className={classes.toolbarTitle}
-          >
-            {siteTitle}
-          </Typography>
-        </Link>
-      </Toolbar>
-      <Toolbar
-        component="nav"
-        variant="dense"
-        className={classes.toolbarSecondary}
-      >
-        {menuLinks.map(link => (
+    <HideOnScroll {...props}>
+      <AppBar position="sticky">
+        <Toolbar className={classes.toolbar} variant={'dense'}>
           <Link
             color="inherit"
             noWrap
-            key={link.name}
-            variant="body2"
-            href={link.url}
+            key="home"
+            href="/"
             className={classes.toolbarLink}
           >
-            {link.name}
+            <Typography
+              variant="h3"
+              color="inherit"
+              align="center"
+              noWrap
+              className={classes.toolbarTitle}
+            >
+              {siteTitle}
+            </Typography>
           </Link>
-        ))}
-      </Toolbar>
-    </React.Fragment>
+        </Toolbar>
+        <Toolbar
+          className={classes.toolbarSecondary}
+          component="nav"
+          variant="dense"
+        >
+          {menuLinks.map(link => (
+            <Link
+              color="inherit"
+              noWrap
+              key={link.name}
+              variant="button"
+              href={link.url}
+              className={classes.toolbarLink}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </Toolbar>
+      </AppBar>
+    </HideOnScroll>
   );
 };
 

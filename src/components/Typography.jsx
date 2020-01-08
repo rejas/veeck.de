@@ -19,4 +19,6 @@ export const Headline5 = props => (
 export const Headline6 = props => (
   <Typography variant="h6" component="h6" {...props} />
 );
-export const Paragraph = props => <Typography variant="body1" {...props} />;
+export const Paragraph = props => (
+  <Typography variant="body1" gutterBottom {...props} />
+);
