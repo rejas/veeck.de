@@ -4,17 +4,18 @@ import { createMuiTheme } from '@material-ui/core/styles';
 // A custom theme for this app
 const theme = createMuiTheme({
   typography: {
+    fontFamily: ['Lora', 'serif'].join(','),
     h1: {
       fontSize: '3rem',
-      fontFamily: ['Girassol', 'sans-serif'].join(','),
+      fontFamily: ['Concert One', 'sans-serif'].join(','),
     },
     h2: {
       fontSize: '2rem',
-      fontFamily: ['Girassol', 'sans-serif'].join(','),
+      fontFamily: ['Concert One', 'sans-serif'].join(','),
     },
     h3: {
       fontSize: '1.666rem',
-      fontFamily: ['Girassol', 'sans-serif'].join(','),
+      fontFamily: ['Concert One', 'sans-serif'].join(','),
     },
     button: {
       fontWeight: 700,

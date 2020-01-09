@@ -87,7 +87,7 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: 'Roboto',
+              family: 'Lora',
               //variants: ['300', '400', '500'],
               //subsets: ['latin']
               //text: 'Hello'
@@ -95,7 +95,7 @@ module.exports = {
               //strategy: 'selfHosted' // 'base64' || 'cdn'
             },
             {
-              family: 'Girassol',
+              family: 'Concert+One',
               fontDisplay: 'swap',
             },
           ],

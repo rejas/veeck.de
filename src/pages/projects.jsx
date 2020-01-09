@@ -41,7 +41,7 @@ export const query = graphql`
   query projectsIndex {
     allMdx(
       sort: { fields: fields___slug, order: DESC }
-      filter: { fileAbsolutePath: { regex: "/projects/" } }
+      filter: { fields: { slug: { regex: "/projects/" } } }
     ) {
       edges {
         node {

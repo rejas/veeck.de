@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme => ({
   },
   toolbarTitle: {
     flex: 1,
+    textTransform: 'uppercase',
   },
   toolbarSecondary: {
     justifyContent: 'space-between',

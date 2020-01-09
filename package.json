@@ -27,14 +27,16 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md,mdx,yaml}\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "--- NPM SCRIPTS ---": "-------------------------------------------------------------",
+    "update": "npm-check -u",
     "--- CUSTOM SCRIPTS (TODO) ---": "---------------------------------------------------",
     "release": "bump package.json package-lock.json CHANGELOG.md --tag && npm run build",
-    "update": "npm-check -u",
     "version": "auto-changelog --commit-limit false --package && git add CHANGELOG.md",
     "upload": "node scripts/upload.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.8.3",
+    "@material-ui/icons": "^4.5.1",
     "@mdx-js/mdx": "^1.5.3",
     "@mdx-js/react": "^1.5.3",
     "fslightbox-react": "^1.4.7",
@@ -58,6 +60,7 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "npm-check": "^5.9.0",
     "prettier": "^1.19.1"
   }
 }
