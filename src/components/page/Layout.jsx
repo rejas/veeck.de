@@ -35,6 +35,7 @@ import {
 const useStyles = makeStyles(theme => ({
   main: {
     paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
   },
 }));
 

@@ -10,7 +10,6 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-around',
   },
   toolbarTitle: {
-    flex: 1,
     textTransform: 'uppercase',
   },
   toolbarSecondary: {
@@ -31,18 +30,10 @@ const Header = props => {
     <HideOnScroll {...props}>
       <AppBar position="sticky">
         <Toolbar className={classes.toolbar} variant={'dense'}>
-          <Link
-            color="inherit"
-            noWrap
-            key="home"
-            href="/"
-            className={classes.toolbarLink}
-          >
+          <Link color="inherit" noWrap key="home" href="/">
             <Typography
               variant="h3"
               color="inherit"
-              align="center"
-              noWrap
               className={classes.toolbarTitle}
             >
               {siteTitle}
