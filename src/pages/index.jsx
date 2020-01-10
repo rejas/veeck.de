@@ -14,16 +14,16 @@ import PhotoCameraIcon from '@material-ui/icons/PhotoCameraOutlined';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 import LightBulbIcon from '../components/icons/LightBulb';
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   adBox: {
-    display: "flex",
-    justifyContent: "center",
+    display: 'flex',
+    justifyContent: 'center',
   },
   grid: {
-    marginBottom: theme.spacing(3)
-  }
+    marginBottom: theme.spacing(3),
+  },
 }));
 
 const IndexPage = () => {

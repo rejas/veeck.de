@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { MDXProvider } from '@mdx-js/react';
 import {
+  Divider,
   CssBaseline,
   Container,
   Link,
@@ -20,6 +21,8 @@ import {
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import theme from '../../theme';
 
+import Audio from '../shortcodes/Audio';
+import WowFeed from '../shortcodes/WowFeed';
 import Header from './Header';
 import Footer from './Footer';
 import {
@@ -77,10 +80,13 @@ const Layout = ({ children }) => {
             h5: Headline5,
             h6: Headline6,
             p: Paragraph,
+            hr: Divider,
             a: Link,
             ul: List,
             ol: List,
             li: ListItem,
+            Audio,
+            WowFeed,
           }}
         >
           <Header

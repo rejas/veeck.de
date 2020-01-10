@@ -8,7 +8,7 @@ import {
   MenuItem,
   Select,
   TextField,
-} from '@material-ui/core/';
+} from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function WowFeed() {
+const WowFeed = () => {
   const classes = useStyles();
 
   const [charName, setCharName] = React.useState('');
@@ -152,4 +152,6 @@ export default function WowFeed() {
       </Grid>
     </React.Fragment>
   );
-}
+};
+
+export default WowFeed;

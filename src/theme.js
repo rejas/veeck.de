@@ -6,8 +6,11 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: ['Lora', 'serif'].join(','),
     h1: {
-      fontSize: '3rem',
       fontFamily: ['Concert One', 'sans-serif'].join(','),
+      fontSize: '3rem',
+      lineHeight: '1',
+      textAlign: 'center',
+      textTransform: 'uppercase',
     },
     h2: {
       fontSize: '2rem',
