@@ -1,10 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Typography } from '@material-ui/core';
+import { Card, Typography } from '@material-ui/core';
 import AudioPlayer from 'material-ui-audio-player';
 
 const useStyles = makeStyles(theme => ({
-  audio: {
+  root: {
+    padding: theme.spacing(3),
     marginBottom: theme.spacing(3),
   },
 }));
@@ -14,14 +15,12 @@ const AudioElement = props => {
   const { file, caption } = props;
 
   return (
-    <React.Fragment>
+    <Card className={classes.root}>
       <Typography variant={'h5'} gutterBottom>
         {caption}
       </Typography>
-      <Box className={classes.audio}>
-        <AudioPlayer src={file} download />
-      </Box>
-    </React.Fragment>
+      <AudioPlayer src={file} download elevation={0} />
+    </Card>
   );
 };
 

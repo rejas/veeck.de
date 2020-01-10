@@ -103,7 +103,15 @@ As for the motiondetector, since it is open source, not very well documented and
 threshold to the detection, I forked it and made [my own Motion Detection module](https://github.com/rejas/MMM-MotionDetector)
 using this config:
 
+```javascript
+config: {
+    captureIntervalTime: 1000,
+    scoreThreshold: 100,
+    timeout: 120000
+}
 ```
+
+```bash
 config: {
     captureIntervalTime: 1000,
     scoreThreshold: 100,
@@ -127,7 +135,7 @@ my magicmirror to turn on the music? So, lets see if the ps3 microphone is also 
 
 Well, it does show up using this command:
 
-```
+```bash
 cat /proc/asound/cards
 0 [ALSA]: bcm2835 - bcm2835 ALSA
     bcm2835 ALSA
@@ -139,7 +147,7 @@ But how do I find out if it actually records?
 [NielsMayer](https://www.raspberrypi.org/forums/viewtopic.php?f=38&t=15851#p180474) has some good tips on how to get
 your mic configured and also wrote this command:
 
-```
+```bash
 arecord -vv /dev/null -r 16000 -f S16_LE -c 4 -D iec958:CARD=CameraB409241,DEV=0 /dev/null &lt; /dev/null
 Aufnahme: WAVE '/dev/null' : Signed 16 bit Little Endian, Rate: 16000 Hz, 4 Kanäle
 Hardware PCM card 1 'USB Camera-B4.09.24.1' device 0 subdevice 0

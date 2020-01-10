@@ -22,6 +22,7 @@ import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import theme from '../../theme';
 
 import Audio from '../shortcodes/Audio';
+import Code from '../shortcodes/Code';
 import WowFeed from '../shortcodes/WowFeed';
 import Header from './Header';
 import Footer from './Footer';
@@ -85,6 +86,7 @@ const Layout = ({ children }) => {
             ul: List,
             ol: List,
             li: ListItem,
+            code: Code,
             Audio,
             WowFeed,
           }}

@@ -1,8 +1,27 @@
 import { red } from '@material-ui/core/colors';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 // A custom theme for this app
 const theme = createMuiTheme({
+  MuiTypography: {
+    question: {
+      fontSize: '14px',
+      fontWeight: 'bold',
+    },
+  },
+  overrides: {
+    MuiDivider: {
+      root: {
+        marginBottom: '1rem',
+        marginTop: '1rem',
+      },
+    },
+    MuiList: {
+      root: {
+        fontSize: '1rem',
+      },
+    },
+  },
   typography: {
     fontFamily: ['Lora', 'serif'].join(','),
     h1: {
@@ -15,10 +34,12 @@ const theme = createMuiTheme({
     h2: {
       fontSize: '2rem',
       fontFamily: ['Concert One', 'sans-serif'].join(','),
+      marginTop: '2rem',
     },
     h3: {
       fontSize: '1.666rem',
       fontFamily: ['Concert One', 'sans-serif'].join(','),
+      marginTop: '1rem',
     },
     button: {
       fontWeight: 700,
@@ -40,4 +61,4 @@ const theme = createMuiTheme({
   },
 });
 
-export default theme;
+export default responsiveFontSizes(theme);
