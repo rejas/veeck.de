@@ -14,7 +14,6 @@ import {
   Divider,
   CssBaseline,
   Container,
-  Link,
   List,
   ListItem,
 } from '@material-ui/core';
@@ -22,6 +21,7 @@ import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import theme from '../../theme';
 
 import Audio from '../shortcodes/Audio';
+import Link from '../shortcodes/Link';
 import Code from '../shortcodes/Code';
 import WowFeed from '../shortcodes/WowFeed';
 import Header from './Header';

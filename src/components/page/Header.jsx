@@ -32,7 +32,7 @@ const Header = props => {
         <Toolbar className={classes.toolbar} variant={'dense'}>
           <Link color="inherit" noWrap key="home" href="/">
             <Typography
-              variant="h3"
+              variant="h4"
               color="inherit"
               className={classes.toolbarTitle}
             >

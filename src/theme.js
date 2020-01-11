@@ -35,11 +35,16 @@ const theme = createMuiTheme({
       fontSize: '2rem',
       fontFamily: ['Concert One', 'sans-serif'].join(','),
       marginTop: '2rem',
+      textTransform: 'uppercase',
     },
     h3: {
       fontSize: '1.666rem',
       fontFamily: ['Concert One', 'sans-serif'].join(','),
       marginTop: '1rem',
+    },
+    h4: {
+      fontFamily: ['Concert One', 'sans-serif'].join(','),
+      fontWeight: "bold"
     },
     button: {
       fontWeight: 700,
