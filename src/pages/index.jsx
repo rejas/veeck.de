@@ -8,6 +8,8 @@ import {
   Grid,
   Typography,
 } from '@material-ui/core';
+
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ExploreIcon from '@material-ui/icons/ExploreOutlined';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCameraOutlined';
 
@@ -23,6 +25,9 @@ const useStyles = makeStyles(theme => ({
   },
   grid: {
     marginBottom: theme.spacing(3),
+  },
+  arrow: {
+    display: 'flex',
   },
 }));
 
@@ -46,8 +51,8 @@ const IndexPage = () => {
                   as a geek I use this page as a playground for trying out
                   programming stuff, mostly html5/css3/js
                 </Typography>
-                <Typography variant={'body2'}>
-                  -> to the projects page
+                <Typography className={classes.arrow} variant={'body2'}>
+                  <ArrowForwardIcon fontSize={'small'} /> to the projects page
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -63,7 +68,9 @@ const IndexPage = () => {
                   the photographer wants to show of his pictures from around the
                   world
                 </Typography>
-                <Typography variant={'body2'}>-> to the photo page</Typography>
+                <Typography className={classes.arrow} variant={'body2'}>
+                  <ArrowForwardIcon fontSize={'small'} /> to the photo page
+                </Typography>
               </CardContent>
             </CardActionArea>
           </Card>
@@ -78,7 +85,10 @@ const IndexPage = () => {
                   the terrorpoet writes his travel diaries down and posts them
                   here
                 </Typography>
-                <Typography variant={'body2'}>-> to the travel page</Typography>
+                <Typography className={classes.arrow} variant={'body2'}>
+                  <ArrowForwardIcon fontSize={'small'} />
+                  to the travel page
+                </Typography>
               </CardContent>
             </CardActionArea>
           </Card>

@@ -1,14 +1,13 @@
 import { red } from '@material-ui/core/colors';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
-// A custom theme for this app
+// TODO enhance it like this https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
+const colorScheme =
+  window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+
 const theme = createMuiTheme({
-  MuiTypography: {
-    question: {
-      fontSize: '14px',
-      fontWeight: 'bold',
-    },
-  },
   overrides: {
     MuiDivider: {
       root: {
@@ -44,13 +43,14 @@ const theme = createMuiTheme({
     },
     h4: {
       fontFamily: ['Concert One', 'sans-serif'].join(','),
-      fontWeight: "bold"
+      fontWeight: 'bold',
     },
     button: {
       fontWeight: 700,
     },
   },
   palette: {
+    type: colorScheme,
     primary: {
       main: '#19857b',
     },
@@ -61,7 +61,7 @@ const theme = createMuiTheme({
       main: red.A400,
     },
     background: {
-      default: '#efeeee',
+      default: colorScheme === 'dark' ? '#303030' : '#efeeee',
     },
   },
 });
