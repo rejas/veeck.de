@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Link, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { Link } from 'gatsby-theme-material-ui';
 import HideOnScroll from '../utils/HideOnScroll';
 
 const useStyles = makeStyles(theme => ({
@@ -30,7 +31,7 @@ const Header = props => {
     <HideOnScroll {...props}>
       <AppBar position="sticky">
         <Toolbar className={classes.toolbar} variant={'dense'}>
-          <Link color="inherit" noWrap key="home" href="/">
+          <Link color="inherit" noWrap key="home" to="/">
             <Typography
               variant="h4"
               color="inherit"
@@ -51,8 +52,7 @@ const Header = props => {
               noWrap
               key={link.name}
               variant="button"
-              href={link.url}
-              className={classes.toolbarLink}
+              to={link.url}
             >
               {link.name}
             </Link>

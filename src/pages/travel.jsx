@@ -1,13 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  Grid,
-  Typography,
-} from '@material-ui/core';
+import { CardActionArea } from 'gatsby-theme-material-ui';
+import { Card, CardContent, Grid, Typography } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 
@@ -21,7 +16,7 @@ const TravelsIndex = ({ data }) => {
         {posts.map(({ node: post }) => (
           <Grid key={post.id} item xs={12} sm={6} md={4}>
             <Card>
-              <CardActionArea href={post.fields.slug}>
+              <CardActionArea to={post.fields.slug}>
                 <Img fluid={post.frontmatter.img.childImageSharp.fluid} />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">

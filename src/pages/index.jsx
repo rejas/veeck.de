@@ -1,22 +1,22 @@
 import React from 'react';
+
+import { makeStyles } from '@material-ui/core/styles';
 import {
   Box,
   Card,
-  CardActionArea,
   CardContent,
   CardHeader,
   Grid,
   Typography,
 } from '@material-ui/core';
-
+import { CardActionArea } from 'gatsby-theme-material-ui';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ExploreIcon from '@material-ui/icons/ExploreOutlined';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCameraOutlined';
 
 import Layout from '../components/page/Layout';
-import SEO from '../components/page/Seo';
 import LightBulbIcon from '../components/icons/LightBulb';
-import { makeStyles } from '@material-ui/core/styles';
+import SEO from '../components/page/Seo';
 
 const useStyles = makeStyles(theme => ({
   adBox: {
@@ -45,7 +45,7 @@ const IndexPage = () => {
         <Grid item xs={12} sm={6} md={4}>
           <Card>
             <CardHeader avatar={<LightBulbIcon />} title={'What do I do?'} />
-            <CardActionArea href="/projects">
+            <CardActionArea to="/projects">
               <CardContent>
                 <Typography variant={'body1'} gutterBottom>
                   as a geek I use this page as a playground for trying out
@@ -62,7 +62,7 @@ const IndexPage = () => {
         <Grid item xs={12} sm={6} md={4}>
           <Card>
             <CardHeader avatar={<PhotoCameraIcon />} title={'What do I see?'} />
-            <CardActionArea href="/photos">
+            <CardActionArea to="/photos">
               <CardContent>
                 <Typography variant={'body1'} gutterBottom>
                   the photographer wants to show of his pictures from around the
@@ -79,7 +79,7 @@ const IndexPage = () => {
         <Grid item xs={12} sm={6} md={4}>
           <Card>
             <CardHeader avatar={<ExploreIcon />} title={'Where have I been?'} />
-            <CardActionArea href="/travel">
+            <CardActionArea to="/travel">
               <CardContent>
                 <Typography variant={'body1'} gutterBottom>
                   the terrorpoet writes his travel diaries down and posts them

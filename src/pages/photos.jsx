@@ -1,13 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  Grid,
-  Typography,
-} from '@material-ui/core';
+import { CardActionArea } from 'gatsby-theme-material-ui';
+import { Card, CardContent, Grid, Typography } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 
@@ -21,7 +16,7 @@ const PhotoPage = ({ data }) => {
         {galleries.map(({ node: gallery }) => (
           <Grid key={gallery.id} item xs={12} sm={6} md={4}>
             <Card>
-              <CardActionArea href={'/photos/' + gallery.path}>
+              <CardActionArea to={'/photos/' + gallery.path}>
                 <Img fluid={gallery.img.childImageSharp.fluid} />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">

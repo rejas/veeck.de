@@ -82,33 +82,30 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-webfonts`,
+      resolve: `gatsby-theme-material-ui`,
       options: {
-        fonts: {
-          google: [
-            {
-              family: 'Lora',
-              //variants: ['300', '400', '500'],
-              //subsets: ['latin']
-              //text: 'Hello'
-              fontDisplay: 'swap',
-              //strategy: 'selfHosted' // 'base64' || 'cdn'
-            },
-            {
-              family: 'Concert+One',
-              fontDisplay: 'swap',
-            },
-          ],
+        stylesConfig: {
+          // disableAutoprefixing: true,
+          // disableMinification: true
         },
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-material-ui',
-      // If you want to use styled components you should change the injection order.
-      options: {
-        // stylesProvider: {
-        //   injectFirst: true,
-        // },
+        webFontsConfig: {
+          fonts: {
+            google: [
+              {
+                family: 'Lora',
+                //variants: ['300', '400', '500'],
+                //subsets: ['latin']
+                //text: 'Hello'
+                fontDisplay: 'swap',
+                //strategy: 'selfHosted' // 'base64' || 'cdn'
+              },
+              {
+                family: 'Concert+One',
+                fontDisplay: 'swap',
+              },
+            ],
+          },
+        },
       },
     },
     {
