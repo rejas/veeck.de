@@ -21,9 +21,11 @@ import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import theme from '../../theme';
 
 import Audio from '../shortcodes/Audio';
-import Link from '../shortcodes/Link';
 import Code from '../shortcodes/Code';
+import Link from '../shortcodes/Link';
+import SearchBar from "../shortcodes/SearchBar";
 import WowFeed from '../shortcodes/WowFeed';
+
 import Header from './Header';
 import Footer from './Footer';
 import {
@@ -88,6 +90,7 @@ const Layout = ({ children }) => {
             li: ListItem,
             code: Code,
             Audio,
+              SearchBar,
             WowFeed,
           }}
         >

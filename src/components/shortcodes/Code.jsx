@@ -16,7 +16,9 @@ const CodeBlock = props => {
   return (
     <Box className={classes.root}>
       <SyntaxHighlighter
-        language={props.className.replace('language-', '')}
+        language={
+          props.className ? props.className.replace('language-', '') : ''
+        }
         style={darcula}
       >
         {props.children}

@@ -4,7 +4,7 @@ import { Link } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    background: `linear-gradient(to bottom, ${theme.palette.secondary.main} 0%, ${theme.palette.secondary.main} 100%)`,
+    background: `linear-gradient(to bottom, ${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 100%)`,
     backgroundPosition: '0 100%',
     backgroundRepeat: 'repeat-x',
     backgroundSize: '1px 2px',
@@ -22,7 +22,7 @@ const LinkElement = props => {
   const classes = useStyles();
 
   return (
-    <Link className={classes.root} href={props.href}>
+    <Link className={classes.root} href={props.href} color={'secondary'}>
       {props.children}
     </Link>
   );

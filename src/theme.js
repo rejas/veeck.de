@@ -1,4 +1,4 @@
-import { red } from '@material-ui/core/colors';
+import { lime, orange } from '@material-ui/core/colors';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 // TODO enhance it like this https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
@@ -51,15 +51,8 @@ const theme = createMuiTheme({
   },
   palette: {
     type: colorScheme,
-    primary: {
-      main: '#19857b',
-    },
-    secondary: {
-      main: '#1093e9',
-    },
-    error: {
-      main: red.A400,
-    },
+    primary: lime,
+    secondary: orange,
     background: {
       default: colorScheme === 'dark' ? '#303030' : '#efeeee',
     },
