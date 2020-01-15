@@ -82,8 +82,8 @@ const Layout = ({ children }) => {
             h5: Headline5,
             h6: Headline6,
             p: Paragraph,
-            hr: Divider,
             a: Link,
+            hr: Divider,
             ul: List,
             ol: List,
             li: ListItem,
@@ -96,9 +96,13 @@ const Layout = ({ children }) => {
             menuLinks={data.site.siteMetadata.menuLinks}
             siteTitle={data.site.siteMetadata.title}
           />
-          <main className={classes.main}>
-            <Container maxWidth="md">{children}</Container>
-          </main>
+          <Container
+            className={classes.main}
+            maxWidth={'md'}
+            component={'main'}
+          >
+            {children}
+          </Container>
           <Footer />
         </MDXProvider>
       </ThemeProvider>
