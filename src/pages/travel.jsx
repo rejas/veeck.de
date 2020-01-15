@@ -6,8 +6,8 @@ import { Card, CardContent, Grid, Typography } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 
-const TravelsIndex = ({ data }) => {
-  const { edges: posts } = data.allMdx;
+const TravelsIndex = props => {
+  const { edges: posts } = props.data.allMdx;
 
   return (
     <Layout>

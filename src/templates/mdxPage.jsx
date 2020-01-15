@@ -5,7 +5,9 @@ import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 import { Headline1 } from '../components/Typography';
 
-const MdxTemplate = ({ data: { mdx } }) => {
+const MdxTemplate = props => {
+  const mdx = props.data.mdx;
+
   return (
     <Layout>
       <SEO title={mdx.frontmatter.title} lang={mdx.frontmatter.lang} />

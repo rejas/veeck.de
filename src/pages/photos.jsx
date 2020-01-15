@@ -6,8 +6,8 @@ import { Card, CardContent, Grid, Typography } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 
-const PhotoPage = ({ data }) => {
-  const { edges: galleries } = data.allPhotosYaml;
+const PhotoPage = props => {
+  const { edges: galleries } = props.data.allPhotosYaml;
 
   return (
     <Layout>
