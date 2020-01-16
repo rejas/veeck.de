@@ -17,6 +17,10 @@ const useStyles = makeStyles(theme => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  button: {
+    position: 'relative',
+    top: '10px',
+  },
 }));
 
 const WowFeed = () => {
@@ -96,8 +100,13 @@ const WowFeed = () => {
           </FormControl>
         </Grid>
         <Grid item xs={3}>
-          <Button variant="contained" type="submit" onClick={openCharFeed}>
-            Get RSS
+          <Button
+            variant="contained"
+            type="submit"
+            onClick={openCharFeed}
+            className={classes.button}
+          >
+            Get Character RSS
           </Button>
         </Grid>
       </Grid>
@@ -145,8 +154,13 @@ const WowFeed = () => {
         </Grid>
 
         <Grid item xs={3}>
-          <Button variant="contained" type="submit" onClick={openGuildFeed}>
-            Get RSS
+          <Button
+            variant="contained"
+            type="submit"
+            onClick={openGuildFeed}
+            className={classes.button}
+          >
+            Get Guild RSS
           </Button>
         </Grid>
       </Grid>
