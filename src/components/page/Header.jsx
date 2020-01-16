@@ -6,20 +6,22 @@ import { Link } from 'gatsby-theme-material-ui';
 import HideOnScroll from '../utils/HideOnScroll';
 
 const useStyles = makeStyles(theme => ({
-  toolbar: {
+  toolbarPrimary: {
     borderBottom: `1px solid ${theme.palette.divider}`,
     justifyContent: 'space-around',
-  },
-  toolbarTitle: {
-    textTransform: 'uppercase',
   },
   toolbarSecondary: {
     justifyContent: 'space-between',
     overflowX: 'auto',
   },
   toolbarLink: {
+    textTransform: 'uppercase',
     padding: theme.spacing(1),
     flexShrink: 0,
+
+    '&:hover': {
+      textDecoration: 'none',
+    },
   },
 }));
 
@@ -30,15 +32,19 @@ const Header = props => {
   return (
     <HideOnScroll {...props}>
       <AppBar position="sticky">
-        <Toolbar className={classes.toolbar} variant={'dense'}>
-          <Link color="inherit" noWrap key="home" to="/">
-            <Typography
-              variant="h4"
-              color="inherit"
-              className={classes.toolbarTitle}
-            >
-              {siteTitle}
-            </Typography>
+        <Toolbar
+          className={classes.toolbarPrimary}
+          component="div"
+          variant={'dense'}
+        >
+          <Link
+            className={classes.toolbarLink}
+            color="inherit"
+            noWrap
+            key="home"
+            to="/"
+          >
+            <Typography variant="h4">{siteTitle}</Typography>
           </Link>
         </Toolbar>
         <Toolbar
@@ -48,13 +54,13 @@ const Header = props => {
         >
           {menuLinks.map(link => (
             <Link
+              className={classes.toolbarLink}
               color="inherit"
               noWrap
               key={link.name}
-              variant="button"
               to={link.url}
             >
-              {link.name}
+              <Typography variant="h5">{link.name}</Typography>
             </Link>
           ))}
         </Toolbar>
