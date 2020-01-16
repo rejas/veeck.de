@@ -82,10 +82,7 @@ export const query = graphql`
           images {
             img {
               childImageSharp {
-                resize(width: 1500, height: 1500) {
-                  src
-                }
-                fluid(maxWidth: 786) {
+                fluid(maxWidth: 1500) {
                   ...GatsbyImageSharpFluid
                   aspectRatio
                 }

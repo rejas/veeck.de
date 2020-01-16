@@ -50,8 +50,8 @@
     - img: '../images/big/greece_milos.medium.jpg'
       caption: View of Adamas on Milos, Greece
       isNew: true
-    - img: '../images/big/curacao_pool.medium.jpg'
-      caption: Practicing pool jumping on curacao
+    - img: '../images/big/curacao_pool.jpg'
+      caption: Practicing pool jumping on Curacao
     - img: '../images/big/teneriffe_opera.medium.jpg'
       caption: Auditorio de Tenerife, concert hall in Santa Cruz
     - img: '../images/big/berlin_theater.medium.jpg'
