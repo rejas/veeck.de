@@ -2,10 +2,16 @@ import { lime, orange } from '@material-ui/core/colors';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 // TODO enhance it like this https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
-const colorScheme =
-  window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
+let colorScheme = 'light';
+
+// Fix build failure in gatsby
+if (typeof window !== `undefined`) {
+  colorScheme =
+    window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+}
 
 const theme = createMuiTheme({
   overrides: {

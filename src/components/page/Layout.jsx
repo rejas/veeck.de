@@ -22,7 +22,7 @@ import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import theme from '../../theme';
 
 import Audio from '../shortcodes/Audio';
-import Code from '../shortcodes/Code';
+import CodeBlock from '../shortcodes/CodeBlock';
 import WowFeed from '../shortcodes/WowFeed';
 
 import Header from './Header';
@@ -44,10 +44,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Layout = ({ children }) => {
+const Layout = props => {
   const classes = useStyles();
+  const { children } = props;
 
-  const data = useStaticQuery(graphql`
+  const { site } = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
@@ -87,14 +88,14 @@ const Layout = ({ children }) => {
             ul: List,
             ol: List,
             li: ListItem,
-            code: Code,
+            code: CodeBlock,
             Audio,
             WowFeed,
           }}
         >
           <Header
-            menuLinks={data.site.siteMetadata.menuLinks}
-            siteTitle={data.site.siteMetadata.title}
+            menuLinks={site.siteMetadata.menuLinks}
+            siteTitle={site.siteMetadata.title}
           />
           <Container
             className={classes.main}

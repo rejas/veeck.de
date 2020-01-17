@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, Typography } from '@material-ui/core';
 import AudioPlayer from 'material-ui-audio-player';
@@ -22,6 +23,11 @@ const AudioElement = props => {
       <AudioPlayer src={file} download elevation={0} />
     </Card>
   );
+};
+
+AudioElement.propTypes = {
+  caption: PropTypes.string.isRequired,
+  file: PropTypes.string.isRequired,
 };
 
 export default AudioElement;

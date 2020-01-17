@@ -26,8 +26,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Header = props => {
-  const { menuLinks, siteTitle } = props;
   const classes = useStyles();
+  const { menuLinks, siteTitle } = props;
 
   return (
     <HideOnScroll {...props}>
@@ -70,6 +70,7 @@ const Header = props => {
 };
 
 Header.propTypes = {
+  menuLinks: PropTypes.arrayOf(PropTypes.object).isRequired,
   siteTitle: PropTypes.string,
 };
 
