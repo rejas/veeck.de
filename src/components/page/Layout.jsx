@@ -1,13 +1,6 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import { Helmet } from 'react-helmet';
 import { MDXProvider } from '@mdx-js/react';
 import { Link } from 'gatsby-theme-material-ui';
@@ -47,20 +40,7 @@ const useStyles = makeStyles(theme => ({
 const Layout = props => {
   const classes = useStyles();
   const { children } = props;
-
-  const { site } = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-          menuLinks {
-            name
-            url
-          }
-        }
-      }
-    }
-  `);
+  const { title, menuLinks } = useSiteMetadata();
 
   return (
     <React.Fragment>
@@ -93,10 +73,7 @@ const Layout = props => {
             WowFeed,
           }}
         >
-          <Header
-            menuLinks={site.siteMetadata.menuLinks}
-            siteTitle={site.siteMetadata.title}
-          />
+          <Header menuLinks={menuLinks} siteTitle={title} />
           <Container
             className={classes.main}
             maxWidth={'md'}
