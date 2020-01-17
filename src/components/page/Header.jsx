@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
 import HideOnScroll from '../utils/HideOnScroll';
+import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 const useStyles = makeStyles(theme => ({
   toolbarPrimary: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 
 const Header = props => {
   const classes = useStyles();
-  const { menuLinks, siteTitle } = props;
+  const { title, menuLinks } = useSiteMetadata();
 
   return (
     <HideOnScroll {...props}>
@@ -44,7 +44,7 @@ const Header = props => {
             key="home"
             to="/"
           >
-            <Typography variant="h4">{siteTitle}</Typography>
+            <Typography variant="h4">{title}</Typography>
           </Link>
         </Toolbar>
         <Toolbar
@@ -67,15 +67,6 @@ const Header = props => {
       </AppBar>
     </HideOnScroll>
   );
-};
-
-Header.propTypes = {
-  menuLinks: PropTypes.arrayOf(PropTypes.object).isRequired,
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: '',
 };
 
 export default Header;

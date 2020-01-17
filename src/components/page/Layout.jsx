@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSiteMetadata } from '../../hooks/use-site-metadata';
-import { Helmet } from 'react-helmet';
 import { MDXProvider } from '@mdx-js/react';
 import { Link } from 'gatsby-theme-material-ui';
 import {
@@ -40,16 +38,9 @@ const useStyles = makeStyles(theme => ({
 const Layout = props => {
   const classes = useStyles();
   const { children } = props;
-  const { title, menuLinks } = useSiteMetadata();
 
   return (
     <React.Fragment>
-      <Helmet>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
-        />
-      </Helmet>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstarts an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
@@ -73,7 +64,7 @@ const Layout = props => {
             WowFeed,
           }}
         >
-          <Header menuLinks={menuLinks} siteTitle={title} />
+          <Header />
           <Container
             className={classes.main}
             maxWidth={'md'}
