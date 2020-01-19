@@ -92,7 +92,7 @@ module.exports = {
           fonts: {
             google: [
               {
-                family: 'Lora',
+                family: 'Lato',
                 //variants: ['300', '400', '500'],
                 //subsets: ['latin']
                 //text: 'Hello'
@@ -100,7 +100,7 @@ module.exports = {
                 //strategy: 'selfHosted' // 'base64' || 'cdn'
               },
               {
-                family: 'Concert+One',
+                family: 'Shadows+Into+Light',
                 fontDisplay: 'swap',
               },
             ],

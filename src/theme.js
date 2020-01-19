@@ -28,9 +28,9 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: ['Lora', 'serif'].join(','),
+    fontFamily: ['Lato', 'serif'].join(','),
     h1: {
-      fontFamily: ['Concert One', 'sans-serif'].join(','),
+      fontFamily: ['Shadows Into Light', 'sans-serif'].join(','),
       fontSize: '3rem',
       lineHeight: '1',
       textAlign: 'center',
@@ -38,17 +38,17 @@ const theme = createMuiTheme({
     },
     h2: {
       fontSize: '2rem',
-      fontFamily: ['Concert One', 'sans-serif'].join(','),
+      fontFamily: ['Shadows Into Light', 'sans-serif'].join(','),
       marginTop: '2rem',
       textTransform: 'uppercase',
     },
     h3: {
       fontSize: '1.666rem',
-      fontFamily: ['Concert One', 'sans-serif'].join(','),
+      fontFamily: ['Shadows Into Light', 'sans-serif'].join(','),
       marginTop: '1rem',
     },
     h4: {
-      fontFamily: ['Concert One', 'sans-serif'].join(','),
+      fontFamily: ['Shadows Into Light', 'sans-serif'].join(','),
       fontWeight: 'bold',
     },
     button: {
