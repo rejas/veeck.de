@@ -1,16 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyLink } from 'gatsby-theme-material-ui';
-import CropIcon from '@material-ui/icons/Crop32';
-import {
-  List,
-  ListItemText,
-  ListItem,
-  ListItemIcon,
-  Paper,
-} from '@material-ui/core';
+import { List, ListItemText, ListItem, Paper } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
+import BlogIcon from "../components/BlogIcon";
 
 const BlogIndex = props => {
   const { edges: posts } = props.data.allMdx;
@@ -22,9 +16,7 @@ const BlogIndex = props => {
         <List>
           {posts.map(({ node: post }) => (
             <ListItem button component={GatsbyLink} to={post.fields.slug}>
-              <ListItemIcon>
-                <CropIcon />
-              </ListItemIcon>
+              <BlogIcon category={post.frontmatter.category} />
               <ListItemText primary={post.frontmatter.title} />
             </ListItem>
           ))}
@@ -46,6 +38,7 @@ export const query = graphql`
           excerpt
           frontmatter {
             title
+            category
           }
           fields {
             slug
