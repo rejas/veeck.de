@@ -11,7 +11,7 @@ const ProjectsIndex = props => {
 
   return (
     <Layout>
-      <SEO title="Projects" />
+      <SEO title="Projects" description="veeck tinkers" />
       <Grid container spacing={3}>
         {posts.map(({ node: post }) => (
           <Grid key={post.id} item xs={12} sm={6} md={4}>
@@ -46,9 +46,6 @@ export const query = graphql`
             title
             img {
               childImageSharp {
-                resize(width: 1500, height: 1500) {
-                  src
-                }
                 fluid(maxWidth: 786) {
                   ...GatsbyImageSharpFluid
                 }

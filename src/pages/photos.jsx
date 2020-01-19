@@ -11,7 +11,7 @@ const PhotoPage = props => {
 
   return (
     <Layout>
-      <SEO title="Galleries" />
+      <SEO title="Galleries" description={'veeck shots'} />
       <Grid container spacing={3}>
         {galleries.map(({ node: gallery }) => (
           <Grid key={gallery.id} item xs={12} sm={6} md={4}>
@@ -40,9 +40,6 @@ export const query = graphql`
           id
           img {
             childImageSharp {
-              resize(width: 1500, height: 1500) {
-                src
-              }
               fluid(maxWidth: 786) {
                 ...GatsbyImageSharpFluid
               }
