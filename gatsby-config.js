@@ -6,24 +6,29 @@ module.exports = {
     author: '@rejas',
     menuLinks: [
       {
+        name: 'blog',
+        url: '/blog',
+        icon: 'pencil',
+      },
+      {
         name: 'tech',
         url: '/projects',
+        icon: 'computer',
       },
       {
         name: 'travel',
         url: '/travel',
+        icon: 'plane',
       },
       {
         name: 'photos',
         url: '/photos',
+        icon: 'camera',
       },
       {
         name: 'links',
         url: '/links',
-      },
-      {
-        name: 'blog',
-        url: '/blog',
+        icon: 'chain',
       },
     ],
   },

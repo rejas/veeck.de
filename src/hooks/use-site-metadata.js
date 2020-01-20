@@ -12,6 +12,7 @@ export const useSiteMetadata = () => {
             menuLinks {
               name
               url
+              icon
             }
           }
         }

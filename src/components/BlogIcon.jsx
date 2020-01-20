@@ -7,8 +7,12 @@ const BlogIcon = props => {
   const { category } = props;
 
   switch (category) {
+    case 'camera':
+    case 'chain':
     case 'life':
       return <LocalFloristIcon />;
+    case 'plane':
+    case 'pencil':
     default:
       return <CropIcon />;
   }

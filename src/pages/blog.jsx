@@ -1,7 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyLink } from 'gatsby-theme-material-ui';
-import { List, ListItemText, ListItem, Paper } from '@material-ui/core';
+import {
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Paper,
+} from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 import BlogIcon from '../components/BlogIcon';
@@ -16,7 +22,9 @@ const BlogIndex = props => {
         <List>
           {posts.map(({ node: post }) => (
             <ListItem button component={GatsbyLink} to={post.fields.slug}>
-              <BlogIcon category={post.frontmatter.category} />
+              <ListItemIcon>
+                <BlogIcon category={post.frontmatter.category} />
+              </ListItemIcon>
               <ListItemText primary={post.frontmatter.title} />
             </ListItem>
           ))}

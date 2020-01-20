@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
+import Hidden from '@material-ui/core/Hidden';
 import HideOnScroll from '../utils/HideOnScroll';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
@@ -41,22 +42,24 @@ const Header = props => {
             <Typography variant="h4">{title}</Typography>
           </Link>
         </Toolbar>
-        <Toolbar
-          className={classes.toolbarSecondary}
-          component="nav"
-          variant="dense"
-        >
-          {menuLinks.map(link => (
-            <Link
-              className={classes.toolbarLink}
-              noWrap
-              key={link.name}
-              to={link.url}
-            >
-              <Typography variant="h5">{link.name}</Typography>
-            </Link>
-          ))}
-        </Toolbar>
+        <Hidden xsDown>
+          <Toolbar
+            className={classes.toolbarSecondary}
+            component="nav"
+            variant="dense"
+          >
+            {menuLinks.map(link => (
+              <Link
+                className={classes.toolbarLink}
+                noWrap
+                key={link.name}
+                to={link.url}
+              >
+                <Typography variant="h5">{link.name}</Typography>
+              </Link>
+            ))}
+          </Toolbar>
+        </Hidden>
       </AppBar>
     </HideOnScroll>
   );
