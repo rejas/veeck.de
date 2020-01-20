@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Veeck',
     description: 'My private homepage',
+    siteUrl: 'https://veeck.de',
     author: '@rejas',
     menuLinks: [
       {
@@ -121,6 +122,13 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', disallow: '/radio' }],
+      },
+    },
+    'gatsby-plugin-sitemap',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',

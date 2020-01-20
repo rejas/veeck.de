@@ -49,7 +49,9 @@ const SEO = props => {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <link rel="author" href="humans.txt" />
+    </Helmet>
   );
 };
 

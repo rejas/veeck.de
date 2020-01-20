@@ -4,7 +4,7 @@ import { GatsbyLink } from 'gatsby-theme-material-ui';
 import { List, ListItemText, ListItem, Paper } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
-import BlogIcon from "../components/BlogIcon";
+import BlogIcon from '../components/BlogIcon';
 
 const BlogIndex = props => {
   const { edges: posts } = props.data.allMdx;
