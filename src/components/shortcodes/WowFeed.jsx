@@ -101,6 +101,7 @@ const WowFeed = () => {
         </Grid>
         <Grid item xs={3}>
           <Button
+            color="secondary"
             variant="contained"
             type="submit"
             onClick={openCharFeed}
@@ -155,6 +156,7 @@ const WowFeed = () => {
 
         <Grid item xs={3}>
           <Button
+            color="secondary"
             variant="contained"
             type="submit"
             onClick={openGuildFeed}

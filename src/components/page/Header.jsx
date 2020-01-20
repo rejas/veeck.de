@@ -37,13 +37,7 @@ const Header = props => {
           component="div"
           variant={'dense'}
         >
-          <Link
-            className={classes.toolbarLink}
-            color="inherit"
-            noWrap
-            key="home"
-            to="/"
-          >
+          <Link className={classes.toolbarLink} noWrap key="home" to="/">
             <Typography variant="h4">{title}</Typography>
           </Link>
         </Toolbar>
@@ -55,7 +49,6 @@ const Header = props => {
           {menuLinks.map(link => (
             <Link
               className={classes.toolbarLink}
-              color="inherit"
               noWrap
               key={link.name}
               to={link.url}
