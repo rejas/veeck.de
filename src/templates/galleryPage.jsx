@@ -6,6 +6,7 @@ import FsLightbox from 'fslightbox-react';
 import { Box, Grid } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import { makeStyles } from '@material-ui/core/styles';
+import { useSearchParams } from '../hooks/use-search-param';
 
 const useStyles = makeStyles(theme => ({
   box: {
@@ -15,6 +16,9 @@ const useStyles = makeStyles(theme => ({
 
 const GalleryTemplate = props => {
   const classes = useStyles();
+  const searchParams = useSearchParams();
+
+  console.log(searchParams);
 
   const node = props.data.allPhotosYaml.edges[0].node;
   const aspectRatios = node.images.map(
