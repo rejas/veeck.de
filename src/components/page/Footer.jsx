@@ -1,10 +1,6 @@
 import React from 'react';
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-  Hidden,
-  Typography,
-} from '@material-ui/core';
+import { BottomNavigation, Hidden, Typography } from '@material-ui/core';
+import { BottomNavigationAction } from 'gatsby-theme-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
@@ -41,6 +37,7 @@ const Footer = () => {
           {menuLinks.map(link => (
             <BottomNavigationAction
               key={link.name}
+              to={link.url}
               label={link.name}
               icon={<BlogIcon category={link.icon} />}
             />
