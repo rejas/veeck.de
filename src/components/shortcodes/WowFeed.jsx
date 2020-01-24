@@ -99,7 +99,7 @@ const WowFeed = () => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={6} sm={3}>
           <Button
             color="secondary"
             variant="contained"
@@ -107,7 +107,7 @@ const WowFeed = () => {
             onClick={openCharFeed}
             className={classes.button}
           >
-            Get Character RSS
+            Get Char RSS
           </Button>
         </Grid>
       </Grid>
@@ -153,8 +153,7 @@ const WowFeed = () => {
             </Select>
           </FormControl>
         </Grid>
-
-        <Grid item xs={3}>
+        <Grid item xs={6} sm={3}>
           <Button
             color="secondary"
             variant="contained"

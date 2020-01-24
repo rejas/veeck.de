@@ -3,14 +3,10 @@ import {
   BottomNavigation,
   BottomNavigationAction,
   Hidden,
-  Toolbar,
   Typography,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import BlogIcon from '../BlogIcon';
 
