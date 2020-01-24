@@ -24,7 +24,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 };
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const result = await graphql(`
+  // Create pages from mdx data
+  const mdxResult = await graphql(`
     query {
       allMdx {
         edges {
@@ -38,12 +39,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
-  if (result.errors) {
-    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
+  if (mdxResult.errors) {
+    reporter.panicOnBuild('🚨ERROR: Loading "createPages" query');
   }
 
-  const posts = result.data.allMdx.edges;
-  posts.forEach(({ node }, index) => {
+  const posts = mdxResult.data.allMdx.edges;
+  posts.forEach(({ node }) => {
     actions.createPage({
       // This is the slug you created before
       // (or `node.frontmatter.slug`)
@@ -56,7 +57,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
   });
 
-  const result2 = await graphql(`
+  // Create pages from yaml data
+  const yamlResult = await graphql(`
     query {
       allPhotosYaml {
         edges {
@@ -68,16 +70,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
-  if (result2.errors) {
-    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
+  if (yamlResult.errors) {
+    reporter.panicOnBuild('🚨ERROR: Loading "createPages" query');
   }
 
-  const galleries = result2.data.allPhotosYaml.edges;
-  galleries.forEach(element => {
+  const galleries = yamlResult.data.allPhotosYaml.edges;
+  galleries.forEach(({ node }) => {
     actions.createPage({
-      path: '/photos/' + element.node.path,
+      path: '/photos/' + node.path,
       component: path.resolve(`./src/templates/galleryPage.jsx`),
-      context: { id: element.node.id },
+      context: { id: node.id },
     });
   });
 };

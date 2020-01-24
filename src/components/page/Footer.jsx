@@ -40,6 +40,7 @@ const Footer = () => {
         >
           {menuLinks.map(link => (
             <BottomNavigationAction
+              key={link.name}
               label={link.name}
               icon={<BlogIcon category={link.icon} />}
             />
