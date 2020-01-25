@@ -18,8 +18,6 @@ const GalleryTemplate = props => {
   const classes = useStyles();
   const searchParams = useSearchParams();
 
-  console.log(searchParams);
-
   const node = props.data.allPhotosYaml.edges[0].node;
   const aspectRatios = node.images.map(
     image => image.img.childImageSharp.fluid.aspectRatio
@@ -35,8 +33,18 @@ const GalleryTemplate = props => {
       )
   );
 
+  let initialIndex = 0;
+  const name = searchParams.name;
+  if (name) {
+    node.images.forEach((img, i) => {
+      if (img.name === name) {
+        initialIndex = i;
+      }
+    });
+  }
+
   const [toggler, setToggler] = useState(false);
-  const [imageIndex, setImageIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(initialIndex);
 
   const openLightbox = imageIndex => {
     setImageIndex(imageIndex + 1);
@@ -94,6 +102,7 @@ export const query = graphql`
             }
             caption
             isNew
+            name
           }
         }
       }

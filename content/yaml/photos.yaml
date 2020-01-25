@@ -199,35 +199,43 @@
       caption: Sky above Freiburg
     - img: '../images/perspective/freiburg_backyard.medium.jpg'
       caption: My backyard in Freiburg
-- path: 'friends'
-  title: 'friends'
-  img: '../images/friends/people.jpg'
+- path: 'from_friends'
+  title: 'from friends'
+  img: '../images/from_friends/people.jpg'
   lead: 'some of my friends take panorama pictures too and i take panorama pictures of them'
   images:
-    - img: '../images/friends/stef_industrial.medium.jpg'
+    - img: '../images/from_friends/stef_industrial.medium.jpg'
       caption: Somewhere in Lichtenberg, Berlin
       isNew: true
-    - img: '../images/friends/stef_rummelsburg.medium.jpg'
+    - img: '../images/from_friends/stef_rummelsburg.medium.jpg'
       caption: Rummelsburger Bucht, Berlin
-    - img: '../images/friends/stef_koeln.medium.jpg'
+    - img: '../images/from_friends/stef_koeln.medium.jpg'
       caption: Cologne, Germany
-    - img: '../images/friends/freiburg_football.medium.jpg'
+    - img: '../images/from_friends/freiburg_football.medium.jpg'
       caption: Resting after an American Football match
-    - img: '../images/friends/freiburg_all.medium.jpg'
+    - img: '../images/from_friends/freiburg_all.medium.jpg'
       caption: Wolfgang, Chloe and Albrecht
-    - img: '../images/friends/freiburg_ansa.medium.jpg'
+    - img: '../images/from_friends/freiburg_ansa.medium.jpg'
       caption: Sanni und Anna, Blurred and Happy
-    - img: '../images/friends/freiburg_sonja.medium.jpg'
+    - img: '../images/from_friends/freiburg_sonja.medium.jpg'
       caption: Sonja in my mess
-    - img: '../images/friends/sven_jordanien.medium.jpg'
+    - img: '../images/from_friends/sven_jordanien.medium.jpg'
       caption: Wadi Rum, Jordanien (by Sven Fritz)
-    - img: '../images/friends/bastian_kohtao.medium.jpg'
+    - img: '../images/from_friends/bastian_kohtao.medium.jpg'
       caption: Sunset at KohTao (by Bastian Müller)
-    - img: '../images/friends/bastian_baobabbeach.medium.jpg'
+    - img: '../images/from_friends/bastian_baobabbeach.medium.jpg'
       caption: Baobab Beach (by Bastian Müller)
-    - img: '../images/friends/bastian_dentdumidi.medium.jpg'
+    - img: '../images/from_friends/bastian_dentdumidi.medium.jpg'
       caption: Dents Du Midi and Mont Blanc (by Bastian Müller)
-    - img: '../images/friends/bastian_matterhorn.medium.jpg'
+    - img: '../images/from_friends/bastian_matterhorn.medium.jpg'
       caption: Matterhorn and Dent Blanche (by Bastian Müller)
-    - img: '../images/friends/bastian_verdon.medium.jpg'
+    - img: '../images/from_friends/bastian_verdon.medium.jpg'
       caption: Sunrise at Gorge du Verdon, France (by Bastian Müller)
+- path: 'people'
+  title: 'people'
+  img: '../images/from_friends/people.jpg'
+  lead: 'TODO'
+  images:
+    - img: '../images/people/tz_julianna.jpg'
+      name: 'julianna'
+      caption: Julianna (dancing)
