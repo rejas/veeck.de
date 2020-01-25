@@ -233,9 +233,39 @@
       caption: Sunrise at Gorge du Verdon, France (by Bastian Müller)
 - path: 'people'
   title: 'people'
-  img: '../images/from_friends/people.jpg'
+  img: '../images/people/friends.jpg'
   lead: 'TODO'
   images:
     - img: '../images/people/tz_julianna.jpg'
-      name: 'julianna'
+      name: julianna
       caption: Julianna (dancing)
+    - img: '../images/people/tz_erasto.jpg'
+      name: erasto
+      caption: Erasto (hanging)
+    - img: '../images/people/tz_lukas.jpg'
+      name: lukas
+      caption: Lukas
+    - img: '../images/people/tz_lea.jpg'
+      name: lea
+      caption: Lea (climbing)
+    - img: '../images/people/tz_jose.jpg'
+      name: jose
+      caption: Jose (showing off)
+    - img: '../images/people/tz_anna.jpg'
+      name: anna
+      caption: Anna
+    - img: '../images/people/tz_agnes.jpg'
+      name: agnes
+      caption: Agnes (smiling)
+    - img: '../images/people/tz_raffael.jpg'
+      name: raffael
+      caption: Raffael (thinking)
+    - img: '../images/people/tz_fiorina.jpg'
+      name: fiorina
+      caption: Fiorina (bending)
+    - img: '../images/people/tz_luzius.jpg'
+      name: luzius
+      caption: Luzius (middle)
+    - img: '../images/people/tz_nami.jpg'
+      name: nami
+      caption: Nami
