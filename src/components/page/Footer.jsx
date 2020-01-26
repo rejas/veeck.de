@@ -4,7 +4,7 @@ import { BottomNavigationAction } from 'gatsby-theme-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
-import BlogIcon from '../BlogIcon';
+import BlogIcon from '../icons/BlogIcon';
 
 const useStyles = makeStyles(theme => ({
   root: {

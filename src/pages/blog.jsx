@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
-import BlogIcon from '../components/BlogIcon';
+import BlogIcon from '../components/icons/BlogIcon';
 
 const BlogIndex = props => {
   const { edges: posts } = props.data.allMdx;
