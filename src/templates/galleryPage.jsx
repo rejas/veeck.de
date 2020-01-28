@@ -7,11 +7,15 @@ import { Box, Grid } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSearchParams } from '../hooks/use-search-param';
+import SEO from "../components/page/Seo";
 
 const useStyles = makeStyles(theme => ({
   box: {
     cursor: 'pointer',
   },
+  h2: {
+    textAlign: "center"
+  }
 }));
 
 const GalleryTemplate = props => {
@@ -52,7 +56,8 @@ const GalleryTemplate = props => {
   };
 
   return (
-    <Layout>
+    <Layout title={node.title} lead={node.lead}>
+      <SEO title={node.title} />
       <Grid container spacing={3}>
         {node.images.map((image, index) => {
           return (
@@ -91,6 +96,8 @@ export const query = graphql`
     allPhotosYaml(filter: { id: { eq: $id } }) {
       edges {
         node {
+          title
+          lead
           images {
             img {
               childImageSharp {

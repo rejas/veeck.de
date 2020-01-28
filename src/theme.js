@@ -51,11 +51,12 @@ const theme = createMuiTheme({
       marginTop: '1rem',
     },
     h4: {
+      fontSize: '1rem',
       fontFamily: ['Shadows Into Light', 'sans-serif'].join(','),
       fontWeight: 'bold',
     },
     button: {
-      fontWeight: 700,
+      fontWeight: 'bold',
     },
   },
   palette: {

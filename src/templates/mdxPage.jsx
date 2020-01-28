@@ -42,9 +42,8 @@ const MdxTemplate = props => {
         WowFeed,
       }}
     >
-      <Layout>
+      <Layout title={mdx.frontmatter.title} lead={mdx.frontmatter.lead}>
         <SEO title={mdx.frontmatter.title} lang={mdx.frontmatter.lang} />
-        <Headline1>{mdx.frontmatter.title}</Headline1>
         <MDXRenderer>{mdx.body}</MDXRenderer>
       </Layout>
     </MDXProvider>
@@ -58,6 +57,7 @@ export const query = graphql`
       body
       frontmatter {
         title
+        lead
         lang
       }
     }
