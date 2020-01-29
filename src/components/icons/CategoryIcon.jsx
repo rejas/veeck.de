@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
-import ComputerIcon from '@material-ui/icons/Memory';
-import CropIcon from '@material-ui/icons/Crop32';
+import CameraIcon from '@material-ui/icons/PhotoCameraOutlined';
+import ComputerIcon from '@material-ui/icons/MemoryOutlined';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecordOutlined';
 import LinkIcon from '@material-ui/icons/Link';
-import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
-import PencilIcon from '@material-ui/icons/Create';
+import LocalFloristIcon from '@material-ui/icons/LocalFloristOutlined';
+import PencilIcon from '@material-ui/icons/CreateOutlined';
 import PlaneIcon from '@material-ui/icons/FlightTakeoff';
 
-const BlogIcon = props => {
+const CategoryIcon = props => {
   const { category } = props;
 
   switch (category) {
@@ -25,16 +25,16 @@ const BlogIcon = props => {
     case 'pencil':
       return <PencilIcon />;
     default:
-      return <CropIcon />;
+      return <FiberManualRecordIcon />;
   }
 };
 
-BlogIcon.defaultProps = {
+CategoryIcon.defaultProps = {
   category: '',
 };
 
-BlogIcon.propTypes = {
+CategoryIcon.propTypes = {
   category: PropTypes.string,
 };
 
-export default BlogIcon;
+export default CategoryIcon;

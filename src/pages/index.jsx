@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Box,
@@ -13,7 +12,6 @@ import { CardActionArea } from 'gatsby-theme-material-ui';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ExploreIcon from '@material-ui/icons/ExploreOutlined';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCameraOutlined';
-
 import Layout from '../components/page/Layout';
 import LightBulbIcon from '../components/icons/LightBulb';
 import SEO from '../components/page/Seo';
@@ -35,12 +33,8 @@ const IndexPage = () => {
   const classes = useStyles();
 
   return (
-    <Layout>
+    <Layout title="computerschlampe - hoffotograf - terrorpoet">
       <SEO title="Home" />
-      <Typography variant="h1" gutterBottom>
-        computerschlampe - hoffotograf - terrorpoet
-      </Typography>
-
       <Grid container spacing={3} className={classes.grid}>
         <Grid item xs={12} sm={6} md={4}>
           <Card>

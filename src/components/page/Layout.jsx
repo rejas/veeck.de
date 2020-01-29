@@ -5,7 +5,7 @@ import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import theme from '../../theme';
 import Header from './Header';
 import Footer from './Footer';
-import {Headline1, Headline2} from "../shortcodes/Typography";
+import { Headline1, Headline2 } from '../shortcodes/Typography';
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -13,14 +13,14 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: theme.spacing(3),
   },
   h2: {
-    textAlign: "center",
-    marginBottom: theme.spacing(3)
-  }
+    textAlign: 'center',
+    marginBottom: theme.spacing(3),
+  },
 }));
 
 const Layout = props => {
   const classes = useStyles();
-  const { children, } = props;
+  const { children } = props;
 
   return (
     <React.Fragment>

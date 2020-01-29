@@ -7,15 +7,15 @@ import { Box, Grid } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSearchParams } from '../hooks/use-search-param';
-import SEO from "../components/page/Seo";
+import SEO from '../components/page/Seo';
 
 const useStyles = makeStyles(theme => ({
   box: {
     cursor: 'pointer',
   },
   h2: {
-    textAlign: "center"
-  }
+    textAlign: 'center',
+  },
 }));
 
 const GalleryTemplate = props => {

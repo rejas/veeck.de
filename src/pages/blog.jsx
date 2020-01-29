@@ -10,20 +10,20 @@ import {
 } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
-import BlogIcon from '../components/icons/BlogIcon';
+import CategoryIcon from '../components/icons/CategoryIcon';
 
 const BlogIndex = props => {
   const { edges: posts } = props.data.allMdx;
 
   return (
-    <Layout>
+    <Layout title="my personal blog">
       <SEO title="Blog" description={'veeck blogs'} />
       <Paper>
         <List>
           {posts.map(({ node: post }) => (
             <ListItem button component={GatsbyLink} to={post.fields.slug}>
               <ListItemIcon>
-                <BlogIcon category={post.frontmatter.category} />
+                <CategoryIcon category={post.frontmatter.category} />
               </ListItemIcon>
               <ListItemText primary={post.frontmatter.title} />
             </ListItem>

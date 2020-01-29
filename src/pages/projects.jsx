@@ -10,7 +10,7 @@ const ProjectsIndex = props => {
   const { edges: posts } = props.data.allMdx;
 
   return (
-    <Layout>
+    <Layout title="my side projects">
       <SEO title="Projects" description="veeck tinkers" />
       <Grid container spacing={3}>
         {posts.map(({ node: post }) => (

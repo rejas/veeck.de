@@ -10,7 +10,7 @@ const PhotoPage = props => {
   const { edges: galleries } = props.data.allPhotosYaml;
 
   return (
-    <Layout>
+    <Layout title="my photo galleries">
       <SEO title="Galleries" description={'veeck shots'} />
       <Grid container spacing={3}>
         {galleries.map(({ node: gallery }) => (

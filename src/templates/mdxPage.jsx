@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Divider, List, ListItem } from '@material-ui/core';
+import { Divider, List } from '@material-ui/core';
 import { MDXProvider } from '@mdx-js/react';
 import { Link } from 'gatsby-theme-material-ui';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -17,6 +17,7 @@ import {
 } from '../components/shortcodes/Typography';
 import Audio from '../components/shortcodes/Audio';
 import CodeBlock from '../components/shortcodes/CodeBlock';
+import ListItem from '../components/shortcodes/ListItem';
 import WowFeed from '../components/shortcodes/WowFeed';
 
 const MdxTemplate = props => {
