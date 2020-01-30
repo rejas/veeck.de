@@ -7,11 +7,7 @@ import HideOnScroll from '../utils/HideOnScroll';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 const useStyles = makeStyles(theme => ({
-  toolbarPrimary: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-    justifyContent: 'space-around',
-  },
-  toolbarSecondary: {
+  toolbar: {
     justifyContent: 'space-between',
     overflowX: 'auto',
   },
@@ -33,21 +29,11 @@ const Header = props => {
   return (
     <HideOnScroll {...props}>
       <AppBar position="sticky">
-        <Toolbar
-          className={classes.toolbarPrimary}
-          component="div"
-          variant={'dense'}
-        >
-          <Link className={classes.toolbarLink} noWrap key="home" to="/">
-            <Typography variant="h4">{title}</Typography>
-          </Link>
-        </Toolbar>
         <Hidden xsDown>
-          <Toolbar
-            className={classes.toolbarSecondary}
-            component="nav"
-            variant="dense"
-          >
+          <Toolbar className={classes.toolbar} component="nav" variant="dense">
+            <Link className={classes.toolbarLink} noWrap key="home" to="/">
+              <Typography variant="h4">{title}</Typography>
+            </Link>
             {menuLinks.map(link => (
               <Link
                 className={classes.toolbarLink}

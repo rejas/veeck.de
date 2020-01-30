@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   },
   nav: {
     width: '100%',
-    position: 'sticky',
+    position: 'fixed',
     bottom: 0,
   },
 }));
@@ -20,8 +20,6 @@ const useStyles = makeStyles(theme => ({
 const Footer = () => {
   const classes = useStyles();
   const { menuLinks } = useSiteMetadata();
-
-  const [value, setValue] = React.useState(0);
 
   return (
     <React.Fragment>
@@ -37,14 +35,13 @@ const Footer = () => {
         </Typography>
       </footer>
       <Hidden smUp>
-        <BottomNavigation
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-          showLabels
-          className={classes.nav}
-        >
+        <BottomNavigation showLabels className={classes.nav}>
+          <BottomNavigationAction
+            key="home"
+            to="/"
+            label="veeck"
+            icon={<CategoryIcon />}
+          />
           {menuLinks.map(link => (
             <BottomNavigationAction
               key={link.name}
