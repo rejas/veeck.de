@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { graphql } from 'gatsby';
 import {
   Box,
   Card,
@@ -15,6 +16,8 @@ import PhotoCameraIcon from '@material-ui/icons/PhotoCameraOutlined';
 import Layout from '../components/page/Layout';
 import LightBulbIcon from '../components/icons/LightBulb';
 import SEO from '../components/page/Seo';
+import CategoryCard from '../components/CategoryCard';
+import CategoryIcon from '../components/icons/CategoryIcon';
 
 const useStyles = makeStyles(theme => ({
   adBox: {
@@ -29,13 +32,35 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const IndexPage = () => {
+const IndexPage = props => {
   const classes = useStyles();
+
+  console.log(props.data);
 
   return (
     <Layout title="computerschlampe - hoffotograf - terrorpoet">
       <SEO title="Home" />
       <Grid container spacing={3} className={classes.grid}>
+        <Grid item xs={12} sm={6} md={4}>
+          <CategoryCard
+            title={props.data.latestBlog.edges[0].node.frontmatter.title}
+            slug={props.data.latestBlog.edges[0].node.fields.slug}
+            excerpt={props.data.latestBlog.edges[0].node.excerpt}
+            category={props.data.latestBlog.edges[0].node.frontmatter.category}
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={4}>
+          <CategoryCard
+            title={props.data.latestTravel.edges[0].node.frontmatter.title}
+            slug={props.data.latestTravel.edges[0].node.fields.slug}
+            excerpt={props.data.latestTravel.edges[0].node.excerpt}
+            category={
+              props.data.latestTravel.edges[0].node.frontmatter.category
+            }
+          />
+        </Grid>
+
         <Grid item xs={12} sm={6} md={4}>
           <Card>
             <CardHeader avatar={<LightBulbIcon />} title={'What do I do?'} />
@@ -109,5 +134,48 @@ const IndexPage = () => {
     </Layout>
   );
 };
+
+export const query = graphql`
+  query {
+    latestBlog: allMdx(
+      sort: { fields: fields___slug, order: DESC }
+      filter: { fields: { slug: { regex: "/blog/" } } }
+      limit: 1
+    ) {
+      edges {
+        node {
+          id
+          excerpt
+          frontmatter {
+            title
+            category
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+    latestTravel: allMdx(
+      sort: { fields: fields___slug, order: DESC }
+      filter: { fields: { slug: { regex: "/travel/" } } }
+      limit: 1
+    ) {
+      edges {
+        node {
+          id
+          excerpt
+          frontmatter {
+            title
+            category
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;

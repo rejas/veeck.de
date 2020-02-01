@@ -21,11 +21,19 @@ const BlogIndex = props => {
       <Paper>
         <List>
           {posts.map(({ node: post }) => (
-            <ListItem button component={GatsbyLink} to={post.fields.slug}>
+            <ListItem
+              button
+              key={post.id}
+              component={GatsbyLink}
+              to={post.fields.slug}
+            >
               <ListItemIcon>
                 <CategoryIcon category={post.frontmatter.category} />
               </ListItemIcon>
-              <ListItemText primary={post.frontmatter.title} />
+              <ListItemText
+                primary={post.frontmatter.title}
+                secondary={post.excerpt}
+              />
             </ListItem>
           ))}
         </List>

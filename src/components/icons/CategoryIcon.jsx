@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CameraIcon from '@material-ui/icons/PhotoCameraOutlined';
-import ComputerIcon from '@material-ui/icons/MemoryOutlined';
+import MemoryIcon from '@material-ui/icons/MemoryOutlined';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecordOutlined';
 import LinkIcon from '@material-ui/icons/Link';
 import LocalFloristIcon from '@material-ui/icons/LocalFloristOutlined';
-import PencilIcon from '@material-ui/icons/CreateOutlined';
-import PlaneIcon from '@material-ui/icons/FlightTakeoff';
+import CreateIcon from '@material-ui/icons/CreateOutlined';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 
 const CategoryIcon = props => {
   const { category } = props;
@@ -14,16 +14,16 @@ const CategoryIcon = props => {
   switch (category) {
     case 'camera':
       return <CameraIcon />;
-    case 'chain':
+    case 'link':
       return <LinkIcon />;
     case 'computer':
-      return <ComputerIcon />;
+      return <MemoryIcon />;
     case 'life':
       return <LocalFloristIcon />;
-    case 'plane':
-      return <PlaneIcon />;
+    case 'travel':
+      return <FlightTakeoffIcon />;
     case 'pencil':
-      return <PencilIcon />;
+      return <CreateIcon />;
     default:
       return <FiberManualRecordIcon />;
   }

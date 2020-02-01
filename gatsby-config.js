@@ -18,7 +18,7 @@ module.exports = {
       {
         name: 'travel',
         url: '/travel',
-        icon: 'plane',
+        icon: 'travel',
       },
       {
         name: 'photos',
@@ -28,7 +28,7 @@ module.exports = {
       {
         name: 'links',
         url: '/links',
-        icon: 'chain',
+        icon: 'link',
       },
     ],
   },
