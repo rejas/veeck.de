@@ -5,6 +5,7 @@ import CategoryIcon from './icons/CategoryIcon';
 import { CardActionArea } from 'gatsby-theme-material-ui';
 
 const CategoryCard = props => {
+  console.log(props.category);
   return (
     <Card>
       <CardHeader
