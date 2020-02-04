@@ -8,11 +8,10 @@
     "url": "https://github.com/rejas/"
   },
   "browserslist": [
-    "last 2 versions",
-    "ie >= 11",
-    "safari >= 7",
-    "iOS >= 9",
-    "Android >= 4.4"
+    "last 3 versions",
+    "not IE <= 11",
+    "not IE_Mob <= 11",
+    "not dead"
   ],
   "pre-push": [
     "test"
@@ -35,12 +34,12 @@
     "upload": "node scripts/upload.js"
   },
   "dependencies": {
-    "@material-ui/core": "^4.9.0",
-    "@material-ui/icons": "^4.5.1",
+    "@material-ui/core": "^4.9.1",
+    "@material-ui/icons": "^4.9.1",
     "@mdx-js/mdx": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
     "fslightbox-react": "^1.4.9",
-    "gatsby": "^2.19.11",
+    "gatsby": "^2.19.12",
     "gatsby-image": "^2.2.40",
     "gatsby-plugin-manifest": "^2.2.41",
     "gatsby-plugin-mdx": "^1.0.70",
