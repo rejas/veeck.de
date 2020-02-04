@@ -29,54 +29,13 @@ const IndexPage = props => {
     <Layout title="computerschlampe - hoffotograf - terrorpoet">
       <SEO title="Home" />
       <Grid container spacing={3} className={classes.grid}>
-        <Grid item xs={12} sm={6} md={4}>
-          <CategoryCard
-            title={props.data.latestBlog.edges[0].node.frontmatter.title}
-            slug={props.data.latestBlog.edges[0].node.fields.slug}
-            excerpt={props.data.latestBlog.edges[0].node.excerpt}
-            category={props.data.latestBlog.edges[0].node.frontmatter.category}
-          />
-        </Grid>
-
-        <Grid item xs={12}>
-          <Typography variant={'h2'} gutterBottom>
-            computerschlampe
-          </Typography>
-          <Typography variant={'body1'} gutterBottom>
-            as a geek I use this page as a playground for trying out programming
-            stuff, mostly html5/css3/js
-          </Typography>
-          <Typography className={classes.arrow} variant={'body2'}>
-            <ArrowForwardIcon fontSize={'small'} /> all projects
-          </Typography>
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CategoryCard
-            title={props.data.latestProject.edges[0].node.frontmatter.title}
-            slug={props.data.latestProject.edges[0].node.fields.slug}
-            excerpt={props.data.latestProject.edges[0].node.excerpt}
-            category={
-              props.data.latestProject.edges[0].node.frontmatter.category
-            }
-          />
-        </Grid>
-
-        <Grid item xs={12}>
-          <Typography variant={'h2'} gutterBottom>
-            hoffotograf
-          </Typography>
-          <Typography variant={'body1'} gutterBottom>
-            the photographer wants to show of his pictures from around the world
-          </Typography>
-          <Typography className={classes.arrow} variant={'body2'}>
-            <ArrowForwardIcon fontSize={'small'} /> all image galleries
-          </Typography>
-        </Grid>
-
-        <Grid item xs={12}>
-          <Typography variant={'h2'} gutterBottom>
-            terrorpoet
-          </Typography>
+        <CategoryCard
+          title={props.data.latestTravel.edges[0].node.frontmatter.title}
+          slug={props.data.latestTravel.edges[0].node.fields.slug}
+          excerpt={props.data.latestTravel.edges[0].node.excerpt}
+          category={props.data.latestTravel.edges[0].node.frontmatter.category}
+          categoryName="terrorpoet"
+        >
           <Typography variant={'body1'} gutterBottom>
             the terrorpoet writes his travel diaries down and posts them here
           </Typography>
@@ -84,18 +43,48 @@ const IndexPage = props => {
             <ArrowForwardIcon fontSize={'small'} />
             all travel diaries
           </Typography>
-        </Grid>
+        </CategoryCard>
 
-        <Grid item xs={12} sm={6} md={4}>
-          <CategoryCard
-            title={props.data.latestTravel.edges[0].node.frontmatter.title}
-            slug={props.data.latestTravel.edges[0].node.fields.slug}
-            excerpt={props.data.latestTravel.edges[0].node.excerpt}
-            category={
-              props.data.latestTravel.edges[0].node.frontmatter.category
-            }
-          />
-        </Grid>
+        <CategoryCard
+          title={props.data.latestProject.edges[0].node.frontmatter.title}
+          slug={props.data.latestProject.edges[0].node.fields.slug}
+          excerpt={props.data.latestProject.edges[0].node.excerpt}
+          category={props.data.latestProject.edges[0].node.frontmatter.category}
+          categoryName="computerschlampe"
+        >
+          <Typography variant={'body1'} gutterBottom>
+            as a geek I use this page as a playground for trying out programming
+            stuff, mostly html5/css3/js
+          </Typography>
+          <Typography className={classes.arrow} variant={'body2'}>
+            <ArrowForwardIcon fontSize={'small'} /> all projects
+          </Typography>
+        </CategoryCard>
+
+        <CategoryCard categoryName="hoffotograf">
+          <Typography variant={'body1'} gutterBottom>
+            the photographer wants to show of his pictures from around the world
+          </Typography>
+          <Typography className={classes.arrow} variant={'body2'}>
+            <ArrowForwardIcon fontSize={'small'} /> all image galleries
+          </Typography>
+        </CategoryCard>
+
+        <CategoryCard
+          title={props.data.latestBlog.edges[0].node.frontmatter.title}
+          slug={props.data.latestBlog.edges[0].node.fields.slug}
+          excerpt={props.data.latestBlog.edges[0].node.excerpt}
+          category={props.data.latestBlog.edges[0].node.frontmatter.category}
+          categoryName="blog"
+        >
+          <Typography variant={'body1'} gutterBottom>
+            all other stuff and ramblings go into my blog
+          </Typography>
+          <Typography className={classes.arrow} variant={'body2'}>
+            <ArrowForwardIcon fontSize={'small'} />
+            all blog entries
+          </Typography>
+        </CategoryCard>
       </Grid>
 
       <Box className={classes.adBox}>
