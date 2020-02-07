@@ -5,26 +5,29 @@ import {
   CardContent,
   CardHeader,
   Grid,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   Typography,
 } from '@material-ui/core';
 import CategoryIcon from './icons/CategoryIcon';
 import { CardActionArea } from 'gatsby-theme-material-ui';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+  headline: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+}));
 
 const CategoryCard = props => {
-  console.log(props.category);
+  const classes = useStyles();
 
   return (
-    <Grid container>
+    <Grid container spacing={3}>
       <Grid item xs={12}>
-        <ListItem>
-          <ListItemIcon>
-            <CategoryIcon category={props.category} />
-          </ListItemIcon>
-          <ListItemText primary={props.categoryName} />
-        </ListItem>
+        <Typography variant={'h2'} className={classes.headline}>
+          <CategoryIcon category={props.category} />
+          {props.categoryName}
+        </Typography>
       </Grid>
 
       <Grid item xs={12} md={6}>
@@ -33,12 +36,9 @@ const CategoryCard = props => {
 
       <Grid item xs={12} md={6}>
         <Card>
-          <CardHeader title={'Latest Entry'} />
+          <CardHeader title={`Latest Entry: ${props.title}`} />
           <CardActionArea to={props.slug}>
             <CardContent>
-              <Typography variant={'body1'} gutterBottom>
-                {props.title}
-              </Typography>
               <Typography variant={'body1'} gutterBottom>
                 {props.excerpt}
               </Typography>

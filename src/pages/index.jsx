@@ -1,11 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { graphql } from 'gatsby';
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Toolbar, Typography } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 import CategoryCard from '../components/CategoryCard';
+import { Link } from 'gatsby-theme-material-ui';
 
 const useStyles = makeStyles(theme => ({
   adBox: {
@@ -39,10 +40,10 @@ const IndexPage = props => {
           <Typography variant={'body1'} gutterBottom>
             the terrorpoet writes his travel diaries down and posts them here
           </Typography>
-          <Typography className={classes.arrow} variant={'body2'}>
+          <Link className={classes.arrow} noWrap key="home" to="/travel">
             <ArrowForwardIcon fontSize={'small'} />
-            all travel diaries
-          </Typography>
+            <Typography variant="h4">all travel diaries</Typography>
+          </Link>
         </CategoryCard>
 
         <CategoryCard
@@ -56,18 +57,20 @@ const IndexPage = props => {
             as a geek I use this page as a playground for trying out programming
             stuff, mostly html5/css3/js
           </Typography>
-          <Typography className={classes.arrow} variant={'body2'}>
-            <ArrowForwardIcon fontSize={'small'} /> all projects
-          </Typography>
+          <Link className={classes.arrow} noWrap key="home" to="/projects">
+            <ArrowForwardIcon fontSize={'small'} />
+            <Typography variant="h4">all projects</Typography>
+          </Link>
         </CategoryCard>
 
-        <CategoryCard categoryName="hoffotograf">
+        <CategoryCard category={'camera'} categoryName="hoffotograf">
           <Typography variant={'body1'} gutterBottom>
             the photographer wants to show of his pictures from around the world
           </Typography>
-          <Typography className={classes.arrow} variant={'body2'}>
-            <ArrowForwardIcon fontSize={'small'} /> all image galleries
-          </Typography>
+          <Link className={classes.arrow} noWrap key="home" to="/photos">
+            <ArrowForwardIcon fontSize={'small'} />
+            <Typography variant="h4">all galleries</Typography>
+          </Link>
         </CategoryCard>
 
         <CategoryCard
@@ -80,10 +83,10 @@ const IndexPage = props => {
           <Typography variant={'body1'} gutterBottom>
             all other stuff and ramblings go into my blog
           </Typography>
-          <Typography className={classes.arrow} variant={'body2'}>
+          <Link className={classes.arrow} noWrap key="home" to="/blog">
             <ArrowForwardIcon fontSize={'small'} />
-            all blog entries
-          </Typography>
+            <Typography variant="h4">all blog entries</Typography>
+          </Link>
         </CategoryCard>
       </Grid>
 

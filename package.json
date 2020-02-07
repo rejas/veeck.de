@@ -8,11 +8,10 @@
     "url": "https://github.com/rejas/"
   },
   "browserslist": [
-    "last 2 versions",
-    "ie >= 11",
-    "safari >= 7",
-    "iOS >= 9",
-    "Android >= 4.4"
+    "last 3 versions",
+    "not IE <= 11",
+    "not IE_Mob <= 11",
+    "not dead"
   ],
   "pre-push": [
     "test"
