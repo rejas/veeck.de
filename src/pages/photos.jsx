@@ -19,7 +19,7 @@ const PhotoPage = props => {
               <CardActionArea to={'/photos/' + gallery.path}>
                 <Img fluid={gallery.img.childImageSharp.fluid} />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
+                  <Typography gutterBottom variant="h6" component="h2">
                     {gallery.title}
                   </Typography>
                 </CardContent>

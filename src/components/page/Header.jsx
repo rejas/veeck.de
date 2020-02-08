@@ -31,18 +31,29 @@ const Header = props => {
       <AppBar position="sticky">
         <Hidden xsDown>
           <Toolbar className={classes.toolbar} component="nav" variant="dense">
-            <Link className={classes.toolbarLink} noWrap key="home" to="/">
-              <Typography variant="h4">{title}</Typography>
-            </Link>
-            {menuLinks.map(link => (
+            <Typography variant="h4">
               <Link
                 className={classes.toolbarLink}
                 noWrap
-                key={link.name}
-                to={link.url}
+                key="home"
+                to="/"
+                color="inherit"
               >
-                <Typography variant="h5">{link.name}</Typography>
+                {title}
               </Link>
+            </Typography>
+            {menuLinks.map(link => (
+              <Typography variant="h5">
+                <Link
+                  className={classes.toolbarLink}
+                  noWrap
+                  color="inherit"
+                  key={link.name}
+                  to={link.url}
+                >
+                  {link.name}
+                </Link>
+              </Typography>
             ))}
           </Toolbar>
         </Hidden>

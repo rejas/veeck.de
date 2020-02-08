@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { graphql } from 'gatsby';
-import { Box, Grid, Toolbar, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
@@ -24,25 +24,23 @@ const useStyles = makeStyles(theme => ({
 const IndexPage = props => {
   const classes = useStyles();
 
-  console.log(props.data);
-
   return (
-    <Layout title="computerschlampe - hoffotograf - terrorpoet">
+    <Layout>
       <SEO title="Home" />
       <Grid container spacing={3} className={classes.grid}>
         <CategoryCard
-          title={props.data.latestTravel.edges[0].node.frontmatter.title}
-          slug={props.data.latestTravel.edges[0].node.fields.slug}
-          excerpt={props.data.latestTravel.edges[0].node.excerpt}
-          category={props.data.latestTravel.edges[0].node.frontmatter.category}
-          categoryName="terrorpoet"
+          title={props.data.latestBlog.edges[0].node.frontmatter.title}
+          slug={props.data.latestBlog.edges[0].node.fields.slug}
+          excerpt={props.data.latestBlog.edges[0].node.excerpt}
+          category="pencil"
+          categoryName="blog"
         >
           <Typography variant={'body1'} gutterBottom>
-            the terrorpoet writes his travel diaries down and posts them here
+            all other stuff and ramblings go into my blog
           </Typography>
-          <Link className={classes.arrow} noWrap key="home" to="/travel">
+          <Link className={classes.arrow} noWrap key="home" to="/blog">
             <ArrowForwardIcon fontSize={'small'} />
-            <Typography variant="h4">all travel diaries</Typography>
+            <Typography variant="h4">all blog entries</Typography>
           </Link>
         </CategoryCard>
 
@@ -51,6 +49,10 @@ const IndexPage = props => {
           slug={props.data.latestProject.edges[0].node.fields.slug}
           excerpt={props.data.latestProject.edges[0].node.excerpt}
           category={props.data.latestProject.edges[0].node.frontmatter.category}
+          categoryImage={
+            props.data.latestProject.edges[0].node.frontmatter.img
+              .childImageSharp.fluid
+          }
           categoryName="computerschlampe"
         >
           <Typography variant={'body1'} gutterBottom>
@@ -63,6 +65,26 @@ const IndexPage = props => {
           </Link>
         </CategoryCard>
 
+        <CategoryCard
+          title={props.data.latestTravel.edges[0].node.frontmatter.title}
+          slug={props.data.latestTravel.edges[0].node.fields.slug}
+          excerpt={props.data.latestTravel.edges[0].node.excerpt}
+          category={props.data.latestTravel.edges[0].node.frontmatter.category}
+          categoryImage={
+            props.data.latestTravel.edges[0].node.frontmatter.img
+              .childImageSharp.fluid
+          }
+          categoryName="terrorpoet"
+        >
+          <Typography variant={'body1'} gutterBottom>
+            the terrorpoet writes his travel diaries down and posts them here
+          </Typography>
+          <Link className={classes.arrow} noWrap key="home" to="/travel">
+            <ArrowForwardIcon fontSize={'small'} />
+            <Typography variant="h4">all travel diaries</Typography>
+          </Link>
+        </CategoryCard>
+
         <CategoryCard category={'camera'} categoryName="hoffotograf">
           <Typography variant={'body1'} gutterBottom>
             the photographer wants to show of his pictures from around the world
@@ -70,22 +92,6 @@ const IndexPage = props => {
           <Link className={classes.arrow} noWrap key="home" to="/photos">
             <ArrowForwardIcon fontSize={'small'} />
             <Typography variant="h4">all galleries</Typography>
-          </Link>
-        </CategoryCard>
-
-        <CategoryCard
-          title={props.data.latestBlog.edges[0].node.frontmatter.title}
-          slug={props.data.latestBlog.edges[0].node.fields.slug}
-          excerpt={props.data.latestBlog.edges[0].node.excerpt}
-          category={props.data.latestBlog.edges[0].node.frontmatter.category}
-          categoryName="blog"
-        >
-          <Typography variant={'body1'} gutterBottom>
-            all other stuff and ramblings go into my blog
-          </Typography>
-          <Link className={classes.arrow} noWrap key="home" to="/blog">
-            <ArrowForwardIcon fontSize={'small'} />
-            <Typography variant="h4">all blog entries</Typography>
           </Link>
         </CategoryCard>
       </Grid>
@@ -144,6 +150,14 @@ export const query = graphql`
           frontmatter {
             title
             category
+            img {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                  aspectRatio
+                }
+              }
+            }
           }
           fields {
             slug
@@ -163,6 +177,14 @@ export const query = graphql`
           frontmatter {
             title
             category
+            img {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                  aspectRatio
+                }
+              }
+            }
           }
           fields {
             slug

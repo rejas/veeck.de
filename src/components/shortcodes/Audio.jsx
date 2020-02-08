@@ -17,7 +17,7 @@ const AudioElement = props => {
 
   return (
     <Card className={classes.root}>
-      <Typography variant={'h5'} gutterBottom>
+      <Typography variant={'h6'} component={'h2'} gutterBottom>
         {caption}
       </Typography>
       <AudioPlayer src={file} download elevation={0} />

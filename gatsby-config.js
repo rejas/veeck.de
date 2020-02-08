@@ -98,8 +98,13 @@ module.exports = {
           fonts: {
             google: [
               {
+                family: 'Kanit',
+                variants: ['700'],
+                fontDisplay: 'swap',
+              },
+              {
                 family: 'Lato',
-                //variants: ['300', '400', '500'],
+                variants: ['300', '400', '500'],
                 //subsets: ['latin']
                 //text: 'Hello'
                 fontDisplay: 'swap',

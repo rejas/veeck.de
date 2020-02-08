@@ -1,32 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CameraIcon from '@material-ui/icons/PhotoCameraOutlined';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecordOutlined';
+import CameraIcon from '@material-ui/icons/PhotoCamera';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import LinkIcon from '@material-ui/icons/Link';
-import LocalFloristIcon from '@material-ui/icons/LocalFloristOutlined';
-import CreateIcon from '@material-ui/icons/CreateOutlined';
-import ExploreIcon from '@material-ui/icons/ExploreOutlined';
-import LightBulbIcon from './LightBulb';
+import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
+import CreateIcon from '@material-ui/icons/Create';
+import ExploreIcon from '@material-ui/icons/Explore';
+import ComputerIcon from '@material-ui/icons/Computer';
 
 const CategoryIcon = props => {
   const { category } = props;
 
   switch (category) {
     case 'camera':
-      return <CameraIcon />;
+      return <CameraIcon {...props} />;
     case 'link':
-      return <LinkIcon />;
+      return <LinkIcon {...props} />;
     case 'computer':
     case 'project':
-      return <LightBulbIcon />;
+      return <ComputerIcon {...props} />;
     case 'life':
-      return <LocalFloristIcon />;
+      return <LocalFloristIcon {...props} />;
     case 'travel':
-      return <ExploreIcon />;
+      return <ExploreIcon {...props} />;
     case 'pencil':
-      return <CreateIcon />;
+      return <CreateIcon {...props} />;
     default:
-      return <FiberManualRecordIcon />;
+      return <FiberManualRecordIcon {...props} />;
   }
 };
 

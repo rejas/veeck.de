@@ -3,29 +3,44 @@ import PropTypes from 'prop-types';
 import {
   Card,
   CardContent,
-  CardHeader,
+  CardMedia,
   Grid,
   Typography,
 } from '@material-ui/core';
 import CategoryIcon from './icons/CategoryIcon';
 import { CardActionArea } from 'gatsby-theme-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
+import Img from 'gatsby-image';
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    marginBottom: theme.spacing(3),
+  },
   headline: {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
+  },
+  icon: {
+    marginRight: theme.spacing(1),
   },
 }));
 
 const CategoryCard = props => {
   const classes = useStyles();
 
+  console.log(props);
+
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={12}>
-        <Typography variant={'h2'} className={classes.headline}>
-          <CategoryIcon category={props.category} />
+    <Grid container spacing={3} className={classes.root}>
+      <Grid item xs={12} alignContent="center">
+        <Typography variant={'h1'} className={classes.headline}>
+          <CategoryIcon
+            className={classes.icon}
+            category={props.category}
+            color="primary"
+            style={{ fontSize: '4rem' }}
+          />
           {props.categoryName}
         </Typography>
       </Grid>
@@ -36,11 +51,23 @@ const CategoryCard = props => {
 
       <Grid item xs={12} md={6}>
         <Card>
-          <CardHeader title={`Latest Entry: ${props.title}`} />
           <CardActionArea to={props.slug}>
+            {props.categoryImage && <Img fluid={props.categoryImage} />}
+
+            <CardMedia
+              className={classes.media}
+              image="/static/images/cards/contemplative-reptile.jpg"
+              title="Contemplative Reptile"
+            />
             <CardContent>
+              <Typography variant={'caption'} gutterBottom>
+                Latest Update: {props.title}
+              </Typography>
               <Typography variant={'body1'} gutterBottom>
                 {props.excerpt}
+              </Typography>
+              <Typography variant={'caption'} gutterBottom>
+                ...
               </Typography>
             </CardContent>
           </CardActionArea>
