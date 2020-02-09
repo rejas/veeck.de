@@ -5,6 +5,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Paper,
   Typography,
 } from '@material-ui/core';
 import CategoryIcon from './icons/CategoryIcon';
@@ -15,6 +16,7 @@ import Img from 'gatsby-image';
 const useStyles = makeStyles(theme => ({
   root: {
     marginBottom: theme.spacing(3),
+    padding: theme.spacing(2),
   },
   headline: {
     display: 'flex',
@@ -24,6 +26,16 @@ const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(1),
   },
+  card: {
+    display: 'flex',
+  },
+  content: {
+    flexDirection: 'column',
+    flex: '1 0 50%',
+  },
+  cover: {
+    flex: '1 0 50%',
+  },
 }));
 
 const CategoryCard = props => {
@@ -32,48 +44,46 @@ const CategoryCard = props => {
   console.log(props);
 
   return (
-    <Grid container spacing={3} className={classes.root}>
-      <Grid item xs={12} alignContent="center">
-        <Typography variant={'h1'} className={classes.headline}>
-          <CategoryIcon
-            className={classes.icon}
-            category={props.category}
-            color="primary"
-            style={{ fontSize: '4rem' }}
-          />
-          {props.categoryName}
-        </Typography>
-      </Grid>
-
-      <Grid item xs={12} md={6}>
-        {props.children}
-      </Grid>
-
-      <Grid item xs={12} md={6}>
-        <Card>
-          <CardActionArea to={props.slug}>
-            {props.categoryImage && <Img fluid={props.categoryImage} />}
-
-            <CardMedia
-              className={classes.media}
-              image="/static/images/cards/contemplative-reptile.jpg"
-              title="Contemplative Reptile"
+    <Paper className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs={12} alignContent="center">
+          <Typography variant={'h1'} className={classes.headline}>
+            <CategoryIcon
+              className={classes.icon}
+              category={props.category}
+              color="primary"
+              style={{ fontSize: '4rem' }}
             />
-            <CardContent>
-              <Typography variant={'caption'} gutterBottom>
-                Latest Update: {props.title}
-              </Typography>
-              <Typography variant={'body1'} gutterBottom>
-                {props.excerpt}
-              </Typography>
-              <Typography variant={'caption'} gutterBottom>
-                ...
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+            {props.categoryName}
+          </Typography>
+        </Grid>
+
+        <Grid item xs={12} md={4}>
+          {props.children}
+        </Grid>
+
+        <Grid item xs={12} md={8}>
+          <Card className={classes.card}>
+            <CardActionArea to={props.slug} className={classes.content}>
+              <CardContent>
+                <Typography variant={'h2'} gutterBottom>
+                  Latest Update: {props.title}
+                </Typography>
+                <Typography variant={'body1'} gutterBottom>
+                  {props.excerpt}
+                </Typography>
+                <Typography variant={'caption'} gutterBottom>
+                  read more...
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardMedia className={classes.cover}>
+              {props.categoryImage && <Img fluid={props.categoryImage} />}
+            </CardMedia>
+          </Card>
+        </Grid>
       </Grid>
-    </Grid>
+    </Paper>
   );
 };
 

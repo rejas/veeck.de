@@ -19,7 +19,7 @@ const ProjectsIndex = props => {
               <CardActionArea to={post.fields.slug}>
                 <Img fluid={post.frontmatter.img.childImageSharp.fluid} />
                 <CardContent>
-                  <Typography gutterBottom variant="h6" component="h2">
+                  <Typography component="h2" variant="subtitle1">
                     {post.frontmatter.title}
                   </Typography>
                 </CardContent>

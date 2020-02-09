@@ -13,9 +13,6 @@ const useStyles = makeStyles(theme => ({
   box: {
     cursor: 'pointer',
   },
-  h2: {
-    textAlign: 'center',
-  },
 }));
 
 const GalleryTemplate = props => {

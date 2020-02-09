@@ -40,19 +40,18 @@ const theme = createMuiTheme({
       textTransform: 'uppercase',
     },
     h2: {
-      fontSize: '2rem',
       fontFamily: ['Shadows Into Light', 'sans-serif'].join(','),
-      marginTop: '2rem',
+      fontSize: '2rem',
+      fontWeight: 'bold',
       textTransform: 'uppercase',
     },
     h3: {
-      fontSize: '1.666rem',
       fontFamily: ['Shadows Into Light', 'sans-serif'].join(','),
-      marginTop: '1rem',
+      fontSize: '1.666rem',
     },
     h4: {
-      fontSize: '1rem',
       fontFamily: ['Shadows Into Light', 'sans-serif'].join(','),
+      fontSize: '1rem',
       fontWeight: 'bold',
     },
     h5: {
@@ -64,6 +63,12 @@ const theme = createMuiTheme({
     },
     button: {
       fontWeight: 'bold',
+    },
+    subtitle1: {
+      fontFamily: ['Kanit', 'sans-serif'].join(','),
+      fontSize: '1.666rem',
+      lineHeight: '1',
+      textTransform: 'lowercase',
     },
   },
   palette: {

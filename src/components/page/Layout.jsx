@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CssBaseline, Container } from '@material-ui/core';
+import { CssBaseline, Container, Typography } from '@material-ui/core';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import theme from '../../theme';
 import Header from './Header';
 import Footer from './Footer';
-import { Headline1, Headline2 } from '../shortcodes/Typography';
+import { Headline1 } from '../shortcodes/Typography';
 
 const useStyles = makeStyles(theme => ({
   main: {
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
   },
-  h2: {
+  lead: {
     textAlign: 'center',
+    marginTop: theme.spacing(1),
     marginBottom: theme.spacing(3),
   },
 }));
@@ -30,7 +31,9 @@ const Layout = props => {
         <Header />
         <Container className={classes.main} maxWidth={'md'} component={'main'}>
           <Headline1>{props.title}</Headline1>
-          <Headline2 className={classes.h2}>{props.lead}</Headline2>
+          <Typography className={classes.lead} gutterBottom variant="subtitle1">
+            {props.lead}
+          </Typography>
           {children}
         </Container>
         <Footer />

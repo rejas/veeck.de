@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import CategoryIcon from '../icons/CategoryIcon';
@@ -16,11 +17,15 @@ const ListItemElement = props => {
   return (
     <ListItem>
       <ListItemIcon className={classes.icon}>
-        <CategoryIcon />
+        <CategoryIcon color="primary" />
       </ListItemIcon>
       <ListItemText>{props.children}</ListItemText>
     </ListItem>
   );
+};
+
+ListItemElement.propTypes = {
+  children: PropTypes.element.isRequired,
 };
 
 export default ListItemElement;

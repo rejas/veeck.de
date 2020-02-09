@@ -35,8 +35,8 @@ const IndexPage = props => {
           category="pencil"
           categoryName="blog"
         >
-          <Typography variant={'body1'} gutterBottom>
-            all other stuff and ramblings go into my blog
+          <Typography variant={'subtitle1'} gutterBottom>
+            all my ramblings and stuff I find noteworthy
           </Typography>
           <Link className={classes.arrow} noWrap key="home" to="/blog">
             <ArrowForwardIcon fontSize={'small'} />
@@ -55,9 +55,8 @@ const IndexPage = props => {
           }
           categoryName="computerschlampe"
         >
-          <Typography variant={'body1'} gutterBottom>
-            as a geek I use this page as a playground for trying out programming
-            stuff, mostly html5/css3/js
+          <Typography variant={'subtitle1'} gutterBottom>
+            all the techy stuff I do for fun, hard & soft :-)
           </Typography>
           <Link className={classes.arrow} noWrap key="home" to="/projects">
             <ArrowForwardIcon fontSize={'small'} />
@@ -76,8 +75,8 @@ const IndexPage = props => {
           }
           categoryName="terrorpoet"
         >
-          <Typography variant={'body1'} gutterBottom>
-            the terrorpoet writes his travel diaries down and posts them here
+          <Typography variant={'subtitle1'} gutterBottom>
+            I write diaries when I am traveling the world and post them here
           </Typography>
           <Link className={classes.arrow} noWrap key="home" to="/travel">
             <ArrowForwardIcon fontSize={'small'} />
@@ -86,8 +85,8 @@ const IndexPage = props => {
         </CategoryCard>
 
         <CategoryCard category={'camera'} categoryName="hoffotograf">
-          <Typography variant={'body1'} gutterBottom>
-            the photographer wants to show of his pictures from around the world
+          <Typography variant={'subtitle1'} gutterBottom>
+            showing of my pictures from around the world
           </Typography>
           <Link className={classes.arrow} noWrap key="home" to="/photos">
             <ArrowForwardIcon fontSize={'small'} />
