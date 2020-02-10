@@ -1,13 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
-  Paper,
-  Typography,
-} from '@material-ui/core';
+import { Box, Card, CardContent, Grid, Typography } from '@material-ui/core';
 import CategoryIcon from './icons/CategoryIcon';
 import { CardActionArea } from 'gatsby-theme-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,8 +8,15 @@ import Img from 'gatsby-image';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginBottom: theme.spacing(3),
+    marginBottom: theme.spacing(5),
     padding: theme.spacing(2),
+  },
+  info: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    height: '100%',
   },
   headline: {
     display: 'flex',
@@ -44,9 +44,9 @@ const CategoryCard = props => {
   console.log(props);
 
   return (
-    <Paper className={classes.root}>
+    <Box className={classes.root}>
       <Grid container spacing={3}>
-        <Grid item xs={12} alignContent="center">
+        <Grid item xs={12}>
           <Typography variant={'h1'} className={classes.headline}>
             <CategoryIcon
               className={classes.icon}
@@ -59,7 +59,7 @@ const CategoryCard = props => {
         </Grid>
 
         <Grid item xs={12} md={4}>
-          {props.children}
+          <Box className={classes.info}>{props.children}</Box>
         </Grid>
 
         <Grid item xs={12} md={8}>
@@ -77,13 +77,13 @@ const CategoryCard = props => {
                 </Typography>
               </CardContent>
             </CardActionArea>
-            <CardMedia className={classes.cover}>
-              {props.categoryImage && <Img fluid={props.categoryImage} />}
-            </CardMedia>
+            {props.categoryImage && (
+              <Img fluid={props.categoryImage} className={classes.cover} />
+            )}
           </Card>
         </Grid>
       </Grid>
-    </Paper>
+    </Box>
   );
 };
 

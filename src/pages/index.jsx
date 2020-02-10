@@ -6,7 +6,7 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 import CategoryCard from '../components/CategoryCard';
-import { Link } from 'gatsby-theme-material-ui';
+import { Button } from 'gatsby-theme-material-ui';
 
 const useStyles = makeStyles(theme => ({
   adBox: {
@@ -15,9 +15,6 @@ const useStyles = makeStyles(theme => ({
   },
   grid: {
     marginBottom: theme.spacing(3),
-  },
-  arrow: {
-    display: 'flex',
   },
 }));
 
@@ -38,10 +35,10 @@ const IndexPage = props => {
           <Typography variant={'subtitle1'} gutterBottom>
             all my ramblings and stuff I find noteworthy
           </Typography>
-          <Link className={classes.arrow} noWrap key="home" to="/blog">
+          <Button variant="contained" to="/blog">
             <ArrowForwardIcon fontSize={'small'} />
             <Typography variant="h4">all blog entries</Typography>
-          </Link>
+          </Button>
         </CategoryCard>
 
         <CategoryCard
@@ -58,10 +55,10 @@ const IndexPage = props => {
           <Typography variant={'subtitle1'} gutterBottom>
             all the techy stuff I do for fun, hard & soft :-)
           </Typography>
-          <Link className={classes.arrow} noWrap key="home" to="/projects">
+          <Button variant="contained" to="/projects">
             <ArrowForwardIcon fontSize={'small'} />
             <Typography variant="h4">all projects</Typography>
-          </Link>
+          </Button>
         </CategoryCard>
 
         <CategoryCard
@@ -78,20 +75,20 @@ const IndexPage = props => {
           <Typography variant={'subtitle1'} gutterBottom>
             I write diaries when I am traveling the world and post them here
           </Typography>
-          <Link className={classes.arrow} noWrap key="home" to="/travel">
+          <Button variant="contained" to="/travel">
             <ArrowForwardIcon fontSize={'small'} />
             <Typography variant="h4">all travel diaries</Typography>
-          </Link>
+          </Button>
         </CategoryCard>
 
         <CategoryCard category={'camera'} categoryName="hoffotograf">
           <Typography variant={'subtitle1'} gutterBottom>
             showing of my pictures from around the world
           </Typography>
-          <Link className={classes.arrow} noWrap key="home" to="/photos">
+          <Button variant="contained" to="/photos">
             <ArrowForwardIcon fontSize={'small'} />
             <Typography variant="h4">all galleries</Typography>
-          </Link>
+          </Button>
         </CategoryCard>
       </Grid>
 

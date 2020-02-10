@@ -44,7 +44,7 @@ const Layout = props => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   lead: PropTypes.string,
 };
 
