@@ -81,7 +81,15 @@ const IndexPage = props => {
           </Button>
         </CategoryCard>
 
-        <CategoryCard category={'camera'} categoryName="hoffotograf">
+        <CategoryCard
+            title={props.data.latestImage.edges[0].node.title}
+            excerpt={props.data.latestImage.edges[0].node.lead}
+            slug={"photos/" + props.data.latestImage.edges[0].node.path}
+            category={'camera'}
+            categoryImage={
+              props.data.latestImage.edges[0].node.img.childImageSharp.fluid
+            }
+            categoryName="hoffotograf">
           <Typography variant={'subtitle1'} gutterBottom>
             showing of my pictures from around the world
           </Typography>
@@ -185,6 +193,26 @@ export const query = graphql`
           fields {
             slug
           }
+        }
+      }
+    }
+    latestImage: allPhotosYaml(
+      sort: { fields: lastupdate, order: DESC }
+      limit: 1
+    ) {
+      edges {
+        node {
+          id
+          img {
+            childImageSharp {
+              fluid(maxWidth: 786) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          path
+          title
+          lead
         }
       }
     }

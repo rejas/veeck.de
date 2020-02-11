@@ -3,6 +3,7 @@
   title: 'around the world'
   img: '../images/world/world.jpg'
   lead: 'panoramas from all around the globe'
+  lastupdate: '2019-12-31'
   images:
     - img: '../images/world/tanzania_construction.medium.jpg'
       caption: Our construction site in Morogoro, Tanzania
@@ -46,10 +47,10 @@
   title: 'big pictures'
   img: '../images/big/big.jpg'
   lead: 'panoramas that make a splash'
+  lastupdate: '2019-12-31'
   images:
     - img: '../images/big/greece_milos.medium.jpg'
       caption: View of Adamas on Milos, Greece
-      isNew: true
     - img: '../images/big/curacao_pool.jpg'
       caption: Practicing pool jumping on Curacao
     - img: '../images/big/teneriffe_opera.medium.jpg'
@@ -76,10 +77,10 @@
   title: 'cities and buildings'
   img: '../images/cities/city.jpg'
   lead: 'panoramas showing what mankind has built'
+  lastupdate: '2019-12-31'
   images:
     - img: '../images/cities/marocco_palace.medium.jpg'
       caption: Old palace ruins in Marrakesh
-      isNew: true
     - img: '../images/cities/dublin_greenhouse.medium.jpg'
       caption: Greenhouse in Dublins botanic garden
     - img: '../images/cities/berlin_stadium.medium.jpg'
@@ -100,10 +101,13 @@
   title: '360 degrees'
   img: '../images/360/360.jpg'
   lead: 'panoramas going full circle'
+  lastupdate: '2020-02-02'
   images:
+    - img: '../images/360/cyprus_look.jpg'
+      caption: Paphos, Cyprus
+      isNew: true
     - img: '../images/360/cuba_cinfuegos.medium.jpg'
       caption: Cinfuegos, Cuba
-      isNew: true
     - img: '../images/360/dublin_cemetary.medium.jpg'
       caption: Cemetary in Dublin
     - img: '../images/360/marocco_beach.medium.jpg'
@@ -144,13 +148,12 @@
   title: 'skyscraper'
   img: '../images/skyscraper/sky.jpg'
   lead: 'panoramas growing into the sky'
+  lastupdate: '2019-12-31'
   images:
     - img: '../images/skyscraper/athen_alley.medium.jpg'
       caption: Alley in Athens, Greece
-      isNew: true
     - img: '../images/skyscraper/dublin_greenhouse.medium.jpg'
       caption: Greenhouse in Dublins National Botanic Gardens of Ireland
-      isNew: true
     - img: '../images/skyscraper/prague_municipalcorner.medium.jpg'
       caption: Somewhere in Prague`s Municipal House
     - img: '../images/skyscraper/curacao_beach.medium.jpg'
@@ -177,10 +180,10 @@
   title: 'perspective'
   img: '../images/perspective/perspective.jpg'
   lead: 'panoramas from another angle'
+  lastupdate: '2019-12-31'
   images:
     - img: '../images/perspective/budapest_parlamant.medium.jpg'
       caption: Parlament building in Budapest
-      isNew: true
     - img: '../images/perspective/berlin_trainstation.medium.jpg'
       caption: Main trainstation in Berlin
     - img: '../images/perspective/berlin_arkaden.medium.jpg'
@@ -203,10 +206,10 @@
   title: 'from friends'
   img: '../images/from_friends/people.jpg'
   lead: 'some of my friends take panorama pictures too and i take panorama pictures of them'
+  lastupdate: '2019-12-31'
   images:
     - img: '../images/from_friends/stef_industrial.medium.jpg'
       caption: Somewhere in Lichtenberg, Berlin
-      isNew: true
     - img: '../images/from_friends/stef_rummelsburg.medium.jpg'
       caption: Rummelsburger Bucht, Berlin
     - img: '../images/from_friends/stef_koeln.medium.jpg'
@@ -234,7 +237,8 @@
 - path: 'people'
   title: 'people'
   img: '../images/people/friends.jpg'
-  lead: 'TODO'
+  lead: 'random pictures of not so random people'
+  lastupdate: '2019-12-31'
   images:
     - img: '../images/people/tz_julianna.jpg'
       name: julianna
