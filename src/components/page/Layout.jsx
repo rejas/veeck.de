@@ -30,10 +30,10 @@ const Layout = props => {
         <CssBaseline />
         <Header />
         <Container className={classes.main} maxWidth={'md'} component={'main'}>
-          <Headline1>{props.title}</Headline1>
-          <Typography className={classes.lead} gutterBottom variant="subtitle1">
+          {props.title && <Headline1>{props.title}</Headline1>}
+          {props.lead && <Typography className={classes.lead} gutterBottom variant="subtitle1">
             {props.lead}
-          </Typography>
+          </Typography>}
           {children}
         </Container>
         <Footer />

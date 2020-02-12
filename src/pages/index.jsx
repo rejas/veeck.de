@@ -22,15 +22,15 @@ const IndexPage = props => {
   const classes = useStyles();
 
   return (
-    <Layout>
-      <SEO title="Home" />
+    <Layout title="veeck" lead="computerschlampe, hoffotograf, terrorpoet">
+      <SEO title="veeck.de" />
       <Grid container spacing={3} className={classes.grid}>
         <CategoryCard
           title={props.data.latestBlog.edges[0].node.frontmatter.title}
           slug={props.data.latestBlog.edges[0].node.fields.slug}
           excerpt={props.data.latestBlog.edges[0].node.excerpt}
           category="pencil"
-          categoryName="blog"
+          categoryName="Blog"
         >
           <Typography variant={'subtitle1'} gutterBottom>
             all my ramblings and stuff I find noteworthy
@@ -50,7 +50,7 @@ const IndexPage = props => {
             props.data.latestProject.edges[0].node.frontmatter.img
               .childImageSharp.fluid
           }
-          categoryName="computerschlampe"
+          categoryName="Computerschlampe"
         >
           <Typography variant={'subtitle1'} gutterBottom>
             all the techy stuff I do for fun, hard & soft :-)
@@ -70,7 +70,7 @@ const IndexPage = props => {
             props.data.latestTravel.edges[0].node.frontmatter.img
               .childImageSharp.fluid
           }
-          categoryName="terrorpoet"
+          categoryName="Terrorpoet"
         >
           <Typography variant={'subtitle1'} gutterBottom>
             I write diaries when I am traveling the world and post them here
@@ -89,7 +89,7 @@ const IndexPage = props => {
             categoryImage={
               props.data.latestImage.edges[0].node.img.childImageSharp.fluid
             }
-            categoryName="hoffotograf">
+            categoryName="Hoffotograf">
           <Typography variant={'subtitle1'} gutterBottom>
             showing of my pictures from around the world
           </Typography>

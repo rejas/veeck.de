@@ -16,7 +16,11 @@ prefersDarkMode = false;
 
 const theme = createMuiTheme({
   overrides: {
-    MuiLink: {},
+    MuiBottomNavigationAction: {
+      root: {
+        minWidth: 0
+      }
+},
     MuiDivider: {
       root: {
         marginBottom: '1rem',
@@ -38,6 +42,7 @@ const theme = createMuiTheme({
       lineHeight: '1',
       textAlign: 'center',
       textTransform: 'uppercase',
+      wordBreak: 'break-all'
     },
     h2: {
       fontFamily: ['Shadows Into Light', 'sans-serif'].join(','),
