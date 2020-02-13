@@ -31,9 +31,15 @@ const Layout = props => {
         <Header />
         <Container className={classes.main} maxWidth={'md'} component={'main'}>
           {props.title && <Headline1>{props.title}</Headline1>}
-          {props.lead && <Typography className={classes.lead} gutterBottom variant="subtitle1">
-            {props.lead}
-          </Typography>}
+          {props.lead && (
+            <Typography
+              className={classes.lead}
+              gutterBottom
+              variant="subtitle1"
+            >
+              {props.lead}
+            </Typography>
+          )}
           {children}
         </Container>
         <Footer />

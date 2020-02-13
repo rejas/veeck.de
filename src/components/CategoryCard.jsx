@@ -28,6 +28,9 @@ const useStyles = makeStyles(theme => ({
   },
   card: {
     display: 'flex',
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column',
+    },
   },
   content: {
     flexDirection: 'column',
@@ -40,8 +43,6 @@ const useStyles = makeStyles(theme => ({
 
 const CategoryCard = props => {
   const classes = useStyles();
-
-  console.log(props);
 
   return (
     <Box className={classes.root}>

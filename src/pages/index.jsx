@@ -12,6 +12,7 @@ const useStyles = makeStyles(theme => ({
   adBox: {
     display: 'flex',
     justifyContent: 'center',
+    marginBottom: theme.spacing(3),
   },
   grid: {
     marginBottom: theme.spacing(3),
@@ -40,6 +41,26 @@ const IndexPage = props => {
             <Typography variant="h4">all blog entries</Typography>
           </Button>
         </CategoryCard>
+
+        <Grid item xs={12}>
+          <Box className={classes.adBox}>
+            <iframe
+              title="vivaconagua"
+              src="//www.vivaconagua.org/banner/vca"
+              frameBorder="0"
+              width="350"
+              height="64"
+            >
+              <a
+                href="https://www.vivaconagua.org"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Viva con Agua - Alle für Wasser! Wasser für Alle!
+              </a>
+            </iframe>
+          </Box>
+        </Grid>
 
         <CategoryCard
           title={props.data.latestProject.edges[0].node.frontmatter.title}
@@ -82,14 +103,15 @@ const IndexPage = props => {
         </CategoryCard>
 
         <CategoryCard
-            title={props.data.latestImage.edges[0].node.title}
-            excerpt={props.data.latestImage.edges[0].node.lead}
-            slug={"photos/" + props.data.latestImage.edges[0].node.path}
-            category={'camera'}
-            categoryImage={
-              props.data.latestImage.edges[0].node.img.childImageSharp.fluid
-            }
-            categoryName="Hoffotograf">
+          title={props.data.latestImage.edges[0].node.title}
+          excerpt={props.data.latestImage.edges[0].node.lead}
+          slug={'photos/' + props.data.latestImage.edges[0].node.path}
+          category={'camera'}
+          categoryImage={
+            props.data.latestImage.edges[0].node.img.childImageSharp.fluid
+          }
+          categoryName="Hoffotograf"
+        >
           <Typography variant={'subtitle1'} gutterBottom>
             showing of my pictures from around the world
           </Typography>
@@ -99,24 +121,6 @@ const IndexPage = props => {
           </Button>
         </CategoryCard>
       </Grid>
-
-      <Box className={classes.adBox}>
-        <iframe
-          title="vivaconagua"
-          src="//www.vivaconagua.org/banner/vca"
-          frameBorder="0"
-          width="350"
-          height="64"
-        >
-          <a
-            href="https://www.vivaconagua.org"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Viva con Agua - Alle für Wasser! Wasser für Alle!
-          </a>
-        </iframe>
-      </Box>
     </Layout>
   );
 };
