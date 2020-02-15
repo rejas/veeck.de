@@ -27,7 +27,7 @@ const Header = props => {
 
   return (
     <HideOnScroll {...props}>
-      <AppBar position="sticky">
+      <AppBar position="sticky" color="secondary">
         <Hidden xsDown>
           <Toolbar className={classes.toolbar} component="nav" variant="dense">
             <Typography variant="h4">

@@ -27,6 +27,11 @@ const theme = createMuiTheme({
         marginTop: '1rem',
       },
     },
+    MuiLink: {
+      root: {
+        fontWeight: 'bold',
+      },
+    },
     MuiList: {
       root: {
         fontSize: '1rem',
@@ -80,16 +85,16 @@ const theme = createMuiTheme({
     type: prefersDarkMode ? 'dark' : 'light',
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: '#79394c', //'#95134e',
+      main: '#95134e', //'#95134e',
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
     },
     secondary: {
-      main: '#ff9100',
+      main: '#f1f1f1',
     },
     background: {
-      default: prefersDarkMode ? '#332A27' : '#f0efe9',
-      paper: prefersDarkMode ? '#806a62' : '#e4e0d3',
+      default: prefersDarkMode ? '#332A27' : '#fcfcfc',
+      paper: prefersDarkMode ? '#806a62' : '#f1f1f1',
     },
   },
 });

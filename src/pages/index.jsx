@@ -36,7 +36,7 @@ const IndexPage = props => {
           <Typography variant={'subtitle1'} gutterBottom>
             all my ramblings and stuff I find noteworthy
           </Typography>
-          <Button variant="contained" to="/blog">
+          <Button variant="contained" color="secondary" to="/blog">
             <ArrowForwardIcon fontSize={'small'} />
             <Typography variant="h4">all blog entries</Typography>
           </Button>
@@ -76,7 +76,7 @@ const IndexPage = props => {
           <Typography variant={'subtitle1'} gutterBottom>
             all the techy stuff I do for fun, hard & soft :-)
           </Typography>
-          <Button variant="contained" to="/projects">
+          <Button variant="contained" color="secondary" to="/projects">
             <ArrowForwardIcon fontSize={'small'} />
             <Typography variant="h4">all projects</Typography>
           </Button>
@@ -96,7 +96,7 @@ const IndexPage = props => {
           <Typography variant={'subtitle1'} gutterBottom>
             I write diaries when I am traveling the world and post them here
           </Typography>
-          <Button variant="contained" to="/travel">
+          <Button variant="contained" color="secondary" to="/travel">
             <ArrowForwardIcon fontSize={'small'} />
             <Typography variant="h4">all travel diaries</Typography>
           </Button>
@@ -112,7 +112,7 @@ const IndexPage = props => {
           }
           categoryName="Hoffotograf"
         >
-          <Typography variant={'subtitle1'} gutterBottom>
+          <Typography variant={'subtitle1'} color="secondary" gutterBottom>
             showing of my pictures from around the world
           </Typography>
           <Button variant="contained" to="/photos">
