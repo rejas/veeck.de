@@ -5,8 +5,16 @@ import { CardActionArea } from 'gatsby-theme-material-ui';
 import { Card, CardContent, Grid, Typography } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+  card: {
+    height: '100%',
+  },
+}));
 
 const PhotoPage = props => {
+  const classes = useStyles();
   const { edges: galleries } = props.data.allPhotosYaml;
 
   return (
@@ -15,7 +23,7 @@ const PhotoPage = props => {
       <Grid container spacing={3}>
         {galleries.map(({ node: gallery }) => (
           <Grid key={gallery.id} item xs={12} sm={6} md={4}>
-            <Card>
+            <Card className={classes.card}>
               <CardActionArea to={'/photos/' + gallery.path}>
                 <Img fluid={gallery.img.childImageSharp.fluid} />
                 <CardContent>

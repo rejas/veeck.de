@@ -47,7 +47,7 @@ const theme = createMuiTheme({
       lineHeight: '1',
       textAlign: 'center',
       textTransform: 'uppercase',
-      wordBreak: 'break-all',
+      wordBreak: 'break-word',
     },
     h2: {
       fontFamily: ['Shadows Into Light', 'sans-serif'].join(','),

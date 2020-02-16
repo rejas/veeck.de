@@ -112,7 +112,7 @@ const IndexPage = props => {
           }
           categoryName="Hoffotograf"
         >
-          <Typography variant={'subtitle1'} color="secondary" gutterBottom>
+          <Typography variant={'subtitle1'} gutterBottom>
             showing of my pictures from around the world
           </Typography>
           <Button variant="contained" to="/photos">
