@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Card, CardContent, Grid, Typography } from '@material-ui/core';
-import CategoryIcon from './icons/CategoryIcon';
-import { CardActionArea } from 'gatsby-theme-material-ui';
-import { makeStyles } from '@material-ui/core/styles';
 import Img from 'gatsby-image';
+import { Box, Card, CardContent, Grid, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { CardActionArea, Link } from 'gatsby-theme-material-ui';
+import CategoryIcon from './icons/CategoryIcon';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -48,22 +48,26 @@ const CategoryCard = props => {
     <Box className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Typography variant={'h1'} className={classes.headline}>
-            <CategoryIcon
-              className={classes.icon}
-              category={props.category}
-              color="primary"
-              style={{ fontSize: '4rem' }}
-            />
-            {props.categoryName}
+          <Link to={props.categoryLink}>
+            <Typography variant={'h1'} className={classes.headline}>
+              <CategoryIcon
+                className={classes.icon}
+                category={props.category}
+                color="primary"
+                style={{ fontSize: '4rem' }}
+              />
+              {props.categoryName}
+            </Typography>
+          </Link>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Typography variant={'subtitle1'} gutterBottom>
+            {props.subtitle}
           </Typography>
         </Grid>
 
-        <Grid item xs={12} md={4}>
-          <Box className={classes.info}>{props.children}</Box>
-        </Grid>
-
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12}>
           <Card className={classes.card}>
             <CardActionArea to={props.slug} className={classes.content}>
               <CardContent>
@@ -91,13 +95,18 @@ const CategoryCard = props => {
 CategoryCard.defaultProps = {
   category: '',
   excerpt: '',
+  subtitle: '',
 };
 
 CategoryCard.propTypes = {
   category: PropTypes.string,
+  categoryImage: PropTypes.object,
+  categoryLink: PropTypes.string.isRequired,
+  categoryName: PropTypes.string.isRequired,
   excerpt: PropTypes.string,
   slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
 };
 
 export default CategoryCard;

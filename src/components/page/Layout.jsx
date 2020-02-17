@@ -13,7 +13,6 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: theme.spacing(3),
   },
   lead: {
-    textAlign: 'center',
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(3),
   },

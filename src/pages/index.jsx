@@ -1,12 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { graphql } from 'gatsby';
-import { Box, Grid, Typography } from '@material-ui/core';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import { Box, Divider, Grid } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 import CategoryCard from '../components/CategoryCard';
-import { Button } from 'gatsby-theme-material-ui';
 
 const useStyles = makeStyles(theme => ({
   adBox: {
@@ -26,21 +24,16 @@ const IndexPage = props => {
     <Layout title="veeck" lead="computerschlampe, hoffotograf, terrorpoet">
       <SEO title="veeck.de" />
       <Grid container spacing={3} className={classes.grid}>
+        <Divider />
         <CategoryCard
           title={props.data.latestBlog.edges[0].node.frontmatter.title}
+          subtitle="all my ramblings and stuff I find noteworthy"
           slug={props.data.latestBlog.edges[0].node.fields.slug}
           excerpt={props.data.latestBlog.edges[0].node.excerpt}
           category="pencil"
+          categoryLink="/blog"
           categoryName="Blog"
-        >
-          <Typography variant={'subtitle1'} gutterBottom>
-            all my ramblings and stuff I find noteworthy
-          </Typography>
-          <Button variant="contained" color="secondary" to="/blog">
-            <ArrowForwardIcon fontSize={'small'} />
-            <Typography variant="h4">all blog entries</Typography>
-          </Button>
-        </CategoryCard>
+        />
 
         <Grid item xs={12}>
           <Box className={classes.adBox}>
@@ -64,6 +57,7 @@ const IndexPage = props => {
 
         <CategoryCard
           title={props.data.latestProject.edges[0].node.frontmatter.title}
+          subtitle=" all the techy nerdy geeky stuff I do for fun"
           slug={props.data.latestProject.edges[0].node.fields.slug}
           excerpt={props.data.latestProject.edges[0].node.excerpt}
           category={props.data.latestProject.edges[0].node.frontmatter.category}
@@ -71,55 +65,36 @@ const IndexPage = props => {
             props.data.latestProject.edges[0].node.frontmatter.img
               .childImageSharp.fluid
           }
+          categoryLink="/projects"
           categoryName="Computerschlampe"
-        >
-          <Typography variant={'subtitle1'} gutterBottom>
-            all the techy stuff I do for fun, hard & soft :-)
-          </Typography>
-          <Button variant="contained" color="secondary" to="/projects">
-            <ArrowForwardIcon fontSize={'small'} />
-            <Typography variant="h4">all projects</Typography>
-          </Button>
-        </CategoryCard>
+        />
 
         <CategoryCard
           title={props.data.latestTravel.edges[0].node.frontmatter.title}
+          subtitle="my diaries from around the world"
           slug={props.data.latestTravel.edges[0].node.fields.slug}
           excerpt={props.data.latestTravel.edges[0].node.excerpt}
           category={props.data.latestTravel.edges[0].node.frontmatter.category}
+          categoryLink="/travel"
           categoryImage={
             props.data.latestTravel.edges[0].node.frontmatter.img
               .childImageSharp.fluid
           }
           categoryName="Terrorpoet"
-        >
-          <Typography variant={'subtitle1'} gutterBottom>
-            I write diaries when I am traveling the world and post them here
-          </Typography>
-          <Button variant="contained" color="secondary" to="/travel">
-            <ArrowForwardIcon fontSize={'small'} />
-            <Typography variant="h4">all travel diaries</Typography>
-          </Button>
-        </CategoryCard>
+        />
 
         <CategoryCard
           title={props.data.latestImage.edges[0].node.title}
+          subtitle="showing of my pictures from around the world"
           excerpt={props.data.latestImage.edges[0].node.lead}
           slug={'photos/' + props.data.latestImage.edges[0].node.path}
           category={'camera'}
+          categoryLink="/photos"
           categoryImage={
             props.data.latestImage.edges[0].node.img.childImageSharp.fluid
           }
           categoryName="Hoffotograf"
-        >
-          <Typography variant={'subtitle1'} gutterBottom>
-            showing of my pictures from around the world
-          </Typography>
-          <Button variant="contained" to="/photos">
-            <ArrowForwardIcon fontSize={'small'} />
-            <Typography variant="h4">all galleries</Typography>
-          </Button>
-        </CategoryCard>
+        />
       </Grid>
     </Layout>
   );

@@ -78,6 +78,7 @@ const theme = createMuiTheme({
       fontFamily: ['Kanit', 'sans-serif'].join(','),
       fontSize: '1.666rem',
       lineHeight: '1',
+      textAlign: 'center',
       textTransform: 'lowercase',
     },
   },
