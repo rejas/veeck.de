@@ -6,19 +6,14 @@ module.exports = {
     author: '@rejas',
     menuLinks: [
       {
-        name: 'blog',
-        url: '/blog',
-        icon: 'pencil',
-      },
-      {
-        name: 'tech',
+        name: 'projects',
         url: '/projects',
         icon: 'computer',
       },
       {
-        name: 'travel',
-        url: '/travel',
-        icon: 'travel',
+        name: 'travels',
+        url: '/travels',
+        icon: 'travels',
       },
       {
         name: 'photos',
@@ -26,10 +21,17 @@ module.exports = {
         icon: 'camera',
       },
       {
+        name: 'blog',
+        url: '/blog',
+        icon: 'pencil',
+      },
+        /*
+      {
         name: 'links',
         url: '/links',
         icon: 'link',
       },
+        */
     ],
   },
   plugins: [

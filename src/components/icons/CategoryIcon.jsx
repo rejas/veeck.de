@@ -17,11 +17,11 @@ const CategoryIcon = props => {
     case 'link':
       return <LinkIcon {...props} />;
     case 'computer':
-    case 'project':
+    case 'projects':
       return <ComputerIcon {...props} />;
     case 'life':
       return <LocalFloristIcon {...props} />;
-    case 'travel':
+    case 'travels':
       return <ExploreIcon {...props} />;
     case 'pencil':
       return <CreateIcon {...props} />;

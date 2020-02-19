@@ -25,35 +25,6 @@ const IndexPage = props => {
       <SEO title="veeck.de" />
       <Grid container spacing={3} className={classes.grid}>
         <Divider />
-        <CategoryCard
-          title={props.data.latestBlog.edges[0].node.frontmatter.title}
-          subtitle="all my ramblings and stuff I find noteworthy"
-          slug={props.data.latestBlog.edges[0].node.fields.slug}
-          excerpt={props.data.latestBlog.edges[0].node.excerpt}
-          category="pencil"
-          categoryLink="/blog"
-          categoryName="Blog"
-        />
-
-        <Grid item xs={12}>
-          <Box className={classes.adBox}>
-            <iframe
-              title="vivaconagua"
-              src="//www.vivaconagua.org/banner/vca"
-              frameBorder="0"
-              width="350"
-              height="64"
-            >
-              <a
-                href="https://www.vivaconagua.org"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Viva con Agua - Alle für Wasser! Wasser für Alle!
-              </a>
-            </iframe>
-          </Box>
-        </Grid>
 
         <CategoryCard
           title={props.data.latestProject.edges[0].node.frontmatter.title}
@@ -75,7 +46,7 @@ const IndexPage = props => {
           slug={props.data.latestTravel.edges[0].node.fields.slug}
           excerpt={props.data.latestTravel.edges[0].node.excerpt}
           category={props.data.latestTravel.edges[0].node.frontmatter.category}
-          categoryLink="/travel"
+          categoryLink="/travels"
           categoryImage={
             props.data.latestTravel.edges[0].node.frontmatter.img
               .childImageSharp.fluid
@@ -94,6 +65,36 @@ const IndexPage = props => {
             props.data.latestImage.edges[0].node.img.childImageSharp.fluid
           }
           categoryName="Hoffotograf"
+        />
+
+        <Grid item xs={12}>
+          <Box className={classes.adBox}>
+            <iframe
+                title="vivaconagua"
+                src="//www.vivaconagua.org/banner/vca"
+                frameBorder="0"
+                width="350"
+                height="64"
+            >
+              <a
+                  href="https://www.vivaconagua.org"
+                  rel="noopener noreferrer"
+                  target="_blank"
+              >
+                Viva con Agua - Alle für Wasser! Wasser für Alle!
+              </a>
+            </iframe>
+          </Box>
+        </Grid>
+
+        <CategoryCard
+            title={props.data.latestBlog.edges[0].node.frontmatter.title}
+            subtitle="all my ramblings and stuff I find noteworthy"
+            slug={props.data.latestBlog.edges[0].node.fields.slug}
+            excerpt={props.data.latestBlog.edges[0].node.excerpt}
+            category="pencil"
+            categoryLink="/blog"
+            categoryName="Blog"
         />
       </Grid>
     </Layout>
@@ -150,7 +151,7 @@ export const query = graphql`
     }
     latestTravel: allMdx(
       sort: { fields: fields___slug, order: DESC }
-      filter: { fields: { slug: { regex: "/travel/" } } }
+      filter: { fields: { slug: { regex: "/travels/" } } }
       limit: 1
     ) {
       edges {
