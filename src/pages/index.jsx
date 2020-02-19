@@ -70,16 +70,16 @@ const IndexPage = props => {
         <Grid item xs={12}>
           <Box className={classes.adBox}>
             <iframe
-                title="vivaconagua"
-                src="//www.vivaconagua.org/banner/vca"
-                frameBorder="0"
-                width="350"
-                height="64"
+              title="vivaconagua"
+              src="//www.vivaconagua.org/banner/vca"
+              frameBorder="0"
+              width="350"
+              height="64"
             >
               <a
-                  href="https://www.vivaconagua.org"
-                  rel="noopener noreferrer"
-                  target="_blank"
+                href="https://www.vivaconagua.org"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 Viva con Agua - Alle für Wasser! Wasser für Alle!
               </a>
@@ -88,13 +88,13 @@ const IndexPage = props => {
         </Grid>
 
         <CategoryCard
-            title={props.data.latestBlog.edges[0].node.frontmatter.title}
-            subtitle="all my ramblings and stuff I find noteworthy"
-            slug={props.data.latestBlog.edges[0].node.fields.slug}
-            excerpt={props.data.latestBlog.edges[0].node.excerpt}
-            category="pencil"
-            categoryLink="/blog"
-            categoryName="Blog"
+          title={props.data.latestBlog.edges[0].node.frontmatter.title}
+          subtitle="all my ramblings and stuff I find noteworthy"
+          slug={props.data.latestBlog.edges[0].node.fields.slug}
+          excerpt={props.data.latestBlog.edges[0].node.excerpt}
+          category="pencil"
+          categoryLink="/blog"
+          categoryName="Blog"
         />
       </Grid>
     </Layout>

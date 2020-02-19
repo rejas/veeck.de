@@ -71,14 +71,17 @@ const CategoryCard = props => {
           <Card className={classes.card}>
             <CardActionArea to={props.slug} className={classes.content}>
               <CardContent>
+                <Typography variant={'h5'} gutterBottom>
+                  Latest Update:
+                </Typography>
                 <Typography variant={'h2'} gutterBottom>
-                  Latest Update: {props.title}
+                  {props.title}
                 </Typography>
                 <Typography variant={'body1'} gutterBottom>
                   {props.excerpt}
                 </Typography>
                 <Typography variant={'caption'} gutterBottom>
-                  read more...
+                  more...
                 </Typography>
               </CardContent>
             </CardActionArea>

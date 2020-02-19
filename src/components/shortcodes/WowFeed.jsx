@@ -13,6 +13,7 @@ import {
 const useStyles = makeStyles(theme => ({
   formControl: {
     minWidth: 120,
+    width: '100%',
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -60,24 +61,28 @@ const WowFeed = () => {
     <React.Fragment>
       <Grid container spacing={3}>
         <Grid item xs={6} sm={3}>
-          <TextField
-            error={charName === ''}
-            id="character"
-            label="Character"
-            required
-            value={charName}
-            onChange={event => setCharName(event.target.value)}
-          />
+          <FormControl className={classes.formControl}>
+            <TextField
+              error={charName === ''}
+              id="character"
+              label="Character"
+              required
+              value={charName}
+              onChange={event => setCharName(event.target.value)}
+            />
+          </FormControl>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <TextField
-            error={charRealm === ''}
-            id="charrealm"
-            label="Realm"
-            required
-            value={charRealm}
-            onChange={event => setCharRealm(event.target.value)}
-          />
+          <FormControl className={classes.formControl}>
+            <TextField
+              error={charRealm === ''}
+              id="charrealm"
+              label="Realm"
+              required
+              value={charRealm}
+              onChange={event => setCharRealm(event.target.value)}
+            />
+          </FormControl>
         </Grid>
         <Grid item xs={6} sm={3}>
           <FormControl className={classes.formControl}>
@@ -114,24 +119,28 @@ const WowFeed = () => {
 
       <Grid container spacing={3}>
         <Grid item xs={6} sm={3}>
-          <TextField
-            error={guildName === ''}
-            id="guildname"
-            label="Guild"
-            required
-            value={guildName}
-            onChange={event => setGuildName(event.target.value)}
-          />
+          <FormControl className={classes.formControl}>
+            <TextField
+              error={guildName === ''}
+              id="guildname"
+              label="Guild"
+              required
+              value={guildName}
+              onChange={event => setGuildName(event.target.value)}
+            />
+          </FormControl>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <TextField
-            error={guildRealm === ''}
-            id="guildrealm"
-            label="Realm"
-            required
-            value={guildRealm}
-            onChange={event => setGuildRealm(event.target.value)}
-          />
+          <FormControl className={classes.formControl}>
+            <TextField
+              error={guildRealm === ''}
+              id="guildrealm"
+              label="Realm"
+              required
+              value={guildRealm}
+              onChange={event => setGuildRealm(event.target.value)}
+            />
+          </FormControl>
         </Grid>
         <Grid item xs={6} sm={3}>
           <FormControl className={classes.formControl}>

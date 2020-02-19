@@ -25,7 +25,7 @@ module.exports = {
         url: '/blog',
         icon: 'pencil',
       },
-        /*
+      /*
       {
         name: 'links',
         url: '/links',
