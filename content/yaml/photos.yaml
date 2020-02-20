@@ -1,0 +1,275 @@
+---
+- path: 'world'
+  title: 'around the world'
+  img: '../images/world/world.jpg'
+  lead: 'panoramas from all around the globe'
+  lastupdate: '2019-12-31'
+  images:
+    - img: '../images/world/tanzania_construction.medium.jpg'
+      caption: Our construction site in Morogoro, Tanzania
+    - img: '../images/world/tanzania_sunset.medium.jpg'
+      caption: Sunset in Mikumi National Park
+    - img: '../images/world/panama_dive.medium.jpg'
+      caption: Our snorkeling site in Panama
+    - img: '../images/world/panama_bocas.medium.jpg'
+      caption: View of Bastimentos, Panama
+    - img: '../images/world/newzealand_laketaupo.medium.jpg'
+      caption: Sunset on Lake Taupo, NZ
+    - img: '../images/world/newzealand_rainbow.medium.jpg'
+      caption: Rainbow on Lake Taupo, NZ
+    - img: '../images/world/newzealand_pahiasunrise.medium.jpg'
+      caption: Sunrise in Pahia, NZ
+    - img: '../images/world/newzealand_northside.medium.jpg'
+      caption: View near Opononi, NZ
+    - img: '../images/world/romania_sunset.medium.jpg'
+      caption: Pantelimon, Asociaia Prietenia in Bukarest
+    - img: '../images/world/nendaz_valley.medium.jpg'
+      caption: View of Haute Nendaz, Suisse
+    - img: '../images/world/nendaz_sunset.medium.jpg'
+      caption: Another View of Haute Nendaz, Suisse
+    - img: '../images/world/freiburg_schnee.medium.jpg'
+      caption: View from Mount Schauinsland
+    - img: '../images/world/hungary_wisteria.medium.jpg'
+      caption: A view into the garden
+    - img: '../images/world/florida_dunes.medium.jpg'
+      caption: Beach near Tallahassee, Florida
+    - img: '../images/world/florida_trucks.medium.jpg'
+      caption: Wrecked Trucks
+    - img: '../images/world/florida_sunset.medium.jpg'
+      caption: Sunset near Tallahassee, Florida
+    - img: '../images/world/indonesia_rinjani.medium.jpg'
+      caption: Mount Rinjani, Indonesia
+    - img: '../images/world/indonesia_gili.medium.jpg'
+      caption: Gili Travangan
+    - img: '../images/world/japan_garden.medium.jpg'
+      caption: '(One of many) Imperial Garden'
+- path: 'big'
+  title: 'big pictures'
+  img: '../images/big/big.jpg'
+  lead: 'panoramas that make a splash'
+  lastupdate: '2019-12-31'
+  images:
+    - img: '../images/big/greece_milos.medium.jpg'
+      caption: View of Adamas on Milos, Greece
+    - img: '../images/big/curacao_pool.jpg'
+      caption: Practicing pool jumping on Curacao
+    - img: '../images/big/teneriffe_opera.medium.jpg'
+      caption: Auditorio de Tenerife, concert hall in Santa Cruz
+    - img: '../images/big/berlin_theater.medium.jpg'
+      caption: Berliner Ensemble theater playing The Threepenny Opera
+    - img: '../images/big/tanzania_station.medium.jpg'
+      caption: Ranger station in Mikumi National Park
+    - img: '../images/big/tanzania_tree.medium.jpg'
+      caption: Big tree in Mikumi National Park
+    - img: '../images/big/brussels_atomium.medium.jpg'
+      caption: The famous Atomium in Brusseles
+    - img: '../images/big/brussels_passage.medium.jpg'
+      caption: Shopping alley in Brusseles
+    - img: '../images/big/paris_eifel.medium.jpg'
+      caption: The Eifel Tower in Paris
+    - img: '../images/big/budapest_basiliska.medium.jpg'
+      caption: St. Stephan Basilika in Budapest
+    - img: '../images/big/lanzarote_sunset.medium.jpg'
+      caption: A Sunset over Lancarote
+    - img: '../images/big/france_sunset.medium.jpg'
+      caption: A sunset in France
+- path: 'cities'
+  title: 'cities and buildings'
+  img: '../images/cities/city.jpg'
+  lead: 'panoramas showing what mankind has built'
+  lastupdate: '2019-12-31'
+  images:
+    - img: '../images/cities/marocco_palace.medium.jpg'
+      caption: Old palace ruins in Marrakesh
+    - img: '../images/cities/dublin_greenhouse.medium.jpg'
+      caption: Greenhouse in Dublins botanic garden
+    - img: '../images/cities/berlin_stadium.medium.jpg'
+      caption: Berlin Olympic Stadium Germany vs Sweden
+    - img: '../images/cities/berlin_reichstag.medium.jpg'
+      caption: The Reichstag in Berlin
+    - img: '../images/cities/berlin_bahnhof.medium.jpg'
+      caption: The new central-station in Berlin
+    - img: '../images/cities/hungary_balaton.medium.jpg'
+      caption: Abandoned hotel at the Balaton in Hungary
+    - img: '../images/cities/freiburg_night.medium.jpg'
+      caption: Freiburg At Night
+    - img: '../images/cities/japan_alley.medium.jpg'
+      caption: Alley way in Sendai
+    - img: '../images/cities/frankfurt_regio.medium.jpg'
+      caption: Frankfurt Regional Train-Station
+- path: '360'
+  title: '360 degrees'
+  img: '../images/360/360.jpg'
+  lead: 'panoramas going full circle'
+  lastupdate: '2020-02-02'
+  images:
+    - img: '../images/360/cyprus_look.jpg'
+      caption: Paphos, Cyprus
+      isNew: true
+    - img: '../images/360/cuba_cinfuegos.medium.jpg'
+      caption: Cinfuegos, Cuba
+    - img: '../images/360/dublin_cemetary.medium.jpg'
+      caption: Cemetary in Dublin
+    - img: '../images/360/marocco_beach.medium.jpg'
+      caption: Beach at Tagazout, Marocco
+    - img: '../images/360/teneriffe_casahamilton.medium.jpg'
+      caption: Casa Hamilton, abandonend pump station on Tenerife
+    - img: '../images/360/teneriffe_teide.medium.jpg'
+      caption: On top of Tenerifes highest mountain, the Teide
+    - img: '../images/360/curacao_willemstad.medium.jpg'
+      caption: Port in Willemstad on Curacao
+    - img: '../images/360/ukraine_cemetary.medium.jpg'
+      caption: Soldier cemetary near Lviv, Ukraine
+    - img: '../images/360/brussels_atomium.medium.jpg'
+      caption: View from the top of the Atomium in Brussels
+    - img: '../images/360/paris_night.medium.jpg'
+      caption: View from the Eifel Tower in Paris
+    - img: '../images/360/budapest_bath.medium.jpg'
+      caption: Classic Spa in Budapest
+    - img: '../images/360/budapest_friends.medium.jpg'
+      caption: Esther, Tassi, Tobi and Sonja in Hungary
+    - img: '../images/360/dubai_airport.medium.jpg'
+      caption: Inside Dubai Airport
+    - img: '../images/360/tanzania_beach.medium.jpg'
+      caption: Beach near Daressalam
+    - img: '../images/360/tanzania_school.medium.jpg'
+      caption: ELU Children Care School
+    - img: '../images/360/freiburg_gras.medium.jpg'
+      caption: Friends on a green hill in the black forest
+    - img: '../images/360/freiburg_sunset.medium.jpg'
+      caption: Sunset in Freiburg
+    - img: '../images/360/freiburg_snow.medium.jpg'
+      caption: View from Mount Schauinsland
+    - img: '../images/360/freiburg_autumn.medium.jpg'
+      caption: Autumn in Freiburg
+    - img: '../images/360/freiburg_winter.medium.jpg'
+      caption: Winter in Freiburg
+- path: 'skyscraper'
+  title: 'skyscraper'
+  img: '../images/skyscraper/sky.jpg'
+  lead: 'panoramas growing into the sky'
+  lastupdate: '2019-12-31'
+  images:
+    - img: '../images/skyscraper/athen_alley.medium.jpg'
+      caption: Alley in Athens, Greece
+    - img: '../images/skyscraper/dublin_greenhouse.medium.jpg'
+      caption: Greenhouse in Dublins National Botanic Gardens of Ireland
+    - img: '../images/skyscraper/prague_municipalcorner.medium.jpg'
+      caption: Somewhere in Prague`s Municipal House
+    - img: '../images/skyscraper/curacao_beach.medium.jpg'
+      caption: Beach on Curacao
+    - img: '../images/skyscraper/berlin_teufelsberg.medium.jpg'
+      caption: View from old radar station on Teufelsberg Berlin
+    - img: '../images/skyscraper/tanzania_tree.medium.jpg'
+      caption: Just a tree in Tanzania
+    - img: '../images/skyscraper/tanzania_baobab.medium.jpg'
+      caption: View from a baobab-tree in Tanzania
+    - img: '../images/skyscraper/berlin_alley.medium.jpg'
+      caption: Alley in Berlin
+    - img: '../images/skyscraper/budapest_bath.medium.jpg'
+      caption: Bath in Budapest
+    - img: '../images/skyscraper/kiew_cinema.medium.jpg'
+      caption: Cinema in Kiew
+    - img: '../images/skyscraper/london_alley.medium.jpg'
+      caption: Alley in London
+    - img: '../images/skyscraper/newzealand_kauri.medium.jpg'
+      caption: Very old Kauro tree in NewZealand
+    - img: '../images/skyscraper/thailand_buddha.medium.jpg'
+      caption: Lying Buddha in Bangkok
+- path: 'perspective'
+  title: 'perspective'
+  img: '../images/perspective/perspective.jpg'
+  lead: 'panoramas from another angle'
+  lastupdate: '2019-12-31'
+  images:
+    - img: '../images/perspective/budapest_parlamant.medium.jpg'
+      caption: Parlament building in Budapest
+    - img: '../images/perspective/berlin_trainstation.medium.jpg'
+      caption: Main trainstation in Berlin
+    - img: '../images/perspective/berlin_arkaden.medium.jpg'
+      caption: Shopping Mall "Arcaden" at Potsdamer Platz, Berlin
+    - img: '../images/perspective/dubai_airport.medium.jpg'
+      caption: Dubai Aiport
+    - img: '../images/perspective/frankfurt_fern.medium.jpg'
+      caption: Frankfurt Airport Long Distance Train station
+    - img: '../images/perspective/kyoto_trainstation.medium.jpg'
+      caption: Trainstation in Kyoto, Japan
+    - img: '../images/perspective/japan_avenue.medium.jpg'
+      caption: Avenue in Sendai, Japan
+    - img: '../images/perspective/london_park.medium.jpg'
+      caption: London Hyde Park
+    - img: '../images/perspective/freiburg_sky.medium.jpg'
+      caption: Sky above Freiburg
+    - img: '../images/perspective/freiburg_backyard.medium.jpg'
+      caption: My backyard in Freiburg
+- path: 'from_friends'
+  title: 'from friends'
+  img: '../images/from_friends/people.jpg'
+  lead: 'some of my friends take panorama pictures too and i take panorama pictures of them'
+  lastupdate: '2019-12-31'
+  images:
+    - img: '../images/from_friends/stef_industrial.medium.jpg'
+      caption: Somewhere in Lichtenberg, Berlin
+    - img: '../images/from_friends/stef_rummelsburg.medium.jpg'
+      caption: Rummelsburger Bucht, Berlin
+    - img: '../images/from_friends/stef_koeln.medium.jpg'
+      caption: Cologne, Germany
+    - img: '../images/from_friends/freiburg_football.medium.jpg'
+      caption: Resting after an American Football match
+    - img: '../images/from_friends/freiburg_all.medium.jpg'
+      caption: Wolfgang, Chloe and Albrecht
+    - img: '../images/from_friends/freiburg_ansa.medium.jpg'
+      caption: Sanni und Anna, Blurred and Happy
+    - img: '../images/from_friends/freiburg_sonja.medium.jpg'
+      caption: Sonja in my mess
+    - img: '../images/from_friends/sven_jordanien.medium.jpg'
+      caption: Wadi Rum, Jordanien (by Sven Fritz)
+    - img: '../images/from_friends/bastian_kohtao.medium.jpg'
+      caption: Sunset at KohTao (by Bastian Müller)
+    - img: '../images/from_friends/bastian_baobabbeach.medium.jpg'
+      caption: Baobab Beach (by Bastian Müller)
+    - img: '../images/from_friends/bastian_dentdumidi.medium.jpg'
+      caption: Dents Du Midi and Mont Blanc (by Bastian Müller)
+    - img: '../images/from_friends/bastian_matterhorn.medium.jpg'
+      caption: Matterhorn and Dent Blanche (by Bastian Müller)
+    - img: '../images/from_friends/bastian_verdon.medium.jpg'
+      caption: Sunrise at Gorge du Verdon, France (by Bastian Müller)
+- path: 'people'
+  title: 'people'
+  img: '../images/people/friends.jpg'
+  lead: 'random pictures of not so random people'
+  lastupdate: '2019-12-31'
+  images:
+    - img: '../images/people/tz_julianna.jpg'
+      name: julianna
+      caption: Julianna (dancing)
+    - img: '../images/people/tz_erasto.jpg'
+      name: erasto
+      caption: Erasto (hanging)
+    - img: '../images/people/tz_lukas.jpg'
+      name: lukas
+      caption: Lukas
+    - img: '../images/people/tz_lea.jpg'
+      name: lea
+      caption: Lea (climbing)
+    - img: '../images/people/tz_jose.jpg'
+      name: jose
+      caption: Jose (showing off)
+    - img: '../images/people/tz_anna.jpg'
+      name: anna
+      caption: Anna
+    - img: '../images/people/tz_agnes.jpg'
+      name: agnes
+      caption: Agnes (smiling)
+    - img: '../images/people/tz_raffael.jpg'
+      name: raffael
+      caption: Raffael (thinking)
+    - img: '../images/people/tz_fiorina.jpg'
+      name: fiorina
+      caption: Fiorina (bending)
+    - img: '../images/people/tz_luzius.jpg'
+      name: luzius
+      caption: Luzius (middle)
+    - img: '../images/people/tz_nami.jpg'
+      name: nami
+      caption: Nami

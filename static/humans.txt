@@ -1,0 +1,18 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+/* TEAM */
+	Chef: Veeck
+	Contact: hello@veeck.de
+	Twitter: @hansalbern
+	From: Berlin
+
+/* THANKS */
+    Guille Paz https://github.com/pazguille/github-card
+
+/* SITE */
+    Last update: 2020/02/01
+	Language: Deutsch / English
+	Doctype: HTML5
+    Components: Gatsby, React, MaterialUI
+	IDE: Webstorm, FileZilla, Gimp
