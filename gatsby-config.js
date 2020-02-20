@@ -60,7 +60,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
         name: 'yaml',
         path: `${__dirname}/content/yaml`,
@@ -76,6 +76,7 @@ module.exports = {
         },
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
+          'gatsby-remark-copy-linked-files',
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -90,7 +91,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-theme-material-ui`,
+      resolve: 'gatsby-theme-material-ui',
       options: {
         stylesConfig: {
           // disableAutoprefixing: true,

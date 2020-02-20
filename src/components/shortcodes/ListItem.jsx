@@ -25,8 +25,11 @@ const ListItemElement = props => {
 };
 
 ListItemElement.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.array, PropTypes.element])
-    .isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.element,
+    PropTypes.string,
+  ]).isRequired,
 };
 
 export default ListItemElement;

@@ -5,7 +5,7 @@ import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 let prefersDarkMode = false;
 
 // Fix build failure in gatsby
-if (typeof window !== `undefined`) {
+if (typeof window !== 'undefined') {
   prefersDarkMode =
     window.matchMedia &&
     window.matchMedia('(prefers-color-scheme: dark)').matches;

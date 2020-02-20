@@ -1,39 +1,24 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import { CardActionArea } from 'gatsby-theme-material-ui';
-import { Card, CardContent, Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(theme => ({
-  card: {
-    height: '100%',
-  },
-}));
+import EntryCard from '../components/EntryCard';
 
 const ProjectsIndex = props => {
-  const classes = useStyles();
   const { edges: posts } = props.data.allMdx;
 
   return (
     <Layout title="my side projects">
       <SEO title="Projects" description="veeck tinkers" />
       <Grid container spacing={3}>
-        {posts.map(({ node: post }) => (
-          <Grid key={post.id} item xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
-              <CardActionArea to={post.fields.slug}>
-                <Img fluid={post.frontmatter.img.childImageSharp.fluid} />
-                <CardContent>
-                  <Typography component="h2" variant="subtitle1">
-                    {post.frontmatter.title}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
+        {posts.map(({ node: post }, index) => (
+          <EntryCard
+            key={index}
+            image={post.frontmatter.img.childImageSharp.fluid}
+            link={post.fields.slug}
+            title={post.frontmatter.title}
+          />
         ))}
       </Grid>
     </Layout>

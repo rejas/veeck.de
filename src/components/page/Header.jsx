@@ -8,7 +8,6 @@ import { useSiteMetadata } from '../../hooks/use-site-metadata';
 const useStyles = makeStyles(theme => ({
   toolbar: {
     justifyContent: 'space-between',
-    overflowX: 'auto',
   },
   toolbarLink: {
     textTransform: 'uppercase',
