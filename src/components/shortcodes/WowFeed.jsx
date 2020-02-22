@@ -15,9 +15,6 @@ const useStyles = makeStyles(theme => ({
     minWidth: 120,
     width: '100%',
   },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
   button: {
     position: 'relative',
     top: '10px',
@@ -85,13 +82,14 @@ const WowFeed = () => {
           </FormControl>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <FormControl className={classes.formControl}>
+          <FormControl
+            className={classes.formControl}
+            error={charRegion === ''}
+          >
             <InputLabel id="char_region_label">Region</InputLabel>
             <Select
-              className={classes.selectEmpty}
-              error={charRegion === ''}
-              labelId="char_region_label"
               id="char_region"
+              labelId="char_region_label"
               name="region"
               required
               value={charRegion}
@@ -143,10 +141,12 @@ const WowFeed = () => {
           </FormControl>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <FormControl className={classes.formControl}>
+          <FormControl
+            className={classes.formControl}
+            error={guildRegion === ''}
+          >
             <InputLabel id="guild_region_label">Region</InputLabel>
             <Select
-              error={guildRegion === ''}
               className={classes.selectEmpty}
               labelId="guild_region_label"
               id="guild_region"
