@@ -37,7 +37,7 @@ const IndexPage = props => {
               .childImageSharp.fluid
           }
           categoryLink="/projects"
-          categoryName="Computerschlampe"
+          categoryName="Computer&shy;schlampe"
         />
 
         <CategoryCard
@@ -51,7 +51,7 @@ const IndexPage = props => {
             props.data.latestTravel.edges[0].node.frontmatter.img
               .childImageSharp.fluid
           }
-          categoryName="Terrorpoet"
+          categoryName="Terror&shy;poet"
         />
 
         <CategoryCard
@@ -64,7 +64,7 @@ const IndexPage = props => {
           categoryImage={
             props.data.latestImage.edges[0].node.img.childImageSharp.fluid
           }
-          categoryName="Hoffotograf"
+          categoryName="Hof&shy;fotograf"
         />
 
         <Grid item xs={12}>
