@@ -28,7 +28,10 @@ const BlogIndex = props => {
               to={post.fields.slug}
             >
               <ListItemIcon>
-                <CategoryIcon category={post.frontmatter.category} />
+                <CategoryIcon
+                  category={post.frontmatter.category}
+                  color="primary"
+                />
               </ListItemIcon>
               <ListItemText
                 primary={post.frontmatter.title}
