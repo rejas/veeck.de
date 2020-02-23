@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
+import { useTheme } from '@material-ui/core/styles';
 
 const SEO = props => {
   const { description, lang, meta, title } = props;
   const siteMetadata = useSiteMetadata();
+  const theme = useTheme();
   const metaDescription = description || siteMetadata.description;
 
   return (
@@ -51,14 +53,15 @@ const SEO = props => {
       ].concat(meta)}
     >
       <link rel="author" href="humans.txt" />
+      <meta name="theme-color" content={theme.palette.background.paper} />
     </Helmet>
   );
 };
 
 SEO.defaultProps = {
+  description: '',
   lang: 'en',
   meta: [],
-  description: '',
 };
 
 SEO.propTypes = {

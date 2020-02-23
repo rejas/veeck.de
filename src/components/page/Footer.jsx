@@ -40,14 +40,14 @@ const Footer = () => {
             key="home"
             to="/"
             label="veeck"
-            icon={<CategoryIcon />}
+            icon={<CategoryIcon color="primary" />}
           />
           {menuLinks.map(link => (
             <BottomNavigationAction
               key={link.name}
               to={link.url}
               label={link.name}
-              icon={<CategoryIcon category={link.icon} />}
+              icon={<CategoryIcon category={link.icon} color="primary" />}
             />
           ))}
         </BottomNavigation>

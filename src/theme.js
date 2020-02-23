@@ -11,9 +11,6 @@ if (typeof window !== 'undefined') {
     window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
-// TODO disable DarkMode until we are satisfied with the colors
-prefersDarkMode = false;
-
 const theme = createMuiTheme({
   overrides: {
     MuiBottomNavigationAction: {
@@ -85,17 +82,17 @@ const theme = createMuiTheme({
   palette: {
     type: prefersDarkMode ? 'dark' : 'light',
     primary: {
-      // light: will be calculated from palette.primary.main,
-      main: '#95134e', //'#95134e',
-      // dark: will be calculated from palette.primary.main,
-      // contrastText: will be calculated to contrast with palette.primary.main
+      main: prefersDarkMode ? '#4bb2f9' : '#95134e',
     },
     secondary: {
-      main: '#f1f1f1',
+      main: prefersDarkMode ? '#313131' : '#f1f1f1',
+    },
+    error: {
+      main: prefersDarkMode ? '#cf6679' : '#ff443d',
     },
     background: {
-      default: prefersDarkMode ? '#332A27' : '#fcfcfc',
-      paper: prefersDarkMode ? '#806a62' : '#f1f1f1',
+      default: prefersDarkMode ? '#3c3c3c' : '#fcfcfc',
+      paper: prefersDarkMode ? '#314152' : '#f1f1f1',
     },
   },
 });
