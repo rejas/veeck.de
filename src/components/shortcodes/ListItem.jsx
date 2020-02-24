@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import CategoryIcon from '../icons/CategoryIcon';
+import CategoryIcon from '../CategoryIcon';
 
 const useStyles = makeStyles((theme) => ({
   icon: {

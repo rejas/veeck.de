@@ -3,28 +3,27 @@ import PropTypes from 'prop-types';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import LinkIcon from '@material-ui/icons/Link';
-import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
 import CreateIcon from '@material-ui/icons/Create';
 import ExploreIcon from '@material-ui/icons/Explore';
 import ComputerIcon from '@material-ui/icons/Computer';
+import StuffIcon from '@material-ui/icons/Toys';
 
 const CategoryIcon = (props) => {
   const { category } = props;
 
   switch (category) {
-    case 'camera':
+    case 'photos':
       return <CameraIcon {...props} />;
     case 'link':
       return <LinkIcon {...props} />;
-    case 'computer':
     case 'projects':
       return <ComputerIcon {...props} />;
-    case 'life':
-      return <LocalFloristIcon {...props} />;
     case 'travels':
       return <ExploreIcon {...props} />;
-    case 'pencil':
+    case 'blog':
       return <CreateIcon {...props} />;
+    case 'stuff':
+      return <StuffIcon {...props} />;
     default:
       return <FiberManualRecordIcon {...props} />;
   }

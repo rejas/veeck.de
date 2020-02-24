@@ -59,7 +59,7 @@ const IndexPage = (props) => {
           subtitle="showing of my pictures from around the world"
           excerpt={props.data.latestImage.edges[0].node.lead}
           slug={'photos/' + props.data.latestImage.edges[0].node.path}
-          category={'camera'}
+          category={'photos'}
           categoryLink="/photos"
           categoryImage={
             props.data.latestImage.edges[0].node.img.childImageSharp.fluid
@@ -92,7 +92,7 @@ const IndexPage = (props) => {
           subtitle="all my ramblings and stuff I find noteworthy"
           slug={props.data.latestBlog.edges[0].node.fields.slug}
           excerpt={props.data.latestBlog.edges[0].node.excerpt}
-          category="pencil"
+          category="blog"
           categoryLink="/blog"
           categoryName="Blog"
         />
