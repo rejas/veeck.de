@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import * as React from 'react';
 import queryString from 'query-string';
 
 export const useSearchParams = () => {
-  const [searchParams, setSearch] = useState({});
+  const [searchParams, setSearch] = React.useState({});
 
-  useEffect(() => {
+  React.useEffect(() => {
     setSearch(
       document.location.search
         ? queryString.parse(document.location.search)

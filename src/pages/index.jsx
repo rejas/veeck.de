@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { graphql } from 'gatsby';
 import { Box, Divider, Grid } from '@material-ui/core';

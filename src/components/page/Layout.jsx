@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { CssBaseline, Container, Typography } from '@material-ui/core';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';

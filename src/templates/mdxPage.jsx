@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Divider, List } from '@material-ui/core';
 import { MDXProvider } from '@mdx-js/react';

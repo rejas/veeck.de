@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { chunk, sum } from 'lodash';
@@ -44,8 +44,8 @@ const GalleryTemplate = (props) => {
     });
   }
 
-  const [toggler, setToggler] = useState(false);
-  const [imageIndex, setImageIndex] = useState(initialIndex);
+  const [toggler, setToggler] = React.useState(false);
+  const [imageIndex, setImageIndex] = React.useState(initialIndex);
 
   const openLightbox = (imageIndex) => {
     setImageIndex(imageIndex + 1);
