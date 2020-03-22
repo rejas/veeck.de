@@ -23,7 +23,7 @@
     "--- GATSBY SCRIPTS ---": "----------------------------------------------------------",
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md,mdx,yaml}\"",
+    "format": "prettier --write *.json content/**/*.mdx src/**/*.{js,jsx}",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "--- NPM SCRIPTS ---": "-------------------------------------------------------------",
@@ -68,7 +68,7 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "npm-check": "^5.9.0",
-    "prettier": "^1.19.1"
+    "prettier": "^2.0.1"
   },
   "husky": {
     "hooks": {
