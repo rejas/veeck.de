@@ -54,7 +54,9 @@ const CategoryCard = (props) => {
                 className={classes.icon}
                 category={props.category}
                 color="primary"
-                style={{ fontSize: '4rem' }}
+                style={{
+                  fontSize: '4rem',
+                }}
               />
               {props.categoryName}
             </Typography>
