@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   h2: {
     paddingTop: theme.spacing(3),
   },
@@ -17,10 +17,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const Headline1 = props => (
+export const Headline1 = (props) => (
   <Typography variant="h1" gutterBottom component="h1" {...props} />
 );
-export const Headline2 = props => {
+export const Headline2 = (props) => {
   const classes = useStyles();
   return (
     <Typography
@@ -32,7 +32,7 @@ export const Headline2 = props => {
     />
   );
 };
-export const Headline3 = props => {
+export const Headline3 = (props) => {
   const classes = useStyles();
   return (
     <Typography
@@ -44,16 +44,16 @@ export const Headline3 = props => {
     />
   );
 };
-export const Headline4 = props => (
+export const Headline4 = (props) => (
   <Typography variant="h4" gutterBottom component="h4" {...props} />
 );
-export const Headline5 = props => (
+export const Headline5 = (props) => (
   <Typography variant="h5" gutterBottom component="h5" {...props} />
 );
-export const Headline6 = props => (
+export const Headline6 = (props) => (
   <Typography variant="h6" gutterBottom component="h6" {...props} />
 );
-export const Paragraph = props => {
+export const Paragraph = (props) => {
   const classes = useStyles();
   return (
     <Typography

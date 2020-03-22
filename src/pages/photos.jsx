@@ -5,7 +5,7 @@ import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 import EntryCard from '../components/EntryCard';
 
-const PhotoPage = props => {
+const PhotoPage = (props) => {
   const { edges: galleries } = props.data.allPhotosYaml;
 
   return (

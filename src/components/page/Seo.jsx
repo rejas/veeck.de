@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import { useTheme } from '@material-ui/core/styles';
 
-const SEO = props => {
+const SEO = (props) => {
   const { description, lang, meta, title } = props;
   const siteMetadata = useSiteMetadata();
   const theme = useTheme();

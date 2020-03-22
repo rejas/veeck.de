@@ -5,7 +5,7 @@ import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 import EntryCard from '../components/EntryCard';
 
-const TravelsIndex = props => {
+const TravelsIndex = (props) => {
   const { edges: posts } = props.data.allMdx;
 
   return (

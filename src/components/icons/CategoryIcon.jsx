@@ -8,7 +8,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import ExploreIcon from '@material-ui/icons/Explore';
 import ComputerIcon from '@material-ui/icons/Computer';
 
-const CategoryIcon = props => {
+const CategoryIcon = (props) => {
   const { category } = props;
 
   switch (category) {

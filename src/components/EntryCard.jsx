@@ -5,7 +5,7 @@ import { Card, CardContent, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { CardActionArea } from 'gatsby-theme-material-ui';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   card: {
     height: '100%',
   },
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const EntryCard = props => {
+const EntryCard = (props) => {
   const classes = useStyles();
   const { image, link, title } = props;
 

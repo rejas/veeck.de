@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { CardActionArea, Link } from 'gatsby-theme-material-ui';
 import CategoryIcon from './icons/CategoryIcon';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: theme.spacing(5),
     padding: theme.spacing(2),
@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const CategoryCard = props => {
+const CategoryCard = (props) => {
   const classes = useStyles();
 
   return (
@@ -54,7 +54,9 @@ const CategoryCard = props => {
                 className={classes.icon}
                 category={props.category}
                 color="primary"
-                style={{ fontSize: '4rem' }}
+                style={{
+                  fontSize: '4rem',
+                }}
               />
               {props.categoryName}
             </Typography>

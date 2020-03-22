@@ -4,14 +4,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import CategoryIcon from '../icons/CategoryIcon';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   icon: {
     minWidth: 'auto',
     marginRight: theme.spacing(3),
   },
 }));
 
-const ListItemElement = props => {
+const ListItemElement = (props) => {
   const classes = useStyles();
 
   return (
