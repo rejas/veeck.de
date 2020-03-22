@@ -10,7 +10,7 @@ import {
   TextField,
 } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   formControl: {
     minWidth: 120,
     width: '100%',
@@ -28,7 +28,7 @@ const WowFeed = () => {
   const [charRealm, setCharRealm] = React.useState('');
   const [charRegion, setCharRegion] = React.useState('');
 
-  const handleCharRegionChange = event => {
+  const handleCharRegionChange = (event) => {
     setCharRegion(event.target.value);
   };
 
@@ -43,7 +43,7 @@ const WowFeed = () => {
   const [guildRealm, setGuildRealm] = React.useState('');
   const [guildRegion, setGuildRegion] = React.useState('');
 
-  const handleGuildRegionChange = event => {
+  const handleGuildRegionChange = (event) => {
     setGuildRegion(event.target.value);
   };
 
@@ -65,7 +65,7 @@ const WowFeed = () => {
               label="Character"
               required
               value={charName}
-              onChange={event => setCharName(event.target.value)}
+              onChange={(event) => setCharName(event.target.value)}
             />
           </FormControl>
         </Grid>
@@ -77,7 +77,7 @@ const WowFeed = () => {
               label="Realm"
               required
               value={charRealm}
-              onChange={event => setCharRealm(event.target.value)}
+              onChange={(event) => setCharRealm(event.target.value)}
             />
           </FormControl>
         </Grid>
@@ -124,7 +124,7 @@ const WowFeed = () => {
               label="Guild"
               required
               value={guildName}
-              onChange={event => setGuildName(event.target.value)}
+              onChange={(event) => setGuildName(event.target.value)}
             />
           </FormControl>
         </Grid>
@@ -136,7 +136,7 @@ const WowFeed = () => {
               label="Realm"
               required
               value={guildRealm}
-              onChange={event => setGuildRealm(event.target.value)}
+              onChange={(event) => setGuildRealm(event.target.value)}
             />
           </FormControl>
         </Grid>

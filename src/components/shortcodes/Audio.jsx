@@ -4,14 +4,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Card, Typography } from '@material-ui/core';
 import AudioPlayer from 'material-ui-audio-player';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(3),
     marginBottom: theme.spacing(3),
   },
 }));
 
-const AudioElement = props => {
+const AudioElement = (props) => {
   const classes = useStyles();
   const { file, caption } = props;
 

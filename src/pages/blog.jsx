@@ -12,7 +12,7 @@ import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 import CategoryIcon from '../components/icons/CategoryIcon';
 
-const BlogIndex = props => {
+const BlogIndex = (props) => {
   const { edges: posts } = props.data.allMdx;
 
   return (

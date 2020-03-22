@@ -6,7 +6,7 @@ import { Link } from 'gatsby-theme-material-ui';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import CategoryIcon from '../icons/CategoryIcon';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: theme.spacing(1),
   },
@@ -42,7 +42,7 @@ const Footer = () => {
             label="veeck"
             icon={<CategoryIcon color="primary" />}
           />
-          {menuLinks.map(link => (
+          {menuLinks.map((link) => (
             <BottomNavigationAction
               key={link.name}
               to={link.url}

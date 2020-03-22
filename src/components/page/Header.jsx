@@ -5,7 +5,7 @@ import { Link } from 'gatsby-theme-material-ui';
 import HideOnScroll from '../utils/HideOnScroll';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   toolbar: {
     justifyContent: 'space-between',
   },
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Header = props => {
+const Header = (props) => {
   const classes = useStyles();
   const { title, menuLinks } = useSiteMetadata();
 
@@ -40,7 +40,7 @@ const Header = props => {
                 {title}
               </Link>
             </Typography>
-            {menuLinks.map(link => (
+            {menuLinks.map((link) => (
               <Typography variant="h5" key={link.name}>
                 <Link
                   className={classes.toolbarLink}

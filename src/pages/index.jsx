@@ -6,7 +6,7 @@ import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 import CategoryCard from '../components/CategoryCard';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   adBox: {
     display: 'flex',
     justifyContent: 'center',
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const IndexPage = props => {
+const IndexPage = (props) => {
   const classes = useStyles();
 
   return (

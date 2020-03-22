@@ -5,13 +5,13 @@ import { Box } from '@material-ui/core';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     fontSize: '0.875rem',
   },
 }));
 
-const CodeBlock = props => {
+const CodeBlock = (props) => {
   const classes = useStyles();
   const { children, className } = props;
 

@@ -7,7 +7,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { Headline1 } from '../shortcodes/Typography';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   main: {
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Layout = props => {
+const Layout = (props) => {
   const classes = useStyles();
   const { children } = props;
 

@@ -20,7 +20,7 @@ import CodeBlock from '../components/shortcodes/CodeBlock';
 import ListItem from '../components/shortcodes/ListItem';
 import WowFeed from '../components/shortcodes/WowFeed';
 
-const MdxTemplate = props => {
+const MdxTemplate = (props) => {
   const mdx = props.data.mdx;
 
   return (
