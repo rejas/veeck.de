@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Hidden, Toolbar, Typography } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';

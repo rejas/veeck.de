@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import { BottomNavigation, Hidden, Typography } from '@material-ui/core';
 import { BottomNavigationAction } from 'gatsby-theme-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
-import CategoryIcon from '../icons/CategoryIcon';
+import CategoryIcon from '../CategoryIcon';
 
 const useStyles = makeStyles((theme) => ({
   root: {

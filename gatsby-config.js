@@ -8,7 +8,7 @@ module.exports = {
       {
         name: 'projects',
         url: '/projects',
-        icon: 'computer',
+        icon: 'projects',
       },
       {
         name: 'travels',
@@ -23,7 +23,7 @@ module.exports = {
       {
         name: 'blog',
         url: '/blog',
-        icon: 'pencil',
+        icon: 'blog',
       },
       /*
       {

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyLink } from 'gatsby-theme-material-ui';
 import {
@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
-import CategoryIcon from '../components/icons/CategoryIcon';
+import CategoryIcon from '../components/CategoryIcon';
 
 const BlogIndex = (props) => {
   const { edges: posts } = props.data.allMdx;

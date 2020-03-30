@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import { Box, Card, CardContent, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { CardActionArea, Link } from 'gatsby-theme-material-ui';
-import CategoryIcon from './icons/CategoryIcon';
+import CategoryIcon from './CategoryIcon';
 
 const useStyles = makeStyles((theme) => ({
   root: {
