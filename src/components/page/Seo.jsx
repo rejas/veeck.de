@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
@@ -19,41 +19,45 @@ const SEO = (props) => {
       titleTemplate={`%s | ${siteMetadata.title}`}
       meta={[
         {
-          name: `description`,
+          name: 'description',
           content: metaDescription,
         },
         {
-          property: `og:title`,
+          property: 'og:title',
           content: title,
         },
         {
-          property: `og:description`,
+          property: 'og:description',
           content: metaDescription,
         },
         {
-          property: `og:type`,
-          content: `website`,
+          property: 'og:type',
+          content: 'website',
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
+          name: 'twitter:card',
+          content: 'summary',
         },
         {
-          name: `twitter:creator`,
+          name: 'twitter:creator',
           content: siteMetadata.author,
         },
         {
-          name: `twitter:title`,
+          name: 'twitter:title',
           content: title,
         },
         {
-          name: `twitter:description`,
+          name: 'twitter:description',
           content: metaDescription,
+        },
+        {
+          name: 'theme-color',
+          content: theme.palette.background.paper,
         },
       ].concat(meta)}
     >
-      <link rel="author" href="humans.txt" />
-      <meta name="theme-color" content={theme.palette.background.paper} />
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      <link rel="author" href="/humans.txt" type="text/plain" />
     </Helmet>
   );
 };

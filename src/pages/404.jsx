@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { Typography } from '@material-ui/core';

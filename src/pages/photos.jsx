@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Grid } from '@material-ui/core';
 import Layout from '../components/page/Layout';
