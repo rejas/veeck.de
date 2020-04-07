@@ -18,7 +18,7 @@ module.exports = {
       {
         name: 'photos',
         url: '/photos',
-        icon: 'camera',
+        icon: 'photos',
       },
       {
         name: 'blog',
