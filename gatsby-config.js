@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Veeck',
-    description: 'My private homepage',
+    description: 'Veecks private homepage',
     siteUrl: 'https://veeck.de',
     author: '@rejas',
     menuLinks: [

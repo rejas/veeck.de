@@ -44,7 +44,11 @@ const MdxTemplate = (props) => {
       }}
     >
       <Layout title={mdx.frontmatter.title} lead={mdx.frontmatter.lead}>
-        <SEO title={mdx.frontmatter.title} lang={mdx.frontmatter.lang} />
+        <SEO
+          title={mdx.frontmatter.title}
+          lang={mdx.frontmatter.lang}
+          thumbnail={mdx.frontmatter.img}
+        />
         <MDXRenderer>{mdx.body}</MDXRenderer>
       </Layout>
     </MDXProvider>
@@ -60,6 +64,13 @@ export const query = graphql`
         title
         lead
         lang
+        img {
+          childImageSharp {
+            sizes(maxWidth: 600) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }

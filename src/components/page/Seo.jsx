@@ -5,10 +5,21 @@ import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import { useTheme } from '@material-ui/core/styles';
 
 const SEO = (props) => {
-  const { description, lang, meta, title } = props;
+  const { description, lang, meta, title, thumbnail } = props;
   const siteMetadata = useSiteMetadata();
   const theme = useTheme();
   const metaDescription = description || siteMetadata.description;
+
+  if (thumbnail) {
+    let origin = '';
+    if (typeof window !== 'undefined') {
+      origin = window.location.origin;
+    }
+    meta.push({
+      property: 'twitter:image`',
+      content: origin + thumbnail && thumbnail.childImageSharp.sizes.src,
+    });
+  }
 
   return (
     <Helmet
@@ -66,12 +77,14 @@ SEO.defaultProps = {
   description: '',
   lang: 'en',
   meta: [],
+  thumbnail: null,
 };
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
+  thumbnail: PropTypes.object,
   title: PropTypes.string.isRequired,
 };
 
