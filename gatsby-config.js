@@ -134,6 +134,7 @@ module.exports = {
         theme_color_in_head: false,
       },
     },
+    'gatsby-plugin-no-sourcemaps',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-robots-txt',
