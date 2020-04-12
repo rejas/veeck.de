@@ -16,6 +16,10 @@ const SEO = (props) => {
       origin = window.location.origin;
     }
     meta.push({
+      property: 'og:image`',
+      content: origin + thumbnail && thumbnail.childImageSharp.sizes.src,
+    });
+    meta.push({
       property: 'twitter:image`',
       content: origin + thumbnail && thumbnail.childImageSharp.sizes.src,
     });
