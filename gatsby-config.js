@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Veeck',
-    description: 'My private homepage',
+    description: 'Veecks private homepage',
     siteUrl: 'https://veeck.de',
     author: '@rejas',
     menuLinks: [
@@ -18,7 +18,7 @@ module.exports = {
       {
         name: 'photos',
         url: '/photos',
-        icon: 'camera',
+        icon: 'photos',
       },
       {
         name: 'blog',
@@ -134,6 +134,7 @@ module.exports = {
         theme_color_in_head: false,
       },
     },
+    'gatsby-plugin-no-sourcemaps',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-robots-txt',
