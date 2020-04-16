@@ -70,6 +70,3 @@ yarn-error.log
 
 # IntelliJ
 .idea
-
-# Old files
-dist/
