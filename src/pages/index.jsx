@@ -10,10 +10,7 @@ const useStyles = makeStyles((theme) => ({
   adBox: {
     display: 'flex',
     justifyContent: 'center',
-    marginBottom: theme.spacing(3),
-  },
-  grid: {
-    marginBottom: theme.spacing(3),
+    margin: `0 -12px ${theme.spacing(3)}px`,
   },
 }));
 
@@ -23,7 +20,7 @@ const IndexPage = (props) => {
   return (
     <Layout title="veeck" lead="computerschlampe, hoffotograf, terrorpoet">
       <SEO title="veeck.de" />
-      <Grid container spacing={3} className={classes.grid}>
+      <Grid container spacing={3}>
         <Divider />
 
         <CategoryCard
