@@ -31,10 +31,11 @@
     "--- CUSTOM SCRIPTS (TODO) ---": "---------------------------------------------------",
     "release": "bump package.json package-lock.json CHANGELOG.md --tag && npm run build",
     "version": "auto-changelog --commit-limit false --package && git add CHANGELOG.md",
-    "upload": "node scripts/upload.js"
+    "upload": "node scripts/upload.js",
+    "testLive": "npm run build && npx http-server public"
   },
   "dependencies": {
-    "@material-ui/core": "4.9.6",
+    "@material-ui/core": "^4.9.10",
     "@material-ui/icons": "^4.9.1",
     "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.8",
