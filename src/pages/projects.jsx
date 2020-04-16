@@ -10,7 +10,11 @@ const ProjectsIndex = (props) => {
 
   return (
     <Layout title="my side projects">
-      <SEO title="Projects" description="veeck tinkers" />
+      <SEO
+        title="Projects"
+        description="veeck tinkers"
+        thumbnail={props.data.file}
+      />
       <Grid container spacing={3}>
         {posts.map(({ node: post }, index) => (
           <EntryCard
@@ -26,7 +30,14 @@ const ProjectsIndex = (props) => {
 };
 
 export const query = graphql`
-  query projectsIndex {
+  query {
+    file(relativePath: { eq: "categories/projects.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 600) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
     allMdx(
       sort: { fields: fields___slug, order: DESC }
       filter: { fields: { slug: { regex: "/projects/" } } }

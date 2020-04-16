@@ -10,59 +10,57 @@ const useStyles = makeStyles((theme) => ({
   adBox: {
     display: 'flex',
     justifyContent: 'center',
-    marginBottom: theme.spacing(3),
-  },
-  grid: {
-    marginBottom: theme.spacing(3),
+    margin: `0 -12px ${theme.spacing(3)}px`,
   },
 }));
 
 const IndexPage = (props) => {
   const classes = useStyles();
+  const { data } = props;
 
   return (
     <Layout title="veeck" lead="computerschlampe, hoffotograf, terrorpoet">
-      <SEO title="veeck.de" />
-      <Grid container spacing={3} className={classes.grid}>
+      <SEO title="veeck.de" thumbnail={data.file} />
+      <Grid container spacing={3}>
         <Divider />
 
         <CategoryCard
-          title={props.data.latestProject.edges[0].node.frontmatter.title}
+          title={data.latestProject.edges[0].node.frontmatter.title}
           subtitle=" all the techy nerdy geeky stuff I do for fun"
-          slug={props.data.latestProject.edges[0].node.fields.slug}
-          excerpt={props.data.latestProject.edges[0].node.excerpt}
-          category={props.data.latestProject.edges[0].node.frontmatter.category}
+          slug={data.latestProject.edges[0].node.fields.slug}
+          excerpt={data.latestProject.edges[0].node.excerpt}
+          category={data.latestProject.edges[0].node.frontmatter.category}
           categoryImage={
-            props.data.latestProject.edges[0].node.frontmatter.img
-              .childImageSharp.fluid
+            data.latestProject.edges[0].node.frontmatter.img.childImageSharp
+              .fluid
           }
           categoryLink="/projects"
           categoryName="Computer&shy;schlampe"
         />
 
         <CategoryCard
-          title={props.data.latestTravel.edges[0].node.frontmatter.title}
+          title={data.latestTravel.edges[0].node.frontmatter.title}
           subtitle="my diaries from around the world"
-          slug={props.data.latestTravel.edges[0].node.fields.slug}
-          excerpt={props.data.latestTravel.edges[0].node.excerpt}
-          category={props.data.latestTravel.edges[0].node.frontmatter.category}
+          slug={data.latestTravel.edges[0].node.fields.slug}
+          excerpt={data.latestTravel.edges[0].node.excerpt}
+          category={data.latestTravel.edges[0].node.frontmatter.category}
           categoryLink="/travels"
           categoryImage={
-            props.data.latestTravel.edges[0].node.frontmatter.img
-              .childImageSharp.fluid
+            data.latestTravel.edges[0].node.frontmatter.img.childImageSharp
+              .fluid
           }
           categoryName="Terror&shy;poet"
         />
 
         <CategoryCard
-          title={props.data.latestImage.edges[0].node.title}
+          title={data.latestImage.edges[0].node.title}
           subtitle="showing of my pictures from around the world"
-          excerpt={props.data.latestImage.edges[0].node.lead}
-          slug={'photos/' + props.data.latestImage.edges[0].node.path}
+          excerpt={data.latestImage.edges[0].node.lead}
+          slug={'photos/' + data.latestImage.edges[0].node.path}
           category={'photos'}
           categoryLink="/photos"
           categoryImage={
-            props.data.latestImage.edges[0].node.img.childImageSharp.fluid
+            data.latestImage.edges[0].node.img.childImageSharp.fluid
           }
           categoryName="Hof&shy;fotograf"
         />
@@ -88,10 +86,10 @@ const IndexPage = (props) => {
         </Grid>
 
         <CategoryCard
-          title={props.data.latestBlog.edges[0].node.frontmatter.title}
+          title={data.latestBlog.edges[0].node.frontmatter.title}
           subtitle="all my ramblings and stuff I find noteworthy"
-          slug={props.data.latestBlog.edges[0].node.fields.slug}
-          excerpt={props.data.latestBlog.edges[0].node.excerpt}
+          slug={data.latestBlog.edges[0].node.fields.slug}
+          excerpt={data.latestBlog.edges[0].node.excerpt}
           category="blog"
           categoryLink="/blog"
           categoryName="Blog"
@@ -103,6 +101,13 @@ const IndexPage = (props) => {
 
 export const query = graphql`
   query {
+    file(relativePath: { eq: "categories/index.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 600) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
     latestBlog: allMdx(
       sort: { fields: fields___slug, order: DESC }
       filter: { fields: { slug: { regex: "/blog/" } } }

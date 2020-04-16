@@ -9,6 +9,9 @@ import CategoryIcon from '../CategoryIcon';
 const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: theme.spacing(1),
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: theme.spacing(10),
+    },
   },
   nav: {
     width: '100%',
@@ -30,8 +33,11 @@ const Footer = () => {
           {new Date().getFullYear()}
           {'. Built with '}
           <Link to="https://www.gatsbyjs.org">Gatsby</Link>
+          {', '}
+          <Link to="https://reactjs.org">React</Link>
           {' and '}
-          <Link to="https://material-ui.com/">Material UI</Link>
+          <Link to="https://material-ui.com">Material UI</Link>
+          {'.'}
         </Typography>
       </footer>
       <Hidden smUp>
