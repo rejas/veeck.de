@@ -10,7 +10,11 @@ const PhotoPage = (props) => {
 
   return (
     <Layout title="my photo galleries">
-      <SEO title="Galleries" description={'veeck shots'} />
+      <SEO
+        title="Galleries"
+        description={'veeck shoots'}
+        thumbnail={props.data.file}
+      />
       <Grid container spacing={3}>
         {galleries.map(({ node: gallery }, index) => (
           <EntryCard
@@ -26,7 +30,14 @@ const PhotoPage = (props) => {
 };
 
 export const query = graphql`
-  query MyQuery {
+  query {
+    file(relativePath: { eq: "categories/pictures.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 600) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
     allPhotosYaml {
       edges {
         node {

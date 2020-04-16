@@ -17,7 +17,11 @@ const BlogIndex = (props) => {
 
   return (
     <Layout title="my personal blog">
-      <SEO title="Blog" description={'veeck blogs'} />
+      <SEO
+        title="Blog"
+        description={'veeck blogs'}
+        thumbnail={props.data.file}
+      />
       <Paper>
         <List>
           {posts.map(({ node: post }) => (
@@ -46,7 +50,14 @@ const BlogIndex = (props) => {
 };
 
 export const query = graphql`
-  query blogIndex {
+  query {
+    file(relativePath: { eq: "categories/blog.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 600) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
     allMdx(
       sort: { fields: fields___slug, order: DESC }
       filter: { fields: { slug: { regex: "/blog/" } } }
