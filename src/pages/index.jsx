@@ -25,6 +25,16 @@ const IndexPage = (props) => {
         <Divider />
 
         <CategoryCard
+          title={data.latestBlog.edges[0].node.frontmatter.title}
+          subtitle="ramblings and stuff I find noteworthy"
+          slug={data.latestBlog.edges[0].node.fields.slug}
+          excerpt={data.latestBlog.edges[0].node.excerpt}
+          category="blog"
+          categoryLink="/blog"
+          categoryName="Blog"
+        />
+
+        <CategoryCard
           title={data.latestProject.edges[0].node.frontmatter.title}
           subtitle=" all the techy nerdy geeky stuff I do for fun"
           slug={data.latestProject.edges[0].node.fields.slug}
@@ -39,22 +49,8 @@ const IndexPage = (props) => {
         />
 
         <CategoryCard
-          title={data.latestTravel.edges[0].node.frontmatter.title}
-          subtitle="my diaries from around the world"
-          slug={data.latestTravel.edges[0].node.fields.slug}
-          excerpt={data.latestTravel.edges[0].node.excerpt}
-          category={data.latestTravel.edges[0].node.frontmatter.category}
-          categoryLink="/travels"
-          categoryImage={
-            data.latestTravel.edges[0].node.frontmatter.img.childImageSharp
-              .fluid
-          }
-          categoryName="Terror&shy;poet"
-        />
-
-        <CategoryCard
           title={data.latestImage.edges[0].node.title}
-          subtitle="showing of my pictures from around the world"
+          subtitle="the panoramic pictures I have taken"
           excerpt={data.latestImage.edges[0].node.lead}
           slug={'photos/' + data.latestImage.edges[0].node.path}
           category={'photos'}
@@ -86,13 +82,17 @@ const IndexPage = (props) => {
         </Grid>
 
         <CategoryCard
-          title={data.latestBlog.edges[0].node.frontmatter.title}
-          subtitle="all my ramblings and stuff I find noteworthy"
-          slug={data.latestBlog.edges[0].node.fields.slug}
-          excerpt={data.latestBlog.edges[0].node.excerpt}
-          category="blog"
-          categoryLink="/blog"
-          categoryName="Blog"
+          title={data.latestTravel.edges[0].node.frontmatter.title}
+          subtitle="my travel diaries from around the world"
+          slug={data.latestTravel.edges[0].node.fields.slug}
+          excerpt={data.latestTravel.edges[0].node.excerpt}
+          category={data.latestTravel.edges[0].node.frontmatter.category}
+          categoryLink="/travels"
+          categoryImage={
+            data.latestTravel.edges[0].node.frontmatter.img.childImageSharp
+              .fluid
+          }
+          categoryName="Terror&shy;poet"
         />
       </Grid>
     </Layout>
