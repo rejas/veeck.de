@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import BoopedCategoryIcon from '../BoopedCategoryIcon';
+import MobileMenu from './MobileMenu';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,7 +51,7 @@ const Footer = () => {
         </Typography>
       </footer>
       <Hidden smUp>
-        <BottomNavigation showLabels className={classes.nav}>
+        <MobileMenu className={classes.nav}>
           <BottomNavigationAction
             key="home"
             to="/"
@@ -65,7 +66,7 @@ const Footer = () => {
               icon={<BoopedCategoryIcon category={link.icon} color="primary" />}
             />
           ))}
-        </BottomNavigation>
+        </MobileMenu>
       </Hidden>
     </React.Fragment>
   );
