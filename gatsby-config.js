@@ -81,13 +81,13 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               linkImagesToOriginal: false,
-              markdownCaptions: true,
               showCaptions: true,
               withWebp: true,
             },
           },
         ],
         plugins: ['gatsby-remark-images'],
+        remarkPlugins: [require('remark-unwrap-images')],
       },
     },
     {
