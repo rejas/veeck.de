@@ -30,6 +30,9 @@ const SEO = (props) => {
       htmlAttributes={{
         lang,
       }}
+      bodyAttributes={{
+        class: 'pattern-cross-dots-md',
+      }}
       title={title}
       titleTemplate={`%s | ${siteMetadata.title}`}
       meta={[
