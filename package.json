@@ -59,7 +59,7 @@
     "github-webcomponents": "^1.3.0",
     "lodash": "^4.17.15",
     "material-ui-audio-player": "^1.1.2",
-    "pattern.css": "^1.0.0",
+    "pattern.css": "https://github.com/rejas/pattern.css.git#cssvariable",
     "prop-types": "^15.7.2",
     "query-string": "^6.12.1",
     "remark-unwrap-images": "^2.0.0",
