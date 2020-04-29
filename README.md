@@ -1,7 +1,7 @@
 # veeck.de
 
-![Build and Deploy](https://github.com/rejas/veeck.de/workflows/Build%20and%20Deploy/badge.svg?branch=master)
-[![Build Status](https://secure.travis-ci.org/rejas/veeck.de.png?branch=master)](https://travis-ci.org/rejas/veeck.de)
+[![Build Status](https://travis-ci.org/rejas/veeck.de.svg?branch=master)](https://travis-ci.org/rejas/veeck.de)
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 My personal homepage
 

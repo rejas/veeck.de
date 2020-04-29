@@ -2,12 +2,19 @@ import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Hidden, Toolbar, Typography } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
-import HideOnScroll from '../utils/HideOnScroll';
+import ElevateOnScroll from '../utils/ElevateOnScroll';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
+import MenuItem from './MenuItem';
 
 const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: theme.palette.background.default,
+  },
   toolbar: {
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
+  },
+  toolbarLogo: {
+    flexGrow: 1,
   },
   toolbarLink: {
     textTransform: 'uppercase',
@@ -25,11 +32,11 @@ const Header = (props) => {
   const { title, menuLinks } = useSiteMetadata();
 
   return (
-    <HideOnScroll {...props}>
-      <AppBar position="sticky" color="secondary">
+    <ElevateOnScroll {...props}>
+      <AppBar position="sticky" color="default" className={classes.appBar}>
         <Hidden xsDown>
           <Toolbar className={classes.toolbar} component="nav" variant="dense">
-            <Typography variant="h4">
+            <Typography variant="h4" className={classes.toolbarLogo}>
               <Link
                 className={classes.toolbarLink}
                 noWrap
@@ -41,21 +48,12 @@ const Header = (props) => {
               </Link>
             </Typography>
             {menuLinks.map((link) => (
-              <Typography variant="h5" key={link.name}>
-                <Link
-                  className={classes.toolbarLink}
-                  color="inherit"
-                  noWrap
-                  to={link.url}
-                >
-                  {link.name}
-                </Link>
-              </Typography>
+              <MenuItem link={link} />
             ))}
           </Toolbar>
         </Hidden>
       </AppBar>
-    </HideOnScroll>
+    </ElevateOnScroll>
   );
 };
 
