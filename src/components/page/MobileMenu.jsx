@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Fab from '@material-ui/core/Fab';
+import { Fab } from 'gatsby-theme-material-ui';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
 
