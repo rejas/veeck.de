@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { CssBaseline, Container, Typography } from '@material-ui/core';
+import { CssBaseline, Container } from '@material-ui/core';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import theme from '../../theme';
 import Header from './Header';
@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Layout = (props) => {
   const classes = useStyles();
-  const { children } = props;
 
   return (
     <ThemeProvider theme={theme}>
@@ -25,7 +24,7 @@ const Layout = (props) => {
       <Container className={classes.main} maxWidth={'md'} component={'main'}>
         {props.title && <Headline1>{props.title}</Headline1>}
         {props.lead && <Subtitle1>{props.lead}</Subtitle1>}
-        {children}
+        {props.children}
       </Container>
       <Footer />
     </ThemeProvider>

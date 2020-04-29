@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Slide, useScrollTrigger } from '@material-ui/core';
+import { useScrollTrigger } from '@material-ui/core';
 
 const ElevateOnScroll = (props) => {
   const { children, window } = props;
