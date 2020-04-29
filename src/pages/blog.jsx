@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { GatsbyLink } from 'gatsby-theme-material-ui';
+import { Link } from 'gatsby-theme-material-ui';
 import {
   List,
   ListItem,
@@ -28,7 +28,7 @@ const BlogIndex = (props) => {
             <ListItem
               button
               key={post.id}
-              component={GatsbyLink}
+              component={Link}
               to={post.fields.slug}
             >
               <ListItemIcon>

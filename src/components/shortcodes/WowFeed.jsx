@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Button } from 'gatsby-theme-material-ui';
 import {
-  Button,
   FormControl,
   Grid,
   InputLabel,
