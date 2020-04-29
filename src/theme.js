@@ -82,7 +82,7 @@ const theme = createMuiTheme({
   palette: {
     type: prefersDarkMode ? 'dark' : 'light',
     primary: {
-      main: prefersDarkMode ? '#4bb2f9' : '#95134e',
+      main: prefersDarkMode ? '#4bb2f9' : '#8E24AA',
     },
     secondary: {
       main: prefersDarkMode ? '#313131' : '#f1f1f1',
@@ -91,8 +91,8 @@ const theme = createMuiTheme({
       main: prefersDarkMode ? '#cf6679' : '#ff443d',
     },
     background: {
-      default: prefersDarkMode ? '#3c3c3c' : '#fcfcfc',
-      paper: prefersDarkMode ? '#314152' : '#f1f1f1',
+      default: prefersDarkMode ? '#3c3c3c' : '#ededed',
+      paper: prefersDarkMode ? '#314151' : '#fcfcfc',
     },
   },
 });

@@ -1,4 +1,11 @@
 :root {
-  --patternCurrentColor: #BBDEFB;
-  --patternTransparent: #90CAF9;
+  --patternCurrentColor: rgba(142, 36, 171, 0.125);
+  --patternTransparent: #ededed;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --patternCurrentColor: rgba(48, 48, 48, 0.125);
+    --patternTransparent: #3c3c3c;
+  }
 }

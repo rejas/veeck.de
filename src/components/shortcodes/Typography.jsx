@@ -9,6 +9,10 @@ const useStyles = makeStyles((theme) => ({
   h3: {
     paddingTop: theme.spacing(2),
   },
+  subtitle1: {
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(3),
+  },
   paragraph: {
     '& img': {
       display: 'block',
@@ -53,6 +57,17 @@ export const Headline5 = (props) => (
 export const Headline6 = (props) => (
   <Typography variant="h6" gutterBottom component="h6" {...props} />
 );
+export const Subtitle1 = (props) => {
+  const classes = useStyles();
+  return (
+    <Typography
+      variant="subtitle1"
+      className={classes.subtitle1}
+      gutterBottom
+      {...props}
+    />
+  );
+};
 export const Paragraph = (props) => {
   const classes = useStyles();
   return (
