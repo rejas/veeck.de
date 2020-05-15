@@ -27,8 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MenuItem = ({ link }) => {
+const MenuItem = (props) => {
   const classes = useStyles();
+  const { link } = props;
 
   return (
     <Typography variant="h5" key={link.name} className={classes.root}>
@@ -47,7 +48,7 @@ const MenuItem = ({ link }) => {
 MenuItem.defaultProps = {};
 
 MenuItem.propTypes = {
-  link: PropTypes.object,
+  link: PropTypes.object.isRequired,
 };
 
 export default MenuItem;
