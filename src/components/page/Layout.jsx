@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
+import BackgroundImage from 'gatsby-background-image';
 import { CssBaseline, Container } from '@material-ui/core';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import theme from '../../theme';
@@ -13,6 +13,13 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
   },
+  bg: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100vw',
+    height: '50vh',
+  },
 }));
 
 const Layout = (props) => {
@@ -24,9 +31,16 @@ const Layout = (props) => {
       <CssBaseline />
       <Header />
       <Container className={classes.main} maxWidth={'md'} component={'main'}>
-        {image && <Img fluid={image.childImageSharp.fluid} />}
-        {title && <Headline1>{title}</Headline1>}
-        {lead && <Subtitle1>{lead}</Subtitle1>}
+        {image && (
+          <BackgroundImage
+            className={classes.bg}
+            fluid={image.childImageSharp.fluid}
+            backgroundColor={`#040e18`}
+          >
+            {title && <Headline1>{title}</Headline1>}
+            {lead && <Subtitle1>{lead}</Subtitle1>}
+          </BackgroundImage>
+        )}
         {children}
       </Container>
       <Footer />
