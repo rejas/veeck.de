@@ -13,12 +13,21 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
   },
-  bg: {
+  hero: {
     position: 'absolute',
     top: 0,
     left: 0,
     width: '100vw',
     height: '50vh',
+  },
+  background: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    height: '100%',
+  },
+  children: {
+    marginTop: '50vh',
   },
 }));
 
@@ -32,16 +41,17 @@ const Layout = (props) => {
       <Header />
       <Container className={classes.main} maxWidth={'md'} component={'main'}>
         {image && (
-          <BackgroundImage
-            className={classes.bg}
-            fluid={image.childImageSharp.fluid}
-            backgroundColor={`#040e18`}
-          >
-            {title && <Headline1>{title}</Headline1>}
-            {lead && <Subtitle1>{lead}</Subtitle1>}
-          </BackgroundImage>
+          <div className={classes.hero}>
+            <BackgroundImage
+              className={classes.background}
+              fluid={image.childImageSharp.fluid}
+            >
+              {title && <Headline1>{title}</Headline1>}
+              {lead && <Subtitle1>{lead}</Subtitle1>}
+            </BackgroundImage>
+          </div>
         )}
-        {children}
+        <div className={classes.children}>{children}</div>
       </Container>
       <Footer />
     </ThemeProvider>
