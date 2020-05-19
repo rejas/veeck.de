@@ -29,6 +29,11 @@ const useStyles = makeStyles((theme) => ({
   children: {
     marginTop: '50vh',
   },
+  headlines: {
+    color: 'white',
+    textShadow: `0 3px 1px ${theme.palette.primary.main}`,
+    mixBlendMode: 'difference',
+  },
 }));
 
 const Layout = (props) => {
@@ -46,12 +51,16 @@ const Layout = (props) => {
               className={classes.background}
               fluid={image.childImageSharp.fluid}
             >
-              {title && <Headline1>{title}</Headline1>}
-              {lead && <Subtitle1>{lead}</Subtitle1>}
+              {title && (
+                <Headline1 className={classes.headlines}>{title}</Headline1>
+              )}
+              {lead && (
+                <Subtitle1 className={classes.headlines}>{lead}</Subtitle1>
+              )}
             </BackgroundImage>
           </div>
         )}
-        <div className={classes.children}>{children}</div>
+        <div className={image && classes.children}>{children}</div>
       </Container>
       <Footer />
     </ThemeProvider>
