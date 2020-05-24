@@ -43,7 +43,11 @@ const MdxTemplate = (props) => {
         WowFeed,
       }}
     >
-      <Layout title={mdx.frontmatter.title} lead={mdx.frontmatter.lead}>
+      <Layout
+        title={mdx.frontmatter.title}
+        lead={mdx.frontmatter.lead}
+        image={mdx.frontmatter.img}
+      >
         <SEO
           title={mdx.frontmatter.title}
           lang={mdx.frontmatter.lang}
@@ -68,6 +72,10 @@ export const query = graphql`
           childImageSharp {
             sizes(maxWidth: 600) {
               ...GatsbyImageSharpSizes
+            }
+            fluid(maxWidth: 1500) {
+              ...GatsbyImageSharpFluid
+              aspectRatio
             }
           }
         }

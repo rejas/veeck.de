@@ -47,8 +47,8 @@ const Header = (props) => {
                 {title}
               </Link>
             </Typography>
-            {menuLinks.map((link) => (
-              <MenuItem link={link} />
+            {menuLinks.map((link, index) => (
+              <MenuItem link={link} key={index} />
             ))}
           </Toolbar>
         </Hidden>
