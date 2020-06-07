@@ -4,6 +4,7 @@ import { Divider, List } from '@material-ui/core';
 import { MDXProvider } from '@mdx-js/react';
 import { Link } from 'gatsby-theme-material-ui';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { Tweet } from 'react-twitter-widgets';
 import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 import {
@@ -40,6 +41,7 @@ const MdxTemplate = (props) => {
         li: ListItem,
         code: CodeBlock,
         Audio,
+        Tweet,
         WowFeed,
       }}
     >

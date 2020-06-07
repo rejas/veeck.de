@@ -60,6 +60,16 @@ const Layout = (props) => {
             </BackgroundImage>
           </div>
         )}
+        {!image && (
+          <React.Fragment>
+            {title && (
+              <Headline1 className={classes.headlines}>{title}</Headline1>
+            )}
+            {lead && (
+              <Subtitle1 className={classes.headlines}>{lead}</Subtitle1>
+            )}
+          </React.Fragment>
+        )}
         <div className={image && classes.children}>{children}</div>
       </Container>
       <Footer />
