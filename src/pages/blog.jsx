@@ -33,7 +33,7 @@ const BlogIndex = (props) => {
             >
               <ListItemIcon>
                 <CategoryIcon
-                  category={post.frontmatter.category}
+                  category={post.frontmatter.subcategory}
                   color="primary"
                 />
               </ListItemIcon>
@@ -68,7 +68,7 @@ export const query = graphql`
           excerpt
           frontmatter {
             title
-            category
+            subcategory
           }
           fields {
             slug
