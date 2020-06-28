@@ -144,6 +144,7 @@ module.exports = {
         policy: [{ userAgent: '*', disallow: '/radio' }],
       },
     },
+    'gatsby-plugin-feed',
     'gatsby-plugin-sitemap',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
