@@ -5,8 +5,8 @@ import { CssBaseline, Container } from '@material-ui/core';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import theme from '../../theme';
 import Header from './Header';
+import Headlines from './Headlines';
 import Footer from './Footer';
-import { Headline1, Subtitle1 } from '../shortcodes/Typography';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -26,13 +26,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-evenly',
     height: '100%',
   },
-  children: {
-    marginTop: '50vh',
+  basicChildren: {
+    marginTop: '5vh',
   },
-  headlines: {
-    color: 'white',
-    textShadow: `0 3px 1px ${theme.palette.primary.main}`,
-    mixBlendMode: 'difference',
+  imageChildren: {
+    marginTop: '50vh',
   },
 }));
 
@@ -46,31 +44,24 @@ const Layout = (props) => {
       <Header />
       <Container className={classes.main} maxWidth={'md'} component={'main'}>
         {image && (
-          <div className={classes.hero}>
-            <BackgroundImage
-              className={classes.background}
-              fluid={image.childImageSharp.fluid}
-            >
-              {title && (
-                <Headline1 className={classes.headlines}>{title}</Headline1>
-              )}
-              {lead && (
-                <Subtitle1 className={classes.headlines}>{lead}</Subtitle1>
-              )}
-            </BackgroundImage>
-          </div>
+          <React.Fragment>
+            <div className={classes.hero}>
+              <BackgroundImage
+                className={classes.background}
+                fluid={image.childImageSharp.fluid}
+              >
+                <Headlines title={title} lead={lead} />
+              </BackgroundImage>
+            </div>
+            <div className={classes.imageChildren}>{children}</div>
+          </React.Fragment>
         )}
         {!image && (
           <React.Fragment>
-            {title && (
-              <Headline1 className={classes.headlines}>{title}</Headline1>
-            )}
-            {lead && (
-              <Subtitle1 className={classes.headlines}>{lead}</Subtitle1>
-            )}
+            <Headlines title={title} lead={lead} />
+            <div className={classes.basicChildren}>{children}</div>
           </React.Fragment>
         )}
-        <div className={image && classes.children}>{children}</div>
       </Container>
       <Footer />
     </ThemeProvider>
