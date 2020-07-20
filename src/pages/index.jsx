@@ -2,11 +2,19 @@ import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { graphql } from 'gatsby';
 import { Box, Divider, Grid } from '@material-ui/core';
-import Layout from '../components/page/Layout';
 import SEO from '../components/page/Seo';
 import CategoryCard from '../components/CategoryCard';
+import { BigHead } from '@bigheads/core';
+import Headlines from '../components/page/Headlines';
+import Layout from '../components/page/Layout';
 
 const useStyles = makeStyles((theme) => ({
+  headlines: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
   adBox: {
     display: 'flex',
     justifyContent: 'center',
@@ -19,7 +27,36 @@ const IndexPage = (props) => {
   const { data } = props;
 
   return (
-    <Layout title="veeck" lead="computerschlampe, hoffotograf, terrorpoet">
+    <Layout>
+      <Grid container spacing={3}>
+        <Grid item xs={4}>
+          <BigHead
+            accessory="roundGlasses"
+            body="chest"
+            circleColor="blue"
+            clothing="shirt"
+            clothingColor="red"
+            eyebrows="raised"
+            eyes="wink"
+            facialHair="mediumBeard"
+            graphic="react"
+            hair="none"
+            hairColor="brown"
+            hat="none"
+            hatColor="green"
+            mask="true"
+            mouth="grin"
+            skinTone="light"
+          />
+        </Grid>
+        <Grid item xs={8} className={classes.headlines}>
+          <Headlines
+            title="veeck"
+            lead="computerschlampe, hoffotograf, terrorpoet"
+          />
+        </Grid>
+      </Grid>
+
       <SEO title="veeck.de" thumbnail={data.file} />
       <Grid container spacing={3}>
         <Divider />

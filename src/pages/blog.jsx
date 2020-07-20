@@ -8,7 +8,7 @@ import {
   ListItemText,
   Paper,
 } from '@material-ui/core';
-import Layout from '../components/page/Layout';
+import BasicLayout from '../components/layouts/BasicLayout';
 import SEO from '../components/page/Seo';
 import CategoryIcon from '../components/CategoryIcon';
 
@@ -16,7 +16,7 @@ const BlogIndex = (props) => {
   const { edges: posts } = props.data.allMdx;
 
   return (
-    <Layout title="my personal blog">
+    <BasicLayout title="my personal blog">
       <SEO
         title="Blog"
         description={'veeck blogs'}
@@ -45,7 +45,7 @@ const BlogIndex = (props) => {
           ))}
         </List>
       </Paper>
-    </Layout>
+    </BasicLayout>
   );
 };
 
