@@ -4,7 +4,7 @@ import { Divider, List } from '@material-ui/core';
 import { MDXProvider } from '@mdx-js/react';
 import { Link } from 'gatsby-theme-material-ui';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import Layout from '../components/page/Layout';
+import HeroLayout from '../components/layouts/HeroLayout';
 import SEO from '../components/page/Seo';
 import {
   Headline1,
@@ -43,7 +43,7 @@ const MdxTemplate = (props) => {
         WowFeed,
       }}
     >
-      <Layout
+      <HeroLayout
         title={mdx.frontmatter.title}
         lead={mdx.frontmatter.lead}
         image={mdx.frontmatter.img}
@@ -54,7 +54,7 @@ const MdxTemplate = (props) => {
           thumbnail={mdx.frontmatter.img}
         />
         <MDXRenderer>{mdx.body}</MDXRenderer>
-      </Layout>
+      </HeroLayout>
     </MDXProvider>
   );
 };

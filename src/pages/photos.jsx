@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Grid } from '@material-ui/core';
-import Layout from '../components/page/Layout';
+import BasicLayout from '../components/layouts/BasicLayout';
 import SEO from '../components/page/Seo';
 import EntryCard from '../components/EntryCard';
 
@@ -9,7 +9,7 @@ const PhotoPage = (props) => {
   const { edges: galleries } = props.data.allPhotosYaml;
 
   return (
-    <Layout title="my photo galleries">
+    <BasicLayout title="my photo galleries">
       <SEO
         title="Galleries"
         description={'veeck shoots'}
@@ -25,7 +25,7 @@ const PhotoPage = (props) => {
           />
         ))}
       </Grid>
-    </Layout>
+    </BasicLayout>
   );
 };
 

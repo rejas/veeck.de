@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 import { chunk, sum } from 'lodash';
 import FsLightbox from 'fslightbox-react';
 import { Box, Grid } from '@material-ui/core';
-import Layout from '../components/page/Layout';
+import BasicLayout from '../components/layouts/BasicLayout';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSearchParams } from '../hooks/use-search-param';
 import SEO from '../components/page/Seo';
@@ -53,7 +53,7 @@ const GalleryTemplate = (props) => {
   };
 
   return (
-    <Layout title={node.title} lead={node.lead}>
+    <BasicLayout title={node.title} lead={node.lead}>
       <SEO title={node.title} />
       <Grid container spacing={3}>
         {node.images.map((image, index) => {
@@ -86,7 +86,7 @@ const GalleryTemplate = (props) => {
         sources={lightboxImages}
         slide={imageIndex}
       />
-    </Layout>
+    </BasicLayout>
   );
 };
 
