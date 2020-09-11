@@ -34,7 +34,7 @@ const GalleryTemplate = (props) => {
       )
   );
 
-  let initialIndex = 0;
+  let initialIndex = -1;
   const name = searchParams.name;
   if (name) {
     node.images.forEach((img, i) => {
@@ -48,7 +48,7 @@ const GalleryTemplate = (props) => {
   const [imageIndex, setImageIndex] = React.useState(initialIndex);
 
   const openLightbox = (imageIndex) => {
-    setImageIndex(imageIndex + 1);
+    setImageIndex(imageIndex);
     setToggler(!toggler);
   };
 
@@ -84,7 +84,7 @@ const GalleryTemplate = (props) => {
       <FsLightbox
         toggler={toggler}
         sources={lightboxImages}
-        slide={imageIndex}
+        sourceIndex={imageIndex}
       />
     </BasicLayout>
   );
