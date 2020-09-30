@@ -38,7 +38,7 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: ['Lato', 'serif'].join(','),
     h1: {
-      fontFamily: ['Kanit', 'sans-serif'].join(','),
+      fontFamily: ['Black Panther', 'sans-serif'].join(','),
       fontSize: '4rem',
       fontWeight: 'bold',
       lineHeight: '1',

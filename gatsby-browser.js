@@ -7,4 +7,5 @@
 //
 import 'pattern.css/dist/pattern.min.css';
 import './src/css/variables.css';
+import './src/css/typography.css';
 import './src/css/elements.css';
