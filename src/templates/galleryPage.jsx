@@ -47,10 +47,17 @@ const GalleryTemplate = (props) => {
   const [toggler, setToggler] = React.useState(false);
   const [imageIndex, setImageIndex] = React.useState(initialIndex);
 
-  const openLightbox = (imageIndex) => {
-    setImageIndex(imageIndex);
-    setToggler(!toggler);
-  };
+  const openLightbox = React.useCallback(
+    (imageIndex) => {
+      setImageIndex(imageIndex);
+      setToggler(!toggler);
+    },
+    [toggler]
+  );
+
+  React.useEffect(() => {
+    if (initialIndex >= 0) openLightbox(initialIndex);
+  }, [initialIndex]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <BasicLayout title={node.title} lead={node.lead}>
