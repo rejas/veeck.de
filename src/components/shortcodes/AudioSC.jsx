@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AudioElement = (props) => {
+const AudioSC = (props) => {
   const classes = useStyles();
   const { file, caption } = props;
 
@@ -25,9 +25,9 @@ const AudioElement = (props) => {
   );
 };
 
-AudioElement.propTypes = {
+AudioSC.propTypes = {
   caption: PropTypes.string.isRequired,
   file: PropTypes.string.isRequired,
 };
 
-export default AudioElement;
+export default AudioSC;

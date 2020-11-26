@@ -15,9 +15,9 @@ import {
   Headline6,
   Paragraph,
 } from '../components/shortcodes/Typography';
-import Audio from '../components/shortcodes/Audio';
+import AudioSC from '../components/shortcodes/AudioSC';
 import CodeBlock from '../components/shortcodes/CodeBlock';
-import ListItem from '../components/shortcodes/ListItem';
+import ListItemSC from '../components/shortcodes/ListItemSC';
 import WowFeed from '../components/shortcodes/WowFeed';
 
 const MdxTemplate = (props) => {
@@ -37,9 +37,9 @@ const MdxTemplate = (props) => {
         hr: Divider,
         ul: List,
         ol: List,
-        li: ListItem,
+        li: ListItemSC,
         code: CodeBlock,
-        Audio,
+        Audio: AudioSC,
         WowFeed,
       }}
     >
