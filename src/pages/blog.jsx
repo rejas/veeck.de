@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import BasicLayout from '../components/layouts/BasicLayout';
 import SEO from '../components/page/Seo';
-import CategoryIcon from '../components/CategoryIcon';
+import BoopedIcon from '../components/CategoryIcon';
 
 const BlogIndex = (props) => {
   const { edges: posts } = props.data.allMdx;
@@ -32,7 +32,7 @@ const BlogIndex = (props) => {
               to={post.fields.slug}
             >
               <ListItemIcon>
-                <CategoryIcon
+                <BoopedIcon
                   category={post.frontmatter.subcategory}
                   color="primary"
                 />
