@@ -5,7 +5,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --patternCurrentColor: rgba(48, 48, 48, 0.125);
+    --patternCurrentColor: rgba(127, 127, 127, 0.5);
     --patternTransparent: #3c3c3c;
   }
 }
