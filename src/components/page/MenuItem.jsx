@@ -34,6 +34,7 @@ const MenuItem = (props) => {
   const classes = useStyles();
   const { link } = props;
   const [style, trigger] = useBoop({ rotation: 20, timing: 200 });
+  style.display = 'flex';
 
   return (
     <Typography
