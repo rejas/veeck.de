@@ -1,16 +1,9 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { Link } from 'gatsby-theme-material-ui';
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Paper,
-} from '@material-ui/core';
+import { List, Paper } from '@material-ui/core';
 import BasicLayout from '../components/layouts/BasicLayout';
 import SEO from '../components/page/Seo';
-import CategoryIcon from '../components/CategoryIcon';
+import BoopedListItem from '../components/BoopedListItem';
 
 const BlogIndex = (props) => {
   const { edges: posts } = props.data.allMdx;
@@ -25,23 +18,7 @@ const BlogIndex = (props) => {
       <Paper>
         <List>
           {posts.map(({ node: post }) => (
-            <ListItem
-              button
-              key={post.id}
-              component={Link}
-              to={post.fields.slug}
-            >
-              <ListItemIcon>
-                <CategoryIcon
-                  category={post.frontmatter.subcategory}
-                  color="primary"
-                />
-              </ListItemIcon>
-              <ListItemText
-                primary={post.frontmatter.title}
-                secondary={post.excerpt}
-              />
-            </ListItem>
+            <BoopedListItem key={post.id} post={post} />
           ))}
         </List>
       </Paper>

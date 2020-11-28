@@ -4,7 +4,7 @@ import { BottomNavigationAction } from 'gatsby-theme-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
-import CategoryIcon from '../CategoryIcon';
+import BoopedCategoryIcon from '../BoopedCategoryIcon';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,14 +46,14 @@ const Footer = () => {
             key="home"
             to="/"
             label="veeck"
-            icon={<CategoryIcon color="primary" />}
+            icon={<BoopedCategoryIcon color="primary" />}
           />
           {menuLinks.map((link) => (
             <BottomNavigationAction
               key={link.name}
               to={link.url}
               label={link.name}
-              icon={<CategoryIcon category={link.icon} color="primary" />}
+              icon={<BoopedCategoryIcon category={link.icon} color="primary" />}
             />
           ))}
         </BottomNavigation>

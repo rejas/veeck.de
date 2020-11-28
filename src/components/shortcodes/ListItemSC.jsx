@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import CategoryIcon from '../CategoryIcon';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -11,20 +11,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ListItemElement = (props) => {
+const ListItemSC = (props) => {
   const classes = useStyles();
 
   return (
     <ListItem>
       <ListItemIcon className={classes.icon}>
-        <CategoryIcon color="primary" />
+        <FiberManualRecordIcon color="primary" />
       </ListItemIcon>
       <ListItemText>{props.children}</ListItemText>
     </ListItem>
   );
 };
 
-ListItemElement.propTypes = {
+ListItemSC.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.element,
@@ -32,4 +32,4 @@ ListItemElement.propTypes = {
   ]).isRequired,
 };
 
-export default ListItemElement;
+export default ListItemSC;

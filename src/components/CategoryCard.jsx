@@ -4,7 +4,9 @@ import Img from 'gatsby-image';
 import { Box, Card, CardContent, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { CardActionArea, Link } from 'gatsby-theme-material-ui';
+import { animated } from 'react-spring';
 import CategoryIcon from './CategoryIcon';
+import useBoop from '../hooks/use-boop';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,21 +45,28 @@ const useStyles = makeStyles((theme) => ({
 
 const CategoryCard = (props) => {
   const classes = useStyles();
+  const [style, trigger] = useBoop({ rotation: 20, timing: 200 });
 
   return (
     <Box className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Link to={props.categoryLink}>
-            <Typography variant={'h1'} className={classes.headline}>
-              <CategoryIcon
-                className={classes.icon}
-                category={props.category}
-                color="primary"
-                style={{
-                  fontSize: '4rem',
-                }}
-              />
+            <Typography
+              onMouseEnter={trigger}
+              variant={'h1'}
+              className={classes.headline}
+            >
+              <animated.span style={style}>
+                <CategoryIcon
+                  className={classes.icon}
+                  category={props.category}
+                  color="primary"
+                  style={{
+                    fontSize: '4rem',
+                  }}
+                />
+              </animated.span>
               {props.categoryName}
             </Typography>
           </Link>
