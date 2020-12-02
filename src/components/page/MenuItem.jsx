@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
 import { animated } from 'react-spring';
 import CategoryIcon from '../CategoryIcon';
-import useBoop from '../../hooks/use-boop';
+import { useBoop } from '../../hooks/use-boop';
 
 const useStyles = makeStyles((theme) => ({
   root: {

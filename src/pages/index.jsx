@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { graphql } from 'gatsby';
-import { Box, Divider, Grid } from '@material-ui/core';
+import { Divider, Grid } from '@material-ui/core';
 import SEO from '../components/page/Seo';
 import CategoryCard from '../components/CategoryCard';
 import { BigHead } from '@bigheads/core';
@@ -14,11 +14,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'center',
-  },
-  adBox: {
-    display: 'flex',
-    justifyContent: 'center',
-    margin: `0 -12px ${theme.spacing(3)}px`,
   },
 }));
 
@@ -97,26 +92,6 @@ const IndexPage = (props) => {
           }
           categoryName="Hof&shy;fotograf"
         />
-
-        <Grid item xs={12}>
-          <Box className={classes.adBox}>
-            <iframe
-              title="vivaconagua"
-              src="//www.vivaconagua.org/banner/vca"
-              frameBorder="0"
-              width="350"
-              height="64"
-            >
-              <a
-                href="https://www.vivaconagua.org"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Viva con Agua - Alle für Wasser! Wasser für Alle!
-              </a>
-            </iframe>
-          </Box>
-        </Grid>
 
         <CategoryCard
           title={data.latestTravel.edges[0].node.frontmatter.title}

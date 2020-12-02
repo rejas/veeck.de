@@ -1,9 +1,9 @@
 //Source here: https://www.joshwcomeau.com/react/boop/?ref=sidebar#introduction
 import React from 'react';
 import { useSpring } from 'react-spring';
-import usePrefersReducedMotion from './use-prefers-reduced-motion';
+import { usePrefersReducedMotion } from './use-prefers-reduced-motion';
 
-function useBoop({
+export const useBoop = ({
   x = 0,
   y = 0,
   rotation = 0,
@@ -13,7 +13,7 @@ function useBoop({
     tension: 300,
     friction: 10,
   },
-}) {
+}) => {
   const prefersReducedMotion = usePrefersReducedMotion();
   const [isBooped, setIsBooped] = React.useState(false);
   const style = useSpring({
@@ -46,6 +46,4 @@ function useBoop({
   let appliedStyle = prefersReducedMotion ? {} : style;
 
   return [appliedStyle, trigger];
-}
-
-export default useBoop;
+};

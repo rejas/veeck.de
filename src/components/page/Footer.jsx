@@ -32,7 +32,7 @@ const Footer = () => {
           <Link to="https://github.com/rejas">rejas</Link>{' '}
           {new Date().getFullYear()}
           {'. Built with '}
-          <Link to="https://www.gatsbyjs.org">Gatsby</Link>
+          <Link to="https://gatsbyjs.org">Gatsby</Link>
           {', '}
           <Link to="https://reactjs.org">React</Link>
           {' and '}

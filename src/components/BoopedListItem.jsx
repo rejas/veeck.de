@@ -1,9 +1,9 @@
 import * as React from 'react';
-import CategoryIcon from './CategoryIcon';
 import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
 import { animated } from 'react-spring';
-import useBoop from '../hooks/use-boop';
+import { useBoop } from '../hooks/use-boop';
+import CategoryIcon from './CategoryIcon';
 
 const BoopedListItem = (props) => {
   const post = props.post;
