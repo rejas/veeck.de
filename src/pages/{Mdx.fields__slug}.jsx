@@ -59,8 +59,8 @@ const MdxTemplate = (props) => {
   );
 };
 
-export const query = graphql`
-  query MdxPostQuery($id: String) {
+export const pageQuery = graphql`
+  query MdxPostBySlug($id: String!) {
     mdx(id: { eq: $id }) {
       id
       body
