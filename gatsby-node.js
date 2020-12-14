@@ -21,7 +21,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 };
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  // Create pages from yaml data
+  const { createPage } = actions;
+  const galleryPage = path.resolve(`./src/templates/galleryPage.jsx`);
+
   const yamlResult = await graphql(`
     query {
       allPhotosYaml {
@@ -34,16 +36,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
+
   if (yamlResult.errors) {
-    reporter.panicOnBuild('🚨ERROR: Loading "createPages" query');
+    reporter.panicOnBuild('🚨 ERROR: Loading "createPages" query');
+    return;
   }
 
   const galleries = yamlResult.data.allPhotosYaml.edges;
-  galleries.forEach(({ node }) => {
-    actions.createPage({
-      path: '/photos/' + node.path,
-      component: path.resolve(`./src/templates/galleryPage.jsx`),
-      context: { id: node.id },
+  galleries.forEach((gallery) => {
+    createPage({
+      path: '/photos/' + gallery.node.path,
+      component: galleryPage,
+      context: { id: gallery.node.id },
     });
   });
 };
