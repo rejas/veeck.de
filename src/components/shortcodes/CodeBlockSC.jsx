@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CodeBlock = (props) => {
+const CodeBlockSC = (props) => {
   const classes = useStyles();
   const { children, className } = props;
 
@@ -27,13 +27,13 @@ const CodeBlock = (props) => {
   );
 };
 
-CodeBlock.defaultProps = {
+CodeBlockSC.defaultProps = {
   className: '',
 };
 
-CodeBlock.propTypes = {
+CodeBlockSC.propTypes = {
   children: PropTypes.string.isRequired,
   className: PropTypes.string,
 };
 
-export default CodeBlock;
+export default CodeBlockSC;
