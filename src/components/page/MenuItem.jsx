@@ -6,6 +6,8 @@ import { Link } from 'gatsby-theme-material-ui';
 import { animated } from 'react-spring';
 import CategoryIcon from '../CategoryIcon';
 import { useBoop } from '../../hooks/use-boop';
+import useSound from 'use-sound';
+import boopSfx from '../../sounds/tock.mp3';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +37,7 @@ const MenuItem = (props) => {
   const { link } = props;
   const [style, trigger] = useBoop({ rotation: 20, timing: 200 });
   style.display = 'flex';
+  const [play] = useSound(boopSfx);
 
   return (
     <Typography
@@ -50,7 +53,13 @@ const MenuItem = (props) => {
           className={classes.icon}
         />
       </animated.span>
-      <Link className={classes.link} color="inherit" noWrap to={link.url}>
+      <Link
+        onClick={play}
+        className={classes.link}
+        color="inherit"
+        noWrap
+        to={link.url}
+      >
         {link.name}
       </Link>
     </Typography>
