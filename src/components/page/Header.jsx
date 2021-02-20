@@ -7,9 +7,7 @@ import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import MenuItem from './MenuItem';
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    backgroundColor: theme.palette.background.default,
-  },
+  appBar: {},
   toolbar: {
     justifyContent: 'flex-end',
   },
@@ -33,7 +31,7 @@ const Header = (props) => {
 
   return (
     <ElevateOnScroll {...props}>
-      <AppBar position="sticky" color="default" className={classes.appBar}>
+      <AppBar position="sticky" color="transparent" className={classes.appBar}>
         <Hidden xsDown>
           <Toolbar className={classes.toolbar} component="nav" variant="dense">
             <Typography variant="h4" className={classes.toolbarLogo}>

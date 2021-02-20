@@ -36,9 +36,9 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: ['Lato', 'serif'].join(','),
+    fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
     h1: {
-      fontFamily: ['Black Panther', 'sans-serif'].join(','),
+      fontFamily: ['Josefin Slab', 'sans-serif'].join(','),
       fontSize: '4rem',
       fontWeight: 'bold',
       lineHeight: '1',
@@ -47,32 +47,32 @@ const theme = createMuiTheme({
       wordBreak: 'break-word',
     },
     h2: {
-      fontFamily: ['Shadows Into Light', 'sans-serif'].join(','),
+      fontFamily: ['Josefin Slab', 'sans-serif'].join(','),
       fontSize: '2rem',
       fontWeight: 'bold',
       textTransform: 'uppercase',
     },
     h3: {
-      fontFamily: ['Shadows Into Light', 'sans-serif'].join(','),
+      fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
       fontSize: '1.666rem',
     },
     h4: {
-      fontFamily: ['Shadows Into Light', 'sans-serif'].join(','),
+      fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
       fontSize: '1rem',
       fontWeight: 'bold',
     },
     h5: {
-      fontFamily: ['Kanit', 'sans-serif'].join(','),
+      fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
       fontWeight: 'bold',
     },
     h6: {
-      fontFamily: ['Kanit', 'sans-serif'].join(','),
+      fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
     },
     button: {
       fontWeight: 'bold',
     },
     subtitle1: {
-      fontFamily: ['Kanit', 'sans-serif'].join(','),
+      fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
       fontSize: '1.666rem',
       lineHeight: '1',
       textAlign: 'center',
@@ -82,7 +82,7 @@ const theme = createMuiTheme({
   palette: {
     type: prefersDarkMode ? 'dark' : 'light',
     primary: {
-      main: prefersDarkMode ? '#4bb2f9' : '#8E24AA',
+      main: prefersDarkMode ? '#fae34b' : '#939597',
     },
     secondary: {
       main: prefersDarkMode ? '#313131' : '#f1f1f1',

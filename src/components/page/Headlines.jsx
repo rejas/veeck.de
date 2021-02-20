@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     color: 'white',
-    textShadow: `0 3px 1px ${theme.palette.primary.main}`,
     mixBlendMode: 'difference',
   },
 }));
