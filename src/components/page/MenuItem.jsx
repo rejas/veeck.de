@@ -23,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     textTransform: 'uppercase',
-    padding: theme.spacing(1),
+    margin: 0,
+    padding: `${theme.spacing(0.5)}px 0 0 ${theme.spacing(1)}px`,
     flexShrink: 0,
 
     '&:hover': {

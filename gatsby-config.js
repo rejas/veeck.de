@@ -105,21 +105,17 @@ module.exports = {
           fonts: {
             google: [
               {
-                family: 'Kanit',
+                family: 'Josefin+Slab',
                 variants: ['400', '700'],
                 fontDisplay: 'swap',
               },
               {
-                family: 'Lato',
+                family: 'Josefin+Sans',
                 variants: ['300', '400', '500'],
                 //subsets: ['latin']
                 //text: 'Hello'
                 fontDisplay: 'swap',
                 //strategy: 'selfHosted' // 'base64' || 'cdn'
-              },
-              {
-                family: 'Shadows+Into+Light',
-                fontDisplay: 'swap',
               },
             ],
           },

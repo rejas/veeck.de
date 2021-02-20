@@ -5,6 +5,10 @@
 
 My personal homepage
 
+## Build with:
+
+<div align="center"><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/gatsby.svg"/><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/material-ui.svg"/><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/prettier.svg"/><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/react.svg"/></div>
+
 ## TODO:
 
 format date in frontmatter like this:
