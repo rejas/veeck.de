@@ -36,7 +36,6 @@ module.exports = {
   },
   flags: {
     FAST_DEV: true,
-    FAST_REFRESH: true,
   },
   plugins: [
     {
@@ -46,6 +45,7 @@ module.exports = {
         path: `${__dirname}/content/images`,
       },
     },
+    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-transformer-yaml',

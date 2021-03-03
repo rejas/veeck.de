@@ -6,15 +6,12 @@ import SEO from '../components/page/Seo';
 import BoopedListItem from '../components/BoopedListItem';
 
 const BlogIndex = (props) => {
-  const { edges: posts } = props.data.allMdx;
+  const { data } = props;
+  const { edges: posts } = data.allMdx;
 
   return (
     <BasicLayout title="my personal blog">
-      <SEO
-        title="Blog"
-        description={'veeck blogs'}
-        thumbnail={props.data.file}
-      />
+      <SEO title="Blog" description={'veeck blogs'} image={data.file} />
       <Paper>
         <List>
           {posts.map(({ node: post }) => (
@@ -30,9 +27,7 @@ export const query = graphql`
   query {
     file(relativePath: { eq: "categories/blog.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 600) {
-          ...GatsbyImageSharpSizes
-        }
+        gatsbyImageData(layout: FULL_WIDTH, width: 600)
       }
     }
     allMdx(

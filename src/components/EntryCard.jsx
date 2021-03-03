@@ -1,9 +1,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
 import { Card, CardContent, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { CardActionArea } from 'gatsby-theme-material-ui';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -22,7 +22,7 @@ const EntryCard = (props) => {
     <Grid item xs={12} sm={6} md={4}>
       <Card className={classes.card}>
         <CardActionArea to={link} className={classes.cardAction}>
-          <Img fluid={image} />
+          <GatsbyImage image={image} />
           <CardContent>
             <Typography component="h2" variant="subtitle1">
               {title}
