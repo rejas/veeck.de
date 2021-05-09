@@ -70,13 +70,7 @@ export const pageQuery = graphql`
         lang
         img {
           childImageSharp {
-            sizes(maxWidth: 600) {
-              ...GatsbyImageSharpSizes
-            }
-            fluid(maxWidth: 1500) {
-              ...GatsbyImageSharpFluid
-              aspectRatio
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }

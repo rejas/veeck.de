@@ -34,7 +34,7 @@ export const query = graphql`
   query {
     file(relativePath: { eq: "categories/pictures.jpg" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH, width: 600)
+        gatsbyImageData(layout: CONSTRAINED, width: 768)
       }
     }
     allPhotosYaml {
@@ -43,7 +43,7 @@ export const query = graphql`
           id
           img {
             childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH, width: 786)
+              gatsbyImageData(layout: CONSTRAINED, width: 768)
             }
           }
           path

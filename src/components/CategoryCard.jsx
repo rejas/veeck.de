@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { Box, Card, CardContent, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { CardActionArea, Link } from 'gatsby-theme-material-ui';
@@ -97,7 +97,10 @@ const CategoryCard = (props) => {
               </CardContent>
             </CardActionArea>
             {props.categoryImage && (
-              <Img fluid={props.categoryImage} className={classes.cover} />
+              <GatsbyImage
+                image={props.categoryImage}
+                className={classes.cover}
+              />
             )}
           </Card>
         </Grid>

@@ -27,7 +27,7 @@ export const query = graphql`
   query {
     file(relativePath: { eq: "categories/blog.jpg" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH, width: 600)
+        gatsbyImageData(layout: CONSTRAINED, width: 768)
       }
     }
     allMdx(

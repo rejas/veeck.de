@@ -39,7 +39,7 @@ const HeroLayout = (props) => {
             <div className={classes.hero}>
               <BackgroundImage
                 className={classes.background}
-                fluid={image.childImageSharp.fluid}
+                fluid={image.childImageSharp.gatsbyImageData}
               >
                 <Headlines title={title} lead={lead} />
               </BackgroundImage>

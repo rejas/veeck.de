@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import { useTheme } from '@material-ui/core/styles';
+import { getSrc } from 'gatsby-plugin-image';
 
 const MetaData = (props) => {
   const { description, lang, meta, title, thumbnail } = props;
@@ -11,17 +12,18 @@ const MetaData = (props) => {
   const metaDescription = description || siteMetadata.description;
 
   if (thumbnail) {
+    const imagePath = getSrc(thumbnail);
     let origin = '';
     if (typeof window !== 'undefined') {
       origin = window.location.origin;
     }
     meta.push({
       property: 'og:image`',
-      content: origin + thumbnail && thumbnail.childImageSharp.sizes.src,
+      content: origin + imagePath,
     });
     meta.push({
       property: 'twitter:image`',
-      content: origin + thumbnail && thumbnail.childImageSharp.sizes.src,
+      content: origin + imagePath,
     });
   }
 

@@ -74,7 +74,7 @@ const IndexPage = (props) => {
           category={data.latestProject.edges[0].node.frontmatter.category}
           categoryImage={
             data.latestProject.edges[0].node.frontmatter.img.childImageSharp
-              .fluid
+              .gatsbyImageData
           }
           categoryLink="/projects"
           categoryName="Computer&shy;schlampe"
@@ -88,7 +88,7 @@ const IndexPage = (props) => {
           category={'photos'}
           categoryLink="/photos"
           categoryImage={
-            data.latestImage.edges[0].node.img.childImageSharp.fluid
+            data.latestImage.edges[0].node.img.childImageSharp.gatsbyImageData
           }
           categoryName="Hof&shy;fotograf"
         />
@@ -102,7 +102,7 @@ const IndexPage = (props) => {
           categoryLink="/travels"
           categoryImage={
             data.latestTravel.edges[0].node.frontmatter.img.childImageSharp
-              .fluid
+              .gatsbyImageData
           }
           categoryName="Terror&shy;poet"
         />
@@ -112,12 +112,10 @@ const IndexPage = (props) => {
 };
 
 export const query = graphql`
-  query {
+  {
     file(relativePath: { eq: "categories/index.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 600) {
-          ...GatsbyImageSharpSizes
-        }
+        gatsbyImageData(layout: CONSTRAINED, width: 768)
       }
     }
     latestBlog: allMdx(
@@ -153,10 +151,7 @@ export const query = graphql`
             category
             img {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                  aspectRatio
-                }
+                gatsbyImageData(layout: CONSTRAINED, width: 768)
               }
             }
           }
@@ -180,10 +175,7 @@ export const query = graphql`
             category
             img {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                  aspectRatio
-                }
+                gatsbyImageData(layout: CONSTRAINED, width: 768)
               }
             }
           }
@@ -202,9 +194,7 @@ export const query = graphql`
           id
           img {
             childImageSharp {
-              fluid(maxWidth: 786) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(layout: CONSTRAINED, width: 768)
             }
           }
           path

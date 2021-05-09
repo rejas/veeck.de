@@ -30,7 +30,7 @@ export const query = graphql`
   query {
     file(relativePath: { eq: "categories/travels.jpg" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH, width: 600)
+        gatsbyImageData(layout: CONSTRAINED, width: 768)
       }
     }
     allMdx(
@@ -46,7 +46,7 @@ export const query = graphql`
             where
             img {
               childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH, width: 786)
+                gatsbyImageData(layout: CONSTRAINED, width: 768)
               }
             }
           }
