@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { chunk, sum } from 'lodash';
-import FsLightbox from 'fslightbox-react';
+import { SRLWrapper } from 'simple-react-lightbox';
 import { Box, Grid } from '@material-ui/core';
 import BasicLayout from '../components/layouts/BasicLayout';
 import { makeStyles } from '@material-ui/core/styles';
@@ -19,12 +19,16 @@ const GalleryTemplate = (props) => {
   const classes = useStyles();
   const searchParams = useSearchParams();
 
-  const node = props.data.allPhotosYaml.edges[0].node;
-  const aspectRatios = node.images.map(
-    (image) => image.img.childImageSharp.fluid.aspectRatio
+  const data = props.data;
+  const images = data.images.edges[0].node.images;
+  const node = data.images.edges[0].node;
+  const thumbnails = node.images;
+
+  const aspectRatios = images.map(
+    (image) => image.img.childImageSharp.gatsbyImageData.aspectRatio
   );
-  const lightboxImages = node.images.map(
-    (image) => image.img.childImageSharp.fluid.src
+  const lightboxImages = images.map(
+    (image) => image.img.childImageSharp.gatsbyImageData.src
   );
   const itemsPerRowByBreakpoints = [2, 3, 4, 5];
   const rowAspectRatioSumsByBreakpoints = itemsPerRowByBreakpoints.map(
@@ -62,6 +66,25 @@ const GalleryTemplate = (props) => {
   return (
     <BasicLayout title={node.title} lead={node.lead}>
       <MetaData title={node.title} />
+      <SRLWrapper>
+        {thumbnails.map((e, index) => {
+          return (
+            <a
+              href={
+                images[index].img.childImageSharp.gatsbyImageData.images
+                  .fallback.src
+              }
+              key={index}
+            >
+              <GatsbyImage
+                image={e.img.childImageSharp.gatsbyImageData}
+                alt={e.caption}
+              />
+            </a>
+          );
+        })}
+      </SRLWrapper>
+      {/* 
       <Grid container spacing={3}>
         {node.images.map((image, index) => {
           return (
@@ -76,14 +99,14 @@ const GalleryTemplate = (props) => {
                   );
                   const rowAspectRatioSum = rowAspectRatioSums[rowIndex];
                   return `${
-                    (image.img.childImageSharp.fluid.aspectRatio /
+                    (image.img.childImageSharp.gatsbyImageData.aspectRatio /
                       rowAspectRatioSum) *
                     100
                   }%`;
                 }
               )}
             >
-              <Img fluid={image.img.childImageSharp.fluid} />
+              <GatsbyImage image={image.img.childImageSharp.gatsbyImageData} />
             </Box>
           );
         })}
@@ -92,14 +115,36 @@ const GalleryTemplate = (props) => {
         toggler={toggler}
         sources={lightboxImages}
         sourceIndex={imageIndex}
-      />
+      /> 
+      */}
     </BasicLayout>
   );
 };
 
 export const query = graphql`
   query YamlPostQuery($id: String) {
-    allPhotosYaml(filter: { id: { eq: $id } }) {
+    thumbnails: allPhotosYaml(filter: { id: { eq: $id } }) {
+      edges {
+        node {
+          images {
+            img {
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  layout: CONSTRAINED
+                  width: 300
+                  height: 300
+                )
+              }
+            }
+            caption
+            isNew
+            name
+          }
+        }
+      }
+    }
+    images: allPhotosYaml(filter: { id: { eq: $id } }) {
       edges {
         node {
           title
@@ -107,10 +152,7 @@ export const query = graphql`
           images {
             img {
               childImageSharp {
-                fluid(maxWidth: 1500) {
-                  ...GatsbyImageSharpFluid
-                  aspectRatio
-                }
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
             caption
