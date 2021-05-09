@@ -7,7 +7,7 @@ import { Box, Grid } from '@material-ui/core';
 import BasicLayout from '../components/layouts/BasicLayout';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSearchParams } from '../hooks/use-search-param';
-import SEO from '../components/page/Seo';
+import MetaData from '../components/page/MetaData';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -61,7 +61,7 @@ const GalleryTemplate = (props) => {
 
   return (
     <BasicLayout title={node.title} lead={node.lead}>
-      <SEO title={node.title} />
+      <MetaData title={node.title} />
       <Grid container spacing={3}>
         {node.images.map((image, index) => {
           return (

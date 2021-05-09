@@ -2,7 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Grid } from '@material-ui/core';
 import BasicLayout from '../components/layouts/BasicLayout';
-import SEO from '../components/page/Seo';
+import MetaData from '../components/page/MetaData';
 import EntryCard from '../components/EntryCard';
 
 const PhotoPage = (props) => {
@@ -11,7 +11,11 @@ const PhotoPage = (props) => {
 
   return (
     <BasicLayout title="my photo galleries">
-      <SEO title="Galleries" description={'veeck shoots'} image={data.file} />
+      <MetaData
+        title="Galleries"
+        description={'veeck shoots'}
+        image={data.file}
+      />
       <Grid container spacing={3}>
         {galleries.map(({ node: gallery }, index) => (
           <EntryCard

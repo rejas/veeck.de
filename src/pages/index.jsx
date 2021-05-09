@@ -2,7 +2,7 @@ import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { graphql } from 'gatsby';
 import { Divider, Grid } from '@material-ui/core';
-import SEO from '../components/page/Seo';
+import MetaData from '../components/page/MetaData';
 import CategoryCard from '../components/CategoryCard';
 import { BigHead } from '@bigheads/core';
 import Headlines from '../components/page/Headlines';
@@ -52,7 +52,7 @@ const IndexPage = (props) => {
         </Grid>
       </Grid>
 
-      <SEO title="veeck.de" thumbnail={data.file} />
+      <MetaData title="veeck.de" thumbnail={data.file} />
       <Grid container spacing={3}>
         <Divider />
 

@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import { useTheme } from '@material-ui/core/styles';
 
-const SEO = (props) => {
+const MetaData = (props) => {
   const { description, lang, meta, title, thumbnail } = props;
   const siteMetadata = useSiteMetadata();
   const theme = useTheme();
@@ -80,14 +80,14 @@ const SEO = (props) => {
   );
 };
 
-SEO.defaultProps = {
+MetaData.defaultProps = {
   description: '',
   lang: 'en',
   meta: [],
   thumbnail: null,
 };
 
-SEO.propTypes = {
+MetaData.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
@@ -95,4 +95,4 @@ SEO.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default SEO;
+export default MetaData;

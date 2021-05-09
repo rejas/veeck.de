@@ -3,12 +3,12 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { Typography } from '@material-ui/core';
 
 import BasicLayout from '../components/layouts/BasicLayout';
-import SEO from '../components/page/Seo';
+import MetaData from '../components/page/MetaData';
 
 const NotFoundPage = ({ data }) => {
   return (
     <BasicLayout>
-      <SEO title="404: Not found" />
+      <MetaData title="404: Not found" />
       <Typography variant="h2" component="h2" gutterBottom>
         I am sorry Dave
       </Typography>

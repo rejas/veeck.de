@@ -2,7 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Grid } from '@material-ui/core';
 import BasicLayout from '../components/layouts/BasicLayout';
-import SEO from '../components/page/Seo';
+import MetaData from '../components/page/MetaData';
 import EntryCard from '../components/EntryCard';
 
 const ProjectsIndex = (props) => {
@@ -11,7 +11,11 @@ const ProjectsIndex = (props) => {
 
   return (
     <BasicLayout title="my side projects">
-      <SEO title="Projects" description="veeck tinkers" image={data.file} />
+      <MetaData
+        title="Projects"
+        description="veeck tinkers"
+        image={data.file}
+      />
       <Grid container spacing={3}>
         {posts.map(({ node: post }, index) => (
           <EntryCard
