@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Card, CardContent, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { CardActionArea } from 'gatsby-theme-material-ui';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -16,13 +16,14 @@ const useStyles = makeStyles((theme) => ({
 
 const EntryCard = (props) => {
   const classes = useStyles();
-  const { image, link, title } = props;
+  const { link, title } = props;
+  const image = getImage(props.image);
 
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Card className={classes.card}>
         <CardActionArea to={link} className={classes.cardAction}>
-          <GatsbyImage image={image} />
+          <GatsbyImage image={image} alt={title} />
           <CardContent>
             <Typography component="h2" variant="subtitle1">
               {title}

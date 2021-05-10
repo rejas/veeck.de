@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { chunk, sum } from 'lodash';
 import { SRLWrapper } from 'simple-react-lightbox';
 import { Box, Grid } from '@material-ui/core';
@@ -68,6 +68,7 @@ const GalleryTemplate = (props) => {
       <MetaData title={node.title} />
       <SRLWrapper>
         {thumbnails.map((e, index) => {
+          const image = getImage(e.img.childImageSharp.gatsbyImageData);
           return (
             <a
               href={
@@ -76,15 +77,12 @@ const GalleryTemplate = (props) => {
               }
               key={index}
             >
-              <GatsbyImage
-                image={e.img.childImageSharp.gatsbyImageData}
-                alt={e.caption}
-              />
+              <GatsbyImage image={image} alt={e.caption} />
             </a>
           );
         })}
       </SRLWrapper>
-      {/* 
+      {/*
       <Grid container spacing={3}>
         {node.images.map((image, index) => {
           return (
@@ -115,7 +113,7 @@ const GalleryTemplate = (props) => {
         toggler={toggler}
         sources={lightboxImages}
         sourceIndex={imageIndex}
-      /> 
+      />
       */}
     </BasicLayout>
   );

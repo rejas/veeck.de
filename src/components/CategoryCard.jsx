@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Box, Card, CardContent, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { CardActionArea, Link } from 'gatsby-theme-material-ui';
@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 const CategoryCard = (props) => {
   const classes = useStyles();
   const [style, trigger] = useBoop({ rotation: 20, timing: 200 });
+  const image = getImage(props.categoryImage);
 
   return (
     <Box className={classes.root}>
@@ -98,7 +99,8 @@ const CategoryCard = (props) => {
             </CardActionArea>
             {props.categoryImage && (
               <GatsbyImage
-                image={props.categoryImage}
+                alt={props.categoryName}
+                image={image}
                 className={classes.cover}
               />
             )}
