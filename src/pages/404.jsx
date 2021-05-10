@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 import BasicLayout from '../components/layouts/BasicLayout';
 import MetaData from '../components/page/MetaData';
 
-const NotFoundPage = ({ data }) => {
+const NotFoundPage = (props) => {
   return (
     <BasicLayout>
       <MetaData title="404: Not found" />
