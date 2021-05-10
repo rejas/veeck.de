@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { chunk, sum } from 'lodash';
-import { SRLWrapper } from 'simple-react-lightbox';
-import { Box, Grid } from '@material-ui/core';
+//import { chunk, sum } from 'lodash';
+import FsLightbox from 'fslightbox-react';
+import { GridListTile, GridList } from '@material-ui/core';
 import BasicLayout from '../components/layouts/BasicLayout';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSearchParams } from '../hooks/use-search-param';
@@ -19,16 +19,13 @@ const GalleryTemplate = (props) => {
   const classes = useStyles();
   const searchParams = useSearchParams();
 
-  const data = props.data;
-  const images = data.images.edges[0].node.images;
-  const node = data.images.edges[0].node;
-  const thumbnails = node.images;
-
-  const aspectRatios = images.map(
-    (image) => image.img.childImageSharp.gatsbyImageData.aspectRatio
+  const node = props.data.allPhotosYaml.edges[0].node;
+  const lightboxImages = node.images.map(
+    (image) => image.img.childImageSharp.gatsbyImageData.images.fallback.src
   );
-  const lightboxImages = images.map(
-    (image) => image.img.childImageSharp.gatsbyImageData.src
+  /*
+  const aspectRatios = node.images.map(
+    (image) => (image.img.childImageSharp.gatsbyImageData.width / image.img.childImageSharp.gatsbyImageData.height)
   );
   const itemsPerRowByBreakpoints = [2, 3, 4, 5];
   const rowAspectRatioSumsByBreakpoints = itemsPerRowByBreakpoints.map(
@@ -37,6 +34,7 @@ const GalleryTemplate = (props) => {
         sum(rowAspectRatios)
       )
   );
+  */
 
   let initialIndex = -1;
   const name = searchParams.name;
@@ -66,83 +64,49 @@ const GalleryTemplate = (props) => {
   return (
     <BasicLayout title={node.title} lead={node.lead}>
       <MetaData title={node.title} />
-      <SRLWrapper>
-        {thumbnails.map((e, index) => {
-          const image = getImage(e.img.childImageSharp.gatsbyImageData);
+
+      <GridList cellHeight={160} className={classes.gridList} cols={3}>
+        {node.images.map((img, index) => {
+          const image = getImage(img.img);
           return (
-            <a
-              href={
-                images[index].img.childImageSharp.gatsbyImageData.images
-                  .fallback.src
-              }
+            <GridListTile
               key={index}
-            >
-              <GatsbyImage image={image} alt={e.caption} />
-            </a>
-          );
-        })}
-      </SRLWrapper>
-      {/*
-      <Grid container spacing={3}>
-        {node.images.map((image, index) => {
-          return (
-            <Box
+              cols={1}
               className={classes.box}
-              onClick={() => openLightbox(index)}
-              key={`content_item_${index}`}
-              width={rowAspectRatioSumsByBreakpoints.map(
-                (rowAspectRatioSums, j) => {
-                  const rowIndex = Math.floor(
-                    index / itemsPerRowByBreakpoints[j]
-                  );
-                  const rowAspectRatioSum = rowAspectRatioSums[rowIndex];
-                  return `${
-                    (image.img.childImageSharp.gatsbyImageData.aspectRatio /
-                      rowAspectRatioSum) *
-                    100
-                  }%`;
-                }
-              )}
+              onClick={
+                () => openLightbox(index)
+                /* width={rowAspectRatioSumsByBreakpoints.map(
+                  (rowAspectRatioSums, j) => {
+                    const rowIndex = Math.floor(
+                      index / itemsPerRowByBreakpoints[j]
+                    );
+                    const rowAspectRatioSum = rowAspectRatioSums[rowIndex];
+                    return `${
+                      (image.img.childImageSharp.fluid.aspectRatio /
+                        rowAspectRatioSum) *
+                      100
+                    }%`;
+                  }
+                )} */
+              }
             >
-              <GatsbyImage image={image.img.childImageSharp.gatsbyImageData} />
-            </Box>
+              <GatsbyImage image={image} alt={img.caption} />
+            </GridListTile>
           );
         })}
-      </Grid>
+      </GridList>
       <FsLightbox
         toggler={toggler}
         sources={lightboxImages}
         sourceIndex={imageIndex}
       />
-      */}
     </BasicLayout>
   );
 };
 
 export const query = graphql`
   query YamlPostQuery($id: String) {
-    thumbnails: allPhotosYaml(filter: { id: { eq: $id } }) {
-      edges {
-        node {
-          images {
-            img {
-              childImageSharp {
-                gatsbyImageData(
-                  placeholder: BLURRED
-                  layout: CONSTRAINED
-                  width: 300
-                  height: 300
-                )
-              }
-            }
-            caption
-            isNew
-            name
-          }
-        }
-      }
-    }
-    images: allPhotosYaml(filter: { id: { eq: $id } }) {
+    allPhotosYaml(filter: { id: { eq: $id } }) {
       edges {
         node {
           title
