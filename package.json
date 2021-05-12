@@ -57,6 +57,7 @@
     "gatsby-theme-material-ui": "^2.0.1",
     "gatsby-transformer-sharp": "^3.5.0",
     "gatsby-transformer-yaml": "^3.5.0",
+    "gbimage-bridge": "^0.1.4",
     "github-webcomponents": "^1.3.0",
     "lodash": "^4.17.21",
     "material-ui-audio-player": "^1.6.2",

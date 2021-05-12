@@ -1,6 +1,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import BackgroundImage from 'gatsby-background-image';
+import { getImage } from 'gatsby-plugin-image';
+import { convertToBgImage } from 'gbimage-bridge';
 import { makeStyles } from '@material-ui/core/styles';
 import Headlines from '../page/Headlines';
 import Layout from '../page/Layout';
@@ -31,15 +33,21 @@ const HeroLayout = (props) => {
   const { children, image, lead, title } = props;
   const classes = useStyles();
 
+  let bgImage;
+  if (image) {
+    bgImage = convertToBgImage(getImage(image));
+  }
+
   return (
     <Layout>
       <React.Fragment>
-        {image && (
+        {bgImage && (
           <React.Fragment>
             <div className={classes.hero}>
               <BackgroundImage
                 className={classes.background}
-                fluid={image.childImageSharp.gatsbyImageData}
+                {...bgImage}
+                preserveStackingContext
               >
                 <Headlines title={title} lead={lead} />
               </BackgroundImage>
@@ -47,7 +55,7 @@ const HeroLayout = (props) => {
             <div className={classes.imageChildren}>{children}</div>
           </React.Fragment>
         )}
-        {!image && (
+        {!bgImage && (
           <React.Fragment>
             <Headlines title={title} lead={lead} />
             <div className={classes.basicChildren}>{children}</div>
