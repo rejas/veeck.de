@@ -2,7 +2,8 @@ import React from 'react';
 import { animated } from 'react-spring';
 import { useBoop } from '../hooks/use-boop';
 
-const Boop = ({ children, ...boopConfig }) => {
+const Boop = (props) => {
+  const { children, ...boopConfig } = props;
   const [style, trigger] = useBoop(boopConfig);
 
   return (

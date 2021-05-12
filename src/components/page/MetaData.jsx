@@ -3,25 +3,27 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import { useTheme } from '@material-ui/core/styles';
+import { getSrc } from 'gatsby-plugin-image';
 
-const SEO = (props) => {
+const MetaData = (props) => {
   const { description, lang, meta, title, thumbnail } = props;
   const siteMetadata = useSiteMetadata();
   const theme = useTheme();
   const metaDescription = description || siteMetadata.description;
 
   if (thumbnail) {
+    const imagePath = getSrc(thumbnail);
     let origin = '';
     if (typeof window !== 'undefined') {
       origin = window.location.origin;
     }
     meta.push({
       property: 'og:image`',
-      content: origin + thumbnail && thumbnail.childImageSharp.sizes.src,
+      content: origin + imagePath,
     });
     meta.push({
       property: 'twitter:image`',
-      content: origin + thumbnail && thumbnail.childImageSharp.sizes.src,
+      content: origin + imagePath,
     });
   }
 
@@ -80,14 +82,14 @@ const SEO = (props) => {
   );
 };
 
-SEO.defaultProps = {
+MetaData.defaultProps = {
   description: '',
   lang: 'en',
   meta: [],
   thumbnail: null,
 };
 
-SEO.propTypes = {
+MetaData.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
@@ -95,4 +97,4 @@ SEO.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default SEO;
+export default MetaData;

@@ -5,7 +5,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { Link } from 'gatsby-theme-material-ui';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import HeroLayout from '../components/layouts/HeroLayout';
-import SEO from '../components/page/Seo';
+import MetaData from '../components/page/MetaData';
 import {
   Headline1,
   Headline2,
@@ -48,7 +48,7 @@ const MdxTemplate = (props) => {
         lead={mdx.frontmatter.lead}
         image={mdx.frontmatter.img}
       >
-        <SEO
+        <MetaData
           title={mdx.frontmatter.title}
           lang={mdx.frontmatter.lang}
           thumbnail={mdx.frontmatter.img}
@@ -70,13 +70,7 @@ export const pageQuery = graphql`
         lang
         img {
           childImageSharp {
-            sizes(maxWidth: 600) {
-              ...GatsbyImageSharpSizes
-            }
-            fluid(maxWidth: 1500) {
-              ...GatsbyImageSharpFluid
-              aspectRatio
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }

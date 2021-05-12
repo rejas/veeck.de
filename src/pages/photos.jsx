@@ -2,24 +2,25 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Grid } from '@material-ui/core';
 import BasicLayout from '../components/layouts/BasicLayout';
-import SEO from '../components/page/Seo';
+import MetaData from '../components/page/MetaData';
 import EntryCard from '../components/EntryCard';
 
 const PhotoPage = (props) => {
-  const { edges: galleries } = props.data.allPhotosYaml;
+  const { data } = props;
+  const { edges: galleries } = data.allPhotosYaml;
 
   return (
     <BasicLayout title="my photo galleries">
-      <SEO
+      <MetaData
         title="Galleries"
         description={'veeck shoots'}
-        thumbnail={props.data.file}
+        image={data.file}
       />
       <Grid container spacing={3}>
         {galleries.map(({ node: gallery }, index) => (
           <EntryCard
             key={index}
-            image={gallery.img.childImageSharp.fluid}
+            image={gallery.img.childImageSharp.gatsbyImageData}
             link={'/photos/' + gallery.path}
             title={gallery.title}
           />
@@ -33,9 +34,7 @@ export const query = graphql`
   query {
     file(relativePath: { eq: "categories/pictures.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 600) {
-          ...GatsbyImageSharpSizes
-        }
+        gatsbyImageData(layout: CONSTRAINED, width: 768)
       }
     }
     allPhotosYaml {
@@ -44,9 +43,7 @@ export const query = graphql`
           id
           img {
             childImageSharp {
-              fluid(maxWidth: 786) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(layout: CONSTRAINED, width: 768)
             }
           }
           path

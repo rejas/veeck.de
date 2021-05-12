@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import { chunk, sum } from 'lodash';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import FsLightbox from 'fslightbox-react';
-import { Box, Grid } from '@material-ui/core';
+import { GridListTile, GridList } from '@material-ui/core';
 import BasicLayout from '../components/layouts/BasicLayout';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSearchParams } from '../hooks/use-search-param';
-import SEO from '../components/page/Seo';
+import MetaData from '../components/page/MetaData';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -20,19 +19,18 @@ const GalleryTemplate = (props) => {
   const searchParams = useSearchParams();
 
   const node = props.data.allPhotosYaml.edges[0].node;
-  const aspectRatios = node.images.map(
-    (image) => image.img.childImageSharp.fluid.aspectRatio
-  );
   const lightboxImages = node.images.map(
-    (image) => image.img.childImageSharp.fluid.src
+    (image) => image.img.childImageSharp.gatsbyImageData.images.fallback.src
   );
-  const itemsPerRowByBreakpoints = [2, 3, 4, 5];
-  const rowAspectRatioSumsByBreakpoints = itemsPerRowByBreakpoints.map(
-    (itemsPerRow) =>
-      chunk(aspectRatios, itemsPerRow).map((rowAspectRatios) =>
-        sum(rowAspectRatios)
-      )
-  );
+
+  const aspectRatios = node.images.map((image) => {
+    const data = image.img.childImageSharp.gatsbyImageData;
+    let ar = data.width / data.height;
+    if (ar < 0.5) return { col: 1, row: 2 };
+    else if (ar > 1.5) return { col: 2, row: 1 };
+
+    return { col: 1, row: 1 };
+  });
 
   let initialIndex = -1;
   const name = searchParams.name;
@@ -61,33 +59,35 @@ const GalleryTemplate = (props) => {
 
   return (
     <BasicLayout title={node.title} lead={node.lead}>
-      <SEO title={node.title} />
-      <Grid container spacing={3}>
-        {node.images.map((image, index) => {
+      <MetaData title={node.title} />
+
+      <GridList className={classes.gridList} cols={4}>
+        {node.images.map((img, index) => {
+          const image = getImage(img.img);
+          const { col, row } = aspectRatios[index];
           return (
-            <Box
+            <GridListTile
+              key={index}
+              cols={col}
+              rows={row}
               className={classes.box}
               onClick={() => openLightbox(index)}
-              key={`content_item_${index}`}
-              width={rowAspectRatioSumsByBreakpoints.map(
-                (rowAspectRatioSums, j) => {
-                  const rowIndex = Math.floor(
-                    index / itemsPerRowByBreakpoints[j]
-                  );
-                  const rowAspectRatioSum = rowAspectRatioSums[rowIndex];
-                  return `${
-                    (image.img.childImageSharp.fluid.aspectRatio /
-                      rowAspectRatioSum) *
-                    100
-                  }%`;
-                }
-              )}
             >
-              <Img fluid={image.img.childImageSharp.fluid} />
-            </Box>
+              <GatsbyImage
+                image={image}
+                alt={img.caption}
+                style={{
+                  height: '100%',
+                }}
+                imgStyle={{
+                  objectFit: 'cover',
+                  objectPosition: '50% 50%',
+                }}
+              />
+            </GridListTile>
           );
         })}
-      </Grid>
+      </GridList>
       <FsLightbox
         toggler={toggler}
         sources={lightboxImages}
@@ -107,10 +107,7 @@ export const query = graphql`
           images {
             img {
               childImageSharp {
-                fluid(maxWidth: 1500) {
-                  ...GatsbyImageSharpFluid
-                  aspectRatio
-                }
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
             caption
