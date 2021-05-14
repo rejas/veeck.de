@@ -39,7 +39,7 @@ const HeroLayout = (props) => {
   }
 
   return (
-    <Layout>
+    <Layout maxWidth="sm">
       <React.Fragment>
         {bgImage && (
           <React.Fragment>

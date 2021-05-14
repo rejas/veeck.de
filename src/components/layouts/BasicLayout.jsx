@@ -11,11 +11,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const BasicLayout = (props) => {
-  const { children, lead, title } = props;
+  const { children, lead, title, maxWidth } = props;
   const classes = useStyles();
 
   return (
-    <Layout>
+    <Layout maxWidth={maxWidth}>
       <Headlines title={title} lead={lead} />
       <div className={classes.children}>{children}</div>
     </Layout>
@@ -25,12 +25,14 @@ const BasicLayout = (props) => {
 BasicLayout.defaultProps = {
   title: null,
   lead: null,
+  maxWidth: 'md',
 };
 
 BasicLayout.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string,
   lead: PropTypes.string,
+  maxWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
 
 export default BasicLayout;

@@ -58,7 +58,7 @@ const GalleryTemplate = (props) => {
   }, [initialIndex]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <BasicLayout title={node.title} lead={node.lead}>
+    <BasicLayout title={node.title} lead={node.lead} maxWidth={false}>
       <MetaData title={node.title} />
 
       <GridList className={classes.gridList} cols={4}>

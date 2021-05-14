@@ -14,14 +14,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Layout = (props) => {
-  const { children } = props;
+  const { children, maxWidth } = props;
   const classes = useStyles();
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header />
-      <Container className={classes.main} maxWidth={'md'} component={'main'}>
+      <Container
+        className={classes.main}
+        maxWidth={maxWidth}
+        component={'main'}
+      >
         {children}
       </Container>
       <Footer />
@@ -29,10 +33,13 @@ const Layout = (props) => {
   );
 };
 
-Layout.defaultProps = {};
+Layout.defaultProps = {
+  maxWidth: 'md',
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  maxWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
 
 export default Layout;

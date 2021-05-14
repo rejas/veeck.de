@@ -14,10 +14,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(3),
   },
   paragraph: {
-    '& img': {
-      display: 'block',
-      margin: '0 auto',
-    },
+    textAlign: 'justify',
   },
 }));
 
