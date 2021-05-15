@@ -4,14 +4,17 @@
   lead: 'panoramas from all around the globe'
   lastupdate: '2019-12-31'
   images:
+    - img: '../images/world/panama_canal.jpg'
+      caption: The famous Panama Canal
+      isNew: true
     - img: '../images/world/tanzania_construction.medium.jpg'
       caption: Our construction site in Morogoro, Tanzania
-    - img: '../images/world/tanzania_sunset.medium.jpg'
-      caption: Sunset in Mikumi National Park
     - img: '../images/world/panama_dive.medium.jpg'
       caption: Our snorkeling site in Panama
     - img: '../images/world/panama_bocas.medium.jpg'
       caption: View of Bastimentos, Panama
+    - img: '../images/world/tanzania_sunset.medium.jpg'
+      caption: Sunset in Mikumi National Park
     - img: '../images/world/newzealand_laketaupo.medium.jpg'
       caption: Sunset on Lake Taupo, NZ
     - img: '../images/world/newzealand_rainbow.medium.jpg'
