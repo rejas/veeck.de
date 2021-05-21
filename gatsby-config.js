@@ -36,6 +36,7 @@ module.exports = {
   },
   flags: {
     FAST_DEV: true,
+    PRESERVE_WEBPACK_CACHE: true,
   },
   plugins: [
     {
@@ -144,7 +145,61 @@ module.exports = {
         policy: [{ userAgent: '*', disallow: '/radio' }],
       },
     },
-    'gatsby-plugin-feed',
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map((edge) => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                });
+              });
+            },
+            title: "Veeck's RSS Feed of his Blog",
+            output: '/rss.xml',
+            query: `
+              {
+                allMdx(
+                  sort: { fields: fields___slug, order: DESC }
+                  filter: { fields: { slug: { regex: "/blog/" } } }
+                ) {
+                  edges {
+                    node {
+                      id
+                      excerpt
+                      frontmatter {
+                        title
+                        category
+                      }
+                      fields {
+                        slug
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+          },
+        ],
+      },
+    },
     'gatsby-plugin-sitemap',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
