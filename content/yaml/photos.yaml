@@ -2,7 +2,7 @@
   title: 'around the world'
   img: '../images/world/world.jpg'
   lead: 'panoramas from all around the globe'
-  lastupdate: '2019-12-31'
+  lastupdate: '2021-05-15'
   images:
     - img: '../images/world/panama_canal.jpg'
       caption: The famous Panama Canal
