@@ -1,13 +1,20 @@
 body {
   /* Pattern from https://www.magicpattern.design/tools/css-backgrounds */
-  background-color: #E5E5F7;
+  background-color: #e5e5f7;
   opacity: 1;
-  background-image: radial-gradient(var(--patternCurrentColor) 1.1px, transparent 1.1px), radial-gradient(var(--patternCurrentColor) 1.1px, var(--patternTransparent) 1.1px);
+  background-image: radial-gradient(
+      var(--patternCurrentColor) 1.1px,
+      transparent 1.1px
+    ),
+    radial-gradient(
+      var(--patternCurrentColor) 1.1px,
+      var(--patternTransparent) 1.1px
+    );
   background-size: 44px 44px;
   background-position: 0 0, 22px 22px;
 }
 
-[twdiv="yes"] {
+[twdiv='yes'] {
   display: flex;
   justify-content: center;
 }

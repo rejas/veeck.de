@@ -23,7 +23,7 @@
     "--- GATSBY SCRIPTS ---": "----------------------------------------------------------",
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write *.json content/**/*.mdx src/**/*.{js,jsx}",
+    "format": "prettier --write --ignore-unknown *.json content/**/*.mdx src/**/*.{js,jsx,css}",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "--- NPM SCRIPTS ---": "-------------------------------------------------------------",
@@ -31,7 +31,9 @@
     "--- CUSTOM SCRIPTS (TODO) ---": "---------------------------------------------------",
     "release": "bump package.json package-lock.json CHANGELOG.md --tag && npm run build",
     "version": "auto-changelog --commit-limit false --package && git add CHANGELOG.md",
-    "testLive": "npm run build && npx http-server public"
+    "testLive": "npm run build && npx http-server public",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "@bigheads/core": "^0.3.1",
@@ -73,17 +75,12 @@
     "use-sound": "^3.0.1"
   },
   "devDependencies": {
-    "husky": "4.3.8",
+    "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
     "npm-check": "^5.9.2",
     "prettier": "^2.3.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.{js,jsx,json,md,mdx,yaml}": "prettier --write"
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
