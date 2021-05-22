@@ -23,6 +23,9 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
-        server: ftp.veeck.de
-        username: veeck
+        server: ssh.strato.de
+        protocol: ftps
+        username: www.veeck.de
         password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: public
+        server-dir: veeck
