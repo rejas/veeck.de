@@ -23,17 +23,14 @@
     "--- GATSBY SCRIPTS ---": "----------------------------------------------------------",
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write --ignore-unknown *.json content/**/*.mdx src/**/*.{js,jsx,css}",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "--- NPM SCRIPTS ---": "-------------------------------------------------------------",
-    "update": "npm-check -u",
-    "--- CUSTOM SCRIPTS (TODO) ---": "---------------------------------------------------",
-    "release": "bump package.json package-lock.json CHANGELOG.md --tag && npm run build",
-    "version": "auto-changelog --commit-limit false --package && git add CHANGELOG.md",
-    "testLive": "npm run build && npx http-server public",
+    "format": "prettier --write --ignore-unknown *.json content/**/*.mdx src/**/*.{js,jsx,css}",
     "prepare": "husky install",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "testLive": "npm run build && npx http-server public",
+    "update": "npm-check -u"
   },
   "dependencies": {
     "@bigheads/core": "^0.3.1",
