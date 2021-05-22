@@ -27,5 +27,5 @@ jobs:
         protocol: ftps
         username: www.veeck.de
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: public
-        server-dir: veeck
+        local-dir: public/
+        server-dir: veeck/
