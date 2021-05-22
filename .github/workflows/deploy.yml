@@ -2,7 +2,7 @@ name: 🚀 Deploy website on push
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, github_deploy ]
 
 jobs:
   web-deploy:
@@ -25,4 +25,4 @@ jobs:
       with:
         server: ftp.veeck.de
         username: veeck
-        password: ${{ secrets.ftp_password }}
+        password: ${{ secrets.FTP_PASSWORD }}
