@@ -23,7 +23,7 @@
     "--- GATSBY SCRIPTS ---": "----------------------------------------------------------",
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write *.json content/**/*.mdx src/**/*.{js,jsx}",
+    "format": "prettier --write --ignore-unknown *.json content/**/*.mdx src/**/*.{js,jsx,css}",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "--- NPM SCRIPTS ---": "-------------------------------------------------------------",
@@ -80,6 +80,6 @@
     "prettier": "^2.3.0"
   },
   "lint-staged": {
-    "*.{js,jsx,json,md,mdx,yaml}": "prettier --write"
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
