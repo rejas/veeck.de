@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   info: {
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
+    textAlign: 'center',
   },
   nav: {
     width: '100%',
@@ -31,14 +32,14 @@ const Footer = () => {
   return (
     <React.Fragment>
       <footer className={classes.root}>
-        <Typography className={classes.info}
+        <Typography
+          className={classes.info}
           variant="body2"
           color="textSecondary"
-          align="center"
         >
           {'Copyright © '}
-          <Link to="https://github.com/rejas">rejas</Link>{' '}
-          {new Date().getFullYear()}
+          <Link to="https://github.com/rejas">rejas</Link>
+          {' ' + new Date().getFullYear()}
           {'. Built with '}
           <Link to="https://gatsbyjs.org">Gatsby</Link>
           {', '}

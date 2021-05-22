@@ -32,7 +32,8 @@
     "release": "bump package.json package-lock.json CHANGELOG.md --tag && npm run build",
     "version": "auto-changelog --commit-limit false --package && git add CHANGELOG.md",
     "testLive": "npm run build && npx http-server public",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "@bigheads/core": "^0.3.1",
