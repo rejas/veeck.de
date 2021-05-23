@@ -24,10 +24,10 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
         server: ssh.strato.de
+        port: 22
         protocol: ftps
         username: www.veeck.de
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: public/
         server-dir: veeck/
         log-level: verbose
-        security: loose
