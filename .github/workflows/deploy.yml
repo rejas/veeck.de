@@ -29,3 +29,5 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: public/
         server-dir: veeck/
+        log-level: verbose
+        security: loose
