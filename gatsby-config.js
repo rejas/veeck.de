@@ -177,8 +177,7 @@ module.exports = {
             query: `
               {
                 allMdx(
-                  sort: { fields: fields___slug, order: DESC }
-                  filter: { fields: { slug: { regex: "/blog/" } } }
+                  sort: { order: DESC, fields: [frontmatter___title] }
                 ) {
                   edges {
                     node {
