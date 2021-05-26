@@ -25,7 +25,7 @@ const LogoLayout = (props) => {
     <Layout>
       <CssBaseline />
       <Header />
-      <Container className={classes.main} maxWidth={'md'} component={'main'}>
+      <Container className={classes.main} maxWidth="md" component="main">
         <Grid container spacing={3}>
           <Grid item xs={12} sm={3}>
             {logo}

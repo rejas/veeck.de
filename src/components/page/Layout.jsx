@@ -21,11 +21,7 @@ const Layout = (props) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header />
-      <Container
-        className={classes.main}
-        maxWidth={maxWidth}
-        component={'main'}
-      >
+      <Container className={classes.main} maxWidth={maxWidth} component="main">
         {children}
       </Container>
       <Footer />

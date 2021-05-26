@@ -68,7 +68,7 @@ const IndexPage = (props) => {
 
         <CategoryCard
           title={data.latestProject.edges[0].node.frontmatter.title}
-          subtitle=" all the techy nerdy geeky stuff I do for fun"
+          subtitle="all the techy nerdy geeky stuff I do for fun"
           slug={data.latestProject.edges[0].node.fields.slug}
           excerpt={data.latestProject.edges[0].node.excerpt}
           category={data.latestProject.edges[0].node.frontmatter.category}
@@ -85,7 +85,7 @@ const IndexPage = (props) => {
           subtitle="the panoramic pictures I have taken"
           excerpt={data.latestImage.edges[0].node.lead}
           slug={'photos/' + data.latestImage.edges[0].node.path}
-          category={'photos'}
+          category="photos"
           categoryLink="/photos"
           categoryImage={
             data.latestImage.edges[0].node.img.childImageSharp.gatsbyImageData

@@ -11,7 +11,7 @@ const BlogIndex = (props) => {
 
   return (
     <BasicLayout title="my personal blog">
-      <MetaData title="Blog" description={'veeck blogs'} image={data.file} />
+      <MetaData title="Blog" description="veeck blogs" image={data.file} />
       <Paper>
         <List>
           {posts.map(({ node: post }) => (
