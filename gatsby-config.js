@@ -177,7 +177,7 @@ module.exports = {
             query: `
               {
                 allMdx(
-                  sort: { order: DESC, fields: [frontmatter___title] }
+                  sort: {order: DESC, fields: [frontmatter___last_modified]}
                 ) {
                   edges {
                     node {
@@ -186,6 +186,7 @@ module.exports = {
                       frontmatter {
                         title
                         category
+                        last_modified
                       }
                       fields {
                         slug
