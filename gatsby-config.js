@@ -146,7 +146,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: 'gatsby-plugin-feed',
       options: {
         query: `
           {
@@ -172,13 +172,12 @@ module.exports = {
                 });
               });
             },
-            title: "Veeck's RSS Feed of his Blog",
+            title: 'Veeck`s Latest Stuff',
             output: '/rss.xml',
             query: `
               {
                 allMdx(
-                  sort: { fields: fields___slug, order: DESC }
-                  filter: { fields: { slug: { regex: "/blog/" } } }
+                  sort: {order: DESC, fields: [frontmatter___last_modified]}
                 ) {
                   edges {
                     node {
@@ -186,7 +185,7 @@ module.exports = {
                       excerpt
                       frontmatter {
                         title
-                        category
+                        last_modified
                       }
                       fields {
                         slug
