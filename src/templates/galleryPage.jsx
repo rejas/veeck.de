@@ -2,7 +2,13 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import FsLightbox from 'fslightbox-react';
-import { GridListTile, GridList } from '@material-ui/core';
+import FiberNewIcon from '@material-ui/icons/FiberNew';
+import {
+  GridList,
+  GridListTile,
+  GridListTileBar,
+  IconButton,
+} from '@material-ui/core';
 import BasicLayout from '../components/layouts/BasicLayout';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSearchParams } from '../hooks/use-search-param';
@@ -11,6 +17,11 @@ import MetaData from '../components/page/MetaData';
 const useStyles = makeStyles((theme) => ({
   box: {
     cursor: 'pointer',
+  },
+  titleBar: {
+    background:
+      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, ' +
+      'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
   },
 }));
 
@@ -84,6 +95,19 @@ const GalleryTemplate = (props) => {
                   objectPosition: '50% 50%',
                 }}
               />
+              {img.isNew && (
+                <GridListTileBar
+                  className={classes.titleBar}
+                  title=""
+                  titlePosition="bottom"
+                  actionIcon={
+                    <IconButton>
+                      <FiberNewIcon color="secondary" />
+                    </IconButton>
+                  }
+                  actionPosition="left"
+                />
+              )}
             </GridListTile>
           );
         })}

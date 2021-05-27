@@ -79,8 +79,17 @@
   title: 'cities and buildings'
   img: '../images/cities/city.jpg'
   lead: 'panoramas showing what mankind has built'
-  lastupdate: '2019-12-31'
+  lastupdate: '2021-05-27'
   images:
+    - img: '../images/cities/warsaw_skyline.jpg'
+      caption: Warsaw at night
+      isNew: true
+    - img: '../images/cities/berlin_frankfurter.jpg'
+      caption: View from the rooftops at Frankfurter Allee in Berlin
+      isNew: true
+    - img: '../images/cities/caen_museum.jpg'
+      caption: The war memorial and museum in Caen
+      isNew: true
     - img: '../images/cities/marocco_palace.medium.jpg'
       caption: Old palace ruins in Marrakesh
     - img: '../images/cities/dublin_greenhouse.medium.jpg'

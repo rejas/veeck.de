@@ -74,7 +74,7 @@ const CategoryCard = (props) => {
         </Grid>
 
         <Grid item xs={12}>
-          <Typography variant={'subtitle1'} gutterBottom>
+          <Typography variant="subtitle1" gutterBottom>
             {props.subtitle}
           </Typography>
         </Grid>
@@ -83,16 +83,16 @@ const CategoryCard = (props) => {
           <Card className={classes.card}>
             <CardActionArea to={props.slug} className={classes.content}>
               <CardContent>
-                <Typography variant={'h5'} gutterBottom>
+                <Typography variant="h5" gutterBottom>
                   Latest Update:
                 </Typography>
-                <Typography variant={'h2'} gutterBottom>
+                <Typography variant="h2" gutterBottom>
                   {props.title}
                 </Typography>
-                <Typography variant={'body1'} gutterBottom>
+                <Typography variant="body1" gutterBottom>
                   {props.excerpt}
                 </Typography>
-                <Typography variant={'caption'} gutterBottom>
+                <Typography variant="caption" gutterBottom>
                   more...
                 </Typography>
               </CardContent>
