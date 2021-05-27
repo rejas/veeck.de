@@ -79,8 +79,11 @@
   title: 'cities and buildings'
   img: '../images/cities/city.jpg'
   lead: 'panoramas showing what mankind has built'
-  lastupdate: '2021-05-26'
+  lastupdate: '2021-05-27'
   images:
+    - img: '../images/cities/warsaw_skyline.jpg'
+      caption: Warsaw at night
+      isNew: true
     - img: '../images/cities/berlin_frankfurter.jpg'
       caption: View from the rooftops at Frankfurter Allee in Berlin
       isNew: true
