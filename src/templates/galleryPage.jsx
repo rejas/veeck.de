@@ -95,7 +95,7 @@ const GalleryTemplate = (props) => {
                   objectPosition: '50% 50%',
                 }}
               />
-              {img.isNew && (
+              {img.is_new && (
                 <GridListTileBar
                   className={classes.titleBar}
                   title=""
@@ -135,7 +135,7 @@ export const query = graphql`
               }
             }
             caption
-            isNew
+            is_new
             name
           }
         }

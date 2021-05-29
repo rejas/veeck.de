@@ -186,7 +186,7 @@ export const query = graphql`
       }
     }
     latestImage: allPhotosYaml(
-      sort: { fields: lastupdate, order: DESC }
+      sort: { fields: last_update, order: DESC }
       limit: 1
     ) {
       edges {

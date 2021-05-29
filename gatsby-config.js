@@ -36,6 +36,7 @@ module.exports = {
   },
   flags: {
     FAST_DEV: true,
+    PARALLEL_SOURCING: true,
     PRESERVE_WEBPACK_CACHE: true,
   },
   plugins: [
@@ -166,7 +167,7 @@ module.exports = {
               return allMdx.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
-                  date: edge.node.frontmatter.last_modified,
+                  date: edge.node.frontmatter.first_published,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
@@ -178,7 +179,7 @@ module.exports = {
             query: `
               {
                 allMdx(
-                  sort: {order: DESC, fields: [frontmatter___last_modified]}
+                  sort: {order: DESC, fields: [frontmatter___first_published]}
                 ) {
                   edges {
                     node {
@@ -186,7 +187,7 @@ module.exports = {
                       excerpt
                       frontmatter {
                         title
-                        last_modified
+                        first_published
                       }
                       fields {
                         slug

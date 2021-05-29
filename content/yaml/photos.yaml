@@ -2,11 +2,11 @@
   title: 'around the world'
   img: '../images/world/world.jpg'
   lead: 'panoramas from all around the globe'
-  lastupdate: '2021-05-15'
+  last-update: '2021-05-15'
   images:
     - img: '../images/world/panama_canal.jpg'
       caption: The famous Panama Canal
-      isNew: true
+      is-new: true
     - img: '../images/world/tanzania_construction.medium.jpg'
       caption: Our construction site in Morogoro, Tanzania
     - img: '../images/world/panama_dive.medium.jpg'
@@ -49,7 +49,7 @@
   title: 'big pictures'
   img: '../images/big/big.jpg'
   lead: 'panoramas that make a splash'
-  lastupdate: '2019-12-31'
+  last-update: '2019-12-31'
   images:
     - img: '../images/big/greece_milos.medium.jpg'
       caption: View of Adamas on Milos, Greece
@@ -79,17 +79,17 @@
   title: 'cities and buildings'
   img: '../images/cities/city.jpg'
   lead: 'panoramas showing what mankind has built'
-  lastupdate: '2021-05-27'
+  last-update: '2021-05-27'
   images:
     - img: '../images/cities/warsaw_skyline.jpg'
       caption: Warsaw at night
-      isNew: true
+      is-new: true
     - img: '../images/cities/berlin_frankfurter.jpg'
       caption: View from the rooftops at Frankfurter Allee in Berlin
-      isNew: true
+      is-new: true
     - img: '../images/cities/caen_museum.jpg'
       caption: The war memorial and museum in Caen
-      isNew: true
+      is-new: true
     - img: '../images/cities/marocco_palace.medium.jpg'
       caption: Old palace ruins in Marrakesh
     - img: '../images/cities/dublin_greenhouse.medium.jpg'
@@ -112,11 +112,11 @@
   title: '360 degrees'
   img: '../images/360/360.jpg'
   lead: 'panoramas going full circle'
-  lastupdate: '2020-02-02'
+  last-update: '2020-02-02'
   images:
     - img: '../images/360/cyprus_look.jpg'
       caption: Paphos, Cyprus
-      isNew: true
+      is-new: true
     - img: '../images/360/cuba_cinfuegos.medium.jpg'
       caption: Cinfuegos, Cuba
     - img: '../images/360/dublin_cemetary.medium.jpg'
@@ -159,7 +159,7 @@
   title: 'skyscraper'
   img: '../images/skyscraper/sky.jpg'
   lead: 'panoramas growing into the sky'
-  lastupdate: '2019-12-31'
+  last-update: '2019-12-31'
   images:
     - img: '../images/skyscraper/athen_alley.medium.jpg'
       caption: Alley in Athens, Greece
@@ -191,7 +191,7 @@
   title: 'perspective'
   img: '../images/perspective/perspective.jpg'
   lead: 'panoramas from another angle'
-  lastupdate: '2019-12-31'
+  last-update: '2019-12-31'
   images:
     - img: '../images/perspective/budapest_parlamant.medium.jpg'
       caption: Parlament building in Budapest
@@ -219,7 +219,7 @@
   lead:
     'some of my friends take panorama pictures too and i take panorama pictures
     of them'
-  lastupdate: '2019-12-31'
+  last-update: '2019-12-31'
   images:
     - img: '../images/from_friends/stef_industrial.medium.jpg'
       caption: Somewhere in Lichtenberg, Berlin
@@ -251,7 +251,7 @@
   title: 'people'
   img: '../images/people/friends.jpg'
   lead: 'random pictures of not so random people'
-  lastupdate: '2019-12-31'
+  last-update: '2019-12-31'
   images:
     - img: '../images/people/tz_julianna.jpg'
       name: julianna
