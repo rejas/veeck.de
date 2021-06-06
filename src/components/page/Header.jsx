@@ -5,6 +5,7 @@ import { Link } from 'gatsby-theme-material-ui';
 import ElevateOnScroll from '../utils/ElevateOnScroll';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import MenuItem from './MenuItem';
+import './morph.scss';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {},
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     flexShrink: 0,
 
     '&:hover': {
-      textDecoration: 'none',
+      textDecoration: 'none'
     },
   },
 }));
@@ -42,7 +43,11 @@ const Header = (props) => {
                 to="/"
                 color="inherit"
               >
-                {title}
+                <div class="morphing">
+                  <div class="word">{title}</div>
+                  <div class="word">test</div>
+                </div>
+               
               </Link>
             </Typography>
             {menuLinks.map((link, index) => (
