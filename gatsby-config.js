@@ -109,16 +109,11 @@ module.exports = {
           fonts: {
             google: [
               {
-                family: 'Josefin+Slab',
-                variants: ['400', '700'],
-                fontDisplay: 'swap',
-              },
-              {
                 family: 'Josefin+Sans',
                 variants: ['300', '400', '500'],
+                fontDisplay: 'swap',
                 //subsets: ['latin']
                 //text: 'Hello'
-                fontDisplay: 'swap',
                 //strategy: 'selfHosted' // 'base64' || 'cdn'
               },
             ],

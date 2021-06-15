@@ -38,7 +38,7 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
     h1: {
-      fontFamily: ['Josefin Slab', 'sans-serif'].join(','),
+      fontFamily: ['Gilroy', 'sans-serif'].join(','),
       fontSize: '4rem',
       fontWeight: 'bold',
       lineHeight: '1',
@@ -47,7 +47,7 @@ const theme = createMuiTheme({
       wordBreak: 'break-word',
     },
     h2: {
-      fontFamily: ['Josefin Slab', 'sans-serif'].join(','),
+      fontFamily: ['Gilroy', 'sans-serif'].join(','),
       fontSize: '2rem',
       fontWeight: 'bold',
       textTransform: 'uppercase',
