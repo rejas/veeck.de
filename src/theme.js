@@ -1,4 +1,4 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { createTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 // TODO enhance it like this https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
 // maybe switch to something like mentioned here: https://material-ui.com/customization/palette/#user-preference
@@ -11,7 +11,7 @@ if (typeof window !== 'undefined') {
     window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
-const theme = createMuiTheme({
+const theme = createTheme({
   overrides: {
     MuiBottomNavigationAction: {
       root: {

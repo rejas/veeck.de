@@ -14,7 +14,7 @@ Switching to a dark theme in [MaterialUI](https://material-ui.com/) is pretty
 easy. Just set the property in your theme config like this:
 
 ```
-createMuiTheme({
+createTheme({
   palette: {
     type: 'dark'
   }
@@ -25,7 +25,7 @@ If you change your background and paper colors like I did here you also have to
 provide their dark counterparts like this:
 
 ```
-createMuiTheme({
+createTheme({
   palette: {
     background: {
       default: prefersDarkMode ? '#3c3c3c' : '#fcfcfc',
