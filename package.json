@@ -60,6 +60,7 @@
     "gatsby-transformer-yaml": "^3.9.0",
     "gbimage-bridge": "^0.1.4",
     "github-webcomponents": "^1.3.0",
+    "lightgallery": "^2.1.8",
     "lodash": "^4.17.21",
     "material-ui-audio-player": "^1.6.6",
     "prop-types": "^15.7.2",
