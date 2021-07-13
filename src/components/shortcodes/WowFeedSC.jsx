@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WowFeed = () => {
+const WowFeedSC = () => {
   const classes = useStyles();
 
   const [charName, setCharName] = React.useState('');
@@ -178,4 +178,4 @@ const WowFeed = () => {
   );
 };
 
-export default WowFeed;
+export default WowFeedSC;
