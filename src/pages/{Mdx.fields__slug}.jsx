@@ -14,11 +14,11 @@ import {
   Headline5,
   Headline6,
   Paragraph,
-} from '../components/shortcodes/Typography';
+} from '../components/page/Typography';
 import AudioSC from '../components/shortcodes/AudioSC';
 import CodeBlockSC from '../components/shortcodes/CodeBlockSC';
 import ListItemSC from '../components/shortcodes/ListItemSC';
-import WowFeed from '../components/shortcodes/WowFeed';
+import WowFeedSC from '../components/shortcodes/WowFeedSC';
 
 const MdxTemplate = (props) => {
   const mdx = props.data.mdx;
@@ -40,7 +40,7 @@ const MdxTemplate = (props) => {
         li: ListItemSC,
         code: CodeBlockSC,
         Audio: AudioSC,
-        WowFeed,
+        WowFeed: WowFeedSC,
       }}
     >
       <HeroLayout

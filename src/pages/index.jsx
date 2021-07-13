@@ -6,7 +6,7 @@ import MetaData from '../components/page/MetaData';
 import CategoryCard from '../components/CategoryCard';
 import { BigHead } from '@bigheads/core';
 import Headlines from '../components/page/Headlines';
-import Layout from '../components/page/Layout';
+import BasicLayout from '../components/layouts/BasicLayout';
 
 const useStyles = makeStyles((theme) => ({
   headlines: {
@@ -22,7 +22,7 @@ const IndexPage = (props) => {
   const { data } = props;
 
   return (
-    <Layout>
+    <BasicLayout>
       <Grid container spacing={3}>
         <Grid item xs={4}>
           <BigHead
@@ -107,7 +107,7 @@ const IndexPage = (props) => {
           categoryName="Terror&shy;poet"
         />
       </Grid>
-    </Layout>
+    </BasicLayout>
   );
 };
 

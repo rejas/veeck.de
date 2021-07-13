@@ -1,37 +1,48 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Headlines from '../page/Headlines';
-import Layout from '../page/Layout';
+import { CssBaseline, Container } from '@material-ui/core';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { isIE } from 'react-device-detect';
+import theme from '../../theme';
+import Header from '../page/Header';
+import Footer from '../page/Footer';
+import ErrorCard from '../ErrorCard';
 
 const useStyles = makeStyles((theme) => ({
-  children: {
-    marginTop: '5vh',
+  main: {
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
   },
 }));
 
 const BasicLayout = (props) => {
-  const { children, lead, title, maxWidth } = props;
+  let { children, maxWidth } = props;
   const classes = useStyles();
 
+  if (isIE) {
+    children = (
+      <ErrorCard message="The Internet Explorer is not supported. Please download Firefox." />
+    );
+  }
+
   return (
-    <Layout maxWidth={maxWidth}>
-      <Headlines title={title} lead={lead} />
-      <div className={classes.children}>{children}</div>
-    </Layout>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Header />
+      <Container className={classes.main} maxWidth={maxWidth} component="main">
+        {children}
+      </Container>
+      <Footer />
+    </ThemeProvider>
   );
 };
 
 BasicLayout.defaultProps = {
-  title: null,
-  lead: null,
   maxWidth: 'md',
 };
 
 BasicLayout.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.string,
-  lead: PropTypes.string,
   maxWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
 

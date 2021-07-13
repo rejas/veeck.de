@@ -9,7 +9,7 @@ import {
   GridListTileBar,
   IconButton,
 } from '@material-ui/core';
-import BasicLayout from '../components/layouts/BasicLayout';
+import TitleLayout from '../components/layouts/TitleLayout';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSearchParams } from '../hooks/use-search-param';
 import MetaData from '../components/page/MetaData';
@@ -69,7 +69,7 @@ const GalleryTemplate = (props) => {
   }, [initialIndex]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <BasicLayout title={node.title} lead={node.lead} maxWidth={false}>
+    <TitleLayout title={node.title} lead={node.lead} maxWidth={false}>
       <MetaData title={node.title} />
 
       <GridList className={classes.gridList} cols={4}>
@@ -117,7 +117,7 @@ const GalleryTemplate = (props) => {
         sources={lightboxImages}
         sourceIndex={imageIndex}
       />
-    </BasicLayout>
+    </TitleLayout>
   );
 };
 

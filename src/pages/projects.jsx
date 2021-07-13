@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Grid } from '@material-ui/core';
-import BasicLayout from '../components/layouts/BasicLayout';
+import TitleLayout from '../components/layouts/TitleLayout';
 import MetaData from '../components/page/MetaData';
 import EntryCard from '../components/EntryCard';
 
@@ -10,7 +10,7 @@ const ProjectsIndex = (props) => {
   const { edges: posts } = data.allMdx;
 
   return (
-    <BasicLayout title="my side projects">
+    <TitleLayout title="my side projects">
       <MetaData
         title="Projects"
         description="veeck tinkers"
@@ -26,7 +26,7 @@ const ProjectsIndex = (props) => {
           />
         ))}
       </Grid>
-    </BasicLayout>
+    </TitleLayout>
   );
 };
 
