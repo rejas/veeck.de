@@ -2,9 +2,11 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { CssBaseline, Container } from '@material-ui/core';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { isIE } from 'react-device-detect';
 import theme from '../../theme';
 import Header from '../page/Header';
 import Footer from '../page/Footer';
+import ErrorCard from '../ErrorCard';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -14,8 +16,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const BasicLayout = (props) => {
-  const { children, maxWidth } = props;
+  let { children, maxWidth } = props;
   const classes = useStyles();
+
+  if (isIE) {
+    children = (
+      <ErrorCard message="The Internet Explorer is not supported. Please download Firefox." />
+    );
+  }
 
   return (
     <ThemeProvider theme={theme}>

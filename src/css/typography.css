@@ -2,13 +2,13 @@
  * Add here any local font you want to use
  */
 @font-face {
-  font-family: "Gilroy";
+  font-family: 'Gilroy';
   font-weight: normal;
-  src: url("../assets/fonts/Gilroy-Light.woff2");
+  src: url('../assets/fonts/Gilroy-Light.woff2');
 }
 
 @font-face {
-  font-family: "Gilroy";
+  font-family: 'Gilroy';
   font-weight: bold;
-  src: url("../assets/fonts/Gilroy-ExtraBold.woff2");
+  src: url('../assets/fonts/Gilroy-ExtraBold.woff2');
 }

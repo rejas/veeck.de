@@ -57,8 +57,7 @@ const CategoryCard = (props) => {
     <Box className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Link to={props.categoryLink}
-                className={classes.link}>
+          <Link to={props.categoryLink} className={classes.link}>
             <Typography
               onMouseEnter={trigger}
               variant={'h1'}
