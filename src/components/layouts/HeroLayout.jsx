@@ -5,7 +5,7 @@ import { getImage } from 'gatsby-plugin-image';
 import { convertToBgImage } from 'gbimage-bridge';
 import { makeStyles } from '@material-ui/core/styles';
 import Headlines from '../page/Headlines';
-import Layout from '../page/Layout';
+import BasicLayout from './BasicLayout';
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -39,7 +39,7 @@ const HeroLayout = (props) => {
   }
 
   return (
-    <Layout maxWidth="sm">
+    <BasicLayout maxWidth="sm">
       <React.Fragment>
         {bgImage && (
           <React.Fragment>
@@ -62,7 +62,7 @@ const HeroLayout = (props) => {
           </React.Fragment>
         )}
       </React.Fragment>
-    </Layout>
+    </BasicLayout>
   );
 };
 

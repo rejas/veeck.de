@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import { List, Paper } from '@material-ui/core';
-import BasicLayout from '../components/layouts/BasicLayout';
+import TitleLayout from '../components/layouts/TitleLayout';
 import MetaData from '../components/page/MetaData';
 import BoopedListItem from '../components/BoopedListItem';
 
@@ -10,7 +10,7 @@ const BlogIndex = (props) => {
   const { edges: posts } = data.allMdx;
 
   return (
-    <BasicLayout title="my personal blog">
+    <TitleLayout title="my personal blog">
       <MetaData title="Blog" description="veeck blogs" image={data.file} />
       <Paper>
         <List>
@@ -19,7 +19,7 @@ const BlogIndex = (props) => {
           ))}
         </List>
       </Paper>
-    </BasicLayout>
+    </TitleLayout>
   );
 };
 
