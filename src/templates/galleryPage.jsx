@@ -4,10 +4,10 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import FsLightbox from 'fslightbox-react';
 import FiberNewIcon from '@material-ui/icons/FiberNew';
 import {
-  GridList,
-  GridListTile,
-  GridListTileBar,
   IconButton,
+  ImageList,
+  ImageListItem,
+  ImageListItemBar,
 } from '@material-ui/core';
 import TitleLayout from '../components/layouts/TitleLayout';
 import { makeStyles } from '@material-ui/core/styles';
@@ -72,12 +72,12 @@ const GalleryTemplate = (props) => {
     <TitleLayout title={node.title} lead={node.lead} maxWidth={false}>
       <MetaData title={node.title} />
 
-      <GridList className={classes.gridList} cols={4}>
+      <ImageList className={classes.gridList} cols={4}>
         {node.images.map((img, index) => {
           const image = getImage(img.img);
           const { col, row } = aspectRatios[index];
           return (
-            <GridListTile
+            <ImageListItem
               key={index}
               cols={col}
               rows={row}
@@ -96,10 +96,9 @@ const GalleryTemplate = (props) => {
                 }}
               />
               {img.is_new && (
-                <GridListTileBar
+                <ImageListItemBar
                   className={classes.titleBar}
-                  title=""
-                  titlePosition="bottom"
+                  position="bottom"
                   actionIcon={
                     <IconButton>
                       <FiberNewIcon color="secondary" />
@@ -108,10 +107,10 @@ const GalleryTemplate = (props) => {
                   actionPosition="left"
                 />
               )}
-            </GridListTile>
+            </ImageListItem>
           );
         })}
-      </GridList>
+      </ImageList>
       <FsLightbox
         toggler={toggler}
         sources={lightboxImages}
