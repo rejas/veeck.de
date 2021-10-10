@@ -1,7 +1,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { CssBaseline, Container } from '@material-ui/core';
-import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { CssBaseline, Container } from '@mui/material';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { isIE } from 'react-device-detect';
 import theme from '../../theme';
 import Header from '../page/Header';
@@ -26,14 +27,20 @@ const BasicLayout = (props) => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Header />
-      <Container className={classes.main} maxWidth={maxWidth} component="main">
-        {children}
-      </Container>
-      <Footer />
-    </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Header />
+        <Container
+          className={classes.main}
+          maxWidth={maxWidth}
+          component="main"
+        >
+          {children}
+        </Container>
+        <Footer />
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 };
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardContent, Grid, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Card, CardContent, Grid, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { CardActionArea } from 'gatsby-theme-material-ui';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 

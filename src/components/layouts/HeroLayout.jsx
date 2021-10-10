@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import BackgroundImage from 'gatsby-background-image';
 import { getImage } from 'gatsby-plugin-image';
 import { convertToBgImage } from 'gbimage-bridge';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import Headlines from '../page/Headlines';
 import BasicLayout from './BasicLayout';
 

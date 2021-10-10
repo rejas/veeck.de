@@ -1,8 +1,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Box, Card, CardContent, Grid, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Box, Card, CardContent, Grid, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { CardActionArea, Link } from 'gatsby-theme-material-ui';
 import { animated } from 'react-spring';
 import { useBoop } from '../hooks/use-boop';

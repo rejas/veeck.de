@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Link } from 'gatsby-theme-material-ui';
 import { animated } from 'react-spring';
 import CategoryIcon from '../CategoryIcon';
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   link: {
     textTransform: 'uppercase',
     margin: 0,
-    padding: `${theme.spacing(0.5)}px 0 0 ${theme.spacing(1)}px`,
+    padding: `${theme.spacing(0.5)} 0 0 ${theme.spacing(1)}`,
     flexShrink: 0,
 
     '&:hover': {

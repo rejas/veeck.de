@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { Link } from 'gatsby-theme-material-ui';
 import { animated } from 'react-spring';
 import { useBoop } from '../hooks/use-boop';

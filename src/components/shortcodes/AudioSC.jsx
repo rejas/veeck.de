@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import { Card, Typography } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Card, Typography } from '@mui/material';
 import loadable from '@loadable/component';
 
 const AudioPlayer = loadable(() => import('material-ui-audio-player'));

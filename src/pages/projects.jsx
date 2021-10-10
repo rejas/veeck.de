@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import TitleLayout from '../components/layouts/TitleLayout';
 import MetaData from '../components/page/MetaData';
 import EntryCard from '../components/EntryCard';

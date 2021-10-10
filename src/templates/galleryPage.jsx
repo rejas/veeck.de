@@ -2,15 +2,15 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import FsLightbox from 'fslightbox-react';
-import FiberNewIcon from '@material-ui/icons/FiberNew';
+import FiberNewIcon from '@mui/icons-material/FiberNew';
 import {
   IconButton,
   ImageList,
   ImageListItem,
   ImageListItemBar,
-} from '@material-ui/core';
+} from '@mui/material';
 import TitleLayout from '../components/layouts/TitleLayout';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { useSearchParams } from '../hooks/use-search-param';
 import MetaData from '../components/page/MetaData';
 
@@ -100,7 +100,7 @@ const GalleryTemplate = (props) => {
                   className={classes.titleBar}
                   position="bottom"
                   actionIcon={
-                    <IconButton>
+                    <IconButton size="large">
                       <FiberNewIcon color="secondary" />
                     </IconButton>
                   }

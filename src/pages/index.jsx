@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { graphql } from 'gatsby';
-import { Divider, Grid } from '@material-ui/core';
+import { Divider, Grid } from '@mui/material';
 import MetaData from '../components/page/MetaData';
 import CategoryCard from '../components/CategoryCard';
 import { BigHead } from '@bigheads/core';
