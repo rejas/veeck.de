@@ -32,7 +32,7 @@ const CategoryIconStyled = styled(CategoryIcon)(({ theme }) => ({
 const CardStyled = styled(Card)(({ theme }) => ({
   display: 'flex',
 
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
   },
 }));

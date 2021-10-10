@@ -32,7 +32,7 @@ const Header = (props) => {
   return (
     <ElevateOnScroll {...props}>
       <AppBarStyled position="sticky" color="transparent">
-        <Hidden xsDown>
+        <Hidden smDown>
           <ToolbarStyled component="nav" variant="dense">
             <Headline4Styled variant="h4">
               <LinkStyled noWrap key="home" to="/" color="inherit">

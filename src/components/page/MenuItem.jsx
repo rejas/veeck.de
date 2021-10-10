@@ -17,7 +17,7 @@ const Headline5Styled = styled(Typography)(({ theme }) => ({
 }));
 
 const CategoryIconStyled = styled(CategoryIcon)(({ theme }) => ({
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     display: 'none',
   },
 }));

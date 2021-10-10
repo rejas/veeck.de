@@ -8,7 +8,7 @@ import BoopedCategoryIcon from '../BoopedCategoryIcon';
 const FooterStyled = styled('footer')(({ theme }) => ({
   marginBottom: theme.spacing(1),
 
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.down('sm')]: {
     marginBottom: theme.spacing(10),
   },
 }));
