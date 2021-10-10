@@ -1,36 +1,34 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardContent, Grid, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { styled } from '@mui/material/styles';
 import { CardActionArea } from 'gatsby-theme-material-ui';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-const useStyles = makeStyles((theme) => ({
-  card: {
-    height: '100%',
-  },
-  cardAction: {
-    height: '100%',
-  },
+const CardStyled = styled(Card)(({ theme }) => ({
+  height: '100%',
+}));
+
+const CardActionAreaStyled = styled(CardActionArea)(({ theme }) => ({
+  height: '100%',
 }));
 
 const EntryCard = (props) => {
-  const classes = useStyles();
   const { link, title } = props;
   const image = getImage(props.image);
 
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <Card className={classes.card}>
-        <CardActionArea to={link} className={classes.cardAction}>
+      <CardStyled>
+        <CardActionAreaStyled to={link}>
           <GatsbyImage image={image} alt={title} />
           <CardContent>
             <Typography component="h2" variant="subtitle1">
               {title}
             </Typography>
           </CardContent>
-        </CardActionArea>
-      </Card>
+        </CardActionAreaStyled>
+      </CardStyled>
     </Grid>
   );
 };

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { useSiteMetadata } from '../../hooks/use-site-metadata';
-import { useTheme } from '@mui/material/styles';
 import { getSrc } from 'gatsby-plugin-image';
+import { useTheme } from '@mui/material/styles';
+import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 const MetaData = (props) => {
   const { description, lang, meta, title, thumbnail } = props;

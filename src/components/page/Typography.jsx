@@ -1,48 +1,35 @@
 import * as React from 'react';
 import { Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { styled } from '@mui/material/styles';
 
-const useStyles = makeStyles((theme) => ({
-  h2: {
-    paddingTop: theme.spacing(3),
-  },
-  h3: {
-    paddingTop: theme.spacing(2),
-  },
-  subtitle1: {
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(3),
-  },
-  paragraph: {
-    textAlign: 'justify',
-  },
+const Headline2Styled = styled(Typography)(({ theme }) => ({
+  paddingTop: theme.spacing(3),
+}));
+
+const Headline3Styled = styled(Typography)(({ theme }) => ({
+  paddingTop: theme.spacing(2),
+}));
+
+const Subtitle1Styled = styled(Typography)(({ theme }) => ({
+  paddingTop: theme.spacing(1),
+  paddingBottom: theme.spacing(3),
+}));
+
+const ParagraphStyled = styled(Typography)(({ theme }) => ({
+  textAlign: 'justify',
 }));
 
 export const Headline1 = (props) => (
   <Typography variant="h1" gutterBottom component="h1" {...props} />
 );
 export const Headline2 = (props) => {
-  const classes = useStyles();
   return (
-    <Typography
-      variant="h2"
-      className={classes.h2}
-      gutterBottom
-      component="h2"
-      {...props}
-    />
+    <Headline2Styled variant="h2" gutterBottom component="h2" {...props} />
   );
 };
 export const Headline3 = (props) => {
-  const classes = useStyles();
   return (
-    <Typography
-      variant="h3"
-      className={classes.h3}
-      gutterBottom
-      component="h3"
-      {...props}
-    />
+    <Headline3Styled variant="h3" gutterBottom component="h3" {...props} />
   );
 };
 export const Headline4 = (props) => (
@@ -55,24 +42,8 @@ export const Headline6 = (props) => (
   <Typography variant="h6" gutterBottom component="h6" {...props} />
 );
 export const Subtitle1 = (props) => {
-  const classes = useStyles();
-  return (
-    <Typography
-      variant="subtitle1"
-      className={classes.subtitle1}
-      gutterBottom
-      {...props}
-    />
-  );
+  return <Subtitle1Styled variant="subtitle1" gutterBottom {...props} />;
 };
 export const Paragraph = (props) => {
-  const classes = useStyles();
-  return (
-    <Typography
-      variant="body1"
-      className={classes.paragraph}
-      gutterBottom
-      {...props}
-    />
-  );
+  return <ParagraphStyled variant="body1" gutterBottom {...props} />;
 };

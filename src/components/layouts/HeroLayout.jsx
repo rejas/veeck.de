@@ -1,37 +1,37 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import { styled } from '@mui/material/styles';
 import BackgroundImage from 'gatsby-background-image';
 import { getImage } from 'gatsby-plugin-image';
 import { convertToBgImage } from 'gbimage-bridge';
-import makeStyles from '@mui/styles/makeStyles';
 import Headlines from '../page/Headlines';
 import BasicLayout from './BasicLayout';
 
-const useStyles = makeStyles((theme) => ({
-  hero: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    height: '50vh',
-  },
-  background: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-evenly',
-    height: '100%',
-  },
-  basicChildren: {
-    marginTop: '5vh',
-  },
-  imageChildren: {
-    marginTop: '50vh',
-  },
+const HeroStyled = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  height: '50vh',
+}));
+
+const BackgroundImageStyled = styled(BackgroundImage)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-evenly',
+  height: '100%',
+}));
+
+const NoImageChildrenStyled = styled('div')(({ theme }) => ({
+  marginTop: '5vh',
+}));
+
+const ImageChildrenStyled = styled('div')(({ theme }) => ({
+  marginTop: '50vh',
 }));
 
 const HeroLayout = (props) => {
   const { children, image, lead, title } = props;
-  const classes = useStyles();
 
   let bgImage;
   if (image) {
@@ -43,22 +43,18 @@ const HeroLayout = (props) => {
       <React.Fragment>
         {bgImage && (
           <React.Fragment>
-            <div className={classes.hero}>
-              <BackgroundImage
-                className={classes.background}
-                {...bgImage}
-                preserveStackingContext
-              >
+            <HeroStyled>
+              <BackgroundImageStyled {...bgImage} preserveStackingContext>
                 <Headlines title={title} lead={lead} />
-              </BackgroundImage>
-            </div>
-            <div className={classes.imageChildren}>{children}</div>
+              </BackgroundImageStyled>
+            </HeroStyled>
+            <ImageChildrenStyled>{children}</ImageChildrenStyled>
           </React.Fragment>
         )}
         {!bgImage && (
           <React.Fragment>
             <Headlines title={title} lead={lead} />
-            <div className={classes.basicChildren}>{children}</div>
+            <NoImageChildrenStyled>{children}</NoImageChildrenStyled>
           </React.Fragment>
         )}
       </React.Fragment>
