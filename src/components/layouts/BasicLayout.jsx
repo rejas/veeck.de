@@ -1,21 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { CssBaseline, Container } from '@mui/material';
-import {
-  styled,
-  ThemeProvider,
-  StyledEngineProvider,
-} from '@mui/material/styles';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { isIE } from 'react-device-detect';
 import theme from '../../theme';
 import Header from '../page/Header';
 import Footer from '../page/Footer';
 import ErrorCard from '../ErrorCard';
-
-const ContainerStyled = styled(Container)(({ theme }) => ({
-  paddingTop: theme.spacing(3),
-  paddingBottom: theme.spacing(3),
-}));
 
 const BasicLayout = (props) => {
   let { children, maxWidth } = props;
@@ -31,9 +22,9 @@ const BasicLayout = (props) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Header />
-        <ContainerStyled maxWidth={maxWidth} component="main">
+        <Container sx={{ pt: 3, pb: 3 }} maxWidth={maxWidth} component="main">
           {children}
-        </ContainerStyled>
+        </Container>
         <Footer />
       </ThemeProvider>
     </StyledEngineProvider>
