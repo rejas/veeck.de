@@ -31,7 +31,7 @@ const Header = (props) => {
 
   return (
     <ElevateOnScroll {...props}>
-      <AppBarStyled position="sticky" color="transparent">
+      <AppBarStyled position="sticky" color="inherit">
         <Hidden smDown>
           <ToolbarStyled component="nav" variant="dense">
             <Headline4Styled variant="h4">

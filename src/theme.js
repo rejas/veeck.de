@@ -1,5 +1,4 @@
-import { responsiveFontSizes } from '@mui/material/styles';
-import { createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 // TODO enhance it like this https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
 // maybe switch to something like mentioned here: https://material-ui.com/customization/palette/#user-preference
@@ -13,6 +12,16 @@ if (typeof window !== 'undefined') {
 }
 
 const theme = createTheme({
+  // Make md breakpoint a little wider than standard
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
   components: {
     MuiBottomNavigationAction: {
       styleOverrides: {
@@ -30,6 +39,9 @@ const theme = createTheme({
       },
     },
     MuiLink: {
+      defaultProps: {
+        underline: 'hover',
+      },
       styleOverrides: {
         root: {
           fontWeight: 'bold',
