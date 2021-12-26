@@ -1,71 +1,63 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Box, Card, CardContent, Grid, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import { CardActionArea, Link } from 'gatsby-theme-material-ui';
 import { animated } from 'react-spring';
+import { CardActionArea, Link } from 'gatsby-theme-material-ui';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Box, Card, CardContent, Grid, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { useBoop } from '../hooks/use-boop';
 import CategoryIcon from './CategoryIcon';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    marginBottom: theme.spacing(5),
-    padding: theme.spacing(2),
-  },
-  info: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    height: '100%',
-  },
-  link: {
-    '&:hover': {
-      textDecoration: 'none',
-    },
-  },
-  headline: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  icon: {
-    marginRight: theme.spacing(1),
-  },
-  card: {
-    display: 'flex',
-    [theme.breakpoints.down('xs')]: {
-      flexDirection: 'column',
-    },
-  },
-  content: {
-    flexDirection: 'column',
-    flex: '1 0 50%',
-  },
-  cover: {
-    flex: '1 0 50%',
+const BoxStyled = styled(Box)(({ theme }) => ({
+  marginBottom: theme.spacing(5),
+  padding: theme.spacing(2),
+}));
+
+const LinkStyled = styled(Link)(({ theme }) => ({
+  '&:hover': {
+    textDecoration: 'none',
   },
 }));
 
+const HeadlineStyled = styled(Typography)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
+
+const CategoryIconStyled = styled(CategoryIcon)(({ theme }) => ({
+  marginRight: theme.spacing(1),
+}));
+
+const CardStyled = styled(Card)(({ theme }) => ({
+  display: 'flex',
+
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+  },
+}));
+
+const CardActionAreaContent = styled(CardActionArea)(({ theme }) => ({
+  flexDirection: 'column',
+  flex: '1 0 50%',
+}));
+
+const GatsbyImageCover = styled(GatsbyImage)(({ theme }) => ({
+  flex: '1 0 50%',
+}));
+
 const CategoryCard = (props) => {
-  const classes = useStyles();
   const [style, trigger] = useBoop({ rotation: 20, timing: 200 });
   const image = getImage(props.categoryImage);
 
   return (
-    <Box className={classes.root}>
+    <BoxStyled>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Link to={props.categoryLink} className={classes.link}>
-            <Typography
-              onMouseEnter={trigger}
-              variant={'h1'}
-              className={classes.headline}
-            >
+          <LinkStyled to={props.categoryLink}>
+            <HeadlineStyled onMouseEnter={trigger} variant={'h1'}>
               <animated.span style={style}>
-                <CategoryIcon
-                  className={classes.icon}
+                <CategoryIconStyled
                   category={props.category}
                   color="primary"
                   style={{
@@ -74,8 +66,8 @@ const CategoryCard = (props) => {
                 />
               </animated.span>
               {props.categoryName}
-            </Typography>
-          </Link>
+            </HeadlineStyled>
+          </LinkStyled>
         </Grid>
 
         <Grid item xs={12}>
@@ -85,8 +77,8 @@ const CategoryCard = (props) => {
         </Grid>
 
         <Grid item xs={12}>
-          <Card className={classes.card}>
-            <CardActionArea to={props.slug} className={classes.content}>
+          <CardStyled>
+            <CardActionAreaContent to={props.slug}>
               <CardContent>
                 <Typography variant="h5" gutterBottom>
                   Latest Update:
@@ -101,18 +93,14 @@ const CategoryCard = (props) => {
                   more...
                 </Typography>
               </CardContent>
-            </CardActionArea>
+            </CardActionAreaContent>
             {props.categoryImage && (
-              <GatsbyImage
-                alt={props.categoryName}
-                image={image}
-                className={classes.cover}
-              />
+              <GatsbyImageCover alt={props.categoryName} image={image} />
             )}
-          </Card>
+          </CardStyled>
         </Grid>
       </Grid>
-    </Box>
+    </BoxStyled>
   );
 };
 

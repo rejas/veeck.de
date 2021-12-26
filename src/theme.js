@@ -1,4 +1,4 @@
-import { createTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 // TODO enhance it like this https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
 // maybe switch to something like mentioned here: https://material-ui.com/customization/palette/#user-preference
@@ -12,26 +12,47 @@ if (typeof window !== 'undefined') {
 }
 
 const theme = createTheme({
-  overrides: {
+  // Make md breakpoint a little wider than standard
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
+  components: {
     MuiBottomNavigationAction: {
-      root: {
-        minWidth: 0,
+      styleOverrides: {
+        root: {
+          minWidth: 0,
+        },
       },
     },
     MuiDivider: {
-      root: {
-        marginBottom: '1rem',
-        marginTop: '1rem',
+      styleOverrides: {
+        root: {
+          marginBottom: '1rem',
+          marginTop: '1rem',
+        },
       },
     },
     MuiLink: {
-      root: {
-        fontWeight: 'bold',
+      defaultProps: {
+        underline: 'hover',
+      },
+      styleOverrides: {
+        root: {
+          fontWeight: 'bold',
+        },
       },
     },
     MuiList: {
-      root: {
-        fontSize: '1rem',
+      styleOverrides: {
+        root: {
+          fontSize: '1rem',
+        },
       },
     },
   },
@@ -80,7 +101,7 @@ const theme = createTheme({
     },
   },
   palette: {
-    type: prefersDarkMode ? 'dark' : 'light',
+    mode: prefersDarkMode ? 'dark' : 'light',
     primary: {
       main: prefersDarkMode ? '#fae34b' : '#939597',
     },

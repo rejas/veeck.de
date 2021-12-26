@@ -1,28 +1,27 @@
 import * as React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { graphql } from 'gatsby';
-import { Divider, Grid } from '@material-ui/core';
-import MetaData from '../components/page/MetaData';
-import CategoryCard from '../components/CategoryCard';
 import { BigHead } from '@bigheads/core';
-import Headlines from '../components/page/Headlines';
+import { Divider, Grid } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import CategoryCard from '../components/CategoryCard';
 import BasicLayout from '../components/layouts/BasicLayout';
+import Headlines from '../components/page/Headlines';
+import MetaData from '../components/page/MetaData';
 
-const useStyles = makeStyles((theme) => ({
-  headlines: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-  },
+const GridStyled = styled(Grid)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  justifyContent: 'center',
 }));
 
 const IndexPage = (props) => {
-  const classes = useStyles();
   const { data } = props;
 
   return (
     <BasicLayout>
+      <MetaData title="veeck.de" thumbnail={data.file} />
+
       <Grid container spacing={3}>
         <Grid item xs={4}>
           <BigHead
@@ -44,15 +43,14 @@ const IndexPage = (props) => {
             skinTone="light"
           />
         </Grid>
-        <Grid item xs={8} className={classes.headlines}>
+        <GridStyled item xs={8}>
           <Headlines
             title="veeck"
             lead="computerschlampe, hoffotograf, terrorpoet"
           />
-        </Grid>
+        </GridStyled>
       </Grid>
 
-      <MetaData title="veeck.de" thumbnail={data.file} />
       <Grid container spacing={3}>
         <Divider />
 

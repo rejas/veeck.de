@@ -1,42 +1,37 @@
 import * as React from 'react';
-import { BottomNavigation, Hidden, Typography } from '@material-ui/core';
-import { BottomNavigationAction } from 'gatsby-theme-material-ui';
-import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'gatsby-theme-material-ui';
+import { BottomNavigationAction, Link } from 'gatsby-theme-material-ui';
+import { BottomNavigation, Hidden, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import BoopedCategoryIcon from '../BoopedCategoryIcon';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    marginBottom: theme.spacing(1),
-    [theme.breakpoints.down('xs')]: {
-      marginBottom: theme.spacing(10),
-    },
-  },
-  info: {
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-    textAlign: 'center',
-  },
-  nav: {
-    width: '100%',
-    position: 'fixed',
-    bottom: 0,
+const FooterStyled = styled('footer')(({ theme }) => ({
+  marginBottom: theme.spacing(1),
+
+  [theme.breakpoints.down('sm')]: {
+    marginBottom: theme.spacing(10),
   },
 }));
 
+const Body2styled = styled(Typography)(({ theme }) => ({
+  paddingLeft: theme.spacing(2),
+  paddingRight: theme.spacing(2),
+  textAlign: 'center',
+}));
+
+const BottomNavigationStyled = styled(BottomNavigation)(({ theme }) => ({
+  width: '100%',
+  position: 'fixed',
+  bottom: 0,
+}));
+
 const Footer = () => {
-  const classes = useStyles();
   const { menuLinks } = useSiteMetadata();
 
   return (
     <React.Fragment>
-      <footer className={classes.root}>
-        <Typography
-          className={classes.info}
-          variant="body2"
-          color="textSecondary"
-        >
+      <FooterStyled>
+        <Body2styled variant="body2" color="textSecondary">
           {'Copyright © '}
           <Link to="https://github.com/rejas">rejas</Link>
           {' ' + new Date().getFullYear()}
@@ -47,10 +42,10 @@ const Footer = () => {
           {' and '}
           <Link to="https://material-ui.com">Material UI</Link>
           {'.'}
-        </Typography>
-      </footer>
+        </Body2styled>
+      </FooterStyled>
       <Hidden smUp>
-        <BottomNavigation showLabels className={classes.nav}>
+        <BottomNavigationStyled showLabels>
           <BottomNavigationAction
             key="home"
             to="/"
@@ -65,7 +60,7 @@ const Footer = () => {
               icon={<BoopedCategoryIcon category={link.icon} color="primary" />}
             />
           ))}
-        </BottomNavigation>
+        </BottomNavigationStyled>
       </Hidden>
     </React.Fragment>
   );

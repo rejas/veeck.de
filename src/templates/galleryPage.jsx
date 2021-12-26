@@ -1,32 +1,29 @@
 import * as React from 'react';
+import FsLightbox from 'fslightbox-react';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import FsLightbox from 'fslightbox-react';
-import FiberNewIcon from '@material-ui/icons/FiberNew';
+import FiberNewIcon from '@mui/icons-material/FiberNew';
 import {
   IconButton,
   ImageList,
   ImageListItem,
   ImageListItemBar,
-} from '@material-ui/core';
-import TitleLayout from '../components/layouts/TitleLayout';
-import { makeStyles } from '@material-ui/core/styles';
-import { useSearchParams } from '../hooks/use-search-param';
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
 import MetaData from '../components/page/MetaData';
+import TitleLayout from '../components/layouts/TitleLayout';
+import { useSearchParams } from '../hooks/use-search-param';
 
-const useStyles = makeStyles((theme) => ({
-  box: {
-    cursor: 'pointer',
-  },
-  titleBar: {
-    background:
-      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, ' +
-      'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-  },
+const ImageListItemStyled = styled(ImageListItem)(() => ({
+  cursor: 'pointer',
+}));
+
+const ImageListItemBarStyled = styled(ImageListItemBar)(() => ({
+  background:
+    'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
 }));
 
 const GalleryTemplate = (props) => {
-  const classes = useStyles();
   const searchParams = useSearchParams();
 
   const node = props.data.allPhotosYaml.edges[0].node;
@@ -71,17 +68,15 @@ const GalleryTemplate = (props) => {
   return (
     <TitleLayout title={node.title} lead={node.lead} maxWidth={false}>
       <MetaData title={node.title} />
-
-      <ImageList className={classes.gridList} cols={4}>
+      <ImageList cols={4}>
         {node.images.map((img, index) => {
           const image = getImage(img.img);
           const { col, row } = aspectRatios[index];
           return (
-            <ImageListItem
+            <ImageListItemStyled
               key={index}
               cols={col}
               rows={row}
-              className={classes.box}
               onClick={() => openLightbox(index)}
             >
               <GatsbyImage
@@ -96,18 +91,17 @@ const GalleryTemplate = (props) => {
                 }}
               />
               {img.is_new && (
-                <ImageListItemBar
-                  className={classes.titleBar}
+                <ImageListItemBarStyled
                   position="bottom"
                   actionIcon={
-                    <IconButton>
+                    <IconButton size="large">
                       <FiberNewIcon color="secondary" />
                     </IconButton>
                   }
                   actionPosition="left"
                 />
               )}
-            </ImageListItem>
+            </ImageListItemStyled>
           );
         })}
       </ImageList>

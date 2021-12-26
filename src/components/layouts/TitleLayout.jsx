@@ -1,23 +1,20 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { styled } from '@mui/material/styles';
 import Headlines from '../page/Headlines';
 import BasicLayout from './BasicLayout';
 
-const useStyles = makeStyles((theme) => ({
-  children: {
-    marginTop: '5vh',
-  },
+const ChildrenStyled = styled('div')(({ theme }) => ({
+  marginTop: '5vh',
 }));
 
 const TitleLayout = (props) => {
   const { children, lead, title, maxWidth } = props;
-  const classes = useStyles();
 
   return (
     <BasicLayout maxWidth={maxWidth}>
       <Headlines title={title} lead={lead} />
-      <div className={classes.children}>{children}</div>
+      <ChildrenStyled>{children}</ChildrenStyled>
     </BasicLayout>
   );
 };

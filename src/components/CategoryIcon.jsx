@@ -1,13 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
-import EditIcon from '@material-ui/icons/Edit';
-import ExploreIcon from '@material-ui/icons/Explore';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import LinkIcon from '@material-ui/icons/Link';
-import ComputerIcon from '@material-ui/icons/Computer';
-import StuffIcon from '@material-ui/icons/Toys';
-import WebIcon from '@material-ui/icons/Web';
+import CameraIcon from '@mui/icons-material/PhotoCamera';
+import EditIcon from '@mui/icons-material/Edit';
+import ExploreIcon from '@mui/icons-material/Explore';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import LinkIcon from '@mui/icons-material/Link';
+import ComputerIcon from '@mui/icons-material/Computer';
+import StuffIcon from '@mui/icons-material/Toys';
+import WebIcon from '@mui/icons-material/Web';
 
 const CategoryIcon = (props) => {
   const { category } = props;

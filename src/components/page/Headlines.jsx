@@ -1,26 +1,23 @@
-import { Headline1, Subtitle1 } from './Typography';
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { styled } from '@mui/material/styles';
+import { Headline1, Subtitle1 } from './Typography';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    color: 'white',
-    mixBlendMode: 'difference',
-  },
+const Headline1Root = styled(Headline1)(({ theme }) => ({
+  color: 'white',
+  mixBlendMode: 'difference',
+}));
+
+const Subtitle1Root = styled(Subtitle1)(({ theme }) => ({
+  color: 'white',
+  mixBlendMode: 'difference',
 }));
 
 const Headlines = (props) => {
-  const classes = useStyles();
-
   return (
     <React.Fragment>
-      {props.title && (
-        <Headline1 className={classes.root}>{props.title}</Headline1>
-      )}
-      {props.lead && (
-        <Subtitle1 className={classes.root}>{props.lead}</Subtitle1>
-      )}
+      {props.title && <Headline1Root>{props.title}</Headline1Root>}
+      {props.lead && <Subtitle1Root>{props.lead}</Subtitle1Root>}
     </React.Fragment>
   );
 };

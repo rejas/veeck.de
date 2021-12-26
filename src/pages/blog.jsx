@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { List, Paper } from '@material-ui/core';
+import { List, Paper } from '@mui/material';
 import TitleLayout from '../components/layouts/TitleLayout';
 import MetaData from '../components/page/MetaData';
 import BoopedListItem from '../components/BoopedListItem';

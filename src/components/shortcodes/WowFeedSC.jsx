@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Button } from 'gatsby-theme-material-ui';
 import {
   FormControl,
@@ -8,22 +7,20 @@ import {
   MenuItem,
   Select,
   TextField,
-} from '@material-ui/core';
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    minWidth: 120,
-    width: '100%',
-  },
-  button: {
-    position: 'relative',
-    top: '10px',
-  },
+const FormControlStyled = styled(FormControl)(({ theme }) => ({
+  minWidth: 120,
+  width: '100%',
+}));
+
+const ButtonStyled = styled(Button)(({ theme }) => ({
+  position: 'relative',
+  top: '10px',
 }));
 
 const WowFeedSC = () => {
-  const classes = useStyles();
-
   const [charName, setCharName] = React.useState('');
   const [charRealm, setCharRealm] = React.useState('');
   const [charRegion, setCharRegion] = React.useState('');
@@ -58,7 +55,7 @@ const WowFeedSC = () => {
     <React.Fragment>
       <Grid container spacing={3}>
         <Grid item xs={6} sm={3}>
-          <FormControl className={classes.formControl}>
+          <FormControlStyled>
             <TextField
               error={charName === ''}
               id="character"
@@ -67,10 +64,10 @@ const WowFeedSC = () => {
               value={charName}
               onChange={(event) => setCharName(event.target.value)}
             />
-          </FormControl>
+          </FormControlStyled>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <FormControl className={classes.formControl}>
+          <FormControlStyled>
             <TextField
               error={charRealm === ''}
               id="charrealm"
@@ -79,13 +76,10 @@ const WowFeedSC = () => {
               value={charRealm}
               onChange={(event) => setCharRealm(event.target.value)}
             />
-          </FormControl>
+          </FormControlStyled>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <FormControl
-            className={classes.formControl}
-            error={charRegion === ''}
-          >
+          <FormControlStyled error={charRegion === ''}>
             <InputLabel id="char_region_label">Region</InputLabel>
             <Select
               id="char_region"
@@ -100,24 +94,23 @@ const WowFeedSC = () => {
               <MenuItem value="tw">Taiwan</MenuItem>
               <MenuItem value="kr">Korea</MenuItem>
             </Select>
-          </FormControl>
+          </FormControlStyled>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <Button
+          <ButtonStyled
             color="secondary"
             variant="contained"
             type="submit"
             onClick={openCharFeed}
-            className={classes.button}
           >
             Get Char RSS
-          </Button>
+          </ButtonStyled>
         </Grid>
       </Grid>
 
       <Grid container spacing={3}>
         <Grid item xs={6} sm={3}>
-          <FormControl className={classes.formControl}>
+          <FormControlStyled>
             <TextField
               error={guildName === ''}
               id="guildname"
@@ -126,10 +119,10 @@ const WowFeedSC = () => {
               value={guildName}
               onChange={(event) => setGuildName(event.target.value)}
             />
-          </FormControl>
+          </FormControlStyled>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <FormControl className={classes.formControl}>
+          <FormControlStyled>
             <TextField
               error={guildRealm === ''}
               id="guildrealm"
@@ -138,16 +131,12 @@ const WowFeedSC = () => {
               value={guildRealm}
               onChange={(event) => setGuildRealm(event.target.value)}
             />
-          </FormControl>
+          </FormControlStyled>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <FormControl
-            className={classes.formControl}
-            error={guildRegion === ''}
-          >
+          <FormControlStyled error={guildRegion === ''}>
             <InputLabel id="guild_region_label">Region</InputLabel>
             <Select
-              className={classes.selectEmpty}
               labelId="guild_region_label"
               id="guild_region"
               name="region"
@@ -160,18 +149,17 @@ const WowFeedSC = () => {
               <MenuItem value="tw">Taiwan</MenuItem>
               <MenuItem value="kr">Korea</MenuItem>
             </Select>
-          </FormControl>
+          </FormControlStyled>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <Button
+          <ButtonStyled
             color="secondary"
             variant="contained"
             type="submit"
             onClick={openGuildFeed}
-            className={classes.button}
           >
             Get Guild RSS
-          </Button>
+          </ButtonStyled>
         </Grid>
       </Grid>
     </React.Fragment>

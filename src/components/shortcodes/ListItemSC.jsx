@@ -1,24 +1,20 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
-const useStyles = makeStyles((theme) => ({
-  icon: {
-    minWidth: 'auto',
-    marginRight: theme.spacing(3),
-  },
+const ListItemIconIcon = styled(ListItemIcon)(({ theme }) => ({
+  minWidth: 'auto',
+  marginRight: theme.spacing(3),
 }));
 
 const ListItemSC = (props) => {
-  const classes = useStyles();
-
   return (
     <ListItem>
-      <ListItemIcon className={classes.icon}>
+      <ListItemIconIcon>
         <FiberManualRecordIcon color="primary" />
-      </ListItemIcon>
+      </ListItemIconIcon>
       <ListItemText>{props.children}</ListItemText>
     </ListItem>
   );
