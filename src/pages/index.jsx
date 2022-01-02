@@ -1,8 +1,9 @@
-import * as React from 'react';
-import { graphql } from 'gatsby';
 import { BigHead } from '@bigheads/core';
 import { Divider, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { graphql } from 'gatsby';
+import * as React from 'react';
+
 import CategoryCard from '../components/CategoryCard';
 import BasicLayout from '../components/layouts/BasicLayout';
 import Headlines from '../components/page/Headlines';

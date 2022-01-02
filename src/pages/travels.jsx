@@ -1,9 +1,10 @@
-import * as React from 'react';
-import { graphql } from 'gatsby';
 import { Grid } from '@mui/material';
+import { graphql } from 'gatsby';
+import * as React from 'react';
+
+import EntryCard from '../components/EntryCard';
 import TitleLayout from '../components/layouts/TitleLayout';
 import MetaData from '../components/page/MetaData';
-import EntryCard from '../components/EntryCard';
 
 const TravelsIndex = (props) => {
   const { data } = props;

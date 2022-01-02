@@ -1,9 +1,9 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
 import { Card, CardContent, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { CardActionArea } from 'gatsby-theme-material-ui';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { CardActionArea } from 'gatsby-theme-material-ui';
+import PropTypes from 'prop-types';
+import * as React from 'react';
 
 const CardStyled = styled(Card)(({ theme }) => ({
   height: '100%',

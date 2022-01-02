@@ -1,6 +1,7 @@
 //Source here: https://www.joshwcomeau.com/react/boop/?ref=sidebar#introduction
 import React from 'react';
 import { useSpring } from 'react-spring';
+
 import { usePrefersReducedMotion } from './use-prefers-reduced-motion';
 
 export const useBoop = ({

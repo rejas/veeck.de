@@ -1,9 +1,10 @@
-import * as React from 'react';
+import { MDXProvider } from '@mdx-js/react';
+import { Divider, List } from '@mui/material';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { Link } from 'gatsby-theme-material-ui';
-import { Divider, List } from '@mui/material';
-import { MDXProvider } from '@mdx-js/react';
+import * as React from 'react';
+
 import HeroLayout from '../components/layouts/HeroLayout';
 import MetaData from '../components/page/MetaData';
 import {

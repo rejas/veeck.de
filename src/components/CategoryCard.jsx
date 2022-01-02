@@ -1,10 +1,11 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import { animated } from 'react-spring';
-import { CardActionArea, Link } from 'gatsby-theme-material-ui';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Box, Card, CardContent, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { CardActionArea, Link } from 'gatsby-theme-material-ui';
+import PropTypes from 'prop-types';
+import * as React from 'react';
+import { animated } from 'react-spring';
+
 import { useBoop } from '../hooks/use-boop';
 import CategoryIcon from './CategoryIcon';
 

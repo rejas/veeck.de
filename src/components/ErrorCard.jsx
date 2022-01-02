@@ -1,8 +1,8 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import { StaticImage } from 'gatsby-plugin-image';
 import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { StaticImage } from 'gatsby-plugin-image';
+import PropTypes from 'prop-types';
+import * as React from 'react';
 
 const StaticImageStyled = styled(StaticImage)(({ theme }) => ({
   margin: `${theme.spacing(3)} 0`,

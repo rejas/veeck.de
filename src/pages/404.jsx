@@ -1,7 +1,8 @@
 import * as React from 'react';
+
+import ErrorCard from '../components/ErrorCard';
 import TitleLayout from '../components/layouts/TitleLayout';
 import MetaData from '../components/page/MetaData';
-import ErrorCard from '../components/ErrorCard';
 
 const NotFoundPage = (props) => {
   return (

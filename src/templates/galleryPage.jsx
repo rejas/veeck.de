@@ -1,7 +1,3 @@
-import * as React from 'react';
-import FsLightbox from 'fslightbox-react';
-import { graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import FiberNewIcon from '@mui/icons-material/FiberNew';
 import {
   IconButton,
@@ -10,8 +6,13 @@ import {
   ImageListItemBar,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import MetaData from '../components/page/MetaData';
+import FsLightbox from 'fslightbox-react';
+import { graphql } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import * as React from 'react';
+
 import TitleLayout from '../components/layouts/TitleLayout';
+import MetaData from '../components/page/MetaData';
 import { useSearchParams } from '../hooks/use-search-param';
 
 const ImageListItemStyled = styled(ImageListItem)(() => ({

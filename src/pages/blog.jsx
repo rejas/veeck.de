@@ -1,9 +1,10 @@
-import * as React from 'react';
-import { graphql } from 'gatsby';
 import { List, Paper } from '@mui/material';
+import { graphql } from 'gatsby';
+import * as React from 'react';
+
+import BoopedListItem from '../components/BoopedListItem';
 import TitleLayout from '../components/layouts/TitleLayout';
 import MetaData from '../components/page/MetaData';
-import BoopedListItem from '../components/BoopedListItem';
 
 const BlogIndex = (props) => {
   const { data } = props;

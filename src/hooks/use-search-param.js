@@ -1,5 +1,5 @@
-import * as React from 'react';
 import queryString from 'query-string';
+import * as React from 'react';
 
 export const useSearchParams = () => {
   const [searchParams, setSearch] = React.useState({});

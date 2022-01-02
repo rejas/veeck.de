@@ -1,5 +1,6 @@
 import React from 'react';
 import { animated } from 'react-spring';
+
 import { useBoop } from '../hooks/use-boop';
 
 const Boop = (props) => {
