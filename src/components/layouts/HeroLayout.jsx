@@ -1,33 +1,20 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import { styled } from '@mui/material/styles';
-import BackgroundImage from 'gatsby-background-image';
+import { Container, CssBaseline } from '@mui/material';
+import {
+  StyledEngineProvider,
+  ThemeProvider,
+  styled,
+} from '@mui/material/styles';
 import { getImage } from 'gatsby-plugin-image';
 import { convertToBgImage } from 'gbimage-bridge';
-import Headlines from '../page/Headlines';
-import BasicLayout from './BasicLayout';
+import PropTypes from 'prop-types';
+import * as React from 'react';
 
-const HeroStyled = styled('div')(({ theme }) => ({
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  right: 0,
-  height: '50vh',
-}));
+import theme from '../../theme';
+import HeaderNew from '../page/HeaderNew';
 
-const BackgroundImageStyled = styled(BackgroundImage)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-evenly',
-  height: '100%',
-}));
-
-const NoImageChildrenStyled = styled('div')(({ theme }) => ({
-  marginTop: '5vh',
-}));
-
-const ImageChildrenStyled = styled('div')(({ theme }) => ({
-  marginTop: '50vh',
+const PageStyled = styled('div')(({ theme }) => ({
+  display: 'grid',
+  gridTemplateColumns: '1fr 2fr',
 }));
 
 const HeroLayout = (props) => {
@@ -39,26 +26,17 @@ const HeroLayout = (props) => {
   }
 
   return (
-    <BasicLayout maxWidth="sm">
-      <React.Fragment>
-        {bgImage && (
-          <React.Fragment>
-            <HeroStyled>
-              <BackgroundImageStyled {...bgImage} preserveStackingContext>
-                <Headlines title={title} lead={lead} />
-              </BackgroundImageStyled>
-            </HeroStyled>
-            <ImageChildrenStyled>{children}</ImageChildrenStyled>
-          </React.Fragment>
-        )}
-        {!bgImage && (
-          <React.Fragment>
-            <Headlines title={title} lead={lead} />
-            <NoImageChildrenStyled>{children}</NoImageChildrenStyled>
-          </React.Fragment>
-        )}
-      </React.Fragment>
-    </BasicLayout>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <PageStyled>
+          <HeaderNew bgImage={bgImage} />
+          <Container sx={{ pt: 3, pb: 3 }} component="main">
+            {children}
+          </Container>
+        </PageStyled>
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 };
 

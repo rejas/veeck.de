@@ -1,5 +1,5 @@
 body {
-  /* Pattern from https://www.magicpattern.design/tools/css-backgrounds */
+  /* Pattern from https://www.magicpattern.design/tools/css-backgrounds
   background-color: #e5e5f7;
   opacity: 1;
   background-image: radial-gradient(
@@ -12,6 +12,7 @@ body {
     );
   background-size: 44px 44px;
   background-position: 0 0, 22px 22px;
+  */
 }
 
 [twdiv='yes'] {
