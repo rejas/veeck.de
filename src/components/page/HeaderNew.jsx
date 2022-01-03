@@ -13,11 +13,13 @@ const ToolbarStyled = styled('div')(({ theme }) => ({
   top: 0,
   left: 0,
   height: '100vh',
-  padding: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
 }));
 
 const Headline4Styled = styled(Typography)(({ theme }) => ({
-  flexGrow: 1,
+  //flexGrow: 1,
 }));
 
 const BackgroundImageStyled = styled(BackgroundImage)(({ theme }) => ({
@@ -25,6 +27,7 @@ const BackgroundImageStyled = styled(BackgroundImage)(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'space-evenly',
   height: '100%',
+  padding: '1rem',
   backgroundSize: 'cover',
 
   '&::before, &::after': {
@@ -43,36 +46,40 @@ const LinkStyled = styled(Link)(({ theme }) => ({
 }));
 
 const HeaderNew = (props) => {
-  const { bgImage } = props;
+  const { lead, bgImage } = props;
   const { title, menuLinks } = useSiteMetadata();
 
   return (
     <ToolbarStyled component="nav" variant="dense">
       {bgImage && (
         <BackgroundImageStyled {...bgImage} preserveStackingContext>
-          <Headline4Styled variant="h4">
-            <LinkStyled noWrap key="home" to="/" color="inherit">
-              {title}
-            </LinkStyled>
-          </Headline4Styled>
-          {menuLinks.map((link, index) => (
-            <MenuItem link={link} key={index} />
-          ))}
+          <LinkStyled noWrap key="home" to="/" color="inherit">
+            {title}
+          </LinkStyled>
+          <Headline4Styled variant="h2">{props.title}</Headline4Styled>
+          <Headline4Styled>{lead}</Headline4Styled>
+          <div>
+            {menuLinks.map((link, index) => (
+              <MenuItem link={link} key={index} />
+            ))}
+          </div>
           <Footer />
         </BackgroundImageStyled>
       )}
       {!bgImage && (
-        <React.Fragment>
-          <Headline4Styled variant="h4">
-            <LinkStyled noWrap key="home" to="/" color="inherit">
-              {title}
-            </LinkStyled>
-          </Headline4Styled>
-          {menuLinks.map((link, index) => (
-            <MenuItem link={link} key={index} />
-          ))}
+        <div>
+          <LinkStyled noWrap key="home" to="/" color="inherit">
+            {title}
+          </LinkStyled>
+          <Headline4Styled variant="h2">{props.title}</Headline4Styled>
+          <Headline4Styled>{lead}</Headline4Styled>
+          <div>
+            {menuLinks.map((link, index) => (
+              <MenuItem link={link} key={index} />
+            ))}
+          </div>
           <Footer />
-        </React.Fragment>
+        </div>
       )}
     </ToolbarStyled>
   );

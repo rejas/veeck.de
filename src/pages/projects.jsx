@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import EntryCard from '../components/EntryCard';
-import TitleLayout from '../components/layouts/TitleLayout';
+import HeroLayout from '../components/layouts/HeroLayout';
 import MetaData from '../components/page/MetaData';
 
 const ProjectsIndex = (props) => {
@@ -11,7 +11,7 @@ const ProjectsIndex = (props) => {
   const { edges: posts } = data.allMdx;
 
   return (
-    <TitleLayout title="my side projects">
+    <HeroLayout title="my side projects">
       <MetaData
         title="Projects"
         description="veeck tinkers"
@@ -27,7 +27,7 @@ const ProjectsIndex = (props) => {
           />
         ))}
       </Grid>
-    </TitleLayout>
+    </HeroLayout>
   );
 };
 

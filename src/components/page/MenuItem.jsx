@@ -1,18 +1,18 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import useSound from 'use-sound';
-import { Link } from 'gatsby-theme-material-ui';
 import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { Link } from 'gatsby-theme-material-ui';
+import PropTypes from 'prop-types';
+import * as React from 'react';
 import { animated } from 'react-spring';
-import CategoryIcon from '../CategoryIcon';
+import useSound from 'use-sound';
+
 import { useBoop } from '../../hooks/use-boop';
 import boopSfx from '../../sounds/tock.mp3';
+import CategoryIcon from '../CategoryIcon';
 
 const Headline5Styled = styled(Typography)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  marginLeft: theme.spacing(4),
   cursor: 'pointer',
 }));
 

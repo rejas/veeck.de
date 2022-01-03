@@ -30,7 +30,7 @@ const HeroLayout = (props) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <PageStyled>
-          <HeaderNew bgImage={bgImage} />
+          <HeaderNew bgImage={bgImage} lead={lead} title={title} />
           <Container sx={{ pt: 3, pb: 3 }} component="main">
             {children}
           </Container>
