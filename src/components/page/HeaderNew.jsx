@@ -60,7 +60,7 @@ const ConditionalWrapper = ({
 }) => (condition ? wrapperTrue(children) : wrapperFalse(children));
 
 const HeaderNew = (props) => {
-  const { lead, bgImage } = props;
+  const { lead, bgImage, icon } = props;
   const { menuLinks } = useSiteMetadata();
 
   return (
@@ -79,6 +79,7 @@ const HeaderNew = (props) => {
         <LinkStyled noWrap key="home" to="/" color="inherit">
           <HomeIcon />
         </LinkStyled>
+        {icon}
         <Headline4Styled variant="h2">{props.title}</Headline4Styled>
         <Headline4Styled>{lead}</Headline4Styled>
         <div>

@@ -8,8 +8,10 @@ import { getImage } from 'gatsby-plugin-image';
 import { convertToBgImage } from 'gbimage-bridge';
 import PropTypes from 'prop-types';
 import * as React from 'react';
+import { isIE } from 'react-device-detect';
 
 import theme from '../../theme';
+import ErrorCard from '../ErrorCard';
 import HeaderNew from '../page/HeaderNew';
 
 const PageStyled = styled('div')(({ theme }) => ({
@@ -18,7 +20,13 @@ const PageStyled = styled('div')(({ theme }) => ({
 }));
 
 const HeroLayout = (props) => {
-  const { children, image, lead, title } = props;
+  let { children, image, lead, title, icon } = props;
+
+  if (isIE) {
+    children = (
+      <ErrorCard message="The Internet Explorer is not supported. Please download Firefox." />
+    );
+  }
 
   let bgImage;
   if (image) {
@@ -30,8 +38,8 @@ const HeroLayout = (props) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <PageStyled>
-          <HeaderNew bgImage={bgImage} lead={lead} title={title} />
-          <Container sx={{ pt: 3, pb: 3 }} component="main">
+          <HeaderNew bgImage={bgImage} icon={icon} lead={lead} title={title} />
+          <Container sx={{ pt: 3, pb: 3 }} component="main" maxWidth="md">
             {children}
           </Container>
         </PageStyled>

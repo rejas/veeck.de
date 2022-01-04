@@ -1,64 +1,48 @@
 import { BigHead } from '@bigheads/core';
-import { Divider, Grid } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { Grid } from '@mui/material';
 import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import CategoryCard from '../components/CategoryCard';
-import BasicLayout from '../components/layouts/BasicLayout';
-import Headlines from '../components/page/Headlines';
+import HeroLayout from '../components/layouts/HeroLayout';
 import MetaData from '../components/page/MetaData';
-
-const GridStyled = styled(Grid)(() => ({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-  justifyContent: 'center',
-}));
 
 const IndexPage = (props) => {
   const { data } = props;
 
   return (
-    <BasicLayout>
+    <HeroLayout
+      title="veeck.de"
+      lead="computerschlampe, hoffotograf, terrorpoet"
+      icon={
+
+        <BigHead
+          accessory="shades"
+          body="chest"
+          circleColor="blue"
+          clothing="shirt"
+          clothingColor="black"
+          eyebrows="raised"
+          eyes="simple"
+          faceMask={false}
+          faceMaskColor="white"
+          facialHair="mediumBeard"
+          graphic="react"
+          hair="none"
+          hairColor="white"
+          hat="none"
+          hatColor="blue"
+          lashes
+          lipColor="red"
+          mask
+          mouth="openSmile"
+          skinTone="light"
+        />
+      }
+    >
       <MetaData title="veeck.de" thumbnail={data.file} />
 
       <Grid container spacing={3}>
-        <Grid item xs={4}>
-          <BigHead
-            accessory="shades"
-            body="chest"
-            circleColor="blue"
-            clothing="shirt"
-            clothingColor="black"
-            eyebrows="raised"
-            eyes="simple"
-            faceMask={false}
-            faceMaskColor="white"
-            facialHair="mediumBeard"
-            graphic="react"
-            hair="none"
-            hairColor="white"
-            hat="none"
-            hatColor="blue"
-            lashes
-            lipColor="red"
-            mask
-            mouth="openSmile"
-            skinTone="light"
-          />
-        </Grid>
-        <GridStyled item xs={8}>
-          <Headlines
-            title="veeck"
-            lead="computerschlampe, hoffotograf, terrorpoet"
-          />
-        </GridStyled>
-      </Grid>
-
-      <Grid container spacing={3}>
-        <Divider />
-
         <CategoryCard
           title={data.latestBlog.edges[0].node.frontmatter.title}
           subtitle="ramblings and stuff I find noteworthy"
@@ -110,7 +94,7 @@ const IndexPage = (props) => {
           categoryName="Terror&shy;poet"
         />
       </Grid>
-    </BasicLayout>
+    </HeroLayout>
   );
 };
 

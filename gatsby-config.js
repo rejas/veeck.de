@@ -76,7 +76,7 @@ module.exports = {
       options: {
         defaultLayouts: {
           default: require.resolve(
-            `${__dirname}/src/components/layouts/BasicLayout.jsx`
+            `${__dirname}/src/components/layouts/HeroLayout.jsx`
           ),
         },
         extensions: ['.mdx', '.md'],
