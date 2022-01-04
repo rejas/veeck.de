@@ -37,7 +37,6 @@ module.exports = {
   flags: {
     FAST_DEV: true,
     PARALLEL_SOURCING: true,
-    PRESERVE_WEBPACK_CACHE: true,
   },
   plugins: [
     {

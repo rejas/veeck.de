@@ -1,3 +1,4 @@
+import HomeIcon from '@mui/icons-material/Cottage';
 import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import BackgroundImage from 'gatsby-background-image';
@@ -18,14 +19,12 @@ const ToolbarStyled = styled('div')(({ theme }) => ({
   justifyContent: 'space-between',
 }));
 
-const Headline4Styled = styled(Typography)(({ theme }) => ({
-  //flexGrow: 1,
-}));
+const Headline4Styled = styled(Typography)(({ theme }) => ({}));
 
 const BackgroundImageStyled = styled(BackgroundImage)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-evenly',
+  justifyContent: 'space-between',
   height: '100%',
   padding: '1rem',
   backgroundSize: 'cover',
@@ -33,6 +32,14 @@ const BackgroundImageStyled = styled(BackgroundImage)(({ theme }) => ({
   '&::before, &::after': {
     filter: 'opacity(0.35)',
   },
+}));
+
+const BackgroundStyled = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  height: '100%',
+  padding: '1rem',
 }));
 
 const LinkStyled = styled(Link)(({ theme }) => ({
@@ -45,42 +52,42 @@ const LinkStyled = styled(Link)(({ theme }) => ({
   },
 }));
 
+const ConditionalWrapper = ({
+  condition,
+  wrapperTrue,
+  wrapperFalse,
+  children,
+}) => (condition ? wrapperTrue(children) : wrapperFalse(children));
+
 const HeaderNew = (props) => {
   const { lead, bgImage } = props;
-  const { title, menuLinks } = useSiteMetadata();
+  const { menuLinks } = useSiteMetadata();
 
   return (
     <ToolbarStyled component="nav" variant="dense">
-      {bgImage && (
-        <BackgroundImageStyled {...bgImage} preserveStackingContext>
-          <LinkStyled noWrap key="home" to="/" color="inherit">
-            {title}
-          </LinkStyled>
-          <Headline4Styled variant="h2">{props.title}</Headline4Styled>
-          <Headline4Styled>{lead}</Headline4Styled>
-          <div>
-            {menuLinks.map((link, index) => (
-              <MenuItem link={link} key={index} />
-            ))}
-          </div>
-          <Footer />
-        </BackgroundImageStyled>
-      )}
-      {!bgImage && (
+      <ConditionalWrapper
+        condition={bgImage}
+        wrapperTrue={(children) => (
+          <BackgroundImageStyled {...bgImage} preserveStackingContext>
+            {children}
+          </BackgroundImageStyled>
+        )}
+        wrapperFalse={(children) => (
+          <BackgroundStyled>{children}</BackgroundStyled>
+        )}
+      >
+        <LinkStyled noWrap key="home" to="/" color="inherit">
+          <HomeIcon />
+        </LinkStyled>
+        <Headline4Styled variant="h2">{props.title}</Headline4Styled>
+        <Headline4Styled>{lead}</Headline4Styled>
         <div>
-          <LinkStyled noWrap key="home" to="/" color="inherit">
-            {title}
-          </LinkStyled>
-          <Headline4Styled variant="h2">{props.title}</Headline4Styled>
-          <Headline4Styled>{lead}</Headline4Styled>
-          <div>
-            {menuLinks.map((link, index) => (
-              <MenuItem link={link} key={index} />
-            ))}
-          </div>
-          <Footer />
+          {menuLinks.map((link, index) => (
+            <MenuItem link={link} key={index} />
+          ))}
         </div>
-      )}
+        <Footer />
+      </ConditionalWrapper>
     </ToolbarStyled>
   );
 };
