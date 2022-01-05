@@ -1,12 +1,10 @@
 import HomeIcon from '@mui/icons-material/Cottage';
-import { Typography } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { css, styled } from '@mui/material/styles';
 import BackgroundImage from 'gatsby-background-image';
 import { Link } from 'gatsby-theme-material-ui';
 import * as React from 'react';
 
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
-import Footer from './Footer';
 import MenuItem from './MenuItem';
 
 const ToolbarStyled = styled('div')(({ theme }) => ({
@@ -19,14 +17,27 @@ const ToolbarStyled = styled('div')(({ theme }) => ({
   justifyContent: 'space-between',
 }));
 
-const Headline4Styled = styled(Typography)(({ theme }) => ({}));
+const IconStyled = styled('div')(css`
+  align-self: center;
+`);
+
+const HeadlineStyled = styled('div')(({ theme }) => ({
+  alignSelf: 'flex-end',
+  textAlign: 'right',
+}));
+
+const LeadinStyled = styled('div')(({ theme }) => ({
+  alignSelf: 'flex-end',
+  textAlign: 'right',
+}));
 
 const BackgroundImageStyled = styled(BackgroundImage)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
+  alignItems: 'flex-start',
   height: '100%',
-  padding: '1rem',
+  padding: '3rem',
   backgroundSize: 'cover',
 
   '&::before, &::after': {
@@ -39,18 +50,17 @@ const BackgroundStyled = styled('div')(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'space-between',
   height: '100%',
-  padding: '1rem',
+  padding: '3rem',
+  alignItems: 'flex-start',
 }));
 
 const LinkStyled = styled(Link)(({ theme }) => ({
-  textTransform: 'uppercase',
-  padding: theme.spacing(1),
-  flexShrink: 0,
-
   '&:hover': {
-    textDecoration: 'none',
+    color: theme.palette.primary,
   },
 }));
+
+const MenuStyled = styled('div')(css``);
 
 const ConditionalWrapper = ({
   condition,
@@ -76,18 +86,19 @@ const HeaderNew = (props) => {
           <BackgroundStyled>{children}</BackgroundStyled>
         )}
       >
-        <LinkStyled noWrap key="home" to="/" color="inherit">
-          <HomeIcon />
+        <LinkStyled noWrap key="home" to="/">
+          <HomeIcon color="primary" />
         </LinkStyled>
-        {icon}
-        <Headline4Styled variant="h2">{props.title}</Headline4Styled>
-        <Headline4Styled>{lead}</Headline4Styled>
-        <div>
+        <HeadlineStyled>
+          <IconStyled>{icon}</IconStyled>
+          {props.title}
+        </HeadlineStyled>
+        <LeadinStyled>{lead}</LeadinStyled>
+        <MenuStyled>
           {menuLinks.map((link, index) => (
             <MenuItem link={link} key={index} />
           ))}
-        </div>
-        <Footer />
+        </MenuStyled>
       </ConditionalWrapper>
     </ToolbarStyled>
   );

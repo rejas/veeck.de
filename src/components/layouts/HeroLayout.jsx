@@ -1,7 +1,8 @@
-import { Container, CssBaseline } from '@mui/material';
+import { CssBaseline } from '@mui/material';
 import {
   StyledEngineProvider,
   ThemeProvider,
+  css,
   styled,
 } from '@mui/material/styles';
 import { getImage } from 'gatsby-plugin-image';
@@ -12,12 +13,24 @@ import { isIE } from 'react-device-detect';
 
 import theme from '../../theme';
 import ErrorCard from '../ErrorCard';
+import Footer from '../page/Footer';
 import HeaderNew from '../page/HeaderNew';
 
 const PageStyled = styled('div')(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr 2fr',
 }));
+
+const MainStyled = styled('main')(css`
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+`);
+
+const ContentStyled = styled('main')(css`
+  flex-basis: 100%;
+  padding-bottom: 3rem;
+`);
 
 const HeroLayout = (props) => {
   let { children, image, lead, title, icon } = props;
@@ -39,9 +52,10 @@ const HeroLayout = (props) => {
         <CssBaseline />
         <PageStyled>
           <HeaderNew bgImage={bgImage} icon={icon} lead={lead} title={title} />
-          <Container sx={{ pt: 3, pb: 3 }} component="main" maxWidth="md">
-            {children}
-          </Container>
+          <MainStyled>
+            <ContentStyled>{children}</ContentStyled>
+            <Footer />
+          </MainStyled>
         </PageStyled>
       </ThemeProvider>
     </StyledEngineProvider>

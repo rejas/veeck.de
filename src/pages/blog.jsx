@@ -11,7 +11,10 @@ const BlogIndex = (props) => {
   const { edges: posts } = data.allMdx;
 
   return (
-    <HeroLayout title="my personal blog">
+    <HeroLayout
+      title="my personal blog"
+      lead="ramblings and stuff I find noteworthy"
+    >
       <MetaData title="Blog" description="veeck blogs" image={data.file} />
       <Paper>
         <List>

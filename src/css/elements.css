@@ -1,3 +1,15 @@
+:root {
+  --patternCurrentColor: rgba(142, 36, 171, 0.125);
+  --patternTransparent: #ededed;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --patternCurrentColor: rgba(127, 127, 127, 0.5);
+    --patternTransparent: #3c3c3c;
+  }
+}
+
 body {
   /* Pattern from https://www.magicpattern.design/tools/css-backgrounds
   background-color: #e5e5f7;

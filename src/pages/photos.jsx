@@ -11,7 +11,10 @@ const PhotoPage = (props) => {
   const { edges: galleries } = data.allPhotosYaml;
 
   return (
-    <HeroLayout title="my photo galleries">
+    <HeroLayout
+      title="my photo galleries"
+      lead="the panoramic pictures I have taken"
+    >
       <MetaData
         title="Galleries"
         description={'veeck shoots'}

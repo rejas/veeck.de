@@ -11,7 +11,10 @@ const TravelsIndex = (props) => {
   const { edges: posts } = data.allMdx;
 
   return (
-    <HeroLayout title="my travel diaries">
+    <HeroLayout
+      title="my travel diaries"
+      lead="my travel diaries from around the world"
+    >
       <MetaData title="Travel" description="veeck travels" image={data.file} />
       <Grid container spacing={3}>
         {posts.map(({ node: post }, index) => (

@@ -11,7 +11,10 @@ const ProjectsIndex = (props) => {
   const { edges: posts } = data.allMdx;
 
   return (
-    <HeroLayout title="my side projects">
+    <HeroLayout
+      title="my side projects"
+      lead="all the techy nerdy geeky stuff I do for fun"
+    >
       <MetaData
         title="Projects"
         description="veeck tinkers"
