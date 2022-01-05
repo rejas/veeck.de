@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Boop from './Boop';
+import Boop from '../Boop';
 import CategoryIcon from './CategoryIcon';
 
 const BoopedCategoryIcon = (props) => {

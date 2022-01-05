@@ -8,7 +8,7 @@ import useSound from 'use-sound';
 
 import { useBoop } from '../../hooks/use-boop';
 import boopSfx from '../../sounds/tock.mp3';
-import CategoryIcon from '../CategoryIcon';
+import CategoryIcon from '../icons/CategoryIcon';
 
 const Headline5Styled = styled(Typography)(({ theme }) => ({
   display: 'flex',

@@ -1,10 +1,10 @@
-import HomeIcon from '@mui/icons-material/Cottage';
 import { css, styled } from '@mui/material/styles';
 import BackgroundImage from 'gatsby-background-image';
 import { Link } from 'gatsby-theme-material-ui';
 import * as React from 'react';
 
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
+import CategoryIcon from '../icons/CategoryIcon';
 import MenuItem from './MenuItem';
 
 const ToolbarStyled = styled('div')(({ theme }) => ({
@@ -19,14 +19,20 @@ const ToolbarStyled = styled('div')(({ theme }) => ({
 
 const IconStyled = styled('div')(css`
   align-self: center;
+  width: 150px;
 `);
 
-const HeadlineStyled = styled('div')(({ theme }) => ({
+const HeadlineIconStyled = styled('h1')(({ theme }) => ({
+  alignSelf: 'flex-end',
+  textAlign: 'center',
+}));
+
+const HeadlineStyled = styled('h1')(({ theme }) => ({
   alignSelf: 'flex-end',
   textAlign: 'right',
 }));
 
-const LeadinStyled = styled('div')(({ theme }) => ({
+const LeadinStyled = styled('h2')(({ theme }) => ({
   alignSelf: 'flex-end',
   textAlign: 'right',
 }));
@@ -87,12 +93,17 @@ const HeaderNew = (props) => {
         )}
       >
         <LinkStyled noWrap key="home" to="/">
-          <HomeIcon color="primary" />
+          <CategoryIcon category="home" color="primary" />
         </LinkStyled>
-        <HeadlineStyled>
-          <IconStyled>{icon}</IconStyled>
-          {props.title}
-        </HeadlineStyled>
+        {icon && (
+          <HeadlineIconStyled>
+            <IconStyled>{icon}</IconStyled>
+            {props.title}
+          </HeadlineIconStyled>
+        )}
+
+        {!icon && <HeadlineStyled>{props.title}</HeadlineStyled>}
+
         <LeadinStyled>{lead}</LeadinStyled>
         <MenuStyled>
           {menuLinks.map((link, index) => (

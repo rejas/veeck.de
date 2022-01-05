@@ -1,9 +1,10 @@
-import * as React from 'react';
-import { BottomNavigationAction, Link } from 'gatsby-theme-material-ui';
 import { BottomNavigation, Hidden, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { BottomNavigationAction, Link } from 'gatsby-theme-material-ui';
+import * as React from 'react';
+
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
-import BoopedCategoryIcon from '../BoopedCategoryIcon';
+import BoopedCategoryIcon from '../icons/BoopedCategoryIcon';
 
 const FooterStyled = styled('footer')(({ theme }) => ({
   marginBottom: theme.spacing(1),

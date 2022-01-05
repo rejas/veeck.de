@@ -1,4 +1,5 @@
 import ComputerIcon from '@mui/icons-material/Computer';
+import HomeIcon from '@mui/icons-material/Cottage';
 import EditIcon from '@mui/icons-material/Edit';
 import ExploreIcon from '@mui/icons-material/Explore';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
@@ -13,6 +14,8 @@ const CategoryIcon = (props) => {
   const { category } = props;
 
   switch (category) {
+    case 'home':
+      return <HomeIcon {...props} />;
     case 'blog':
       return <EditIcon {...props} />;
     case 'homepage':
