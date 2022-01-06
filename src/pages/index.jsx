@@ -15,7 +15,6 @@ const IndexPage = (props) => {
       title="veeck.de"
       lead="computerschlampe, hoffotograf, terrorpoet"
       icon={
-
         <BigHead
           accessory="shades"
           body="chest"

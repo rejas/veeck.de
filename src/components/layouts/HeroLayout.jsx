@@ -1,4 +1,4 @@
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, Hidden } from '@mui/material';
 import {
   StyledEngineProvider,
   ThemeProvider,
@@ -13,15 +13,20 @@ import { isIE } from 'react-device-detect';
 
 import theme from '../../theme';
 import ErrorCard from '../ErrorCard';
-import Footer from '../page/Footer';
-import HeaderNew from '../page/HeaderNew';
+import Credits from '../page/Credits';
+import Header from '../page/Header';
+import MenuMobile from '../page/MenuMobile';
 
 const PageStyled = styled('div')(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr 2fr',
+
+  [theme.breakpoints.down('sm')]: {
+    gridTemplateColumns: '1fr',
+  },
 }));
 
-const MainStyled = styled('main')(css`
+const MainStyled = styled('div')(css`
   padding: 3rem;
   display: flex;
   flex-direction: column;
@@ -51,11 +56,14 @@ const HeroLayout = (props) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <PageStyled>
-          <HeaderNew bgImage={bgImage} icon={icon} lead={lead} title={title} />
+          <Header bgImage={bgImage} icon={icon} lead={lead} title={title} />
           <MainStyled>
             <ContentStyled>{children}</ContentStyled>
-            <Footer />
+            <Credits />
           </MainStyled>
+          <Hidden smUp>
+            <MenuMobile />
+          </Hidden>
         </PageStyled>
       </ThemeProvider>
     </StyledEngineProvider>
