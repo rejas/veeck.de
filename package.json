@@ -79,6 +79,7 @@
     "@trivago/prettier-plugin-sort-imports": "^3.1.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.5",
+    "modern-css-reset": "^1.4.0",
     "npm-check": "^5.9.2",
     "prettier": "^2.5.1"
   },
