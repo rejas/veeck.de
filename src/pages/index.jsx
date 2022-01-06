@@ -26,21 +26,25 @@ const IndexPage = (props) => {
       <Grid container spacing={3}>
         <Grid item xs={4}>
           <BigHead
-            accessory="roundGlasses"
+            accessory="shades"
             body="chest"
             circleColor="blue"
             clothing="shirt"
-            clothingColor="red"
+            clothingColor="black"
             eyebrows="raised"
-            eyes="wink"
+            eyes="simple"
+            faceMask={false}
+            faceMaskColor="white"
             facialHair="mediumBeard"
             graphic="react"
             hair="none"
-            hairColor="brown"
+            hairColor="white"
             hat="none"
-            hatColor="green"
-            mask="true"
-            mouth="grin"
+            hatColor="blue"
+            lashes
+            lipColor="red"
+            mask
+            mouth="openSmile"
             skinTone="light"
           />
         </Grid>
