@@ -4,9 +4,8 @@ import BackgroundImage from 'gatsby-background-image';
 import { Link } from 'gatsby-theme-material-ui';
 import * as React from 'react';
 
-import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import CategoryIcon from '../icons/CategoryIcon';
-import MenuItem from './MenuItem';
+import MenuDesktop from './MenuDesktop';
 
 const HeaderStyled = styled('div')(({ theme }) => ({
   position: 'sticky',
@@ -90,8 +89,6 @@ const HomeLinkStyled = styled(Link)(({ theme }) => ({
   },
 }));
 
-const MenuStyled = styled('div')(css``);
-
 const ConditionalWrapper = ({
   condition,
   wrapperTrue,
@@ -101,7 +98,6 @@ const ConditionalWrapper = ({
 
 const Header = (props) => {
   const { lead, bgImage, icon } = props;
-  const { menuLinks } = useSiteMetadata();
 
   return (
     <HeaderStyled>
@@ -127,13 +123,8 @@ const Header = (props) => {
         )}
         {!icon && <HeadlineStyled>{props.title}</HeadlineStyled>}
         <LeadinStyled>{lead}</LeadinStyled>
-
         <Hidden mdDown>
-          <MenuStyled>
-            {menuLinks.map((link, index) => (
-              <MenuItem link={link} key={index} />
-            ))}
-          </MenuStyled>
+          <MenuDesktop />
         </Hidden>
       </ConditionalWrapper>
     </HeaderStyled>

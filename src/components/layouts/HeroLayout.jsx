@@ -19,7 +19,7 @@ import MenuMobile from '../page/MenuMobile';
 
 const PageStyled = styled('div')(({ theme }) => ({
   display: 'grid',
-  gridTemplateColumns: '1fr 2fr',
+  gridTemplateColumns: '3fr 7fr',
 
   [theme.breakpoints.down('sm')]: {
     gridTemplateColumns: '1fr',
