@@ -16,7 +16,7 @@ const HeaderStyled = styled('div')(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'space-between',
 
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     position: 'relative',
     height: 'auto',
     maxHeight: '50vh',
@@ -33,7 +33,7 @@ const HeadlineIconStyled = styled('h1')(({ theme }) => ({
   alignSelf: 'flex-end',
   textAlign: 'center',
 
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     alignSelf: 'center',
   },
 }));
@@ -42,7 +42,7 @@ const HeadlineStyled = styled('h1')(({ theme }) => ({
   alignSelf: 'flex-end',
   textAlign: 'right',
 
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     alignSelf: 'center',
   },
 }));
@@ -51,7 +51,7 @@ const LeadinStyled = styled('h2')(({ theme }) => ({
   alignSelf: 'flex-end',
   textAlign: 'right',
 
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     alignSelf: 'center',
   },
 }));
@@ -62,11 +62,15 @@ const BackgroundImageStyled = styled(BackgroundImage)(({ theme }) => ({
   justifyContent: 'space-between',
   alignItems: 'flex-start',
   height: '100%',
-  padding: '3rem',
   backgroundSize: 'cover',
+  padding: '2rem 3rem 1rem',
 
   '&::before, &::after': {
     filter: 'opacity(0.35)',
+  },
+
+  [theme.breakpoints.up('md')]: {
+    padding: '3rem',
   },
 }));
 
@@ -75,8 +79,12 @@ const BackgroundStyled = styled('div')(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'space-between',
   height: '100%',
-  padding: '3rem',
   alignItems: 'flex-start',
+  padding: '2rem 3rem 1rem',
+
+  [theme.breakpoints.up('md')]: {
+    padding: '3rem',
+  },
 }));
 
 const HomeLinkStyled = styled(Link)(({ theme }) => ({
@@ -123,7 +131,7 @@ const Header = (props) => {
         )}
         {!icon && <HeadlineStyled>{props.title}</HeadlineStyled>}
         <LeadinStyled>{lead}</LeadinStyled>
-        <Hidden mdDown>
+        <Hidden smDown>
           <MenuDesktop />
         </Hidden>
       </ConditionalWrapper>

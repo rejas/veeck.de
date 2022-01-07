@@ -1,18 +1,25 @@
-import { css, styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import * as React from 'react';
 
 import { useSiteMetadata } from '../../hooks/use-site-metadata';
 import MenuItem from './MenuItem';
 
-const MenuStyled = styled('div')(css`
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: stretch;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
-  align-self: flex-end;
-`);
+const MenuStyled = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignContent: 'center',
+  alignItems: 'stretch',
+  justifyContent: 'flex-start',
+  flexWrap: 'nowrap',
+  alignSelf: 'center',
+  flexDirection: 'row',
+  gap: '1rem',
+  marginTop: '2rem',
+
+  [theme.breakpoints.up('md')]: {
+    flexDirection: 'column',
+    alignSelf: 'flex-end',
+  },
+}));
 
 const MenuDesktop = () => {
   const { menuLinks } = useSiteMetadata();

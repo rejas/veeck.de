@@ -11,16 +11,15 @@ import boopSfx from '../../sounds/tock.mp3';
 import CategoryIcon from '../icons/CategoryIcon';
 
 const Headline5Styled = styled(Button)(({ theme }) => ({
-  padding: '0.25rem 3rem',
   margin: '0 auto 1rem',
-  width: '100%',
-}));
 
-const CategoryIconStyled = styled(CategoryIcon)(({ theme }) => ({
-  [theme.breakpoints.down('md')]: {
-    display: 'none',
+  [theme.breakpoints.up('md')]: {
+    padding: '0.25rem 3rem',
+    width: '100%',
   },
 }));
+
+const CategoryIconStyled = styled(CategoryIcon)(({ theme }) => ({}));
 
 const LinkStyled = styled(Link)(({ theme }) => ({
   textTransform: 'uppercase',

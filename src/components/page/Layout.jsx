@@ -21,7 +21,7 @@ const PageStyled = styled('div')(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '3fr 7fr',
 
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     gridTemplateColumns: '1fr',
   },
 }));
