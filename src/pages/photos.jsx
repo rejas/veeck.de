@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import EntryCard from '../components/EntryCard';
-import HeroLayout from '../components/layouts/HeroLayout';
+import Layout from '../components/page/Layout';
 import MetaData from '../components/page/MetaData';
 
 const PhotoPage = (props) => {
@@ -11,7 +11,7 @@ const PhotoPage = (props) => {
   const { edges: galleries } = data.allPhotosYaml;
 
   return (
-    <HeroLayout
+    <Layout
       title="my photo galleries"
       lead="the panoramic pictures I have taken"
     >
@@ -30,7 +30,7 @@ const PhotoPage = (props) => {
           />
         ))}
       </Grid>
-    </HeroLayout>
+    </Layout>
   );
 };
 

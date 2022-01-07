@@ -5,8 +5,6 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { Link } from 'gatsby-theme-material-ui';
 import * as React from 'react';
 
-import HeroLayout from '../components/layouts/HeroLayout';
-import MetaData from '../components/page/MetaData';
 import {
   Headline1,
   Headline2,
@@ -15,7 +13,9 @@ import {
   Headline5,
   Headline6,
   Paragraph,
-} from '../components/page/Typography';
+} from '../components/Typography';
+import Layout from '../components/page/Layout';
+import MetaData from '../components/page/MetaData';
 import AudioSC from '../components/shortcodes/AudioSC';
 import CodeBlockSC from '../components/shortcodes/CodeBlockSC';
 import ListItemSC from '../components/shortcodes/ListItemSC';
@@ -44,7 +44,7 @@ const MdxTemplate = (props) => {
         WowFeed: WowFeedSC,
       }}
     >
-      <HeroLayout
+      <Layout
         title={mdx.frontmatter.title}
         lead={mdx.frontmatter.lead}
         image={mdx.frontmatter.img}
@@ -55,7 +55,7 @@ const MdxTemplate = (props) => {
           thumbnail={mdx.frontmatter.img}
         />
         <MDXRenderer>{mdx.body}</MDXRenderer>
-      </HeroLayout>
+      </Layout>
     </MDXProvider>
   );
 };

@@ -4,14 +4,14 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import CategoryCard from '../components/CategoryCard';
-import HeroLayout from '../components/layouts/HeroLayout';
+import Layout from '../components/page/Layout';
 import MetaData from '../components/page/MetaData';
 
 const IndexPage = (props) => {
   const { data } = props;
 
   return (
-    <HeroLayout
+    <Layout
       title="veeck.de"
       lead="computerschlampe, hoffotograf, terrorpoet"
       icon={
@@ -89,7 +89,7 @@ const IndexPage = (props) => {
           categoryName="Terror&shy;poet"
         />
       </Grid>
-    </HeroLayout>
+    </Layout>
   );
 };
 

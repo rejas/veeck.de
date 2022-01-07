@@ -13,9 +13,9 @@ import { isIE } from 'react-device-detect';
 
 import theme from '../../theme';
 import ErrorCard from '../ErrorCard';
-import Credits from '../page/Credits';
-import Header from '../page/Header';
-import MenuMobile from '../page/MenuMobile';
+import MenuMobile from '../navigation/MenuMobile';
+import Credits from './Credits';
+import Header from './Header';
 
 const PageStyled = styled('div')(({ theme }) => ({
   display: 'grid',
@@ -37,7 +37,7 @@ const ContentStyled = styled('main')(css`
   padding-bottom: 3rem;
 `);
 
-const HeroLayout = (props) => {
+const Layout = (props) => {
   let { children, image, lead, title, icon } = props;
 
   if (isIE) {
@@ -70,17 +70,17 @@ const HeroLayout = (props) => {
   );
 };
 
-HeroLayout.defaultProps = {
+Layout.defaultProps = {
   image: null,
   title: null,
   lead: null,
 };
 
-HeroLayout.propTypes = {
+Layout.propTypes = {
   children: PropTypes.node.isRequired,
   image: PropTypes.object,
   title: PropTypes.string,
   lead: PropTypes.string,
 };
 
-export default HeroLayout;
+export default Layout;

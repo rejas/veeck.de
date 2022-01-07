@@ -5,7 +5,7 @@ import { Link } from 'gatsby-theme-material-ui';
 import * as React from 'react';
 
 import CategoryIcon from '../icons/CategoryIcon';
-import MenuDesktop from './MenuDesktop';
+import MenuDesktop from '../navigation/MenuDesktop';
 
 const HeaderStyled = styled('div')(({ theme }) => ({
   position: 'sticky',

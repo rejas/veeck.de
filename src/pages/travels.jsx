@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import EntryCard from '../components/EntryCard';
-import HeroLayout from '../components/layouts/HeroLayout';
+import Layout from '../components/page/Layout';
 import MetaData from '../components/page/MetaData';
 
 const TravelsIndex = (props) => {
@@ -11,7 +11,7 @@ const TravelsIndex = (props) => {
   const { edges: posts } = data.allMdx;
 
   return (
-    <HeroLayout
+    <Layout
       title="my travel diaries"
       lead="my travel diaries from around the world"
     >
@@ -26,7 +26,7 @@ const TravelsIndex = (props) => {
           />
         ))}
       </Grid>
-    </HeroLayout>
+    </Layout>
   );
 };
 
