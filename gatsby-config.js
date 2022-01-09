@@ -37,7 +37,6 @@ module.exports = {
   flags: {
     FAST_DEV: true,
     PARALLEL_SOURCING: true,
-    PRESERVE_WEBPACK_CACHE: true,
   },
   plugins: [
     {
@@ -77,7 +76,7 @@ module.exports = {
       options: {
         defaultLayouts: {
           default: require.resolve(
-            `${__dirname}/src/components/layouts/BasicLayout.jsx`
+            `${__dirname}/src/components/page/Layout.jsx`
           ),
         },
         extensions: ['.mdx', '.md'],

@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import EntryCard from '../components/EntryCard';
-import TitleLayout from '../components/layouts/TitleLayout';
+import Layout from '../components/page/Layout';
 import MetaData from '../components/page/MetaData';
 
 const PhotoPage = (props) => {
@@ -11,7 +11,11 @@ const PhotoPage = (props) => {
   const { edges: galleries } = data.allPhotosYaml;
 
   return (
-    <TitleLayout title="my photo galleries">
+    <Layout
+      image={data.file}
+      title="my photo galleries"
+      lead="the panoramic pictures I have taken"
+    >
       <MetaData
         title="Galleries"
         description={'veeck shoots'}
@@ -27,7 +31,7 @@ const PhotoPage = (props) => {
           />
         ))}
       </Grid>
-    </TitleLayout>
+    </Layout>
   );
 };
 

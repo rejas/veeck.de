@@ -1,5 +1,17 @@
+:root {
+  --patternCurrentColor: rgba(142, 36, 171, 0.125);
+  --patternTransparent: #ededed;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --patternCurrentColor: rgba(127, 127, 127, 0.5);
+    --patternTransparent: #3c3c3c;
+  }
+}
+
 body {
-  /* Pattern from https://www.magicpattern.design/tools/css-backgrounds */
+  /* Pattern from https://www.magicpattern.design/tools/css-backgrounds
   background-color: #e5e5f7;
   opacity: 1;
   background-image: radial-gradient(
@@ -12,6 +24,7 @@ body {
     );
   background-size: 44px 44px;
   background-position: 0 0, 22px 22px;
+  */
 }
 
 [twdiv='yes'] {

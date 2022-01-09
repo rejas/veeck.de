@@ -1,67 +1,50 @@
 import { BigHead } from '@bigheads/core';
-import { Divider, Grid } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { Grid } from '@mui/material';
 import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import CategoryCard from '../components/CategoryCard';
-import BasicLayout from '../components/layouts/BasicLayout';
-import Headlines from '../components/page/Headlines';
+import Layout from '../components/page/Layout';
 import MetaData from '../components/page/MetaData';
-
-const GridStyled = styled(Grid)(() => ({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-  justifyContent: 'center',
-}));
 
 const IndexPage = (props) => {
   const { data } = props;
 
   return (
-    <BasicLayout>
+    <Layout
+      image={data.file}
+      title="veeck.de"
+      lead="computerschlampe, hoffotograf, terrorpoet"
+      icon={
+        <BigHead
+          accessory="shades"
+          body="chest"
+          circleColor="blue"
+          clothing="shirt"
+          clothingColor="black"
+          eyebrows="raised"
+          eyes="simple"
+          faceMask={false}
+          faceMaskColor="white"
+          facialHair="mediumBeard"
+          graphic="react"
+          hair="none"
+          hairColor="white"
+          hat="none"
+          hatColor="blue"
+          lashes
+          lipColor="red"
+          mask
+          mouth="openSmile"
+          skinTone="light"
+        />
+      }
+    >
       <MetaData title="veeck.de" thumbnail={data.file} />
 
       <Grid container spacing={3}>
-        <Grid item xs={4}>
-          <BigHead
-            accessory="shades"
-            body="chest"
-            circleColor="blue"
-            clothing="shirt"
-            clothingColor="black"
-            eyebrows="raised"
-            eyes="simple"
-            faceMask={false}
-            faceMaskColor="white"
-            facialHair="mediumBeard"
-            graphic="react"
-            hair="none"
-            hairColor="white"
-            hat="none"
-            hatColor="blue"
-            lashes
-            lipColor="red"
-            mask
-            mouth="openSmile"
-            skinTone="light"
-          />
-        </Grid>
-        <GridStyled item xs={8}>
-          <Headlines
-            title="veeck"
-            lead="computerschlampe, hoffotograf, terrorpoet"
-          />
-        </GridStyled>
-      </Grid>
-
-      <Grid container spacing={3}>
-        <Divider />
-
         <CategoryCard
           title={data.latestBlog.edges[0].node.frontmatter.title}
-          subtitle="ramblings and stuff I find noteworthy"
           slug={data.latestBlog.edges[0].node.fields.slug}
           excerpt={data.latestBlog.edges[0].node.excerpt}
           category="blog"
@@ -71,7 +54,6 @@ const IndexPage = (props) => {
 
         <CategoryCard
           title={data.latestProject.edges[0].node.frontmatter.title}
-          subtitle="all the techy nerdy geeky stuff I do for fun"
           slug={data.latestProject.edges[0].node.fields.slug}
           excerpt={data.latestProject.edges[0].node.excerpt}
           category={data.latestProject.edges[0].node.frontmatter.category}
@@ -85,7 +67,6 @@ const IndexPage = (props) => {
 
         <CategoryCard
           title={data.latestImage.edges[0].node.title}
-          subtitle="the panoramic pictures I have taken"
           excerpt={data.latestImage.edges[0].node.lead}
           slug={'photos/' + data.latestImage.edges[0].node.path}
           category="photos"
@@ -98,7 +79,6 @@ const IndexPage = (props) => {
 
         <CategoryCard
           title={data.latestTravel.edges[0].node.frontmatter.title}
-          subtitle="my travel diaries from around the world"
           slug={data.latestTravel.edges[0].node.fields.slug}
           excerpt={data.latestTravel.edges[0].node.excerpt}
           category={data.latestTravel.edges[0].node.frontmatter.category}
@@ -110,7 +90,7 @@ const IndexPage = (props) => {
           categoryName="Terror&shy;poet"
         />
       </Grid>
-    </BasicLayout>
+    </Layout>
   );
 };
 

@@ -4,7 +4,7 @@ import * as React from 'react';
 import { animated } from 'react-spring';
 
 import { useBoop } from '../hooks/use-boop';
-import CategoryIcon from './CategoryIcon';
+import CategoryIcon from './icons/CategoryIcon';
 
 const BoopedListItem = (props) => {
   const post = props.post;

@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import BoopedListItem from '../components/BoopedListItem';
-import TitleLayout from '../components/layouts/TitleLayout';
+import Layout from '../components/page/Layout';
 import MetaData from '../components/page/MetaData';
 
 const BlogIndex = (props) => {
@@ -11,7 +11,11 @@ const BlogIndex = (props) => {
   const { edges: posts } = data.allMdx;
 
   return (
-    <TitleLayout title="my personal blog">
+    <Layout
+      image={data.file}
+      title="my personal blog"
+      lead="ramblings and stuff I find noteworthy"
+    >
       <MetaData title="Blog" description="veeck blogs" image={data.file} />
       <Paper>
         <List>
@@ -20,7 +24,7 @@ const BlogIndex = (props) => {
           ))}
         </List>
       </Paper>
-    </TitleLayout>
+    </Layout>
   );
 };
 
