@@ -1,4 +1,5 @@
 import { Hidden } from '@mui/material';
+import Button from '@mui/material/Button';
 import { css, styled } from '@mui/material/styles';
 import BackgroundImage from 'gatsby-background-image';
 import { getImage } from 'gatsby-plugin-image';
@@ -9,6 +10,7 @@ import * as React from 'react';
 
 import CategoryIcon from '../icons/CategoryIcon';
 import MenuDesktop from '../navigation/MenuDesktop';
+import { darkModeContext } from '../ui/ThemeHandler';
 
 const HeaderStyled = styled('div')(({ theme }) => ({
   position: 'sticky',
@@ -106,6 +108,18 @@ const Header = (props) => {
     bgImage = convertToBgImage(getImage(image));
   }
 
+  const DarkModeContext = React.useContext(darkModeContext);
+  const { darkMode, setDarkMode } = DarkModeContext;
+  const handleThemeChange = () => {
+    if (darkMode) {
+      localStorage.setItem('preferred-theme', 'light');
+      setDarkMode(false);
+    } else {
+      localStorage.setItem('preferred-theme', 'dark');
+      setDarkMode(true);
+    }
+  };
+
   return (
     <HeaderStyled>
       <ConditionalWrapper
@@ -119,7 +133,7 @@ const Header = (props) => {
           <BackgroundStyled>{children}</BackgroundStyled>
         )}
       >
-        <HomeLinkStyled noWrap key="home" to="/">
+        <HomeLinkStyled key="home" to="/">
           <CategoryIcon category="home" color="primary" />
         </HomeLinkStyled>
         {icon && (
@@ -131,6 +145,14 @@ const Header = (props) => {
         {!icon && <HeadlineStyled>{props.title}</HeadlineStyled>}
         <Hidden smDown>
           <MenuDesktop />
+          <Button
+            variant="contained"
+            color="secondary"
+            size="medium"
+            onClick={handleThemeChange}
+          >
+            Toggle {darkMode ? 'Light' : 'Dark'} Theme
+          </Button>
         </Hidden>
       </ConditionalWrapper>
     </HeaderStyled>

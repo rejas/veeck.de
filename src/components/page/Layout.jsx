@@ -9,9 +9,10 @@ import PropTypes from 'prop-types';
 import * as React from 'react';
 import { isIE } from 'react-device-detect';
 
-import theme from '../../theme';
+import { darkTheme, lightTheme } from '../../newtheme';
 import ErrorCard from '../ErrorCard';
 import MenuMobile from '../navigation/MenuMobile';
+import { darkModeContext } from '../ui/ThemeHandler';
 import Credits from './Credits';
 import Header from './Header';
 
@@ -44,6 +45,25 @@ const LeadinStyled = styled('h2')(({ theme }) => ({
 const Layout = (props) => {
   let { children, icon, image, lead, title } = props;
 
+  const DarkModeContext = React.useContext(darkModeContext);
+  const { darkMode, setDarkMode } = DarkModeContext;
+
+  React.useEffect(() => {
+    const theme = localStorage.getItem('preferred-theme');
+    if (theme) {
+      const themePreference = localStorage.getItem('preferred-theme');
+      if (themePreference === 'dark') {
+        setDarkMode(true);
+      } else {
+        setDarkMode(false);
+      }
+    } else {
+      localStorage.setItem('preferred-theme', 'light');
+      setDarkMode(true);
+    }
+    //eslint-disable-next-line
+  }, []);
+
   if (isIE) {
     children = (
       <ErrorCard message="The Internet Explorer is not supported. Please download Firefox." />
@@ -52,7 +72,7 @@ const Layout = (props) => {
 
   return (
     <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <CssBaseline />
         <PageStyled>
           <Header image={image} icon={icon} lead={lead} title={title} />

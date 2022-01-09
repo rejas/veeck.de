@@ -48,7 +48,7 @@ const MenuItem = (props) => {
       <animated.span style={style}>
         <CategoryIconStyled category={link.icon} color="primary" />
       </animated.span>
-      <LinkStyled onClick={play} color="inherit" noWrap to={link.url}>
+      <LinkStyled onClick={play} color="inherit" to={link.url}>
         {link.name}
       </LinkStyled>
     </Headline5Styled>
