@@ -5,8 +5,6 @@ import {
   css,
   styled,
 } from '@mui/material/styles';
-import { getImage } from 'gatsby-plugin-image';
-import { convertToBgImage } from 'gbimage-bridge';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { isIE } from 'react-device-detect';
@@ -38,7 +36,7 @@ const ContentStyled = styled('main')(css`
 `);
 
 const Layout = (props) => {
-  let { children, image, lead, title, icon } = props;
+  let { children, icon, image, lead, title } = props;
 
   if (isIE) {
     children = (
@@ -46,17 +44,12 @@ const Layout = (props) => {
     );
   }
 
-  let bgImage;
-  if (image) {
-    bgImage = convertToBgImage(getImage(image));
-  }
-
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <PageStyled>
-          <Header bgImage={bgImage} icon={icon} lead={lead} title={title} />
+          <Header image={image} icon={icon} lead={lead} title={title} />
           <MainStyled>
             <ContentStyled>{children}</ContentStyled>
             <Credits />
@@ -71,13 +64,15 @@ const Layout = (props) => {
 };
 
 Layout.defaultProps = {
+  icon: null,
   image: null,
-  title: null,
   lead: null,
+  title: null,
 };
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  icon: PropTypes.object,
   image: PropTypes.object,
   title: PropTypes.string,
   lead: PropTypes.string,

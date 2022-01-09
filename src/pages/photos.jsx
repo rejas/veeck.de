@@ -12,6 +12,7 @@ const PhotoPage = (props) => {
 
   return (
     <Layout
+      image={data.file}
       title="my photo galleries"
       lead="the panoramic pictures I have taken"
     >

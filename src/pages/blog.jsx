@@ -12,6 +12,7 @@ const BlogIndex = (props) => {
 
   return (
     <Layout
+      image={data.file}
       title="my personal blog"
       lead="ramblings and stuff I find noteworthy"
     >

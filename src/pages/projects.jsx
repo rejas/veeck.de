@@ -12,6 +12,7 @@ const ProjectsIndex = (props) => {
 
   return (
     <Layout
+      image={data.file}
       title="my side projects"
       lead="all the techy nerdy geeky stuff I do for fun"
     >

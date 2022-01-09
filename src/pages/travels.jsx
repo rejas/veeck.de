@@ -12,6 +12,7 @@ const TravelsIndex = (props) => {
 
   return (
     <Layout
+      image={data.file}
       title="my travel diaries"
       lead="my travel diaries from around the world"
     >

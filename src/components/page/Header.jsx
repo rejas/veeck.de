@@ -1,7 +1,9 @@
 import { Hidden } from '@mui/material';
 import { css, styled } from '@mui/material/styles';
 import BackgroundImage from 'gatsby-background-image';
+import { getImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby-theme-material-ui';
+import { convertToBgImage } from 'gbimage-bridge';
 import * as React from 'react';
 
 import CategoryIcon from '../icons/CategoryIcon';
@@ -105,7 +107,12 @@ const ConditionalWrapper = ({
 }) => (condition ? wrapperTrue(children) : wrapperFalse(children));
 
 const Header = (props) => {
-  const { lead, bgImage, icon } = props;
+  const { lead, image, icon } = props;
+
+  let bgImage;
+  if (image) {
+    bgImage = convertToBgImage(getImage(image));
+  }
 
   return (
     <HeaderStyled>

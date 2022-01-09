@@ -12,6 +12,7 @@ const IndexPage = (props) => {
 
   return (
     <Layout
+      image={data.file}
       title="veeck.de"
       lead="computerschlampe, hoffotograf, terrorpoet"
       icon={
