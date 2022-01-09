@@ -55,6 +55,7 @@ const LeadinStyled = styled('h2')(({ theme }) => ({
 
   [theme.breakpoints.down('md')]: {
     alignSelf: 'center',
+    textAlign: 'center',
   },
 }));
 
