@@ -34,11 +34,6 @@ const CategoryCard = (props) => {
     <BoxStyled>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Typography variant="h5" gutterBottom>
-            Latest Update in {props.categoryName}:
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
           <CardStyled>
             <CardActionAreaContent to={props.slug}>
               <CardContent>

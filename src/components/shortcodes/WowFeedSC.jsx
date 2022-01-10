@@ -1,5 +1,3 @@
-import * as React from 'react';
-import { Button } from 'gatsby-theme-material-ui';
 import {
   FormControl,
   Grid,
@@ -9,6 +7,8 @@ import {
   TextField,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { Button } from 'gatsby-theme-material-ui';
+import * as React from 'react';
 
 const FormControlStyled = styled(FormControl)(({ theme }) => ({
   minWidth: 120,

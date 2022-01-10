@@ -1,7 +1,7 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
 import loadable from '@loadable/component';
 import { Card, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
+import * as React from 'react';
 
 const AudioPlayer = loadable(() => import('material-ui-audio-player'));
 

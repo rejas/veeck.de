@@ -4,6 +4,7 @@ import BackgroundImage from 'gatsby-background-image';
 import { getImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby-theme-material-ui';
 import { convertToBgImage } from 'gbimage-bridge';
+import PropTypes from 'prop-types';
 import * as React from 'react';
 
 import CategoryIcon from '../icons/CategoryIcon';
@@ -46,16 +47,6 @@ const HeadlineStyled = styled('h1')(({ theme }) => ({
 
   [theme.breakpoints.down('md')]: {
     alignSelf: 'center',
-  },
-}));
-
-const LeadinStyled = styled('h2')(({ theme }) => ({
-  alignSelf: 'flex-end',
-  textAlign: 'right',
-
-  [theme.breakpoints.down('md')]: {
-    alignSelf: 'center',
-    textAlign: 'center',
   },
 }));
 
@@ -108,7 +99,7 @@ const ConditionalWrapper = ({
 }) => (condition ? wrapperTrue(children) : wrapperFalse(children));
 
 const Header = (props) => {
-  const { lead, image, icon } = props;
+  const { image, icon } = props;
 
   let bgImage;
   if (image) {
@@ -138,13 +129,17 @@ const Header = (props) => {
           </HeadlineIconStyled>
         )}
         {!icon && <HeadlineStyled>{props.title}</HeadlineStyled>}
-        <LeadinStyled>{lead}</LeadinStyled>
         <Hidden smDown>
           <MenuDesktop />
         </Hidden>
       </ConditionalWrapper>
     </HeaderStyled>
   );
+};
+
+Header.propTypes = {
+  icon: PropTypes.object,
+  image: PropTypes.object,
 };
 
 export default Header;
