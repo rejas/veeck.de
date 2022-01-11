@@ -18,6 +18,7 @@ export const useBoop = ({
   const prefersReducedMotion = usePrefersReducedMotion();
   const [isBooped, setIsBooped] = React.useState(false);
   const style = useSpring({
+    display: 'inline-flex',
     transform: isBooped
       ? `translate(${x}px, ${y}px)
          rotate(${rotation}deg)
