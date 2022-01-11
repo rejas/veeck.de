@@ -41,6 +41,7 @@
     "@mdx-js/react": "^1.6.22",
     "@mui/icons-material": "^5.2.5",
     "@mui/material": "^5.2.7",
+    "@mui/styles": "^5.2.3",
     "fslightbox-react": "^1.6.2",
     "gatsby": "^4.4.0",
     "gatsby-background-image": "^1.6.0",

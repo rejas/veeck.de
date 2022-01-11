@@ -1,10 +1,6 @@
-import { CssBaseline, Hidden } from '@mui/material';
-import {
-  StyledEngineProvider,
-  ThemeProvider,
-  css,
-  styled,
-} from '@mui/material/styles';
+import { Box, CssBaseline, Hidden } from '@mui/material';
+import { ThemeProvider, css, styled } from '@mui/material/styles';
+import { StylesProvider } from '@mui/styles';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { isIE } from 'react-device-detect';
@@ -71,7 +67,7 @@ const Layout = (props) => {
   }
 
   return (
-    <StyledEngineProvider injectFirst>
+    <StylesProvider>
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <CssBaseline />
         <PageStyled>
@@ -86,7 +82,7 @@ const Layout = (props) => {
           </Hidden>
         </PageStyled>
       </ThemeProvider>
-    </StyledEngineProvider>
+    </StylesProvider>
   );
 };
 
