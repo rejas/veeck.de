@@ -26,14 +26,14 @@ const PageStyled = styled('div')(({ theme }) => ({
 }));
 
 const MainStyled = styled('div')(css`
-  padding: 3rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
 `);
 
 const ContentStyled = styled('main')(css`
   flex-basis: 100%;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 `);
 
 const LeadinStyled = styled('h2')(({ theme }) => ({

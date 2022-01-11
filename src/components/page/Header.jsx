@@ -59,14 +59,14 @@ const BackgroundImageStyled = styled(BackgroundImage)(({ theme }) => ({
   alignItems: 'flex-start',
   height: '100%',
   backgroundSize: 'cover',
-  padding: '2rem 3rem 1rem',
+  padding: '2rem 2rem 1rem',
 
   '&::before, &::after': {
     filter: 'opacity(0.35)',
   },
 
   [theme.breakpoints.up('md')]: {
-    padding: '3rem',
+    padding: '2rem',
   },
 }));
 
@@ -76,10 +76,10 @@ const BackgroundStyled = styled('div')(({ theme }) => ({
   justifyContent: 'space-between',
   height: '100%',
   alignItems: 'flex-start',
-  padding: '2rem 3rem 1rem',
+  padding: '2rem 2rem 1rem',
 
   [theme.breakpoints.up('md')]: {
-    padding: '3rem',
+    padding: '2rem',
   },
 }));
 

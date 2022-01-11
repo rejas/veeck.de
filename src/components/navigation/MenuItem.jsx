@@ -14,7 +14,7 @@ const Headline5Styled = styled(Button)(({ theme }) => ({
   margin: '0 auto 1rem',
 
   [theme.breakpoints.up('md')]: {
-    padding: '0.25rem 3rem',
+    padding: '0.25rem 2rem',
     width: '100%',
   },
 }));
