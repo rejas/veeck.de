@@ -1,5 +1,10 @@
-import { Box, CssBaseline, Hidden } from '@mui/material';
-import { ThemeProvider, css, styled } from '@mui/material/styles';
+import { CssBaseline, Hidden } from '@mui/material';
+import {
+  ThemeProvider,
+  css,
+  responsiveFontSizes,
+  styled,
+} from '@mui/material/styles';
 import { StylesProvider } from '@mui/styles';
 import PropTypes from 'prop-types';
 import * as React from 'react';
@@ -68,7 +73,9 @@ const Layout = (props) => {
 
   return (
     <StylesProvider>
-      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <ThemeProvider
+        theme={responsiveFontSizes(darkMode ? darkTheme : lightTheme)}
+      >
         <CssBaseline />
         <PageStyled>
           <Header image={image} icon={icon} lead={lead} title={title} />
