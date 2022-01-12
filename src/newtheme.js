@@ -12,13 +12,6 @@ const baseTheme = createTheme({
     },
   },
   components: {
-    MuiBottomNavigationAction: {
-      styleOverrides: {
-        root: {
-          minWidth: 0,
-        },
-      },
-    },
     MuiDivider: {
       styleOverrides: {
         root: {
@@ -30,18 +23,6 @@ const baseTheme = createTheme({
     MuiLink: {
       defaultProps: {
         underline: 'hover',
-      },
-      styleOverrides: {
-        root: {
-          fontWeight: 'bold',
-        },
-      },
-    },
-    MuiList: {
-      styleOverrides: {
-        root: {
-          fontSize: '1rem',
-        },
       },
     },
   },
@@ -95,6 +76,10 @@ const darkTheme = createTheme({
   ...baseTheme,
   palette: {
     type: 'dark',
+    text: {
+      primary: '#f2f2f2',
+      secondary: '#E6E6E6',
+    },
     primary: {
       main: '#fae34b',
     },
@@ -115,6 +100,10 @@ const lightTheme = createTheme({
   ...baseTheme,
   palette: {
     type: 'light',
+    text: {
+      primary: '#0d0d0d',
+      secondary: '#1a1a1a',
+    },
     primary: {
       main: '#939597',
     },
