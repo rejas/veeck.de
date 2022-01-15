@@ -1,14 +1,14 @@
 import { Hidden } from '@mui/material';
-import Button from '@mui/material/Button';
 import { css, styled } from '@mui/material/styles';
 import BackgroundImage from 'gatsby-background-image';
 import { getImage } from 'gatsby-plugin-image';
-import { Link } from 'gatsby-theme-material-ui';
+import { Fab, Link } from 'gatsby-theme-material-ui';
 import { convertToBgImage } from 'gbimage-bridge';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 
 import CategoryIcon from '../icons/CategoryIcon';
+import ToggleIcon from '../icons/ToggleIcon';
 import MenuDesktop from '../navigation/MenuDesktop';
 import { darkModeContext } from '../ui/ThemeHandler';
 
@@ -145,14 +145,15 @@ const Header = (props) => {
         {!icon && <HeadlineStyled>{props.title}</HeadlineStyled>}
         <Hidden smDown>
           <MenuDesktop />
-          <Button
-            variant="contained"
+          <Fab
             color="secondary"
-            size="medium"
+            sx={{
+              minHeight: '56px',
+            }}
             onClick={handleThemeChange}
           >
-            Toggle {darkMode ? 'Light' : 'Dark'} Theme
-          </Button>
+            <ToggleIcon mode={darkMode} />
+          </Fab>
         </Hidden>
       </ConditionalWrapper>
     </HeaderStyled>
