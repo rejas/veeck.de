@@ -21,26 +21,14 @@ const MenuMobile = () => {
         key="home"
         to="/"
         label="veeck"
-        icon={
-          <BoopedCategoryIcon
-            fontSize="small"
-            color="primary"
-            category="home"
-          />
-        }
+        icon={<BoopedCategoryIcon color="primary" category="home" />}
       />
       {menuLinks.map((link) => (
         <BottomNavigationAction
           key={link.name}
           to={link.url}
           label={link.name}
-          icon={
-            <BoopedCategoryIcon
-              fontSize="small"
-              category={link.icon}
-              color="primary"
-            />
-          }
+          icon={<BoopedCategoryIcon category={link.icon} color="primary" />}
         />
       ))}
     </BottomNavigationStyled>

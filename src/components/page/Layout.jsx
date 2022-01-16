@@ -1,17 +1,19 @@
 import { CssBaseline, Hidden } from '@mui/material';
 import {
-  StyledEngineProvider,
   ThemeProvider,
   css,
+  responsiveFontSizes,
   styled,
 } from '@mui/material/styles';
+import { StylesProvider } from '@mui/styles';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { isIE } from 'react-device-detect';
 
-import theme from '../../theme';
+import { darkTheme, lightTheme } from '../../theme';
 import ErrorCard from '../ErrorCard';
 import MenuMobile from '../navigation/MenuMobile';
+import { darkModeContext } from '../ui/ThemeHandler';
 import Credits from './Credits';
 import Header from './Header';
 
@@ -25,14 +27,14 @@ const PageStyled = styled('div')(({ theme }) => ({
 }));
 
 const MainStyled = styled('div')(css`
-  padding: 3rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
 `);
 
 const ContentStyled = styled('main')(css`
   flex-basis: 100%;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 `);
 
 const LeadinStyled = styled('h2')(({ theme }) => ({
@@ -44,6 +46,25 @@ const LeadinStyled = styled('h2')(({ theme }) => ({
 const Layout = (props) => {
   let { children, icon, image, lead, title } = props;
 
+  const DarkModeContext = React.useContext(darkModeContext);
+  const { darkMode, setDarkMode } = DarkModeContext;
+
+  React.useEffect(() => {
+    const theme = localStorage.getItem('preferred-theme');
+    if (theme) {
+      const themePreference = localStorage.getItem('preferred-theme');
+      if (themePreference === 'dark') {
+        setDarkMode(true);
+      } else {
+        setDarkMode(false);
+      }
+    } else {
+      localStorage.setItem('preferred-theme', 'light');
+      setDarkMode(true);
+    }
+    //eslint-disable-next-line
+  }, []);
+
   if (isIE) {
     children = (
       <ErrorCard message="The Internet Explorer is not supported. Please download Firefox." />
@@ -51,8 +72,10 @@ const Layout = (props) => {
   }
 
   return (
-    <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={theme}>
+    <StylesProvider>
+      <ThemeProvider
+        theme={responsiveFontSizes(darkMode ? darkTheme : lightTheme)}
+      >
         <CssBaseline />
         <PageStyled>
           <Header image={image} icon={icon} lead={lead} title={title} />
@@ -66,7 +89,7 @@ const Layout = (props) => {
           </Hidden>
         </PageStyled>
       </ThemeProvider>
-    </StyledEngineProvider>
+    </StylesProvider>
   );
 };
 

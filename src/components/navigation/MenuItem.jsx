@@ -14,7 +14,7 @@ const Headline5Styled = styled(Button)(({ theme }) => ({
   margin: '0 auto 1rem',
 
   [theme.breakpoints.up('md')]: {
-    padding: '0.25rem 3rem',
+    padding: '0.25rem 2rem',
     width: '100%',
   },
 }));
@@ -48,7 +48,7 @@ const MenuItem = (props) => {
       <animated.span style={style}>
         <CategoryIconStyled category={link.icon} color="primary" />
       </animated.span>
-      <LinkStyled onClick={play} color="inherit" noWrap to={link.url}>
+      <LinkStyled onClick={play} color="inherit" to={link.url}>
         {link.name}
       </LinkStyled>
     </Headline5Styled>

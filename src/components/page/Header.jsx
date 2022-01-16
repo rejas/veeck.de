@@ -8,7 +8,9 @@ import PropTypes from 'prop-types';
 import * as React from 'react';
 
 import CategoryIcon from '../icons/CategoryIcon';
+import ToggleIcon from '../icons/ToggleIcon';
 import MenuDesktop from '../navigation/MenuDesktop';
+import { darkModeContext } from '../ui/ThemeHandler';
 
 const HeaderStyled = styled('div')(({ theme }) => ({
   position: 'sticky',
@@ -25,6 +27,12 @@ const HeaderStyled = styled('div')(({ theme }) => ({
     maxHeight: '50vh',
   },
 }));
+
+const IconBarStyled = styled('div')(css`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`);
 
 const IconStyled = styled('div')(css`
   align-self: center;
@@ -57,14 +65,14 @@ const BackgroundImageStyled = styled(BackgroundImage)(({ theme }) => ({
   alignItems: 'flex-start',
   height: '100%',
   backgroundSize: 'cover',
-  padding: '2rem 3rem 1rem',
+  padding: '2rem 2rem 1rem',
 
   '&::before, &::after': {
     filter: 'opacity(0.35)',
   },
 
   [theme.breakpoints.up('md')]: {
-    padding: '3rem',
+    padding: '2rem',
   },
 }));
 
@@ -74,17 +82,21 @@ const BackgroundStyled = styled('div')(({ theme }) => ({
   justifyContent: 'space-between',
   height: '100%',
   alignItems: 'flex-start',
-  padding: '2rem 3rem 1rem',
+  padding: '2rem 2rem 1rem',
 
   [theme.breakpoints.up('md')]: {
-    padding: '3rem',
+    padding: '2rem',
   },
 }));
 
 const HomeLinkStyled = styled(Link)(({ theme }) => ({
-  '&:hover': {
-    color: theme.palette.primary,
-  },
+  border: '1px solid ' + theme.palette.primary.main,
+  borderRadius: '4px',
+  width: '36px',
+  height: '36px',
+  display: 'grid',
+  alignItems: 'center',
+  justifyItems: 'center',
 
   [theme.breakpoints.down('sm')]: {
     display: 'none',
@@ -106,6 +118,18 @@ const Header = (props) => {
     bgImage = convertToBgImage(getImage(image));
   }
 
+  const DarkModeContext = React.useContext(darkModeContext);
+  const { darkMode, setDarkMode } = DarkModeContext;
+  const handleThemeChange = () => {
+    if (darkMode) {
+      localStorage.setItem('preferred-theme', 'light');
+      setDarkMode(false);
+    } else {
+      localStorage.setItem('preferred-theme', 'dark');
+      setDarkMode(true);
+    }
+  };
+
   return (
     <HeaderStyled>
       <ConditionalWrapper
@@ -119,9 +143,12 @@ const Header = (props) => {
           <BackgroundStyled>{children}</BackgroundStyled>
         )}
       >
-        <HomeLinkStyled noWrap key="home" to="/">
-          <CategoryIcon category="home" color="primary" />
-        </HomeLinkStyled>
+        <IconBarStyled>
+          <HomeLinkStyled key="home" to="/">
+            <CategoryIcon category="home" color="primary" />
+          </HomeLinkStyled>
+          <ToggleIcon mode={darkMode} onClick={handleThemeChange} />
+        </IconBarStyled>
         {icon && (
           <HeadlineIconStyled>
             <IconStyled>{icon}</IconStyled>
