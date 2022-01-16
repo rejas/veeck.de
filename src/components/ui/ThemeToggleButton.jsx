@@ -2,6 +2,8 @@ import { styled } from '@mui/material/styles';
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
 
+import { darkModeContext } from './ThemeHandler';
+
 const IconStyled = styled('div')(({ theme }) => ({
   border: '1px solid ' + theme.palette.primary.main,
   borderRadius: '4px',
@@ -16,8 +18,19 @@ const IconStyled = styled('div')(({ theme }) => ({
 /**
  * https://jfelix.info/blog/using-react-spring-to-animate-svg-icons-dark-mode-toggle
  */
-const ToggleIcon = (props) => {
-  const isDarkMode = props.mode;
+const ThemeToggleButton = (props) => {
+  const DarkModeContext = React.useContext(darkModeContext);
+  const { darkMode, setDarkMode } = DarkModeContext;
+
+  const handleThemeChange = () => {
+    if (darkMode) {
+      localStorage.setItem('preferred-theme', 'light');
+      setDarkMode(false);
+    } else {
+      localStorage.setItem('preferred-theme', 'dark');
+      setDarkMode(true);
+    }
+  };
 
   const properties = {
     dark: {
@@ -38,7 +51,7 @@ const ToggleIcon = (props) => {
   };
 
   const { r, transform, cx, cy, opacity } =
-    properties[isDarkMode ? 'dark' : 'light'];
+    properties[darkMode ? 'dark' : 'light'];
   const svgContainerProps = useSpring({
     transform,
     config: properties.springConfig,
@@ -52,7 +65,7 @@ const ToggleIcon = (props) => {
   const linesProps = useSpring({ opacity, config: properties.springConfig });
 
   return (
-    <IconStyled onClick={props.onClick}>
+    <IconStyled onClick={handleThemeChange}>
       <animated.svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -95,4 +108,4 @@ const ToggleIcon = (props) => {
   );
 };
 
-export default ToggleIcon;
+export default ThemeToggleButton;

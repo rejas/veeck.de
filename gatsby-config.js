@@ -109,11 +109,15 @@ module.exports = {
             google: [
               {
                 family: 'Josefin+Sans',
-                variants: ['300', '400', '500'],
+                variants: ['400', '700'],
                 fontDisplay: 'swap',
                 //subsets: ['latin']
                 //text: 'Hello'
                 //strategy: 'selfHosted' // 'base64' || 'cdn'
+              },
+              {
+                family: 'Comforter+Brush',
+                fontDisplay: 'swap',
               },
             ],
           },

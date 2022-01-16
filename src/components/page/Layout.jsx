@@ -1,4 +1,4 @@
-import { CssBaseline, Hidden } from '@mui/material';
+import { CssBaseline, Hidden, Typography } from '@mui/material';
 import {
   ThemeProvider,
   css,
@@ -37,7 +37,7 @@ const ContentStyled = styled('main')(css`
   padding-bottom: 2rem;
 `);
 
-const LeadinStyled = styled('h2')(({ theme }) => ({
+const LeadinStyled = styled(Typography)(({ theme }) => ({
   alignSelf: 'center',
   textAlign: 'center',
   marginBottom: '2rem',
@@ -80,7 +80,7 @@ const Layout = (props) => {
         <PageStyled>
           <Header image={image} icon={icon} lead={lead} title={title} />
           <MainStyled>
-            <LeadinStyled>{lead}</LeadinStyled>
+            <LeadinStyled variant="h2">{lead}</LeadinStyled>
             <ContentStyled>{children}</ContentStyled>
             <Credits />
           </MainStyled>

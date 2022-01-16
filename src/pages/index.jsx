@@ -1,5 +1,5 @@
 import { BigHead } from '@bigheads/core';
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import { graphql } from 'gatsby';
 import * as React from 'react';
 
@@ -43,12 +43,6 @@ const IndexPage = (props) => {
       <MetaData title="veeck.de" thumbnail={data.file} />
 
       <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Typography variant="h5" gutterBottom>
-            Latest Updates:
-          </Typography>
-        </Grid>
-
         <CategoryCard
           title={data.latestBlog.edges[0].node.frontmatter.title}
           slug={data.latestBlog.edges[0].node.fields.slug}

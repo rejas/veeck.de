@@ -23,7 +23,7 @@ const EntryCard = (props) => {
         <CardActionAreaStyled to={link}>
           <GatsbyImage image={cardImage} alt={title} />
           <CardContent>
-            <Typography component="h2" variant="subtitle1">
+            <Typography variant="subtitle1" component="h2">
               {title}
             </Typography>
           </CardContent>

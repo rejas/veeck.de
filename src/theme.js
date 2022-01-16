@@ -29,45 +29,29 @@ const baseTheme = createTheme({
   typography: {
     fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
     h1: {
-      fontFamily: ['Gilroy', 'sans-serif'].join(','),
+      fontFamily: ['Comforter Brush', 'serif'].join(','),
       fontSize: '4rem',
-      fontWeight: 'bold',
-      lineHeight: '1',
-      textAlign: 'center',
-      textTransform: 'uppercase',
-      wordBreak: 'break-word',
     },
     h2: {
-      fontFamily: ['Gilroy', 'sans-serif'].join(','),
-      fontSize: '2rem',
-      fontWeight: 'bold',
-      textTransform: 'uppercase',
+      fontFamily: ['Comforter Brush', 'serif'].join(','),
+      fontSize: '3rem',
     },
     h3: {
-      fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
       fontSize: '1.666rem',
     },
     h4: {
-      fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
       fontSize: '1rem',
-      fontWeight: 'bold',
+      //fontWeight: 'bold',
     },
     h5: {
-      fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
-      fontWeight: 'bold',
+      //fontWeight: 'bold',
     },
-    h6: {
-      fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
-    },
+    h6: {},
     button: {
-      fontWeight: 'bold',
+      // fontWeight: 'bold',
     },
     subtitle1: {
-      fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
       fontSize: '1.666rem',
-      lineHeight: '1',
-      textAlign: 'center',
-      textTransform: 'lowercase',
     },
   },
 });

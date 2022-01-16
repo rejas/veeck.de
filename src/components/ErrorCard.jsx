@@ -1,12 +1,7 @@
-import { Typography } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { Box, Typography } from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import * as React from 'react';
-
-const StaticImageStyled = styled(StaticImage)(({ theme }) => ({
-  margin: `${theme.spacing(3)} 0`,
-}));
 
 const ErrorCard = (props) => {
   const { message } = props;
@@ -16,7 +11,9 @@ const ErrorCard = (props) => {
       <Typography variant="h2" component="h2" align="center">
         I am sorry Dave
       </Typography>
-      <StaticImageStyled src="../images/hal_404.png" alt="HAL9000" />
+      <Box sx={{ m: 3 }}>
+        <StaticImage src="../images/hal_404.png" alt="HAL9000" />
+      </Box>
       <Typography variant="h2" component="h2" align="center">
         {message}
       </Typography>

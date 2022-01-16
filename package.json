@@ -73,7 +73,7 @@
     "react-helmet": "^6.1.0",
     "react-spring": "^9.4.2",
     "react-syntax-highlighter": "^15.4.5",
-    "remark-unwrap-images": "^2.1.0",
+    "remark-unwrap-images": "2.1.0",
     "use-sound": "^4.0.1"
   },
   "devDependencies": {

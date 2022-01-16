@@ -1,4 +1,4 @@
-import { Hidden } from '@mui/material';
+import { Hidden, Typography } from '@mui/material';
 import { css, styled } from '@mui/material/styles';
 import BackgroundImage from 'gatsby-background-image';
 import { getImage } from 'gatsby-plugin-image';
@@ -8,9 +8,8 @@ import PropTypes from 'prop-types';
 import * as React from 'react';
 
 import CategoryIcon from '../icons/CategoryIcon';
-import ToggleIcon from '../icons/ToggleIcon';
 import MenuDesktop from '../navigation/MenuDesktop';
-import { darkModeContext } from '../ui/ThemeHandler';
+import ThemeToggleButton from '../ui/ThemeToggleButton';
 
 const HeaderStyled = styled('div')(({ theme }) => ({
   position: 'sticky',
@@ -40,7 +39,7 @@ const IconStyled = styled('div')(css`
   margin: 0;
 `);
 
-const HeadlineIconStyled = styled('h1')(({ theme }) => ({
+const HeadlineIconStyled = styled(Typography)(({ theme }) => ({
   alignSelf: 'flex-end',
   textAlign: 'center',
 
@@ -49,7 +48,7 @@ const HeadlineIconStyled = styled('h1')(({ theme }) => ({
   },
 }));
 
-const HeadlineStyled = styled('h1')(({ theme }) => ({
+const HeadlineStyled = styled(Typography)(({ theme }) => ({
   alignSelf: 'flex-end',
   textAlign: 'right',
 
@@ -118,18 +117,6 @@ const Header = (props) => {
     bgImage = convertToBgImage(getImage(image));
   }
 
-  const DarkModeContext = React.useContext(darkModeContext);
-  const { darkMode, setDarkMode } = DarkModeContext;
-  const handleThemeChange = () => {
-    if (darkMode) {
-      localStorage.setItem('preferred-theme', 'light');
-      setDarkMode(false);
-    } else {
-      localStorage.setItem('preferred-theme', 'dark');
-      setDarkMode(true);
-    }
-  };
-
   return (
     <HeaderStyled>
       <ConditionalWrapper
@@ -147,15 +134,15 @@ const Header = (props) => {
           <HomeLinkStyled key="home" to="/">
             <CategoryIcon category="home" color="primary" />
           </HomeLinkStyled>
-          <ToggleIcon mode={darkMode} onClick={handleThemeChange} />
+          <ThemeToggleButton />
         </IconBarStyled>
         {icon && (
-          <HeadlineIconStyled>
+          <HeadlineIconStyled variant="h1">
             <IconStyled>{icon}</IconStyled>
             {props.title}
           </HeadlineIconStyled>
         )}
-        {!icon && <HeadlineStyled>{props.title}</HeadlineStyled>}
+        {!icon && <HeadlineStyled variant="h1">{props.title}</HeadlineStyled>}
         <Hidden smDown>
           <MenuDesktop />
         </Hidden>
