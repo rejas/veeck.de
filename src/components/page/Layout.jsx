@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import * as React from 'react';
 import { isIE } from 'react-device-detect';
 
-import { darkTheme, lightTheme } from '../../newtheme';
+import { darkTheme, lightTheme } from '../../theme';
 import ErrorCard from '../ErrorCard';
 import MenuMobile from '../navigation/MenuMobile';
 import { darkModeContext } from '../ui/ThemeHandler';

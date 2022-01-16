@@ -2,7 +2,7 @@ import { Hidden } from '@mui/material';
 import { css, styled } from '@mui/material/styles';
 import BackgroundImage from 'gatsby-background-image';
 import { getImage } from 'gatsby-plugin-image';
-import { Fab, Link } from 'gatsby-theme-material-ui';
+import { Link } from 'gatsby-theme-material-ui';
 import { convertToBgImage } from 'gbimage-bridge';
 import PropTypes from 'prop-types';
 import * as React from 'react';
@@ -27,6 +27,12 @@ const HeaderStyled = styled('div')(({ theme }) => ({
     maxHeight: '50vh',
   },
 }));
+
+const IconBarStyled = styled('div')(css`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`);
 
 const IconStyled = styled('div')(css`
   align-self: center;
@@ -84,9 +90,13 @@ const BackgroundStyled = styled('div')(({ theme }) => ({
 }));
 
 const HomeLinkStyled = styled(Link)(({ theme }) => ({
-  '&:hover': {
-    color: theme.palette.primary,
-  },
+  border: '1px solid ' + theme.palette.primary.main,
+  borderRadius: '4px',
+  width: '36px',
+  height: '36px',
+  display: 'grid',
+  alignItems: 'center',
+  justifyItems: 'center',
 
   [theme.breakpoints.down('sm')]: {
     display: 'none',
@@ -133,9 +143,12 @@ const Header = (props) => {
           <BackgroundStyled>{children}</BackgroundStyled>
         )}
       >
-        <HomeLinkStyled key="home" to="/">
-          <CategoryIcon category="home" color="primary" />
-        </HomeLinkStyled>
+        <IconBarStyled>
+          <HomeLinkStyled key="home" to="/">
+            <CategoryIcon category="home" color="primary" />
+          </HomeLinkStyled>
+          <ToggleIcon mode={darkMode} onClick={handleThemeChange} />
+        </IconBarStyled>
         {icon && (
           <HeadlineIconStyled>
             <IconStyled>{icon}</IconStyled>
@@ -145,15 +158,6 @@ const Header = (props) => {
         {!icon && <HeadlineStyled>{props.title}</HeadlineStyled>}
         <Hidden smDown>
           <MenuDesktop />
-          <Fab
-            color="secondary"
-            sx={{
-              minHeight: '56px',
-            }}
-            onClick={handleThemeChange}
-          >
-            <ToggleIcon mode={darkMode} />
-          </Fab>
         </Hidden>
       </ConditionalWrapper>
     </HeaderStyled>

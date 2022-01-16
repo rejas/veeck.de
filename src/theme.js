@@ -1,17 +1,6 @@
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 
-// TODO enhance it like this https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
-// maybe switch to something like mentioned here: https://material-ui.com/customization/palette/#user-preference
-let prefersDarkMode = false;
-
-// Fix build failure in gatsby
-if (typeof window !== 'undefined') {
-  prefersDarkMode =
-    window.matchMedia &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches;
-}
-
-const theme = createTheme({
+const baseTheme = createTheme({
   // Make md breakpoint a little wider than standard
   breakpoints: {
     values: {
@@ -23,13 +12,6 @@ const theme = createTheme({
     },
   },
   components: {
-    MuiBottomNavigationAction: {
-      styleOverrides: {
-        root: {
-          minWidth: 0,
-        },
-      },
-    },
     MuiDivider: {
       styleOverrides: {
         root: {
@@ -41,18 +23,6 @@ const theme = createTheme({
     MuiLink: {
       defaultProps: {
         underline: 'hover',
-      },
-      styleOverrides: {
-        root: {
-          fontWeight: 'bold',
-        },
-      },
-    },
-    MuiList: {
-      styleOverrides: {
-        root: {
-          fontSize: '1rem',
-        },
       },
     },
   },
@@ -100,22 +70,54 @@ const theme = createTheme({
       textTransform: 'lowercase',
     },
   },
+});
+
+const darkTheme = createTheme({
+  ...baseTheme,
   palette: {
-    mode: prefersDarkMode ? 'dark' : 'light',
+    type: 'dark',
+    text: {
+      primary: '#f2f2f2',
+      secondary: '#E6E6E6',
+    },
     primary: {
-      main: prefersDarkMode ? '#fae34b' : '#939597',
+      main: '#fae34b',
     },
     secondary: {
-      main: prefersDarkMode ? '#313131' : '#f1f1f1',
+      main: '#313131',
     },
     error: {
-      main: prefersDarkMode ? '#cf6679' : '#ff443d',
+      main: '#cf6679',
     },
     background: {
-      default: prefersDarkMode ? '#3c3c3c' : '#ededed',
-      paper: prefersDarkMode ? '#314151' : '#fcfcfc',
+      default: '#3c3c3c',
+      paper: '#314151',
     },
   },
 });
 
-export default responsiveFontSizes(theme);
+const lightTheme = createTheme({
+  ...baseTheme,
+  palette: {
+    type: 'light',
+    text: {
+      primary: '#0d0d0d',
+      secondary: '#1a1a1a',
+    },
+    primary: {
+      main: '#e60045',
+    },
+    secondary: {
+      main: '#f1f1f1',
+    },
+    error: {
+      main: '#ff443d',
+    },
+    background: {
+      default: '#ededed',
+      paper: '#fcfcfc',
+    },
+  },
+});
+
+export { darkTheme, lightTheme };
