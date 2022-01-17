@@ -46,17 +46,6 @@ module.exports = {
         path: `${__dirname}/content/images`,
       },
     },
-    'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-transformer-yaml',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'pages',
-        path: `${__dirname}/src/pages/`,
-      },
-    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -67,81 +56,15 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'pages',
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: 'yaml',
         path: `${__dirname}/content/yaml`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        defaultLayouts: {
-          default: require.resolve(
-            `${__dirname}/src/components/page/Layout.jsx`
-          ),
-        },
-        extensions: ['.mdx', '.md'],
-        gatsbyRemarkPlugins: [
-          'gatsby-remark-copy-linked-files',
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              linkImagesToOriginal: false,
-              maxWidth: 800,
-              wrapperStyle: 'margin-left: 0; margin-right: 0;',
-              showCaptions: true,
-              withWebp: true,
-            },
-          },
-        ],
-        plugins: ['gatsby-remark-images'],
-        remarkPlugins: [require('remark-unwrap-images')],
-      },
-    },
-    {
-      resolve: 'gatsby-theme-material-ui',
-      options: {
-        stylesConfig: {
-          // disableAutoprefixing: true,
-          // disableMinification: true
-        },
-        webFontsConfig: {
-          fonts: {
-            google: [
-              {
-                family: 'Josefin+Sans',
-                variants: ['400', '700'],
-                fontDisplay: 'swap',
-                //subsets: ['latin']
-                //text: 'Hello'
-                //strategy: 'selfHosted' // 'base64' || 'cdn'
-              },
-              {
-                family: 'Comforter+Brush',
-                fontDisplay: 'swap',
-              },
-            ],
-          },
-        },
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'veeck.de',
-        short_name: 'veeck',
-        start_url: '/',
-        background_color: '#4bb2f9',
-        display: 'standalone',
-        icon: `${__dirname}/content/images/favicon.png`,
-        theme_color_in_head: false,
-      },
-    },
-    'gatsby-plugin-no-sourcemaps',
-    'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        policy: [{ userAgent: '*', disallow: '/radio' }],
       },
     },
     {
@@ -199,9 +122,86 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-sitemap',
-    // this (optional) plugin enables Progressive Web App + Offline functionality
+    'gatsby-plugin-image',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'veeck.de',
+        short_name: 'veeck',
+        start_url: '/',
+        background_color: '#4bb2f9',
+        display: 'standalone',
+        icon: `${__dirname}/content/images/favicon.png`,
+        theme_color_in_head: false,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        defaultLayouts: {
+          default: require.resolve(
+            `${__dirname}/src/components/page/Layout.jsx`
+          ),
+        },
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          'gatsby-remark-copy-linked-files',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              linkImagesToOriginal: false,
+              maxWidth: 800,
+              wrapperStyle: 'margin: 2rem 0;',
+              showCaptions: true,
+              withWebp: true,
+            },
+          },
+        ],
+        plugins: ['gatsby-remark-images'],
+        remarkPlugins: [require('remark-unwrap-images')],
+      },
+    },
+    'gatsby-plugin-no-sourcemaps',
+    // This (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', disallow: '/radio' }],
+      },
+    },
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-theme-material-ui',
+      options: {
+        stylesConfig: {
+          // disableAutoprefixing: true,
+          // disableMinification: true
+        },
+        webFontsConfig: {
+          fonts: {
+            google: [
+              {
+                family: 'Josefin+Sans',
+                variants: ['400', '700'],
+                fontDisplay: 'swap',
+                //subsets: ['latin']
+                //text: 'Hello'
+                //strategy: 'selfHosted' // 'base64' || 'cdn'
+              },
+              {
+                family: 'Comforter+Brush',
+                fontDisplay: 'swap',
+              },
+            ],
+          },
+        },
+      },
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-transformer-yaml',
   ],
 };
