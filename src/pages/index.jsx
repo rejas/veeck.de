@@ -43,52 +43,60 @@ const IndexPage = (props) => {
       <MetaData title="veeck.de" thumbnail={data.file} />
 
       <Grid container spacing={3}>
-        <CategoryCard
-          title={data.latestBlog.edges[0].node.frontmatter.title}
-          slug={data.latestBlog.edges[0].node.fields.slug}
-          excerpt={data.latestBlog.edges[0].node.excerpt}
-          category="blog"
-          categoryLink="/blog"
-          categoryName="Blog"
-        />
+        <Grid item xs={12} md={6}>
+          <CategoryCard
+            title={data.latestBlog.edges[0].node.frontmatter.title}
+            slug={data.latestBlog.edges[0].node.fields.slug}
+            excerpt={data.latestBlog.edges[0].node.excerpt}
+            category="blog"
+            categoryLink="/blog"
+            categoryName="Blog"
+          />
+        </Grid>
 
-        <CategoryCard
-          title={data.latestProject.edges[0].node.frontmatter.title}
-          slug={data.latestProject.edges[0].node.fields.slug}
-          excerpt={data.latestProject.edges[0].node.excerpt}
-          category={data.latestProject.edges[0].node.frontmatter.category}
-          categoryImage={
-            data.latestProject.edges[0].node.frontmatter.img.childImageSharp
-              .gatsbyImageData
-          }
-          categoryLink="/projects"
-          categoryName="Computer&shy;schlampe"
-        />
+        <Grid item xs={12} md={6}>
+          <CategoryCard
+            title={data.latestProject.edges[0].node.frontmatter.title}
+            slug={data.latestProject.edges[0].node.fields.slug}
+            excerpt={data.latestProject.edges[0].node.excerpt}
+            category={data.latestProject.edges[0].node.frontmatter.category}
+            categoryImage={
+              data.latestProject.edges[0].node.frontmatter.img.childImageSharp
+                .gatsbyImageData
+            }
+            categoryLink="/projects"
+            categoryName="Computer&shy;schlampe"
+          />
+        </Grid>
 
-        <CategoryCard
-          title={data.latestImage.edges[0].node.title}
-          excerpt={data.latestImage.edges[0].node.lead}
-          slug={'photos/' + data.latestImage.edges[0].node.path}
-          category="photos"
-          categoryLink="/photos"
-          categoryImage={
-            data.latestImage.edges[0].node.img.childImageSharp.gatsbyImageData
-          }
-          categoryName="Hof&shy;fotograf"
-        />
+        <Grid item xs={12} md={6}>
+          <CategoryCard
+            title={data.latestImage.edges[0].node.title}
+            excerpt={data.latestImage.edges[0].node.lead}
+            slug={'photos/' + data.latestImage.edges[0].node.path}
+            category="photos"
+            categoryLink="/photos"
+            categoryImage={
+              data.latestImage.edges[0].node.img.childImageSharp.gatsbyImageData
+            }
+            categoryName="Hof&shy;fotograf"
+          />
+        </Grid>
 
-        <CategoryCard
-          title={data.latestTravel.edges[0].node.frontmatter.title}
-          slug={data.latestTravel.edges[0].node.fields.slug}
-          excerpt={data.latestTravel.edges[0].node.excerpt}
-          category={data.latestTravel.edges[0].node.frontmatter.category}
-          categoryLink="/travels"
-          categoryImage={
-            data.latestTravel.edges[0].node.frontmatter.img.childImageSharp
-              .gatsbyImageData
-          }
-          categoryName="Terror&shy;poet"
-        />
+        <Grid item xs={12} md={6}>
+          <CategoryCard
+            title={data.latestTravel.edges[0].node.frontmatter.title}
+            slug={data.latestTravel.edges[0].node.fields.slug}
+            excerpt={data.latestTravel.edges[0].node.excerpt}
+            category={data.latestTravel.edges[0].node.frontmatter.category}
+            categoryLink="/travels"
+            categoryImage={
+              data.latestTravel.edges[0].node.frontmatter.img.childImageSharp
+                .gatsbyImageData
+            }
+            categoryName="Terror&shy;poet"
+          />
+        </Grid>
       </Grid>
     </Layout>
   );
