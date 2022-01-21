@@ -64,7 +64,6 @@ const IndexPage = (props) => {
               data.latestProject.edges[0].node.frontmatter.img.childImageSharp
                 .gatsbyImageData
             }
-            categoryLink="/projects"
             categoryName="Computer&shy;schlampe"
           />
         </Grid>
@@ -75,7 +74,6 @@ const IndexPage = (props) => {
             excerpt={data.latestImage.edges[0].node.lead}
             slug={'photos/' + data.latestImage.edges[0].node.path}
             category="photos"
-            categoryLink="/photos"
             categoryImage={
               data.latestImage.edges[0].node.img.childImageSharp.gatsbyImageData
             }
@@ -89,7 +87,6 @@ const IndexPage = (props) => {
             slug={data.latestTravel.edges[0].node.fields.slug}
             excerpt={data.latestTravel.edges[0].node.excerpt}
             category={data.latestTravel.edges[0].node.frontmatter.category}
-            categoryLink="/travels"
             categoryImage={
               data.latestTravel.edges[0].node.frontmatter.img.childImageSharp
                 .gatsbyImageData
