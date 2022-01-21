@@ -5,6 +5,7 @@ import { animated, useSpring } from 'react-spring';
 import { darkModeContext } from './ThemeHandler';
 
 const IconStyled = styled('div')(({ theme }) => ({
+  ...theme.mixins.glas,
   border: '1px solid ' + theme.palette.primary.main,
   borderRadius: '4px',
   width: '36px',

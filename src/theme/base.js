@@ -1,6 +1,15 @@
 import { createTheme } from '@mui/material/styles';
 
 const baseTheme = createTheme({
+  mixins: {
+    glas: {
+      backgroundColor: 'transparent',
+      backgroundImage:
+        'linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,255,255,0))',
+      backdropFilter: 'blur(10px)',
+      boxShadow: '10px 10px 10px rgb(30 30 30 / 50%)',
+    },
+  },
   // Make md breakpoint a little wider than standard
   breakpoints: {
     values: {
@@ -17,6 +26,17 @@ const baseTheme = createTheme({
         root: {
           marginBottom: '1rem',
           marginTop: '1rem',
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'transparent',
+          backgroundImage:
+            'linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,255,255,0))',
+          backdropFilter: 'blur(10px)',
+          boxShadow: '10px 10px 10px rgb(30 30 30 / 50%)',
         },
       },
     },
@@ -56,52 +76,4 @@ const baseTheme = createTheme({
   },
 });
 
-const darkTheme = createTheme({
-  ...baseTheme,
-  palette: {
-    type: 'dark',
-    text: {
-      primary: '#f2f2f2',
-      secondary: '#E6E6E6',
-    },
-    primary: {
-      main: '#fae34b',
-    },
-    secondary: {
-      main: '#313131',
-    },
-    error: {
-      main: '#cf6679',
-    },
-    background: {
-      default: '#3c3c3c',
-      paper: '#314151',
-    },
-  },
-});
-
-const lightTheme = createTheme({
-  ...baseTheme,
-  palette: {
-    type: 'light',
-    text: {
-      primary: '#0d0d0d',
-      secondary: '#1a1a1a',
-    },
-    primary: {
-      main: '#e60045',
-    },
-    secondary: {
-      main: '#f1f1f1',
-    },
-    error: {
-      main: '#ff443d',
-    },
-    background: {
-      default: '#ededed',
-      paper: '#fcfcfc',
-    },
-  },
-});
-
-export { darkTheme, lightTheme };
+export default baseTheme;
