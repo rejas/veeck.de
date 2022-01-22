@@ -44,7 +44,7 @@ const LeadinStyled = styled(Typography)(({ theme }) => ({
 }));
 
 const Layout = (props) => {
-  let { children, icon, image, lead, title } = props;
+  let { children, image, lead, title } = props;
 
   const DarkModeContext = React.useContext(darkModeContext);
   const { darkMode, setDarkMode } = DarkModeContext;
@@ -78,7 +78,7 @@ const Layout = (props) => {
       >
         <CssBaseline />
         <PageStyled>
-          <Header image={image} icon={icon} lead={lead} title={title} />
+          <Header image={image} lead={lead} title={title} />
           <MainStyled>
             <LeadinStyled variant="h2">{lead}</LeadinStyled>
             <ContentStyled>{children}</ContentStyled>

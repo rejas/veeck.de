@@ -14,6 +14,11 @@ const IconStyled = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyItems: 'center',
   color: theme.palette.primary.main,
+
+  [theme.breakpoints.down('md')]: {
+    position: 'absolute',
+    right: '2rem',
+  },
 }));
 
 /**
