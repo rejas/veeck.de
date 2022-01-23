@@ -5,6 +5,7 @@ import { animated, useSpring } from 'react-spring';
 import { darkModeContext } from './ThemeHandler';
 
 const IconStyled = styled('div')(({ theme }) => ({
+  ...theme.mixins.glas,
   border: '1px solid ' + theme.palette.primary.main,
   borderRadius: '4px',
   width: '36px',
@@ -13,6 +14,11 @@ const IconStyled = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyItems: 'center',
   color: theme.palette.primary.main,
+
+  [theme.breakpoints.down('md')]: {
+    position: 'absolute',
+    right: '2rem',
+  },
 }));
 
 /**

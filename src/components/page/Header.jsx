@@ -1,5 +1,6 @@
+import { BigHead } from '@bigheads/core';
 import { Hidden, Typography } from '@mui/material';
-import { css, styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import BackgroundImage from 'gatsby-background-image';
 import { getImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby-theme-material-ui';
@@ -7,7 +8,6 @@ import { convertToBgImage } from 'gbimage-bridge';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 
-import CategoryIcon from '../icons/CategoryIcon';
 import MenuDesktop from '../navigation/MenuDesktop';
 import ThemeToggleButton from '../ui/ThemeToggleButton';
 
@@ -27,44 +27,15 @@ const HeaderStyled = styled('div')(({ theme }) => ({
   },
 }));
 
-const IconBarStyled = styled('div')(css`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`);
-
-const IconStyled = styled('div')(css`
-  align-self: center;
-  width: 150px;
-  margin: 0;
-`);
-
-const HeadlineIconStyled = styled(Typography)(({ theme }) => ({
-  alignSelf: 'flex-end',
-  textAlign: 'center',
-
-  [theme.breakpoints.down('md')]: {
-    alignSelf: 'center',
-  },
-}));
-
-const HeadlineStyled = styled(Typography)(({ theme }) => ({
-  alignSelf: 'flex-end',
-  textAlign: 'right',
-
-  [theme.breakpoints.down('md')]: {
-    alignSelf: 'center',
-  },
-}));
-
 const BackgroundImageStyled = styled(BackgroundImage)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  alignItems: 'flex-start',
+  alignItems: 'center',
   height: '100%',
   backgroundSize: 'cover',
-  padding: '2rem 2rem 1rem',
+  padding: '2rem 2rem 2rem',
+  gap: '1rem',
 
   '&::before, &::after': {
     filter: 'opacity(0.35)',
@@ -79,9 +50,10 @@ const BackgroundStyled = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
+  alignItems: 'center',
   height: '100%',
-  alignItems: 'flex-start',
   padding: '2rem 2rem 1rem',
+  gap: '1rem',
 
   [theme.breakpoints.up('md')]: {
     padding: '2rem',
@@ -89,16 +61,20 @@ const BackgroundStyled = styled('div')(({ theme }) => ({
 }));
 
 const HomeLinkStyled = styled(Link)(({ theme }) => ({
-  border: '1px solid ' + theme.palette.primary.main,
-  borderRadius: '4px',
-  width: '36px',
-  height: '36px',
-  display: 'grid',
-  alignItems: 'center',
-  justifyItems: 'center',
+  margin: '0 auto',
+  display: 'flex',
+  maxWidth: '150px',
 
   [theme.breakpoints.down('sm')]: {
     display: 'none',
+  },
+}));
+
+const HeadlineIconStyled = styled(Typography)(({ theme }) => ({
+  textAlign: 'center',
+
+  [theme.breakpoints.down('md')]: {
+    alignSelf: 'center',
   },
 }));
 
@@ -110,7 +86,7 @@ const ConditionalWrapper = ({
 }) => (condition ? wrapperTrue(children) : wrapperFalse(children));
 
 const Header = (props) => {
-  const { image, icon } = props;
+  const { image } = props;
 
   let bgImage;
   if (image) {
@@ -130,21 +106,36 @@ const Header = (props) => {
           <BackgroundStyled>{children}</BackgroundStyled>
         )}
       >
-        <IconBarStyled>
+        <HeadlineIconStyled variant="h1">
           <HomeLinkStyled key="home" to="/">
-            <CategoryIcon category="home" color="primary" />
+            <BigHead
+              accessory="shades"
+              body="chest"
+              circleColor="blue"
+              clothing="shirt"
+              clothingColor="black"
+              eyebrows="raised"
+              eyes="simple"
+              faceMask={false}
+              faceMaskColor="white"
+              facialHair="mediumBeard"
+              graphic="react"
+              hair="none"
+              hairColor="white"
+              hat="none"
+              hatColor="blue"
+              lashes
+              lipColor="red"
+              mask
+              mouth="openSmile"
+              skinTone="light"
+            />
           </HomeLinkStyled>
-          <ThemeToggleButton />
-        </IconBarStyled>
-        {icon && (
-          <HeadlineIconStyled variant="h1">
-            <IconStyled>{icon}</IconStyled>
-            {props.title}
-          </HeadlineIconStyled>
-        )}
-        {!icon && <HeadlineStyled variant="h1">{props.title}</HeadlineStyled>}
+          {props.title}
+        </HeadlineIconStyled>
         <Hidden smDown>
           <MenuDesktop />
+          <ThemeToggleButton />
         </Hidden>
       </ConditionalWrapper>
     </HeaderStyled>
@@ -152,7 +143,6 @@ const Header = (props) => {
 };
 
 Header.propTypes = {
-  icon: PropTypes.object,
   image: PropTypes.object,
 };
 

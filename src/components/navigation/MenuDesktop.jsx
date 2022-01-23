@@ -13,11 +13,9 @@ const MenuStyled = styled('div')(({ theme }) => ({
   alignSelf: 'center',
   flexDirection: 'row',
   gap: '1rem',
-  marginTop: '2rem',
 
   [theme.breakpoints.up('md')]: {
     flexDirection: 'column',
-    alignSelf: 'flex-end',
   },
 }));
 
