@@ -49,7 +49,6 @@ const IndexPage = (props) => {
             slug={data.latestBlog.edges[0].node.fields.slug}
             excerpt={data.latestBlog.edges[0].node.excerpt}
             category="blog"
-            categoryLink="/blog"
             categoryName="Blog"
           />
         </Grid>

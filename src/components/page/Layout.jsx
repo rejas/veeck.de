@@ -20,6 +20,7 @@ import Header from './Header';
 const PageStyled = styled('div')(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '3fr 7fr',
+  //backgroundImage: `linear-gradient(to bottom right, ${theme.palette.secondary.main},${theme.palette.primary.main},#000)`,
 
   [theme.breakpoints.down('md')]: {
     gridTemplateColumns: '1fr',
@@ -30,6 +31,7 @@ const MainStyled = styled('div')(css`
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  //background-image: linear-gradient(to bottom right, #fc0345,#fc03b1,#4a03fc);
 `);
 
 const ContentStyled = styled('main')(css`

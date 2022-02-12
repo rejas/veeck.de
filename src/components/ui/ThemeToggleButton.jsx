@@ -6,7 +6,7 @@ import { darkModeContext } from './ThemeHandler';
 
 const IconStyled = styled('div')(({ theme }) => ({
   ...theme.mixins.glas,
-  border: '1px solid ' + theme.palette.primary.main,
+  border: `1px solid ${theme.palette.primary.main}`,
   borderRadius: '4px',
   width: '36px',
   height: '36px',
