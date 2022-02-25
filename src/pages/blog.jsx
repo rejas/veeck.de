@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import BoopedListItem from '../components/BoopedListItem';
-import Layout from '../components/page/Layout';
+import Layout from '../components/layout/layout';
 import MetaData from '../components/page/MetaData';
 
 const BlogIndex = (props) => {

@@ -13,9 +13,10 @@ import { isIE } from 'react-device-detect';
 import { darkTheme, lightTheme } from '../../theme';
 import ErrorCard from '../ErrorCard';
 import MenuMobile from '../navigation/MenuMobile';
+import Credits from '../page/Credits';
+import Header from '../page/Header';
 import { darkModeContext } from '../ui/ThemeHandler';
-import Credits from './Credits';
-import Header from './Header';
+import './layout.css';
 
 const PageStyled = styled('div')(({ theme }) => ({
   display: 'grid',

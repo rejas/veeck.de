@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import CategoryCard from '../components/CategoryCard';
-import Layout from '../components/page/Layout';
+import Layout from '../components/layout/layout';
 import MetaData from '../components/page/MetaData';
 
 const IndexPage = (props) => {

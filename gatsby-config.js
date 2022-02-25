@@ -140,7 +140,7 @@ module.exports = {
       options: {
         defaultLayouts: {
           default: require.resolve(
-            `${__dirname}/src/components/page/Layout.jsx`
+            `${__dirname}/src/components/layout/layout.jsx`
           ),
         },
         extensions: ['.mdx', '.md'],
@@ -180,24 +180,6 @@ module.exports = {
         stylesConfig: {
           // disableAutoprefixing: true,
           // disableMinification: true
-        },
-        webFontsConfig: {
-          fonts: {
-            google: [
-              {
-                family: 'Josefin+Sans',
-                variants: ['400', '700'],
-                fontDisplay: 'swap',
-                //subsets: ['latin']
-                //text: 'Hello'
-                //strategy: 'selfHosted' // 'base64' || 'cdn'
-              },
-              {
-                family: 'Comforter+Brush',
-                fontDisplay: 'swap',
-              },
-            ],
-          },
         },
       },
     },

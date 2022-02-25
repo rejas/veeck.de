@@ -14,7 +14,7 @@ import {
   Headline6,
   Paragraph,
 } from '../components/Typography';
-import Layout from '../components/page/Layout';
+import Layout from '../components/layout/layout';
 import MetaData from '../components/page/MetaData';
 import AudioSC from '../components/shortcodes/AudioSC';
 import CodeBlockSC from '../components/shortcodes/CodeBlockSC';

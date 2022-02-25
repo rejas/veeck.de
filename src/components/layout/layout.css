@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Comforter Brush';
+  font-weight: normal;
+  src: url('../../fonts/ComforterBrush-Regular.woff2');
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  font-weight: bold;
+  src: url('../../fonts/JosefinSans-Bold.woff2');
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  font-weight: normal;
+  src: url('../../fonts/JosefinSans-Regular.woff2');
+}
+
+body {
+  word-wrap: break-word;
+  font-kerning: normal;
+}
