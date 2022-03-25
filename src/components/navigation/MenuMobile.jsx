@@ -18,6 +18,7 @@ const MenuMobile = () => {
   return (
     <BottomNavigationStyled showLabels>
       <BottomNavigationAction
+        sx={{ minWidth: 0 }}
         key="home"
         to="/"
         label="veeck"
@@ -25,6 +26,7 @@ const MenuMobile = () => {
       />
       {menuLinks.map((link) => (
         <BottomNavigationAction
+          sx={{ minWidth: 0 }}
           key={link.name}
           to={link.url}
           label={link.name}

@@ -6,8 +6,8 @@ import * as React from 'react';
 import { animated } from 'react-spring';
 import useSound from 'use-sound';
 
+import boopSfx from '../../../content/sounds/tock.mp3';
 import { useBoop } from '../../hooks/use-boop';
-import boopSfx from '../../sounds/tock.mp3';
 import CategoryIcon from '../icons/CategoryIcon';
 
 const Headline5Styled = styled(Button)(({ theme }) => ({
