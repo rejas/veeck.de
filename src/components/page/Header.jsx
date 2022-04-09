@@ -8,6 +8,7 @@ import { convertToBgImage } from 'gbimage-bridge';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 
+import DropdownShareButton from '../DopwDownShareButton';
 import MenuDesktop from '../navigation/MenuDesktop';
 import ThemeToggleButton from '../ui/ThemeToggleButton';
 
@@ -136,6 +137,7 @@ const Header = (props) => {
         <Hidden smDown>
           <MenuDesktop />
           <ThemeToggleButton />
+          <DropdownShareButton />
         </Hidden>
       </ConditionalWrapper>
     </HeaderStyled>
