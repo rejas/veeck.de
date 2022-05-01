@@ -11,18 +11,10 @@ const BoopedListItem = (props) => {
   const [style, trigger] = useBoop({ rotation: 20, timing: 200 });
 
   return (
-    <ListItem
-      button
-      component={Link}
-      to={post.fields.slug}
-      onMouseEnter={trigger}
-    >
+    <ListItem button component={Link} to={post.fields.slug} onMouseEnter={trigger}>
       <ListItemIcon>
         <animated.span style={style}>
-          <CategoryIcon
-            category={post.frontmatter.subcategory}
-            color="primary"
-          />
+          <CategoryIcon category={post.frontmatter.subcategory} color="primary" />
         </animated.span>
       </ListItemIcon>
       <ListItemText primary={post.frontmatter.title} secondary={post.excerpt} />

@@ -1,10 +1,5 @@
 import FiberNewIcon from '@mui/icons-material/FiberNew';
-import {
-  IconButton,
-  ImageList,
-  ImageListItem,
-  ImageListItemBar,
-} from '@mui/material';
+import { IconButton, ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import FsLightbox from 'fslightbox-react';
 import { graphql } from 'gatsby';
@@ -20,17 +15,14 @@ const ImageListItemStyled = styled(ImageListItem)(() => ({
 }));
 
 const ImageListItemBarStyled = styled(ImageListItemBar)(() => ({
-  background:
-    'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+  background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
 }));
 
 const GalleryTemplate = (props) => {
   const searchParams = useSearchParams();
 
   const node = props.data.allPhotosYaml.edges[0].node;
-  const lightboxImages = node.images.map(
-    (image) => image.img.childImageSharp.gatsbyImageData.images.fallback.src
-  );
+  const lightboxImages = node.images.map((image) => image.img.childImageSharp.gatsbyImageData.images.fallback.src);
 
   const aspectRatios = node.images.map((image) => {
     const data = image.img.childImageSharp.gatsbyImageData;
@@ -74,12 +66,7 @@ const GalleryTemplate = (props) => {
           const image = getImage(img.img);
           const { col, row } = aspectRatios[index];
           return (
-            <ImageListItemStyled
-              key={index}
-              cols={col}
-              rows={row}
-              onClick={() => openLightbox(index)}
-            >
+            <ImageListItemStyled key={index} cols={col} rows={row} onClick={() => openLightbox(index)}>
               <GatsbyImage
                 image={image}
                 alt={img.caption}
@@ -106,11 +93,7 @@ const GalleryTemplate = (props) => {
           );
         })}
       </ImageList>
-      <FsLightbox
-        toggler={toggler}
-        sources={lightboxImages}
-        sourceIndex={imageIndex}
-      />
+      <FsLightbox toggler={toggler} sources={lightboxImages} sourceIndex={imageIndex} />
     </Layout>
   );
 };

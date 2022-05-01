@@ -9,10 +9,7 @@ const CodeBlockSC = (props) => {
 
   return (
     <Box sx={{ fontSize: 'small' }}>
-      <SyntaxHighlighter
-        language={className ? className.replace('language-', '') : ''}
-        style={darcula}
-      >
+      <SyntaxHighlighter language={className ? className.replace('language-', '') : ''} style={darcula}>
         {children}
       </SyntaxHighlighter>
     </Box>

@@ -11,11 +11,7 @@ const TravelsIndex = (props) => {
   const { edges: posts } = data.allMdx;
 
   return (
-    <Layout
-      image={data.file}
-      title="my travel diaries"
-      lead="my travel diaries from around the world"
-    >
+    <Layout image={data.file} title="my travel diaries" lead="my travel diaries from around the world">
       <MetaData title="Travel" description="veeck travels" image={data.file} />
       <Grid container spacing={3}>
         {posts.map(({ node: post }, index) => (
@@ -38,10 +34,7 @@ export const query = graphql`
         gatsbyImageData(layout: CONSTRAINED, width: 768)
       }
     }
-    allMdx(
-      sort: { fields: fields___slug, order: DESC }
-      filter: { fields: { slug: { regex: "/travels/" } } }
-    ) {
+    allMdx(sort: { fields: fields___slug, order: DESC }, filter: { fields: { slug: { regex: "/travels/" } } }) {
       edges {
         node {
           id

@@ -1,10 +1,5 @@
 import { CssBaseline, Hidden, Typography } from '@mui/material';
-import {
-  ThemeProvider,
-  css,
-  responsiveFontSizes,
-  styled,
-} from '@mui/material/styles';
+import { ThemeProvider, css, responsiveFontSizes, styled } from '@mui/material/styles';
 import { StylesProvider } from '@mui/styles';
 import PropTypes from 'prop-types';
 import * as React from 'react';
@@ -69,16 +64,12 @@ const Layout = (props) => {
   }, []);
 
   if (isIE) {
-    children = (
-      <ErrorCard message="The Internet Explorer is not supported. Please download Firefox." />
-    );
+    children = <ErrorCard message="The Internet Explorer is not supported. Please download Firefox." />;
   }
 
   return (
     <StylesProvider>
-      <ThemeProvider
-        theme={responsiveFontSizes(darkMode ? darkTheme : lightTheme)}
-      >
+      <ThemeProvider theme={responsiveFontSizes(darkMode ? darkTheme : lightTheme)}>
         <CssBaseline />
         <PageStyled>
           <Header image={image} lead={lead} title={title} />

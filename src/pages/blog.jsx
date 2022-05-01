@@ -11,11 +11,7 @@ const BlogIndex = (props) => {
   const { edges: posts } = data.allMdx;
 
   return (
-    <Layout
-      image={data.file}
-      title="my personal blog"
-      lead="ramblings and stuff I find noteworthy"
-    >
+    <Layout image={data.file} title="my personal blog" lead="ramblings and stuff I find noteworthy">
       <MetaData title="Blog" description="veeck blogs" image={data.file} />
       <Paper>
         <List>
@@ -35,10 +31,7 @@ export const query = graphql`
         gatsbyImageData(layout: CONSTRAINED, width: 768)
       }
     }
-    allMdx(
-      sort: { fields: fields___slug, order: DESC }
-      filter: { fields: { slug: { regex: "/blog/" } } }
-    ) {
+    allMdx(sort: { fields: fields___slug, order: DESC }, filter: { fields: { slug: { regex: "/blog/" } } }) {
       edges {
         node {
           id

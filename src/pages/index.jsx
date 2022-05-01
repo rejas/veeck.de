@@ -59,10 +59,7 @@ const IndexPage = (props) => {
             slug={data.latestProject.edges[0].node.fields.slug}
             excerpt={data.latestProject.edges[0].node.excerpt}
             category={data.latestProject.edges[0].node.frontmatter.category}
-            categoryImage={
-              data.latestProject.edges[0].node.frontmatter.img.childImageSharp
-                .gatsbyImageData
-            }
+            categoryImage={data.latestProject.edges[0].node.frontmatter.img.childImageSharp.gatsbyImageData}
             categoryName="Computer&shy;schlampe"
           />
         </Grid>
@@ -73,9 +70,7 @@ const IndexPage = (props) => {
             excerpt={data.latestImage.edges[0].node.lead}
             slug={'photos/' + data.latestImage.edges[0].node.path}
             category="photos"
-            categoryImage={
-              data.latestImage.edges[0].node.img.childImageSharp.gatsbyImageData
-            }
+            categoryImage={data.latestImage.edges[0].node.img.childImageSharp.gatsbyImageData}
             categoryName="Hof&shy;fotograf"
           />
         </Grid>
@@ -86,10 +81,7 @@ const IndexPage = (props) => {
             slug={data.latestTravel.edges[0].node.fields.slug}
             excerpt={data.latestTravel.edges[0].node.excerpt}
             category={data.latestTravel.edges[0].node.frontmatter.category}
-            categoryImage={
-              data.latestTravel.edges[0].node.frontmatter.img.childImageSharp
-                .gatsbyImageData
-            }
+            categoryImage={data.latestTravel.edges[0].node.frontmatter.img.childImageSharp.gatsbyImageData}
             categoryName="Terror&shy;poet"
           />
         </Grid>
@@ -172,10 +164,7 @@ export const query = graphql`
         }
       }
     }
-    latestImage: allPhotosYaml(
-      sort: { fields: last_update, order: DESC }
-      limit: 1
-    ) {
+    latestImage: allPhotosYaml(sort: { fields: last_update, order: DESC }, limit: 1) {
       edges {
         node {
           id

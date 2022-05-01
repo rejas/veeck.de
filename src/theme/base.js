@@ -4,8 +4,7 @@ const baseTheme = createTheme({
   mixins: {
     glas: {
       backgroundColor: 'transparent',
-      backgroundImage:
-        'linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,255,255,0))',
+      backgroundImage: 'linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,255,255,0))',
       backdropFilter: 'blur(10px)',
       boxShadow: '10px 10px 10px rgb(30 30 30 / 50%)',
     },
@@ -33,8 +32,7 @@ const baseTheme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: 'transparent',
-          backgroundImage:
-            'linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,255,255,0))',
+          backgroundImage: 'linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,255,255,0))',
           backdropFilter: 'blur(10px)',
           boxShadow: '10px 10px 10px rgb(30 30 30 / 50%)',
         },

@@ -1,11 +1,4 @@
-import {
-  FormControl,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-} from '@mui/material';
+import { FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Button } from 'gatsby-theme-material-ui';
 import * as React from 'react';
@@ -97,12 +90,7 @@ const WowFeedSC = () => {
           </FormControlStyled>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <ButtonStyled
-            color="secondary"
-            variant="contained"
-            type="submit"
-            onClick={openCharFeed}
-          >
+          <ButtonStyled color="secondary" variant="contained" type="submit" onClick={openCharFeed}>
             Get Char RSS
           </ButtonStyled>
         </Grid>
@@ -152,12 +140,7 @@ const WowFeedSC = () => {
           </FormControlStyled>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <ButtonStyled
-            color="secondary"
-            variant="contained"
-            type="submit"
-            onClick={openGuildFeed}
-          >
+          <ButtonStyled color="secondary" variant="contained" type="submit" onClick={openGuildFeed}>
             Get Guild RSS
           </ButtonStyled>
         </Grid>

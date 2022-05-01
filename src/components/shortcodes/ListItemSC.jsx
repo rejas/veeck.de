@@ -21,11 +21,7 @@ const ListItemSC = (props) => {
 };
 
 ListItemSC.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.element,
-    PropTypes.string,
-  ]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.element, PropTypes.string]).isRequired,
 };
 
 export default ListItemSC;

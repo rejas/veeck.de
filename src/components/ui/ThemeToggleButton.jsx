@@ -56,8 +56,7 @@ const ThemeToggleButton = (props) => {
     springConfig: { mass: 4, tension: 250, friction: 35 },
   };
 
-  const { r, transform, cx, cy, opacity } =
-    properties[darkMode ? 'dark' : 'light'];
+  const { r, transform, cx, cy, opacity } = properties[darkMode ? 'dark' : 'light'];
   const svgContainerProps = useSpring({
     transform,
     config: properties.springConfig,
@@ -92,13 +91,7 @@ const ThemeToggleButton = (props) => {
           <animated.circle style={maskedCircleProps} r="9" fill="black" />
         </mask>
 
-        <animated.circle
-          cx="12"
-          cy="12"
-          style={centerCircleProps}
-          fill="currentColor"
-          mask="url(#myMask2)"
-        />
+        <animated.circle cx="12" cy="12" style={centerCircleProps} fill="currentColor" mask="url(#myMask2)" />
         <animated.g stroke="currentColor" style={linesProps}>
           <line x1="12" y1="1" x2="12" y2="3" />
           <line x1="12" y1="21" x2="12" y2="23" />

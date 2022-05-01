@@ -78,12 +78,8 @@ const HeadlineIconStyled = styled(Typography)(({ theme }) => ({
   },
 }));
 
-const ConditionalWrapper = ({
-  condition,
-  wrapperTrue,
-  wrapperFalse,
-  children,
-}) => (condition ? wrapperTrue(children) : wrapperFalse(children));
+const ConditionalWrapper = ({ condition, wrapperTrue, wrapperFalse, children }) =>
+  condition ? wrapperTrue(children) : wrapperFalse(children);
 
 const Header = (props) => {
   const { image } = props;
@@ -102,9 +98,7 @@ const Header = (props) => {
             {children}
           </BackgroundImageStyled>
         )}
-        wrapperFalse={(children) => (
-          <BackgroundStyled>{children}</BackgroundStyled>
-        )}
+        wrapperFalse={(children) => <BackgroundStyled>{children}</BackgroundStyled>}
       >
         <HeadlineIconStyled variant="h1">
           <HomeLinkStyled key="home" to="/">

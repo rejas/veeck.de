@@ -39,12 +39,7 @@ const MenuItem = (props) => {
   const [play] = useSound(boopSfx);
 
   return (
-    <Headline5Styled
-      onMouseEnter={trigger}
-      key={link.name}
-      color="secondary"
-      variant="contained"
-    >
+    <Headline5Styled onMouseEnter={trigger} key={link.name} color="secondary" variant="contained">
       <animated.span style={style}>
         <CategoryIconStyled category={link.icon} color="primary" />
       </animated.span>

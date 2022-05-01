@@ -26,9 +26,7 @@ const CategoryCard = (props) => {
   return (
     <CardStyled to={props.slug}>
       <CardActionAreaContent>
-        {props.categoryImage && (
-          <GatsbyImageCover alt={props.categoryName} image={image} />
-        )}
+        {props.categoryImage && <GatsbyImageCover alt={props.categoryName} image={image} />}
         <CardContent>
           <Typography variant="h2" gutterBottom>
             {props.title}
