@@ -2,7 +2,7 @@ import { Grid } from '@mui/material';
 import { graphql } from 'gatsby';
 import * as React from 'react';
 
-import EntryCard from '../components/EntryCard';
+import EntryCard from '../components/cards/EntryCard';
 import Layout from '../components/layout/layout';
 import MetaData from '../components/page/MetaData';
 

@@ -3,7 +3,7 @@ import { Grid } from '@mui/material';
 import { graphql } from 'gatsby';
 import * as React from 'react';
 
-import CategoryCard from '../components/CategoryCard';
+import BasicCard from '../components/cards/BasicCard';
 import Layout from '../components/layout/layout';
 import MetaData from '../components/page/MetaData';
 
@@ -44,45 +44,41 @@ const IndexPage = (props) => {
 
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <CategoryCard
+          <BasicCard
             title={data.latestBlog.edges[0].node.frontmatter.title}
-            slug={data.latestBlog.edges[0].node.fields.slug}
+            link={data.latestBlog.edges[0].node.fields.slug}
             excerpt={data.latestBlog.edges[0].node.excerpt}
-            category="blog"
-            categoryName="Blog"
+            imageAlt="Blog"
           />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <CategoryCard
+          <BasicCard
             title={data.latestProject.edges[0].node.frontmatter.title}
-            slug={data.latestProject.edges[0].node.fields.slug}
+            link={data.latestProject.edges[0].node.fields.slug}
             excerpt={data.latestProject.edges[0].node.excerpt}
-            category={data.latestProject.edges[0].node.frontmatter.category}
-            categoryImage={data.latestProject.edges[0].node.frontmatter.img.childImageSharp.gatsbyImageData}
-            categoryName="Computer&shy;schlampe"
+            image={data.latestProject.edges[0].node.frontmatter.img.childImageSharp.gatsbyImageData}
+            imageAlt="Computer&shy;schlampe"
           />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <CategoryCard
+          <BasicCard
             title={data.latestImage.edges[0].node.title}
+            link={'photos/' + data.latestImage.edges[0].node.path}
             excerpt={data.latestImage.edges[0].node.lead}
-            slug={'photos/' + data.latestImage.edges[0].node.path}
-            category="photos"
-            categoryImage={data.latestImage.edges[0].node.img.childImageSharp.gatsbyImageData}
-            categoryName="Hof&shy;fotograf"
+            image={data.latestImage.edges[0].node.img.childImageSharp.gatsbyImageData}
+            imageAlt="Hof&shy;fotograf"
           />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <CategoryCard
+          <BasicCard
             title={data.latestTravel.edges[0].node.frontmatter.title}
-            slug={data.latestTravel.edges[0].node.fields.slug}
+            link={data.latestTravel.edges[0].node.fields.slug}
             excerpt={data.latestTravel.edges[0].node.excerpt}
-            category={data.latestTravel.edges[0].node.frontmatter.category}
-            categoryImage={data.latestTravel.edges[0].node.frontmatter.img.childImageSharp.gatsbyImageData}
-            categoryName="Terror&shy;poet"
+            image={data.latestTravel.edges[0].node.frontmatter.img.childImageSharp.gatsbyImageData}
+            imageAlt="Terror&shy;poet"
           />
         </Grid>
       </Grid>

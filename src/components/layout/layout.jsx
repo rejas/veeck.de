@@ -6,7 +6,7 @@ import * as React from 'react';
 import { isIE } from 'react-device-detect';
 
 import { darkTheme, lightTheme } from '../../theme';
-import ErrorCard from '../ErrorCard';
+import ErrorCard from '../cards/ErrorCard';
 import MenuMobile from '../navigation/MenuMobile';
 import Credits from '../page/Credits';
 import Header from '../page/Header';
