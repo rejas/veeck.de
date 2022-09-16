@@ -12,7 +12,7 @@ const ErrorCard = (props) => {
         I am sorry Dave
       </Typography>
       <Box sx={{ m: 3 }}>
-        <StaticImage src="../../content/images/hal_404.png" alt="HAL9000" />
+        <StaticImage src="../../../content/images/hal_404.png" alt="HAL9000" />
       </Box>
       <Typography variant="h2" component="h2" align="center">
         {message}
