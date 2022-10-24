@@ -138,8 +138,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
-        defaultLayouts: {
-          default: require.resolve(`${__dirname}/src/components/layout/layout.jsx`),
+        mdxOptions: {
+          remarkPlugins: [require('remark-unwrap-images')],
         },
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
@@ -155,8 +155,6 @@ module.exports = {
             },
           },
         ],
-        plugins: ['gatsby-remark-images'],
-        remarkPlugins: [require('remark-unwrap-images')],
       },
     },
     'gatsby-plugin-no-sourcemaps',
