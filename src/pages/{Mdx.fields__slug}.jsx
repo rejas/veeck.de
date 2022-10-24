@@ -1,7 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import { Divider, List } from '@mui/material';
 import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { Link } from 'gatsby-theme-material-ui';
 import * as React from 'react';
 
@@ -38,7 +37,7 @@ const MdxTemplate = (props) => {
     >
       <Layout title={mdx.frontmatter.title} lead={mdx.frontmatter.lead} image={mdx.frontmatter.img}>
         <MetaData title={mdx.frontmatter.title} lang={mdx.frontmatter.lang} thumbnail={mdx.frontmatter.img} />
-        <MDXRenderer>{mdx.body}</MDXRenderer>
+        {props.children}
       </Layout>
     </MDXProvider>
   );
