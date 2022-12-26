@@ -1,4 +1,6 @@
-module.exports = {
+import remarkUnwrapImages from 'remark-unwrap-images';
+
+const config = {
   siteMetadata: {
     title: 'Veeck',
     description: 'Veecks private homepage',
@@ -156,7 +158,7 @@ module.exports = {
           },
         ],
         plugins: ['gatsby-remark-images'],
-        remarkPlugins: [require('remark-unwrap-images')],
+        remarkPlugins: [remarkUnwrapImages()],
       },
     },
     'gatsby-plugin-no-sourcemaps',
@@ -188,3 +190,5 @@ module.exports = {
     'gatsby-transformer-yaml',
   ],
 };
+
+export default config;
