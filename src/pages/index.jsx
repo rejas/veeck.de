@@ -93,11 +93,7 @@ export const query = graphql`
         gatsbyImageData(layout: CONSTRAINED, width: 768)
       }
     }
-    latestBlog: allMdx(
-      sort: { fields: fields___slug, order: DESC }
-      filter: { fields: { slug: { regex: "/blog/" } } }
-      limit: 1
-    ) {
+    latestBlog: allMdx(sort: { fields: { slug: DESC } }, filter: { fields: { slug: { regex: "/blog/" } } }, limit: 1) {
       edges {
         node {
           id
@@ -113,7 +109,7 @@ export const query = graphql`
       }
     }
     latestProject: allMdx(
-      sort: { fields: fields___slug, order: DESC }
+      sort: { fields: { slug: DESC } }
       filter: { fields: { slug: { regex: "/projects/" } } }
       limit: 1
     ) {
@@ -137,7 +133,7 @@ export const query = graphql`
       }
     }
     latestTravel: allMdx(
-      sort: { fields: fields___slug, order: DESC }
+      sort: { fields: { slug: DESC } }
       filter: { fields: { slug: { regex: "/travels/" } } }
       limit: 1
     ) {
@@ -160,7 +156,7 @@ export const query = graphql`
         }
       }
     }
-    latestImage: allPhotosYaml(sort: { fields: last_update, order: DESC }, limit: 1) {
+    latestImage: allPhotosYaml(sort: { last_update: DESC }, limit: 1) {
       edges {
         node {
           id

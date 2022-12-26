@@ -34,7 +34,7 @@ export const query = graphql`
         gatsbyImageData(layout: CONSTRAINED, width: 768)
       }
     }
-    allMdx(sort: { fields: fields___slug, order: DESC }, filter: { fields: { slug: { regex: "/projects/" } } }) {
+    allMdx(sort: { fields: { slug: DESC } }, filter: { fields: { slug: { regex: "/projects/" } } }) {
       edges {
         node {
           id
