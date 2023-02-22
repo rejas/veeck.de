@@ -11,7 +11,7 @@ const PhotoPage = (props) => {
   const { edges: galleries } = data.allPhotosYaml;
 
   return (
-    <Layout image={data.file} title="my photo galleries" lead="the panoramic pictures I have taken">
+    <Layout image={data.file} title="my photos" lead="the panoramic pictures I have taken">
       <MetaData title="Galleries" description={'veeck shoots'} image={data.file} />
       <Grid container spacing={3}>
         {galleries.map(({ node: gallery }, index) => (

@@ -5,6 +5,12 @@
 }
 
 @font-face {
+  font-family: 'Dyna Puff';
+  font-weight: normal;
+  src: url('../../fonts/DynaPuff.woff2');
+}
+
+@font-face {
   font-family: 'Josefin Sans';
   font-weight: bold;
   src: url('../../fonts/JosefinSans-Bold.woff2');

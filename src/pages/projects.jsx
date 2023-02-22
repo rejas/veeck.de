@@ -11,7 +11,7 @@ const ProjectsIndex = (props) => {
   const { edges: posts } = data.allMdx;
 
   return (
-    <Layout image={data.file} title="my side projects" lead="all the techy nerdy geeky stuff I do for fun">
+    <Layout image={data.file} title="my projects" lead="all the techy nerdy geeky stuff I do for fun">
       <MetaData title="Projects" description="veeck tinkers" image={data.file} />
       <Grid container spacing={3}>
         {posts.map(({ node: post }, index) => (
