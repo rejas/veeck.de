@@ -34,16 +34,16 @@
   },
   "dependencies": {
     "@bigheads/core": "^0.3.3",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
     "@loadable/component": "^5.15.3",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@mui/icons-material": "^5.11.11",
-    "@mui/material": "^5.11.12",
-    "@mui/styles": "^5.11.12",
-    "fslightbox-react": "^1.7.2",
-    "gatsby": "^4.25.5",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.2",
+    "@mui/styles": "^5.13.2",
+    "fslightbox-react": "^1.7.4",
+    "gatsby": "^4.25.7",
     "gatsby-background-image": "^1.6.0",
     "gatsby-plugin-feed": "^4.25.0",
     "gatsby-plugin-image": "^2.25.0",
@@ -52,7 +52,7 @@
     "gatsby-plugin-no-sourcemaps": "^4.25.0",
     "gatsby-plugin-offline": "^5.25.0",
     "gatsby-plugin-react-helmet": "^5.25.0",
-    "gatsby-plugin-robots-txt": "^1.7.1",
+    "gatsby-plugin-robots-txt": "1.7.1",
     "gatsby-plugin-sharp": "^4.25.1",
     "gatsby-plugin-sitemap": "^5.25.0",
     "gatsby-remark-copy-linked-files": "^5.25.0",
@@ -72,7 +72,7 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "react-spring": "^9.6.1",
+    "react-spring": "^9.7.1",
     "react-syntax-highlighter": "^15.5.0",
     "remark-unwrap-images": "2.1.0",
     "use-sound": "^4.0.1"
@@ -80,9 +80,9 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "husky": "^8.0.3",
-    "lint-staged": "^13.1.2",
+    "lint-staged": "^13.2.2",
     "npm-check": "^6.0.1",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.8"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
