@@ -167,7 +167,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        policy: [{ userAgent: '*', disallow: '/radio' }],
+        policy: [
+          { userAgent: '*', disallow: '/radio' },
+          { userAgent: 'GPTBot', disallow: '/' },
+        ],
       },
     },
     'gatsby-plugin-sharp',
