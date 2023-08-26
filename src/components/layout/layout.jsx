@@ -33,11 +33,11 @@ const ContentStyled = styled('main')(css`
   padding-bottom: 2rem;
 `);
 
-const LeadinStyled = styled(Typography)(({ theme }) => ({
-  alignSelf: 'center',
-  textAlign: 'center',
-  marginBottom: '2rem',
-}));
+const LeadinStyled = styled(Typography)(css`
+  align-self: center;
+  text-align: center;
+  margin-bottom: 2rem;
+`);
 
 const Layout = (props) => {
   let { children, image, lead, title } = props;
@@ -69,7 +69,7 @@ const Layout = (props) => {
         <PageStyled>
           <Header image={image} lead={lead} title={title} />
           <MainStyled>
-            <LeadinStyled variant="h2">{lead}</LeadinStyled>
+            <LeadinStyled variant="subtitle1">{lead}</LeadinStyled>
             <ContentStyled>{children}</ContentStyled>
             <Credits />
           </MainStyled>
