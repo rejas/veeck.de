@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import * as React from 'react';
 
 import { darkTheme, lightTheme } from '../../theme';
-import ErrorCard from '../cards/ErrorCard';
 import MenuMobile from '../navigation/MenuMobile';
 import Credits from '../page/Credits';
 import Header from '../page/Header';
