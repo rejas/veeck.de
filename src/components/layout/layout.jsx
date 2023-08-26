@@ -3,7 +3,6 @@ import { ThemeProvider, css, responsiveFontSizes, styled } from '@mui/material/s
 import { StylesProvider } from '@mui/styles';
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import { isIE } from 'react-device-detect';
 
 import { darkTheme, lightTheme } from '../../theme';
 import ErrorCard from '../cards/ErrorCard';
@@ -62,10 +61,6 @@ const Layout = (props) => {
     }
     //eslint-disable-next-line
   }, []);
-
-  if (isIE) {
-    children = <ErrorCard message="The Internet Explorer is not supported. Please download Firefox." />;
-  }
 
   return (
     <StylesProvider>
