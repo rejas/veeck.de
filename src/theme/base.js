@@ -47,11 +47,11 @@ const baseTheme = createTheme({
   typography: {
     fontFamily: ['Josefin Sans', 'sans-serif'].join(','),
     h1: {
-      fontFamily: ['Dyna Puff', 'serif'].join(','),
+      fontFamily: ['Bricolage Grotesque', 'serif'].join(','),
       fontSize: '4rem',
     },
     h2: {
-      fontFamily: ['Dyna Puff', 'serif'].join(','),
+      fontFamily: ['Bricolage Grotesque', 'serif'].join(','),
       fontSize: '3rem',
     },
     h3: {
