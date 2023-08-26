@@ -4,16 +4,13 @@ import { animated, useSpring } from 'react-spring';
 
 import { darkModeContext } from './ThemeHandler';
 
-const IconStyled = styled('div')(({ theme }) => ({
+const IconStyled = styled('button')(({ theme }) => ({
   ...theme.mixins.glas,
-  border: `1px solid ${theme.palette.primary.main}`,
-  borderRadius: '4px',
   width: '36px',
   height: '36px',
   display: 'grid',
   alignItems: 'center',
   justifyItems: 'center',
-  color: theme.palette.primary.main,
 
   [theme.breakpoints.down('md')]: {
     position: 'absolute',
