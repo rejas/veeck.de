@@ -1,5 +1,5 @@
 import { CssBaseline, Hidden, Typography } from '@mui/material';
-import { ThemeProvider, css, responsiveFontSizes, styled } from '@mui/material/styles';
+import { ThemeProvider, css, styled } from '@mui/material/styles';
 import { StylesProvider } from '@mui/styles';
 import PropTypes from 'prop-types';
 import * as React from 'react';
@@ -60,16 +60,14 @@ const Layout = (props) => {
     }
     //eslint-disable-next-line
   }, []);
-  const theme = getTheme(darkMode);
-
   return (
     <StylesProvider>
-      <ThemeProvider theme={responsiveFontSizes(theme)}>
+      <ThemeProvider theme={getTheme(darkMode)}>
         <CssBaseline />
         <PageStyled>
           <Header image={image} lead={lead} title={title} />
           <MainStyled>
-            <LeadinStyled variant="subtitle1">{lead}</LeadinStyled>
+            <LeadinStyled variant="h2">{lead}</LeadinStyled>
             <ContentStyled>{children}</ContentStyled>
             <Credits />
           </MainStyled>

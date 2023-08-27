@@ -31,7 +31,7 @@ const BasicCard = (props) => {
         {image && <GatsbyImageCover alt={imageAlt} image={bgImage} />}
         <CardContent>
           {title && (
-            <Typography variant="h2" gutterBottom>
+            <Typography variant="h3" gutterBottom>
               {title}
             </Typography>
           )}
