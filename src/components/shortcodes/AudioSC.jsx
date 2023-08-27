@@ -3,7 +3,7 @@ import { Card, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 
-const AudioPlayer = loadable(() => import('material-ui-audio-player'));
+const MuiAudioPlayer = loadable(() => import('mui-audio-player-plus'));
 
 const AudioSC = (props) => {
   const { file, caption } = props;
@@ -13,7 +13,7 @@ const AudioSC = (props) => {
       <Typography variant="h6" component="h2" gutterBottom>
         {caption}
       </Typography>
-      <AudioPlayer src={file} download elevation={0} />
+      <MuiAudioPlayer containerWidth={'100%'} display="timeline" src={file} inline />
     </Card>
   );
 };
