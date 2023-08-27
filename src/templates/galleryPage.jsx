@@ -51,7 +51,7 @@ const GalleryTemplate = (props) => {
       setImageIndex(imageIndex);
       setToggler(!toggler);
     },
-    [toggler]
+    [toggler],
   );
 
   React.useEffect(() => {

@@ -1,13 +1,7 @@
 @font-face {
-  font-family: 'Comforter Brush';
+  font-family: 'Bricolage Grotesque';
   font-weight: normal;
-  src: url('../../fonts/ComforterBrush-Regular.woff2');
-}
-
-@font-face {
-  font-family: 'Dyna Puff';
-  font-weight: normal;
-  src: url('../../fonts/DynaPuff.woff2');
+  src: url('../../fonts/BricolageGrotesque[opsz,wdth,wght].ttf');
 }
 
 @font-face {

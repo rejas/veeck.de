@@ -1,12 +1,10 @@
 import { CssBaseline, Hidden, Typography } from '@mui/material';
-import { ThemeProvider, css, responsiveFontSizes, styled } from '@mui/material/styles';
+import { ThemeProvider, css, styled } from '@mui/material/styles';
 import { StylesProvider } from '@mui/styles';
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import { isIE } from 'react-device-detect';
 
-import { darkTheme, lightTheme } from '../../theme';
-import ErrorCard from '../cards/ErrorCard';
+import { getTheme } from '../../theme';
 import MenuMobile from '../navigation/MenuMobile';
 import Credits from '../page/Credits';
 import Header from '../page/Header';
@@ -35,11 +33,11 @@ const ContentStyled = styled('main')(css`
   padding-bottom: 2rem;
 `);
 
-const LeadinStyled = styled(Typography)(({ theme }) => ({
-  alignSelf: 'center',
-  textAlign: 'center',
-  marginBottom: '2rem',
-}));
+const LeadinStyled = styled(Typography)(css`
+  align-self: center;
+  text-align: center;
+  margin-bottom: 2rem;
+`);
 
 const Layout = (props) => {
   let { children, image, lead, title } = props;
@@ -62,14 +60,9 @@ const Layout = (props) => {
     }
     //eslint-disable-next-line
   }, []);
-
-  if (isIE) {
-    children = <ErrorCard message="The Internet Explorer is not supported. Please download Firefox." />;
-  }
-
   return (
     <StylesProvider>
-      <ThemeProvider theme={responsiveFontSizes(darkMode ? darkTheme : lightTheme)}>
+      <ThemeProvider theme={getTheme(darkMode)}>
         <CssBaseline />
         <PageStyled>
           <Header image={image} lead={lead} title={title} />
