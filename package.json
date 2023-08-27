@@ -7,12 +7,6 @@
     "name": "rejas",
     "url": "https://github.com/rejas/"
   },
-  "browserslist": [
-    "last 3 versions",
-    "not IE <= 11",
-    "not IE_Mob <= 11",
-    "not dead"
-  ],
   "pre-push": [
     "test"
   ],
