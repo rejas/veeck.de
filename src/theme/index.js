@@ -83,6 +83,6 @@ export const getTheme = (darkMode) => {
           fontSize: '1.666rem',
         },
       },
-    })
+    }),
   );
 };

@@ -25,7 +25,7 @@ const WowFeedSC = () => {
   const openCharFeed = () => {
     window.open(
       `https://wowfeed.herokuapp.com/?region=${charRegion}&realm=${charRealm}&character=${charName}`,
-      '_blank'
+      '_blank',
     );
   };
 
@@ -40,7 +40,7 @@ const WowFeedSC = () => {
   const openGuildFeed = () => {
     window.open(
       `https://wowfeed.herokuapp.com/?region=${guildRegion}&realm=${guildRealm}&guild=${guildName}`,
-      '_blank'
+      '_blank',
     );
   };
 
