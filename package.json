@@ -35,7 +35,6 @@
     "@mdx-js/react": "^1.6.22",
     "@mui/icons-material": "^5.14.6",
     "@mui/material": "^5.14.6",
-    "@mui/styles": "^5.14.6",
     "fslightbox-react": "^1.7.6",
     "gatsby": "^4.25.7",
     "gatsby-background-image": "^1.6.0",
@@ -73,7 +72,7 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
+    "lint-staged": "^14.0.1",
     "npm-check": "^6.0.1",
     "prettier": "^3.0.2"
   },

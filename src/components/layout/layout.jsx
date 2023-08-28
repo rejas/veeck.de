@@ -1,6 +1,5 @@
-import { CssBaseline, Hidden, Typography } from '@mui/material';
+import { CssBaseline, Hidden, StyledEngineProvider, Typography } from '@mui/material';
 import { ThemeProvider, css, styled } from '@mui/material/styles';
-import { StylesProvider } from '@mui/styles';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 
@@ -61,7 +60,7 @@ const Layout = (props) => {
     //eslint-disable-next-line
   }, []);
   return (
-    <StylesProvider>
+    <StyledEngineProvider>
       <ThemeProvider theme={getTheme(darkMode)}>
         <CssBaseline />
         <PageStyled>
@@ -76,7 +75,7 @@ const Layout = (props) => {
           </Hidden>
         </PageStyled>
       </ThemeProvider>
-    </StylesProvider>
+    </StyledEngineProvider>
   );
 };
 
