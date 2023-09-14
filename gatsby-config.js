@@ -132,6 +132,7 @@ module.exports = {
         background_color: '#4bb2f9',
         display: 'standalone',
         icon: `${__dirname}/content/images/favicon.png`,
+        theme_color: `#4bb2f9`,
         theme_color_in_head: false,
       },
     },
