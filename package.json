@@ -36,7 +36,7 @@
     "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.14.9",
     "fslightbox-react": "^1.7.6",
-    "gatsby": "^4.25.7",
+    "gatsby": "^5.12.4",
     "gatsby-background-image": "^1.6.0",
     "gatsby-plugin-feed": "^4.25.0",
     "gatsby-plugin-image": "^2.25.0",
