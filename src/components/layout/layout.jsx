@@ -80,7 +80,6 @@ const Layout = (props) => {
 };
 
 Layout.defaultProps = {
-  icon: null,
   image: null,
   lead: null,
   title: null,
@@ -88,7 +87,6 @@ Layout.defaultProps = {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  icon: PropTypes.object,
   image: PropTypes.object,
   title: PropTypes.string,
   lead: PropTypes.string,

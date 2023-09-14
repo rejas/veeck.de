@@ -106,7 +106,7 @@ const Header = (props) => {
               accessory="shades"
               body="chest"
               circleColor="blue"
-              clothing="shirt"
+              clothing="dressShirt"
               clothingColor="black"
               eyebrows="raised"
               eyes="simple"
@@ -120,7 +120,6 @@ const Header = (props) => {
               hatColor="blue"
               lashes
               lipColor="red"
-              mask
               mouth="openSmile"
               skinTone="light"
             />

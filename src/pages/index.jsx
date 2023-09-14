@@ -1,4 +1,3 @@
-import { BigHead } from '@bigheads/core';
 import { Grid } from '@mui/material';
 import { graphql } from 'gatsby';
 import * as React from 'react';
@@ -11,35 +10,7 @@ const IndexPage = (props) => {
   const { data } = props;
 
   return (
-    <Layout
-      image={data.file}
-      title="veeck.de"
-      lead="computerschlampe, hoffotograf, terrorpoet"
-      icon={
-        <BigHead
-          accessory="shades"
-          body="chest"
-          circleColor="blue"
-          clothing="shirt"
-          clothingColor="black"
-          eyebrows="raised"
-          eyes="simple"
-          faceMask={false}
-          faceMaskColor="white"
-          facialHair="mediumBeard"
-          graphic="react"
-          hair="none"
-          hairColor="white"
-          hat="none"
-          hatColor="blue"
-          lashes
-          lipColor="red"
-          mask
-          mouth="openSmile"
-          skinTone="light"
-        />
-      }
-    >
+    <Layout image={data.file} title="veeck.de" lead="computerschlampe, hoffotograf, terrorpoet">
       <MetaData title="veeck.de" thumbnail={data.file} />
 
       <Grid container spacing={3}>
