@@ -159,6 +159,7 @@ module.exports = {
         remarkPlugins: [require('remark-unwrap-images')],
       },
     },
+    'gatsby-plugin-netlify',
     'gatsby-plugin-no-sourcemaps',
     // This (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

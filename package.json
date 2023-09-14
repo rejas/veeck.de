@@ -71,6 +71,7 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
+    "gatsby-plugin-netlify": "^5.1.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "npm-check": "^6.0.1",
