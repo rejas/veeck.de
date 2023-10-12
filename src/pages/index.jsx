@@ -3,14 +3,14 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import BasicCard from '../components/cards/BasicCard';
-import Layout from '../components/layout/layout';
+import BasicLayout from '../components/layout/BasicLayout';
 import MetaData from '../components/page/MetaData';
 
 const IndexPage = (props) => {
   const { data } = props;
 
   return (
-    <Layout image={data.file} title="veeck.de" lead="computerschlampe, hoffotograf, terrorpoet">
+    <BasicLayout image={data.file} title="veeck.de" lead="computerschlampe, hoffotograf, terrorpoet">
       <MetaData title="veeck.de" thumbnail={data.file} />
 
       <Grid container spacing={3}>
@@ -53,7 +53,7 @@ const IndexPage = (props) => {
           />
         </Grid>
       </Grid>
-    </Layout>
+    </BasicLayout>
   );
 };
 

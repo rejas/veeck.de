@@ -8,7 +8,7 @@ import MenuMobile from '../navigation/MenuMobile';
 import Credits from '../page/Credits';
 import Header from '../page/Header';
 import { darkModeContext } from '../ui/ThemeHandler';
-import './layout.css';
+import './styles.css';
 
 const PageStyled = styled('div')(({ theme }) => ({
   display: 'grid',
@@ -38,7 +38,7 @@ const LeadinStyled = styled(Typography)(css`
   margin-bottom: 2rem;
 `);
 
-const Layout = (props) => {
+const BasicLayout = (props) => {
   let { children, image, lead, title } = props;
 
   const DarkModeContext = React.useContext(darkModeContext);
@@ -79,17 +79,17 @@ const Layout = (props) => {
   );
 };
 
-Layout.defaultProps = {
+BasicLayout.defaultProps = {
   image: null,
   lead: null,
   title: null,
 };
 
-Layout.propTypes = {
+BasicLayout.propTypes = {
   children: PropTypes.node.isRequired,
   image: PropTypes.object,
   title: PropTypes.string,
   lead: PropTypes.string,
 };
 
-export default Layout;
+export default BasicLayout;

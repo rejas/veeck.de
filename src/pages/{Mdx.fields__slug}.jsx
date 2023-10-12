@@ -6,7 +6,7 @@ import { Link } from 'gatsby-theme-material-ui';
 import * as React from 'react';
 
 import { Headline1, Headline2, Headline3, Headline4, Headline5, Headline6, Paragraph } from '../components/Typography';
-import Layout from '../components/layout/layout';
+import BasicLayout from '../components/layout/BasicLayout';
 import MetaData from '../components/page/MetaData';
 import AudioSC from '../components/shortcodes/AudioSC';
 import CodeBlockSC from '../components/shortcodes/CodeBlockSC';
@@ -36,10 +36,10 @@ const MdxTemplate = (props) => {
         WowFeed: WowFeedSC,
       }}
     >
-      <Layout title={mdx.frontmatter.title} lead={mdx.frontmatter.lead} image={mdx.frontmatter.img}>
+      <BasicLayout title={mdx.frontmatter.title} lead={mdx.frontmatter.lead} image={mdx.frontmatter.img}>
         <MetaData title={mdx.frontmatter.title} lang={mdx.frontmatter.lang} thumbnail={mdx.frontmatter.img} />
         <MDXRenderer>{mdx.body}</MDXRenderer>
-      </Layout>
+      </BasicLayout>
     </MDXProvider>
   );
 };

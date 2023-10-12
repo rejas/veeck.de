@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import EntryCard from '../components/cards/EntryCard';
-import Layout from '../components/layout/layout';
+import BasicLayout from '../components/layout/BasicLayout';
 import MetaData from '../components/page/MetaData';
 
 const ProjectsIndex = (props) => {
@@ -11,7 +11,7 @@ const ProjectsIndex = (props) => {
   const { edges: posts } = data.allMdx;
 
   return (
-    <Layout image={data.file} title="my projects" lead="all the techy nerdy geeky stuff I do for fun">
+    <BasicLayout image={data.file} title="my projects" lead="all the techy nerdy geeky stuff I do for fun">
       <MetaData title="Projects" description="veeck tinkers" image={data.file} />
       <Grid container spacing={3}>
         {posts.map(({ node: post }, index) => (
@@ -23,7 +23,7 @@ const ProjectsIndex = (props) => {
           />
         ))}
       </Grid>
-    </Layout>
+    </BasicLayout>
   );
 };
 

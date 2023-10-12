@@ -6,7 +6,7 @@ import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 
-import Layout from '../components/layout/layout';
+import BasicLayout from '../components/layout/BasicLayout';
 import MetaData from '../components/page/MetaData';
 import { useSearchParams } from '../hooks/use-search-param';
 
@@ -59,7 +59,7 @@ const GalleryTemplate = (props) => {
   }, [initialIndex]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <Layout title={node.title} lead={node.lead}>
+    <BasicLayout title={node.title} lead={node.lead}>
       <MetaData title={node.title} />
       <ImageList cols={4}>
         {node.images.map((img, index) => {
@@ -94,7 +94,7 @@ const GalleryTemplate = (props) => {
         })}
       </ImageList>
       <FsLightbox toggler={toggler} sources={lightboxImages} sourceIndex={imageIndex} />
-    </Layout>
+    </BasicLayout>
   );
 };
 
