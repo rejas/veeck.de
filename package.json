@@ -66,6 +66,7 @@
     "react-helmet": "^6.1.0",
     "react-spring": "^9.7.3",
     "react-syntax-highlighter": "^15.5.0",
+    "react-web-share": "^2.0.2",
     "remark-unwrap-images": "^2.1.0",
     "use-sound": "^4.0.1"
   },
