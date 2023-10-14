@@ -5,13 +5,21 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { Link } from 'gatsby-theme-material-ui';
 import * as React from 'react';
 
-import { Headline1, Headline2, Headline3, Headline4, Headline5, Headline6, Paragraph } from '../components/Typography';
 import BasicLayout from '../components/layout/BasicLayout';
 import MetaData from '../components/page/MetaData';
 import AudioSC from '../components/shortcodes/AudioSC';
 import CodeBlockSC from '../components/shortcodes/CodeBlockSC';
 import ListItemSC from '../components/shortcodes/ListItemSC';
 import WowFeedSC from '../components/shortcodes/WowFeedSC';
+import {
+  Headline1,
+  Headline2,
+  Headline3,
+  Headline4,
+  Headline5,
+  Headline6,
+  Paragraph,
+} from '../components/ui/Typography';
 
 const MdxTemplate = (props) => {
   const mdx = props.data.mdx;

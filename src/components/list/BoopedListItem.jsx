@@ -3,8 +3,8 @@ import { Link } from 'gatsby-theme-material-ui';
 import * as React from 'react';
 import { animated } from 'react-spring';
 
-import { useBoop } from '../hooks/use-boop';
-import CategoryIcon from './icons/CategoryIcon';
+import { useBoop } from '../../hooks/use-boop';
+import CategoryIcon from '../icons/CategoryIcon';
 
 const BoopedListItem = (props) => {
   const post = props.post;
