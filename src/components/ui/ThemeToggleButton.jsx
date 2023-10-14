@@ -1,27 +1,13 @@
-import { styled } from '@mui/material/styles';
+import { IconButton } from '@mui/material';
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
 
 import { darkModeContext } from './ThemeHandler';
 
-const IconStyled = styled('button')(({ theme }) => ({
-  ...theme.mixins.glas,
-  width: '36px',
-  height: '36px',
-  display: 'grid',
-  alignItems: 'center',
-  justifyItems: 'center',
-
-  [theme.breakpoints.down('md')]: {
-    position: 'absolute',
-    right: '2rem',
-  },
-}));
-
 /**
  * https://jfelix.info/blog/using-react-spring-to-animate-svg-icons-dark-mode-toggle
  */
-const ThemeToggleButton = (props) => {
+const ThemeToggleButton = () => {
   const DarkModeContext = React.useContext(darkModeContext);
   const { darkMode, setDarkMode } = DarkModeContext;
 
@@ -67,7 +53,7 @@ const ThemeToggleButton = (props) => {
   const linesProps = useSpring({ opacity, config: properties.springConfig });
 
   return (
-    <IconStyled onClick={handleThemeChange}>
+    <IconButton onClick={handleThemeChange}>
       <animated.svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -100,7 +86,7 @@ const ThemeToggleButton = (props) => {
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
         </animated.g>
       </animated.svg>
-    </IconStyled>
+    </IconButton>
   );
 };
 

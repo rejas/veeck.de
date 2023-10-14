@@ -4,20 +4,11 @@ import { default as darkTheme } from './dark';
 import { default as lightTheme } from './light';
 
 export const getTheme = (darkMode) => {
-  let th = darkMode ? darkTheme : lightTheme;
+  let theme = darkMode ? darkTheme : lightTheme;
 
   return responsiveFontSizes(
     createTheme({
-      ...th,
-      mixins: {
-        glas: {
-          backgroundColor: 'transparent',
-          backgroundImage: 'linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,255,255,0))',
-          backdropFilter: 'blur(10px)',
-          border: `1px solid ${th.palette.primary.main}`,
-          borderRadius: '4px',
-        },
-      },
+      ...theme,
       // Make md breakpoint a little wider than standard
       breakpoints: {
         values: {
@@ -37,13 +28,21 @@ export const getTheme = (darkMode) => {
             },
           },
         },
+        MuiIconButton: {
+          styleOverrides: {
+            root: {
+              border: `1px solid ${theme.palette.primary.main}`,
+              borderRadius: '4px',
+            },
+          },
+        },
         MuiButton: {
           styleOverrides: {
             root: {
               backgroundColor: 'transparent',
               backgroundImage: 'linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,255,255,0))',
               backdropFilter: 'blur(10px)',
-              border: `1px solid ${th.palette.primary.main}`,
+              border: `1px solid ${theme.palette.primary.main}`,
             },
           },
         },

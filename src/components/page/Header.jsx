@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import * as React from 'react';
 
 import MenuDesktop from '../navigation/MenuDesktop';
-import ThemeToggleButton from '../ui/ThemeToggleButton';
+import Options from './Options';
 
 const HeaderStyled = styled('div')(({ theme }) => ({
   position: 'sticky',
@@ -128,7 +128,7 @@ const Header = (props) => {
         </HeadlineIconStyled>
         <Hidden smDown>
           <MenuDesktop />
-          <ThemeToggleButton />
+          <Options />
         </Hidden>
       </ConditionalWrapper>
     </HeaderStyled>
