@@ -33,6 +33,7 @@ export const getTheme = (darkMode) => {
             root: {
               border: `1px solid ${theme.palette.primary.main}`,
               borderRadius: '4px',
+              color: theme.palette.primary.main,
             },
           },
         },
