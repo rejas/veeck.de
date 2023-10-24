@@ -70,7 +70,7 @@
     "use-sound": "^4.0.1"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.2.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.2.1",
     "gatsby-plugin-netlify": "^5.1.1",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
