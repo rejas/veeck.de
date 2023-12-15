@@ -12,7 +12,6 @@ const BlogIndex = (props) => {
 
   return (
     <BasicLayout image={data.file} title="my blog" lead="ramblings and stuff I find noteworthy">
-      <MetaData title="Blog" description="veeck blogs" image={data.file} />
       <Paper>
         <List>
           {posts.map(({ node: post }) => (
@@ -48,5 +47,7 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = ({ data }) => <MetaData title="Blog" description="veeck blogs" image={data.file} />;
 
 export default BlogIndex;

@@ -12,7 +12,6 @@ const ProjectsIndex = (props) => {
 
   return (
     <BasicLayout image={data.file} title="my projects" lead="all the techy nerdy geeky stuff I do for fun">
-      <MetaData title="Projects" description="veeck tinkers" image={data.file} />
       <Grid container spacing={3}>
         {posts.map(({ node: post }, index) => (
           <EntryCard
@@ -55,5 +54,7 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = ({ data }) => <MetaData title="Projects" description="veeck tinkers" image={data.file} />;
 
 export default ProjectsIndex;
