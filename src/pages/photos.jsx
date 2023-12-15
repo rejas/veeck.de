@@ -12,7 +12,6 @@ const PhotoPage = (props) => {
 
   return (
     <BasicLayout image={data.file} title="my photos" lead="the panoramic pictures I have taken">
-      <MetaData title="Galleries" description={'veeck shoots'} image={data.file} />
       <Grid container spacing={3}>
         {galleries.map(({ node: gallery }, index) => (
           <EntryCard
@@ -50,5 +49,7 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = ({ data }) => <MetaData title="Galleries" description="veeck shoots" image={data.file} />;
 
 export default PhotoPage;

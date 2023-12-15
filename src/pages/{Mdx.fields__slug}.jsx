@@ -45,7 +45,6 @@ const MdxTemplate = (props) => {
       }}
     >
       <BasicLayout title={mdx.frontmatter.title} lead={mdx.frontmatter.lead} image={mdx.frontmatter.img}>
-        <MetaData title={mdx.frontmatter.title} lang={mdx.frontmatter.lang} thumbnail={mdx.frontmatter.img} />
         <MDXRenderer>{mdx.body}</MDXRenderer>
       </BasicLayout>
     </MDXProvider>
@@ -70,5 +69,9 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = ({ data: { mdx } }) => (
+  <MetaData title={mdx.frontmatter.title} lang={mdx.frontmatter.lang} thumbnail={mdx.frontmatter.img} />
+);
 
 export default MdxTemplate;

@@ -2,18 +2,21 @@
   font-family: 'Bricolage Grotesque';
   font-weight: normal;
   src: url('../../fonts/BricolageGrotesque.woff2');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Josefin Sans';
   font-weight: bold;
   src: url('../../fonts/JosefinSans-Bold.woff2');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Josefin Sans';
   font-weight: normal;
   src: url('../../fonts/JosefinSans-Regular.woff2');
+  font-display: swap;
 }
 
 body {

@@ -12,7 +12,6 @@ const TravelsIndex = (props) => {
 
   return (
     <BasicLayout image={data.file} title="my travels" lead="travel diaries from around the world">
-      <MetaData title="Travel" description="veeck travels" image={data.file} />
       <Grid container spacing={3}>
         {posts.map(({ node: post }, index) => (
           <EntryCard
@@ -56,5 +55,7 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = ({ data }) => <MetaData title="Travel" description="veeck travels" image={data.file} />;
 
 export default TravelsIndex;

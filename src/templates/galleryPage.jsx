@@ -60,7 +60,6 @@ const GalleryTemplate = (props) => {
 
   return (
     <BasicLayout title={node.title} lead={node.lead}>
-      <MetaData title={node.title} />
       <ImageList cols={4}>
         {node.images.map((img, index) => {
           const image = getImage(img.img);
@@ -120,5 +119,7 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = (props) => <MetaData title={props.data.allPhotosYaml.edges[0].node.title} />;
 
 export default GalleryTemplate;

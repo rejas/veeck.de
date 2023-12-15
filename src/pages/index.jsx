@@ -11,8 +11,6 @@ const IndexPage = (props) => {
 
   return (
     <BasicLayout image={data.file} title="veeck.de" lead="computerschlampe, hoffotograf, terrorpoet">
-      <MetaData title="veeck.de" thumbnail={data.file} />
-
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <BasicCard
@@ -148,5 +146,7 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = ({ data }) => <MetaData title="veeck.de" thumbnail={data.file} />;
 
 export default IndexPage;
