@@ -1,5 +1,5 @@
 import FiberNewIcon from '@mui/icons-material/FiberNew';
-import { IconButton, ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
+import { ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import FsLightbox from 'fslightbox-react';
 import { graphql } from 'gatsby';
@@ -16,6 +16,7 @@ const ImageListItemStyled = styled(ImageListItem)(() => ({
 
 const ImageListItemBarStyled = styled(ImageListItemBar)(() => ({
   background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+  paddingLeft: '10px',
 }));
 
 const GalleryTemplate = (props) => {
@@ -80,11 +81,7 @@ const GalleryTemplate = (props) => {
               {img.is_new && (
                 <ImageListItemBarStyled
                   position="bottom"
-                  actionIcon={
-                    <IconButton size="large">
-                      <FiberNewIcon color="secondary" />
-                    </IconButton>
-                  }
+                  actionIcon={<FiberNewIcon color="secondary" />}
                   actionPosition="left"
                 />
               )}
