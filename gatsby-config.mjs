@@ -3,6 +3,8 @@ import remarkUnwrapImages from 'remark-unwrap-images';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
+
+// 👇️ "/home/john/Desktop/javascript"
 const __dirname = path.dirname(__filename);
 
 const config = {
@@ -145,10 +147,10 @@ const config = {
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
-        defaultLayouts: {
-          default: require.resolve(`${__dirname}/src/components/layout/layout.jsx`),
-        },
         extensions: ['.mdx', '.md'],
+        mdxOptions: {
+          remarkPlugins: [remarkUnwrapImages()],
+        },
         gatsbyRemarkPlugins: [
           'gatsby-remark-copy-linked-files',
           {
@@ -162,8 +164,6 @@ const config = {
             },
           },
         ],
-        plugins: ['gatsby-remark-images'],
-        remarkPlugins: [remarkUnwrapImages()],
       },
     },
     'gatsby-plugin-no-sourcemaps',
