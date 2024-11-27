@@ -25,17 +25,129 @@ Now all I needed was a problem to solve :-)
 We dont want to look into our smartphone to handle some of the smart things like the lights. And our MagicMirror is just
 read only and cannot control the smart things in our home.
 
-HomeAssistant to the rescue. One of the most active projects on github with a lot of activity and support, as well as
-integrations for nearly all things smart.
+HomeAssistant (short: HA) to the rescue. One of the most active projects on github with a lot of activity and support,
+as well as integrations for nearly all things smart.
 
 ## the helper
 
-Normally it is recommended to install HomeAssistant in a docker environment. This seems overkill for a raspberry where
-Ha is the only thing that should be running there.
+Normally it is recommended to install HA in a docker environment. This seems overkill for a raspberry where Ha is the
+only thing that should be running there.
 
 And my NAS doesnt support docker so how do I install HA on my PI 4 and make it start directly into a UI for controlling
 and reading...
 
-Hey, lets ask ChatGPT how do it instead of googling around...
+Hey, lets ask ChatGPT how do it instead of googling around, so the next section is jsut what it told me:
 
-## the instructions
+## Installing Home Assistant on Raspberry Pi with Pi-Touch Display
+
+This document contains step-by-step instructions for installing Home Assistant on a Raspberry Pi with a Pi-Touch
+display. The guide helps you set up Home Assistant without using Docker, with the interface running on the Pi's
+touchscreen, and auto-starting on boot.
+
+### Step 1: Prepare the Raspberry Pi
+
+1. Install Raspberry Pi OS:
+
+- Download the Raspberry Pi OS (Lite or Desktop depending on your preference) from the official site.
+- Flash it to your microSD card using a tool like Raspberry Pi Imager.
+
+2. Update the System: After booting up and connecting to the internet, open a terminal and update your Pi: sudo apt
+   update sudo apt upgrade -y
+
+### Step 2: Install Home Assistant Core
+
+1. Install Dependencies:
+
+```bash
+sudo apt install python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev autoconf libopenjp2-7 libtiff5 tzdata
+```
+
+2. Create a Virtual Environment for Home Assistant:
+
+- Create a dedicated user for running Home Assistant:
+
+```bash
+sudo useradd -rm homeassistant -G dialout,gpio,i2c
+sudo mkdir /srv/homeassistant
+sudo chown homeassistant:homeassistant /srv/homeassistant
+```
+
+- Switch to the new user and create a Python virtual environment:
+
+```bash
+sudo -u homeassistant -H -s cd /srv/homeassistant
+  python3 -m venv . source bin/activate
+```
+
+- Install Home Assistant:
+
+```bash
+pip install wheel pip install homeassistant
+```
+
+3. Start Home Assistant for the First Time: `hass`
+
+You can now access the Home Assistant interface by visiting `http://<your-pi-ip>:8123`.
+
+#### Step 3: Configure Auto-Start for Home Assistant
+
+1. Set Up a Systemd Service:
+
+```bash
+sudo nano /etc/systemd/system/home-assistant@homeassistant.service
+```
+
+2. Add the following content to the service file:
+
+```bash
+[Unit] Description=Home Assistant After=network-online.target
+[Service] Type=simple User=homeassistant ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
+[Install] WantedBy=multi-user.target
+```
+
+3. Enable and Start the Service:
+
+```bash
+sudo systemctl --system daemon-reload
+sudo systemctl enable home-assistant@homeassistant
+sudo systemctl start home-assistant@homeassistant
+```
+
+#### Step 4: Set Up the Pi-Touch Display
+
+1. Install a Kiosk Browser for Full-Screen UI:
+
+```bash
+sudo apt install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox chromium-browser
+```
+
+2. Create Auto-Start Scripts for Kiosk Mode:
+
+```bash
+mkdir -p ~/.config/openbox nano ~/.config/openbox/autostart
+```
+
+3. Add the following to launch Chromium in kiosk mode:
+
+```bash
+xset s off xset -dpms xset s noblank chromium-browser --kiosk --disable-restore-session-state --app=http://localhost:8123
+```
+
+4. Set Openbox as Default Window Manager:
+
+```bash
+nano ~/.xinitrc Add: exec openbox-session
+```
+
+5. Auto-Start X11 Session on Boot:
+
+```bash
+nano ~/.bash_profile Add: if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then startx fi
+```
+
+#### Step 5: Reboot and Test
+
+Reboot the Raspberry Pi: sudo reboot After reboot, the Pi should automatically launch Chromium in kiosk mode displaying
+the Home Assistant interface on the Pi-Touch display.
+
+## Did it work?
