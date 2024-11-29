@@ -49,8 +49,6 @@ const MenuItem = ({ link }) => {
   );
 };
 
-MenuItem.defaultProps = {};
-
 MenuItem.propTypes = {
   link: PropTypes.object.isRequired,
 };

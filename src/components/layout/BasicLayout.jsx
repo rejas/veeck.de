@@ -77,12 +77,6 @@ const BasicLayout = ({ children, image, lead, title }) => {
   );
 };
 
-BasicLayout.defaultProps = {
-  image: null,
-  lead: null,
-  title: null,
-};
-
 BasicLayout.propTypes = {
   children: PropTypes.node.isRequired,
   image: PropTypes.object,

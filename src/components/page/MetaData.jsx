@@ -49,12 +49,6 @@ const MetaData = ({ description, title, thumbnail }) => {
   );
 };
 
-MetaData.defaultProps = {
-  description: '',
-  lang: 'en',
-  thumbnail: null,
-};
-
 MetaData.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
