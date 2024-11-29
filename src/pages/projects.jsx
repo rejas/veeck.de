@@ -6,8 +6,7 @@ import EntryCard from '../components/cards/EntryCard';
 import BasicLayout from '../components/layout/BasicLayout';
 import MetaData from '../components/page/MetaData';
 
-const ProjectsIndex = (props) => {
-  const { data } = props;
+const ProjectsIndex = ({ data }) => {
   const { edges: posts } = data.allMdx;
 
   return (

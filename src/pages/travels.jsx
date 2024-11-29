@@ -6,8 +6,7 @@ import EntryCard from '../components/cards/EntryCard';
 import BasicLayout from '../components/layout/BasicLayout';
 import MetaData from '../components/page/MetaData';
 
-const TravelsIndex = (props) => {
-  const { data } = props;
+const TravelsIndex = ({ data }) => {
   const { edges: posts } = data.allMdx;
 
   return (

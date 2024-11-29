@@ -81,9 +81,7 @@ const HeadlineIconStyled = styled(Typography)(({ theme }) => ({
 const ConditionalWrapper = ({ condition, wrapperTrue, wrapperFalse, children }) =>
   condition ? wrapperTrue(children) : wrapperFalse(children);
 
-const Header = (props) => {
-  const { image } = props;
-
+const Header = ({ image, title }) => {
   let bgImage;
   if (image) {
     bgImage = convertToBgImage(getImage(image));
@@ -124,7 +122,7 @@ const Header = (props) => {
               skinTone="light"
             />
           </HomeLinkStyled>
-          {props.title}
+          {title}
         </HeadlineIconStyled>
         <Hidden smDown>
           <MenuDesktop />
@@ -137,6 +135,7 @@ const Header = (props) => {
 
 Header.propTypes = {
   image: PropTypes.object,
+  title: PropTypes.string,
 };
 
 export default Header;

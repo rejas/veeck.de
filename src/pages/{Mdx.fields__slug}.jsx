@@ -21,9 +21,7 @@ import {
   Paragraph,
 } from '../components/ui/Typography';
 
-const MdxTemplate = (props) => {
-  const mdx = props.data.mdx;
-
+const MdxTemplate = ({ data: { mdx } }) => {
   return (
     <MDXProvider
       components={{

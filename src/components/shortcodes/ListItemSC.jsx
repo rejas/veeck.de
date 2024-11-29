@@ -9,13 +9,13 @@ const ListItemIconIcon = styled(ListItemIcon)(({ theme }) => ({
   marginRight: theme.spacing(3),
 }));
 
-const ListItemSC = (props) => {
+const ListItemSC = ({ children }) => {
   return (
     <ListItem>
       <ListItemIconIcon>
         <FiberManualRecordIcon color="primary" />
       </ListItemIconIcon>
-      <ListItemText>{props.children}</ListItemText>
+      <ListItemText>{children}</ListItemText>
     </ListItem>
   );
 };

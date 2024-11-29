@@ -6,8 +6,7 @@ import { animated } from 'react-spring';
 import { useBoop } from '../../hooks/use-boop';
 import CategoryIcon from '../icons/CategoryIcon';
 
-const BoopedListItem = (props) => {
-  const post = props.post;
+const BoopedListItem = ({ post }) => {
   const [style, trigger] = useBoop({ rotation: 20, timing: 200 });
 
   return (

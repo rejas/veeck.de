@@ -38,9 +38,7 @@ const LeadinStyled = styled(Typography)(css`
   margin-bottom: 2rem;
 `);
 
-const BasicLayout = (props) => {
-  let { children, image, lead, title } = props;
-
+const BasicLayout = ({ children, image, lead, title }) => {
   const DarkModeContext = React.useContext(darkModeContext);
   const { darkMode, setDarkMode } = DarkModeContext;
 

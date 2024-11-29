@@ -3,10 +3,10 @@ import * as React from 'react';
 import Boop from '../ui/Boop';
 import CategoryIcon from './CategoryIcon';
 
-const BoopedCategoryIcon = (props) => {
+const BoopedCategoryIcon = ({ category, color }) => {
   return (
     <Boop rotation={20} timing={200}>
-      <CategoryIcon {...props} />
+      <CategoryIcon category={category} color={color} />
     </Boop>
   );
 };

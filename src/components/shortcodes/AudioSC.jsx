@@ -5,9 +5,7 @@ import * as React from 'react';
 
 const MuiAudioPlayer = loadable(() => import('mui-audio-player-plus'));
 
-const AudioSC = (props) => {
-  const { file, caption } = props;
-
+const AudioSC = ({ file, caption }) => {
   return (
     <Card sx={{ p: 3, mb: 3 }}>
       <Typography variant="h6" component="h2" gutterBottom>

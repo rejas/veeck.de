@@ -22,8 +22,7 @@ const GatsbyImageCover = styled(GatsbyImage)(css`
   flex: 1 0 50%;
 `);
 
-const BasicCard = (props) => {
-  const { image, imageAlt, link, excerpt, title } = props;
+const BasicCard = ({ image, imageAlt, link, excerpt, title }) => {
   const bgImage = getImage(image);
 
   return (

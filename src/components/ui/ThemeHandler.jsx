@@ -20,7 +20,7 @@ export const darkModeReducer = (state, action) => {
   }
 };
 
-export const DarkModeState = (props) => {
+export const DarkModeState = ({ children }) => {
   const [state, dispatch] = useReducer(darkModeReducer, initialState);
 
   const setDarkMode = async (bool) => {
@@ -37,7 +37,7 @@ export const DarkModeState = (props) => {
         setDarkMode,
       }}
     >
-      {props.children}
+      {children}
     </darkModeContext.Provider>
   );
 };
