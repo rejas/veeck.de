@@ -4,9 +4,7 @@ import * as React from 'react';
 
 import BasicCard from './BasicCard';
 
-const EntryCard = (props) => {
-  const { image, link, title } = props;
-
+const EntryCard = ({ image, link, title }) => {
   return (
     <Grid item xs={12} sm={6} md={4}>
       <BasicCard link={link} title={title} imageAlt={title} image={image} />

@@ -6,9 +6,7 @@ import BasicCard from '../components/cards/BasicCard';
 import BasicLayout from '../components/layout/BasicLayout';
 import MetaData from '../components/page/MetaData';
 
-const IndexPage = (props) => {
-  const { data } = props;
-
+const IndexPage = ({ data }) => {
   return (
     <BasicLayout image={data.file} title="veeck.de" lead="computerschlampe, hoffotograf, terrorpoet">
       <Grid container spacing={3}>

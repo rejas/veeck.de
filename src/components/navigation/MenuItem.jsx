@@ -32,8 +32,7 @@ const LinkStyled = styled(Link)(({ theme }) => ({
   },
 }));
 
-const MenuItem = (props) => {
-  const { link } = props;
+const MenuItem = ({ link }) => {
   const [style, trigger] = useBoop({ rotation: 20, timing: 200 });
   style.display = 'flex';
   const [play] = useSound(boopSfx);
@@ -49,8 +48,6 @@ const MenuItem = (props) => {
     </Headline5Styled>
   );
 };
-
-MenuItem.defaultProps = {};
 
 MenuItem.propTypes = {
   link: PropTypes.object.isRequired,

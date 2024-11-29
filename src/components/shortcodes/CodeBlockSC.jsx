@@ -4,13 +4,11 @@ import * as React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-const CodeBlockSC = (props) => {
-  const { children, className } = props;
-
+const CodeBlockSC = ({ children, className = '' }) => {
   return (
     <Box sx={{ fontSize: 'small' }}>
       <SyntaxHighlighter
-        language={className ? className.replace('language-', '') : ''}
+        language={className.replace('language-', '')}
         wrapLines={true}
         wrapLongLines={true}
         style={darcula}
@@ -19,10 +17,6 @@ const CodeBlockSC = (props) => {
       </SyntaxHighlighter>
     </Box>
   );
-};
-
-CodeBlockSC.defaultProps = {
-  className: '',
 };
 
 CodeBlockSC.propTypes = {

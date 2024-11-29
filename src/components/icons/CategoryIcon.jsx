@@ -10,41 +10,41 @@ import WebIcon from '@mui/icons-material/Web';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 
-const CategoryIcon = (props) => {
-  const { category } = props;
-
+const CategoryIcon = ({ category, color }) => {
   switch (category) {
     case 'home':
-      return <HomeIcon {...props} />;
+      return <HomeIcon color={color} />;
     case 'blog':
-      return <EditIcon {...props} />;
+      return <EditIcon color={color} />;
     case 'homepage':
-      return <WebIcon {...props} />;
+      return <WebIcon color={color} />;
     case 'link':
-      return <LinkIcon {...props} />;
+      return <LinkIcon color={color} />;
     case 'memories':
-      return <StuffIcon {...props} />;
+      return <StuffIcon color={color} />;
     case 'opinion':
-      return <EditIcon {...props} />;
+      return <EditIcon color={color} />;
     case 'photos':
-      return <CameraIcon {...props} />;
+      return <CameraIcon color={color} />;
     case 'projects':
-      return <ComputerIcon {...props} />;
+      return <ComputerIcon color={color} />;
     case 'stuff':
-      return <StuffIcon {...props} />;
+      return <StuffIcon color={color} />;
     case 'travels':
-      return <ExploreIcon {...props} />;
+      return <ExploreIcon color={color} />;
     default:
-      return <FiberManualRecordIcon {...props} />;
+      return <FiberManualRecordIcon color={color} />;
   }
 };
 
 CategoryIcon.defaultProps = {
   category: '',
+  color: 'gray',
 };
 
 CategoryIcon.propTypes = {
   category: PropTypes.string,
+  color: PropTypes.string,
 };
 
 export default CategoryIcon;

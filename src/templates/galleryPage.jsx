@@ -19,10 +19,10 @@ const ImageListItemBarStyled = styled(ImageListItemBar)(() => ({
   paddingLeft: '10px',
 }));
 
-const GalleryTemplate = (props) => {
+const GalleryTemplate = ({ data }) => {
   const searchParams = useSearchParams();
 
-  const node = props.data.allPhotosYaml.edges[0].node;
+  const node = data.allPhotosYaml.edges[0].node;
   const lightboxImages = node.images.map((image) => image.img.childImageSharp.gatsbyImageData.images.fallback.src);
 
   const aspectRatios = node.images.map((image) => {
@@ -117,6 +117,6 @@ export const query = graphql`
   }
 `;
 
-export const Head = (props) => <MetaData title={props.data.allPhotosYaml.edges[0].node.title} />;
+export const Head = ({ data }) => <MetaData title={data.allPhotosYaml.edges[0].node.title} />;
 
 export default GalleryTemplate;

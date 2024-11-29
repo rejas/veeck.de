@@ -17,35 +17,33 @@ const CardActionAreaStyled = styled(CardActionArea)(css`
   max-width: 100%;
 `);
 
+const CardContentStyled = styled(CardContent)(css`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`);
+
 const GatsbyImageCover = styled(GatsbyImage)(css`
+  aspect-ratio: 4 / 3;
   flex: 1 0 50%;
 `);
 
-const BasicCard = (props) => {
-  const { image, imageAlt, link, excerpt, title } = props;
+const BasicCard = ({ image, imageAlt, link, excerpt, title }) => {
   const bgImage = getImage(image);
 
   return (
     <CardStyled>
       <CardActionAreaStyled to={link}>
         {image && <GatsbyImageCover alt={imageAlt} image={bgImage} />}
-        <CardContent>
-          {title && (
-            <Typography variant="h3" gutterBottom>
-              {title}
-            </Typography>
-          )}
+        <CardContentStyled>
+          {title && <Typography variant="h3">{title}</Typography>}
           {excerpt && (
             <>
-              <Typography variant="body1" gutterBottom>
-                {excerpt}
-              </Typography>
-              <Typography variant="caption" gutterBottom>
-                more...
-              </Typography>
+              <Typography variant="body1">{excerpt}</Typography>
+              <Typography variant="caption">more...</Typography>
             </>
           )}
-        </CardContent>
+        </CardContentStyled>
       </CardActionAreaStyled>
     </CardStyled>
   );

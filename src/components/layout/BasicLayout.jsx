@@ -38,9 +38,7 @@ const LeadinStyled = styled(Typography)(css`
   margin-bottom: 2rem;
 `);
 
-const BasicLayout = (props) => {
-  let { children, image, lead, title } = props;
-
+const BasicLayout = ({ children, image, lead, title }) => {
   const DarkModeContext = React.useContext(darkModeContext);
   const { darkMode, setDarkMode } = DarkModeContext;
 
@@ -64,7 +62,7 @@ const BasicLayout = (props) => {
       <ThemeProvider theme={getTheme(darkMode)}>
         <CssBaseline />
         <PageStyled>
-          <Header image={image} lead={lead} title={title} />
+          <Header image={image} title={title} />
           <MainStyled>
             <LeadinStyled variant="h2">{lead}</LeadinStyled>
             <ContentStyled>{children}</ContentStyled>
@@ -77,12 +75,6 @@ const BasicLayout = (props) => {
       </ThemeProvider>
     </StyledEngineProvider>
   );
-};
-
-BasicLayout.defaultProps = {
-  image: null,
-  lead: null,
-  title: null,
 };
 
 BasicLayout.propTypes = {

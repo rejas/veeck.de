@@ -6,8 +6,7 @@ import BasicLayout from '../components/layout/BasicLayout';
 import BoopedListItem from '../components/list/BoopedListItem';
 import MetaData from '../components/page/MetaData';
 
-const BlogIndex = (props) => {
-  const { data } = props;
+const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx;
 
   return (

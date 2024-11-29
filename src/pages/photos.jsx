@@ -6,8 +6,7 @@ import EntryCard from '../components/cards/EntryCard';
 import BasicLayout from '../components/layout/BasicLayout';
 import MetaData from '../components/page/MetaData';
 
-const PhotoPage = (props) => {
-  const { data } = props;
+const PhotoPage = ({ data }) => {
   const { edges: galleries } = data.allPhotosYaml;
 
   return (

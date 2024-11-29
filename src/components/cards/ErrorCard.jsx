@@ -3,9 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 
-const ErrorCard = (props) => {
-  const { message } = props;
-
+const ErrorCard = ({ message }) => {
   return (
     <>
       <Typography variant="h2" component="h2" align="center">
