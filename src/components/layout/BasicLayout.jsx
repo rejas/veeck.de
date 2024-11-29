@@ -62,7 +62,7 @@ const BasicLayout = ({ children, image, lead, title }) => {
       <ThemeProvider theme={getTheme(darkMode)}>
         <CssBaseline />
         <PageStyled>
-          <Header image={image} lead={lead} title={title} />
+          <Header image={image} title={title} />
           <MainStyled>
             <LeadinStyled variant="h2">{lead}</LeadinStyled>
             <ContentStyled>{children}</ContentStyled>
