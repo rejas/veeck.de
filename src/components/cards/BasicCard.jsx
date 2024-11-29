@@ -18,6 +18,7 @@ const CardActionAreaStyled = styled(CardActionArea)(css`
 `);
 
 const GatsbyImageCover = styled(GatsbyImage)(css`
+  aspect-ratio: 4 / 3;
   flex: 1 0 50%;
 `);
 
@@ -30,11 +31,7 @@ const BasicCard = (props) => {
       <CardActionAreaStyled to={link}>
         {image && <GatsbyImageCover alt={imageAlt} image={bgImage} />}
         <CardContent>
-          {title && (
-            <Typography variant="h3" gutterBottom>
-              {title}
-            </Typography>
-          )}
+          {title && <Typography variant="h3">{title}</Typography>}
           {excerpt && (
             <>
               <Typography variant="body1" gutterBottom>
