@@ -6,7 +6,7 @@
 import 'modern-css-reset';
 import React from 'react';
 
-import { DarkModeState } from './src/components/ui/ThemeHandler';
+import { DarkModeState } from './src_old/components/ui/ThemeHandler';
 
 export function wrapRootElement({ element, props }) {
   return <DarkModeState {...props}>{element}</DarkModeState>;

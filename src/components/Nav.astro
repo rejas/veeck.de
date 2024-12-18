@@ -6,6 +6,9 @@ import type { iconPaths } from './IconPaths';
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
 	{ label: 'Home', href: '/' },
+  { label: 'Blog', href: '/blog/' },
+  { label: 'Projects', href: '/projects/' },
+  { label: 'Travels', href: '/travels/' },
 	{ label: 'Work', href: '/work/' },
 	{ label: 'About', href: '/about/' },
 ];
@@ -31,7 +34,7 @@ const isCurrentPage = (href: string) => {
 
 <nav>
 	<div class="menu-header">
-		<a href="/" class="site-title">
+		<a href="/static" class="site-title">
 			<Icon icon="terminal-window" color="var(--accent-regular)" size="1.6em" gradient />
 			Jeanine White
 		</a>

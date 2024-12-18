@@ -6,7 +6,7 @@ import * as React from 'react';
 import { animated } from 'react-spring';
 import useSound from 'use-sound';
 
-import boopSfx from '../../../content/sounds/tock.mp3';
+import boopSfx from '../../content/sounds/tock.mp3';
 import { useBoop } from '../../hooks/use-boop';
 import CategoryIcon from '../icons/CategoryIcon';
 

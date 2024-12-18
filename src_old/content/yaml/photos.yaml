@@ -216,9 +216,7 @@
 - path: 'from_friends'
   title: 'from friends'
   img: '../images/from_friends/people.jpg'
-  lead:
-    'some of my friends take panorama pictures too and i take panorama pictures
-    of them'
+  lead: 'some of my friends take panorama pictures too and i take panorama pictures of them'
   last-update: '2019-12-31'
   images:
     - img: '../images/from_friends/stef_industrial.medium.jpg'
@@ -292,7 +290,6 @@
     - img: '../images/people/io_tobi.jpg'
       name: tobi
       caption:
-        To become an emerging young film director, Tobias U. (front) had to do
-        some really nasty stuff in his past. His experience in that particular
-        field didnt help him to convince the jury (back) to award him the first
-        prize thou.
+        To become an emerging young film director, Tobias U. (front) had to do some really nasty stuff in his past. His
+        experience in that particular field didnt help him to convince the jury (back) to award him the first prize
+        thou.
