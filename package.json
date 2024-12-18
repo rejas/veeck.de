@@ -35,6 +35,7 @@
     "@mdx-js/react": "^1.6.22",
     "@mui/icons-material": "^5.16.11",
     "@mui/material": "^5.16.11",
+    "astro": "^5.0.9",
     "fslightbox-react": "^1.7.6",
     "gatsby": "^4.25.9",
     "gatsby-background-image": "^1.6.0",
