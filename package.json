@@ -32,9 +32,9 @@
     "@loadable/component": "^5.16.4",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@mui/icons-material": "^5.16.11",
-    "@mui/material": "^5.16.11",
-    "astro": "^5.0.9",
+    "@mui/icons-material": "^5.16.14",
+    "@mui/material": "^5.16.14",
+    "astro": "^5.1.5",
     "fslightbox-react": "^1.7.6",
     "gatsby": "^4.25.9",
     "gatsby-background-image": "^1.6.0",
@@ -68,10 +68,10 @@
     "use-sound": "^4.0.3"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^5.2.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.1",
     "gatsby-plugin-netlify": "^5.1.1",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.11",
+    "lint-staged": "^15.3.0",
     "npm-check": "^6.0.1",
     "prettier": "^3.4.2"
   },
