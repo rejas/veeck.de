@@ -26,6 +26,7 @@
     "update": "npm-check -u"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.0.7",
     "@bigheads/core": "^0.3.3",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -34,7 +35,7 @@
     "@mdx-js/react": "^1.6.22",
     "@mui/icons-material": "^5.16.14",
     "@mui/material": "^5.16.14",
-    "astro": "^5.1.5",
+    "astro": "^5.1.9",
     "fslightbox-react": "^1.7.6",
     "gatsby": "^4.25.9",
     "gatsby-background-image": "^1.6.0",
