@@ -9,6 +9,7 @@ const preDefinedCollection = defineCollection({
     tags: z.array(z.string()),
     img: z.string(),
     img_alt: z.string().optional(),
+    lang: z.string(),
   }),
 });
 export const collections = {
