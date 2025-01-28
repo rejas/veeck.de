@@ -13,7 +13,6 @@ import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 
 // Page section components
-import ContactCTA from '../components/ContactCTA.astro';
 import Skills from '../components/Skills.astro';
 
 // External Component Import
@@ -39,9 +38,9 @@ const projects = (await getCollection('projects'))
 					align="start"
 				>
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+						<Pill><Icon icon="code" size="1.33em" /> Computerschlampe</Pill>
+						<Pill><Icon icon="camera" size="1.33em" /> Hoffotograf</Pill>
+						<Pill><Icon icon="pencil-line" size="1.33em" /> Terrorpoet</Pill>
 					</div>
 				</Hero>
 
@@ -91,7 +90,7 @@ const projects = (await getCollection('projects'))
 				</div>
 
 				<div class="cta">
-					<CallToAction href="/work/">
+					<CallToAction href="/projects/">
 						View All
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
@@ -120,8 +119,6 @@ const projects = (await getCollection('projects'))
 				</div>
 			</section>
 		</main>
-
-		<ContactCTA />
 	</div>
 </BaseLayout>
 
