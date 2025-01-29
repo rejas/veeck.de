@@ -10,10 +10,10 @@ import Footer from '../components/Footer.astro';
 interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
-  lang?: string | undefined;
+	lang?: string | undefined;
 }
 
-const { title, description, lang = "en" } = Astro.props;
+const { title, description, lang = 'en' } = Astro.props;
 ---
 
 <html lang={lang}>

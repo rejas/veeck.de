@@ -20,7 +20,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "--- NPM SCRIPTS ---": "-------------------------------------------------------------",
-    "format": "prettier --write --ignore-unknown *.{js,json} \"content/**/*.mdx\" \"src/**/*.{js,jsx,css}\"",
+    "format": "prettier --write --ignore-unknown *.{js,json} \"src/**/*.{astro,css,js,jsx,mdx}\"",
     "prepare": "husky",
     "pre-commit": "lint-staged",
     "update": "npm-check -u"
@@ -34,6 +34,7 @@
     "@types/react-dom": "^19.0.3",
     "astro": "^5.1.9",
     "fslightbox-react": "^1.7.6",
+    "prettier-plugin-astro": "^0.14.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

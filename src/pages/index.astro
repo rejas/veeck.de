@@ -17,7 +17,7 @@ import Skills from '../components/Skills.astro';
 
 // External Component Import
 import { BigHead } from '@bigheads/core';
-import * as React from "react";
+import * as React from 'react';
 
 // Content Fetching: List four most recent projects
 const projects = (await getCollection('projects'))
@@ -44,27 +44,27 @@ const projects = (await getCollection('projects'))
 					</div>
 				</Hero>
 
-        <BigHead
-          accessory="shades"
-          body="chest"
-          circleColor="blue"
-          clothing="dressShirt"
-          clothingColor="black"
-          eyebrows="raised"
-          eyes="simple"
-          faceMask={false}
-          faceMaskColor="white"
-          facialHair="mediumBeard"
-          graphic="react"
-          hair="none"
-          hairColor="white"
-          hat="none"
-          hatColor="blue"
-          lashes="none"
-          lipColor="red"
-          mouth="openSmile"
-          skinTone="light"
-        />
+				<BigHead
+					accessory="shades"
+					body="chest"
+					circleColor="blue"
+					clothing="dressShirt"
+					clothingColor="black"
+					eyebrows="raised"
+					eyes="simple"
+					faceMask={false}
+					faceMaskColor="white"
+					facialHair="mediumBeard"
+					graphic="react"
+					hair="none"
+					hairColor="white"
+					hat="none"
+					hatColor="blue"
+					lashes="none"
+					lipColor="red"
+					mouth="openSmile"
+					skinTone="light"
+				/>
 			</header>
 
 			<Skills />
@@ -101,8 +101,8 @@ const projects = (await getCollection('projects'))
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Mentions</h3>
 					<p>
-						I have been fortunate enough to receive praise for my work in several publications. Take
-						a look below to learn more.
+						I have been fortunate enough to receive praise for my work in several publications. Take a look below to
+						learn more.
 					</p>
 				</header>
 

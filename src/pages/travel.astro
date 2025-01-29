@@ -12,17 +12,10 @@ const travels = (await getCollection('travels')).sort(
 );
 ---
 
-<BaseLayout
-	title="My travels | Veeck"
-	description="Learn about Veeck's most recent travels"
->
+<BaseLayout title="My travels | Veeck" description="Learn about Veeck's most recent travels">
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
-			<Hero
-				title="My travel diaries"
-				tagline="Read my travel experiences from around the world."
-				align="start"
-			/>
+			<Hero title="My travel diaries" tagline="Read my travel experiences from around the world." align="start" />
 			<Grid variant="offset">
 				{
 					travels.map((travel) => (
