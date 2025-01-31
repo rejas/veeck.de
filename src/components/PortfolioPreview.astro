@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
@@ -10,7 +11,7 @@ const { data, id } = Astro.props.project;
 
 <a class="card" href={`/projects/${id}`}>
 	<span class="title">{data.title}</span>
-	<img src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
+	<Image src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
 </a>
 
 <style>

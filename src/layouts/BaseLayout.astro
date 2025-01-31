@@ -11,9 +11,10 @@ interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
 	lang?: string | undefined;
+	last_modified?: string | undefined;
 }
 
-const { title, description, lang = 'en' } = Astro.props;
+const { title, description, lang = 'en', last_modified = '' } = Astro.props;
 ---
 
 <html lang={lang}>
@@ -24,7 +25,7 @@ const { title, description, lang = 'en' } = Astro.props;
 		<div class="stack backgrounds">
 			<Nav />
 			<slot />
-			<Footer />
+			<Footer last_modified={last_modified} />
 		</div>
 
 		<script>
