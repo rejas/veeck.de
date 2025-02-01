@@ -45,7 +45,6 @@ const last_modified = entry.data.last_modified
 					<Hero title={entry.data.title} align="start">
 						<div class="details">
 							<div class="tags">
-								<Pill>{entry.data.when}</Pill>
 								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
 							</div>
 							<p class="description">{entry.data.description}</p>

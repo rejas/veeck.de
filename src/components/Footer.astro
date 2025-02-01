@@ -1,10 +1,13 @@
 ---
 import Icon from './Icon.astro';
 const currentYear = new Date().getFullYear();
+
+const { last_modified = '' } = Astro.props;
 ---
 
 <footer>
 	<div class="group">
+		{last_modified !== '' && <p>Last updated on {last_modified}</p>}
 		<p>
 			Designed & Developed in Berlin with <a href="https://astro.build/">Astro</a>
 			<Icon icon="rocket-launch" size="1.2em" />

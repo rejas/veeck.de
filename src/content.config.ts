@@ -11,8 +11,6 @@ const preDefinedCollection = defineCollection({
 			img: image(),
 			img_alt: z.string().optional(),
 			lang: z.string(),
-			when: z.string(),
-			where: z.string().optional(),
 			last_modified: z.coerce.date().optional(),
 		}),
 });
