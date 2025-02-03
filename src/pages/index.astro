@@ -21,7 +21,7 @@ import * as React from 'react';
 
 // Content Fetching: List four most recent projects
 const projects = (await getCollection('projects'))
-	.sort((a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf())
+	.sort((a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf())
 	.slice(0, 4);
 
 // Full Astro Component Syntax:

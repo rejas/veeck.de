@@ -5,13 +5,14 @@ const preDefinedCollection = defineCollection({
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
-			description: z.string(),
-			publish_date: z.coerce.date(),
+			description: z.string().optional(), // TODO cleanup description / add leading
+			first_published: z.coerce.date(),
 			tags: z.array(z.string()),
 			img: image(),
-			img_alt: z.string().optional(),
+			img_alt: z.string().optional(), // TODO alt text in frontmatter of pages
 			lang: z.string(),
 			last_modified: z.coerce.date().optional(),
+			lead: z.string().optional(),
 		}),
 });
 export const collections = {

@@ -8,7 +8,7 @@ import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
 
 const projects = (await getCollection('projects')).sort(
-	(a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
+	(a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf(),
 );
 ---
 
