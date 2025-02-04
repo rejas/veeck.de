@@ -7,11 +7,11 @@ const preDefinedCollection = defineCollection({
 			title: z.string(),
 			description: z.string().optional(), // TODO cleanup description / add leading
 			first_published: z.coerce.date(),
+			last_modified: z.coerce.date().optional(),
 			tags: z.array(z.string()),
 			img: image(),
 			img_alt: z.string().optional(), // TODO alt text in frontmatter of pages
 			lang: z.string(),
-			last_modified: z.coerce.date().optional(),
 			lead: z.string().optional(),
 		}),
 });
