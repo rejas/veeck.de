@@ -9,6 +9,7 @@ const preDefinedCollection = defineCollection({
 			first_published: z.coerce.date(),
 			last_modified: z.coerce.date().optional(),
 			tags: z.array(z.string()),
+			heading: z.string().optional(),
 			img: image(),
 			img_alt: z.string().optional(), // TODO alt text in frontmatter of pages
 			lang: z.string(),

@@ -43,12 +43,12 @@ const last_modified = entry.data.last_modified
 			<header>
 				<div class="wrapper stack gap-2">
 					<a class="back-link" href="/travels/"><Icon icon="arrow-left" /> Travels</a>
-					<Hero title={entry.data.title} align="start">
+					<Hero title={entry.data.heading} align="start">
 						<div class="details">
+							<p>{entry.data.lead}</p>
 							<div class="tags">
 								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
 							</div>
-							<p class="description">{entry.data.description}</p>
 						</div>
 					</Hero>
 				</div>

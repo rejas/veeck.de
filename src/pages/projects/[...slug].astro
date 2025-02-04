@@ -44,10 +44,10 @@ const last_modified = entry.data.last_modified
 					<a class="back-link" href="/projects/"><Icon icon="arrow-left" /> Projects</a>
 					<Hero title={entry.data.title} align="start">
 						<div class="details">
+							<p>{entry.data.lead}</p>
 							<div class="tags">
 								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
 							</div>
-							<p class="description">{entry.data.description}</p>
 						</div>
 					</Hero>
 				</div>
