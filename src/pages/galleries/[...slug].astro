@@ -49,7 +49,11 @@ const last_modified = entry.data.last_modified
 				<div class="stack gap-10 content">
 					{entry.data.img && <Image src={entry.data.img} alt={entry.data.img_alt || ''} />}
 					<div class="content">
-						<Content />
+						{
+							entry.data.images.map((img) => (
+								<Image loading="lazy" src={img.img} alt={img.caption} quality={80} widths={[640]} />
+							))
+						}
 					</div>
 				</div>
 			</main>
