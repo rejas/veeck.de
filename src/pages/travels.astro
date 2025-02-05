@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 import Hero from '../components/Hero.astro';
 import Grid from '../components/Grid.astro';
-import TravelPreview from '../components/TravelPreview.astro';
+import TravelPreview from '../components/previews/TravelPreview.astro';
 
 const travels = (await getCollection('travels')).sort(
 	(a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf(),

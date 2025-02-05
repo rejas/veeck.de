@@ -10,7 +10,7 @@ import Grid from '../components/Grid.astro';
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
+import PortfolioPreview from '../components/previews/PortfolioPreview.astro';
 
 // Page section components
 import Skills from '../components/Skills.astro';
@@ -18,8 +18,8 @@ import Skills from '../components/Skills.astro';
 // External Component Import
 import { BigHead } from '@bigheads/core';
 import * as React from 'react';
-import TravelPreview from '../components/TravelPreview.astro';
-import GalleryPreview from '../components/GalleryPreview.astro';
+import TravelPreview from '../components/previews/TravelPreview.astro';
+import GalleryPreview from '../components/previews/GalleryPreview.astro';
 
 // Content Fetching: List four most recent projects
 const projects = (await getCollection('projects'))
@@ -154,7 +154,7 @@ const galleries = (await getCollection('galleries'))
 				</div>
 
 				<div class="cta">
-					<CallToAction href="/photos/">
+					<CallToAction href="/galleries/">
 						View All
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
