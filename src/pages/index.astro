@@ -18,9 +18,15 @@ import Skills from '../components/Skills.astro';
 // External Component Import
 import { BigHead } from '@bigheads/core';
 import * as React from 'react';
+import TravelPreview from '../components/TravelPreview.astro';
 
 // Content Fetching: List four most recent projects
 const projects = (await getCollection('projects'))
+	.sort((a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf())
+	.slice(0, 4);
+
+// Content Fetching: List four most recent travels
+const travels = (await getCollection('travels'))
 	.sort((a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf())
 	.slice(0, 4);
 
@@ -38,9 +44,9 @@ const projects = (await getCollection('projects'))
 					align="start"
 				>
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Computerschlampe</Pill>
-						<Pill><Icon icon="camera" size="1.33em" /> Hoffotograf</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Terrorpoet</Pill>
+						<Pill><Icon icon="code" size="1.33em" />Computerschlampe</Pill>
+						<Pill><Icon icon="camera" size="1.33em" />Hoffotograf</Pill>
+						<Pill><Icon icon="pencil-line" size="1.33em" />Terrorpoet</Pill>
 					</div>
 				</Hero>
 
@@ -60,7 +66,7 @@ const projects = (await getCollection('projects'))
 					hairColor="white"
 					hat="none"
 					hatColor="blue"
-					lashes="none"
+					lashes={false}
 					lipColor="red"
 					mouth="openSmile"
 					skinTone="light"
@@ -73,8 +79,8 @@ const projects = (await getCollection('projects'))
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Take a look below at some of my featured work for clients from the past few years.</p>
+					<h3>Selected Projects</h3>
+					<p>all the techy nerdy geeky stuff I do for fun</p>
 				</header>
 
 				<div class="gallery">
@@ -97,7 +103,59 @@ const projects = (await getCollection('projects'))
 				</div>
 			</section>
 
-			<section class="section with-background bg-variant">
+			<section class="section with-background with-cta">
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3>Selected Travels</h3>
+					<p>travel diaries from around the world</p>
+				</header>
+
+				<div class="gallery">
+					<Grid variant="offset">
+						{
+							travels.map((travel) => (
+								<li>
+									<TravelPreview travel={travel} />
+								</li>
+							))
+						}
+					</Grid>
+				</div>
+
+				<div class="cta">
+					<CallToAction href="/travels/">
+						View All
+						<Icon icon="arrow-right" size="1.2em" />
+					</CallToAction>
+				</div>
+			</section>
+
+			<section class="section with-background with-cta">
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3>Selected Galleries</h3>
+					<p>the panoramic pictures I have taken</p>
+				</header>
+
+				<div class="gallery">
+					<Grid variant="offset">
+						{
+							projects.map((project) => (
+								<li>
+									<PortfolioPreview project={project} />
+								</li>
+							))
+						}
+					</Grid>
+				</div>
+
+				<div class="cta">
+					<CallToAction href="/photos/">
+						View All
+						<Icon icon="arrow-right" size="1.2em" />
+					</CallToAction>
+				</div>
+			</section>
+
+			<!--<section class="section with-background bg-variant">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Mentions</h3>
 					<p>
@@ -117,7 +175,7 @@ const projects = (await getCollection('projects'))
 						}
 					</Grid>
 				</div>
-			</section>
+			</section>-->
 		</main>
 	</div>
 </BaseLayout>

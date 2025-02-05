@@ -6,7 +6,7 @@ interface Props {
 	travels: CollectionEntry<'travels'>;
 }
 
-const { data, id } = Astro.props.travels;
+const { data, id } = Astro.props.travel;
 ---
 
 <a class="card" href={`/travels/${id}`}>
