@@ -19,6 +19,7 @@ import Skills from '../components/Skills.astro';
 import { BigHead } from '@bigheads/core';
 import * as React from 'react';
 import TravelPreview from '../components/TravelPreview.astro';
+import GalleryPreview from '../components/GalleryPreview.astro';
 
 // Content Fetching: List four most recent projects
 const projects = (await getCollection('projects'))
@@ -28,6 +29,11 @@ const projects = (await getCollection('projects'))
 // Content Fetching: List four most recent travels
 const travels = (await getCollection('travels'))
 	.sort((a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf())
+	.slice(0, 4);
+
+// Content Fetching: List four most recent galleries
+const galleries = (await getCollection('galleries'))
+	.sort((a, b) => b.data.last_modified.valueOf() - a.data.last_modified.valueOf())
 	.slice(0, 4);
 
 // Full Astro Component Syntax:
@@ -138,9 +144,9 @@ const travels = (await getCollection('travels'))
 				<div class="gallery">
 					<Grid variant="offset">
 						{
-							projects.map((project) => (
+							galleries.map((gallery) => (
 								<li>
-									<PortfolioPreview project={project} />
+									<GalleryPreview gallery={gallery} />
 								</li>
 							))
 						}

@@ -1,0 +1,32 @@
+path: 'skyscraper'
+title: 'skyscraper'
+img: './skyscraper.jpg'
+lead: 'panoramas growing into the sky'
+last_modified: '2019-12-31'
+images:
+  - img: './athen_alley.medium.jpg'
+    caption: Alley in Athens, Greece
+  - img: './dublin_greenhouse.medium.jpg'
+    caption: Greenhouse in Dublins National Botanic Gardens of Ireland
+  - img: './prague_municipalcorner.medium.jpg'
+    caption: Somewhere in Prague`s Municipal House
+  - img: './curacao_beach.medium.jpg'
+    caption: Beach on Curacao
+  - img: './berlin_teufelsberg.medium.jpg'
+    caption: View from old radar station on Teufelsberg Berlin
+  - img: './tanzania_tree.medium.jpg'
+    caption: Just a tree in Tanzania
+  - img: './tanzania_baobab.medium.jpg'
+    caption: View from a baobab-tree in Tanzania
+  - img: './berlin_alley.medium.jpg'
+    caption: Alley in Berlin
+  - img: './budapest_bath.medium.jpg'
+    caption: Bath in Budapest
+  - img: './kiew_cinema.medium.jpg'
+    caption: Cinema in Kiew
+  - img: './london_alley.medium.jpg'
+    caption: Alley in London
+  - img: './newzealand_kauri.medium.jpg'
+    caption: Very old Kauro tree in NewZealand
+  - img: './thailand_buddha.medium.jpg'
+    caption: Lying Buddha in Bangkok

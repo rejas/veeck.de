@@ -1,0 +1,33 @@
+path: 'cities'
+title: 'cities and buildings'
+img: './cities.jpg'
+lead: 'panoramas showing what mankind has built'
+last_modified: '2021-05-27'
+images:
+  - img: './warsaw_skyline.jpg'
+    caption: Warsaw at night
+    is-new: true
+  - img: './berlin_frankfurter.jpg'
+    caption: View from the rooftops at Frankfurter Allee in Berlin
+    is-new: true
+  - img: './caen_museum.jpg'
+    caption: The war memorial and museum in Caen
+    is-new: true
+  - img: './marocco_palace.medium.jpg'
+    caption: Old palace ruins in Marrakesh
+  - img: './dublin_greenhouse.medium.jpg'
+    caption: Greenhouse in Dublins botanic garden
+  - img: './berlin_stadium.medium.jpg'
+    caption: Berlin Olympic Stadium Germany vs Sweden
+  - img: './berlin_reichstag.medium.jpg'
+    caption: The Reichstag in Berlin
+  - img: './berlin_bahnhof.medium.jpg'
+    caption: The new central-station in Berlin
+  - img: './hungary_balaton.medium.jpg'
+    caption: Abandoned hotel at the Balaton in Hungary
+  - img: './freiburg_night.medium.jpg'
+    caption: Freiburg At Night
+  - img: './japan_alley.medium.jpg'
+    caption: Alley way in Sendai
+  - img: './frankfurt_regio.medium.jpg'
+    caption: Frankfurt Regional Train-Station

@@ -20,7 +20,7 @@ const travels = (await getCollection('travels')).sort(
 				{
 					travels.map((travel) => (
 						<li>
-							<TravelPreview travels={travel} />
+							<TravelPreview travel={travel} />
 						</li>
 					))
 				}

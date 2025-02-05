@@ -1,0 +1,47 @@
+path: 'world'
+title: 'around the world'
+img: './world.jpg'
+lead: 'panoramas from all around the globe'
+last_modified: '2021-05-15'
+images:
+  - img: './panama_canal.jpg'
+    caption: The famous Panama Canal
+    is-new: true
+  - img: './tanzania_construction.medium.jpg'
+    caption: Our construction site in Morogoro, Tanzania
+  - img: './panama_dive.medium.jpg'
+    caption: Our snorkeling site in Panama
+  - img: './panama_bocas.medium.jpg'
+    caption: View of Bastimentos, Panama
+  - img: './tanzania_sunset.medium.jpg'
+    caption: Sunset in Mikumi National Park
+  - img: './newzealand_laketaupo.medium.jpg'
+    caption: Sunset on Lake Taupo, NZ
+  - img: './newzealand_rainbow.medium.jpg'
+    caption: Rainbow on Lake Taupo, NZ
+  - img: './newzealand_pahiasunrise.medium.jpg'
+    caption: Sunrise in Pahia, NZ
+  - img: './newzealand_northside.medium.jpg'
+    caption: View near Opononi, NZ
+  - img: './romania_sunset.medium.jpg'
+    caption: Pantelimon, Asociaia Prietenia in Bukarest
+  - img: './nendaz_valley.medium.jpg'
+    caption: View of Haute Nendaz, Suisse
+  - img: './nendaz_sunset.medium.jpg'
+    caption: Another View of Haute Nendaz, Suisse
+  - img: './freiburg_schnee.medium.jpg'
+    caption: View from Mount Schauinsland
+  - img: './hungary_wisteria.medium.jpg'
+    caption: A view into the garden
+  - img: './florida_dunes.medium.jpg'
+    caption: Beach near Tallahassee, Florida
+  - img: './florida_trucks.medium.jpg'
+    caption: Wrecked Trucks
+  - img: './florida_sunset.medium.jpg'
+    caption: Sunset near Tallahassee, Florida
+  - img: './indonesia_rinjani.medium.jpg'
+    caption: Mount Rinjani, Indonesia
+  - img: './indonesia_gili.medium.jpg'
+    caption: Gili Travangan
+  - img: './japan_garden.medium.jpg'
+    caption: '(One of many) Imperial Garden'

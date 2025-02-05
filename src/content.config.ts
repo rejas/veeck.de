@@ -17,12 +17,29 @@ const preDefinedCollection = defineCollection({
 		}),
 });
 export const collections = {
+	galleries: defineCollection({
+		schema: ({ image }) =>
+			z.object({
+				title: z.string(),
+				last_modified: z.coerce.date(),
+				img: image(),
+				img_alt: z.string().optional(), // TODO alt text in frontmatter of yamls
+				lead: z.string().optional(),
+				images: z.array(
+					z.object({
+						caption: z.string(),
+						img: image(),
+					}),
+				),
+			}),
+		// Load YAML files in the src/content/galleries directory.
+		loader: glob({ base: './src/content/galleries', pattern: '**/*.yaml' }),
+	}),
 	projects: {
 		...preDefinedCollection,
 		// Load Markdown files in the src/content/projects directory.
 		loader: glob({ base: './src/content/projects', pattern: '**/*.mdx' }),
 	},
-	// copy projects into a travels object and replace the loader property
 	travels: {
 		...preDefinedCollection,
 		// Load Markdown files in the src/content/travels directory.
