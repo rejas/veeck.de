@@ -20,6 +20,12 @@ import { BigHead } from '@bigheads/core';
 import * as React from 'react';
 import TravelPreview from '../components/previews/TravelPreview.astro';
 import GalleryPreview from '../components/previews/GalleryPreview.astro';
+import BlogPreview from '../components/previews/BlogPreview.astro';
+
+// Content Fetching: List four most recent blog posts
+const blog = (await getCollection('blog'))
+	.sort((a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf())
+	.slice(0, 4);
 
 // Content Fetching: List four most recent projects
 const projects = (await getCollection('projects'))
@@ -83,6 +89,32 @@ const galleries = (await getCollection('galleries'))
 		</div>
 
 		<main class="wrapper stack gap-20 lg:gap-48">
+			<section class="section with-background with-cta">
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3>My blog</h3>
+					<p>only occasionally updated like a true blog</p>
+				</header>
+
+				<div class="gallery">
+					<Grid variant="offset">
+						{
+							blog.map((post) => (
+								<li>
+									<BlogPreview post={post} />
+								</li>
+							))
+						}
+					</Grid>
+				</div>
+
+				<div class="cta">
+					<CallToAction href="/blog/">
+						View All
+						<Icon icon="arrow-right" size="1.2em" />
+					</CallToAction>
+				</div>
+			</section>
+
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Selected Projects</h3>

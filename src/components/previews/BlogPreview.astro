@@ -1,0 +1,55 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+interface Props {
+	post: CollectionEntry<'blog'>;
+}
+
+const { data, id } = Astro.props.post;
+---
+
+<a class="card" href={`/blog/${id}`}>
+	<span class="title">{data.title}</span>
+</a>
+
+<style>
+	.card {
+		display: grid;
+		grid-template: auto 1fr / auto 1fr;
+		background: var(--gradient-subtle);
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		overflow: hidden;
+		box-shadow: var(--shadow-sm);
+		text-decoration: none;
+		font-family: var(--font-brand);
+		font-size: var(--text-lg);
+		font-weight: 500;
+		transition: box-shadow var(--theme-transition);
+	}
+
+	.card:hover {
+		box-shadow: var(--shadow-md);
+	}
+
+	.title {
+		grid-area: 1 / 1 / 2 / 2;
+		z-index: 1;
+		margin: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: var(--gray-999);
+		color: var(--gray-200);
+		border-radius: 0.375rem;
+	}
+
+	@media (min-width: 50em) {
+		.card {
+			border-radius: 1.5rem;
+		}
+
+		.title {
+			border-radius: 0.9375rem;
+		}
+	}
+</style>

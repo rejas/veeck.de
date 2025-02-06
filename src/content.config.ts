@@ -35,6 +35,16 @@ export const collections = {
 		// Load YAML files in the src/content/galleries directory.
 		loader: glob({ base: './src/content/galleries', pattern: '**/*.yaml' }),
 	}),
+	blog: {
+		schema: () =>
+			z.object({
+				title: z.string(),
+				first_published: z.coerce.date(),
+				lang: z.string(),
+			}),
+		// Load Markdown files in the src/content/projects directory.
+		loader: glob({ base: './src/content/blog', pattern: '**/*.mdx' }),
+	},
 	projects: {
 		...preDefinedCollection,
 		// Load Markdown files in the src/content/projects directory.
