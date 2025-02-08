@@ -6,10 +6,10 @@ interface Props {
 	travel: CollectionEntry<'travels'>;
 }
 
-const { data, id } = Astro.props.travel;
+const { data, slug } = Astro.props.travel;
 ---
 
-<a class="card" href={`/travels/${id}`}>
+<a class="card" href={`/travels/${slug}`}>
 	<span class="title">{data.title}</span>
 	<Image src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
 </a>

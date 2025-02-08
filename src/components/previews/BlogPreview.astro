@@ -6,10 +6,10 @@ interface Props {
 	post: CollectionEntry<'blog'>;
 }
 
-const { data, id } = Astro.props.post;
+const { data, slug } = Astro.props.post;
 ---
 
-<a class="card" href={`/blog/${id}`}>
+<a class="card" href={`/blog/${slug}`}>
 	<span class="title">{data.title}</span>
 </a>
 
