@@ -12,9 +12,6 @@ import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/previews/PortfolioPreview.astro';
 
-// Page section components
-import Skills from '../components/Skills.astro';
-
 // External Component Import
 import { BigHead } from '@bigheads/core';
 import * as React from 'react';
@@ -84,8 +81,6 @@ const galleries = (await getCollection('galleries'))
 					skinTone="light"
 				/>
 			</header>
-
-			<Skills />
 		</div>
 
 		<main class="wrapper stack gap-20 lg:gap-48">
@@ -109,7 +104,7 @@ const galleries = (await getCollection('galleries'))
 
 				<div class="cta">
 					<CallToAction href="/blog/">
-						View All
+						View all posts
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
 				</div>
@@ -135,7 +130,7 @@ const galleries = (await getCollection('galleries'))
 
 				<div class="cta">
 					<CallToAction href="/projects/">
-						View All
+						View all projects
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
 				</div>
@@ -161,7 +156,7 @@ const galleries = (await getCollection('galleries'))
 
 				<div class="cta">
 					<CallToAction href="/travels/">
-						View All
+						View all diaries
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
 				</div>
@@ -187,7 +182,7 @@ const galleries = (await getCollection('galleries'))
 
 				<div class="cta">
 					<CallToAction href="/galleries/">
-						View All
+						View all galleries
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
 				</div>

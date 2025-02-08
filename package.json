@@ -29,6 +29,7 @@
     "@astrojs/mdx": "^4.0.8",
     "@astrojs/netlify": "^6.1.0",
     "@astrojs/react": "^4.2.0",
+    "@astrojs/sitemap": "^3.2.1",
     "@bigheads/core": "^0.3.3",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
