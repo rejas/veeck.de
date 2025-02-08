@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
 	plugins: ['prettier-plugin-astro', '@trivago/prettier-plugin-sort-imports'],
 	printWidth: 120,
 	proseWrap: 'always',
@@ -16,3 +16,5 @@ module.exports = {
 		},
 	],
 };
+
+export default config;
