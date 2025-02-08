@@ -15,7 +15,7 @@
     "--- MAIN SCRIPTS ---": "------------------------------------------------------------",
     "start": "npm run dev",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0",
-    "--- AASTRO SCRIPTS ---": "----------------------------------------------------------",
+    "--- ASTRO SCRIPTS ---": "----------------------------------------------------------",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
