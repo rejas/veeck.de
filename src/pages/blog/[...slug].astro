@@ -5,6 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import Icon from '../../components/Icon.astro';
 import { render } from 'astro:content';
+import Pill from '../../components/Pill.astro';
 
 interface Props {
 	entry: CollectionEntry<'blog'>;
@@ -42,8 +43,9 @@ const first_published = entry.data.first_published
 					<a class="back-link" href="/blog/"><Icon icon="arrow-left" /> Blog</a>
 					<Hero title={entry.data.title} align="start">
 						<div class="details">
-							<p>"entry.data.lead"</p>
-							<div class="tags">"entry.data.tags"</div>
+							<div class="tags">
+								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
+							</div>
 						</div>
 					</Hero>
 				</div>

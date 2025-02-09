@@ -41,6 +41,8 @@ export const collections = {
 				title: z.string(),
 				first_published: z.coerce.date(),
 				lang: z.string(),
+				last_modified: z.coerce.date().optional(),
+				tags: z.array(z.string()),
 			}),
 		// Load Markdown files in the src/content/projects directory.
 		loader: glob({ base: './src/content/blog', pattern: '**/*.mdx' }),
