@@ -1,0 +1,32 @@
+path: 'from_friends'
+title: 'from friends'
+img: './from_friends.jpg'
+lead: 'some of my friends take panorama pictures too and i take panorama pictures of them'
+last_modified: '2019-12-31'
+images:
+  - img: './stef_industrial.medium.jpg'
+    caption: Somewhere in Lichtenberg, Berlin
+  - img: './stef_rummelsburg.medium.jpg'
+    caption: Rummelsburger Bucht, Berlin
+  - img: './stef_koeln.medium.jpg'
+    caption: Cologne, Germany
+  - img: './freiburg_football.medium.jpg'
+    caption: Resting after an American Football match
+  - img: './freiburg_all.medium.jpg'
+    caption: Wolfgang, Chloe and Albrecht
+  - img: './freiburg_ansa.medium.jpg'
+    caption: Sanni und Anna, Blurred and Happy
+  - img: './freiburg_sonja.medium.jpg'
+    caption: Sonja in my mess
+  - img: './sven_jordanien.medium.jpg'
+    caption: Wadi Rum, Jordanien (by Sven Fritz)
+  - img: './bastian_kohtao.medium.jpg'
+    caption: Sunset at KohTao (by Bastian Müller)
+  - img: './bastian_baobabbeach.medium.jpg'
+    caption: Baobab Beach (by Bastian Müller)
+  - img: './bastian_dentdumidi.medium.jpg'
+    caption: Dents Du Midi and Mont Blanc (by Bastian Müller)
+  - img: './bastian_matterhorn.medium.jpg'
+    caption: Matterhorn and Dent Blanche (by Bastian Müller)
+  - img: './bastian_verdon.medium.jpg'
+    caption: Sunrise at Gorge du Verdon, France (by Bastian Müller)

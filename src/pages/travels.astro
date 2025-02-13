@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import Hero from '../components/Hero.astro';
+import Grid from '../components/Grid.astro';
+import TravelPreview from '../components/previews/TravelPreview.astro';
+
+const travels = (await getCollection('travels')).sort(
+	(a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf(),
+);
+---
+
+<BaseLayout title="My travels | Veeck" description="Learn about Veeck's most recent travels">
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero title="My travel diaries" tagline="Read my travel experiences from around the world." align="start" />
+			<Grid variant="offset">
+				{
+					travels.map((travel) => (
+						<li>
+							<TravelPreview travel={travel} />
+						</li>
+					))
+				}
+			</Grid>
+		</main>
+	</div>
+</BaseLayout>

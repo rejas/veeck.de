@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import Hero from '../components/Hero.astro';
+import Grid from '../components/Grid.astro';
+import GalleryPreview from '../components/previews/GalleryPreview.astro';
+
+const galleries = (await getCollection('galleries')).sort(
+	(a, b) => b.data.last_modified.valueOf() - a.data.last_modified.valueOf(),
+);
+---
+
+<BaseLayout title="My galleries | Veeck" description="Learn about Veeck's most recent galleries">
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero title="My galleries" tagline="The panoramic pictures I have taken" align="start" />
+			<Grid variant="offset">
+				{
+					galleries.map((gallery) => (
+						<li>
+							<GalleryPreview gallery={gallery} />
+						</li>
+					))
+				}
+			</Grid>
+		</main>
+	</div>
+</BaseLayout>

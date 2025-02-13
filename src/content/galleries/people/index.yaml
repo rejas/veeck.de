@@ -1,0 +1,47 @@
+path: 'people'
+title: 'people'
+img: './people.jpg'
+lead: 'random pictures of not so random people'
+last_modified: '2019-12-31'
+images:
+  - img: './tz_julianna.jpg'
+    name: julianna
+    caption: Julianna (dancing)
+  - img: './tz_erasto.jpg'
+    name: erasto
+    caption: Erasto (hanging)
+  - img: './tz_lukas.jpg'
+    name: lukas
+    caption: Lukas
+  - img: './tz_lea.jpg'
+    name: lea
+    caption: Lea (climbing)
+  - img: './tz_jose.jpg'
+    name: jose
+    caption: Jose (showing off)
+  - img: './tz_anna.jpg'
+    name: anna
+    caption: Anna
+  - img: './tz_agnes.jpg'
+    name: agnes
+    caption: Agnes (smiling)
+  - img: './tz_raffael.jpg'
+    name: raffael
+    caption: Raffael (thinking)
+  - img: './tz_fiorina.jpg'
+    name: fiorina
+    caption: Fiorina (bending)
+  - img: './tz_luzius.jpg'
+    name: luzius
+    caption: Luzius (middle)
+  - img: './tz_nami.jpg'
+    name: nami
+    caption: Nami
+  - img: './fr_tobego.jpg'
+    name: tobego
+    caption: The word this man just said was &acute;Porn&acute;...
+  - img: './io_tobi.jpg'
+    name: tobi
+    caption:
+      To become an emerging young film director, Tobias U. (front) had to do some really nasty stuff in his past. His
+      experience in that particular field didnt help him to convince the jury (back) to award him the first prize thou.

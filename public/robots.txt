@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /radio
+
+User-agent: GPTBot
+Disallow: /
+
+Sitemap: https://veeck.de/sitemap-index.xml

@@ -1,0 +1,47 @@
+path: '360'
+title: '360 degrees'
+img: './360.jpg'
+lead: 'panoramas going full circle'
+last_modified: '2020-02-02'
+images:
+  - img: './cyprus_look.jpg'
+    caption: Paphos, Cyprus
+    is-new: true
+  - img: './cuba_cinfuegos.medium.jpg'
+    caption: Cinfuegos, Cuba
+  - img: './dublin_cemetary.medium.jpg'
+    caption: Cemetary in Dublin
+  - img: './marocco_beach.medium.jpg'
+    caption: Beach at Tagazout, Marocco
+  - img: './teneriffe_casahamilton.medium.jpg'
+    caption: Casa Hamilton, abandonend pump station on Tenerife
+  - img: './teneriffe_teide.medium.jpg'
+    caption: On top of Tenerifes highest mountain, the Teide
+  - img: './curacao_willemstad.medium.jpg'
+    caption: Port in Willemstad on Curacao
+  - img: './ukraine_cemetary.medium.jpg'
+    caption: Soldier cemetary near Lviv, Ukraine
+  - img: './brussels_atomium.medium.jpg'
+    caption: View from the top of the Atomium in Brussels
+  - img: './paris_night.medium.jpg'
+    caption: View from the Eifel Tower in Paris
+  - img: './budapest_bath.medium.jpg'
+    caption: Classic Spa in Budapest
+  - img: './budapest_friends.medium.jpg'
+    caption: Esther, Tassi, Tobi and Sonja in Hungary
+  - img: './dubai_airport.medium.jpg'
+    caption: Inside Dubai Airport
+  - img: './tanzania_beach.medium.jpg'
+    caption: Beach near Daressalam
+  - img: './tanzania_school.medium.jpg'
+    caption: ELU Children Care School
+  - img: './freiburg_gras.medium.jpg'
+    caption: Friends on a green hill in the black forest
+  - img: './freiburg_sunset.medium.jpg'
+    caption: Sunset in Freiburg
+  - img: './freiburg_snow.medium.jpg'
+    caption: View from Mount Schauinsland
+  - img: './freiburg_autumn.medium.jpg'
+    caption: Autumn in Freiburg
+  - img: './freiburg_winter.medium.jpg'
+    caption: Winter in Freiburg
