@@ -1,0 +1,30 @@
+path: 'big'
+title: 'big pictures'
+img: './big.jpg'
+lead: 'panoramas that make a splash'
+last_modified: '2019-12-31'
+images:
+  - img: './greece_milos.medium.jpg'
+    caption: View of Adamas on Milos, Greece
+  - img: './curacao_pool.jpg'
+    caption: Practicing pool jumping on Curacao
+  - img: './teneriffe_opera.medium.jpg'
+    caption: Auditorio de Tenerife, concert hall in Santa Cruz
+  - img: './berlin_theater.medium.jpg'
+    caption: Berliner Ensemble theater playing The Threepenny Opera
+  - img: './tanzania_station.medium.jpg'
+    caption: Ranger station in Mikumi National Park
+  - img: './tanzania_tree.medium.jpg'
+    caption: Big tree in Mikumi National Park
+  - img: './brussels_atomium.medium.jpg'
+    caption: The famous Atomium in Brusseles
+  - img: './brussels_passage.medium.jpg'
+    caption: Shopping alley in Brusseles
+  - img: './paris_eifel.medium.jpg'
+    caption: The Eifel Tower in Paris
+  - img: './budapest_basiliska.medium.jpg'
+    caption: St. Stephan Basilika in Budapest
+  - img: './lanzarote_sunset.medium.jpg'
+    caption: A Sunset over Lancarote
+  - img: './france_sunset.medium.jpg'
+    caption: A sunset in France

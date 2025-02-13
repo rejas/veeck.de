@@ -1,0 +1,26 @@
+path: 'perspective'
+title: 'perspective'
+img: './perspective.jpg'
+lead: 'panoramas from another angle'
+last_modified: '2019-12-31'
+images:
+  - img: './budapest_parlamant.medium.jpg'
+    caption: Parlament building in Budapest
+  - img: './berlin_trainstation.medium.jpg'
+    caption: Main trainstation in Berlin
+  - img: './berlin_arkaden.medium.jpg'
+    caption: Shopping Mall "Arcaden" at Potsdamer Platz, Berlin
+  - img: './dubai_airport.medium.jpg'
+    caption: Dubai Aiport
+  - img: './frankfurt_fern.medium.jpg'
+    caption: Frankfurt Airport Long Distance Train station
+  - img: './kyoto_trainstation.medium.jpg'
+    caption: Trainstation in Kyoto, Japan
+  - img: './japan_avenue.medium.jpg'
+    caption: Avenue in Sendai, Japan
+  - img: './london_park.medium.jpg'
+    caption: London Hyde Park
+  - img: './freiburg_sky.medium.jpg'
+    caption: Sky above Freiburg
+  - img: './freiburg_backyard.medium.jpg'
+    caption: My backyard in Freiburg

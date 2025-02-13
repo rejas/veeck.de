@@ -1,9 +1,20 @@
-module.exports = {
-  plugins: ['@trivago/prettier-plugin-sort-imports'],
-  printWidth: 120,
-  proseWrap: 'always',
-  singleQuote: true,
-  importOrder: ['^@core/(.*)$', '^@server/(.*)$', '^@ui/(.*)$', '^[./]'],
-  importOrderSeparation: true,
-  importOrderSortSpecifiers: true,
+const config = {
+	plugins: ['prettier-plugin-astro', '@trivago/prettier-plugin-sort-imports'],
+	printWidth: 120,
+	proseWrap: 'always',
+	singleQuote: true,
+	useTabs: true,
+	importOrder: ['^@core/(.*)$', '^@server/(.*)$', '^@ui/(.*)$', '^[./]'],
+	importOrderSeparation: true,
+	importOrderSortSpecifiers: true,
+	overrides: [
+		{
+			files: '*.astro',
+			options: {
+				parser: 'astro',
+			},
+		},
+	],
 };
+
+export default config;
