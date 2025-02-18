@@ -7,26 +7,17 @@ export async function GET(context) {
 	const projects = await getCollection('projects');
 	const travels = await getCollection('travels');
 
-	const items = blog
-		.map((post) => ({
-			title: post.data.title,
-			pubDate: post.data.first_published,
-			link: `/blog/${post.slug}/`,
-		}))
-		.concat(
-			projects.map((post) => ({
-				title: post.data.title,
-				pubDate: post.data.first_published,
-				link: `/projects/${post.slug}/`,
-			})),
-		)
-		.concat(
-			travels.map((post) => ({
-				title: post.data.title,
-				pubDate: post.data.first_published,
-				link: `/projects/${post.slug}/`,
-			})),
-		);
+	const createItem = (post, type) => ({
+		title: post.data.title,
+		pubDate: post.data.first_published,
+		link: `${type}/${post.slug}`,
+	});
+
+	const items = [
+		...blog.map((post) => createItem(post, 'blog')),
+		...projects.map((post) => createItem(post, 'projects')),
+		...travels.map((post) => createItem(post, 'travels')),
+	];
 
 	return rss({
 		title: 'Veeck´s Homepage',
