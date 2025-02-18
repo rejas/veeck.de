@@ -17,6 +17,7 @@ const projects = (await getCollection('projects')).sort(
 		<main class="wrapper stack gap-8">
 			<Hero title="My projects" tagline="all the techy nerdy geeky stuff I do for fun" align="start" />
 			<Grid variant="offset">
+				<github-card user="rejas"></github-card>
 				{
 					projects.map((project) => (
 						<li>
@@ -28,3 +29,8 @@ const projects = (await getCollection('projects')).sort(
 		</main>
 	</div>
 </BaseLayout>
+
+<script>
+	// Import and define your web component here
+	import 'github-webcomponents';
+</script>
