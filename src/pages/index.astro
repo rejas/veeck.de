@@ -43,7 +43,7 @@ const galleries = (await getCollection('galleries'))
 // https://docs.astro.build/basics/astro-components/
 ---
 
-<BaseLayout>
+<BaseLayout title="Veeck´s Homepage" description="Welcome to my Homepage">
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
@@ -181,7 +181,7 @@ const galleries = (await getCollection('galleries'))
 				</div>
 
 				<div class="cta">
-					<CallToAction href="/galleries/">
+					<CallToAction href="/photos/">
 						View all galleries
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
