@@ -27,7 +27,7 @@
     "update": "npm-check -u"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.1.0",
+    "@astrojs/mdx": "^4.2.3",
     "@astrojs/netlify": "^6.2.2",
     "@astrojs/react": "^4.2.1",
     "@astrojs/rss": "^4.0.11",
