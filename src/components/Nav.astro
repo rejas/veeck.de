@@ -3,8 +3,6 @@ import Icon from './Icon.astro';
 import ThemeToggle from './ThemeToggle.astro';
 import type { iconPaths } from './IconPaths';
 
-import { SocialShare } from 'astro-social-share';
-
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
 	{ label: 'Home', href: '/' },
@@ -96,7 +94,6 @@ const isCurrentPage = (href: string) => {
 
 			<div class="theme-toggle">
 				<ThemeToggle />
-				<SocialShare description="Description of the page/post" title="Page Title" />
 			</div>
 		</div>
 	</div>

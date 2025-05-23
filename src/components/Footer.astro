@@ -1,8 +1,10 @@
 ---
 import Icon from './Icon.astro';
+import ShareButton from './ShareButton';
 const currentYear = new Date().getFullYear();
 
-const { last_modified = '' } = Astro.props;
+const { last_modified = '', title = '', description = '' } = Astro.props;
+const url = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 ---
 
 <footer>
@@ -14,6 +16,7 @@ const { last_modified = '' } = Astro.props;
 		</p>
 		<p>&copy; {currentYear} Veeck</p>
 	</div>
+	<ShareButton client:only="react" text={description} title={title} url={url} />
 	<p class="socials">
 		<a href="https://github.com/rejas/veeck.de"> GitHub</a>
 	</p>
