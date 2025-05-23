@@ -1,7 +1,9 @@
 import React from 'react';
 import { RWebShare } from 'react-web-share';
 
-const ShareButton = ({ title, text, url }) => {
+import './index.css';
+
+const Index = ({ title, text, url }) => {
 	return (
 		<RWebShare
 			data={{
@@ -11,9 +13,9 @@ const ShareButton = ({ title, text, url }) => {
 			}}
 			onClick={() => console.log('shared successfully!')}
 		>
-			<button>Share 🔗</button>
+			<button className="share-button"> Share 🔗</button>
 		</RWebShare>
 	);
 };
 
-export default ShareButton;
+export default Index;
