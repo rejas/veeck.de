@@ -28,7 +28,7 @@ const { title, description, lang = 'en', last_modified = '' } = Astro.props;
 		<div class="stack backgrounds">
 			<Nav />
 			<slot />
-			<Footer last_modified={last_modified} />
+			<Footer title={title} description={description} last_modified={last_modified} />
 		</div>
 
 		<script>
