@@ -7,11 +7,10 @@ const Index = ({ title, text, url }) => {
 	return (
 		<RWebShare
 			data={{
-				text: text || 'Like humans, flamingos make friends for life',
-				url: url || 'https://on.natgeo.com/2zHaNup',
-				title: title || 'Flamingos',
+				text: text,
+				url: url,
+				title: title,
 			}}
-			onClick={() => console.log('shared successfully!')}
 		>
 			<button className="share-button"> Share 🔗</button>
 		</RWebShare>

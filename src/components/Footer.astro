@@ -4,7 +4,7 @@ import ShareButton from './sharebutton';
 const currentYear = new Date().getFullYear();
 
 const { last_modified = '', title = '', description = '' } = Astro.props;
-const url = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
+const url = Astro.url.href;
 ---
 
 <footer>
@@ -21,6 +21,7 @@ const url = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 		<a href="https://github.com/rejas/veeck.de"> GitHub</a>
 	</p>
 </footer>
+
 <style>
 	footer {
 		display: flex;
