@@ -6,3 +6,8 @@
   from = "/galleries/*"
   to = "/photos/:splat"
   status = 301
+
+[[redirects]]
+  from = "/projects/2018-software/"
+  to = "/projects"
+  status = 301
