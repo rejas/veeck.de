@@ -4,5 +4,5 @@
 
 [[redirects]]
   from = "/galleries/*"
-  to = "/photos/*"
+  to = "/photos/:splat"
   status = 301
