@@ -1,3 +1,8 @@
 [build]
   command = "npm run build"
   publish = "dist"
+
+[[redirects]]
+  from = "/galleries/*"
+  to = "/photos/*"
+  status = 301
