@@ -31,7 +31,7 @@
     "@astrojs/netlify": "^6.5.5",
     "@astrojs/react": "^4.3.0",
     "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.4.1",
+    "@astrojs/sitemap": "^3.4.2",
     "@bigheads/core": "^0.3.3",
     "@fontsource-variable/josefin-sans": "^5.2.6",
     "@fontsource-variable/rubik": "^5.2.6",
