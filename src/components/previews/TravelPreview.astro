@@ -10,7 +10,7 @@ const { data, slug } = Astro.props.travel;
 ---
 
 <a class="card" href={`/travels/${slug}`}>
-	<span class="title">{data.title}</span>
+	<span class="title">{data.tags.join(', ')} </span>
 	<Image src={data.img} alt={data.img_alt || ''} loading="lazy" decoding="async" />
 </a>
 
