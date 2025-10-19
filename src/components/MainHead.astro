@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import { SEO } from 'astro-seo';
+import { getImagePath } from 'astro-opengraph-images';
 
 interface Props {
 	title?: string | undefined;
@@ -7,6 +9,9 @@ interface Props {
 }
 
 const { title = 'Veeck: Personal Site', description = 'The personal site of Veeck' } = Astro.props;
+
+const { url, site } = Astro;
+const openGraphImageUrl = getImagePath({ url, site });
 ---
 
 <meta charset="UTF-8" />
@@ -15,8 +20,22 @@ const { title = 'Veeck: Personal Site', description = 'The personal site of Veec
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
 <link rel="icon" href="/favicon.ico" sizes="32x32" />
-<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="icon" href="/icon.svg" type="image/svgxml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<SEO
+	openGraph={{
+		basic: {
+			title: title,
+			type: 'website',
+			image: openGraphImageUrl,
+			url: url,
+		},
+		optional: {
+			description: description,
+		},
+	}}
+/>
 
 <script is:inline>
 	// This code is inlined in the head to make dark mode instant & blocking.
