@@ -6,6 +6,7 @@ import sitemap from '@astrojs/sitemap';
 import yaml from '@rollup/plugin-yaml';
 import opengraphImages, { presets } from 'astro-opengraph-images';
 import { defineConfig } from 'astro/config';
+import * as fs from 'fs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,7 +17,14 @@ export default defineConfig({
 		sitemap(),
 		opengraphImages({
 			options: {
-				verbose: true,
+				fonts: [
+					{
+						name: 'Josefin Sans',
+						weight: 400,
+						style: 'normal',
+						data: fs.readFileSync('node_modules/@fontsource/josefin-sans/files/josefin-sans-latin-400-normal.woff'),
+					},
+				],
 			},
 			render: presets.blackAndWhite,
 		}),
