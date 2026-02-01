@@ -29,7 +29,7 @@
     "@astrojs/mdx": "^4.3.13",
     "@astrojs/netlify": "^6.6.3",
     "@astrojs/react": "^4.4.2",
-    "@astrojs/rss": "^4.0.14",
+    "@astrojs/rss": "^4.0.15",
     "@astrojs/sitemap": "^3.6.0",
     "@bigheads/core": "^0.3.3",
     "@fontsource-variable/josefin-sans": "^5.2.8",
