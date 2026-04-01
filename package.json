@@ -46,13 +46,13 @@
     "tw-to-css": "^0.0.12"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.4.2",
-    "@commitlint/config-conventional": "^20.4.2",
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
     "@rollup/plugin-yaml": "^4.1.2",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "eslint-plugin-astro": "^1.6.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.3.1",
+    "lint-staged": "^16.4.0",
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "sharp": "^0.34.5"
