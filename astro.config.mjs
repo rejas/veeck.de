@@ -16,11 +16,13 @@ export default defineConfig({
 			provider: fontProviders.fontsource(),
 			name: 'Josefin Sans',
 			cssVariable: '--font-body',
+			weights: [400, 500, 600, 700],
 		},
 		{
 			provider: fontProviders.fontsource(),
 			name: 'Rubik',
 			cssVariable: '--font-brand',
+			weights: [400, 500, 600, 700],
 		},
 	],
 	integrations: [
