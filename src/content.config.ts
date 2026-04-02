@@ -1,5 +1,6 @@
 import { glob } from 'astro/loaders';
-import { defineCollection, z } from 'astro:content';
+import { z } from 'astro/zod';
+import { defineCollection } from 'astro:content';
 
 const preDefinedCollection = defineCollection({
 	schema: ({ image }) =>
@@ -15,6 +16,7 @@ const preDefinedCollection = defineCollection({
 			lead: z.string().optional(),
 		}),
 });
+
 export const collections = {
 	galleries: defineCollection({
 		schema: ({ image }) =>
