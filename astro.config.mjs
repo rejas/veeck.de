@@ -42,6 +42,11 @@ export default defineConfig({
 		}),
 	],
 	adapter: netlify(),
+	// Note: CSP is incompatible with Shiki syntax highlighting (inline styles).
+	// If code blocks are added to MDX content, disable this or switch to Prism.
+	security: {
+		csp: true,
+	},
 	vite: {
 		plugins: [yaml()],
 	},
