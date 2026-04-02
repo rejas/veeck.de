@@ -5,12 +5,24 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import yaml from '@rollup/plugin-yaml';
 import opengraphImages, { presets } from 'astro-opengraph-images';
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import * as fs from 'fs';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://veeck.de',
+	fonts: [
+		{
+			provider: fontProviders.fontsource(),
+			name: 'Josefin Sans',
+			cssVariable: '--font-body',
+		},
+		{
+			provider: fontProviders.fontsource(),
+			name: 'Rubik',
+			cssVariable: '--font-brand',
+		},
+	],
 	integrations: [
 		mdx(),
 		react(),

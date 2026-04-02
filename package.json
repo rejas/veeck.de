@@ -32,8 +32,6 @@
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
     "@bigheads/core": "^0.3.3",
-    "@fontsource-variable/josefin-sans": "^5.2.8",
-    "@fontsource-variable/rubik": "^5.2.8",
     "@fontsource/josefin-sans": "^5.2.8",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
