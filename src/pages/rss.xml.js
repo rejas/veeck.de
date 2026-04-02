@@ -10,7 +10,7 @@ export async function GET(context) {
 	const createItem = (post, type) => ({
 		title: post.data.title,
 		pubDate: post.data.first_published,
-		link: `${type}/${post.slug}`,
+		link: `${type}/${post.id}`,
 	});
 
 	const items = [
