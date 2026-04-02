@@ -28,7 +28,7 @@
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
     "@astrojs/netlify": "^6.6.4",
-    "@astrojs/react": "^4.4.2",
+    "@astrojs/react": "^5.0.2",
     "@astrojs/rss": "^4.0.15",
     "@astrojs/sitemap": "^3.7.0",
     "@bigheads/core": "^0.3.3",
