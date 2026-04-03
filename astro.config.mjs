@@ -13,10 +13,12 @@ export default defineConfig({
 	site: 'https://veeck.de',
 	fonts: [
 		{
-			provider: fontProviders.fontsource(),
-			name: 'Josefin Sans',
+			provider: fontProviders.npm(),
+			name: 'Josefin Sans Variable',
 			cssVariable: '--font-body',
-			weights: [400, 500, 600, 700],
+			options: {
+				package: '@fontsource-variable/josefin-sans',
+			},
 		},
 		{
 			provider: fontProviders.fontsource(),
