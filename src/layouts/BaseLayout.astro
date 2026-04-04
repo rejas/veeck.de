@@ -2,8 +2,7 @@
 // Learn about using Astro layouts:
 // https://docs.astro.build/en/core-concepts/layouts/
 
-import '@fontsource-variable/josefin-sans';
-import '@fontsource-variable/rubik';
+import { Font } from 'astro:assets';
 
 // Component Imports
 import MainHead from '../components/MainHead.astro';
@@ -23,6 +22,8 @@ const { title, description, lang = 'en', last_modified = '' } = Astro.props;
 <html lang={lang}>
 	<head>
 		<MainHead title={title} description={description} />
+		<Font cssVariable="--font-body" preload />
+		<Font cssVariable="--font-brand" preload />
 	</head>
 	<body>
 		<div class="stack backgrounds">

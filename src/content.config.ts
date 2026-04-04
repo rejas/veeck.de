@@ -1,20 +1,20 @@
 import { glob } from 'astro/loaders';
-import { defineCollection, z } from 'astro:content';
+import { z } from 'astro/zod';
+import { type SchemaContext, defineCollection } from 'astro:content';
 
-const preDefinedCollection = defineCollection({
-	schema: ({ image }) =>
-		z.object({
-			title: z.string(),
-			description: z.string().optional(), // TODO cleanup description / add leading
-			first_published: z.coerce.date(),
-			last_modified: z.coerce.date().optional(),
-			tags: z.array(z.string()),
-			img: image(),
-			img_alt: z.string().optional(), // TODO alt text in frontmatter of pages
-			lang: z.string(),
-			lead: z.string().optional(),
-		}),
-});
+const preDefinedSchema = ({ image }: SchemaContext) =>
+	z.object({
+		title: z.string(),
+		description: z.string().optional(), // TODO cleanup description / add leading
+		first_published: z.coerce.date(),
+		last_modified: z.coerce.date().optional(),
+		tags: z.array(z.string()),
+		img: image(),
+		img_alt: z.string().optional(), // TODO alt text in frontmatter of pages
+		lang: z.string(),
+		lead: z.string().optional(),
+	});
+
 export const collections = {
 	galleries: defineCollection({
 		schema: ({ image }) =>
@@ -34,7 +34,7 @@ export const collections = {
 		// Load YAML files in the src/content/galleries directory.
 		loader: glob({ base: './src/content/galleries', pattern: '**/*.yaml' }),
 	}),
-	blog: {
+	blog: defineCollection({
 		schema: () =>
 			z.object({
 				title: z.string(),
@@ -43,17 +43,17 @@ export const collections = {
 				last_modified: z.coerce.date().optional(),
 				tags: z.array(z.string()),
 			}),
-		// Load Markdown files in the src/content/projects directory.
+		// Load Markdown files in the src/content/blog directory.
 		loader: glob({ base: './src/content/blog', pattern: '**/*.mdx' }),
-	},
-	projects: {
-		...preDefinedCollection,
+	}),
+	projects: defineCollection({
+		schema: preDefinedSchema,
 		// Load Markdown files in the src/content/projects directory.
 		loader: glob({ base: './src/content/projects', pattern: '**/*.mdx' }),
-	},
-	travels: {
-		...preDefinedCollection,
+	}),
+	travels: defineCollection({
+		schema: preDefinedSchema,
 		// Load Markdown files in the src/content/travels directory.
 		loader: glob({ base: './src/content/travels', pattern: '**/*.mdx' }),
-	},
+	}),
 };
