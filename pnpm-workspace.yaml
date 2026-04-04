@@ -2,3 +2,5 @@ minimumReleaseAge: 1440 # 1 day cooldown for new releases, see https://pnpm.io/s
 nodeLinker: hoisted # see https://pnpm.io/settings#nodelinker
 packages:
   - .
+overrides:
+  'yaml': '^2.8.3'
