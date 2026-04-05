@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "--- MAIN SCRIPTS ---": "------------------------------------------------------------",
-    "start": "npm run dev",
+    "start": "pnpm run dev",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0",
     "--- ASTRO SCRIPTS ---": "----------------------------------------------------------",
     "dev": "astro dev",
