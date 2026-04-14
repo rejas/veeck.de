@@ -147,8 +147,12 @@ export default function SpecsTabs() {
 				{tabs.map((tab, i) => (
 					<button
 						key={tab.label}
+						type="button"
 						role="tab"
+						id={`specs-tab-${i}`}
 						aria-selected={active === i}
+						aria-controls="specs-tabpanel"
+						tabIndex={active === i ? 0 : -1}
 						className={`specs-tab-btn${active === i ? ' active' : ''}`}
 						onClick={() => setActive(i)}
 					>
@@ -157,7 +161,13 @@ export default function SpecsTabs() {
 				))}
 			</div>
 
-			<div className="specs-tab-panel" role="tabpanel">
+			<div
+				id="specs-tabpanel"
+				className="specs-tab-panel"
+				role="tabpanel"
+				aria-labelledby={`specs-tab-${active}`}
+				tabIndex={0}
+			>
 				<dl className="specs-list">
 					{tabs[active].specs.map(({ label, value }) => (
 						<div key={label} className="specs-row">
