@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 
 const tabs = [
 	{
@@ -140,6 +140,9 @@ const tabs = [
 
 export default function SpecsTabs() {
 	const [active, setActive] = useState(0);
+	const uid = useId();
+	const tabId = (i) => `${uid}-tab-${i}`;
+	const panelId = `${uid}-panel`;
 
 	return (
 		<div className="specs-tabs">
@@ -149,9 +152,9 @@ export default function SpecsTabs() {
 						key={tab.label}
 						type="button"
 						role="tab"
-						id={`specs-tab-${i}`}
+						id={tabId(i)}
 						aria-selected={active === i}
-						aria-controls="specs-tabpanel"
+						aria-controls={panelId}
 						tabIndex={active === i ? 0 : -1}
 						className={`specs-tab-btn${active === i ? ' active' : ''}`}
 						onClick={() => setActive(i)}
@@ -162,10 +165,10 @@ export default function SpecsTabs() {
 			</div>
 
 			<div
-				id="specs-tabpanel"
+				id={panelId}
 				className="specs-tab-panel"
 				role="tabpanel"
-				aria-labelledby={`specs-tab-${active}`}
+				aria-labelledby={tabId(active)}
 				tabIndex={0}
 			>
 				<dl className="specs-list">
