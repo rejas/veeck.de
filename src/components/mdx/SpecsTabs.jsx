@@ -144,6 +144,24 @@ export default function SpecsTabs() {
 	const tabId = (i) => `${uid}-tab-${i}`;
 	const panelId = `${uid}-panel`;
 
+	function handleKeyDown(e) {
+		let next = active;
+		if (e.key === 'ArrowRight') {
+			next = (active + 1) % tabs.length;
+		} else if (e.key === 'ArrowLeft') {
+			next = (active - 1 + tabs.length) % tabs.length;
+		} else if (e.key === 'Home') {
+			next = 0;
+		} else if (e.key === 'End') {
+			next = tabs.length - 1;
+		} else {
+			return;
+		}
+		e.preventDefault();
+		setActive(next);
+		document.getElementById(tabId(next))?.focus();
+	}
+
 	return (
 		<div className="specs-tabs">
 			<div className="specs-tab-bar" role="tablist">
@@ -158,6 +176,7 @@ export default function SpecsTabs() {
 						tabIndex={active === i ? 0 : -1}
 						className={`specs-tab-btn${active === i ? ' active' : ''}`}
 						onClick={() => setActive(i)}
+						onKeyDown={handleKeyDown}
 					>
 						{tab.label}
 					</button>
