@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const tabs = [
 	{
-		label: '2018 / 2025',
+		label: '2025',
 		specs: [
 			{ label: 'CPU', value: <a href="https://www.amd.com/en/product/8456">AMD Ryzen™ 5 3600 Processor</a> },
 			{
@@ -14,18 +14,18 @@ const tabs = [
 				),
 			},
 			{
+				label: 'RAM',
+				value: (
+					<a href="https://gskill.com/en/product/f4-3200c14d-16gfx">16 GB G.Skill Flare X DDR4-3200 CL14 Dual Kit</a>
+				),
+			},
+			{
 				label: 'Cooler / Fans',
 				value: (
 					<>
 						<a href="https://noctua.at/de/nh-l9a-am4">NH-L9a-AM4</a> ·{' '}
 						<a href="https://noctua.at/de/nf-s12a-pwm">NF-S12A PWM</a>
 					</>
-				),
-			},
-			{
-				label: 'RAM',
-				value: (
-					<a href="https://gskill.com/en/product/f4-3200c14d-16gfx">16 GB G.Skill Flare X DDR4-3200 CL14 Dual Kit</a>
 				),
 			},
 			{
@@ -58,29 +58,82 @@ const tabs = [
 		],
 	},
 	{
+		label: '2018',
+		specs: [
+			{
+				label: 'CPU',
+				value: (
+					<a href="https://www.amd.com/en/products/processors/desktops/ryzen/2000-series/amd-ryzen-5-2600.html">
+						AMD Ryzen™ 5 2600 Processor
+					</a>
+				),
+			},
+			{
+				label: 'Mainboard',
+				value: (
+					<a href="https://www.asus.com/de/motherboards-components/motherboards/prime/prime-b350m-a/">
+						Asus Prime B350M-A
+					</a>
+				),
+			},
+			{ label: 'RAM', value: '8 GB DDR4-2666' },
+			{
+				label: 'Cooler / Fans',
+				value: (
+					<>
+						<a href="https://noctua.at/de/nh-l9a-am4">NH-L9a-AM4</a> ·{' '}
+						<a href="https://noctua.at/de/nf-s12a-pwm">NF-S12A PWM</a>
+					</>
+				),
+			},
+			{
+				label: 'Graphics',
+				value: (
+					<a href="https://www.zotac.com/de/product/graphics_card/zotac-geforce-gtx-1060-amp-edition">
+						ZOTAC GeForce GTX 1060 AMP! 6GB
+					</a>
+				),
+			},
+			{
+				label: 'Harddrive',
+				value: (
+					<a href="https://www.samsung.com/de/memory-storage/860-evo-sata-3-2-5-ssd/MZ-76E500BEU/">
+						Samsung 860 EVO 500 GB SATA SSD
+					</a>
+				),
+			},
+			{ label: 'PSU', value: 'be quiet! Straight Power E9 580W' },
+			{
+				label: 'Monitor',
+				value: <a href="https://www.samsung.com/de/support/model/LT27A550EW/EN/">Samsung TV+Monitor T27A550</a>,
+			},
+			{ label: 'OS', value: 'Windows 10 Pro (64bit)' },
+		],
+	},
+	{
 		label: '2006',
 		specs: [
 			{ label: 'CPU', value: 'AMD AthlonXP 2600+' },
+			{ label: 'Mainboard', value: 'ECS Elitegroup KM400-M' },
+			{ label: 'RAM', value: '1 GB MTD PC400' },
 			{
 				label: 'Cooler',
 				value: <a href="https://www.silentpcreview.com/article130-page1.html">Swiftech MCX 462-V</a>,
 			},
-			{ label: 'RAM', value: '1 GB MTD PC400' },
-			{ label: 'Mainboard', value: 'ECS Elitegroup KM400-M' },
 			{
 				label: 'Graphics',
 				value: <a href="https://www.gigabyte.com/Graphics-Card/GV-N68128DH#ov">Gigabyte GV-N68128DH Geforce 6800</a>,
 			},
 			{ label: 'Harddrive', value: 'Seagate 120GB ST3120026A' },
+			{ label: 'PSU', value: 'TSP 420 P4 Ultra Silent TripleFan' },
+			{ label: 'Monitor', value: "Iiyama ProLite E431S-B 17'' TFT" },
+			{ label: 'OS', value: <a href="https://www.gentoo.org">Gentoo Linux</a> },
 			{ label: 'Sound', value: 'CreativeLabs Soundblaster Audigy 4' },
 			{
 				label: 'Optical Drive',
 				value: <a href="https://www.lg.com/de/service-produkt/lg-GSA-4167B">LG GSA-4167B DVD-Writer</a>,
 			},
-			{ label: 'PSU', value: 'TSP 420 P4 Ultra Silent TripleFan' },
-			{ label: 'Monitor', value: "Iiyama ProLite E431S-B 17'' TFT" },
 			{ label: 'Cardreader', value: 'Cooltek 7-in-1 with 2 Front-USB-ports' },
-			{ label: 'OS', value: <a href="https://www.gentoo.org">Gentoo Linux</a> },
 		],
 	},
 ];
