@@ -49,9 +49,6 @@ importers:
       github-webcomponents:
         specifier: ^1.3.1
         version: 1.3.1
-      netlify-cli:
-        specifier: ^24.11.2
-        version: 24.11.2(@types/node@25.5.2)(picomatch@4.0.4)(rollup@4.60.1)
       react:
         specifier: ^19.2.5
         version: 19.2.5
@@ -83,6 +80,9 @@ importers:
       lint-staged:
         specifier: ^16.4.0
         version: 16.4.0
+      netlify-cli:
+        specifier: ^24.11.2
+        version: 24.11.2(@types/node@25.5.2)(picomatch@4.0.4)(rollup@4.60.1)
       prettier:
         specifier: ^3.8.3
         version: 3.8.3
