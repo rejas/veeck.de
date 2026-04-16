@@ -183,13 +183,7 @@ export default function SpecsTabs() {
 				))}
 			</div>
 
-			<div
-				id={panelId}
-				className="specs-tab-panel"
-				role="tabpanel"
-				aria-labelledby={tabId(active)}
-				tabIndex={0}
-			>
+			<div id={panelId} className="specs-tab-panel" role="tabpanel" aria-labelledby={tabId(active)} tabIndex={0}>
 				<dl className="specs-list">
 					{tabs[active].specs.map(({ label, value }) => (
 						<div key={label} className="specs-row">
@@ -199,112 +193,6 @@ export default function SpecsTabs() {
 					))}
 				</dl>
 			</div>
-
-			<style>{`
-				.specs-tabs {
-					margin: 1.5rem 0;
-				}
-
-				.specs-tab-bar {
-					display: flex;
-					gap: 0.5rem;
-					position: relative;
-					padding: 0.375rem 0.5rem;
-					background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
-					border-radius: 999rem;
-					box-shadow: var(--shadow-md);
-					width: fit-content;
-					margin-bottom: 1.25rem;
-				}
-
-				.specs-tab-bar::before {
-					position: absolute;
-					inset: -1px;
-					content: '';
-					background: var(--gradient-stroke);
-					border-radius: 999rem;
-					z-index: -1;
-				}
-
-				.specs-tab-btn {
-					border: 0;
-					border-radius: 999rem;
-					padding: 0.4rem 1.1rem;
-					font-size: var(--text-sm);
-					font-family: var(--font-brand);
-					font-weight: 500;
-					color: var(--gray-300);
-					background: transparent;
-					cursor: pointer;
-					transition:
-						color var(--theme-transition),
-						background-color var(--theme-transition);
-				}
-
-				.specs-tab-btn:hover,
-				.specs-tab-btn:focus {
-					color: var(--gray-100);
-					background-color: var(--accent-subtle-overlay);
-				}
-
-				.specs-tab-btn.active {
-					color: var(--accent-text-over);
-					background-color: var(--accent-regular);
-				}
-
-				.specs-tab-panel {
-					background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
-					border-radius: 0.75rem;
-					box-shadow: var(--shadow-md);
-					padding: 1.25rem 1.5rem;
-					position: relative;
-				}
-
-				.specs-tab-panel::before {
-					position: absolute;
-					inset: -1px;
-					content: '';
-					background: var(--gradient-stroke);
-					border-radius: 0.75rem;
-					z-index: -1;
-				}
-
-				.specs-list {
-					display: grid;
-					gap: 0.5rem;
-				}
-
-				.specs-row {
-					display: grid;
-					grid-template-columns: 8rem 1fr;
-					gap: 1rem;
-					align-items: baseline;
-					border-bottom: 1px solid var(--gray-800);
-					padding-bottom: 0.5rem;
-				}
-
-				.specs-row:last-child {
-					border-bottom: none;
-					padding-bottom: 0;
-				}
-
-				.specs-row dt {
-					font-weight: 600;
-					color: var(--gray-300);
-					font-size: var(--text-sm);
-					text-transform: uppercase;
-					letter-spacing: 0.04em;
-				}
-
-				.specs-row dd {
-					color: var(--gray-100);
-					margin: 0;
-				}
-
-				.specs-row dd a {
-					color: var(--link-color);
-				}
-			`}</style>
 		</div>
 	);
 }
