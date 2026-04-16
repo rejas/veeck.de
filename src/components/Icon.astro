@@ -1,5 +1,4 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
 import { iconPaths } from './IconPaths';
 
 interface Props {
@@ -9,24 +8,20 @@ interface Props {
 	size?: string;
 }
 
-const { color = 'currentcolor', gradient, icon, size } = Astro.props;
+const { color = 'currentcolor', gradient, icon, size = '1em' } = Astro.props;
 const iconPath = iconPaths[icon];
-
-const attrs: HTMLAttributes<'svg'> = {};
-if (size) attrs.style = { '--size': size };
 
 const gradientId = 'icon-gradient-' + Math.round(Math.random() * 10e12).toString(36);
 ---
 
 <svg
 	xmlns="http://www.w3.org/2000/svg"
-	width="40"
-	height="40"
+	width={size}
+	height={size}
 	viewBox="0 0 256 256"
 	aria-hidden="true"
 	stroke={gradient ? `url(#${gradientId})` : color}
 	fill={gradient ? `url(#${gradientId})` : color}
-	{...attrs}
 >
 	<g set:html={iconPath} />
 	{
@@ -43,7 +38,5 @@ const gradientId = 'icon-gradient-' + Math.round(Math.random() * 10e12).toString
 <style>
 	svg {
 		vertical-align: middle;
-		width: var(--size, 1em);
-		height: var(--size, 1em);
 	}
 </style>

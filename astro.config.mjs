@@ -46,10 +46,16 @@ export default defineConfig({
 		}),
 	],
 	adapter: netlify(),
-	// Note: CSP is incompatible with Shiki syntax highlighting (inline styles).
-	// If code blocks are added to MDX content, disable this or switch to Prism.
+	markdown: {
+		syntaxHighlight: 'prism',
+	},
 	security: {
-		csp: true,
+		csp: {
+			// Allow the github-card web component's Shadow DOM style (injected at runtime via innerHTML)
+			styleDirective: {
+				hashes: ['sha256-uSxEZN9sUBMPnFaPosgHPV5ao5+MNCTOZFzbpd7Fn2Y='],
+			},
+		},
 	},
 	vite: {
 		plugins: [yaml()],
