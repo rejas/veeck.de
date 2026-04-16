@@ -1,25 +1,297 @@
 ---
 import Hero from '../components/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Pill from '../components/Pill.astro';
+import Icon from '../components/Icon.astro';
 ---
 
-<BaseLayout title="Resume" description="my resume">
-	<Hero title="Resume" tagline="you found it!" />
+<BaseLayout
+	title="Resume | Michael Veeck"
+	description="Resume of Michael Veeck, Senior Frontend Engineer based in Berlin"
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero title="Michael Veeck" tagline="Senior Frontend Engineer · Berlin, Germany" align="start">
+				<div class="roles">
+					<Pill><Icon icon="code" size="1.33em" />Frontend</Pill>
+					<Pill><Icon icon="pencil-line" size="1.33em" />Tech Lead</Pill>
+				</div>
+			</Hero>
 
-	<p class="content">
-		A senior full-stack software engineer specializing in user experience, end-to-end product development, and design
-		systems. Skills and experience include:
-	</p>
+			<section class="resume-section">
+				<h3 class="section-title">Work Experience</h3>
 
-	<ul>
-		<li>sfasfa</li>
-		<li>sfasfa</li>
-		<li>sfasfa</li>
-		<li>sfasfa</li>
-	</ul>
-	<h3>featured</h3>
+				<div class="timeline">
+					<div class="timeline-entry">
+						<div class="entry-header">
+							<div class="entry-main">
+								<h4 class="entry-title">IT &amp; Software Developer</h4>
+								<span class="entry-company">Volksverpetzer</span>
+							</div>
+							<div class="entry-meta">
+								<span class="entry-period">Nov 2025 – Present</span>
+								<span class="entry-type">Part-time</span>
+							</div>
+						</div>
+					</div>
 
-	<h4>featured</h4>
+					<div class="timeline-entry career-break">
+						<div class="entry-header">
+							<div class="entry-main">
+								<h4 class="entry-title">Full-time Parental Leave</h4>
+								<span class="entry-company">Career Break</span>
+							</div>
+							<div class="entry-meta">
+								<span class="entry-period">Jan 2025 – Nov 2025</span>
+								<span class="entry-duration">11 months</span>
+							</div>
+						</div>
+					</div>
 
-	<h5>featured</h5>
+					<div class="timeline-entry">
+						<div class="entry-header">
+							<div class="entry-main">
+								<h4 class="entry-title">Senior Frontend Engineer</h4>
+								<span class="entry-company">nebenan.de</span>
+							</div>
+							<div class="entry-meta">
+								<span class="entry-period">Sept 2022 – Jan 2025</span>
+								<span class="entry-type">Part-time · Hybrid</span>
+							</div>
+						</div>
+						<div class="entry-skills">
+							<span class="skill-tag">React.js</span>
+							<span class="skill-tag">Next.js</span>
+						</div>
+					</div>
+
+					<div class="timeline-entry timeline-group">
+						<div class="entry-header">
+							<div class="entry-main">
+								<h4 class="entry-company-group">Neofonie GmbH</h4>
+								<span class="entry-location">Berlin, Germany · 12 years 5 months</span>
+							</div>
+						</div>
+						<div class="sub-entries">
+							<div class="sub-entry">
+								<div class="sub-entry-header">
+									<h4 class="entry-title">Tech Lead Frontend Development</h4>
+									<span class="entry-period">Aug 2018 – Sept 2022 · 4 yrs 2 mos</span>
+								</div>
+							</div>
+							<div class="sub-entry">
+								<div class="sub-entry-header">
+									<h4 class="entry-title">Senior Frontend Developer</h4>
+									<span class="entry-period">Apr 2017 – Jul 2018 · 1 yr 4 mos</span>
+								</div>
+							</div>
+							<div class="sub-entry">
+								<div class="sub-entry-header">
+									<h4 class="entry-title">Professional Frontend Developer</h4>
+									<span class="entry-period">May 2010 – Mar 2017 · 6 yrs 11 mos</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="timeline-entry">
+						<div class="entry-header">
+							<div class="entry-main">
+								<h4 class="entry-title">Software Developer</h4>
+								<span class="entry-company">Babbel (Lesson Nine GmbH)</span>
+							</div>
+							<div class="entry-meta">
+								<span class="entry-period">Sept 2008 – Dec 2009</span>
+								<span class="entry-location">Berlin, Germany</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="resume-section placeholder-section">
+				<h3 class="section-title">Education</h3>
+				<p class="placeholder-text">Coming soon...</p>
+			</section>
+
+			<section class="resume-section placeholder-section">
+				<h3 class="section-title">Skills</h3>
+				<p class="placeholder-text">Coming soon...</p>
+			</section>
+		</main>
+	</div>
 </BaseLayout>
+
+<style>
+	.roles {
+		display: flex;
+		gap: 0.5rem;
+		margin-top: 0.5rem;
+	}
+
+	/* ====================================================== */
+
+	.resume-section {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.section-title {
+		font-size: var(--text-2xl);
+		color: var(--gray-0);
+		padding-bottom: 0.75rem;
+		border-bottom: 1px solid var(--gray-800);
+	}
+
+	/* ====================================================== */
+
+	.timeline {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.timeline-entry {
+		background: var(--gradient-subtle);
+		border: 1px solid var(--gray-800);
+		border-radius: 1rem;
+		box-shadow: var(--shadow-sm);
+		padding: 1.25rem 1.5rem;
+	}
+
+	.timeline-entry.career-break {
+		opacity: 0.7;
+	}
+
+	.entry-header {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.entry-main {
+		display: flex;
+		flex-direction: column;
+		gap: 0.125rem;
+	}
+
+	.entry-meta {
+		display: flex;
+		flex-direction: column;
+		gap: 0.125rem;
+		margin-top: 0.25rem;
+	}
+
+	.entry-title {
+		font-size: var(--text-md);
+		color: var(--gray-0);
+		font-weight: 600;
+	}
+
+	.entry-company {
+		font-size: var(--text-base);
+		color: var(--accent-dark);
+		font-weight: 500;
+	}
+
+	.entry-company-group {
+		font-size: var(--text-lg);
+		color: var(--gray-0);
+		font-weight: 600;
+	}
+
+	.entry-period {
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+	}
+
+	.entry-type {
+		font-size: var(--text-sm);
+		color: var(--gray-500);
+	}
+
+	.entry-location {
+		font-size: var(--text-sm);
+		color: var(--gray-500);
+	}
+
+	.entry-duration {
+		font-size: var(--text-sm);
+		color: var(--gray-500);
+	}
+
+	.entry-skills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 0.75rem;
+	}
+
+	.skill-tag {
+		font-size: var(--text-sm);
+		padding: 0.2rem 0.65rem;
+		background: var(--accent-overlay);
+		border: 1px solid var(--accent-regular);
+		border-radius: 999rem;
+		color: var(--gray-0);
+	}
+
+	/* ====================================================== */
+
+	.timeline-group .sub-entries {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--gray-800);
+	}
+
+	.sub-entry-header {
+		display: flex;
+		flex-direction: column;
+		gap: 0.125rem;
+	}
+
+	.sub-entry {
+		padding-left: 1rem;
+		border-left: 2px solid var(--accent-regular);
+	}
+
+	/* ====================================================== */
+
+	.placeholder-section {
+		opacity: 0.5;
+	}
+
+	.placeholder-text {
+		color: var(--gray-400);
+		font-style: italic;
+	}
+
+	/* ====================================================== */
+
+	@media (min-width: 50em) {
+		.entry-header {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+
+		.entry-meta {
+			text-align: right;
+			margin-top: 0;
+		}
+
+		.sub-entry-header {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.section-title {
+			font-size: var(--text-3xl);
+		}
+	}
+</style>
