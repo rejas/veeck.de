@@ -19,6 +19,54 @@ import Icon from '../components/Icon.astro';
 			</Hero>
 
 			<section class="resume-section">
+				<h3 class="section-title">About</h3>
+				<p class="summary">
+					I'm a senior frontend engineer and tech lead with over 15 years of experience building scalable web
+					applications. I specialise in React ecosystems, component architecture, and bridging the gap between design
+					and engineering. I care about performance, accessibility, and writing code that teams can maintain long after
+					I'm gone.
+				</p>
+			</section>
+
+			<section class="resume-section">
+				<h3 class="section-title">Skills</h3>
+				<div class="skills-grid">
+					<div class="skill-group">
+						<h4 class="skill-group-title">Languages</h4>
+						<ul class="skill-list">
+							<li>JavaScript (ES2015+)</li>
+							<li>TypeScript</li>
+							<li>HTML &amp; CSS</li>
+						</ul>
+					</div>
+					<div class="skill-group">
+						<h4 class="skill-group-title">Frameworks &amp; Libraries</h4>
+						<ul class="skill-list">
+							<li>React</li>
+							<li>Next.js</li>
+							<li>Astro</li>
+						</ul>
+					</div>
+					<div class="skill-group">
+						<h4 class="skill-group-title">Tooling &amp; Practices</h4>
+						<ul class="skill-list">
+							<li>Git &amp; CI/CD</li>
+							<li>Testing (Jest, Playwright)</li>
+							<li>Design Systems</li>
+						</ul>
+					</div>
+					<div class="skill-group">
+						<h4 class="skill-group-title">Leadership</h4>
+						<ul class="skill-list">
+							<li>Tech Lead &amp; Mentoring</li>
+							<li>Code Review</li>
+							<li>Agile / Scrum</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section class="resume-section">
 				<h3 class="section-title">Work Experience</h3>
 
 				<div class="timeline">
@@ -33,6 +81,13 @@ import Icon from '../components/Icon.astro';
 								<span class="entry-type">Part-time</span>
 							</div>
 						</div>
+						<ul class="entry-bullets">
+							<li>
+								Developing and maintaining the technical infrastructure for one of Germany's leading fact-checking media
+								outlets.
+							</li>
+							<li>Building internal tools and public-facing web features to support editorial workflows.</li>
+						</ul>
 					</div>
 
 					<div class="timeline-entry career-break">
@@ -59,6 +114,16 @@ import Icon from '../components/Icon.astro';
 								<span class="entry-type">Part-time · Hybrid</span>
 							</div>
 						</div>
+						<ul class="entry-bullets">
+							<li>
+								Contributed to the frontend of a neighbourhood social network used by tens of thousands of residents
+								across Germany.
+							</li>
+							<li>
+								Worked within a cross-functional product team using React and Next.js to ship new features and improve
+								performance.
+							</li>
+						</ul>
 						<div class="entry-skills">
 							<span class="skill-tag">React.js</span>
 							<span class="skill-tag">Next.js</span>
@@ -72,6 +137,17 @@ import Icon from '../components/Icon.astro';
 								<span class="entry-location">Berlin, Germany · 12 years 5 months</span>
 							</div>
 						</div>
+						<ul class="entry-bullets">
+							<li>
+								Grew from junior to Tech Lead over 12 years, working on search, content, and e-commerce products for
+								large German media and retail clients.
+							</li>
+							<li>
+								As Tech Lead, defined frontend architecture standards, led a team of engineers, and coordinated with
+								product and design on multiple parallel projects.
+							</li>
+							<li>Introduced modern JavaScript practices and component-driven development across the organisation.</li>
+						</ul>
 						<div class="sub-entries">
 							<div class="sub-entry">
 								<div class="sub-entry-header">
@@ -105,18 +181,32 @@ import Icon from '../components/Icon.astro';
 								<span class="entry-location">Berlin, Germany</span>
 							</div>
 						</div>
+						<ul class="entry-bullets">
+							<li>
+								Early-stage engineering work on Babbel, one of the world's first and largest language-learning
+								platforms.
+							</li>
+						</ul>
 					</div>
 				</div>
 			</section>
 
-			<section class="resume-section placeholder-section">
+			<section class="resume-section">
 				<h3 class="section-title">Education</h3>
-				<p class="placeholder-text">Coming soon...</p>
-			</section>
-
-			<section class="resume-section placeholder-section">
-				<h3 class="section-title">Skills</h3>
-				<p class="placeholder-text">Coming soon...</p>
+				<div class="timeline">
+					<div class="timeline-entry">
+						<div class="entry-header">
+							<div class="entry-main">
+								<h4 class="entry-title">Computer Science</h4>
+								<span class="entry-company">Albert-Ludwigs-Universität Freiburg</span>
+							</div>
+							<div class="entry-meta">
+								<span class="entry-period">1999 – 2003</span>
+								<span class="entry-location">Freiburg, Germany</span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</section>
 		</main>
 	</div>
@@ -142,6 +232,57 @@ import Icon from '../components/Icon.astro';
 		color: var(--gray-0);
 		padding-bottom: 0.75rem;
 		border-bottom: 1px solid var(--gray-800);
+	}
+
+	/* ====================================================== */
+
+	.summary {
+		font-size: var(--text-lg);
+		color: var(--gray-200);
+		line-height: 1.7;
+		max-width: 60ch;
+	}
+
+	/* ====================================================== */
+
+	.skills-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
+
+	.skill-group {
+		background: var(--gradient-subtle);
+		border: 1px solid var(--gray-800);
+		border-radius: 1rem;
+		box-shadow: var(--shadow-sm);
+		padding: 1.25rem 1.5rem;
+	}
+
+	.skill-group-title {
+		font-size: var(--text-base);
+		color: var(--accent-dark);
+		font-weight: 600;
+		margin-bottom: 0.75rem;
+	}
+
+	.skill-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+	}
+
+	.skill-list li {
+		font-size: var(--text-sm);
+		color: var(--gray-200);
+	}
+
+	.skill-list li::before {
+		content: '– ';
+		color: var(--gray-500);
 	}
 
 	/* ====================================================== */
@@ -221,6 +362,20 @@ import Icon from '../components/Icon.astro';
 		color: var(--gray-500);
 	}
 
+	.entry-bullets {
+		margin: 0.75rem 0 0;
+		padding-left: 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.entry-bullets li {
+		font-size: var(--text-sm);
+		color: var(--gray-300);
+		line-height: 1.6;
+	}
+
 	.entry-skills {
 		display: flex;
 		flex-wrap: wrap;
@@ -261,17 +416,6 @@ import Icon from '../components/Icon.astro';
 
 	/* ====================================================== */
 
-	.placeholder-section {
-		opacity: 0.5;
-	}
-
-	.placeholder-text {
-		color: var(--gray-400);
-		font-style: italic;
-	}
-
-	/* ====================================================== */
-
 	@media (min-width: 50em) {
 		.entry-header {
 			flex-direction: row;
@@ -292,6 +436,12 @@ import Icon from '../components/Icon.astro';
 
 		.section-title {
 			font-size: var(--text-3xl);
+		}
+	}
+
+	@media (max-width: 35em) {
+		.skills-grid {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>
