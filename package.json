@@ -30,15 +30,15 @@
 		"pre-commit": "lint-staged"
 	},
 	"dependencies": {
-		"@astrojs/mdx": "^5.0.3",
+		"@astrojs/mdx": "^5.0.4",
 		"@astrojs/netlify": "^7.0.8",
-		"@astrojs/react": "^5.0.3",
+		"@astrojs/react": "^5.0.4",
 		"@astrojs/rss": "^4.0.18",
 		"@astrojs/sitemap": "^3.7.2",
 		"@fontsource/josefin-sans": "^5.2.8",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
-		"astro": "^6.1.7",
+		"astro": "^6.3.1",
 		"astro-opengraph-images": "^1.14.3",
 		"astro-seo": "^1.1.0",
 		"beanheads": "^0.3.3",
