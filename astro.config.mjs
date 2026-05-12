@@ -59,5 +59,10 @@ export default defineConfig({
 	},
 	vite: {
 		plugins: [yaml()],
+		resolve: {
+			alias: {
+				beanheads: '/node_modules/beanheads/dist/beanheads.esm.js',
+			},
+		},
 	},
 });
