@@ -25,9 +25,6 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.7.2
         version: 3.7.2
-      '@bigheads/core':
-        specifier: ^0.3.3
-        version: 0.3.3(react@19.2.5)
       '@fontsource/josefin-sans':
         specifier: ^5.2.8
         version: 5.2.8
@@ -46,6 +43,9 @@ importers:
       astro-seo:
         specifier: ^1.1.0
         version: 1.1.0(prettier-plugin-astro@0.14.1)(prettier@3.8.3)(typescript@5.9.3)
+      beanheads:
+        specifier: ^0.3.3
+        version: 0.3.3(react@19.2.5)
       github-webcomponents:
         specifier: ^1.3.1
         version: 1.3.1
@@ -302,13 +302,6 @@ packages:
     resolution:
       { integrity: sha512-LwdZHpScM4Qz8Xw2iKSzS+cfglZzJGvofQICy7W7v4caru4EaAmyUuO6BGrbyQ2mYV11W0U8j5mBhd14dd3B0A== }
     engines: { node: '>=6.9.0' }
-
-  '@bigheads/core@0.3.3':
-    resolution:
-      { integrity: sha512-lu+TbgFR3IRPQR539td47935SwujzT4OQJdqReksVPJ9f3Tn80kpemIsdmO4yYm9FWW7eAGV+a5bFKC4/1jpLA== }
-    engines: { node: '>=10' }
-    peerDependencies:
-      react: '>=16'
 
   '@bramus/specificity@2.4.2':
     resolution:
@@ -2896,6 +2889,13 @@ packages:
       { integrity: sha512-fOVLPAsFTsQfuCkvahZkzq6nf8KvGWanlYoTh0SVA0A/PIUxQGU2AOZAoD95n2gFLVDW/jP6sbGLny95nmEuHA== }
     engines: { node: '>=6.0.0' }
     hasBin: true
+
+  beanheads@0.3.3:
+    resolution:
+      { integrity: sha512-xcL8FA02+5mIsonwXxnXqd11eXR534VgXCusogBn0t5JXNckaD1UgH0C65wq5h1osK8bbv+2IYpNQM9OplVFVQ== }
+    engines: { node: '>=10' }
+    peerDependencies:
+      react: '>=16'
 
   before-after-hook@4.0.0:
     resolution:
@@ -8832,10 +8832,6 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
-  '@bigheads/core@0.3.3(react@19.2.5)':
-    dependencies:
-      react: 19.2.5
-
   '@bramus/specificity@2.4.2':
     dependencies:
       css-tree: 3.2.1
@@ -11228,6 +11224,10 @@ snapshots:
   base64-js@1.5.1: {}
 
   baseline-browser-mapping@2.10.14: {}
+
+  beanheads@0.3.3(react@19.2.5):
+    dependencies:
+      react: 19.2.5
 
   before-after-hook@4.0.0: {}
 

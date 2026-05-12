@@ -13,7 +13,7 @@ import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/previews/PortfolioPreview.astro';
 
 // External Component Import
-import { BigHead } from '@bigheads/core';
+import { BeanHead } from 'beanheads';
 import * as React from 'react';
 import TravelPreview from '../components/previews/TravelPreview.astro';
 import GalleryPreview from '../components/previews/GalleryPreview.astro';
@@ -59,7 +59,7 @@ const galleries = (await getCollection('galleries'))
 					</div>
 				</Hero>
 
-				<BigHead
+				<BeanHead
 					accessory="shades"
 					body="chest"
 					circleColor="blue"
