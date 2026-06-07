@@ -2,7 +2,7 @@ import { useId, useState } from 'react';
 
 const tabs = [
 	{
-		label: '2025',
+		label: '2026',
 		specs: [
 			{ label: 'CPU', value: <a href="https://www.amd.com/en/product/8456">AMD Ryzen™ 5 3600 Processor</a> },
 			{
@@ -52,7 +52,11 @@ const tabs = [
 			{ label: 'PSU', value: 'be quiet! Straight Power E9 580W' },
 			{
 				label: 'Monitor',
-				value: <a href="https://www.samsung.com/de/support/model/LT27A550EW/EN/">Samsung TV+Monitor T27A550</a>,
+				value: (
+					<a href="https://www.dell.com/de-de/shop/dell-27-plus-qhd-usb-c-monitor-s2725dc/apd/210-bsrl/monitore-und-monitorzubeh%C3%B6r">
+						Dell 27 Plus QHD-USB-C-Monitor – S2725DC
+					</a>
+				),
 			},
 			{ label: 'OS', value: 'Windows 11 Pro (64bit)' },
 		],
