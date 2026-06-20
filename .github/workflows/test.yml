@@ -1,4 +1,4 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# This workflow installs dependencies, type-checks, lints and builds the site
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
 name: 'Run Automated Tests'
@@ -24,6 +24,10 @@ jobs:
         with:
           version: 10
       - name: 'Install dependencies'
-        run: pnpm install  --frozen-lockfile
-      - name: 'Run tests'
-        run: pnpm run test
+        run: pnpm install --frozen-lockfile
+      - name: 'Type-check'
+        run: pnpm run check
+      - name: 'Lint'
+        run: pnpm run lint
+      - name: 'Build'
+        run: pnpm run build
