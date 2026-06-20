@@ -1,0 +1,69 @@
+---
+// Photo-gallery thumbnail grid. Each thumbnail is a `.lightbox-trigger` for the
+// shared <Lightbox />, carrying the large source, caption, and filename (for
+// shareable deep links).
+import { getImage, Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	gallery: CollectionEntry<'galleries'>;
+}
+
+const { gallery } = Astro.props;
+
+// Derive a stable, reorder-proof identifier from the source filename. The emitted
+// asset carries a content hash in production (name.hash.ext) but not in dev, so
+// strip the extension and an optional trailing 8-char hash.
+const imageName = (src: string): string => {
+	const base = (src.split('/').pop() ?? '').split('?')[0];
+	const noExt = base.replace(/\.[a-z0-9]+$/i, '');
+	return noExt.replace(/\.[\w-]{8}$/, '');
+};
+
+const items = await Promise.all(
+	gallery.data.images.map(async (image) => {
+		const full = await getImage({ src: image.img, width: 1600, quality: 80 });
+		return { thumb: image.img, caption: image.caption, full: full.src, name: imageName(image.img.src) };
+	}),
+);
+---
+
+<section class="gallery-grid">
+	{
+		items.map((item) => (
+			<button
+				type="button"
+				class="lightbox-trigger gallery-thumb"
+				data-full={item.full}
+				data-caption={item.caption}
+				data-name={item.name}
+				aria-label={`View image: ${item.caption}`}
+			>
+				<Image src={item.thumb} alt={item.caption} layout="constrained" width={400} quality={60} loading="eager" />
+			</button>
+		))
+	}
+</section>
+
+<style>
+	.gallery-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+		gap: clamp(1rem, 2vw, 1.5rem);
+	}
+	.gallery-thumb {
+		padding: 0;
+		border: 0;
+		border-radius: 1.5rem;
+		background: none;
+		overflow: clip;
+		outline: none;
+		cursor: zoom-in;
+	}
+	.gallery-thumb img {
+		display: block;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+</style>
