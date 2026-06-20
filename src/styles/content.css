@@ -108,7 +108,9 @@ header {
 	width: 33%;
 }
 
-.content-image:nth-of-type(even) {
+/* Markdown wraps each image in its own <p>, so count only the image
+   paragraphs (`of` selector) and flip every other one to the left. */
+.content > :nth-child(even of p:has(.content-image)) .content-image {
 	float: inline-start;
 	margin: 0.5rem 1.5rem 1rem 0;
 }
