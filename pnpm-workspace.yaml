@@ -4,3 +4,13 @@ packages:
   - .
 overrides:
   'yaml': '^2.8.3'
+# pnpm 11 requires an explicit decision on which dependencies may run
+# install/build scripts. None are needed for our build: these packages ship
+# prebuilt binaries, and under pnpm 10 they were all ignored while the build
+# still passed. Keep them disabled to preserve that behavior.
+allowBuilds:
+  '@parcel/watcher': false
+  esbuild: false
+  netlify-cli: false
+  sharp: false
+  unix-dgram: false
