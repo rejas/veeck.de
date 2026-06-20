@@ -90,3 +90,47 @@ header {
 	border-inline-start: 0.25rem solid var(--accent-dark);
 	color: var(--gray-0);
 }
+
+/* Inline diary images (see ContentImage.astro): float so text wraps around them,
+   landscape at half content-width, portrait at a third. Sides alternate. */
+.content-image {
+	display: block;
+	float: inline-end;
+	width: 50%;
+	margin: 0.5rem 0 1rem 1.5rem;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: zoom-in;
+}
+
+.content-image.portrait {
+	width: 33%;
+}
+
+.content-image:nth-of-type(even) {
+	float: inline-start;
+	margin: 0.5rem 1.5rem 1rem 0;
+}
+
+.content-image img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+/* Begin each diary section below any preceding floated image. */
+.content h2,
+.content h3 {
+	clear: both;
+}
+
+/* On narrow screens the fractions are too small — go full width, no float. */
+@media (max-width: 50em) {
+	.content-image,
+	.content-image.portrait {
+		float: none;
+		width: 100%;
+		margin-inline: 0;
+	}
+}

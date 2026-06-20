@@ -1,0 +1,38 @@
+---
+// MDX `img` override for diary/article content. Lays images out by orientation
+// (landscape = half content width, portrait = a third, text floats around them)
+// and turns each into a trigger for <ContentLightbox />.
+import { getImage, Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+	src: ImageMetadata | string;
+	alt?: string;
+}
+
+const { src, alt = '' } = Astro.props;
+
+// Travel images are local, so `src` is ImageMetadata. Remote/string images are
+// rendered plainly (no orientation sizing or lightbox).
+const meta = typeof src === 'string' ? null : src;
+const orientation = meta && meta.width >= meta.height ? 'landscape' : 'portrait';
+
+// Larger source for the fullscreen lightbox (served via the Netlify image CDN).
+const full = meta ? await getImage({ src: meta, width: 1600, quality: 80 }) : null;
+---
+
+{
+	meta ? (
+		<button
+			type="button"
+			class:list={['lightbox-trigger', 'content-image', orientation]}
+			data-full={full!.src}
+			data-caption={alt}
+			aria-label={alt ? `View image: ${alt}` : 'View image'}
+		>
+			<Image src={meta} alt={alt} width={640} quality={80} />
+		</button>
+	) : (
+		<img src={src as string} alt={alt} />
+	)
+}
