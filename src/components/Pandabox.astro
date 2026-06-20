@@ -17,12 +17,22 @@ const { galleryid, gallery: galleryProp, transitionType = 'fade' } = Astro.props
 const gallery = galleryProp ?? (galleryid ? await getEntry('galleries', galleryid) : undefined);
 const id = gallery?.id ?? galleryid ?? 'gallery';
 
+// Derive a stable, reorder-proof identifier from the source filename. The
+// emitted asset carries a content hash in production (name.hash.ext) but not
+// in dev, so strip the extension and an optional trailing 8-char hash.
+const imageName = (src: string): string => {
+	const base = (src.split('/').pop() ?? '').split('?')[0];
+	const noExt = base.replace(/\.[a-z0-9]+$/i, '');
+	return noExt.replace(/\.[\w-]{8}$/, '');
+};
+
 // Map the site's { img, caption } gallery schema onto Pandabox's fields.
 const images = (gallery?.data.images ?? []).map((image) => ({
 	src: image.img,
 	alt: image.caption,
 	title: image.caption,
 	description: '',
+	name: imageName(image.img.src),
 }));
 ---
 
@@ -38,6 +48,7 @@ const images = (gallery?.data.images ?? []).map((image) => ({
 					quality={40}
 					loading="eager"
 					data-index={index}
+					data-name={image.name}
 					class="thumbnail"
 				/>
 			</button>
@@ -47,7 +58,7 @@ const images = (gallery?.data.images ?? []).map((image) => ({
 		<div class="lightbox-content">
 			{
 				images.map((image, index) => (
-					<figure class="lightbox-image-container" id={`image-${index}`}>
+					<figure class="lightbox-image-container" id={image.name}>
 						<div class="lightbox-image-wrapper">
 							<Image
 								src={image.src}
@@ -363,8 +374,22 @@ const images = (gallery?.data.images ?? []).map((image) => ({
 		const closeDuration =
 			parseFloat(getComputedStyle(lightboxDialog).getPropertyValue('--duration-close-transition')) * 1000;
 
+		// Image containers in gallery order; each one's element id is the photo
+		// filename, so it serves as a static, reorder-proof anchor.
+		const containers = [...document.querySelectorAll<HTMLElement>('.lightbox-image-container')];
+
 		let currentIndex = 0;
 		let resizeTimeout: number | undefined;
+
+		// Shareable deep links: reflect the open image in the URL hash using its
+		// filename (the container's static id), so links survive gallery reordering.
+		const setHash = (index: number): void => {
+			const name = containers[index]?.id;
+			if (name) history.replaceState(null, '', `#${encodeURIComponent(name)}`);
+		};
+		const clearHash = (): void => {
+			history.replaceState(null, '', location.pathname + location.search);
+		};
 
 		function calculateCentering(image: HTMLImageElement): void {
 			const wrapper = image.closest('.lightbox-image-wrapper') as HTMLElement | null;
@@ -401,26 +426,26 @@ const images = (gallery?.data.images ?? []).map((image) => ({
 		}
 
 		function showImageAtIndex(index: number): void {
-			const containers = document.querySelectorAll<HTMLElement>('.lightbox-image-container');
 			if (index < 0 || index >= containers.length) return;
 
 			for (const container of containers) {
 				container.classList.remove('active', 'previous', 'next');
 			}
 
-			const newActive = document.getElementById(`image-${index}`);
+			const newActive = containers[index];
 			if (!newActive) return;
 
 			newActive.classList.add('active');
 			currentIndex = index;
+			setHash(currentIndex);
 
 			const image = newActive.querySelector<HTMLImageElement>('.lightbox-image');
 			if (image) calculateCentering(image);
 
 			const prevIndex = (currentIndex - 1 + containers.length) % containers.length;
 			const nextIndex = (currentIndex + 1) % containers.length;
-			document.getElementById(`image-${prevIndex}`)?.classList.add('previous');
-			document.getElementById(`image-${nextIndex}`)?.classList.add('next');
+			containers[prevIndex]?.classList.add('previous');
+			containers[nextIndex]?.classList.add('next');
 		}
 
 		function openLightbox(button: HTMLElement): void {
@@ -428,7 +453,7 @@ const images = (gallery?.data.images ?? []).map((image) => ({
 
 			const rect = button.getBoundingClientRect();
 			const index = Number.parseInt(button.dataset.index || '0', 10);
-			const activeImage = document.getElementById(`image-${index}`);
+			const activeImage = containers[index];
 			if (!activeImage) return;
 
 			activeImage.classList.add('active');
@@ -519,7 +544,15 @@ const images = (gallery?.data.images ?? []).map((image) => ({
 			for (const container of document.querySelectorAll<HTMLElement>('.lightbox-image-container')) {
 				container.classList.remove('active', 'previous', 'next');
 			}
+			clearHash();
 		});
+
+		// Open straight to a photo when the page is loaded with a #<filename> hash.
+		const target = decodeURIComponent(location.hash.slice(1));
+		if (target) {
+			const match = [...thumbnailButtons].find((t) => t.dataset.name === target);
+			if (match) openLightbox(match);
+		}
 	}
 
 	// This site does not use the View Transitions router, so init on DOM ready.
