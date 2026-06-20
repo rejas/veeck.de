@@ -1,0 +1,218 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+	title?: string | undefined;
+	text?: string | undefined;
+	url: string;
+}
+
+const { title = '', text = '', url } = Astro.props;
+
+// Server-rendered email fallback so it works without JS.
+const mailtoBody = `${text ? text + '\n\n' : ''}${url}`;
+const mailto = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(mailtoBody)}`;
+---
+
+<share-buttons class="share-fab" data-url={url} data-title={title} data-text={text}>
+	<div class="share-options" id="share-options">
+		<button type="button" class="share-action native" hidden>
+			<span class="sr-only">Share via your device</span>
+			<Icon icon="share-network" size="1.1em" />
+		</button>
+
+		<button type="button" class="share-action copy">
+			<span class="sr-only">Copy link</span>
+			<span class="icon-copy"><Icon icon="link" size="1.1em" /></span>
+			<span class="icon-done" hidden><Icon icon="check" size="1.1em" /></span>
+		</button>
+
+		<a class="share-action" href={mailto}>
+			<span class="sr-only">Share via email</span>
+			<Icon icon="envelope" size="1.1em" />
+		</a>
+	</div>
+
+	<button type="button" class="share-toggle" aria-expanded="false" aria-controls="share-options">
+		<span class="sr-only">Share this page</span>
+		<span class="icon-open"><Icon icon="share-network" size="1.25em" /></span>
+		<span class="icon-close" hidden><Icon icon="x" size="1.25em" /></span>
+	</button>
+</share-buttons>
+
+<style>
+	.share-fab {
+		position: fixed;
+		bottom: 1.5rem;
+		right: 1.5rem;
+		z-index: 50;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.6rem;
+	}
+
+	.share-options {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		opacity: 0;
+		transform: translateY(0.75rem) scale(0.9);
+		transform-origin: bottom center;
+		pointer-events: none;
+		transition:
+			opacity var(--theme-transition),
+			transform var(--theme-transition);
+	}
+
+	.share-fab.open .share-options {
+		opacity: 1;
+		transform: none;
+		pointer-events: auto;
+	}
+
+	.share-action {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		padding: 0;
+		border: 0;
+		border-radius: 999rem;
+		color: var(--accent-overlay);
+		background-color: var(--gray-999);
+		box-shadow:
+			var(--shadow-sm),
+			inset 0 0 0 1px var(--accent-overlay);
+		cursor: pointer;
+		transition:
+			color var(--theme-transition),
+			background-color var(--theme-transition);
+	}
+
+	.share-action:hover,
+	.share-action:focus-visible,
+	.share-action.copied {
+		color: var(--accent-text-over);
+		background-color: var(--accent-regular);
+	}
+
+	.share-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 3rem;
+		height: 3rem;
+		padding: 0;
+		border: 0;
+		border-radius: 999rem;
+		color: var(--accent-text-over);
+		background-color: var(--accent-regular);
+		box-shadow: var(--shadow-md);
+		cursor: pointer;
+		transition:
+			background-color var(--theme-transition),
+			transform var(--theme-transition);
+	}
+
+	.share-toggle:hover,
+	.share-toggle:focus-visible {
+		background-color: var(--accent-dark);
+	}
+
+	.share-fab.open .share-toggle {
+		transform: rotate(90deg);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.share-options,
+		.share-toggle {
+			transition: none;
+		}
+
+		.share-fab.open .share-toggle {
+			transform: none;
+		}
+	}
+</style>
+
+<script>
+	class ShareButtons extends HTMLElement {
+		constructor() {
+			super();
+
+			const url = this.dataset.url ?? location.href;
+			const title = this.dataset.title ?? document.title;
+			const text = this.dataset.text ?? '';
+
+			const toggle = this.querySelector<HTMLButtonElement>('.share-toggle')!;
+			const openIcon = toggle.querySelector<HTMLElement>('.icon-open')!;
+			const closeIcon = toggle.querySelector<HTMLElement>('.icon-close')!;
+			const nativeButton = this.querySelector<HTMLButtonElement>('.native');
+			const copyButton = this.querySelector<HTMLButtonElement>('.copy');
+
+			// Expand / collapse the options panel.
+			const setOpen = (open: boolean) => {
+				this.classList.toggle('open', open);
+				toggle.setAttribute('aria-expanded', String(open));
+				openIcon.hidden = open;
+				closeIcon.hidden = !open;
+			};
+
+			toggle.addEventListener('click', () => setOpen(!this.classList.contains('open')));
+
+			// Close on Escape (and return focus to the toggle) or outside click.
+			document.addEventListener('keydown', (event) => {
+				if (event.key === 'Escape' && this.classList.contains('open')) {
+					setOpen(false);
+					toggle.focus();
+				}
+			});
+			document.addEventListener('click', (event) => {
+				if (this.classList.contains('open') && !this.contains(event.target as Node)) {
+					setOpen(false);
+				}
+			});
+
+			// Web Share API: reveal the native share button only when supported
+			// (mostly mobile + Safari/modern Chrome).
+			if (nativeButton && typeof navigator.share === 'function') {
+				nativeButton.hidden = false;
+				nativeButton.addEventListener('click', async () => {
+					try {
+						await navigator.share({ title, text, url });
+					} catch {
+						// User dismissed the share sheet — ignore.
+					}
+				});
+			}
+
+			// Copy-to-clipboard with a brief "copied" confirmation.
+			if (copyButton && navigator.clipboard) {
+				const copyIcon = copyButton.querySelector<HTMLElement>('.icon-copy')!;
+				const doneIcon = copyButton.querySelector<HTMLElement>('.icon-done')!;
+				let resetTimer: ReturnType<typeof setTimeout>;
+
+				copyButton.addEventListener('click', async () => {
+					try {
+						await navigator.clipboard.writeText(url);
+						copyButton.classList.add('copied');
+						copyIcon.hidden = true;
+						doneIcon.hidden = false;
+						clearTimeout(resetTimer);
+						resetTimer = setTimeout(() => {
+							copyButton.classList.remove('copied');
+							copyIcon.hidden = false;
+							doneIcon.hidden = true;
+						}, 2000);
+					} catch {
+						// Clipboard write failed — leave the button as-is.
+					}
+				});
+			}
+		}
+	}
+
+	customElements.define('share-buttons', ShareButtons);
+</script>

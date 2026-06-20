@@ -8,6 +8,7 @@ import { Font } from 'astro:assets';
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import ShareButtons from '../components/ShareButtons.astro';
 
 interface Props {
 	title?: string | undefined;
@@ -31,6 +32,8 @@ const { title, description, lang = 'en', last_modified = '' } = Astro.props;
 			<slot />
 			<Footer last_modified={last_modified} />
 		</div>
+
+		<ShareButtons title={title} text={description} url={Astro.url.href} />
 
 		<script>
 			// Add “loaded” class once the document has completely loaded.
