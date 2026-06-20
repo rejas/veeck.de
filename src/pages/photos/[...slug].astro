@@ -5,6 +5,7 @@ import '../../styles/content.css';
 
 import Hero from '../../components/Hero.astro';
 import Icon from '../../components/Icon.astro';
+import Pandabox from '../../components/Pandabox.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 
@@ -46,14 +47,8 @@ const last_modified = entry.data.last_modified
 			<main class="wrapper">
 				<div class="stack gap-10 content">
 					{entry.data.img && <Image src={entry.data.img} alt={entry.data.img_alt || ''} />}
-					<div class="content">
-						{
-							entry.data.images.map((img) => (
-								<Image loading="lazy" src={img.img} alt={img.caption} quality={80} widths={[640]} />
-							))
-						}
-					</div>
 				</div>
+				<Pandabox gallery={entry} transitionType="fade" />
 			</main>
 		</div>
 	</div>
