@@ -15,14 +15,16 @@ interface Props {
 	description?: string | undefined;
 	lang?: string | undefined;
 	last_modified?: string | undefined;
+	og_type?: 'website' | 'article' | undefined;
+	published_time?: string | undefined;
 }
 
-const { title, description, lang = 'en', last_modified = '' } = Astro.props;
+const { title, description, lang = 'en', last_modified = '', og_type = 'website', published_time } = Astro.props;
 ---
 
 <html lang={lang}>
 	<head>
-		<MainHead title={title} description={description} />
+		<MainHead title={title} description={description} lang={lang} ogType={og_type} publishedTime={published_time} />
 		<Font cssVariable="--font-body" preload />
 		<Font cssVariable="--font-brand" preload />
 	</head>

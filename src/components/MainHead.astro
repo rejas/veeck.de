@@ -6,12 +6,25 @@ import { getImagePath } from 'astro-opengraph-images';
 interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
+	lang?: string | undefined;
+	ogType?: 'website' | 'article' | undefined;
+	publishedTime?: string | undefined;
 }
 
-const { title = 'Veeck: Personal Site', description = 'The personal site of Veeck' } = Astro.props;
+const {
+	title = 'Veeck: Personal Site',
+	description = 'The personal site of Veeck',
+	lang = 'en',
+	ogType = 'website',
+	publishedTime,
+} = Astro.props;
 
 const { url, site } = Astro;
 const openGraphImageUrl = getImagePath({ url, site });
+
+// Map the page language to an Open Graph locale.
+const ogLocale: Record<string, string> = { en: 'en_US', de: 'de_DE' };
+const locale = ogLocale[lang] ?? 'en_US';
 ---
 
 <meta charset="UTF-8" />
@@ -28,13 +41,14 @@ const openGraphImageUrl = getImagePath({ url, site });
 	openGraph={{
 		basic: {
 			title: title,
-			type: 'website',
+			type: ogType,
 			image: openGraphImageUrl,
 			url: url,
 		},
 		optional: {
 			description: description,
 			siteName: 'Veeck',
+			locale: locale,
 		},
 		image: {
 			url: openGraphImageUrl,
@@ -42,6 +56,7 @@ const openGraphImageUrl = getImagePath({ url, site });
 			height: 630,
 			alt: title,
 		},
+		article: ogType === 'article' && publishedTime ? { publishedTime: publishedTime } : undefined,
 	}}
 	twitter={{
 		card: 'summary_large_image',
