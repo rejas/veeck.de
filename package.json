@@ -34,7 +34,7 @@
 		"pre-commit": "lint-staged"
 	},
 	"dependencies": {
-		"@astrojs/mdx": "^5.0.4",
+		"@astrojs/mdx": "^6.0.3",
 		"@astrojs/netlify": "^7.0.13",
 		"@astrojs/react": "^5.0.7",
 		"@astrojs/rss": "^4.0.18",
@@ -54,8 +54,8 @@
 	"devDependencies": {
 		"@astrojs/check": "^0.9.9",
 		"@commitlint/cli": "^21.0.2",
-		"@commitlint/config-conventional": "^20.5.0",
-		"@rollup/plugin-yaml": "^4.1.2",
+		"@commitlint/config-conventional": "^21.0.2",
+		"@rollup/plugin-yaml": "^5.0.0",
 		"@trivago/prettier-plugin-sort-imports": "^6.0.2",
 		"eslint": "^10.5.0",
 		"eslint-plugin-astro": "^1.7.0",
@@ -64,7 +64,7 @@
 		"netlify-cli": "^26.1.0",
 		"prettier": "^3.8.4",
 		"prettier-plugin-astro": "^0.14.1",
-		"sharp": "^0.34.5",
+		"sharp": "^0.35.1",
 		"typescript": "^6.0.3",
 		"typescript-eslint": "^8.61.1"
 	},
