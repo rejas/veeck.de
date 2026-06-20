@@ -24,6 +24,7 @@ const openGraphImageUrl = getImagePath({ url, site });
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
 <SEO
+	canonical={url.href}
 	openGraph={{
 		basic: {
 			title: title,
@@ -33,7 +34,21 @@ const openGraphImageUrl = getImagePath({ url, site });
 		},
 		optional: {
 			description: description,
+			siteName: 'Veeck',
 		},
+		image: {
+			url: openGraphImageUrl,
+			width: 1200,
+			height: 630,
+			alt: title,
+		},
+	}}
+	twitter={{
+		card: 'summary_large_image',
+		title: title,
+		description: description,
+		image: openGraphImageUrl,
+		imageAlt: title,
 	}}
 />
 

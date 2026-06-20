@@ -38,6 +38,7 @@ export const collections = {
 		schema: () =>
 			z.object({
 				title: z.string(),
+				description: z.string().optional(),
 				first_published: z.coerce.date(),
 				lang: z.string(),
 				last_modified: z.coerce.date().optional(),
