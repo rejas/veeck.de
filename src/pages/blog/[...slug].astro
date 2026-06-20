@@ -34,9 +34,11 @@ const first_published = entry.data.first_published
 
 <BaseLayout
 	title={entry.data.title}
-	description={'entry.data.description'}
+	description={entry.data.description}
 	lang={entry.data.lang}
 	last_modified={first_published}
+	og_type="article"
+	published_time={entry.data.first_published.toISOString()}
 >
 	<div class="stack gap-20">
 		<div class="stack gap-15">

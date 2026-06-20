@@ -8,20 +8,23 @@ import { Font } from 'astro:assets';
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import ShareButtons from '../components/ShareButtons.astro';
 
 interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
 	lang?: string | undefined;
 	last_modified?: string | undefined;
+	og_type?: 'website' | 'article' | undefined;
+	published_time?: string | undefined;
 }
 
-const { title, description, lang = 'en', last_modified = '' } = Astro.props;
+const { title, description, lang = 'en', last_modified = '', og_type = 'website', published_time } = Astro.props;
 ---
 
 <html lang={lang}>
 	<head>
-		<MainHead title={title} description={description} />
+		<MainHead title={title} description={description} lang={lang} ogType={og_type} publishedTime={published_time} />
 		<Font cssVariable="--font-body" preload />
 		<Font cssVariable="--font-brand" preload />
 	</head>
@@ -31,6 +34,8 @@ const { title, description, lang = 'en', last_modified = '' } = Astro.props;
 			<slot />
 			<Footer last_modified={last_modified} />
 		</div>
+
+		<ShareButtons title={title} text={description} url={Astro.url.href} />
 
 		<script>
 			// Add “loaded” class once the document has completely loaded.
