@@ -10,13 +10,19 @@
 ---
 
 <dialog class="lightbox" aria-label="Image viewer">
-	<button type="button" class="lb-btn lb-close" aria-label="Close">✕</button>
-	<button type="button" class="lb-btn lb-prev" aria-label="Previous image">‹</button>
+	<button type="button" class="lb-btn lb-close" aria-label="Close">
+		<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 18 18M18 6 6 18"></path></svg>
+	</button>
+	<button type="button" class="lb-btn lb-prev" aria-label="Previous image">
+		<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"></path></svg>
+	</button>
 	<figure class="lb-figure">
 		<img class="lb-image" src="" alt="" />
 		<figcaption class="lb-caption"></figcaption>
 	</figure>
-	<button type="button" class="lb-btn lb-next" aria-label="Next image">›</button>
+	<button type="button" class="lb-btn lb-next" aria-label="Next image">
+		<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
+	</button>
 </dialog>
 
 <style>
@@ -72,9 +78,16 @@
 		border-radius: 50%;
 		background: oklch(0% 0 0 / 50%);
 		color: #fff;
-		font-size: 2rem;
-		line-height: 1;
 		cursor: pointer;
+	}
+	.lb-btn svg {
+		width: 1.5rem;
+		height: 1.5rem;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 2;
+		stroke-linecap: round;
+		stroke-linejoin: round;
 	}
 	.lb-btn:hover,
 	.lb-btn:focus-visible {
