@@ -1,8 +1,23 @@
 ---
+import { Image } from 'astro:assets';
+
 import Hero from '../components/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import hal from '../assets/hal_404.png';
 ---
 
 <BaseLayout title="Not Found" description="404 Error — this page was not found">
-	<Hero title="Page Not Found" tagline="Not found" />
+	<Hero title="I am sorry Dave" tagline="I cannot let you find this page...">
+		<Image class="hal" src={hal} alt="HAL 9000" width={480} format="webp" quality={80} />
+	</Hero>
 </BaseLayout>
+
+<style>
+	.hal {
+		width: min(480px, 80vw);
+		height: auto;
+		margin-inline: auto;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-sm);
+	}
+</style>
