@@ -2,7 +2,7 @@
 // Photo-gallery thumbnail grid. Each thumbnail is a `.lightbox-trigger` for the
 // shared <Lightbox />, carrying the large source, caption, and filename (for
 // shareable deep links).
-import { getImage, Image } from 'astro:assets';
+import { getImage } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -20,10 +20,21 @@ const imageName = (src: string): string => {
 	return noExt.replace(/\.[\w-]{8}$/, '');
 };
 
+// Thumbnails are cover-cropped to the tile's 3:2 ratio so wide panoramas keep
+// full resolution (a plain width-only resize would squash them to a few pixels
+// tall and then upscale). The full-size source feeds the lightbox.
 const items = await Promise.all(
 	gallery.data.images.map(async (image) => {
 		const full = await getImage({ src: image.img, width: 1600, quality: 80 });
-		return { thumb: image.img, caption: image.caption, full: full.src, name: imageName(image.img.src) };
+		const thumb = await getImage({
+			src: image.img,
+			width: 600,
+			height: 400,
+			fit: 'cover',
+			position: 'center',
+			quality: 60,
+		});
+		return { thumb: thumb.src, caption: image.caption, full: full.src, name: imageName(image.img.src) };
 	}),
 );
 ---
@@ -39,7 +50,7 @@ const items = await Promise.all(
 				data-name={item.name}
 				aria-label={`View image: ${item.caption}`}
 			>
-				<Image src={item.thumb} alt={item.caption} width={600} quality={60} loading="eager" />
+				<img src={item.thumb} alt={item.caption} width="600" height="400" loading="eager" decoding="async" />
 			</button>
 		))
 	}
