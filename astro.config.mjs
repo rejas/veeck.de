@@ -10,6 +10,7 @@ import * as fs from 'fs';
 
 import { ogCard } from './src/og-template.mjs';
 
+/** @param {number} weight */
 const josefinSans = (weight) =>
 	fs.readFileSync(`node_modules/@fontsource/josefin-sans/files/josefin-sans-latin-${weight}-normal.woff`);
 

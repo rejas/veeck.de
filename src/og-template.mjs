@@ -15,6 +15,10 @@ import { createElement as h } from 'react';
 const headerImage = fs.readFileSync('public/assets/backgrounds/bg-main-dark-1440w.jpg');
 const headerImageUri = `url(data:image/jpeg;base64,${headerImage.toString('base64')})`;
 
+/**
+ * @param {import('astro-opengraph-images').RenderFunctionInput} input
+ * @returns {import('react').ReactNode}
+ */
 export function ogCard({ title, description }) {
 	return h(
 		'div',
