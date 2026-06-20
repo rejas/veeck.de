@@ -39,7 +39,7 @@ const items = await Promise.all(
 				data-name={item.name}
 				aria-label={`View image: ${item.caption}`}
 			>
-				<Image src={item.thumb} alt={item.caption} layout="constrained" width={400} quality={60} loading="eager" />
+				<Image src={item.thumb} alt={item.caption} width={600} quality={60} loading="eager" />
 			</button>
 		))
 	}
@@ -52,6 +52,7 @@ const items = await Promise.all(
 		gap: clamp(1rem, 2vw, 1.5rem);
 	}
 	.gallery-thumb {
+		aspect-ratio: 3 / 2;
 		padding: 0;
 		border: 0;
 		border-radius: 1.5rem;
@@ -63,7 +64,7 @@ const items = await Promise.all(
 	.gallery-thumb img {
 		display: block;
 		width: 100%;
-		height: auto;
+		height: 100%;
 		object-fit: cover;
 	}
 </style>
