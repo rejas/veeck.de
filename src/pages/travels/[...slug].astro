@@ -4,9 +4,9 @@ import { type CollectionEntry, getCollection } from 'astro:content';
 import '../../styles/content.css';
 
 import ContentImage from '../../components/ContentImage.astro';
-import ContentLightbox from '../../components/ContentLightbox.astro';
 import Hero from '../../components/Hero.astro';
 import Icon from '../../components/Icon.astro';
+import Lightbox from '../../components/Lightbox.astro';
 import Pill from '../../components/Pill.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { render } from 'astro:content';
@@ -61,5 +61,5 @@ const last_modified = entry.data.last_modified
 			</main>
 		</div>
 	</div>
-	<ContentLightbox />
+	<Lightbox />
 </BaseLayout>

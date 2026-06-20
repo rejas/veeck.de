@@ -1,0 +1,81 @@
+---
+// Photo-gallery thumbnail grid. Each thumbnail is a `.lightbox-trigger` for the
+// shared <Lightbox />, carrying the large source, caption, and filename (for
+// shareable deep links).
+import { getImage } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	gallery: CollectionEntry<'galleries'>;
+}
+
+const { gallery } = Astro.props;
+
+// Derive a stable, reorder-proof identifier from the source filename. The emitted
+// asset carries a content hash in production (name.hash.ext) but not in dev, so
+// strip the extension and an optional trailing 8-char hash.
+const imageName = (src: string): string => {
+	const base = (src.split('/').pop() ?? '').split('?')[0];
+	const noExt = base.replace(/\.[a-z0-9]+$/i, '');
+	return noExt.replace(/\.[\w-]{8}$/, '');
+};
+
+// Thumbnails are cover-cropped to the tile's 3:2 ratio so wide panoramas keep
+// full resolution (a plain width-only resize would squash them to a few pixels
+// tall and then upscale). The full-size source feeds the lightbox.
+const items = await Promise.all(
+	gallery.data.images.map(async (image) => {
+		const full = await getImage({ src: image.img, width: 1600, quality: 80 });
+		const thumb = await getImage({
+			src: image.img,
+			width: 600,
+			height: 400,
+			fit: 'cover',
+			position: 'center',
+			quality: 60,
+		});
+		return { thumb: thumb.src, caption: image.caption, full: full.src, name: imageName(image.img.src) };
+	}),
+);
+---
+
+<section class="gallery-grid">
+	{
+		items.map((item) => (
+			<button
+				type="button"
+				class="lightbox-trigger gallery-thumb"
+				data-full={item.full}
+				data-caption={item.caption}
+				data-name={item.name}
+				aria-label={`View image: ${item.caption}`}
+			>
+				<img src={item.thumb} alt={item.caption} width="600" height="400" loading="eager" decoding="async" />
+			</button>
+		))
+	}
+</section>
+
+<style>
+	.gallery-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+		gap: clamp(1rem, 2vw, 1.5rem);
+	}
+	.gallery-thumb {
+		aspect-ratio: 3 / 2;
+		padding: 0;
+		border: 0;
+		border-radius: 1.5rem;
+		background: none;
+		overflow: clip;
+		outline: none;
+		cursor: zoom-in;
+	}
+	.gallery-thumb img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+</style>
