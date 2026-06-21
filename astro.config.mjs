@@ -4,9 +4,15 @@ import netlify from '@astrojs/netlify';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import yaml from '@rollup/plugin-yaml';
-import opengraphImages, { presets } from 'astro-opengraph-images';
+import opengraphImages from 'astro-opengraph-images';
 import { defineConfig, fontProviders } from 'astro/config';
 import * as fs from 'fs';
+
+import { ogCard } from './src/og-template.mjs';
+
+/** @param {number} weight */
+const josefinSans = (weight) =>
+	fs.readFileSync(`node_modules/@fontsource/josefin-sans/files/josefin-sans-latin-${weight}-normal.woff`);
 
 // https://astro.build/config
 export default defineConfig({
@@ -34,15 +40,12 @@ export default defineConfig({
 		opengraphImages({
 			options: {
 				fonts: [
-					{
-						name: 'Josefin Sans',
-						weight: 400,
-						style: 'normal',
-						data: fs.readFileSync('node_modules/@fontsource/josefin-sans/files/josefin-sans-latin-400-normal.woff'),
-					},
+					{ name: 'Josefin Sans', weight: 400, style: 'normal', data: josefinSans(400) },
+					{ name: 'Josefin Sans', weight: 600, style: 'normal', data: josefinSans(600) },
+					{ name: 'Josefin Sans', weight: 700, style: 'normal', data: josefinSans(700) },
 				],
 			},
-			render: presets.blackAndWhite,
+			render: ogCard,
 		}),
 	],
 	adapter: netlify(),
