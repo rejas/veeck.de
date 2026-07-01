@@ -53,7 +53,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.9",
-		"@commitlint/cli": "^21.0.2",
+		"@commitlint/cli": "^21.2.0",
 		"@commitlint/config-conventional": "^21.0.2",
 		"@rollup/plugin-yaml": "^5.0.0",
 		"@trivago/prettier-plugin-sort-imports": "^6.0.2",
