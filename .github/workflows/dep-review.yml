@@ -19,4 +19,4 @@ jobs:
       - name: 'Checkout code'
         uses: actions/checkout@v6
       - name: 'Review dependencies'
-        uses: actions/dependency-review-action@v4
+        uses: actions/dependency-review-action@v5
