@@ -62,7 +62,7 @@
 		"husky": "^9.1.7",
 		"lint-staged": "^17.0.7",
 		"netlify-cli": "^26.1.0",
-		"prettier": "^3.8.4",
+		"prettier": "^3.9.4",
 		"prettier-plugin-astro": "^0.14.1",
 		"sharp": "^0.35.1",
 		"typescript": "^6.0.3",
