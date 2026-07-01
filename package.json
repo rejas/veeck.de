@@ -37,7 +37,7 @@
 		"@astrojs/mdx": "^6.0.3",
 		"@astrojs/netlify": "^7.0.13",
 		"@astrojs/react": "^5.0.7",
-		"@astrojs/rss": "^4.0.18",
+		"@astrojs/rss": "^4.0.19",
 		"@astrojs/sitemap": "^3.7.3",
 		"@fontsource/josefin-sans": "^5.2.8",
 		"@types/react": "^19.2.17",
