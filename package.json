@@ -60,7 +60,7 @@
 		"eslint": "^10.5.0",
 		"eslint-plugin-astro": "^1.7.0",
 		"husky": "^9.1.7",
-		"lint-staged": "^17.0.7",
+		"lint-staged": "^17.0.8",
 		"netlify-cli": "^26.1.0",
 		"prettier": "^3.8.4",
 		"prettier-plugin-astro": "^0.14.1",
