@@ -31,6 +31,7 @@
 		"format:check": "prettier --check --ignore-unknown *.{js,json} \"src/**/*.{astro,css,js,jsx,mdx}\"",
 		"update:deps": "pnpx npm-check-updates -c 1d -i --format group",
 		"prepare": "husky",
+		"postinstall": "node -e \"try { require('fs').chmodSync('node_modules/prettier/bin/prettier.cjs', 0o755) } catch {}\"",
 		"pre-commit": "lint-staged"
 	},
 	"dependencies": {
