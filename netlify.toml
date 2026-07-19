@@ -11,3 +11,8 @@
   from = "/projects/2018-software/"
   to = "/projects"
   status = 301
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 301
