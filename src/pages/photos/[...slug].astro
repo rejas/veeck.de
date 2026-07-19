@@ -4,11 +4,10 @@ import { type CollectionEntry, getCollection } from 'astro:content';
 import '../../styles/content.css';
 
 import GalleryGrid from '../../components/GalleryGrid.astro';
-import Hero from '../../components/Hero.astro';
+import CategoryHero from '../../components/CategoryHero.astro';
 import Icon from '../../components/Icon.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
 
 interface Props {
 	entry: CollectionEntry<'galleries'>;
@@ -38,17 +37,16 @@ const last_modified = entry.data.last_modified
 			<header>
 				<div class="wrapper stack gap-2">
 					<a class="back-link" href="/photos/"><Icon icon="arrow-left" /> Galleries</a>
-					<Hero title={entry.data.title} align="start">
-						<div class="details">
-							<p>{entry.data.lead}</p>
-						</div>
-					</Hero>
+					<CategoryHero
+						title={entry.data.title}
+						tagline={entry.data.lead}
+						image={entry.data.img}
+						imageAlt={entry.data.img_alt || ''}
+					/>
 				</div>
 			</header>
 			<main class="wrapper stack gap-15">
-				<div class="stack gap-10 content">
-					{entry.data.img && <Image src={entry.data.img} alt={entry.data.img_alt || ''} />}
-				</div>
+				<div class="stack gap-10 content"></div>
 				<GalleryGrid gallery={entry} />
 			</main>
 		</div>

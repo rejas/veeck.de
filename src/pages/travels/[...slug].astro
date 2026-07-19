@@ -4,13 +4,12 @@ import { type CollectionEntry, getCollection } from 'astro:content';
 import '../../styles/content.css';
 
 import ContentImage from '../../components/ContentImage.astro';
-import Hero from '../../components/Hero.astro';
+import CategoryHero from '../../components/CategoryHero.astro';
 import Icon from '../../components/Icon.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import Pill from '../../components/Pill.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { render } from 'astro:content';
-import { Image } from 'astro:assets';
 
 interface Props {
 	entry: CollectionEntry<'travels'>;
@@ -49,19 +48,20 @@ const last_modified = entry.data.last_modified
 			<header>
 				<div class="wrapper stack gap-2">
 					<a class="back-link" href="/travels/"><Icon icon="arrow-left" /> Travels</a>
-					<Hero title={entry.data.title} align="start">
-						<div class="details">
-							<p>{entry.data.lead}</p>
-							<div class="tags">
-								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
-							</div>
+					<CategoryHero
+						title={entry.data.title}
+						tagline={entry.data.lead}
+						image={entry.data.img}
+						imageAlt={entry.data.img_alt || ''}
+					>
+						<div class="tags">
+							{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
 						</div>
-					</Hero>
+					</CategoryHero>
 				</div>
 			</header>
 			<main class="wrapper">
 				<div class="stack gap-10 content">
-					{entry.data.img && <Image src={entry.data.img} alt={entry.data.img_alt || ''} />}
 					<div class="content">
 						<Content components={{ img: ContentImage }} />
 					</div>

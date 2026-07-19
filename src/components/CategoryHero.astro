@@ -17,7 +17,9 @@ interface Props {
 const { title, tagline, image, imageAlt, align = 'center', imagePosition = 'center' } = Astro.props;
 ---
 
-<header class="category-hero">
+<!-- div, not header: pages wrap this in their own <header>, and the
+     page-level header styles (content.css) must not leak into the banner -->
+<div class="category-hero">
 	<figure class="category-hero-figure">
 		<Image
 			src={image}
@@ -25,6 +27,8 @@ const { title, tagline, image, imageAlt, align = 'center', imagePosition = 'cent
 			widths={[480, 800, 1440]}
 			sizes="100vw"
 			style={`object-position: ${imagePosition}`}
+			loading="eager"
+			fetchpriority="high"
 		/>
 	</figure>
 	<div class:list={['category-hero-content', align]}>
@@ -32,7 +36,7 @@ const { title, tagline, image, imageAlt, align = 'center', imagePosition = 'cent
 			<slot />
 		</Hero>
 	</div>
-</header>
+</div>
 
 <style>
 	.category-hero {
@@ -92,6 +96,25 @@ const { title, tagline, image, imageAlt, align = 'center', imagePosition = 'cent
 	.category-hero-content :global(.tagline) {
 		color: #eae6f5;
 		text-shadow: 0 1px 8px rgba(9, 6, 16, 0.6);
+	}
+
+	/* pills lose their filled background on the banner and render as plain text */
+	.category-hero-content :global(.pill) {
+		padding: 0;
+		border: none;
+		background: none;
+		color: #eae6f5;
+		text-shadow: 0 1px 8px rgba(9, 6, 16, 0.6);
+	}
+
+	.category-hero-content :global(.pill + .pill)::before {
+		content: '·';
+		margin-right: 0.5rem;
+	}
+
+	.category-hero-content.center :global(.tags),
+	.category-hero-content.center :global(.roles) {
+		justify-content: center;
 	}
 
 	/* start-aligned variant: text sits on the left, scrim darkens from the left */
