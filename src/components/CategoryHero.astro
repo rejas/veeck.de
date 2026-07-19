@@ -10,14 +10,22 @@ interface Props {
 	image: ImageMetadata;
 	imageAlt: string;
 	align?: 'start' | 'center';
+	/** object-position for the banner crop, e.g. 'center 25%' to keep faces in view */
+	imagePosition?: string;
 }
 
-const { title, tagline, image, imageAlt, align = 'center' } = Astro.props;
+const { title, tagline, image, imageAlt, align = 'center', imagePosition = 'center' } = Astro.props;
 ---
 
 <header class="category-hero">
 	<figure class="category-hero-figure">
-		<Image src={image} alt={imageAlt} widths={[480, 800, 1440]} sizes="100vw" />
+		<Image
+			src={image}
+			alt={imageAlt}
+			widths={[480, 800, 1440]}
+			sizes="100vw"
+			style={`object-position: ${imagePosition}`}
+		/>
 	</figure>
 	<div class:list={['category-hero-content', align]}>
 		<Hero title={title} tagline={tagline} align={align}>
@@ -89,7 +97,8 @@ const { title, tagline, image, imageAlt, align = 'center' } = Astro.props;
 		}
 
 		.category-hero-figure :global(img) {
-			aspect-ratio: 21 / 9;
+			aspect-ratio: 3 / 1;
+			max-height: 20rem;
 		}
 
 		.category-hero-content.start {
