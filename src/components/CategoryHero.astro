@@ -43,7 +43,11 @@ const { title, tagline, image, imageAlt, align = 'center', imagePosition = 'cent
 	}
 
 	.category-hero-figure {
+		position: relative;
 		margin: 0;
+		/* keep the duotone blend scoped to the photo: without isolation the
+		   overlapping scrim can make the browser blend against the page instead */
+		isolation: isolate;
 	}
 
 	.category-hero-figure :global(img) {
@@ -71,8 +75,13 @@ const { title, tagline, image, imageAlt, align = 'center', imagePosition = 'cent
 		display: grid;
 		place-items: center;
 		padding: 1.5rem;
-		/* scrim so title and tagline stay readable on the photo */
-		background: radial-gradient(ellipse at center, rgba(9, 6, 16, 0.6) 0%, rgba(9, 6, 16, 0.25) 75%);
+		/* accent-tinted scrim so title and tagline stay readable on the photo
+		   without washing the duotone out to gray */
+		background: radial-gradient(
+			ellipse at center,
+			color-mix(in srgb, var(--accent-scrim) 60%, transparent) 0%,
+			color-mix(in srgb, var(--accent-scrim) 25%, transparent) 75%
+		);
 	}
 
 	.category-hero-content :global(.title) {
@@ -88,7 +97,12 @@ const { title, tagline, image, imageAlt, align = 'center', imagePosition = 'cent
 	/* start-aligned variant: text sits on the left, scrim darkens from the left */
 	.category-hero-content.start {
 		justify-items: start;
-		background: linear-gradient(90deg, rgba(9, 6, 16, 0.65) 0%, rgba(9, 6, 16, 0.35) 45%, rgba(9, 6, 16, 0.05) 75%);
+		background: linear-gradient(
+			90deg,
+			color-mix(in srgb, var(--accent-scrim) 65%, transparent) 0%,
+			color-mix(in srgb, var(--accent-scrim) 35%, transparent) 45%,
+			color-mix(in srgb, var(--accent-scrim) 5%, transparent) 75%
+		);
 	}
 
 	@media (min-width: 50em) {

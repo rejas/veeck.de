@@ -17,12 +17,21 @@ interface Props {
 	last_modified?: string | undefined;
 	og_type?: 'website' | 'article' | undefined;
 	published_time?: string | undefined;
+	accent?: 'purple' | 'teal' | 'amber' | 'green' | 'blue' | undefined;
 }
 
-const { title, description, lang = 'en', last_modified = '', og_type = 'website', published_time } = Astro.props;
+const {
+	title,
+	description,
+	lang = 'en',
+	last_modified = '',
+	og_type = 'website',
+	published_time,
+	accent = 'purple',
+} = Astro.props;
 ---
 
-<html lang={lang}>
+<html lang={lang} data-accent={accent}>
 	<head>
 		<MainHead title={title} description={description} lang={lang} ogType={og_type} publishedTime={published_time} />
 		<Font cssVariable="--font-body" preload />
@@ -100,6 +109,7 @@ const { title, description, lang = 'en', last_modified = '', og_type = 'website'
 			}
 
 			.backgrounds {
+				position: relative;
 				min-height: 100%;
 				isolation: isolate;
 				background:
@@ -116,12 +126,28 @@ const { title, description, lang = 'en', last_modified = '', og_type = 'website'
 					/*header2*/ normal,
 					/*base*/ normal;
 			}
+			/* Re-hue the purple background art for non-default accents. The hue
+			   layer sits above the background images (negative z-index child) but
+			   below all content, so only the backdrop shifts color. */
+			:root:not([data-accent='purple']) .backgrounds::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				z-index: -1;
+				background: linear-gradient(150deg, var(--accent-hue-a), var(--accent-hue-b));
+				mix-blend-mode: hue;
+				pointer-events: none;
+			}
+
 			@media (forced-colors: active) {
 				/* Deactivate custom backgrounds for high contrast users. */
 				.backgrounds {
 					background: none;
 					background-blend-mode: none;
 					--bg-gradient-size: none;
+				}
+				.backgrounds::before {
+					content: none;
 				}
 			}
 		</style>
