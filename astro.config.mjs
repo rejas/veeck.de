@@ -17,9 +17,6 @@ const josefinSans = (weight) =>
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://veeck.de',
-	// Keep v6 whitespace behavior: the v7 'jsx' default strips the spaces
-	// between inline nav/footer links (see upgrade-to/v7 guide)
-	compressHTML: true,
 	fonts: [
 		{
 			provider: fontProviders.npm(),
