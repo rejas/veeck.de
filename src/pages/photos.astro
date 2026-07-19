@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-import Hero from '../components/Hero.astro';
+import CategoryHero from '../components/CategoryHero.astro';
+import heroImage from '../images/categories/galleries.jpg';
 import Grid from '../components/Grid.astro';
 import GalleryPreview from '../components/previews/GalleryPreview.astro';
 
@@ -15,7 +16,12 @@ const galleries = (await getCollection('galleries')).sort(
 <BaseLayout title="My galleries | Veeck" description="Learn about Veeck's most recent galleries">
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
-			<Hero title="My galleries" tagline="The panoramic pictures I have taken" align="start" />
+			<CategoryHero
+				title="My galleries"
+				tagline="The panoramic pictures I have taken"
+				image={heroImage}
+				imageAlt="A disassembled Canon camera laid out on a table"
+			/>
 			<Grid variant="offset">
 				{
 					galleries.map((gallery) => (

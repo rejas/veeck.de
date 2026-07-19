@@ -1,0 +1,108 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+import Hero from './Hero.astro';
+
+interface Props {
+	title: string;
+	tagline?: string;
+	image: ImageMetadata;
+	imageAlt: string;
+	align?: 'start' | 'center';
+	/** object-position for the banner crop, e.g. 'center 25%' to keep faces in view */
+	imagePosition?: string;
+}
+
+const { title, tagline, image, imageAlt, align = 'center', imagePosition = 'center' } = Astro.props;
+---
+
+<header class="category-hero">
+	<figure class="category-hero-figure">
+		<Image
+			src={image}
+			alt={imageAlt}
+			widths={[480, 800, 1440]}
+			sizes="100vw"
+			style={`object-position: ${imagePosition}`}
+		/>
+	</figure>
+	<div class:list={['category-hero-content', align]}>
+		<Hero title={title} tagline={tagline} align={align}>
+			<slot />
+		</Hero>
+	</div>
+</header>
+
+<style>
+	.category-hero {
+		position: relative;
+		border-radius: 1.5rem;
+		overflow: hidden;
+		box-shadow: var(--shadow-md);
+	}
+
+	.category-hero-figure {
+		margin: 0;
+	}
+
+	.category-hero-figure :global(img) {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		filter: grayscale(0.7) contrast(1.05);
+	}
+
+	/* brand duotone: tint the grayscale photo with the accent gradient */
+	.category-hero-figure::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: var(--gradient-accent);
+		mix-blend-mode: color;
+		opacity: 0.8;
+		pointer-events: none;
+	}
+
+	.category-hero-content {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		padding: 1.5rem;
+		/* scrim so title and tagline stay readable on the photo */
+		background: radial-gradient(ellipse at center, rgba(9, 6, 16, 0.6) 0%, rgba(9, 6, 16, 0.25) 75%);
+	}
+
+	.category-hero-content :global(.title) {
+		color: #fff;
+		text-shadow: 0 2px 12px rgba(9, 6, 16, 0.5);
+	}
+
+	.category-hero-content :global(.tagline) {
+		color: #eae6f5;
+		text-shadow: 0 1px 8px rgba(9, 6, 16, 0.6);
+	}
+
+	/* start-aligned variant: text sits on the left, scrim darkens from the left */
+	.category-hero-content.start {
+		justify-items: start;
+		background: linear-gradient(90deg, rgba(9, 6, 16, 0.65) 0%, rgba(9, 6, 16, 0.35) 45%, rgba(9, 6, 16, 0.05) 75%);
+	}
+
+	@media (min-width: 50em) {
+		.category-hero {
+			border-radius: 2.25rem;
+		}
+
+		.category-hero-figure :global(img) {
+			aspect-ratio: 3 / 1;
+			max-height: 20rem;
+		}
+
+		.category-hero-content.start {
+			padding: 3rem;
+		}
+	}
+</style>

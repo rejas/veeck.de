@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-import Hero from '../components/Hero.astro';
+import CategoryHero from '../components/CategoryHero.astro';
+import heroImage from '../images/categories/blog.jpg';
 import Grid from '../components/Grid.astro';
 import BlogPreview from '../components/previews/BlogPreview.astro';
 
@@ -15,7 +16,12 @@ const posts = (await getCollection('blog')).sort(
 <BaseLayout title="My blog | Veeck" description="Learn about ramblings and stuff I find noteworthy">
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
-			<Hero title="My blog" tagline="ramblings and stuff I find noteworthy" align="start" />
+			<CategoryHero
+				title="My blog"
+				tagline="ramblings and stuff I find noteworthy"
+				image={heroImage}
+				imageAlt="A wall of book crates in a bookstore"
+			/>
 			<Grid variant="offset">
 				{
 					posts.map((post) => (

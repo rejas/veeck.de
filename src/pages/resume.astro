@@ -1,5 +1,6 @@
 ---
-import Hero from '../components/Hero.astro';
+import CategoryHero from '../components/CategoryHero.astro';
+import heroImage from '../images/categories/portrait.jpg';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Pill from '../components/Pill.astro';
 import Icon from '../components/Icon.astro';
@@ -11,12 +12,19 @@ import Icon from '../components/Icon.astro';
 >
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
-			<Hero title="Michael Veeck" tagline="Senior Frontend Engineer · Berlin, Germany" align="start">
+			<CategoryHero
+				title="Michael Veeck"
+				tagline="Senior Frontend Engineer · Berlin, Germany"
+				image={heroImage}
+				imageAlt="Black-and-white portrait of Michael Veeck"
+				align="start"
+				imagePosition="center 30%"
+			>
 				<div class="roles">
 					<Pill><Icon icon="code" size="1.33em" />Frontend</Pill>
 					<Pill><Icon icon="pencil-line" size="1.33em" />Tech Lead</Pill>
 				</div>
-			</Hero>
+			</CategoryHero>
 
 			<section class="resume-section">
 				<h3 class="section-title">About</h3>
