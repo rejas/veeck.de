@@ -105,6 +105,82 @@
 		0px 16px 16px rgba(255, 255, 255, 0.1), 0px 4px 9px rgba(255, 255, 255, 0.12);
 }
 
+/* Per-section accent palettes, selected via data-accent on <html>.
+   The default (purple) palette above stays untouched; --accent-hue-a/b
+   drive the hue-shift layer that recolors the background images. */
+:root {
+	--accent-hue-a: #c561f6;
+	--accent-hue-b: #7611a6;
+}
+
+:root[data-accent='teal'] {
+	--accent-light: #2dd4bf;
+	--accent-regular: #0f766e;
+	--accent-dark: #022c26;
+	--accent-overlay: hsla(172, 66%, 50%, 0.33);
+	--accent-hue-a: #14b8a6;
+	--accent-hue-b: #0ea5e9;
+}
+:root.theme-dark[data-accent='teal'] {
+	--accent-light: #022c26;
+	--accent-regular: #0f766e;
+	--accent-dark: #2dd4bf;
+	--accent-overlay: hsla(172, 66%, 50%, 0.33);
+	--accent-subtle-overlay: hsla(172, 60%, 25%, 0.33);
+	--gradient-stop-1: #0d9488;
+}
+
+:root[data-accent='amber'] {
+	--accent-light: #fbbf24;
+	--accent-regular: #b45309;
+	--accent-dark: #451a03;
+	--accent-overlay: hsla(43, 96%, 56%, 0.33);
+	--accent-hue-a: #f59e0b;
+	--accent-hue-b: #ef4444;
+}
+:root.theme-dark[data-accent='amber'] {
+	--accent-light: #451a03;
+	--accent-regular: #b45309;
+	--accent-dark: #fbbf24;
+	--accent-overlay: hsla(43, 96%, 56%, 0.33);
+	--accent-subtle-overlay: hsla(31, 92%, 30%, 0.33);
+	--gradient-stop-1: #d97706;
+}
+
+:root[data-accent='green'] {
+	--accent-light: #4ade80;
+	--accent-regular: #15803d;
+	--accent-dark: #052e16;
+	--accent-overlay: hsla(142, 69%, 58%, 0.33);
+	--accent-hue-a: #22c55e;
+	--accent-hue-b: #84cc16;
+}
+:root.theme-dark[data-accent='green'] {
+	--accent-light: #052e16;
+	--accent-regular: #15803d;
+	--accent-dark: #4ade80;
+	--accent-overlay: hsla(142, 69%, 58%, 0.33);
+	--accent-subtle-overlay: hsla(143, 64%, 24%, 0.33);
+	--gradient-stop-1: #16a34a;
+}
+
+:root[data-accent='blue'] {
+	--accent-light: #38bdf8;
+	--accent-regular: #0369a1;
+	--accent-dark: #082f49;
+	--accent-overlay: hsla(199, 93%, 60%, 0.33);
+	--accent-hue-a: #0ea5e9;
+	--accent-hue-b: #6366f1;
+}
+:root.theme-dark[data-accent='blue'] {
+	--accent-light: #082f49;
+	--accent-regular: #0369a1;
+	--accent-dark: #38bdf8;
+	--accent-overlay: hsla(199, 93%, 60%, 0.33);
+	--accent-subtle-overlay: hsla(201, 96%, 32%, 0.33);
+	--gradient-stop-1: #0284c7;
+}
+
 html,
 body {
 	min-height: 100%;
