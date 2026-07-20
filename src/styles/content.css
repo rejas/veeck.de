@@ -3,6 +3,13 @@ header {
 	border-bottom: 1px solid var(--gray-800);
 }
 
+/* The divider suits the text-only hero (blog posts); under an image
+   banner it reads as a stray line. */
+header:has(.category-hero) {
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
 .back-link {
 	display: none;
 }
