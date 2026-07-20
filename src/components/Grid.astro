@@ -13,7 +13,6 @@ const { variant } = Astro.props;
 <style>
 	.grid {
 		display: grid;
-		grid-auto-rows: 1fr;
 		gap: 1rem;
 		list-style: none;
 		padding: 0;
@@ -31,6 +30,9 @@ const { variant } = Astro.props;
 
 	@media (min-width: 50em) {
 		.grid {
+			/* Equal rows keep the two-column stagger tidy; on mobile's single
+			   column they only stretch short cards to the tallest sibling. */
+			grid-auto-rows: 1fr;
 			grid-template-columns: 1fr 1fr;
 			gap: 4rem;
 		}
