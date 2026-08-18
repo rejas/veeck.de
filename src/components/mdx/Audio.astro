@@ -1,0 +1,16 @@
+---
+interface Props {
+	file: string;
+	caption: string;
+}
+
+const { file, caption } = Astro.props;
+---
+
+<div>
+	<p>{caption}</p>
+	<audio controls>
+		<source src={file} type="audio/mpeg" />
+		Your browser does not support the audio element.
+	</audio>
+</div>
