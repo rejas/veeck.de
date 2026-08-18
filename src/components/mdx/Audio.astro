@@ -1,0 +1,40 @@
+---
+interface Props {
+	file: string;
+	caption: string;
+}
+
+const { file, caption } = Astro.props;
+---
+
+<div class="audio-card">
+	<p class="caption">{caption}</p>
+	<audio controls>
+		<source src={file} type="audio/mpeg" />
+		Your browser does not support the audio element.
+	</audio>
+</div>
+
+<style>
+	.audio-card {
+		width: 100%;
+		padding: 1.25rem;
+		background: var(--gradient-subtle);
+		border: 1px solid var(--gray-800);
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-sm);
+	}
+
+	.caption {
+		margin: 0 0 0.75rem;
+		font-family: var(--font-brand);
+		font-weight: 600;
+		color: var(--gray-0);
+	}
+
+	audio {
+		display: block;
+		width: 100%;
+		accent-color: var(--accent-regular);
+	}
+</style>
