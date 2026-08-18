@@ -1,4 +1,6 @@
 ---
+import 'plyr/dist/plyr.css';
+
 interface Props {
 	file: string;
 	caption: string;
@@ -9,11 +11,20 @@ const { file, caption } = Astro.props;
 
 <div class="audio-card">
 	<p class="caption">{caption}</p>
-	<audio controls>
+	<audio data-plyr controls>
 		<source src={file} type="audio/mpeg" />
 		Your browser does not support the audio element.
 	</audio>
 </div>
+
+<script>
+	import Plyr from 'plyr';
+
+	document.querySelectorAll<HTMLAudioElement>('audio[data-plyr]:not([data-plyr-ready])').forEach((audio) => {
+		audio.dataset.plyrReady = 'true';
+		new Plyr(audio);
+	});
+</script>
 
 <style>
 	.audio-card {
@@ -32,9 +43,13 @@ const { file, caption } = Astro.props;
 		color: var(--gray-0);
 	}
 
-	audio {
-		display: block;
-		width: 100%;
-		accent-color: var(--accent-regular);
+	.audio-card :global(.plyr) {
+		--plyr-color-main: var(--accent-regular);
+		--plyr-audio-controls-background: transparent;
+		--plyr-audio-control-color: var(--gray-100);
+		--plyr-audio-control-color-hover: var(--gray-999);
+		--plyr-audio-control-background-hover: var(--accent-regular);
+		--plyr-font-family: var(--font-body);
+		--plyr-font-size-time: var(--text-sm);
 	}
 </style>

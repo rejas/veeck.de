@@ -10,6 +10,7 @@ overrides:
 # still passed. Keep them disabled to preserve that behavior.
 allowBuilds:
   '@parcel/watcher': false
+  core-js: false
   esbuild: false
   netlify-cli: false
   sharp: false
