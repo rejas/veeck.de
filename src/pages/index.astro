@@ -58,27 +58,29 @@ const galleries = (await getCollection('galleries'))
 					</div>
 				</Hero>
 
-				<BeanHead
-					accessory="shades"
-					body="chest"
-					circleColor="blue"
-					clothing="dressShirt"
-					clothingColor="black"
-					eyebrows="raised"
-					eyes="simple"
-					faceMask={false}
-					faceMaskColor="white"
-					facialHair="mediumBeard"
-					graphic="react"
-					hair="none"
-					hairColor="white"
-					hat="none"
-					hatColor="blue"
-					lashes={false}
-					lipColor="red"
-					mouth="openSmile"
-					skinTone="light"
-				/>
+				<div class="avatar">
+					<BeanHead
+						accessory="shades"
+						body="chest"
+						circleColor="blue"
+						clothing="dressShirt"
+						clothingColor="black"
+						eyebrows="raised"
+						eyes="simple"
+						faceMask={false}
+						faceMaskColor="white"
+						facialHair="mediumBeard"
+						graphic="react"
+						hair="none"
+						hairColor="white"
+						hat="none"
+						hatColor="blue"
+						lashes={false}
+						lipColor="red"
+						mouth="openSmile"
+						skinTone="light"
+					/>
+				</div>
 			</header>
 		</div>
 
@@ -224,12 +226,22 @@ const galleries = (await getCollection('galleries'))
 		display: none;
 	}
 
-	.hero img {
-		aspect-ratio: 5 / 4;
-		object-fit: cover;
-		object-position: top;
+	/* The beanheads SVG reserves ~24% of its height for hair/hats we don't use
+	   (hair="none", hat="none"), which reads as dead space above the head.
+	   Crop it by overscaling the SVG and clipping the container to match. */
+	.avatar {
+		width: 100%;
+		max-width: 16rem;
+		aspect-ratio: 1000 / 757;
+		overflow: hidden;
 		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
+	}
+
+	.avatar svg {
+		display: block;
+		width: 100%;
+		height: auto;
+		transform: translateY(-23.6%);
 	}
 
 	@media (min-width: 50em) {
@@ -246,10 +258,9 @@ const galleries = (await getCollection('galleries'))
 			gap: 0.5rem;
 		}
 
-		.hero img {
-			aspect-ratio: 3 / 4;
+		.avatar {
+			max-width: none;
 			border-radius: 4.5rem;
-			object-fit: cover;
 		}
 	}
 
