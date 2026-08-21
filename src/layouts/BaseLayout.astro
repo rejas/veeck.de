@@ -18,6 +18,7 @@ interface Props {
 	og_type?: 'website' | 'article' | undefined;
 	published_time?: string | undefined;
 	accent?: 'purple' | 'teal' | 'amber' | 'green' | 'blue' | undefined;
+	showShareButtons?: boolean | undefined;
 }
 
 const {
@@ -28,6 +29,7 @@ const {
 	og_type = 'website',
 	published_time,
 	accent = 'purple',
+	showShareButtons = false,
 } = Astro.props;
 ---
 
@@ -44,7 +46,7 @@ const {
 			<Footer last_modified={last_modified} />
 		</div>
 
-		<ShareButtons title={title} text={description} url={Astro.url.href} />
+		{showShareButtons && <ShareButtons title={title} text={description} url={Astro.url.href} />}
 
 		<script>
 			// Add “loaded” class once the document has completely loaded.
