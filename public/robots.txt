@@ -1,5 +1,6 @@
 User-agent: *
 Disallow: /radio
+Disallow: /admin
 
 User-agent: GPTBot
 Disallow: /
