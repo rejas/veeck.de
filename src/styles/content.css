@@ -1,6 +1,6 @@
 header {
 	padding-bottom: 2.5rem;
-	border-bottom: 1px solid var(--gray-800);
+	border-bottom: 1px solid var(--glass-border);
 }
 
 /* The divider suits the text-only hero (blog posts); under an image
@@ -110,9 +110,9 @@ header:has(.category-hero) {
 
 .content img {
 	border-radius: 1.5rem;
-	box-shadow: var(--shadow-sm);
-	background: var(--gradient-subtle);
-	border: 1px solid var(--gray-800);
+	box-shadow: var(--shadow-md);
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
 }
 
 .content blockquote {
@@ -120,8 +120,13 @@ header:has(.category-hero) {
 	font-family: var(--font-brand);
 	font-weight: 600;
 	line-height: 1.1;
-	padding-inline-start: 1.5rem;
+	padding: 1rem 1.5rem;
+	background: var(--glass-bg);
+	backdrop-filter: var(--glass-blur-sm);
+	-webkit-backdrop-filter: var(--glass-blur-sm);
 	border-inline-start: 0.25rem solid var(--accent-dark);
+	border-radius: 0 1rem 1rem 0;
+	box-shadow: var(--shadow-sm);
 	color: var(--gray-0);
 }
 

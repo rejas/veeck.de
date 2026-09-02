@@ -139,7 +139,8 @@ const isCurrentPage = (href: string) => {
 <style>
 	nav {
 		z-index: 9999;
-		position: relative;
+		position: sticky;
+		top: 0;
 		font-family: var(--font-brand);
 		font-weight: 500;
 		margin-bottom: 3.5rem;
@@ -157,39 +158,39 @@ const isCurrentPage = (href: string) => {
 		gap: 0.5rem;
 		align-items: center;
 		line-height: 1.1;
+		padding: 0.5rem 1rem;
+		border-radius: 999rem;
 		color: var(--gray-0);
 		text-decoration: none;
+		background: var(--glass-bg);
+		backdrop-filter: var(--glass-blur);
+		-webkit-backdrop-filter: var(--glass-blur);
+		border: 1px solid var(--glass-border);
+		box-shadow: var(--shadow-sm);
 	}
 
 	.menu-button {
 		position: relative;
 		display: flex;
-		border: 0;
+		border: 1px solid var(--glass-border);
 		border-radius: 999rem;
 		padding: 0.5rem;
 		font-size: 1.5rem;
 		color: var(--gray-300);
-		background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
+		background: var(--glass-bg);
+		backdrop-filter: var(--glass-blur);
+		-webkit-backdrop-filter: var(--glass-blur);
 		box-shadow: var(--shadow-md);
 	}
 
 	.menu-button[aria-expanded='true'] {
-		color: var(--gray-0);
-		background:
-			linear-gradient(180deg, var(--gray-600), transparent), radial-gradient(var(--gray-900), var(--gray-800) 150%);
+		color: var(--accent-text-over);
+		background: var(--accent-regular);
+		box-shadow: var(--shadow-neu-inset);
 	}
 
 	.menu-button[hidden] {
 		display: none;
-	}
-
-	.menu-button::before {
-		position: absolute;
-		inset: -1px;
-		content: '';
-		background: var(--gradient-stroke);
-		border-radius: 999rem;
-		z-index: -1;
 	}
 
 	.menu-content {
@@ -199,7 +200,7 @@ const isCurrentPage = (href: string) => {
 	}
 
 	.nav-items {
-		margin: 0;
+		margin: 1rem 1rem 0;
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
@@ -207,8 +208,12 @@ const isCurrentPage = (href: string) => {
 		line-height: 1.2;
 		list-style: none;
 		padding: 2rem;
-		background-color: var(--gray-999);
-		border-bottom: 1px solid var(--gray-800);
+		background: var(--glass-bg-strong);
+		backdrop-filter: var(--glass-blur);
+		-webkit-backdrop-filter: var(--glass-blur);
+		border: 1px solid var(--glass-border);
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-lg);
 	}
 
 	.link {
@@ -228,10 +233,9 @@ const isCurrentPage = (href: string) => {
 		display: flex;
 		justify-content: space-between;
 		gap: 0.75rem;
-		padding: 1.5rem 2rem 1.5rem 1.5rem;
-		background-color: var(--gray-999);
-		border-radius: 0 0 0.75rem 0.75rem;
-		box-shadow: var(--shadow-lg);
+		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--glass-border);
 	}
 
 	.socials {
@@ -286,19 +290,13 @@ const isCurrentPage = (href: string) => {
 			flex-direction: row;
 			font-size: var(--text-sm);
 			border-radius: 999rem;
-			border: 0;
+			margin: 0;
 			padding: 0.5rem 0.5625rem;
-			background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
+			background: var(--glass-bg);
+			backdrop-filter: var(--glass-blur);
+			-webkit-backdrop-filter: var(--glass-blur);
+			border: 1px solid var(--glass-border);
 			box-shadow: var(--shadow-md);
-		}
-
-		.nav-items::before {
-			position: absolute;
-			inset: -1px;
-			content: '';
-			background: var(--gradient-stroke);
-			border-radius: 999rem;
-			z-index: -1;
 		}
 
 		.link {
@@ -318,6 +316,7 @@ const isCurrentPage = (href: string) => {
 		.link[aria-current='page'] {
 			color: var(--accent-text-over);
 			background-color: var(--accent-regular);
+			box-shadow: var(--shadow-neu-inset);
 		}
 
 		.menu-footer {
@@ -325,9 +324,9 @@ const isCurrentPage = (href: string) => {
 
 			justify-self: flex-end;
 			align-items: center;
+			margin-top: 0;
 			padding: 0;
-			background-color: transparent;
-			box-shadow: none;
+			border-top: none;
 		}
 
 		.socials {

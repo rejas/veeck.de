@@ -19,11 +19,26 @@ const { href } = Astro.props;
 		color: var(--accent-text-over);
 		text-decoration: none;
 		line-height: 1.1;
+		border: 1px solid var(--glass-border);
 		border-radius: 999rem;
 		overflow: hidden;
 		background: var(--gradient-accent-orange);
 		box-shadow: var(--shadow-md);
 		white-space: nowrap;
+		transition: box-shadow var(--theme-transition);
+	}
+
+	/* glass sheen: a soft highlight band across the top of the pill */
+	a::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(180deg, hsla(0, 0%, 100%, 0.35), hsla(0, 0%, 100%, 0) 55%);
+		pointer-events: none;
+	}
+
+	a:active {
+		box-shadow: var(--shadow-neu-inset);
 	}
 
 	@media (min-width: 20em) {

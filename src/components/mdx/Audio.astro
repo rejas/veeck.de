@@ -30,8 +30,10 @@ const { file, caption } = Astro.props;
 	.audio-card {
 		width: 100%;
 		padding: 1.25rem;
-		background: var(--gradient-subtle);
-		border: 1px solid var(--gray-800);
+		background: var(--glass-bg);
+		backdrop-filter: var(--glass-blur);
+		-webkit-backdrop-filter: var(--glass-blur);
+		border: 1px solid var(--glass-border);
 		border-radius: 1.5rem;
 		box-shadow: var(--shadow-sm);
 	}

@@ -57,12 +57,22 @@ const items = await Promise.all(
 	.gallery-thumb {
 		aspect-ratio: 3 / 2;
 		padding: 0;
-		border: 0;
+		border: 1px solid var(--glass-border);
 		border-radius: 1.5rem;
 		background: none;
 		overflow: clip;
 		outline: none;
 		cursor: zoom-in;
+		box-shadow: var(--shadow-sm);
+		transition:
+			box-shadow var(--theme-transition),
+			transform var(--theme-transition);
+	}
+
+	.gallery-thumb:hover,
+	.gallery-thumb:focus-visible {
+		box-shadow: var(--shadow-md);
+		transform: translateY(-2px);
 	}
 	.gallery-thumb img {
 		display: block;

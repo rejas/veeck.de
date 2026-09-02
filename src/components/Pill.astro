@@ -6,11 +6,14 @@
 		padding: 0.5rem 1rem;
 		gap: 0.5rem;
 		color: var(--accent-text-over);
-		border: 1px solid var(--accent-regular);
-		background-color: var(--accent-regular);
+		border: 1px solid var(--glass-border);
+		background: color-mix(in srgb, var(--accent-regular) 78%, transparent);
+		backdrop-filter: var(--glass-blur-sm);
+		-webkit-backdrop-filter: var(--glass-blur-sm);
 		border-radius: 999rem;
 		font-size: var(--text-md);
 		line-height: 1.35;
 		white-space: nowrap;
+		box-shadow: var(--shadow-sm);
 	}
 </style>

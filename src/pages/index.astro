@@ -228,6 +228,8 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 		aspect-ratio: 1000 / 757;
 		overflow: hidden;
 		border-radius: 1.5rem;
+		border: 1px solid var(--glass-border);
+		box-shadow: var(--shadow-md);
 	}
 
 	.avatar svg {
@@ -346,10 +348,12 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		border: 1px solid var(--gray-800);
+		border: 1px solid var(--glass-border);
 		border-radius: 1.5rem;
 		color: var(--gray-300);
-		background: var(--gradient-subtle);
+		background: var(--glass-bg);
+		backdrop-filter: var(--glass-blur);
+		-webkit-backdrop-filter: var(--glass-blur);
 		box-shadow: var(--shadow-sm);
 	}
 

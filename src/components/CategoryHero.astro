@@ -41,9 +41,10 @@ const { title, tagline, image, imageAlt, align = 'center', imagePosition = 'cent
 <style>
 	.category-hero {
 		position: relative;
-		border-radius: 1.5rem;
+		border-radius: 1.75rem;
 		overflow: hidden;
-		box-shadow: var(--shadow-md);
+		border: 1px solid var(--glass-border);
+		box-shadow: var(--shadow-lg);
 	}
 
 	.category-hero-figure {
@@ -86,6 +87,15 @@ const { title, tagline, image, imageAlt, align = 'center', imagePosition = 'cent
 			color-mix(in srgb, var(--accent-scrim) 60%, transparent) 0%,
 			color-mix(in srgb, var(--accent-scrim) 25%, transparent) 75%
 		);
+	}
+
+	.category-hero-content :global(.hero) {
+		padding: 1.25rem 1.75rem;
+		border-radius: 1.5rem;
+		background: hsla(0, 0%, 0%, 0.18);
+		backdrop-filter: var(--glass-blur-sm);
+		-webkit-backdrop-filter: var(--glass-blur-sm);
+		border: 1px solid hsla(0, 0%, 100%, 0.22);
 	}
 
 	.category-hero-content :global(.title) {

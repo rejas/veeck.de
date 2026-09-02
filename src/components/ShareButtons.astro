@@ -78,13 +78,13 @@ const mailto = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURICom
 		width: 2.5rem;
 		height: 2.5rem;
 		padding: 0;
-		border: 0;
+		border: 1px solid var(--glass-border);
 		border-radius: 999rem;
 		color: var(--accent-overlay);
-		background-color: var(--gray-999);
-		box-shadow:
-			var(--shadow-sm),
-			inset 0 0 0 1px var(--accent-overlay);
+		background: var(--glass-bg);
+		backdrop-filter: var(--glass-blur);
+		-webkit-backdrop-filter: var(--glass-blur);
+		box-shadow: var(--shadow-sm);
 		cursor: pointer;
 		transition:
 			color var(--theme-transition),
@@ -123,6 +123,7 @@ const mailto = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURICom
 
 	.share-fab.open .share-toggle {
 		transform: rotate(90deg);
+		box-shadow: var(--shadow-neu-inset);
 	}
 
 	@media (prefers-reduced-motion: reduce) {
