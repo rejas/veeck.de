@@ -69,7 +69,7 @@
 		"lint-staged": "^17.3.0",
 		"prettier": "^3.9.6",
 		"prettier-plugin-astro": "^0.14.1",
-		"sharp": "^0.35.3",
+		"sharp": "^0.35.4",
 		"typescript": "^6.0.3",
 		"typescript-eslint": "^8.67.0"
 	},
