@@ -11,7 +11,7 @@
 	"engines": {
 		"node": ">=24"
 	},
-	"packageManager": "pnpm@11.26.0",
+	"packageManager": "pnpm@12.4.1",
 	"scripts": {
 		"--- MAIN SCRIPTS ---": "------------------------------------------------------------",
 		"start": "pnpm run dev",
