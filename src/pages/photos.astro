@@ -22,13 +22,11 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 				imageAlt="A disassembled Canon camera laid out on a table"
 			/>
 			<Grid variant="offset">
-				{
-					galleries.map((gallery) => (
-						<li>
-							<GalleryPreview gallery={gallery} />
-						</li>
-					))
-				}
+				{galleries.map((gallery) => (
+					<li>
+						<GalleryPreview gallery={gallery} />
+					</li>
+				))}
 			</Grid>
 		</main>
 	</div>

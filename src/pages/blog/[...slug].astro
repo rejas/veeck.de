@@ -45,11 +45,15 @@ const first_published = entry.data.first_published ? formatDate(entry.data.first
 		<div class="stack gap-15">
 			<header>
 				<div class="wrapper stack gap-2">
-					<a class="back-link" href="/blog/"><Icon icon="arrow-left" /> Blog</a>
+					<a class="back-link" href="/blog/">
+						<Icon icon="arrow-left" /> Blog
+					</a>
 					<Hero title={entry.data.title} align="start">
 						<div class="details">
 							<div class="tags">
-								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
+								{entry.data.tags.map((t) => (
+									<Pill>{t}</Pill>
+								))}
 							</div>
 						</div>
 					</Hero>

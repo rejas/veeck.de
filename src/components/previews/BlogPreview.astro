@@ -12,7 +12,9 @@ const date = formatDate(data.first_published);
 ---
 
 <a class="card" href={`/blog/${id}`}>
-	<time class="date" datetime={data.first_published.toISOString()}>{date}</time>
+	<time class="date" datetime={data.first_published.toISOString()}>
+		{date}
+	</time>
 	<span class="title">{data.title}</span>
 	{data.description && <p class="description">{data.description}</p>}
 	{data.tags.length > 0 && <span class="tags">{data.tags.join(' · ')}</span>}

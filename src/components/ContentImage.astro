@@ -25,19 +25,17 @@ const full = meta ? await getImage({ src: meta, width: 1600, quality: 80 }) : nu
 const name = meta ? imageName(meta.src) : '';
 ---
 
-{
-	meta ? (
-		<button
-			type="button"
-			class:list={['lightbox-trigger', 'content-image', orientation]}
-			data-full={full!.src}
-			data-caption={alt}
-			data-name={name}
-			aria-label={alt ? `View image: ${alt}` : 'View image'}
-		>
-			<Image src={meta} alt={alt} width={640} quality={80} />
-		</button>
-	) : (
-		<img src={src as string} alt={alt} />
-	)
-}
+{meta ? (
+	<button
+		type="button"
+		class:list={['lightbox-trigger', 'content-image', orientation]}
+		data-full={full!.src}
+		data-caption={alt}
+		data-name={name}
+		aria-label={alt ? `View image: ${alt}` : 'View image'}
+	>
+		<Image src={meta} alt={alt} width={640} quality={80} />
+	</button>
+) : (
+	<img src={src as string} alt={alt} />
+)}
