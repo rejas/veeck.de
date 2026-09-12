@@ -35,6 +35,8 @@ const locale = ogLocale[lang] ?? 'en_US';
 <link rel="icon" href="/favicon.ico" sizes="32x32" />
 <link rel="icon" href="/icon.svg" type="image/svgxml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="author" href="/humans.txt" type="text/plain" />
+<meta name="theme-color" content="#ffffff" />
 
 <SEO
 	canonical={url.href}
@@ -69,20 +71,30 @@ const locale = ogLocale[lang] ?? 'en_US';
 
 <script is:inline>
 	// This code is inlined in the head to make dark mode instant & blocking.
+	// Keep in sync with the --gray-999 page-background token in global.css.
+	const THEME_COLOR = { light: '#ffffff', dark: '#090b11' };
+
 	const getThemePreference = () => {
 		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
 			return localStorage.getItem('theme');
 		}
 		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	};
+	const setThemeColorMeta = (isDark) => {
+		document
+			.querySelector('meta[name="theme-color"]')
+			?.setAttribute('content', isDark ? THEME_COLOR.dark : THEME_COLOR.light);
+	};
 	const isDark = getThemePreference() === 'dark';
 	document.documentElement.classList[isDark ? 'add' : 'remove']('theme-dark');
+	setThemeColorMeta(isDark);
 
 	if (typeof localStorage !== 'undefined') {
 		// Watch the document element and persist user preference when it changes.
 		const observer = new MutationObserver(() => {
 			const isDark = document.documentElement.classList.contains('theme-dark');
 			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+			setThemeColorMeta(isDark);
 		});
 		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 	}
