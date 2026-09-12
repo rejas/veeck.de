@@ -4,6 +4,7 @@
 // and turns each into a trigger for the shared <Lightbox />.
 import { getImage, Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import { imageName } from '../lib/imageName';
 
 interface Props {
 	src: ImageMetadata | string;
@@ -21,11 +22,6 @@ const orientation = meta && meta.width >= meta.height ? 'landscape' : 'portrait'
 const full = meta ? await getImage({ src: meta, width: 1600, quality: 80 }) : null;
 
 // Stable filename (content hash stripped) for shareable #<filename> deep links.
-const imageName = (s: string): string =>
-	(s.split('/').pop() ?? '')
-		.split('?')[0]
-		.replace(/\.[a-z0-9]+$/i, '')
-		.replace(/\.[\w-]{8}$/, '');
 const name = meta ? imageName(meta.src) : '';
 ---
 

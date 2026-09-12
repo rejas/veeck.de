@@ -7,10 +7,9 @@ import PortfolioPreview from '../components/previews/PortfolioPreview.astro';
 import CategoryHero from '../components/CategoryHero.astro';
 import heroImage from '../images/categories/projects.jpg';
 import Grid from '../components/Grid.astro';
+import { sortByDateDesc } from '../lib/sort';
 
-const projects = (await getCollection('projects')).sort(
-	(a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf(),
-);
+const projects = sortByDateDesc(await getCollection('projects'), 'first_published');
 ---
 
 <BaseLayout accent="green" title="My Projects | Veeck" description="Learn about Veeck's most recent projects">

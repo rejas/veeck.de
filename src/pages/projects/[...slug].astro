@@ -9,6 +9,7 @@ import Icon from '../../components/Icon.astro';
 import Pill from '../../components/Pill.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { render } from 'astro:content';
+import { formatDate } from '../../lib/date';
 
 interface Props {
 	entry: CollectionEntry<'projects'>;
@@ -28,9 +29,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
-const last_modified = entry.data.last_modified
-	? entry.data.last_modified.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' })
-	: '';
+const last_modified = entry.data.last_modified ? formatDate(entry.data.last_modified) : '';
 ---
 
 <BaseLayout
