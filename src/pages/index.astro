@@ -17,26 +17,19 @@ import { BeanHead } from 'beanheads/dist';
 import TravelPreview from '../components/previews/TravelPreview.astro';
 import GalleryPreview from '../components/previews/GalleryPreview.astro';
 import BlogPreview from '../components/previews/BlogPreview.astro';
+import { sortByDateDesc } from '../lib/sort';
 
 // Content Fetching: List four most recent blog posts
-const blog = (await getCollection('blog'))
-	.sort((a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf())
-	.slice(0, 4);
+const blog = sortByDateDesc(await getCollection('blog'), 'first_published').slice(0, 4);
 
 // Content Fetching: List four most recent projects
-const projects = (await getCollection('projects'))
-	.sort((a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf())
-	.slice(0, 4);
+const projects = sortByDateDesc(await getCollection('projects'), 'first_published').slice(0, 4);
 
 // Content Fetching: List four most recent travels
-const travels = (await getCollection('travels'))
-	.sort((a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf())
-	.slice(0, 4);
+const travels = sortByDateDesc(await getCollection('travels'), 'first_published').slice(0, 4);
 
 // Content Fetching: List four most recent galleries
-const galleries = (await getCollection('galleries'))
-	.sort((a, b) => b.data.last_modified.valueOf() - a.data.last_modified.valueOf())
-	.slice(0, 4);
+const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modified').slice(0, 4);
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/

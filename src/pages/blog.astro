@@ -7,10 +7,9 @@ import CategoryHero from '../components/CategoryHero.astro';
 import heroImage from '../images/categories/blog.jpg';
 import Grid from '../components/Grid.astro';
 import BlogPreview from '../components/previews/BlogPreview.astro';
+import { sortByDateDesc } from '../lib/sort';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf(),
-);
+const posts = sortByDateDesc(await getCollection('blog'), 'first_published');
 ---
 
 <BaseLayout accent="teal" title="My blog | Veeck" description="Learn about ramblings and stuff I find noteworthy">

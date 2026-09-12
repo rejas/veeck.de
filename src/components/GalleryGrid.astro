@@ -4,21 +4,13 @@
 // shareable deep links).
 import { getImage } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import { imageName } from '../lib/imageName';
 
 interface Props {
 	gallery: CollectionEntry<'galleries'>;
 }
 
 const { gallery } = Astro.props;
-
-// Derive a stable, reorder-proof identifier from the source filename. The emitted
-// asset carries a content hash in production (name.hash.ext) but not in dev, so
-// strip the extension and an optional trailing 8-char hash.
-const imageName = (src: string): string => {
-	const base = (src.split('/').pop() ?? '').split('?')[0];
-	const noExt = base.replace(/\.[a-z0-9]+$/i, '');
-	return noExt.replace(/\.[\w-]{8}$/, '');
-};
 
 // Thumbnails are cover-cropped to the tile's 3:2 ratio so wide panoramas keep
 // full resolution (a plain width-only resize would squash them to a few pixels

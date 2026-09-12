@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { formatDate } from '../../lib/date';
 
 interface Props {
 	post: CollectionEntry<'blog'>;
@@ -7,7 +8,7 @@ interface Props {
 
 const { data, id } = Astro.props.post;
 
-const date = data.first_published.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+const date = formatDate(data.first_published);
 ---
 
 <a class="card" href={`/blog/${id}`}>

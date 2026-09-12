@@ -7,10 +7,9 @@ import CategoryHero from '../components/CategoryHero.astro';
 import heroImage from '../images/categories/galleries.jpg';
 import Grid from '../components/Grid.astro';
 import GalleryPreview from '../components/previews/GalleryPreview.astro';
+import { sortByDateDesc } from '../lib/sort';
 
-const galleries = (await getCollection('galleries')).sort(
-	(a, b) => b.data.last_modified.valueOf() - a.data.last_modified.valueOf(),
-);
+const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modified');
 ---
 
 <BaseLayout accent="amber" title="My galleries | Veeck" description="Learn about Veeck's most recent galleries">

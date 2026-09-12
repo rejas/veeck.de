@@ -7,10 +7,9 @@ import CategoryHero from '../components/CategoryHero.astro';
 import heroImage from '../images/categories/travels.jpg';
 import Grid from '../components/Grid.astro';
 import TravelPreview from '../components/previews/TravelPreview.astro';
+import { sortByDateDesc } from '../lib/sort';
 
-const travels = (await getCollection('travels')).sort(
-	(a, b) => b.data.first_published.valueOf() - a.data.first_published.valueOf(),
-);
+const travels = sortByDateDesc(await getCollection('travels'), 'first_published');
 ---
 
 <BaseLayout accent="blue" title="My travels | Veeck" description="Learn about Veeck's most recent travels">
