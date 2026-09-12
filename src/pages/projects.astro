@@ -23,13 +23,11 @@ const projects = sortByDateDesc(await getCollection('projects'), 'first_publishe
 			/>
 			<Grid variant="offset">
 				<github-card user="rejas"></github-card>
-				{
-					projects.map((project) => (
-						<li>
-							<PortfolioPreview project={project} />
-						</li>
-					))
-				}
+				{projects.map((project) => (
+					<li>
+						<PortfolioPreview project={project} />
+					</li>
+				))}
 			</Grid>
 		</main>
 	</div>

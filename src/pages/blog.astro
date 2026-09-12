@@ -22,13 +22,11 @@ const posts = sortByDateDesc(await getCollection('blog'), 'first_published');
 				imageAlt="A wall of book crates in a bookstore"
 			/>
 			<Grid variant="offset">
-				{
-					posts.map((post) => (
-						<li>
-							<BlogPreview post={post} />
-						</li>
-					))
-				}
+				{posts.map((post) => (
+					<li>
+						<BlogPreview post={post} />
+					</li>
+				))}
 			</Grid>
 		</main>
 	</div>

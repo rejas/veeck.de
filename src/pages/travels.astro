@@ -22,13 +22,11 @@ const travels = sortByDateDesc(await getCollection('travels'), 'first_published'
 				imageAlt="Scratch-off world map on my wall"
 			/>
 			<Grid variant="offset">
-				{
-					travels.map((travel) => (
-						<li>
-							<TravelPreview travel={travel} />
-						</li>
-					))
-				}
+				{travels.map((travel) => (
+					<li>
+						<TravelPreview travel={travel} />
+					</li>
+				))}
 			</Grid>
 		</main>
 	</div>

@@ -45,9 +45,18 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 					align="start"
 				>
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" />Computerschlampe</Pill>
-						<Pill><Icon icon="camera" size="1.33em" />Hoffotograf</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" />Terrorpoet</Pill>
+						<Pill>
+							<Icon icon="code" size="1.33em" />
+							Computerschlampe
+						</Pill>
+						<Pill>
+							<Icon icon="camera" size="1.33em" />
+							Hoffotograf
+						</Pill>
+						<Pill>
+							<Icon icon="pencil-line" size="1.33em" />
+							Terrorpoet
+						</Pill>
 					</div>
 				</Hero>
 
@@ -86,13 +95,11 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 
 				<div class="gallery">
 					<Grid variant="offset">
-						{
-							blog.map((post) => (
-								<li>
-									<BlogPreview post={post} />
-								</li>
-							))
-						}
+						{blog.map((post) => (
+							<li>
+								<BlogPreview post={post} />
+							</li>
+						))}
 					</Grid>
 				</div>
 
@@ -112,13 +119,11 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 
 				<div class="gallery">
 					<Grid variant="offset">
-						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
-								</li>
-							))
-						}
+						{projects.map((project) => (
+							<li>
+								<PortfolioPreview project={project} />
+							</li>
+						))}
 					</Grid>
 				</div>
 
@@ -138,13 +143,11 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 
 				<div class="gallery">
 					<Grid variant="offset">
-						{
-							travels.map((travel) => (
-								<li>
-									<TravelPreview travel={travel} />
-								</li>
-							))
-						}
+						{travels.map((travel) => (
+							<li>
+								<TravelPreview travel={travel} />
+							</li>
+						))}
 					</Grid>
 				</div>
 
@@ -164,13 +167,11 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 
 				<div class="gallery">
 					<Grid variant="offset">
-						{
-							galleries.map((gallery) => (
-								<li>
-									<GalleryPreview gallery={gallery} />
-								</li>
-							))
-						}
+						{galleries.map((gallery) => (
+							<li>
+								<GalleryPreview gallery={gallery} />
+							</li>
+						))}
 					</Grid>
 				</div>
 

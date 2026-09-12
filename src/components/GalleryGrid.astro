@@ -32,20 +32,18 @@ const items = await Promise.all(
 ---
 
 <section class="gallery-grid">
-	{
-		items.map((item) => (
-			<button
-				type="button"
-				class="lightbox-trigger gallery-thumb"
-				data-full={item.full}
-				data-caption={item.caption}
-				data-name={item.name}
-				aria-label={`View image: ${item.caption}`}
-			>
-				<img src={item.thumb} alt={item.caption} width="600" height="400" loading="eager" decoding="async" />
-			</button>
-		))
-	}
+	{items.map((item) => (
+		<button
+			type="button"
+			class="lightbox-trigger gallery-thumb"
+			data-full={item.full}
+			data-caption={item.caption}
+			data-name={item.name}
+			aria-label={`View image: ${item.caption}`}
+		>
+			<img src={item.thumb} alt={item.caption} width="600" height="400" loading="eager" decoding="async" />
+		</button>
+	))}
 </section>
 
 <style>
