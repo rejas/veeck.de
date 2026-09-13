@@ -225,7 +225,7 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 	.avatar {
 		width: 100%;
 		max-width: 16rem;
-		aspect-ratio: 1000 / 757;
+		aspect-ratio: 1000 / 800;
 		overflow: hidden;
 		border-radius: 1.5rem;
 		border: 1px solid var(--glass-border);
@@ -236,7 +236,9 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 		display: block;
 		width: 100%;
 		height: auto;
-		transform: translateY(-23.6%);
+		/* leaves a little headroom above the skull so its outline isn't clipped
+		   flush against the container edge (see aspect-ratio above) */
+		transform: translateY(-20%);
 	}
 
 	@media (min-width: 50em) {
