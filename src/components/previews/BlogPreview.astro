@@ -26,16 +26,21 @@ const date = formatDate(data.first_published);
 		flex-direction: column;
 		gap: 0.5rem;
 		padding: 1.25rem 1.5rem;
-		background: var(--gradient-subtle);
-		border: 1px solid var(--gray-800);
-		border-radius: 0.75rem;
+		background: var(--glass-bg);
+		backdrop-filter: var(--glass-blur);
+		-webkit-backdrop-filter: var(--glass-blur);
+		border: 1px solid var(--glass-border);
+		border-radius: 1.25rem;
 		box-shadow: var(--shadow-sm);
 		text-decoration: none;
-		transition: box-shadow var(--theme-transition);
+		transition:
+			box-shadow var(--theme-transition),
+			transform var(--theme-transition);
 	}
 
 	.card:hover {
 		box-shadow: var(--shadow-md);
+		transform: translateY(-2px);
 	}
 
 	.card:hover .title {
