@@ -34,16 +34,24 @@
 	--gradient-accent-orange: linear-gradient(150deg, #ca7879, var(--accent-regular), var(--accent-dark));
 	--gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
 
-	/* Shadows */
-	--shadow-sm:
-		0px 6px 3px rgba(9, 11, 17, 0.01), 0px 4px 2px rgba(9, 11, 17, 0.01), 0px 2px 2px rgba(9, 11, 17, 0.02),
-		0px 0px 1px rgba(9, 11, 17, 0.03);
-	--shadow-md:
-		0px 28px 11px rgba(9, 11, 17, 0.01), 0px 16px 10px rgba(9, 11, 17, 0.03), 0px 7px 7px rgba(9, 11, 17, 0.05),
-		0px 2px 4px rgba(9, 11, 17, 0.06);
-	--shadow-lg:
-		0px 62px 25px rgba(9, 11, 17, 0.01), 0px 35px 21px rgba(9, 11, 17, 0.05), 0px 16px 16px rgba(9, 11, 17, 0.1),
-		0px 4px 9px rgba(9, 11, 17, 0.12);
+	/* Neumorphism — soft dual-tone shadows cast by a light source top-left,
+	   computed against the current surface color so raised/inset surfaces
+	   read as sculpted out of the same material as the page background. */
+	--neu-dark: rgba(163, 172, 200, 0.45);
+	--neu-light: rgba(255, 255, 255, 0.85);
+	--shadow-sm: 4px 4px 10px var(--neu-dark), -4px -4px 10px var(--neu-light);
+	--shadow-md: 9px 9px 20px var(--neu-dark), -9px -9px 20px var(--neu-light);
+	--shadow-lg: 16px 16px 32px var(--neu-dark), -16px -16px 32px var(--neu-light);
+	--shadow-neu-inset: inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light);
+
+	/* Glassmorphism — frosted, translucent surfaces layered on top of the
+	   neumorphic shadows above so cards read as glass panes floating over
+	   a soft, moulded background. */
+	--glass-bg: hsla(0, 0%, 100%, 0.55);
+	--glass-bg-strong: hsla(0, 0%, 100%, 0.72);
+	--glass-border: hsla(0, 0%, 100%, 0.65);
+	--glass-blur: blur(20px);
+	--glass-blur-sm: blur(10px);
 
 	/* Text Sizes */
 	--text-sm: 0.875rem;
@@ -94,15 +102,16 @@
 	--gradient-accent-orange: linear-gradient(150deg, #ca7879, var(--accent-regular), var(--accent-light));
 	--gradient-stroke: linear-gradient(180deg, var(--gray-600), var(--gray-800));
 
-	--shadow-sm:
-		0px 6px 3px rgba(255, 255, 255, 0.01), 0px 4px 2px rgba(255, 255, 255, 0.01), 0px 2px 2px rgba(255, 255, 255, 0.02),
-		0px 0px 1px rgba(255, 255, 255, 0.03);
-	--shadow-md:
-		0px 28px 11px rgba(255, 255, 255, 0.01), 0px 16px 10px rgba(255, 255, 255, 0.03),
-		0px 7px 7px rgba(255, 255, 255, 0.05), 0px 2px 4px rgba(255, 255, 255, 0.06);
-	--shadow-lg:
-		0px 62px 25px rgba(255, 255, 255, 0.01), 0px 35px 21px rgba(255, 255, 255, 0.05),
-		0px 16px 16px rgba(255, 255, 255, 0.1), 0px 4px 9px rgba(255, 255, 255, 0.12);
+	--neu-dark: rgba(0, 0, 0, 0.55);
+	--neu-light: rgba(76, 87, 122, 0.4);
+	--shadow-sm: 4px 4px 10px var(--neu-dark), -4px -4px 10px var(--neu-light);
+	--shadow-md: 9px 9px 20px var(--neu-dark), -9px -9px 20px var(--neu-light);
+	--shadow-lg: 16px 16px 32px var(--neu-dark), -16px -16px 32px var(--neu-light);
+	--shadow-neu-inset: inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light);
+
+	--glass-bg: hsla(225, 31%, 10%, 0.5);
+	--glass-bg-strong: hsla(225, 31%, 10%, 0.68);
+	--glass-border: hsla(225, 40%, 70%, 0.18);
 }
 
 /* Per-section accent palettes, selected via data-accent on <html>.
@@ -217,6 +226,10 @@ a {
 	color: var(--link-color);
 }
 
+::selection {
+	background: var(--accent-overlay);
+}
+
 h1,
 h2,
 h3,
@@ -249,6 +262,20 @@ h5 {
 }
 
 /* Utilities */
+
+/* Glassmorphism + Neumorphism surface: a frosted, blurred pane that still
+   casts the soft dual-tone shadow of the moulded background beneath it. */
+.glass {
+	background: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	backdrop-filter: var(--glass-blur);
+	-webkit-backdrop-filter: var(--glass-blur);
+	box-shadow: var(--shadow-md);
+}
+
+.neu-inset {
+	box-shadow: var(--shadow-neu-inset);
+}
 
 .sr-only {
 	position: absolute;

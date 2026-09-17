@@ -226,16 +226,20 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 	.avatar {
 		width: 100%;
 		max-width: 16rem;
-		aspect-ratio: 1000 / 757;
+		aspect-ratio: 1000 / 800;
 		overflow: hidden;
 		border-radius: 1.5rem;
+		border: 1px solid var(--glass-border);
+		box-shadow: var(--shadow-md);
 	}
 
 	.avatar svg {
 		display: block;
 		width: 100%;
 		height: auto;
-		transform: translateY(-23.6%);
+		/* leaves a little headroom above the skull so its outline isn't clipped
+		   flush against the container edge (see aspect-ratio above) */
+		transform: translateY(-20%);
 	}
 
 	@media (min-width: 50em) {
@@ -347,10 +351,12 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		border: 1px solid var(--gray-800);
+		border: 1px solid var(--glass-border);
 		border-radius: 1.5rem;
 		color: var(--gray-300);
-		background: var(--gradient-subtle);
+		background: var(--glass-bg);
+		backdrop-filter: var(--glass-blur);
+		-webkit-backdrop-filter: var(--glass-blur);
 		box-shadow: var(--shadow-sm);
 	}
 
