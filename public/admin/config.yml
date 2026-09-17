@@ -1,0 +1,66 @@
+backend:
+  name: github
+  repo: rejas/veeck.de
+  branch: main
+  base_url: https://veeck.de # Netlify hosts the GitHub OAuth handshake (see README.md)
+  squash_merges: true # merge each post PR as a single commit
+
+# Save -> create branch cms/blog/<slug> + open a PR; publish -> merge PR. Never commits to main directly.
+publish_mode: editorial_workflow
+
+# Uploaded images are committed into the repo (and the post's PR) here, referenced by public_folder.
+media_folder: public/uploads/blog
+public_folder: /uploads/blog
+
+# Local testing without OAuth: uncomment the next line and run `pnpm dlx decap-server` (see README.md).
+# local_backend: true
+
+collections:
+  - name: blog
+    label: Blog
+    label_singular: Blog post
+    description: Write a new blog post. Saving opens a pull request you can keep editing before publishing.
+    folder: src/content/blog
+    create: true
+    extension: mdx
+    format: frontmatter
+    # Filename = <date>-<title-slug>.mdx, e.g. 2026-07-03-a-new-beginning.mdx, matching existing posts.
+    # {{slug}} is derived from the title; {{year}}/{{month}}/{{day}} come from the first_published field.
+    # NB: do NOT add a `slug` field — Astro's glob loader treats a frontmatter `slug` as a routing-id
+    # override, which would drop the date prefix from the /blog/ URL.
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - {
+          name: lang,
+          label: Language,
+          widget: select,
+          options: ["en", "de"],
+          default: "en",
+        }
+      - {
+          name: first_published,
+          label: Published date,
+          widget: datetime,
+          format: "YYYY-MM-DD",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+        }
+      - {
+          name: last_modified,
+          label: Last modified,
+          widget: datetime,
+          format: "YYYY-MM-DD",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+          required: false,
+        }
+      - {
+          name: description,
+          label: Description,
+          widget: text,
+          required: false,
+          hint: "Optional short summary used for SEO / social previews",
+        }
+      - { name: tags, label: Tags, widget: list, default: [] }
+      - { name: body, label: Body, widget: markdown }
