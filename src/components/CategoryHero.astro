@@ -80,8 +80,10 @@ const { title, tagline, image, imageAlt, align = 'center', imagePosition = 'cent
 		display: grid;
 		place-items: center;
 		padding: 1.5rem;
-		/* accent-tinted scrim so title and tagline stay readable on the photo
-		   without washing the duotone out to gray */
+		/* frost the whole photo, then lay an accent-tinted scrim on top so
+		   title and tagline stay readable without a separate bordered card */
+		backdrop-filter: var(--glass-blur-sm);
+		-webkit-backdrop-filter: var(--glass-blur-sm);
 		background: radial-gradient(
 			ellipse at center,
 			color-mix(in srgb, var(--accent-scrim) 60%, transparent) 0%,
@@ -91,11 +93,6 @@ const { title, tagline, image, imageAlt, align = 'center', imagePosition = 'cent
 
 	.category-hero-content :global(.hero) {
 		padding: 1.25rem 1.75rem;
-		border-radius: 1.5rem;
-		background: hsla(0, 0%, 0%, 0.18);
-		backdrop-filter: var(--glass-blur-sm);
-		-webkit-backdrop-filter: var(--glass-blur-sm);
-		border: 1px solid hsla(0, 0%, 100%, 0.22);
 	}
 
 	.category-hero-content :global(.title) {
