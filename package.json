@@ -47,7 +47,7 @@
 		"@fontsource/josefin-sans": "^5.3.0",
 		"@types/react": "^19.3.0",
 		"@types/react-dom": "^19.3.0",
-		"astro": "^7.3.2",
+		"astro": "^7.4.4",
 		"astro-opengraph-images": "^1.20.1",
 		"astro-seo": "^1.2.0",
 		"beanheads": "^0.3.3",
