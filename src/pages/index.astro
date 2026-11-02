@@ -251,14 +251,15 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 	@media (min-width: 50em) {
 		.hero {
 			display: grid;
-			grid-template-columns: 6fr 4fr;
+			grid-template-columns: minmax(0, 6fr) minmax(0, 4fr);
 			padding-inline: 2.5rem;
-			gap: 3.75rem;
+			gap: clamp(2rem, 5vw, 3.75rem);
 		}
 
 		.roles {
 			margin-top: 0.5rem;
 			display: flex;
+			flex-wrap: wrap;
 			gap: 0.5rem;
 		}
 
