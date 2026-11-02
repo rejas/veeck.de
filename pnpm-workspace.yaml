@@ -13,5 +13,6 @@ allowBuilds:
   core-js: false
   esbuild: false
   netlify-cli: false
+  plyr: false
   sharp: false
   unix-dgram: false
