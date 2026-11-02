@@ -222,15 +222,12 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 
 	/* The beanheads SVG reserves ~24% of its height for hair/hats we don't use
 	   (hair="none", hat="none"), which reads as dead space above the head.
-	   Crop it by overscaling the SVG and clipping the container to match. */
+	   Crop it by shifting the SVG up inside a container of matching height;
+	   the shifted-away area is transparent, so nothing needs clipping. */
 	.avatar {
 		width: 100%;
 		max-width: 16rem;
 		aspect-ratio: 1000 / 800;
-		overflow: hidden;
-		border-radius: 1.5rem;
-		border: 1px solid var(--glass-border);
-		box-shadow: var(--shadow-md);
 	}
 
 	.avatar svg {
@@ -240,25 +237,34 @@ const galleries = sortByDateDesc(await getCollection('galleries'), 'last_modifie
 		/* leaves a little headroom above the skull so its outline isn't clipped
 		   flush against the container edge (see aspect-ratio above) */
 		transform: translateY(-20%);
+		/* neumorphic shadow cast by the figure itself (not a surrounding card) */
+		filter: drop-shadow(6px 6px 8px var(--neu-dark)) drop-shadow(-6px -6px 8px var(--neu-light));
+	}
+
+	/* the backdrop circle becomes the glass pane */
+	.avatar svg :global(g > circle:first-child) {
+		fill: var(--glass-bg-strong);
+		stroke: var(--glass-border);
+		stroke-width: 4px;
 	}
 
 	@media (min-width: 50em) {
 		.hero {
 			display: grid;
-			grid-template-columns: 6fr 4fr;
+			grid-template-columns: minmax(0, 6fr) minmax(0, 4fr);
 			padding-inline: 2.5rem;
-			gap: 3.75rem;
+			gap: clamp(2rem, 5vw, 3.75rem);
 		}
 
 		.roles {
 			margin-top: 0.5rem;
 			display: flex;
+			flex-wrap: wrap;
 			gap: 0.5rem;
 		}
 
 		.avatar {
 			max-width: none;
-			border-radius: 4.5rem;
 		}
 	}
 
