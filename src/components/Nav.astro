@@ -32,14 +32,25 @@ const isCurrentPage = (href: string) => {
 			<Icon icon="logo" color="var(--accent-regular)" size="1.6em" gradient />
 			Veeck
 		</a>
-		<menu-button>
-			<template>
-				<button class="menu-button" aria-expanded="false">
-					<span class="sr-only">Menu</span>
-					<Icon icon="list" />
-				</button>
-			</template>
-		</menu-button>
+		<div class="header-actions">
+			{iconLinks.map(({ href, icon, label }) => (
+				<a href={href} class="social header-social">
+					<span class="sr-only">{label}</span>
+					<Icon icon={icon} />
+				</a>
+			))}
+			<div class="header-theme-toggle">
+				<ThemeToggle />
+			</div>
+			<menu-button>
+				<template>
+					<button class="menu-button" aria-expanded="false">
+						<span class="sr-only">Menu</span>
+						<Icon icon="list" />
+					</button>
+				</template>
+			</menu-button>
+		</div>
 	</div>
 	<noscript>
 		<ul class="nav-items">
@@ -161,6 +172,27 @@ const isCurrentPage = (href: string) => {
 		box-shadow: var(--shadow-sm);
 	}
 
+	.header-actions {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.header-social {
+		font-size: var(--text-xl);
+		padding: 0.5rem;
+	}
+
+	.header-theme-toggle {
+		display: flex;
+		align-items: center;
+	}
+
+	/* Mobile: github + theme toggle live in the top bar, not in the popup */
+	#menu-content .menu-footer {
+		display: none;
+	}
+
 	.menu-button {
 		position: relative;
 		display: flex;
@@ -267,6 +299,14 @@ const isCurrentPage = (href: string) => {
 
 		.menu-header {
 			padding: 0;
+		}
+
+		.header-actions {
+			display: none;
+		}
+
+		#menu-content .menu-footer {
+			display: flex;
 		}
 
 		.site-title {
